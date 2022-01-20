@@ -1,0 +1,50 @@
+/*
+ * Copyright (c) 2021, the hapjs-platform Project Contributors
+ * SPDX-License-Identifier: Apache-2.0
+ */
+
+<template>
+  <div>
+  </div>
+</template>
+
+<style>
+  .A {
+    text-align: left;
+  }
+
+  .B {
+    text-align: center;
+  }
+
+  .C {
+    text-align: right;
+  }
+
+  .a1 {
+    text-align: 'left';
+  }
+
+  .a2 {
+    text-align: 'center';
+  }
+
+  .a3 {
+    text-align: 'right';
+  }
+
+  .b {
+    text-align: 1;
+  }
+
+  .c {
+    text-align: @textAlign;
+  }
+</style>
+
+<script>
+  export default {
+    data: {
+    }
+  }
+</script>

@@ -1,0 +1,139 @@
+/*
+ * Copyright (c) 2021, the hapjs-platform Project Contributors
+ * SPDX-License-Identifier: Apache-2.0
+ */
+
+<template>
+  <div>
+  </div>
+</template>
+
+<style>
+  text {
+    font-weight: bold;
+  }
+
+  /* 单元测试: tag */
+  .doc-page #testTag .flex-column > text {
+    background-color: #949090;
+  }
+  .doc-page #testTag div .class1 {
+    color: #00A000;
+  }
+  .doc-page #testTag div text {
+    color: #d3d3d3;
+  }
+
+  /* 单元测试: class */
+  .doc-page #test-class .class1 {
+    color: #d3d3d3;
+  }
+  .doc-page #test-class .class2 {
+    color: #00A000;
+  }
+  .doc-page #test-class #testClassId1 {
+    color: #0000af;
+  }
+
+  /* 单元测试: id */
+  .doc-page #testId #testIdId1 {
+    color: #d3d3d3;
+  }
+  .doc-page #testId #testIdId2 {
+    color: #00A000;
+  }
+  #testIdId2 {
+    color: #0000af;
+  }
+  #testIdId3 {
+    color: #0000af;
+  }
+  #testIdId4 {
+    color: #6969f3;
+  }
+
+  /* 综合测试 */
+  #testInlineId1,
+  #testInlineId2,
+  #testInlineId3 {
+    color: #6969f3;
+  }
+  .doc-page #testInline #testInlineId1,
+  .doc-page #testInline #testInlineId2 {
+    color: #0000af;
+  }
+  .doc-page #testInline .testInlineClass1,
+  .doc-page #testInline .testInlineClass2,
+  .doc-page #testInline .testInlineClass3,
+  .doc-page #testInline .testInlineClass4{
+    color: #00A000;
+  }
+  .testInlineClass4,
+  .testInlineClass5 {
+    color: #5bb05b;
+  }
+  .doc-page #testInline text {
+    color: #d3d3d3;
+  }
+
+  /* 分数测试 */
+  .doc-page #testScoreBody #testScore1 {
+    color: #0000af;
+  }
+  .doc-page #testScore #testScore1 {
+    color: #6969f3;
+  }
+
+  .doc-page #testScore #testScoreBody #testScore2 {
+    color: #0000af;
+  }
+  .doc-page #testScore #testScore2 {
+    color: #6969f3;
+  }
+
+
+  /* 伪类测试 */
+  .doc-page #testPesedoClass .testPesedoClassClass1 {
+    border-width: 1px;
+    background-color: #d3d3d3;
+    color: #0000af;
+  }
+  .doc-page #testPesedoClass .testPesedoClassClass1:disabled {
+    color: #ff0000;
+  }
+
+  .testPesedoClassClass1:disabled {
+    color: #9C27B0;
+  }
+
+  /* Frgment的测试 */
+  .doc-page .test-fragment .third {
+    color: #D3D3D3;
+  }
+
+  .doc-page .test-fragment .title {
+    font-weight: normal;
+  }
+
+  .doc-page .test-fragment .desc {
+    color: #FF0000;
+  }
+
+  .doc-page .test-fragment .class-var-1 {
+    color: #FF0000;
+  }
+  .doc-page .test-fragment .class-var-2 {
+    color: #0000FF;
+  }
+
+  .desc2 {
+    color: #00A000;
+  }
+</style>
+
+<script>
+  export default {
+    data: {
+    }
+  }
+</script>

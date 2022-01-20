@@ -1,0 +1,36 @@
+{
+  "package": "com.app.case.testcomponent",
+  "name": "testcomponent",
+  "version": "1.0",
+  "versionCode": "1",
+  "icon": "/Common/icon.png",
+  "features": [
+  ],
+  "components": [
+  ],
+  "permissions": [
+    {
+      "origin": "*"
+    }
+  ],
+  "config": {
+    "logLevel": "off"
+  },
+  "router": {
+    "entry": "Div",
+    "pages": {
+      "A": {
+        "component": "testa"
+      },
+      "Div": {
+        "component": "testdiv"
+      },
+      "Stack": {
+        "component": "teststack"
+      },
+      "RichText": {
+        "component": "testrichtext"
+      }
+    }
+  }
+}

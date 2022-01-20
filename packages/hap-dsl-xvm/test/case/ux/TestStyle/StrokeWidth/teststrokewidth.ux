@@ -1,0 +1,71 @@
+/*
+ * Copyright (c) 2021, the hapjs-platform Project Contributors
+ * SPDX-License-Identifier: Apache-2.0
+ */
+
+<template>
+  <div>
+  </div>
+</template>
+
+<style>
+  .A {
+    stroke-width: 100px;
+  }
+
+  .B {
+    stroke-width: 100%;
+  }
+
+  .C {
+    stroke-width:   100px;
+  }
+
+  .D {
+    stroke-width:   100%;
+  }
+
+  .E {
+    stroke-width: 100;
+  }
+
+  .F {
+    stroke-width: 0;
+  }
+
+  .a {
+    stroke-width: 100rem;
+  }
+
+  .b {
+    stroke-width: 100em;
+  }
+
+  .c {
+    stroke-width: 100pt;
+  }
+
+  .d {
+    stroke-width: 100 %;
+  }
+
+  .e {
+    stroke-width: 100 px;
+  }
+
+  .f {
+    stroke-width: @strokeWidthLength;
+  }
+
+  .g {
+    stroke-width: long;
+  }
+
+</style>
+
+<script>
+  export default {
+    data: {
+    }
+  }
+</script>

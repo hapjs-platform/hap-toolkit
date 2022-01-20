@@ -1,0 +1,56 @@
+/*
+ * Copyright (c) 2021, the hapjs-platform Project Contributors
+ * SPDX-License-Identifier: Apache-2.0
+ */
+
+<template>
+  <div class="container">
+    <slot content="renderA"></slot>
+    <block for="{{list}}">
+      <slot content="{{renderB($item)}}"></slot>
+    </block>
+  </div>
+</template>
+
+<style>
+  .container {
+    flex: 1;
+    flex-direction: column;
+    background-color: #FFFFFF;
+  }
+  .text {
+    background-color: blue;
+    font-size: 50px;
+  }
+</style>
+
+<script>
+  export default {
+    data: {
+      list:[1,2,3]
+    },
+    onInit: function () {
+
+    },
+    renderA: function () {
+      return(<text>A</text>)
+    },
+    renderB: function (i) {
+      return(<text>{i}</text>)
+    },
+    renderC: function () {
+      const props = {style: 'background-color: red;'}
+      return(<text {...props} >A</text>)
+    },
+    renderD: function () {
+      const props = {style: 'background-color: red;'}
+      return(<text class="text" {...props} style='background-color: yellow' >A</text>)
+    },
+    renderE: function () {
+      return(<div><text>A</text></div>)
+    },
+    renderF: function () {
+      return(<div><text>A<span>B</span>C</text></div>)
+    }
+  }
+</script>

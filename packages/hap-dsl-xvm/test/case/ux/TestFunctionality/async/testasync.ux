@@ -1,0 +1,36 @@
+/*
+ * Copyright (c) 2021, the hapjs-platform Project Contributors
+ * SPDX-License-Identifier: Apache-2.0
+ */
+
+<template>
+  <div>
+  </div>
+</template>
+
+<style>
+</style>
+
+<script>
+  /**
+   * 测试页面和JS脚本的async都可以转换
+   * @desc 搜编译后的文件，没有"MODULE_NOT_FOUND"说明编译正确
+   */
+  import './asyncTestInJS.js'
+
+  export default {
+    data: {},
+    onReady () {
+      async function bar () {
+        return 'bar'
+      }
+
+      async function foo() {
+        const ret1 = await bar();
+        console.info('ret1: ', ret1)
+      }
+
+      foo()
+    }
+  }
+</script>

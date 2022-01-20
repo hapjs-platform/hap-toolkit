@@ -1,0 +1,59 @@
+/*
+ * Copyright (c) 2021, the hapjs-platform Project Contributors
+ * SPDX-License-Identifier: Apache-2.0
+ */
+
+<template>
+  <div>
+  </div>
+</template>
+
+<style>
+  .A {
+    font-size: 30px;
+  }
+
+  .B {
+    font-size:   30px;
+  }
+
+  .C {
+    font-size: 30;
+  }
+
+  .D {
+    font-size: 0;
+  }
+
+  .a {
+    font-size: 30rem;
+  }
+
+  .b {
+    font-size: 30em;
+  }
+
+  .c {
+    font-size: 30pt;
+  }
+
+  .d {
+    font-size: 30 px;
+  }
+
+  .e {
+    font-size: @fontSize;
+  }
+
+  .f {
+    font-size: big;
+  }
+
+</style>
+
+<script>
+  export default {
+    data: {
+    }
+  }
+</script>

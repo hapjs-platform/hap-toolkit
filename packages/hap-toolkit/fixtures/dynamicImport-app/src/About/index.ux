@@ -1,0 +1,19 @@
+/*
+ * Copyright (c) 2021, the hapjs-platform Project Contributors
+ * SPDX-License-Identifier: Apache-2.0
+ */
+
+<template>
+  <div>
+  </div>
+</template>
+
+<script>
+export default {
+  private: {
+  }
+}
+</script>
+
+<style>
+</style>

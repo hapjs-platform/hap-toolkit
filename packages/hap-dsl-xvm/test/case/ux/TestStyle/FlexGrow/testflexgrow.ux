@@ -1,0 +1,38 @@
+/*
+ * Copyright (c) 2021, the hapjs-platform Project Contributors
+ * SPDX-License-Identifier: Apache-2.0
+ */
+
+<template>
+  <div>
+  </div>
+</template>
+
+<style>
+  .A1 {
+    flex-grow: 1;
+  }
+
+  .A2 {
+    flex-grow: 3;
+  }
+
+  .a {
+    flex-grow: '1';
+  }
+
+  .b {
+    flex-grow: inherit;
+  }
+
+  .c {
+    flex-grow: -1;
+  }
+</style>
+
+<script>
+  export default {
+    data: {
+    }
+  }
+</script>

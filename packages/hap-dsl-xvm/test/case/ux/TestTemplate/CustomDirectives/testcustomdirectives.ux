@@ -1,0 +1,51 @@
+/*
+ * Copyright (c) 2021, the hapjs-platform Project Contributors
+ * SPDX-License-Identifier: Apache-2.0
+ */
+
+<import name="sub-component" src="./part1.ux"></import>
+
+<template>
+  <div>
+    <text dir:test="{{ msg }}" class="{{ msgClass }} display-text" style="color: {{ msgColor }};">{{ msg }}</text>
+    <sub-component dir:parentDir></sub-component>
+  </div>
+</template>
+
+<script>
+  import prompt from '@system.prompt'
+
+  export default {
+    directives: {
+      test: {
+        mounted(el, binding) {
+          prompt.showToast({
+            message: `text节点创建完毕, 参数：${JSON.stringify(binding)}`
+          })
+        },
+        update(el, binding) {
+          prompt.showToast({
+            message: `text节点更新, 参数：${JSON.stringify(binding)}`
+          })
+        },
+        destroy() {
+          prompt.showToast({
+            message: `text节点销毁`
+          })
+        }
+      },
+      parentDir: {
+        mounted(el, binding) {
+          prompt.showToast({
+            message: `父组件已穿件完毕, 参数：${JSON.stringify(binding)}`
+          })
+        }
+      }
+    },
+    data: {
+      msg: '自定义指令Custom Directives',
+      msgColor: '#000',
+      msgClass: 'default-class'
+    }
+  }
+</script>

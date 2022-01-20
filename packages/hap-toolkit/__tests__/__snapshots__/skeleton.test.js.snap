@@ -1,0 +1,11 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`测试骨架屏功能 save skeleton file 1`] = `
+"{
+  \\"singleMap\\": {
+    \\"Demo\\": \\"demo.sk\\"
+  }
+}"
+`;
+
+exports[`测试骨架屏功能 save skeleton file 2`] = `"<skeleton><clipPath width=\\"750\\"></clipPath></skeleton>"`;

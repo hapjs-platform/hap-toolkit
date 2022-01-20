@@ -1,0 +1,38 @@
+/*
+ * Copyright (c) 2021, the hapjs-platform Project Contributors
+ * SPDX-License-Identifier: Apache-2.0
+ */
+
+<template>
+  <div class="container">
+    <picker type="text" range="[1,2,3,4,5]" selected="2" onchange="changeText"></picker>
+    <picker type="date" start="2000-1-1" end="3000-1-1" slected="2017-4-7" onchange="changeDate"></picker>
+    <picker type="time" onchange="changeTime"></picker>
+    <picker type="time" onchange="changeTime"/>
+  </div>
+</template>
+
+<style>
+  .container {
+    flex:1;
+    flex-direction: column;
+    background-color: #FFFFFF;
+  }
+</style>
+
+<script>
+  export default {
+    data: {
+
+    },
+    changeText: function(e){
+      // changeText
+    },
+    changeDate: function(e) {
+      // changeDate
+    },
+    changeTime: function(e){
+      // changeTime
+    }
+  }
+</script>

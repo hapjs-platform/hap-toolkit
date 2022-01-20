@@ -1,0 +1,31 @@
+/*
+ * Copyright (c) 2021, the hapjs-platform Project Contributors
+ * SPDX-License-Identifier: Apache-2.0
+ */
+ 
+/*@import  './common2.css';*/
+@import './common2.css' all and (min-width: 10px);
+@import './common1.css' screen and (orientation: landscape);
+
+@media screen and (min-resolution: 70dpi) {
+  @import './common2.css';
+  .common-a {
+    width: 100px;
+    height: 100px;
+  }
+  @media not screen and (min-resolution: 80dpi) {
+    .common-b {
+      width: 200px;
+    }
+  }
+  @media yyy only (min-resolution: 90dpi) {
+    .common-c {
+      width: 300px;
+    }
+  }
+  @import './common2.css';
+}
+.commom-d {
+  color: #000000;
+}
+@import './common2.css';

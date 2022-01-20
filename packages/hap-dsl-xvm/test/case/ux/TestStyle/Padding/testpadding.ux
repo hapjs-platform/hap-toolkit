@@ -1,0 +1,151 @@
+/*
+ * Copyright (c) 2021, the hapjs-platform Project Contributors
+ * SPDX-License-Identifier: Apache-2.0
+ */
+
+<template>
+  <div>
+  </div>
+</template>
+
+<style>
+  .A1 {
+    padding: 0;
+  }
+
+  .A2 {
+    padding: 10px;
+  }
+
+  .A3 {
+    padding: 10;
+  }
+
+  .A4 {
+    padding: 10%;
+  }
+
+  .B1 {
+    padding: 10 20;
+  }
+
+  .B2 {
+    padding: 10px 20;
+  }
+
+  .B3 {
+    padding: 10 20px;
+  }
+
+  .B4 {
+    padding: 10px 20px;
+  }
+
+  .B5 {
+    padding: 10% 20%;
+  }
+
+  .C1 {
+    padding: 10 20 30;
+  }
+
+  .C2 {
+    padding: 10px 20 30;
+  }
+
+  .C3 {
+    padding: 10 20px 30;
+  }
+
+  .C4 {
+    padding: 10 20 30px;
+  }
+
+  .C5 {
+    padding: 10px 20px 30px;
+  }
+
+  .C6 {
+    padding: 10% 20 30;
+  }
+
+  .D1 {
+    padding: 10 20 30 40;
+  }
+
+  .D2 {
+    padding: 10px 20 30 40;
+  }
+
+  .D3 {
+    padding: 10 20px 30 40;
+  }
+
+  .D4 {
+    padding: 10 20 30px 40;
+  }
+
+  .D5 {
+    padding: 10 20 30 40px;
+  }
+
+  .D6 {
+    padding: 10px 20px 30px;
+  }
+
+  .D7 {
+    padding: 10% 20 30 40;
+  }
+
+  .D8 {
+    padding: 10% 20 0 40;
+  }
+
+  .E {
+    padding-top: 10px;
+    padding: 0;
+  }
+
+  .a {
+    padding: 10rem;
+  }
+
+  .b {
+    padding: 10em;
+  }
+
+  .c {
+    padding: 10pt;
+  }
+
+  .d {
+    padding: @paddingLength;
+  }
+
+  .e {
+    padding: a;
+  }
+
+  .f {
+    padding: 10em 20px;
+  }
+
+  .g {
+    padding: 10em c 20px;
+  }
+
+  .h {
+    padding: 10em 0 20px 30px;
+  }
+
+  .i {
+    padding: ;
+  }
+</style>
+
+<script>
+  export default {
+    data: {
+    }
+  }
+</script>

@@ -1,0 +1,46 @@
+/*
+ * Copyright (c) 2021, the hapjs-platform Project Contributors
+ * SPDX-License-Identifier: Apache-2.0
+ */
+
+<template>
+  <div>
+  </div>
+</template>
+
+<style>
+  .A1 {
+    transform: rotateY(10deg);
+  }
+
+  .A2 {
+    transform: rotateY(10);
+  }
+
+  .A3 {
+    transform: rotateY( 10deg );
+  }
+
+  .B1 {
+    transform: rotateY( -10deg );
+  }
+
+  .a1 {
+    transform: rotateY(10%);
+  }
+
+  .a2 {
+    transform: rotateY('10px');
+  }
+
+  .a3 {
+    transform: rotateY();
+  }
+</style>
+
+<script>
+  export default {
+    data: {
+    }
+  }
+</script>

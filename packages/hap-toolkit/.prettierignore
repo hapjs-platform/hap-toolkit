@@ -1,0 +1,13 @@
+/coverage/
+/lib/
+/debugger/devtools/
+/debugger/lib/
+/packager/lib/
+/packager/test/build/
+/packager/test/case/
+/packager/test/fixtures/
+/server/lib/
+/server/src/preview/static
+/release/
+.prettierrc
+.prettierignore

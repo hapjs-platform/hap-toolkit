@@ -1,0 +1,80 @@
+/*
+ * Copyright (c) 2021, the hapjs-platform Project Contributors
+ * SPDX-License-Identifier: Apache-2.0
+ */
+
+<template>
+  <div class="container">
+    <lottie class="lottie" source="../lottie/lottie.json" id="lottie1" autoplay={{playStatus}}
+            progress="{{progressComputed}}" speed="{{speed}}" loop="{{loop}}"
+            rendermode="{{renderMode}}" oncomplete="animationFinished" onerror="errorFunction"
+            onchange="animationChanged"></lottie>
+  </div>
+</template>
+
+<style>
+  .container {
+    flex:1;
+    flex-direction: column;
+    background-color: #FFFFFF;
+  }
+</style>
+
+<script>
+import prompt from '@system.prompt'
+
+  export default {
+    private: {
+      progress: 0,
+      speed: 1,
+      loop: false,
+      renderMode: `AUTOMATIC`
+    },
+    computed: {
+      progressComputed() {
+        return this.progress / 10
+      }
+    },
+    playAnimation(startFrame, endFrame) {
+      this.$element('lottie1').play({startFrame: startFrame, endFrame: endFrame})
+    },
+    resetAnimation() {
+      this.$element('lottie1').reset()
+    },
+    resumeAnimation() {
+      this.$element('lottie1').resume()
+    },
+    pauseAnimation() {
+      this.$element('lottie1').pause()
+    },
+    getProgressValue(event) {
+      this.progress = event.progress
+
+    },
+    getSpeedValue(event) {
+      this.speed = event.progress
+    },
+    loopChange() {
+      this.loop = !this.loop
+    },
+    animationFinished() {
+      prompt.showToast({
+        message: '动画播放完啦'
+      })
+    },
+    changeRenderMode(event) {
+      this.renderMode = event.newValue
+    },
+    animationChanged(event) {
+      this.progress = event.progress * 10
+      prompt.showToast({
+        message: '现在进度：' + event.progress
+      })
+    },
+    errorFunction() {
+      prompt.showToast({
+        message: 'lottie动画加载出错了'
+      })
+    }
+  }
+</script>

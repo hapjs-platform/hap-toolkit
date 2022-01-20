@@ -1,0 +1,120 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`misc sortFilesBy() 根据给定参考顺序数组排序 1`] = `
+Array [
+  "i18n/zh.json",
+  "i18n/en.json",
+  "manifest.json",
+  "app.js",
+  "Demo/",
+  "Demo/index.js.map",
+  "Demo/screenshot.png",
+  "Demo/index.js",
+]
+`;
+
+exports[`serialize Function with arguments 1`] = `"function funcHasArgs(arg1, arg2) {}"`;
+
+exports[`serialize Nested object 1`] = `"{\\"str\\":\\"string\\",\\"num\\":0,\\"obj\\":{\\"foo\\":\\"foo\\"},\\"arr\\":[1,2,3],\\"bool\\":true,\\"nil\\":null}"`;
+
+exports[`serialize Nested object 2`] = `
+"{
+  \\"str\\": \\"string\\",
+  \\"num\\": 0,
+  \\"obj\\": {
+    \\"foo\\": \\"foo\\"
+  },
+  \\"arr\\": [
+    1,
+    2,
+    3
+  ],
+  \\"bool\\": true,
+  \\"nil\\": null
+}"
+`;
+
+exports[`serialize Object contains functions 1`] = `
+"{\\"a\\":null,\\"b\\":2,\\"f\\":function () {
+        console.log('hello');
+        return function () {
+          return '__FKS_1_FKE__0' + '__FKS_1_FKE__1';
+        };
+      },\\"f2\\":function () {
+        return function () {
+          return function () {
+            return Math.random();
+          };
+        };
+      }}"
+`;
+
+exports[`serialize Object contains functions 2`] = `
+"{
+  \\"a\\": null,
+  \\"b\\": 2,
+  \\"f\\": function () {
+        console.log('hello');
+        return function () {
+          return '__FKS_1_FKE__0' + '__FKS_1_FKE__1';
+        };
+      },
+  \\"f2\\": function () {
+        return function () {
+          return function () {
+            return Math.random();
+          };
+        };
+      }
+}"
+`;
+
+exports[`serialize Single function 1`] = `"function singleFunction() {}"`;
+
+exports[`serialize Special keys 1`] = `
+"{\\"a\\":null,\\"b\\":2,\\"f\\":function () {
+        console.log('hello');
+        return function () {
+          return '__FKS_1_FKE__0' + '__FKS_1_FKE__1';
+        };
+      },\\"__FKS_1_FKE__1\\":function () {
+        return function () {
+          return function () {
+            return Math.random();
+          };
+        };
+      },\\"f2\\":function () {
+        return function () {
+          return function () {
+            return Math.random();
+          };
+        };
+      }}"
+`;
+
+exports[`serialize Special keys 2`] = `
+"{
+  \\"a\\": null,
+  \\"b\\": 2,
+  \\"f\\": function () {
+        console.log('hello');
+        return function () {
+          return '__FKS_1_FKE__0' + '__FKS_1_FKE__1';
+        };
+      },
+  \\"__FKS_1_FKE__1\\": function () {
+        return function () {
+          return function () {
+            return Math.random();
+          };
+        };
+      },
+  \\"f2\\": function () {
+        return function () {
+          return function () {
+            return Math.random();
+          };
+        };
+      }
+}"
+`;

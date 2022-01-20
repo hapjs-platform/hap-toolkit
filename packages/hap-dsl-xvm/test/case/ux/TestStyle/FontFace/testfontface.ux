@@ -1,0 +1,55 @@
+/*
+ * Copyright (c) 2021, the hapjs-platform Project Contributors
+ * SPDX-License-Identifier: Apache-2.0
+ */
+
+<template>
+  <div></div>
+</template>
+
+<style>
+  @font-face {
+    font-family: myFont1;
+    src: url('Sansation_Light.ttf'),
+    url('Sansation_Light.eot'),
+    url('http://xxx/xxx/Sansation_Light.eot'),
+    local("Times New Roman"),
+    local("Georgia");
+  }
+  @font-face {
+    font-family: "myFont2";
+    src: url('Sansation_Light.ttf'),
+    url('Sansation_Light.eot'),
+    local(Times New Roman);
+  }
+
+  @font-face {
+    font-family: myFont3;
+    src: url(../Sansation_Light.eot),
+    local();
+  }
+
+  @font-face {
+    font-family: myFont4;
+    src: url(../../Sansation_Light.ttf),
+    url(Sansation_Light.eot);
+  }
+
+  @font-face {
+    font-family: myFont5;
+    src: url(),
+    url('Sansation_Light.eot');
+  }
+  @font-face {
+    font-family: myFont6;
+    src:  src('Sansation_Light.ttf'),
+    url('Sansation_Light.eot');
+  }
+  @font-face{
+    font-family: myFont7;
+    src: url('http://abc'),
+    local('abc'),
+    url('def'),
+    'abc'
+  }
+</style>

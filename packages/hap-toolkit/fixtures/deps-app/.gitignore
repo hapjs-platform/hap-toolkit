@@ -1,0 +1,4 @@
+build
+dist
+!src/Common/Thumbs.db
+!src/Common/.DS_Store

@@ -1,0 +1,28 @@
+/*
+ * Copyright (c) 2021, the hapjs-platform Project Contributors
+ * SPDX-License-Identifier: Apache-2.0
+ */
+
+<template>
+  <div>
+    <drawer enableswipe1="true" @change1="fn" @scroll1="fn"></drawer>
+    <drawer enableswipe="false" @change="fn" @scroll="fn">
+      <div></div>
+    </drawer>
+    <drawer>
+      <drawer-navigation direction="start1" direction1="end"></drawer-navigation>
+    </drawer>
+    <div>
+      <drawer-navigation direction="end"></drawer-navigation>
+    </div>
+  </div>
+</template>
+
+<style>
+</style>
+
+<script>
+  export default {
+    fn() {}
+  }
+</script>

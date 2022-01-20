@@ -1,0 +1,50 @@
+/*
+ * Copyright (c) 2021, the hapjs-platform Project Contributors
+ * SPDX-License-Identifier: Apache-2.0
+ */
+
+<template>
+  <div>
+  </div>
+</template>
+
+<style>
+  .A {
+    text-decoration: underline;
+  }
+
+  .B {
+    text-decoration: line-through;
+  }
+
+  .C {
+    text-decoration: none;
+  }
+
+  .a1 {
+    text-decoration: 'underline';
+  }
+
+  .a2 {
+    text-decoration: 'line-through';
+  }
+
+  .a3 {
+    text-decoration: 'none';
+  }
+
+  .b {
+    text-decoration: 1;
+  }
+
+  .c {
+    text-decoration: @textDecoration;
+  }
+</style>
+
+<script>
+  export default {
+    data: {
+    }
+  }
+</script>

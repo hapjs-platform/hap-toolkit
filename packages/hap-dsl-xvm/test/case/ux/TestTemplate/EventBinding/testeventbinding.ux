@@ -1,0 +1,39 @@
+/*
+ * Copyright (c) 2021, the hapjs-platform Project Contributors
+ * SPDX-License-Identifier: Apache-2.0
+ */
+
+<template>
+  <div class="container">
+    <!--正常格式-->
+    <div onclick="clickDiv1"></div>
+
+    <!--缩写-->
+    <div @click="clickDiv2"></div>
+
+    <!--其他通用事件-->
+    <div @touchstart="event" @touchmove="event" ontouchend="event" ontouchcancel="event" @resize="resize"></div>
+  </div>
+</template>
+
+<style>
+  .container {
+    flex:1;
+    flex-direction: column;
+    background-color: #FFFFFF;
+  }
+</style>
+
+<script>
+  export default {
+    data: {},
+    clickDiv1: function(e) {
+      // 点击第一个div
+    },
+    clickDiv2: function(e) {
+      // 点击第二个div
+    },
+    event: function(e) {
+    }
+  }
+</script>

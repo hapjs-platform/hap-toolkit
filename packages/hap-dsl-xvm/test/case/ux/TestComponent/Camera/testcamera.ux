@@ -1,0 +1,36 @@
+/*
+ * Copyright (c) 2021, the hapjs-platform Project Contributors
+ * SPDX-License-Identifier: Apache-2.0
+ */
+
+<template>
+  <div class="container">
+    <camera
+      deviceposition="back"
+      flash="auto"
+      onerror="errorFn"
+      framesize="high"
+      autoexposurelock="true"
+      autowhitebalancelock="true"
+      oncamerainitdone="camerainitdone"
+      oncameraframe="cameraframe"
+      />
+  </div>
+</template>
+
+<style>
+  .container {
+    flex:1;
+    flex-direction: column;
+    background-color: #FFFFFF;
+  }
+</style>
+
+<script>
+  export default {
+    data: {},
+    errorFn () {},
+    camerainitdone() {},
+    cameraframe() {}
+  }
+</script>

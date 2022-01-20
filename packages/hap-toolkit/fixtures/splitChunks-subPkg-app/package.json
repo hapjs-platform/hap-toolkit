@@ -1,0 +1,17 @@
+{
+  "name": "subpackage-app",
+  "version": "1.0.0",
+  "subversion": {
+    "toolkit": "0.0.32"
+  },
+  "description": "",
+  "scripts": {
+    "build": "hap build",
+    "release": "hap release",
+    "server": "hap server",
+    "watch": "hap watch"
+  },
+  "devDependencies": {
+    "hap-toolkit":"^0.1.0"
+  }
+}

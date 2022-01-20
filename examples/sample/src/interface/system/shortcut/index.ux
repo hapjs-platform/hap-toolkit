@@ -1,0 +1,116 @@
+/*
+ * Copyright (c) 2021, the hapjs-platform Project Contributors
+ * SPDX-License-Identifier: Apache-2.0
+ */
+
+<template>
+  <div class="doc-page">
+    <div class="page-title-wrap">
+      <text class="page-title">{{componentName}}</text>
+    </div>
+
+    <div class="item-container">
+      <input type="button" class="btn" onclick="getShortcut" value="获取桌面图标是否已创建"/>
+    </div>
+
+    <div class="item-container">
+      <input type="button" class="btn" onclick="installShortcut" value="创建桌面图标"/>
+    </div>
+
+    <div class="item-container">
+      <input type="button" class="btn" onclick="installShortcutWithCustomMessage" value="创建桌面图标并自定义弹窗提示信息"/>
+    </div>
+
+    <div class="item-container">
+      <input type="button" class="btn" onclick="openShortcut" value="开启创建快捷方式时的弹窗"/>
+    </div>
+
+    <div class="item-container">
+      <input type="button" class="btn" onclick="closeShortcut" value="关闭创建快捷方式时的弹窗"/>
+    </div>
+
+    <div class="item-container">
+      <input type="button" class="btn" onclick="getShortcutStatus" value="查看创建快捷方式时弹窗的状态"/>
+    </div>
+  </div>
+</template>
+
+<style>
+  @import '../../../common/css/common.css';
+
+  .item-container {
+    margin-top: 50px;
+    margin-right: 60px;
+    margin-left: 60px;
+    flex-direction: column;
+  }
+</style>
+
+<script>
+  import shortcut from '@system.shortcut'
+  import prompt from '@system.prompt'
+
+  export default {
+    private: {
+      componentName: 'shortcut'
+    },
+    onInit () {
+      this.$page.setTitleBar({text: 'Shortcut'})
+    },
+    getShortcut () {
+      shortcut.hasInstalled({
+        success: function (ret) {
+          if (ret) {
+            // 桌面图标已创建
+            prompt.showToast({
+              message: '桌面图标已创建'
+            })
+          } else {
+            // 桌面图标未创建
+            prompt.showToast({
+              message: '桌面图标未创建'
+            })
+          }
+        }
+      })
+    },
+    installShortcut () {
+      shortcut.install({
+        success: function () {
+          prompt.showToast({
+            message: '桌面图标创建成功'
+          })
+        }
+      })
+    },
+    installShortcutWithCustomMessage () {
+      shortcut.install({
+        message: '自定义提示信息',
+        success: function () {
+          prompt.showToast({
+            message: '桌面图标创建成功'
+          })
+        }
+      })
+    },
+    openShortcut () {
+      // 默认开启
+      shortcut.systemPromptEnabled = true
+      prompt.showToast({
+        message: '已开启弹窗'
+      })
+    },
+    closeShortcut () {
+      shortcut.systemPromptEnabled = false
+      prompt.showToast({
+        message: '已关闭弹窗'
+      })
+    },
+    getShortcutStatus () {
+      const status = shortcut.systemPromptEnabled
+      prompt.showToast({
+        message: status === true ? '已开启' : '已关闭'
+      })
+    }
+  }
+</script>

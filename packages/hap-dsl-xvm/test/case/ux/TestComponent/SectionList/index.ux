@@ -1,0 +1,64 @@
+/*
+ * Copyright (c) 2021, the hapjs-platform Project Contributors
+ * SPDX-License-Identifier: Apache-2.0
+ */
+
+<template>
+  <div>
+    <section-list onscroll="scrollfn" onscrollend="scrollend" onscrolltouchup="scrolltouchup" onscrolltop="scrolltop" onscrollbottom="scrollbottom">
+        <section-item>
+            <text>深圳</text>
+        </section-item>
+    
+        <section-group onchange="change">
+            <section-header>
+                <text>广东</text>
+            </section-header>
+            <section-item>
+                <text>广州</text>
+            </section-item>
+            <section-group>
+                <section-header>
+                    <text>深圳</text>
+                </section-header>
+                <section-item>
+                    <text>福田区</text>
+                </section-item>
+                <section-item>
+                    <text>南山区</text>
+                </section-item>
+            </section-group>
+            <section-item>
+                <text>东莞</text>
+            </section-item>
+    
+        </section-group>
+    
+        <section-group>
+            <section-header>
+                <text>江苏</text>
+            </section-header>
+            <section-item>
+                <text>南京</text>
+            </section-item>
+            <section-item>
+                <text>苏州</text>
+            </section-item>
+            <section-item>
+                <text>无锡</text>
+            </section-item>
+    
+        </section-group>
+    </section-list>
+  </div>
+</template>
+<script>
+  export default {
+    scrollfn(){},
+    scrollend(){},
+    scrolltouchup(){},
+    scrolltop(){},
+    scrollbottom(){},
+    change(){}
+  }
+</script>

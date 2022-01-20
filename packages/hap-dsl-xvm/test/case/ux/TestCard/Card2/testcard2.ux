@@ -1,0 +1,45 @@
+/*
+ * Copyright (c) 2021, the hapjs-platform Project Contributors
+ * SPDX-License-Identifier: Apache-2.0
+ */
+
+<template>
+  <div>
+    <!--支持组件-->
+    <div></div>
+    <popup target="test_popup" placement="top">
+      <text>popup</text>
+    </popup>
+    <stack>
+      <text>1</text>
+      <text>2</text>
+    </stack>
+
+    <list>
+      <block>
+        <list-item type='type1'></list-item>
+        <list-item type='type2'></list-item>
+      </block>
+    </list>
+
+    <!--基础组件-->
+    <image src=""></image>
+    <progress></progress>
+    <rating></rating>
+    <text>
+      <span></span>
+    </text>
+    <a href=""></a>
+
+    <!--表单组件-->
+    <input type="text" />
+    <label for=""></label>
+    <picker type="text"></picker>
+    <select>
+      <option value=""></option>
+    </select>
+    <switch></switch>
+    <textarea></textarea>
+    <!--/支持组件-->
+  </div>
+</template>

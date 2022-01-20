@@ -1,0 +1,53 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`app-loader normal: emitted errors 1`] = `Array []`;
+
+exports[`app-loader normal: emitted warnings 1`] = `Array []`;
+
+exports[`app-loader normal: source-vs-result 1`] = `
+"
+    <script>
+    export default {
+      method1() {
+        console.log('this is method1')
+      }
+    }
+    </script>
+      
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+var $app_style$ = {}
+var $app_script$ = require(\\"!../../lib/loaders/script-loader.js!../../lib/loaders/module-loader.js!../../lib/loaders/manifest-loader.js?path=<CWD>/packages/hap-dsl-xvm/__tests__/loaders!../../node_modules/babel-loader/lib/index.js?cwd=<CWD>&cacheDirectory&comments=false&configFile=<CWD>/babel.config.js!../../lib/loaders/fragment-loader.js?index=0&type=script!./app.ux?uxType=app\\")
+
+$app_define$('@app-application/app', [], function ($app_require$, $app_exports$, $app_module$) {
+  
+  $app_script$($app_module$, $app_exports$, $app_require$)
+  if ($app_exports$.__esModule && $app_exports$.default) {
+    $app_module$.exports = $app_exports$.default
+  }
+  $app_module$.exports.manifest = require(\\"./manifest.json\\")
+  $app_module$.exports.style = { list: [ $app_style$ ] }
+  
+})
+$app_bootstrap$('@app-application/app', { packagerVersion: QUICKAPP_TOOLKIT_VERSION })
+"
+`;
+
+exports[`app-loader without <script/> tag: emitted errors 1`] = `Array []`;
+
+exports[`app-loader without <script/> tag: emitted warnings 1`] = `Array []`;
+
+exports[`app-loader without <script/> tag: source-vs-result 1`] = `
+"
+      <!-- no script tag -->
+      
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+var $app_style$ = {}
+var $app_script$ = null
+$app_define$('@app-application/app', [], function ($app_require$, $app_exports$, $app_module$) {
+  
+})
+$app_bootstrap$('@app-application/app', { packagerVersion: QUICKAPP_TOOLKIT_VERSION })
+"
+`;

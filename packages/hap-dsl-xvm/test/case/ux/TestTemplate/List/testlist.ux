@@ -1,0 +1,87 @@
+/*
+ * Copyright (c) 2021, the hapjs-platform Project Contributors
+ * SPDX-License-Identifier: Apache-2.0
+ */
+
+<template>
+  <div class="container">
+    <list onscroll="scroll" onscrollbottom="scrollbottom" onscrolltop="scrolltop" onscrollend="scrollend" onscrolltouchup="scrolltouchup">
+      <block for="cities">
+        <!--different type of list-item-->
+        <list-item type="city">
+          <!--div in list-item-->
+          <div>
+            <text>城市名称</text>
+            <text>{{$item.name}}</text>
+          </div>
+        </list-item>
+
+        <block for="$item.spots">
+          <!--different type of list-item-->
+          <list-item type="spot">
+            <!--stack in list-item-->
+            <stack>
+              <text>城市地址</text>
+              <text>{{$item.address}}</text>
+            </stack>
+          </list-item>
+        </block>
+      </block>
+
+      <!--different type of list-item-->
+      <list-item type="loadMore">
+        <progress type="circular"></progress>
+        <text>加载更多</text>
+      </list-item>
+    </list>
+  </div>
+</template>
+
+<style>
+  .container {
+    flex: 1;
+    flex-direction: column;
+    background-color: #FFFFFF;
+  }
+</style>
+
+<script>
+  export default {
+    data: {
+      cities: [{
+        name: 'beijing',
+        spots: [{
+          name: '海淀',
+          address: '海淀区'
+        }, {
+          name: '朝阳',
+          address: '朝阳区'
+        }]
+      }, {
+        name: 'shanghai',
+        spots: [{
+          name: '浦东',
+          address: '浦东新区'
+        }, {
+          name: '金山',
+          address: '金山区'
+        }]
+      }]
+    },
+    scroll: function (e) {
+      // {scrollX:scrollXValue, scrollY:scrollYValue}，均为相对上次滚动距离
+    },
+    scrollbottom: function (e) {
+      // 列表滚动到底部
+    },
+    scrolltop: function (e) {
+      // 列表滚动到顶部
+    },
+    scrollend: function (e) {
+      // 列表滑动结束
+    },
+    scrolltouchup: function (e) {
+      // 列表滑动过程中手指抬起
+    }
+  }
+</script>

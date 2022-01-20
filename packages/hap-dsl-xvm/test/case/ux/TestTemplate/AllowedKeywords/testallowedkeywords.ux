@@ -1,0 +1,54 @@
+/*
+ * Copyright (c) 2021, the hapjs-platform Project Contributors
+ * SPDX-License-Identifier: Apache-2.0
+ */
+
+<template>
+  <div class="container">
+    <text>{{Infinity}}</text>
+    <text>{{null}}</text>
+    <text>{{undefined}}</text>
+    <text>{{NaN}}</text>
+    <text>{{isFinite(0)}}</text>
+    <text>{{isNaN(0)}}</text>
+    <text>{{true}}</text>
+    <text>{{false}}</text>
+    <text>{{parseFloat('1.11')}}</text>
+    <text>{{parseInt('10')}}</text>
+    <text>{{encodeURI('https://doc.quickapp.cn/quick app/')}}</text>
+    <text>{{decodeURI('https://doc.quickapp.cn/quick%20app/')}}</text>
+    <text>{{encodeURIComponent('https://doc.quickapp.cn/quick app/')}}</text>
+    <text>{{decodeURIComponent('https%3A%2F%2Fdoc.quickapp.cn%2Fquick%20app%2F')}}</text>
+    <text>{{Math.random()}}</text>
+    <text>{{Number(0)}}</text>
+    <text>{{Date()}}</text>
+    <text>{{Array(5)}}</text>
+    <text>{{Boolean(1)}}</text>
+    <text>{{Object({a: 1})}}</text>
+    <text>{{String('str')}}</text>
+    <text>{{RegExp('abc')}}</text>
+    <text>{{new Map([['A', 1], ['B', 2], ['C', 3]])}}</text>
+    <text>{{new Set(['A', 'B', 'C'])}}</text>
+    <text>{{JSON.stringify({a :1})}}</text>
+    <text @click='method1.bind(this)'>{{ 'bindEvent' }}</text>
+    <text>{{require('../manifest.json')}}</text>
+  </div>
+</template>
+
+<style>
+  .container {
+    flex:1;
+    flex-direction: column;
+    background-color: #FFFFFF;
+  }
+</style>
+
+<script>
+  export default {
+    data: {
+    },
+    method1: function () {
+
+    }
+  }
+</script>

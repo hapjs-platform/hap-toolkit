@@ -1,0 +1,85 @@
+/*
+ * Copyright (c) 2021, the hapjs-platform Project Contributors
+ * SPDX-License-Identifier: Apache-2.0
+ */
+
+<template>
+  <div>
+  </div>
+</template>
+
+<style>
+  .A {
+    color: red;
+  }
+  .B1 {
+    color: #FFF;
+  }
+  .B2 {
+    color: #FFFFFF;
+  }
+  .C1 {
+    color: rgb(255,255,255);
+  }
+  .C2 {
+    color: rgb(0,  0,   0);
+  }
+  .C3 {
+    color: hsl(360,100%,100%);
+  }
+  .C4 {
+    color: hsl(0,  0%,   0%);
+  }
+  .D1 {
+    color: rgba(255,255,255,.5);
+  }
+  .D2 {
+    color: rgba(0,0, 0, .0);
+  }
+  .D3 {
+    color: rgba(0, 0,0, 1.0);
+  }
+  .D4 {
+    color: rgba(255, 255,255, .5);
+  }
+
+  .E1 {
+    color: hsla(360,100%,100%,.5);
+  }
+  .E2 {
+    color: hsla(0,0%, 0%, .0);
+  }
+  .E3 {
+    color: hsla(0, 0%,0%, 1.0);
+  }
+  .E4 {
+    color: hsla(360, 100%,100%, .5);
+  }
+
+  .a1{
+    color: 'red';
+  }
+  .a2 {
+    color: @red;
+  }
+  .b1 {
+    color: #FFFF;
+  }
+  .b2 {
+    color: #FFFFF;
+  }
+  .c1 {
+    color: rgb(,,0);
+  }
+  .c2 {
+    color: hsl(,,0%);
+  }
+
+</style>
+
+<script>
+  export default {
+    data: {
+    }
+  }
+</script>

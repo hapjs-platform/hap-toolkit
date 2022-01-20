@@ -1,0 +1,50 @@
+/*
+ * Copyright (c) 2021, the hapjs-platform Project Contributors
+ * SPDX-License-Identifier: Apache-2.0
+ */
+
+<template>
+    <div>
+    </div>
+</template>
+
+<style>
+    .A {
+        flex: 0;
+    }
+    .A:visited {
+        flex: 1;
+    }
+    .A:checked {
+        flex: 2;
+    }
+    .A:disabled {
+        flex: 3;
+    }
+    .A:focus {
+        flex: 4;
+    }
+    .A:active {
+        flex: 5;
+    }
+
+    .a {
+        flex: 0;
+    }
+    .a:abc {
+        flex: 1;
+    }
+    .a:visited@abc {
+        flex: 2;
+    }
+    .a:visited:abc {
+        flex: 3;
+    }
+</style>
+
+<script>
+  export default {
+    data: {
+    }
+  }
+</script>

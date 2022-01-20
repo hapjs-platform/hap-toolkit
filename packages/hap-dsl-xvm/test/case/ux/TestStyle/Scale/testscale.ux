@@ -1,0 +1,62 @@
+/*
+ * Copyright (c) 2021, the hapjs-platform Project Contributors
+ * SPDX-License-Identifier: Apache-2.0
+ */
+
+<template>
+  <div>
+  </div>
+</template>
+
+<style>
+  .A1 {
+    transform: scale(1,1);
+  }
+
+  .A2 {
+    transform: scale( 1, 0.5 );
+  }
+
+  .B1 {
+    transform: scale(1);
+  }
+
+  .B2 {
+    transform: scale(.5);
+  }
+
+  .C1 {
+    transform: scale(-1,-1);
+  }
+
+  .C2 {
+    transform: scale(1,-1);
+  }
+
+  .a1 {
+    transform: scale(1px,2px);
+  }
+
+  .a2 {
+    transform: scale('1,2');
+  }
+
+  .b1 {
+    transform: scale();
+  }
+
+  .b2 {
+    transform: scale('.5');
+  }
+
+  .c1 {
+    transform: scale(1,2,3);
+  }
+</style>
+
+<script>
+  export default {
+    data: {
+    }
+  }
+</script>

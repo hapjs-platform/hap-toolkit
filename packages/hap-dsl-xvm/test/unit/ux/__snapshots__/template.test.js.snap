@@ -1,0 +1,5030 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Template 编译测试 ux templates: ../../../lib/loaders/script-loader.js!../../../lib/loaders/module-loader.js!../../../node_modules/babel-loader/lib/index.js?cwd=<CWD>&cacheDirectory&plugins[]=<CWD>/packages/hap-dsl-xvm/lib/loaders/babel-plugin-jsx.js&comments=false&configFile=<CWD>/babel.config.js!../../../lib/loaders/access-loader.js!../../../lib/loaders/fragment-loader.js?index=0&type=script!./TestTemplate/AllowedKeywords/testallowedkeywords.ux?uxType=page 1`] = `
+"module.exports = function __scriptModule__ (module, exports, $app_require$){\\"use strict\\";
+
+Object.defineProperty(exports, \\"__esModule\\", {
+  value: true
+});
+exports.default = void 0;
+var _default = {
+  data: {},
+  method1: function () {}
+};
+exports.default = _default;
+const moduleOwn = exports.default || module.exports;
+const accessors = ['public', 'protected', 'private'];
+
+if (moduleOwn.data && accessors.some(function (acc) {
+  return moduleOwn[acc];
+})) {
+  throw new Error('页面VM对象中的属性data不可与\\"' + accessors.join(',') + '\\"同时存在，请使用private替换data名称');
+} else if (!moduleOwn.data) {
+  moduleOwn.data = {};
+  moduleOwn._descriptor = {};
+  accessors.forEach(function (acc) {
+    const accType = typeof moduleOwn[acc];
+
+    if (accType === 'object') {
+      moduleOwn.data = Object.assign(moduleOwn.data, moduleOwn[acc]);
+
+      for (const name in moduleOwn[acc]) {
+        moduleOwn._descriptor[name] = {
+          access: acc
+        };
+      }
+    } else if (accType === 'function') {
+      console.warn('页面VM对象中的属性' + acc + '的值不能是函数，请使用对象');
+    }
+  });
+}}"
+`;
+
+exports[`Template 编译测试 ux templates: ../../../lib/loaders/script-loader.js!../../../lib/loaders/module-loader.js!../../../node_modules/babel-loader/lib/index.js?cwd=<CWD>&cacheDirectory&plugins[]=<CWD>/packages/hap-dsl-xvm/lib/loaders/babel-plugin-jsx.js&comments=false&configFile=<CWD>/babel.config.js!../../../lib/loaders/access-loader.js!../../../lib/loaders/fragment-loader.js?index=0&type=script!./TestTemplate/Aria/testaria.ux?uxType=page 1`] = `
+"module.exports = function __scriptModule__ (module, exports, $app_require$){\\"use strict\\";
+
+Object.defineProperty(exports, \\"__esModule\\", {
+  value: true
+});
+exports.default = void 0;
+var _default = {
+  data: {}
+};
+exports.default = _default;
+const moduleOwn = exports.default || module.exports;
+const accessors = ['public', 'protected', 'private'];
+
+if (moduleOwn.data && accessors.some(function (acc) {
+  return moduleOwn[acc];
+})) {
+  throw new Error('页面VM对象中的属性data不可与\\"' + accessors.join(',') + '\\"同时存在，请使用private替换data名称');
+} else if (!moduleOwn.data) {
+  moduleOwn.data = {};
+  moduleOwn._descriptor = {};
+  accessors.forEach(function (acc) {
+    const accType = typeof moduleOwn[acc];
+
+    if (accType === 'object') {
+      moduleOwn.data = Object.assign(moduleOwn.data, moduleOwn[acc]);
+
+      for (const name in moduleOwn[acc]) {
+        moduleOwn._descriptor[name] = {
+          access: acc
+        };
+      }
+    } else if (accType === 'function') {
+      console.warn('页面VM对象中的属性' + acc + '的值不能是函数，请使用对象');
+    }
+  });
+}}"
+`;
+
+exports[`Template 编译测试 ux templates: ../../../lib/loaders/script-loader.js!../../../lib/loaders/module-loader.js!../../../node_modules/babel-loader/lib/index.js?cwd=<CWD>&cacheDirectory&plugins[]=<CWD>/packages/hap-dsl-xvm/lib/loaders/babel-plugin-jsx.js&comments=false&configFile=<CWD>/babel.config.js!../../../lib/loaders/access-loader.js!../../../lib/loaders/fragment-loader.js?index=0&type=script!./TestTemplate/Block/testblock.ux?uxType=page 1`] = `
+"module.exports = function __scriptModule__ (module, exports, $app_require$){\\"use strict\\";
+
+Object.defineProperty(exports, \\"__esModule\\", {
+  value: true
+});
+exports.default = void 0;
+var _default = {
+  data: {
+    cities: [{
+      name: 'beijing',
+      spots: [{
+        name: '海淀',
+        address: '海淀区'
+      }, {
+        name: '朝阳',
+        address: '朝阳区'
+      }]
+    }, {
+      name: 'shanghai',
+      spots: [{
+        name: '浦东',
+        address: '浦东新区'
+      }, {
+        name: '金山',
+        address: '金山区'
+      }]
+    }]
+  }
+};
+exports.default = _default;
+const moduleOwn = exports.default || module.exports;
+const accessors = ['public', 'protected', 'private'];
+
+if (moduleOwn.data && accessors.some(function (acc) {
+  return moduleOwn[acc];
+})) {
+  throw new Error('页面VM对象中的属性data不可与\\"' + accessors.join(',') + '\\"同时存在，请使用private替换data名称');
+} else if (!moduleOwn.data) {
+  moduleOwn.data = {};
+  moduleOwn._descriptor = {};
+  accessors.forEach(function (acc) {
+    const accType = typeof moduleOwn[acc];
+
+    if (accType === 'object') {
+      moduleOwn.data = Object.assign(moduleOwn.data, moduleOwn[acc]);
+
+      for (const name in moduleOwn[acc]) {
+        moduleOwn._descriptor[name] = {
+          access: acc
+        };
+      }
+    } else if (accType === 'function') {
+      console.warn('页面VM对象中的属性' + acc + '的值不能是函数，请使用对象');
+    }
+  });
+}}"
+`;
+
+exports[`Template 编译测试 ux templates: ../../../lib/loaders/script-loader.js!../../../lib/loaders/module-loader.js!../../../node_modules/babel-loader/lib/index.js?cwd=<CWD>&cacheDirectory&plugins[]=<CWD>/packages/hap-dsl-xvm/lib/loaders/babel-plugin-jsx.js&comments=false&configFile=<CWD>/babel.config.js!../../../lib/loaders/access-loader.js!../../../lib/loaders/fragment-loader.js?index=0&type=script!./TestTemplate/CustomDirectives/part1.ux?uxType=page 1`] = `
+"module.exports = function __scriptModule__ (module, exports, $app_require$){\\"use strict\\";
+
+Object.defineProperty(exports, \\"__esModule\\", {
+  value: true
+});
+exports.default = void 0;
+
+var _system = _interopRequireDefault($app_require$(\\"@app-module/system.prompt\\"));
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+var _default = {
+  directives: {
+    subDir: {
+      mounted(el, binding) {
+        _system.default.showToast({
+          message: \`子组件已创建完毕, 参数：\${JSON.stringify(binding)}\`
+        });
+      }
+
+    }
+  }
+};
+exports.default = _default;
+const moduleOwn = exports.default || module.exports;
+const accessors = ['public', 'protected', 'private'];
+
+if (moduleOwn.data && accessors.some(function (acc) {
+  return moduleOwn[acc];
+})) {
+  throw new Error('页面VM对象中的属性data不可与\\"' + accessors.join(',') + '\\"同时存在，请使用private替换data名称');
+} else if (!moduleOwn.data) {
+  moduleOwn.data = {};
+  moduleOwn._descriptor = {};
+  accessors.forEach(function (acc) {
+    const accType = typeof moduleOwn[acc];
+
+    if (accType === 'object') {
+      moduleOwn.data = Object.assign(moduleOwn.data, moduleOwn[acc]);
+
+      for (const name in moduleOwn[acc]) {
+        moduleOwn._descriptor[name] = {
+          access: acc
+        };
+      }
+    } else if (accType === 'function') {
+      console.warn('页面VM对象中的属性' + acc + '的值不能是函数，请使用对象');
+    }
+  });
+}}"
+`;
+
+exports[`Template 编译测试 ux templates: ../../../lib/loaders/script-loader.js!../../../lib/loaders/module-loader.js!../../../node_modules/babel-loader/lib/index.js?cwd=<CWD>&cacheDirectory&plugins[]=<CWD>/packages/hap-dsl-xvm/lib/loaders/babel-plugin-jsx.js&comments=false&configFile=<CWD>/babel.config.js!../../../lib/loaders/access-loader.js!../../../lib/loaders/fragment-loader.js?index=0&type=script!./TestTemplate/CustomDirectives/testcustomdirectives.ux?uxType=page 1`] = `
+"module.exports = function __scriptModule__ (module, exports, $app_require$){\\"use strict\\";
+
+Object.defineProperty(exports, \\"__esModule\\", {
+  value: true
+});
+exports.default = void 0;
+
+var _system = _interopRequireDefault($app_require$(\\"@app-module/system.prompt\\"));
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+var _default = {
+  directives: {
+    test: {
+      mounted(el, binding) {
+        _system.default.showToast({
+          message: \`text节点创建完毕, 参数：\${JSON.stringify(binding)}\`
+        });
+      },
+
+      update(el, binding) {
+        _system.default.showToast({
+          message: \`text节点更新, 参数：\${JSON.stringify(binding)}\`
+        });
+      },
+
+      destroy() {
+        _system.default.showToast({
+          message: \`text节点销毁\`
+        });
+      }
+
+    },
+    parentDir: {
+      mounted(el, binding) {
+        _system.default.showToast({
+          message: \`父组件已穿件完毕, 参数：\${JSON.stringify(binding)}\`
+        });
+      }
+
+    }
+  },
+  data: {
+    msg: '自定义指令Custom Directives',
+    msgColor: '#000',
+    msgClass: 'default-class'
+  }
+};
+exports.default = _default;
+const moduleOwn = exports.default || module.exports;
+const accessors = ['public', 'protected', 'private'];
+
+if (moduleOwn.data && accessors.some(function (acc) {
+  return moduleOwn[acc];
+})) {
+  throw new Error('页面VM对象中的属性data不可与\\"' + accessors.join(',') + '\\"同时存在，请使用private替换data名称');
+} else if (!moduleOwn.data) {
+  moduleOwn.data = {};
+  moduleOwn._descriptor = {};
+  accessors.forEach(function (acc) {
+    const accType = typeof moduleOwn[acc];
+
+    if (accType === 'object') {
+      moduleOwn.data = Object.assign(moduleOwn.data, moduleOwn[acc]);
+
+      for (const name in moduleOwn[acc]) {
+        moduleOwn._descriptor[name] = {
+          access: acc
+        };
+      }
+    } else if (accType === 'function') {
+      console.warn('页面VM对象中的属性' + acc + '的值不能是函数，请使用对象');
+    }
+  });
+}}"
+`;
+
+exports[`Template 编译测试 ux templates: ../../../lib/loaders/script-loader.js!../../../lib/loaders/module-loader.js!../../../node_modules/babel-loader/lib/index.js?cwd=<CWD>&cacheDirectory&plugins[]=<CWD>/packages/hap-dsl-xvm/lib/loaders/babel-plugin-jsx.js&comments=false&configFile=<CWD>/babel.config.js!../../../lib/loaders/access-loader.js!../../../lib/loaders/fragment-loader.js?index=0&type=script!./TestTemplate/DataBinding/testdatabinding.ux?uxType=page 1`] = `
+"module.exports = function __scriptModule__ (module, exports, $app_require$){\\"use strict\\";
+
+Object.defineProperty(exports, \\"__esModule\\", {
+  value: true
+});
+exports.default = void 0;
+var _default = {
+  data: {
+    message: 'Hello Binding!',
+    text: 'Hello world!',
+    url: 'https://www.quickapp.cn',
+    name: 'Bill'
+  }
+};
+exports.default = _default;
+const moduleOwn = exports.default || module.exports;
+const accessors = ['public', 'protected', 'private'];
+
+if (moduleOwn.data && accessors.some(function (acc) {
+  return moduleOwn[acc];
+})) {
+  throw new Error('页面VM对象中的属性data不可与\\"' + accessors.join(',') + '\\"同时存在，请使用private替换data名称');
+} else if (!moduleOwn.data) {
+  moduleOwn.data = {};
+  moduleOwn._descriptor = {};
+  accessors.forEach(function (acc) {
+    const accType = typeof moduleOwn[acc];
+
+    if (accType === 'object') {
+      moduleOwn.data = Object.assign(moduleOwn.data, moduleOwn[acc]);
+
+      for (const name in moduleOwn[acc]) {
+        moduleOwn._descriptor[name] = {
+          access: acc
+        };
+      }
+    } else if (accType === 'function') {
+      console.warn('页面VM对象中的属性' + acc + '的值不能是函数，请使用对象');
+    }
+  });
+}}"
+`;
+
+exports[`Template 编译测试 ux templates: ../../../lib/loaders/script-loader.js!../../../lib/loaders/module-loader.js!../../../node_modules/babel-loader/lib/index.js?cwd=<CWD>&cacheDirectory&plugins[]=<CWD>/packages/hap-dsl-xvm/lib/loaders/babel-plugin-jsx.js&comments=false&configFile=<CWD>/babel.config.js!../../../lib/loaders/access-loader.js!../../../lib/loaders/fragment-loader.js?index=0&type=script!./TestTemplate/EventBinding/testeventbinding.ux?uxType=page 1`] = `
+"module.exports = function __scriptModule__ (module, exports, $app_require$){\\"use strict\\";
+
+Object.defineProperty(exports, \\"__esModule\\", {
+  value: true
+});
+exports.default = void 0;
+var _default = {
+  data: {},
+  clickDiv1: function (e) {},
+  clickDiv2: function (e) {},
+  event: function (e) {}
+};
+exports.default = _default;
+const moduleOwn = exports.default || module.exports;
+const accessors = ['public', 'protected', 'private'];
+
+if (moduleOwn.data && accessors.some(function (acc) {
+  return moduleOwn[acc];
+})) {
+  throw new Error('页面VM对象中的属性data不可与\\"' + accessors.join(',') + '\\"同时存在，请使用private替换data名称');
+} else if (!moduleOwn.data) {
+  moduleOwn.data = {};
+  moduleOwn._descriptor = {};
+  accessors.forEach(function (acc) {
+    const accType = typeof moduleOwn[acc];
+
+    if (accType === 'object') {
+      moduleOwn.data = Object.assign(moduleOwn.data, moduleOwn[acc]);
+
+      for (const name in moduleOwn[acc]) {
+        moduleOwn._descriptor[name] = {
+          access: acc
+        };
+      }
+    } else if (accType === 'function') {
+      console.warn('页面VM对象中的属性' + acc + '的值不能是函数，请使用对象');
+    }
+  });
+}}"
+`;
+
+exports[`Template 编译测试 ux templates: ../../../lib/loaders/script-loader.js!../../../lib/loaders/module-loader.js!../../../node_modules/babel-loader/lib/index.js?cwd=<CWD>&cacheDirectory&plugins[]=<CWD>/packages/hap-dsl-xvm/lib/loaders/babel-plugin-jsx.js&comments=false&configFile=<CWD>/babel.config.js!../../../lib/loaders/access-loader.js!../../../lib/loaders/fragment-loader.js?index=0&type=script!./TestTemplate/Expression/testexpression.ux?uxType=page 1`] = `
+"module.exports = function __scriptModule__ (module, exports, $app_require$){\\"use strict\\";
+
+Object.defineProperty(exports, \\"__esModule\\", {
+  value: true
+});
+exports.default = void 0;
+var _default = {
+  data: {
+    value1: 1,
+    value2: 2
+  }
+};
+exports.default = _default;
+const moduleOwn = exports.default || module.exports;
+const accessors = ['public', 'protected', 'private'];
+
+if (moduleOwn.data && accessors.some(function (acc) {
+  return moduleOwn[acc];
+})) {
+  throw new Error('页面VM对象中的属性data不可与\\"' + accessors.join(',') + '\\"同时存在，请使用private替换data名称');
+} else if (!moduleOwn.data) {
+  moduleOwn.data = {};
+  moduleOwn._descriptor = {};
+  accessors.forEach(function (acc) {
+    const accType = typeof moduleOwn[acc];
+
+    if (accType === 'object') {
+      moduleOwn.data = Object.assign(moduleOwn.data, moduleOwn[acc]);
+
+      for (const name in moduleOwn[acc]) {
+        moduleOwn._descriptor[name] = {
+          access: acc
+        };
+      }
+    } else if (accType === 'function') {
+      console.warn('页面VM对象中的属性' + acc + '的值不能是函数，请使用对象');
+    }
+  });
+}}"
+`;
+
+exports[`Template 编译测试 ux templates: ../../../lib/loaders/script-loader.js!../../../lib/loaders/module-loader.js!../../../node_modules/babel-loader/lib/index.js?cwd=<CWD>&cacheDirectory&plugins[]=<CWD>/packages/hap-dsl-xvm/lib/loaders/babel-plugin-jsx.js&comments=false&configFile=<CWD>/babel.config.js!../../../lib/loaders/access-loader.js!../../../lib/loaders/fragment-loader.js?index=0&type=script!./TestTemplate/Filter/testfilter.ux?uxType=page 1`] = `
+"module.exports = function __scriptModule__ (module, exports, $app_require$){\\"use strict\\";
+
+Object.defineProperty(exports, \\"__esModule\\", {
+  value: true
+});
+exports.default = void 0;
+var _default = {
+  data: {
+    value: 1,
+    value2: 2
+  },
+  filterA: function (v) {
+    return v;
+  },
+  filterB: function (v) {
+    return v;
+  }
+};
+exports.default = _default;
+const moduleOwn = exports.default || module.exports;
+const accessors = ['public', 'protected', 'private'];
+
+if (moduleOwn.data && accessors.some(function (acc) {
+  return moduleOwn[acc];
+})) {
+  throw new Error('页面VM对象中的属性data不可与\\"' + accessors.join(',') + '\\"同时存在，请使用private替换data名称');
+} else if (!moduleOwn.data) {
+  moduleOwn.data = {};
+  moduleOwn._descriptor = {};
+  accessors.forEach(function (acc) {
+    const accType = typeof moduleOwn[acc];
+
+    if (accType === 'object') {
+      moduleOwn.data = Object.assign(moduleOwn.data, moduleOwn[acc]);
+
+      for (const name in moduleOwn[acc]) {
+        moduleOwn._descriptor[name] = {
+          access: acc
+        };
+      }
+    } else if (accType === 'function') {
+      console.warn('页面VM对象中的属性' + acc + '的值不能是函数，请使用对象');
+    }
+  });
+}}"
+`;
+
+exports[`Template 编译测试 ux templates: ../../../lib/loaders/script-loader.js!../../../lib/loaders/module-loader.js!../../../node_modules/babel-loader/lib/index.js?cwd=<CWD>&cacheDirectory&plugins[]=<CWD>/packages/hap-dsl-xvm/lib/loaders/babel-plugin-jsx.js&comments=false&configFile=<CWD>/babel.config.js!../../../lib/loaders/access-loader.js!../../../lib/loaders/fragment-loader.js?index=0&type=script!./TestTemplate/For/testfor.ux?uxType=page 1`] = `
+"module.exports = function __scriptModule__ (module, exports, $app_require$){\\"use strict\\";
+
+Object.defineProperty(exports, \\"__esModule\\", {
+  value: true
+});
+exports.default = void 0;
+var _default = {
+  data: {
+    list: [{
+      id: 1
+    }, {
+      id: 2
+    }]
+  }
+};
+exports.default = _default;
+const moduleOwn = exports.default || module.exports;
+const accessors = ['public', 'protected', 'private'];
+
+if (moduleOwn.data && accessors.some(function (acc) {
+  return moduleOwn[acc];
+})) {
+  throw new Error('页面VM对象中的属性data不可与\\"' + accessors.join(',') + '\\"同时存在，请使用private替换data名称');
+} else if (!moduleOwn.data) {
+  moduleOwn.data = {};
+  moduleOwn._descriptor = {};
+  accessors.forEach(function (acc) {
+    const accType = typeof moduleOwn[acc];
+
+    if (accType === 'object') {
+      moduleOwn.data = Object.assign(moduleOwn.data, moduleOwn[acc]);
+
+      for (const name in moduleOwn[acc]) {
+        moduleOwn._descriptor[name] = {
+          access: acc
+        };
+      }
+    } else if (accType === 'function') {
+      console.warn('页面VM对象中的属性' + acc + '的值不能是函数，请使用对象');
+    }
+  });
+}}"
+`;
+
+exports[`Template 编译测试 ux templates: ../../../lib/loaders/script-loader.js!../../../lib/loaders/module-loader.js!../../../node_modules/babel-loader/lib/index.js?cwd=<CWD>&cacheDirectory&plugins[]=<CWD>/packages/hap-dsl-xvm/lib/loaders/babel-plugin-jsx.js&comments=false&configFile=<CWD>/babel.config.js!../../../lib/loaders/access-loader.js!../../../lib/loaders/fragment-loader.js?index=0&type=script!./TestTemplate/If/testif.ux?uxType=page 1`] = `
+"module.exports = function __scriptModule__ (module, exports, $app_require$){\\"use strict\\";
+
+Object.defineProperty(exports, \\"__esModule\\", {
+  value: true
+});
+exports.default = void 0;
+var _default = {
+  data: {
+    condition: -1
+  }
+};
+exports.default = _default;
+const moduleOwn = exports.default || module.exports;
+const accessors = ['public', 'protected', 'private'];
+
+if (moduleOwn.data && accessors.some(function (acc) {
+  return moduleOwn[acc];
+})) {
+  throw new Error('页面VM对象中的属性data不可与\\"' + accessors.join(',') + '\\"同时存在，请使用private替换data名称');
+} else if (!moduleOwn.data) {
+  moduleOwn.data = {};
+  moduleOwn._descriptor = {};
+  accessors.forEach(function (acc) {
+    const accType = typeof moduleOwn[acc];
+
+    if (accType === 'object') {
+      moduleOwn.data = Object.assign(moduleOwn.data, moduleOwn[acc]);
+
+      for (const name in moduleOwn[acc]) {
+        moduleOwn._descriptor[name] = {
+          access: acc
+        };
+      }
+    } else if (accType === 'function') {
+      console.warn('页面VM对象中的属性' + acc + '的值不能是函数，请使用对象');
+    }
+  });
+}}"
+`;
+
+exports[`Template 编译测试 ux templates: ../../../lib/loaders/script-loader.js!../../../lib/loaders/module-loader.js!../../../node_modules/babel-loader/lib/index.js?cwd=<CWD>&cacheDirectory&plugins[]=<CWD>/packages/hap-dsl-xvm/lib/loaders/babel-plugin-jsx.js&comments=false&configFile=<CWD>/babel.config.js!../../../lib/loaders/access-loader.js!../../../lib/loaders/fragment-loader.js?index=0&type=script!./TestTemplate/ImportFeature/testimportfeature.ux?uxType=page 1`] = `
+"module.exports = function __scriptModule__ (module, exports, $app_require$){\\"use strict\\";
+
+Object.defineProperty(exports, \\"__esModule\\", {
+  value: true
+});
+exports.default = void 0;
+
+var _helper = _interopRequireDefault(require(\\"./helper\\"));
+
+var _system = _interopRequireWildcard($app_require$(\\"@app-module/system.feature\\"));
+
+function _getRequireWildcardCache() { if (typeof WeakMap !== \\"function\\") return null; var cache = new WeakMap(); _getRequireWildcardCache = function () { return cache; }; return cache; }
+
+function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } if (obj === null || typeof obj !== \\"object\\" && typeof obj !== \\"function\\") { return { default: obj }; } var cache = _getRequireWildcardCache(); if (cache && cache.has(obj)) { return cache.get(obj); } var newObj = {}; var hasPropertyDescriptor = Object.defineProperty && Object.getOwnPropertyDescriptor; for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) { var desc = hasPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : null; if (desc && (desc.get || desc.set)) { Object.defineProperty(newObj, key, desc); } else { newObj[key] = obj[key]; } } } newObj.default = obj; if (cache) { cache.set(obj, newObj); } return newObj; }
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+var _default = {
+  data: {}
+};
+exports.default = _default;
+const moduleOwn = exports.default || module.exports;
+const accessors = ['public', 'protected', 'private'];
+
+if (moduleOwn.data && accessors.some(function (acc) {
+  return moduleOwn[acc];
+})) {
+  throw new Error('页面VM对象中的属性data不可与\\"' + accessors.join(',') + '\\"同时存在，请使用private替换data名称');
+} else if (!moduleOwn.data) {
+  moduleOwn.data = {};
+  moduleOwn._descriptor = {};
+  accessors.forEach(function (acc) {
+    const accType = typeof moduleOwn[acc];
+
+    if (accType === 'object') {
+      moduleOwn.data = Object.assign(moduleOwn.data, moduleOwn[acc]);
+
+      for (const name in moduleOwn[acc]) {
+        moduleOwn._descriptor[name] = {
+          access: acc
+        };
+      }
+    } else if (accType === 'function') {
+      console.warn('页面VM对象中的属性' + acc + '的值不能是函数，请使用对象');
+    }
+  });
+}}"
+`;
+
+exports[`Template 编译测试 ux templates: ../../../lib/loaders/script-loader.js!../../../lib/loaders/module-loader.js!../../../node_modules/babel-loader/lib/index.js?cwd=<CWD>&cacheDirectory&plugins[]=<CWD>/packages/hap-dsl-xvm/lib/loaders/babel-plugin-jsx.js&comments=false&configFile=<CWD>/babel.config.js!../../../lib/loaders/access-loader.js!../../../lib/loaders/fragment-loader.js?index=0&type=script!./TestTemplate/ImportStyle/testimportstyle.ux?uxType=page 1`] = `
+"module.exports = function __scriptModule__ (module, exports, $app_require$){\\"use strict\\";
+
+Object.defineProperty(exports, \\"__esModule\\", {
+  value: true
+});
+exports.default = void 0;
+var _default = {
+  data: {}
+};
+exports.default = _default;
+const moduleOwn = exports.default || module.exports;
+const accessors = ['public', 'protected', 'private'];
+
+if (moduleOwn.data && accessors.some(function (acc) {
+  return moduleOwn[acc];
+})) {
+  throw new Error('页面VM对象中的属性data不可与\\"' + accessors.join(',') + '\\"同时存在，请使用private替换data名称');
+} else if (!moduleOwn.data) {
+  moduleOwn.data = {};
+  moduleOwn._descriptor = {};
+  accessors.forEach(function (acc) {
+    const accType = typeof moduleOwn[acc];
+
+    if (accType === 'object') {
+      moduleOwn.data = Object.assign(moduleOwn.data, moduleOwn[acc]);
+
+      for (const name in moduleOwn[acc]) {
+        moduleOwn._descriptor[name] = {
+          access: acc
+        };
+      }
+    } else if (accType === 'function') {
+      console.warn('页面VM对象中的属性' + acc + '的值不能是函数，请使用对象');
+    }
+  });
+}}"
+`;
+
+exports[`Template 编译测试 ux templates: ../../../lib/loaders/script-loader.js!../../../lib/loaders/module-loader.js!../../../node_modules/babel-loader/lib/index.js?cwd=<CWD>&cacheDirectory&plugins[]=<CWD>/packages/hap-dsl-xvm/lib/loaders/babel-plugin-jsx.js&comments=false&configFile=<CWD>/babel.config.js!../../../lib/loaders/access-loader.js!../../../lib/loaders/fragment-loader.js?index=0&type=script!./TestTemplate/ImportTemplate/comp.ux?uxType=page 1`] = `
+"module.exports = function __scriptModule__ (module, exports, $app_require$){\\"use strict\\";
+
+Object.defineProperty(exports, \\"__esModule\\", {
+  value: true
+});
+exports.default = void 0;
+var _default = {
+  props: ['message'],
+  data: {
+    message: ''
+  }
+};
+exports.default = _default;
+const moduleOwn = exports.default || module.exports;
+const accessors = ['public', 'protected', 'private'];
+
+if (moduleOwn.data && accessors.some(function (acc) {
+  return moduleOwn[acc];
+})) {
+  throw new Error('页面VM对象中的属性data不可与\\"' + accessors.join(',') + '\\"同时存在，请使用private替换data名称');
+} else if (!moduleOwn.data) {
+  moduleOwn.data = {};
+  moduleOwn._descriptor = {};
+  accessors.forEach(function (acc) {
+    const accType = typeof moduleOwn[acc];
+
+    if (accType === 'object') {
+      moduleOwn.data = Object.assign(moduleOwn.data, moduleOwn[acc]);
+
+      for (const name in moduleOwn[acc]) {
+        moduleOwn._descriptor[name] = {
+          access: acc
+        };
+      }
+    } else if (accType === 'function') {
+      console.warn('页面VM对象中的属性' + acc + '的值不能是函数，请使用对象');
+    }
+  });
+}}"
+`;
+
+exports[`Template 编译测试 ux templates: ../../../lib/loaders/script-loader.js!../../../lib/loaders/module-loader.js!../../../node_modules/babel-loader/lib/index.js?cwd=<CWD>&cacheDirectory&plugins[]=<CWD>/packages/hap-dsl-xvm/lib/loaders/babel-plugin-jsx.js&comments=false&configFile=<CWD>/babel.config.js!../../../lib/loaders/access-loader.js!../../../lib/loaders/fragment-loader.js?index=0&type=script!./TestTemplate/ImportTemplate/testimporttemplate.ux?uxType=page 1`] = `
+"module.exports = function __scriptModule__ (module, exports, $app_require$){\\"use strict\\";
+
+Object.defineProperty(exports, \\"__esModule\\", {
+  value: true
+});
+exports.default = void 0;
+var _default = {
+  data: {}
+};
+exports.default = _default;
+const moduleOwn = exports.default || module.exports;
+const accessors = ['public', 'protected', 'private'];
+
+if (moduleOwn.data && accessors.some(function (acc) {
+  return moduleOwn[acc];
+})) {
+  throw new Error('页面VM对象中的属性data不可与\\"' + accessors.join(',') + '\\"同时存在，请使用private替换data名称');
+} else if (!moduleOwn.data) {
+  moduleOwn.data = {};
+  moduleOwn._descriptor = {};
+  accessors.forEach(function (acc) {
+    const accType = typeof moduleOwn[acc];
+
+    if (accType === 'object') {
+      moduleOwn.data = Object.assign(moduleOwn.data, moduleOwn[acc]);
+
+      for (const name in moduleOwn[acc]) {
+        moduleOwn._descriptor[name] = {
+          access: acc
+        };
+      }
+    } else if (accType === 'function') {
+      console.warn('页面VM对象中的属性' + acc + '的值不能是函数，请使用对象');
+    }
+  });
+}}"
+`;
+
+exports[`Template 编译测试 ux templates: ../../../lib/loaders/script-loader.js!../../../lib/loaders/module-loader.js!../../../node_modules/babel-loader/lib/index.js?cwd=<CWD>&cacheDirectory&plugins[]=<CWD>/packages/hap-dsl-xvm/lib/loaders/babel-plugin-jsx.js&comments=false&configFile=<CWD>/babel.config.js!../../../lib/loaders/access-loader.js!../../../lib/loaders/fragment-loader.js?index=0&type=script!./TestTemplate/ImportTemplateAlias/comp.ux?uxType=page 1`] = `
+"module.exports = function __scriptModule__ (module, exports, $app_require$){\\"use strict\\";
+
+Object.defineProperty(exports, \\"__esModule\\", {
+  value: true
+});
+exports.default = void 0;
+var _default = {
+  props: ['message'],
+  data: {
+    message: ''
+  }
+};
+exports.default = _default;
+const moduleOwn = exports.default || module.exports;
+const accessors = ['public', 'protected', 'private'];
+
+if (moduleOwn.data && accessors.some(function (acc) {
+  return moduleOwn[acc];
+})) {
+  throw new Error('页面VM对象中的属性data不可与\\"' + accessors.join(',') + '\\"同时存在，请使用private替换data名称');
+} else if (!moduleOwn.data) {
+  moduleOwn.data = {};
+  moduleOwn._descriptor = {};
+  accessors.forEach(function (acc) {
+    const accType = typeof moduleOwn[acc];
+
+    if (accType === 'object') {
+      moduleOwn.data = Object.assign(moduleOwn.data, moduleOwn[acc]);
+
+      for (const name in moduleOwn[acc]) {
+        moduleOwn._descriptor[name] = {
+          access: acc
+        };
+      }
+    } else if (accType === 'function') {
+      console.warn('页面VM对象中的属性' + acc + '的值不能是函数，请使用对象');
+    }
+  });
+}}"
+`;
+
+exports[`Template 编译测试 ux templates: ../../../lib/loaders/script-loader.js!../../../lib/loaders/module-loader.js!../../../node_modules/babel-loader/lib/index.js?cwd=<CWD>&cacheDirectory&plugins[]=<CWD>/packages/hap-dsl-xvm/lib/loaders/babel-plugin-jsx.js&comments=false&configFile=<CWD>/babel.config.js!../../../lib/loaders/access-loader.js!../../../lib/loaders/fragment-loader.js?index=0&type=script!./TestTemplate/ImportTemplateAlias/testimporttemplatealias.ux?uxType=page 1`] = `
+"module.exports = function __scriptModule__ (module, exports, $app_require$){\\"use strict\\";
+
+Object.defineProperty(exports, \\"__esModule\\", {
+  value: true
+});
+exports.default = void 0;
+var _default = {
+  data: {}
+};
+exports.default = _default;
+const moduleOwn = exports.default || module.exports;
+const accessors = ['public', 'protected', 'private'];
+
+if (moduleOwn.data && accessors.some(function (acc) {
+  return moduleOwn[acc];
+})) {
+  throw new Error('页面VM对象中的属性data不可与\\"' + accessors.join(',') + '\\"同时存在，请使用private替换data名称');
+} else if (!moduleOwn.data) {
+  moduleOwn.data = {};
+  moduleOwn._descriptor = {};
+  accessors.forEach(function (acc) {
+    const accType = typeof moduleOwn[acc];
+
+    if (accType === 'object') {
+      moduleOwn.data = Object.assign(moduleOwn.data, moduleOwn[acc]);
+
+      for (const name in moduleOwn[acc]) {
+        moduleOwn._descriptor[name] = {
+          access: acc
+        };
+      }
+    } else if (accType === 'function') {
+      console.warn('页面VM对象中的属性' + acc + '的值不能是函数，请使用对象');
+    }
+  });
+}}"
+`;
+
+exports[`Template 编译测试 ux templates: ../../../lib/loaders/script-loader.js!../../../lib/loaders/module-loader.js!../../../node_modules/babel-loader/lib/index.js?cwd=<CWD>&cacheDirectory&plugins[]=<CWD>/packages/hap-dsl-xvm/lib/loaders/babel-plugin-jsx.js&comments=false&configFile=<CWD>/babel.config.js!../../../lib/loaders/access-loader.js!../../../lib/loaders/fragment-loader.js?index=0&type=script!./TestTemplate/JSX/testjsx.ux?uxType=page 1`] = `
+"module.exports = function __scriptModule__ (module, exports, $app_require$){\\"use strict\\";
+
+Object.defineProperty(exports, \\"__esModule\\", {
+  value: true
+});
+exports.default = void 0;
+var _default = {
+  data: {
+    list: [1, 2, 3]
+  },
+  onInit: function () {},
+  renderA: function () {
+    const __elem = this.$createElement;
+    const __extend = this.$extend;
+    const __s = this.$stringify;
+    return __elem(\\"text\\", null, [__elem(\\"span\\", {
+      value: __s(\\"A\\")
+    })]);
+  },
+  renderB: function (i) {
+    const __elem = this.$createElement;
+    const __extend = this.$extend;
+    const __s = this.$stringify;
+    return __elem(\\"text\\", null, [i]);
+  },
+  renderC: function () {
+    const __elem = this.$createElement;
+    const __extend = this.$extend;
+    const __s = this.$stringify;
+    const props = {
+      style: 'background-color: red;'
+    };
+    return __elem(\\"text\\", __extend({}, props), [__elem(\\"span\\", {
+      value: __s(\\"A\\")
+    })]);
+  },
+  renderD: function () {
+    const __elem = this.$createElement;
+    const __extend = this.$extend;
+    const __s = this.$stringify;
+    const props = {
+      style: 'background-color: red;'
+    };
+    return __elem(\\"text\\", __extend({}, {
+      \\"class\\": \\"text\\"
+    }, props, {
+      style: 'background-color: yellow'
+    }), [__elem(\\"span\\", {
+      value: __s(\\"A\\")
+    })]);
+  },
+  renderE: function () {
+    const __elem = this.$createElement;
+    const __extend = this.$extend;
+    const __s = this.$stringify;
+    return __elem(\\"div\\", null, [__elem(\\"text\\", null, [__elem(\\"span\\", {
+      value: __s(\\"A\\")
+    })])]);
+  },
+  renderF: function () {
+    const __elem = this.$createElement;
+    const __extend = this.$extend;
+    const __s = this.$stringify;
+    return __elem(\\"div\\", null, [__elem(\\"text\\", null, [__elem(\\"span\\", {
+      value: __s(\\"A\\")
+    }), __elem(\\"span\\", null, [__elem(\\"text\\", {
+      value: __s(\\"B\\")
+    })]), __elem(\\"span\\", {
+      value: __s(\\"C\\")
+    })])]);
+  }
+};
+exports.default = _default;
+const moduleOwn = exports.default || module.exports;
+const accessors = ['public', 'protected', 'private'];
+
+if (moduleOwn.data && accessors.some(function (acc) {
+  return moduleOwn[acc];
+})) {
+  throw new Error('页面VM对象中的属性data不可与\\"' + accessors.join(',') + '\\"同时存在，请使用private替换data名称');
+} else if (!moduleOwn.data) {
+  moduleOwn.data = {};
+  moduleOwn._descriptor = {};
+  accessors.forEach(function (acc) {
+    const accType = typeof moduleOwn[acc];
+
+    if (accType === 'object') {
+      moduleOwn.data = Object.assign(moduleOwn.data, moduleOwn[acc]);
+
+      for (const name in moduleOwn[acc]) {
+        moduleOwn._descriptor[name] = {
+          access: acc
+        };
+      }
+    } else if (accType === 'function') {
+      console.warn('页面VM对象中的属性' + acc + '的值不能是函数，请使用对象');
+    }
+  });
+}}"
+`;
+
+exports[`Template 编译测试 ux templates: ../../../lib/loaders/script-loader.js!../../../lib/loaders/module-loader.js!../../../node_modules/babel-loader/lib/index.js?cwd=<CWD>&cacheDirectory&plugins[]=<CWD>/packages/hap-dsl-xvm/lib/loaders/babel-plugin-jsx.js&comments=false&configFile=<CWD>/babel.config.js!../../../lib/loaders/access-loader.js!../../../lib/loaders/fragment-loader.js?index=0&type=script!./TestTemplate/List/testlist.ux?uxType=page 1`] = `
+"module.exports = function __scriptModule__ (module, exports, $app_require$){\\"use strict\\";
+
+Object.defineProperty(exports, \\"__esModule\\", {
+  value: true
+});
+exports.default = void 0;
+var _default = {
+  data: {
+    cities: [{
+      name: 'beijing',
+      spots: [{
+        name: '海淀',
+        address: '海淀区'
+      }, {
+        name: '朝阳',
+        address: '朝阳区'
+      }]
+    }, {
+      name: 'shanghai',
+      spots: [{
+        name: '浦东',
+        address: '浦东新区'
+      }, {
+        name: '金山',
+        address: '金山区'
+      }]
+    }]
+  },
+  scroll: function (e) {},
+  scrollbottom: function (e) {},
+  scrolltop: function (e) {},
+  scrollend: function (e) {},
+  scrolltouchup: function (e) {}
+};
+exports.default = _default;
+const moduleOwn = exports.default || module.exports;
+const accessors = ['public', 'protected', 'private'];
+
+if (moduleOwn.data && accessors.some(function (acc) {
+  return moduleOwn[acc];
+})) {
+  throw new Error('页面VM对象中的属性data不可与\\"' + accessors.join(',') + '\\"同时存在，请使用private替换data名称');
+} else if (!moduleOwn.data) {
+  moduleOwn.data = {};
+  moduleOwn._descriptor = {};
+  accessors.forEach(function (acc) {
+    const accType = typeof moduleOwn[acc];
+
+    if (accType === 'object') {
+      moduleOwn.data = Object.assign(moduleOwn.data, moduleOwn[acc]);
+
+      for (const name in moduleOwn[acc]) {
+        moduleOwn._descriptor[name] = {
+          access: acc
+        };
+      }
+    } else if (accType === 'function') {
+      console.warn('页面VM对象中的属性' + acc + '的值不能是函数，请使用对象');
+    }
+  });
+}}"
+`;
+
+exports[`Template 编译测试 ux templates: ../../../lib/loaders/script-loader.js!../../../lib/loaders/module-loader.js!../../../node_modules/babel-loader/lib/index.js?cwd=<CWD>&cacheDirectory&plugins[]=<CWD>/packages/hap-dsl-xvm/lib/loaders/babel-plugin-jsx.js&comments=false&configFile=<CWD>/babel.config.js!../../../lib/loaders/access-loader.js!../../../lib/loaders/fragment-loader.js?index=0&type=script!./TestTemplate/NestedIf/testnestedif.ux?uxType=page 1`] = `
+"module.exports = function __scriptModule__ (module, exports, $app_require$){\\"use strict\\";
+
+Object.defineProperty(exports, \\"__esModule\\", {
+  value: true
+});
+exports.default = void 0;
+var _default = {
+  data: {
+    level1True: true,
+    level1False: false,
+    level2True: true,
+    level2False: false,
+    level3True: true,
+    level3False: false
+  }
+};
+exports.default = _default;
+const moduleOwn = exports.default || module.exports;
+const accessors = ['public', 'protected', 'private'];
+
+if (moduleOwn.data && accessors.some(function (acc) {
+  return moduleOwn[acc];
+})) {
+  throw new Error('页面VM对象中的属性data不可与\\"' + accessors.join(',') + '\\"同时存在，请使用private替换data名称');
+} else if (!moduleOwn.data) {
+  moduleOwn.data = {};
+  moduleOwn._descriptor = {};
+  accessors.forEach(function (acc) {
+    const accType = typeof moduleOwn[acc];
+
+    if (accType === 'object') {
+      moduleOwn.data = Object.assign(moduleOwn.data, moduleOwn[acc]);
+
+      for (const name in moduleOwn[acc]) {
+        moduleOwn._descriptor[name] = {
+          access: acc
+        };
+      }
+    } else if (accType === 'function') {
+      console.warn('页面VM对象中的属性' + acc + '的值不能是函数，请使用对象');
+    }
+  });
+}}"
+`;
+
+exports[`Template 编译测试 ux templates: ../../../lib/loaders/script-loader.js!../../../lib/loaders/module-loader.js!../../../node_modules/babel-loader/lib/index.js?cwd=<CWD>&cacheDirectory&plugins[]=<CWD>/packages/hap-dsl-xvm/lib/loaders/babel-plugin-jsx.js&comments=false&configFile=<CWD>/babel.config.js!../../../lib/loaders/access-loader.js!../../../lib/loaders/fragment-loader.js?index=0&type=script!./TestTemplate/Refresh/testrefresh.ux?uxType=page 1`] = `
+"module.exports = function __scriptModule__ (module, exports, $app_require$){\\"use strict\\";
+
+Object.defineProperty(exports, \\"__esModule\\", {
+  value: true
+});
+exports.default = void 0;
+var _default = {
+  data: {
+    swiperList: ['A', 'B', 'C', 'D', 'E', 'F']
+  },
+  refresh: function (e) {},
+  changeSwiper: function (e) {},
+  changeTabs: function (e) {}
+};
+exports.default = _default;
+const moduleOwn = exports.default || module.exports;
+const accessors = ['public', 'protected', 'private'];
+
+if (moduleOwn.data && accessors.some(function (acc) {
+  return moduleOwn[acc];
+})) {
+  throw new Error('页面VM对象中的属性data不可与\\"' + accessors.join(',') + '\\"同时存在，请使用private替换data名称');
+} else if (!moduleOwn.data) {
+  moduleOwn.data = {};
+  moduleOwn._descriptor = {};
+  accessors.forEach(function (acc) {
+    const accType = typeof moduleOwn[acc];
+
+    if (accType === 'object') {
+      moduleOwn.data = Object.assign(moduleOwn.data, moduleOwn[acc]);
+
+      for (const name in moduleOwn[acc]) {
+        moduleOwn._descriptor[name] = {
+          access: acc
+        };
+      }
+    } else if (accType === 'function') {
+      console.warn('页面VM对象中的属性' + acc + '的值不能是函数，请使用对象');
+    }
+  });
+}}"
+`;
+
+exports[`Template 编译测试 ux templates: ../../../lib/loaders/script-loader.js!../../../lib/loaders/module-loader.js!../../../node_modules/babel-loader/lib/index.js?cwd=<CWD>&cacheDirectory&plugins[]=<CWD>/packages/hap-dsl-xvm/lib/loaders/babel-plugin-jsx.js&comments=false&configFile=<CWD>/babel.config.js!../../../lib/loaders/access-loader.js!../../../lib/loaders/fragment-loader.js?index=0&type=script!./TestTemplate/RegExp/testregexp.ux?uxType=page 1`] = `
+"module.exports = function __scriptModule__ (module, exports, $app_require$){\\"use strict\\";
+
+Object.defineProperty(exports, \\"__esModule\\", {
+  value: true
+});
+exports.default = void 0;
+var _default = {
+  data: {}
+};
+exports.default = _default;
+const moduleOwn = exports.default || module.exports;
+const accessors = ['public', 'protected', 'private'];
+
+if (moduleOwn.data && accessors.some(function (acc) {
+  return moduleOwn[acc];
+})) {
+  throw new Error('页面VM对象中的属性data不可与\\"' + accessors.join(',') + '\\"同时存在，请使用private替换data名称');
+} else if (!moduleOwn.data) {
+  moduleOwn.data = {};
+  moduleOwn._descriptor = {};
+  accessors.forEach(function (acc) {
+    const accType = typeof moduleOwn[acc];
+
+    if (accType === 'object') {
+      moduleOwn.data = Object.assign(moduleOwn.data, moduleOwn[acc]);
+
+      for (const name in moduleOwn[acc]) {
+        moduleOwn._descriptor[name] = {
+          access: acc
+        };
+      }
+    } else if (accType === 'function') {
+      console.warn('页面VM对象中的属性' + acc + '的值不能是函数，请使用对象');
+    }
+  });
+}}"
+`;
+
+exports[`Template 编译测试 ux templates: ../../../lib/loaders/script-loader.js!../../../lib/loaders/module-loader.js!../../../node_modules/babel-loader/lib/index.js?cwd=<CWD>&cacheDirectory&plugins[]=<CWD>/packages/hap-dsl-xvm/lib/loaders/babel-plugin-jsx.js&comments=false&configFile=<CWD>/babel.config.js!../../../lib/loaders/access-loader.js!../../../lib/loaders/fragment-loader.js?index=0&type=script!./TestTemplate/RegExpText/testregexp.ux?uxType=page 1`] = `
+"module.exports = function __scriptModule__ (module, exports, $app_require$){\\"use strict\\";
+
+Object.defineProperty(exports, \\"__esModule\\", {
+  value: true
+});
+exports.default = void 0;
+var _default = {
+  data: {}
+};
+exports.default = _default;
+const moduleOwn = exports.default || module.exports;
+const accessors = ['public', 'protected', 'private'];
+
+if (moduleOwn.data && accessors.some(function (acc) {
+  return moduleOwn[acc];
+})) {
+  throw new Error('页面VM对象中的属性data不可与\\"' + accessors.join(',') + '\\"同时存在，请使用private替换data名称');
+} else if (!moduleOwn.data) {
+  moduleOwn.data = {};
+  moduleOwn._descriptor = {};
+  accessors.forEach(function (acc) {
+    const accType = typeof moduleOwn[acc];
+
+    if (accType === 'object') {
+      moduleOwn.data = Object.assign(moduleOwn.data, moduleOwn[acc]);
+
+      for (const name in moduleOwn[acc]) {
+        moduleOwn._descriptor[name] = {
+          access: acc
+        };
+      }
+    } else if (accType === 'function') {
+      console.warn('页面VM对象中的属性' + acc + '的值不能是函数，请使用对象');
+    }
+  });
+}}"
+`;
+
+exports[`Template 编译测试 ux templates: ../../../lib/loaders/script-loader.js!../../../lib/loaders/module-loader.js!../../../node_modules/babel-loader/lib/index.js?cwd=<CWD>&cacheDirectory&plugins[]=<CWD>/packages/hap-dsl-xvm/lib/loaders/babel-plugin-jsx.js&comments=false&configFile=<CWD>/babel.config.js!../../../lib/loaders/access-loader.js!../../../lib/loaders/fragment-loader.js?index=0&type=script!./TestTemplate/Show/testshow.ux?uxType=page 1`] = `
+"module.exports = function __scriptModule__ (module, exports, $app_require$){\\"use strict\\";
+
+Object.defineProperty(exports, \\"__esModule\\", {
+  value: true
+});
+exports.default = void 0;
+var _default = {
+  data: {
+    visible: false
+  }
+};
+exports.default = _default;
+const moduleOwn = exports.default || module.exports;
+const accessors = ['public', 'protected', 'private'];
+
+if (moduleOwn.data && accessors.some(function (acc) {
+  return moduleOwn[acc];
+})) {
+  throw new Error('页面VM对象中的属性data不可与\\"' + accessors.join(',') + '\\"同时存在，请使用private替换data名称');
+} else if (!moduleOwn.data) {
+  moduleOwn.data = {};
+  moduleOwn._descriptor = {};
+  accessors.forEach(function (acc) {
+    const accType = typeof moduleOwn[acc];
+
+    if (accType === 'object') {
+      moduleOwn.data = Object.assign(moduleOwn.data, moduleOwn[acc]);
+
+      for (const name in moduleOwn[acc]) {
+        moduleOwn._descriptor[name] = {
+          access: acc
+        };
+      }
+    } else if (accType === 'function') {
+      console.warn('页面VM对象中的属性' + acc + '的值不能是函数，请使用对象');
+    }
+  });
+}}"
+`;
+
+exports[`Template 编译测试 ux templates: ../../../lib/loaders/script-loader.js!../../../lib/loaders/module-loader.js!../../../node_modules/babel-loader/lib/index.js?cwd=<CWD>&cacheDirectory&plugins[]=<CWD>/packages/hap-dsl-xvm/lib/loaders/babel-plugin-jsx.js&comments=false&configFile=<CWD>/babel.config.js!../../../lib/loaders/access-loader.js!../../../lib/loaders/fragment-loader.js?index=0&type=script!./TestTemplate/Simple/testsimple.ux?uxType=page 1`] = `
+"module.exports = function __scriptModule__ (module, exports, $app_require$){\\"use strict\\";
+
+Object.defineProperty(exports, \\"__esModule\\", {
+  value: true
+});
+exports.default = void 0;
+var _default = {
+  data: {}
+};
+exports.default = _default;
+const moduleOwn = exports.default || module.exports;
+const accessors = ['public', 'protected', 'private'];
+
+if (moduleOwn.data && accessors.some(function (acc) {
+  return moduleOwn[acc];
+})) {
+  throw new Error('页面VM对象中的属性data不可与\\"' + accessors.join(',') + '\\"同时存在，请使用private替换data名称');
+} else if (!moduleOwn.data) {
+  moduleOwn.data = {};
+  moduleOwn._descriptor = {};
+  accessors.forEach(function (acc) {
+    const accType = typeof moduleOwn[acc];
+
+    if (accType === 'object') {
+      moduleOwn.data = Object.assign(moduleOwn.data, moduleOwn[acc]);
+
+      for (const name in moduleOwn[acc]) {
+        moduleOwn._descriptor[name] = {
+          access: acc
+        };
+      }
+    } else if (accType === 'function') {
+      console.warn('页面VM对象中的属性' + acc + '的值不能是函数，请使用对象');
+    }
+  });
+}}"
+`;
+
+exports[`Template 编译测试 ux templates: ../../../lib/loaders/script-loader.js!../../../lib/loaders/module-loader.js!../../../node_modules/babel-loader/lib/index.js?cwd=<CWD>&cacheDirectory&plugins[]=<CWD>/packages/hap-dsl-xvm/lib/loaders/babel-plugin-jsx.js&comments=false&configFile=<CWD>/babel.config.js!../../../lib/loaders/access-loader.js!../../../lib/loaders/fragment-loader.js?index=0&type=script!./TestTemplate/Slot/testslot.ux?uxType=page 1`] = `
+"module.exports = function __scriptModule__ (module, exports, $app_require$){\\"use strict\\";
+
+Object.defineProperty(exports, \\"__esModule\\", {
+  value: true
+});
+exports.default = void 0;
+var _default = {
+  data: {}
+};
+exports.default = _default;
+const moduleOwn = exports.default || module.exports;
+const accessors = ['public', 'protected', 'private'];
+
+if (moduleOwn.data && accessors.some(function (acc) {
+  return moduleOwn[acc];
+})) {
+  throw new Error('页面VM对象中的属性data不可与\\"' + accessors.join(',') + '\\"同时存在，请使用private替换data名称');
+} else if (!moduleOwn.data) {
+  moduleOwn.data = {};
+  moduleOwn._descriptor = {};
+  accessors.forEach(function (acc) {
+    const accType = typeof moduleOwn[acc];
+
+    if (accType === 'object') {
+      moduleOwn.data = Object.assign(moduleOwn.data, moduleOwn[acc]);
+
+      for (const name in moduleOwn[acc]) {
+        moduleOwn._descriptor[name] = {
+          access: acc
+        };
+      }
+    } else if (accType === 'function') {
+      console.warn('页面VM对象中的属性' + acc + '的值不能是函数，请使用对象');
+    }
+  });
+}}"
+`;
+
+exports[`Template 编译测试 ux templates: ../../../lib/loaders/script-loader.js!../../../lib/loaders/module-loader.js!../../../node_modules/babel-loader/lib/index.js?cwd=<CWD>&cacheDirectory&plugins[]=<CWD>/packages/hap-dsl-xvm/lib/loaders/babel-plugin-jsx.js&comments=false&configFile=<CWD>/babel.config.js!../../../lib/loaders/access-loader.js!../../../lib/loaders/fragment-loader.js?index=0&type=script!./TestTemplate/Tabs/testtabs.ux?uxType=page 1`] = `
+"module.exports = function __scriptModule__ (module, exports, $app_require$){\\"use strict\\";
+
+Object.defineProperty(exports, \\"__esModule\\", {
+  value: true
+});
+exports.default = void 0;
+var _default = {
+  data: {
+    cities: [{
+      name: 'beijing',
+      spots: [{
+        name: '海淀',
+        address: '海淀区'
+      }, {
+        name: '朝阳',
+        address: '朝阳区'
+      }]
+    }, {
+      name: 'shanghai',
+      spots: [{
+        name: '浦东',
+        address: '浦东新区'
+      }, {
+        name: '金山',
+        address: '金山区'
+      }]
+    }],
+    swiperList: ['A', 'B', 'C', 'D', 'E', 'F']
+  },
+  changeTabs: function (e) {},
+  scroll: function (e) {},
+  scrollbottom: function (e) {},
+  scrolltop: function (e) {},
+  refresh: function (e) {},
+  changeSwiper: function (e) {}
+};
+exports.default = _default;
+const moduleOwn = exports.default || module.exports;
+const accessors = ['public', 'protected', 'private'];
+
+if (moduleOwn.data && accessors.some(function (acc) {
+  return moduleOwn[acc];
+})) {
+  throw new Error('页面VM对象中的属性data不可与\\"' + accessors.join(',') + '\\"同时存在，请使用private替换data名称');
+} else if (!moduleOwn.data) {
+  moduleOwn.data = {};
+  moduleOwn._descriptor = {};
+  accessors.forEach(function (acc) {
+    const accType = typeof moduleOwn[acc];
+
+    if (accType === 'object') {
+      moduleOwn.data = Object.assign(moduleOwn.data, moduleOwn[acc]);
+
+      for (const name in moduleOwn[acc]) {
+        moduleOwn._descriptor[name] = {
+          access: acc
+        };
+      }
+    } else if (accType === 'function') {
+      console.warn('页面VM对象中的属性' + acc + '的值不能是函数，请使用对象');
+    }
+  });
+}}"
+`;
+
+exports[`Template 编译测试 ux templates: ../../../lib/loaders/script-loader.js!../../../lib/loaders/module-loader.js!../../../node_modules/babel-loader/lib/index.js?cwd=<CWD>&cacheDirectory&plugins[]=<CWD>/packages/hap-dsl-xvm/lib/loaders/babel-plugin-jsx.js&comments=false&configFile=<CWD>/babel.config.js!../../../lib/loaders/access-loader.js!../../../lib/loaders/fragment-loader.js?index=0&type=script!./TestTemplate/TemplateLiterals/testtemplateliterals.ux?uxType=page 1`] = `
+"module.exports = function __scriptModule__ (module, exports, $app_require$){\\"use strict\\";
+
+Object.defineProperty(exports, \\"__esModule\\", {
+  value: true
+});
+exports.default = void 0;
+var _default = {
+  data: {
+    flag: true,
+    message: 'hell world',
+    sub: {
+      str1: 'hello',
+      str2: 'world'
+    }
+  }
+};
+exports.default = _default;
+const moduleOwn = exports.default || module.exports;
+const accessors = ['public', 'protected', 'private'];
+
+if (moduleOwn.data && accessors.some(function (acc) {
+  return moduleOwn[acc];
+})) {
+  throw new Error('页面VM对象中的属性data不可与\\"' + accessors.join(',') + '\\"同时存在，请使用private替换data名称');
+} else if (!moduleOwn.data) {
+  moduleOwn.data = {};
+  moduleOwn._descriptor = {};
+  accessors.forEach(function (acc) {
+    const accType = typeof moduleOwn[acc];
+
+    if (accType === 'object') {
+      moduleOwn.data = Object.assign(moduleOwn.data, moduleOwn[acc]);
+
+      for (const name in moduleOwn[acc]) {
+        moduleOwn._descriptor[name] = {
+          access: acc
+        };
+      }
+    } else if (accType === 'function') {
+      console.warn('页面VM对象中的属性' + acc + '的值不能是函数，请使用对象');
+    }
+  });
+}}"
+`;
+
+exports[`Template 编译测试 ux templates: ../../../lib/loaders/script-loader.js!../../../lib/loaders/module-loader.js!../../../node_modules/babel-loader/lib/index.js?cwd=<CWD>&cacheDirectory&plugins[]=<CWD>/packages/hap-dsl-xvm/lib/loaders/babel-plugin-jsx.js&comments=false&configFile=<CWD>/babel.config.js!../../../lib/loaders/fragment-loader.js?index=0&type=script!./TestTemplate/CustomDirectives/part1.ux?uxType=comp 1`] = `
+"module.exports = function __scriptModule__ (module, exports, $app_require$){\\"use strict\\";
+
+Object.defineProperty(exports, \\"__esModule\\", {
+  value: true
+});
+exports.default = void 0;
+
+var _system = _interopRequireDefault($app_require$(\\"@app-module/system.prompt\\"));
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+var _default = {
+  directives: {
+    subDir: {
+      mounted(el, binding) {
+        _system.default.showToast({
+          message: \`子组件已创建完毕, 参数：\${JSON.stringify(binding)}\`
+        });
+      }
+
+    }
+  }
+};
+exports.default = _default;}"
+`;
+
+exports[`Template 编译测试 ux templates: ../../../lib/loaders/style-loader.js?index=0&type=style!../../../lib/loaders/fragment-loader.js?index=0&type=style!./TestTemplate/AllowedKeywords/testallowedkeywords.ux?uxType=page 1`] = `
+"module.exports = {
+  \\".container\\": {
+    \\"flex\\": 1,
+    \\"flexDirection\\": \\"column\\",
+    \\"backgroundColor\\": \\"#FFFFFF\\"
+  }
+}"
+`;
+
+exports[`Template 编译测试 ux templates: ../../../lib/loaders/style-loader.js?index=0&type=style!../../../lib/loaders/fragment-loader.js?index=0&type=style!./TestTemplate/Aria/testaria.ux?uxType=page 1`] = `"module.exports = {}"`;
+
+exports[`Template 编译测试 ux templates: ../../../lib/loaders/style-loader.js?index=0&type=style!../../../lib/loaders/fragment-loader.js?index=0&type=style!./TestTemplate/Block/testblock.ux?uxType=page 1`] = `
+"module.exports = {
+  \\".container\\": {
+    \\"flex\\": 1,
+    \\"flexDirection\\": \\"column\\",
+    \\"backgroundColor\\": \\"#FFFFFF\\"
+  }
+}"
+`;
+
+exports[`Template 编译测试 ux templates: ../../../lib/loaders/style-loader.js?index=0&type=style!../../../lib/loaders/fragment-loader.js?index=0&type=style!./TestTemplate/DataBinding/testdatabinding.ux?uxType=page 1`] = `
+"module.exports = {
+  \\".container\\": {
+    \\"flex\\": 1,
+    \\"flexDirection\\": \\"column\\",
+    \\"backgroundColor\\": \\"#FFFFFF\\"
+  }
+}"
+`;
+
+exports[`Template 编译测试 ux templates: ../../../lib/loaders/style-loader.js?index=0&type=style!../../../lib/loaders/fragment-loader.js?index=0&type=style!./TestTemplate/EventBinding/testeventbinding.ux?uxType=page 1`] = `
+"module.exports = {
+  \\".container\\": {
+    \\"flex\\": 1,
+    \\"flexDirection\\": \\"column\\",
+    \\"backgroundColor\\": \\"#FFFFFF\\"
+  }
+}"
+`;
+
+exports[`Template 编译测试 ux templates: ../../../lib/loaders/style-loader.js?index=0&type=style!../../../lib/loaders/fragment-loader.js?index=0&type=style!./TestTemplate/Expression/testexpression.ux?uxType=page 1`] = `"module.exports = {}"`;
+
+exports[`Template 编译测试 ux templates: ../../../lib/loaders/style-loader.js?index=0&type=style!../../../lib/loaders/fragment-loader.js?index=0&type=style!./TestTemplate/For/testfor.ux?uxType=page 1`] = `
+"module.exports = {
+  \\".container\\": {
+    \\"flex\\": 1,
+    \\"flexDirection\\": \\"column\\",
+    \\"backgroundColor\\": \\"#FFFFFF\\"
+  }
+}"
+`;
+
+exports[`Template 编译测试 ux templates: ../../../lib/loaders/style-loader.js?index=0&type=style!../../../lib/loaders/fragment-loader.js?index=0&type=style!./TestTemplate/If/testif.ux?uxType=page 1`] = `
+"module.exports = {
+  \\".container\\": {
+    \\"flex\\": 1,
+    \\"flexDirection\\": \\"column\\",
+    \\"backgroundColor\\": \\"#FFFFFF\\"
+  }
+}"
+`;
+
+exports[`Template 编译测试 ux templates: ../../../lib/loaders/style-loader.js?index=0&type=style!../../../lib/loaders/fragment-loader.js?index=0&type=style!./TestTemplate/ImportFeature/testimportfeature.ux?uxType=page 1`] = `"module.exports = {}"`;
+
+exports[`Template 编译测试 ux templates: ../../../lib/loaders/style-loader.js?index=0&type=style!../../../lib/loaders/fragment-loader.js?index=0&type=style!./TestTemplate/ImportStyle/testimportstyle.ux?uxType=page 1`] = `
+"module.exports = {
+  \\".A\\": {
+    \\"color\\": \\"#FF0000\\",
+    \\"flexDirection\\": \\"row\\",
+    \\"flex\\": 1,
+    \\"backgroundColor\\": \\"#FFFFFF\\"
+  },
+  \\".C\\": {
+    \\"flex\\": 1
+  },
+  \\".B\\": {
+    \\"width\\": \\"100px\\"
+  },
+  \\".D\\": {
+    \\"flex\\": 1
+  }
+}"
+`;
+
+exports[`Template 编译测试 ux templates: ../../../lib/loaders/style-loader.js?index=0&type=style!../../../lib/loaders/fragment-loader.js?index=0&type=style!./TestTemplate/ImportTemplate/testimporttemplate.ux?uxType=page 1`] = `
+"module.exports = {
+  \\".container\\": {
+    \\"flex\\": 1,
+    \\"flexDirection\\": \\"column\\",
+    \\"backgroundColor\\": \\"#FFFFFF\\"
+  }
+}"
+`;
+
+exports[`Template 编译测试 ux templates: ../../../lib/loaders/style-loader.js?index=0&type=style!../../../lib/loaders/fragment-loader.js?index=0&type=style!./TestTemplate/ImportTemplateAlias/testimporttemplatealias.ux?uxType=page 1`] = `
+"module.exports = {
+  \\".container\\": {
+    \\"flex\\": 1,
+    \\"flexDirection\\": \\"column\\",
+    \\"backgroundColor\\": \\"#FFFFFF\\"
+  }
+}"
+`;
+
+exports[`Template 编译测试 ux templates: ../../../lib/loaders/style-loader.js?index=0&type=style!../../../lib/loaders/fragment-loader.js?index=0&type=style!./TestTemplate/JSX/testjsx.ux?uxType=page 1`] = `
+"module.exports = {
+  \\".container\\": {
+    \\"flex\\": 1,
+    \\"flexDirection\\": \\"column\\",
+    \\"backgroundColor\\": \\"#FFFFFF\\"
+  },
+  \\".text\\": {
+    \\"backgroundColor\\": \\"#0000FF\\",
+    \\"fontSize\\": \\"50px\\"
+  }
+}"
+`;
+
+exports[`Template 编译测试 ux templates: ../../../lib/loaders/style-loader.js?index=0&type=style!../../../lib/loaders/fragment-loader.js?index=0&type=style!./TestTemplate/List/testlist.ux?uxType=page 1`] = `
+"module.exports = {
+  \\".container\\": {
+    \\"flex\\": 1,
+    \\"flexDirection\\": \\"column\\",
+    \\"backgroundColor\\": \\"#FFFFFF\\"
+  }
+}"
+`;
+
+exports[`Template 编译测试 ux templates: ../../../lib/loaders/style-loader.js?index=0&type=style!../../../lib/loaders/fragment-loader.js?index=0&type=style!./TestTemplate/NestedIf/testnestedif.ux?uxType=page 1`] = `
+"module.exports = {
+  \\".doc-page\\": {
+    \\"flexDirection\\": \\"column\\"
+  },
+  \\".doc-row\\": {
+    \\"flexDirection\\": \\"column\\"
+  }
+}"
+`;
+
+exports[`Template 编译测试 ux templates: ../../../lib/loaders/style-loader.js?index=0&type=style!../../../lib/loaders/fragment-loader.js?index=0&type=style!./TestTemplate/Refresh/testrefresh.ux?uxType=page 1`] = `
+"module.exports = {
+  \\".container\\": {
+    \\"flex\\": 1,
+    \\"flexDirection\\": \\"column\\",
+    \\"backgroundColor\\": \\"#FFFFFF\\"
+  }
+}"
+`;
+
+exports[`Template 编译测试 ux templates: ../../../lib/loaders/style-loader.js?index=0&type=style!../../../lib/loaders/fragment-loader.js?index=0&type=style!./TestTemplate/RegExp/testregexp.ux?uxType=page 1`] = `
+"module.exports = {
+  \\".container\\": {
+    \\"flex\\": 1,
+    \\"flexDirection\\": \\"column\\",
+    \\"backgroundColor\\": \\"#FFFFFF\\"
+  }
+}"
+`;
+
+exports[`Template 编译测试 ux templates: ../../../lib/loaders/style-loader.js?index=0&type=style!../../../lib/loaders/fragment-loader.js?index=0&type=style!./TestTemplate/RegExpText/testregexp.ux?uxType=page 1`] = `
+"module.exports = {
+  \\".container\\": {
+    \\"flex\\": 1,
+    \\"flexDirection\\": \\"column\\",
+    \\"backgroundColor\\": \\"#FFFFFF\\"
+  }
+}"
+`;
+
+exports[`Template 编译测试 ux templates: ../../../lib/loaders/style-loader.js?index=0&type=style!../../../lib/loaders/fragment-loader.js?index=0&type=style!./TestTemplate/Show/testshow.ux?uxType=page 1`] = `
+"module.exports = {
+  \\".container\\": {
+    \\"flex\\": 1,
+    \\"flexDirection\\": \\"column\\",
+    \\"backgroundColor\\": \\"#FFFFFF\\"
+  }
+}"
+`;
+
+exports[`Template 编译测试 ux templates: ../../../lib/loaders/style-loader.js?index=0&type=style!../../../lib/loaders/fragment-loader.js?index=0&type=style!./TestTemplate/Simple/testsimple.ux?uxType=page 1`] = `
+"module.exports = {
+  \\".container\\": {
+    \\"flex\\": 1,
+    \\"flexDirection\\": \\"column\\",
+    \\"backgroundColor\\": \\"#FFFFFF\\"
+  }
+}"
+`;
+
+exports[`Template 编译测试 ux templates: ../../../lib/loaders/style-loader.js?index=0&type=style!../../../lib/loaders/fragment-loader.js?index=0&type=style!./TestTemplate/Slot/testslot.ux?uxType=page 1`] = `
+"module.exports = {
+  \\".container\\": {
+    \\"flex\\": 1,
+    \\"flexDirection\\": \\"column\\",
+    \\"backgroundColor\\": \\"#FFFFFF\\"
+  }
+}"
+`;
+
+exports[`Template 编译测试 ux templates: ../../../lib/loaders/style-loader.js?index=0&type=style!../../../lib/loaders/fragment-loader.js?index=0&type=style!./TestTemplate/Tabs/testtabs.ux?uxType=page 1`] = `
+"module.exports = {
+  \\".container\\": {
+    \\"flex\\": 1,
+    \\"flexDirection\\": \\"column\\",
+    \\"backgroundColor\\": \\"#FFFFFF\\"
+  }
+}"
+`;
+
+exports[`Template 编译测试 ux templates: ../../../lib/loaders/style-loader.js?index=0&type=style!../../../lib/loaders/fragment-loader.js?index=0&type=style!./TestTemplate/TemplateLiterals/testtemplateliterals.ux?uxType=page 1`] = `
+"module.exports = {
+  \\".container\\": {
+    \\"flex\\": 1,
+    \\"flexDirection\\": \\"column\\",
+    \\"backgroundColor\\": \\"#FFFFFF\\"
+  }
+}"
+`;
+
+exports[`Template 编译测试 ux templates: ../../../lib/loaders/template-loader.js!../../../lib/loaders/fragment-loader.js?index=0&type=template!./TestTemplate/AllowedKeywords/testallowedkeywords.ux?uxType=page& 1`] = `
+"module.exports = {
+  \\"type\\": \\"div\\",
+  \\"attr\\": {},
+  \\"classList\\": [
+    \\"container\\"
+  ],
+  \\"children\\": [
+    {
+      \\"type\\": \\"text\\",
+      \\"attr\\": {
+        \\"value\\": function () {return Infinity}
+      }
+    },
+    {
+      \\"type\\": \\"text\\",
+      \\"attr\\": {
+        \\"value\\": function () {return null}
+      }
+    },
+    {
+      \\"type\\": \\"text\\",
+      \\"attr\\": {
+        \\"value\\": function () {return undefined}
+      }
+    },
+    {
+      \\"type\\": \\"text\\",
+      \\"attr\\": {
+        \\"value\\": function () {return NaN}
+      }
+    },
+    {
+      \\"type\\": \\"text\\",
+      \\"attr\\": {
+        \\"value\\": function () {return isFinite(0)}
+      }
+    },
+    {
+      \\"type\\": \\"text\\",
+      \\"attr\\": {
+        \\"value\\": function () {return isNaN(0)}
+      }
+    },
+    {
+      \\"type\\": \\"text\\",
+      \\"attr\\": {
+        \\"value\\": function () {return true}
+      }
+    },
+    {
+      \\"type\\": \\"text\\",
+      \\"attr\\": {
+        \\"value\\": function () {return false}
+      }
+    },
+    {
+      \\"type\\": \\"text\\",
+      \\"attr\\": {
+        \\"value\\": function () {return parseFloat('1.11')}
+      }
+    },
+    {
+      \\"type\\": \\"text\\",
+      \\"attr\\": {
+        \\"value\\": function () {return parseInt('10')}
+      }
+    },
+    {
+      \\"type\\": \\"text\\",
+      \\"attr\\": {
+        \\"value\\": function () {return encodeURI('https://doc.quickapp.cn/quick app/')}
+      }
+    },
+    {
+      \\"type\\": \\"text\\",
+      \\"attr\\": {
+        \\"value\\": function () {return decodeURI('https://doc.quickapp.cn/quick%20app/')}
+      }
+    },
+    {
+      \\"type\\": \\"text\\",
+      \\"attr\\": {
+        \\"value\\": function () {return encodeURIComponent('https://doc.quickapp.cn/quick app/')}
+      }
+    },
+    {
+      \\"type\\": \\"text\\",
+      \\"attr\\": {
+        \\"value\\": function () {return decodeURIComponent('https%3A%2F%2Fdoc.quickapp.cn%2Fquick%20app%2F')}
+      }
+    },
+    {
+      \\"type\\": \\"text\\",
+      \\"attr\\": {
+        \\"value\\": function () {return Math.random()}
+      }
+    },
+    {
+      \\"type\\": \\"text\\",
+      \\"attr\\": {
+        \\"value\\": function () {return Number(0)}
+      }
+    },
+    {
+      \\"type\\": \\"text\\",
+      \\"attr\\": {
+        \\"value\\": function () {return Date()}
+      }
+    },
+    {
+      \\"type\\": \\"text\\",
+      \\"attr\\": {
+        \\"value\\": function () {return Array(5)}
+      }
+    },
+    {
+      \\"type\\": \\"text\\",
+      \\"attr\\": {
+        \\"value\\": function () {return Boolean(1)}
+      }
+    },
+    {
+      \\"type\\": \\"text\\",
+      \\"attr\\": {
+        \\"value\\": function () {return Object({a:1})}
+      }
+    },
+    {
+      \\"type\\": \\"text\\",
+      \\"attr\\": {
+        \\"value\\": function () {return String('str')}
+      }
+    },
+    {
+      \\"type\\": \\"text\\",
+      \\"attr\\": {
+        \\"value\\": function () {return RegExp('abc')}
+      }
+    },
+    {
+      \\"type\\": \\"text\\",
+      \\"attr\\": {
+        \\"value\\": function () {return new Map([['A',1],['B',2],['C',3]])}
+      }
+    },
+    {
+      \\"type\\": \\"text\\",
+      \\"attr\\": {
+        \\"value\\": function () {return new Set(['A','B','C'])}
+      }
+    },
+    {
+      \\"type\\": \\"text\\",
+      \\"attr\\": {
+        \\"value\\": function () {return JSON.stringify({a :1})}
+      }
+    },
+    {
+      \\"type\\": \\"text\\",
+      \\"attr\\": {
+        \\"value\\": function () {return 'bindEvent'}
+      },
+      \\"events\\": {
+        \\"click\\": function (evt) { return this.method1.bind(this,evt)}
+      }
+    },
+    {
+      \\"type\\": \\"text\\",
+      \\"attr\\": {
+        \\"value\\": function () {return require('../manifest.json')}
+      }
+    }
+  ]
+}"
+`;
+
+exports[`Template 编译测试 ux templates: ../../../lib/loaders/template-loader.js!../../../lib/loaders/fragment-loader.js?index=0&type=template!./TestTemplate/Aria/testaria.ux?uxType=page& 1`] = `
+"module.exports = {
+  \\"type\\": \\"div\\",
+  \\"attr\\": {},
+  \\"children\\": [
+    {
+      \\"type\\": \\"input\\",
+      \\"attr\\": {
+        \\"type\\": \\"button\\",
+        \\"ariaLabel\\": \\"无障碍模式1\\",
+        \\"ariaUnfocusable\\": \\"false\\"
+      }
+    },
+    {
+      \\"type\\": \\"input\\",
+      \\"attr\\": {
+        \\"type\\": \\"button\\",
+        \\"ariaLabel\\": \\"无障碍模式2\\",
+        \\"ariaUnfocusable\\": \\"true\\"
+      }
+    },
+    {
+      \\"type\\": \\"input\\",
+      \\"attr\\": {
+        \\"type\\": \\"button\\",
+        \\"ariaLabel\\": \\"无障碍模式3\\",
+        \\"ariaUnfocusable\\": \\"false\\"
+      }
+    }
+  ]
+}"
+`;
+
+exports[`Template 编译测试 ux templates: ../../../lib/loaders/template-loader.js!../../../lib/loaders/fragment-loader.js?index=0&type=template!./TestTemplate/Block/testblock.ux?uxType=page& 1`] = `
+"module.exports = {
+  \\"type\\": \\"div\\",
+  \\"attr\\": {},
+  \\"classList\\": [
+    \\"container\\"
+  ],
+  \\"children\\": [
+    {
+      \\"type\\": \\"list\\",
+      \\"attr\\": {},
+      \\"children\\": [
+        {
+          \\"type\\": \\"block\\",
+          \\"attr\\": {},
+          \\"repeat\\": function () {return this.cities},
+          \\"children\\": [
+            {
+              \\"type\\": \\"list-item\\",
+              \\"attr\\": {
+                \\"type\\": \\"city\\"
+              },
+              \\"children\\": [
+                {
+                  \\"type\\": \\"text\\",
+                  \\"attr\\": {
+                    \\"value\\": function () {return this.$item.name}
+                  }
+                }
+              ]
+            },
+            {
+              \\"type\\": \\"block\\",
+              \\"attr\\": {},
+              \\"repeat\\": function () {return this.$item.spots},
+              \\"children\\": [
+                {
+                  \\"type\\": \\"list-item\\",
+                  \\"attr\\": {
+                    \\"type\\": \\"spot\\"
+                  },
+                  \\"children\\": [
+                    {
+                      \\"type\\": \\"text\\",
+                      \\"attr\\": {
+                        \\"value\\": function () {return this.$item.address}
+                      }
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}"
+`;
+
+exports[`Template 编译测试 ux templates: ../../../lib/loaders/template-loader.js!../../../lib/loaders/fragment-loader.js?index=0&type=template!./TestTemplate/Component/index.ux?uxType=page& 1`] = `
+"module.exports = {
+  \\"type\\": \\"div\\",
+  \\"attr\\": {},
+  \\"classList\\": [
+    \\"doc-page\\"
+  ],
+  \\"children\\": [
+    {
+      \\"type\\": \\"input\\",
+      \\"attr\\": {
+        \\"type\\": \\"button\\",
+        \\"value\\": \\"点击改变组件\\"
+      },
+      \\"classList\\": [
+        \\"btn\\"
+      ],
+      \\"events\\": {
+        \\"click\\": \\"changeComponent\\"
+      }
+    },
+    {
+      \\"type\\": \\"component\\",
+      \\"attr\\": {
+        \\"id\\": \\"comp\\",
+        \\"pname\\": function () {return this.partName}
+      },
+      \\"id\\": \\"comp\\",
+      \\"is\\": function () {return this.comName},
+      \\"events\\": {
+        \\"emit-event\\": \\"getEvent\\"
+      }
+    }
+  ]
+}"
+`;
+
+exports[`Template 编译测试 ux templates: ../../../lib/loaders/template-loader.js!../../../lib/loaders/fragment-loader.js?index=0&type=template!./TestTemplate/Component/part1.ux?uxType=page& 1`] = `
+"module.exports = {
+  \\"type\\": \\"div\\",
+  \\"attr\\": {},
+  \\"children\\": [
+    {
+      \\"type\\": \\"text\\",
+      \\"attr\\": {},
+      \\"classList\\": [
+        \\"part1\\",
+        \\"btn\\"
+      ]
+    }
+  ]
+}"
+`;
+
+exports[`Template 编译测试 ux templates: ../../../lib/loaders/template-loader.js!../../../lib/loaders/fragment-loader.js?index=0&type=template!./TestTemplate/Component/part2.ux?uxType=page& 1`] = `
+"module.exports = {
+  \\"type\\": \\"div\\",
+  \\"attr\\": {},
+  \\"children\\": [
+    {
+      \\"type\\": \\"text\\",
+      \\"attr\\": {},
+      \\"classList\\": [
+        \\"part2\\",
+        \\"btn\\"
+      ]
+    }
+  ]
+}"
+`;
+
+exports[`Template 编译测试 ux templates: ../../../lib/loaders/template-loader.js!../../../lib/loaders/fragment-loader.js?index=0&type=template!./TestTemplate/ComponentName/header.ux?uxType=page& 1`] = `
+"module.exports = {
+  \\"type\\": \\"div\\",
+  \\"attr\\": {},
+  \\"children\\": [
+    {
+      \\"type\\": \\"header\\",
+      \\"attr\\": {}
+    },
+    {
+      \\"type\\": \\"nav\\",
+      \\"attr\\": {}
+    },
+    {
+      \\"type\\": \\"slot\\",
+      \\"attr\\": {
+        \\"name\\": \\"default\\"
+      }
+    }
+  ]
+}"
+`;
+
+exports[`Template 编译测试 ux templates: ../../../lib/loaders/template-loader.js!../../../lib/loaders/fragment-loader.js?index=0&type=template!./TestTemplate/ComponentName/testcomponentname.ux?uxType=page& 1`] = `
+"module.exports = {
+  \\"type\\": \\"div\\",
+  \\"attr\\": {},
+  \\"children\\": [
+    {
+      \\"type\\": \\"header\\",
+      \\"attr\\": {},
+      \\"children\\": [
+        {
+          \\"type\\": \\"text\\",
+          \\"attr\\": {
+            \\"value\\": \\"title\\"
+          }
+        }
+      ]
+    },
+    {
+      \\"type\\": \\"footer\\",
+      \\"attr\\": {}
+    }
+  ]
+}"
+`;
+
+exports[`Template 编译测试 ux templates: ../../../lib/loaders/template-loader.js!../../../lib/loaders/fragment-loader.js?index=0&type=template!./TestTemplate/CustomDirectives/part1.ux?uxType=comp& 1`] = `
+"module.exports = {
+  \\"type\\": \\"div\\",
+  \\"attr\\": {},
+  \\"directives\\": [
+    {
+      \\"name\\": \\"subdir\\",
+      \\"value\\": \\"sub component\\"
+    }
+  ],
+  \\"children\\": [
+    {
+      \\"type\\": \\"text\\",
+      \\"attr\\": {
+        \\"value\\": \\"sub component\\"
+      }
+    }
+  ]
+}"
+`;
+
+exports[`Template 编译测试 ux templates: ../../../lib/loaders/template-loader.js!../../../lib/loaders/fragment-loader.js?index=0&type=template!./TestTemplate/CustomDirectives/part1.ux?uxType=page& 1`] = `
+"module.exports = {
+  \\"type\\": \\"div\\",
+  \\"attr\\": {},
+  \\"directives\\": [
+    {
+      \\"name\\": \\"subdir\\",
+      \\"value\\": \\"sub component\\"
+    }
+  ],
+  \\"children\\": [
+    {
+      \\"type\\": \\"text\\",
+      \\"attr\\": {
+        \\"value\\": \\"sub component\\"
+      }
+    }
+  ]
+}"
+`;
+
+exports[`Template 编译测试 ux templates: ../../../lib/loaders/template-loader.js!../../../lib/loaders/fragment-loader.js?index=0&type=template!./TestTemplate/CustomDirectives/testcustomdirectives.ux?uxType=page&importNames[]=sub-component 1`] = `
+"module.exports = {
+  \\"type\\": \\"div\\",
+  \\"attr\\": {},
+  \\"children\\": [
+    {
+      \\"type\\": \\"text\\",
+      \\"attr\\": {
+        \\"value\\": function () {return this.msg}
+      },
+      \\"directives\\": [
+        {
+          \\"name\\": \\"test\\",
+          \\"value\\": function () {return this.msg}
+        }
+      ],
+      \\"classList\\": function () {return [this.msgClass, 'display-text']},
+      \\"style\\": {
+        \\"color\\": function () {return this.msgColor}
+      }
+    },
+    {
+      \\"type\\": \\"sub-component\\",
+      \\"attr\\": {},
+      \\"directives\\": [
+        {
+          \\"name\\": \\"parentdir\\",
+          \\"value\\": \\"\\"
+        }
+      ]
+    }
+  ]
+}"
+`;
+
+exports[`Template 编译测试 ux templates: ../../../lib/loaders/template-loader.js!../../../lib/loaders/fragment-loader.js?index=0&type=template!./TestTemplate/DataBinding/testdatabinding.ux?uxType=page& 1`] = `
+"module.exports = {
+  \\"type\\": \\"div\\",
+  \\"attr\\": {},
+  \\"classList\\": function () {return ['container', this.message?'hey   you':'ah  ha', 'gap', 'next', 'trailing']},
+  \\"children\\": [
+    {
+      \\"type\\": \\"text\\",
+      \\"attr\\": {
+        \\"value\\": function () {return this.message}
+      }
+    },
+    {
+      \\"type\\": \\"text\\",
+      \\"attr\\": {
+        \\"value\\": function () {return {      one:'hello',      two:'world'}}
+      }
+    },
+    {
+      \\"type\\": \\"text\\",
+      \\"attr\\": {
+        \\"value\\": function () {return this.text}
+      }
+    },
+    {
+      \\"type\\": \\"a\\",
+      \\"attr\\": {
+        \\"src\\": function () {return this.url},
+        \\"value\\": \\"快应用官方网站\\"
+      }
+    },
+    {
+      \\"type\\": \\"text\\",
+      \\"attr\\": {
+        \\"value\\": function () {return \\"Hello \\"+this.name+\\"!\\"}
+      }
+    }
+  ]
+}"
+`;
+
+exports[`Template 编译测试 ux templates: ../../../lib/loaders/template-loader.js!../../../lib/loaders/fragment-loader.js?index=0&type=template!./TestTemplate/EventBinding/testeventbinding.ux?uxType=page& 1`] = `
+"module.exports = {
+  \\"type\\": \\"div\\",
+  \\"attr\\": {},
+  \\"classList\\": [
+    \\"container\\"
+  ],
+  \\"children\\": [
+    {
+      \\"type\\": \\"div\\",
+      \\"attr\\": {},
+      \\"events\\": {
+        \\"click\\": \\"clickDiv1\\"
+      }
+    },
+    {
+      \\"type\\": \\"div\\",
+      \\"attr\\": {},
+      \\"events\\": {
+        \\"click\\": \\"clickDiv2\\"
+      }
+    },
+    {
+      \\"type\\": \\"div\\",
+      \\"attr\\": {},
+      \\"events\\": {
+        \\"touchstart\\": \\"event\\",
+        \\"touchmove\\": \\"event\\",
+        \\"touchend\\": \\"event\\",
+        \\"touchcancel\\": \\"event\\",
+        \\"resize\\": \\"resize\\"
+      }
+    }
+  ]
+}"
+`;
+
+exports[`Template 编译测试 ux templates: ../../../lib/loaders/template-loader.js!../../../lib/loaders/fragment-loader.js?index=0&type=template!./TestTemplate/Expression/testexpression.ux?uxType=page& 1`] = `
+"module.exports = {
+  \\"type\\": \\"div\\",
+  \\"attr\\": {
+    \\"attr\\": function () {return '' + (this.num1) + (this.num2)}
+  },
+  \\"children\\": [
+    {
+      \\"type\\": \\"text\\",
+      \\"attr\\": {
+        \\"value\\": function () {return '' + (this.num1) + (this.num2)}
+      }
+    },
+    {
+      \\"type\\": \\"text\\",
+      \\"attr\\": {
+        \\"value\\": function () {return this.num1}
+      }
+    },
+    {
+      \\"type\\": \\"text\\",
+      \\"attr\\": {},
+      \\"classList\\": function () {return ['' + 'bg1_' + (this.color)]}
+    },
+    {
+      \\"type\\": \\"text\\",
+      \\"attr\\": {},
+      \\"classList\\": function () {return ['bg1', this.color, 'red']}
+    },
+    {
+      \\"type\\": \\"text\\",
+      \\"attr\\": {},
+      \\"classList\\": function () {return ['' + 'bg-' + (this.color) + '-red']}
+    },
+    {
+      \\"type\\": \\"text\\",
+      \\"attr\\": {},
+      \\"classList\\": function () {return ['' + 'bg-' + (this.color) + '-red']}
+    },
+    {
+      \\"type\\": \\"text\\",
+      \\"attr\\": {},
+      \\"classList\\": function () {return ['' + 'bg-' + (this.color), this.color]}
+    },
+    {
+      \\"type\\": \\"text\\",
+      \\"attr\\": {},
+      \\"classList\\": function () {return ['' + (this.color) + '-red']}
+    },
+    {
+      \\"type\\": \\"text\\",
+      \\"attr\\": {},
+      \\"classList\\": function () {return ['' + (this.color) + (this.color)]}
+    },
+    {
+      \\"type\\": \\"text\\",
+      \\"attr\\": {},
+      \\"classList\\": function () {return ['' + (this.color) + '-' + (this.color)]}
+    },
+    {
+      \\"type\\": \\"text\\",
+      \\"attr\\": {},
+      \\"classList\\": function () {return ['' + (this.color) + (this.color), this.color]}
+    }
+  ]
+}"
+`;
+
+exports[`Template 编译测试 ux templates: ../../../lib/loaders/template-loader.js!../../../lib/loaders/fragment-loader.js?index=0&type=template!./TestTemplate/Filter/testfilter.ux?uxType=page& 1`] = `
+"module.exports = {
+  \\"type\\": \\"div\\",
+  \\"attr\\": {},
+  \\"classList\\": [
+    \\"container\\"
+  ],
+  \\"children\\": [
+    {
+      \\"type\\": \\"div\\",
+      \\"attr\\": {
+        \\"attr\\": function () {return this.filterA(this.value)}
+      }
+    },
+    {
+      \\"type\\": \\"div\\",
+      \\"attr\\": {
+        \\"attr\\": function () {return this.filterA(this.value,this.value2,3)}
+      }
+    },
+    {
+      \\"type\\": \\"div\\",
+      \\"attr\\": {
+        \\"attr\\": function () {return this.filterB(this.filterA(this.value))}
+      }
+    }
+  ]
+}"
+`;
+
+exports[`Template 编译测试 ux templates: ../../../lib/loaders/template-loader.js!../../../lib/loaders/fragment-loader.js?index=0&type=template!./TestTemplate/For/testfor.ux?uxType=page& 1`] = `
+"module.exports = {
+  \\"type\\": \\"div\\",
+  \\"attr\\": {},
+  \\"classList\\": [
+    \\"container\\"
+  ],
+  \\"children\\": [
+    {
+      \\"type\\": \\"div\\",
+      \\"attr\\": {},
+      \\"repeat\\": function () {return this.list},
+      \\"children\\": [
+        {
+          \\"type\\": \\"text\\",
+          \\"attr\\": {
+            \\"value\\": function () {return this.$idx}
+          }
+        },
+        {
+          \\"type\\": \\"text\\",
+          \\"attr\\": {
+            \\"value\\": function () {return this.$item.id}
+          }
+        }
+      ]
+    },
+    {
+      \\"type\\": \\"div\\",
+      \\"attr\\": {
+        \\"tid\\": \\"id\\"
+      },
+      \\"repeat\\": function () {return this.list},
+      \\"children\\": [
+        {
+          \\"type\\": \\"text\\",
+          \\"attr\\": {
+            \\"value\\": function () {return this.$idx}
+          }
+        },
+        {
+          \\"type\\": \\"text\\",
+          \\"attr\\": {
+            \\"value\\": function () {return this.$item.id}
+          }
+        }
+      ]
+    },
+    {
+      \\"type\\": \\"div\\",
+      \\"attr\\": {
+        \\"tid\\": \\"id\\"
+      },
+      \\"repeat\\": function () {return this.list},
+      \\"children\\": [
+        {
+          \\"type\\": \\"text\\",
+          \\"attr\\": {
+            \\"value\\": function () {return this.$idx}
+          }
+        },
+        {
+          \\"type\\": \\"text\\",
+          \\"attr\\": {
+            \\"value\\": function () {return this.$item.id}
+          }
+        }
+      ]
+    },
+    {
+      \\"type\\": \\"div\\",
+      \\"attr\\": {
+        \\"tid\\": \\"id\\"
+      },
+      \\"repeat\\": {
+        \\"exp\\": function () {return this.list},
+        \\"value\\": \\"item\\"
+      },
+      \\"children\\": [
+        {
+          \\"type\\": \\"text\\",
+          \\"attr\\": {
+            \\"value\\": function () {return this.$idx}
+          }
+        },
+        {
+          \\"type\\": \\"text\\",
+          \\"attr\\": {
+            \\"value\\": function () {return this.item.id}
+          }
+        }
+      ]
+    },
+    {
+      \\"type\\": \\"div\\",
+      \\"attr\\": {
+        \\"tid\\": \\"id\\"
+      },
+      \\"repeat\\": {
+        \\"exp\\": function () {return this.list},
+        \\"key\\": \\"index\\",
+        \\"value\\": \\"item\\"
+      },
+      \\"children\\": [
+        {
+          \\"type\\": \\"text\\",
+          \\"attr\\": {
+            \\"value\\": function () {return this.index}
+          }
+        },
+        {
+          \\"type\\": \\"text\\",
+          \\"attr\\": {
+            \\"value\\": function () {return this.item.id}
+          }
+        }
+      ]
+    }
+  ]
+}"
+`;
+
+exports[`Template 编译测试 ux templates: ../../../lib/loaders/template-loader.js!../../../lib/loaders/fragment-loader.js?index=0&type=template!./TestTemplate/If/testif.ux?uxType=page& 1`] = `
+"module.exports = {
+  \\"type\\": \\"div\\",
+  \\"attr\\": {},
+  \\"classList\\": [
+    \\"container\\"
+  ],
+  \\"children\\": [
+    {
+      \\"type\\": \\"div\\",
+      \\"attr\\": {},
+      \\"children\\": [
+        {
+          \\"type\\": \\"text\\",
+          \\"attr\\": {
+            \\"value\\": \\"if\\"
+          },
+          \\"shown\\": function () {return this.condition==1}
+        },
+        {
+          \\"type\\": \\"text\\",
+          \\"attr\\": {
+            \\"value\\": \\"elif\\"
+          },
+          \\"shown\\": function () {return (this.condition==2)&&!(this.condition==1)}
+        },
+        {
+          \\"type\\": \\"text\\",
+          \\"attr\\": {
+            \\"value\\": \\"else\\"
+          },
+          \\"shown\\": function () {return !(this.condition==1)&&!(this.condition==2)}
+        }
+      ]
+    },
+    {
+      \\"type\\": \\"div\\",
+      \\"attr\\": {},
+      \\"children\\": [
+        {
+          \\"type\\": \\"text\\",
+          \\"attr\\": {
+            \\"value\\": \\"if\\"
+          },
+          \\"shown\\": function () {return this.testCondition}
+        },
+        {
+          \\"type\\": \\"text\\",
+          \\"attr\\": {
+            \\"value\\": \\"elif1\\"
+          },
+          \\"shown\\": function () {return (this.testCondition)&&!(this.testCondition)}
+        },
+        {
+          \\"type\\": \\"text\\",
+          \\"attr\\": {
+            \\"value\\": \\"elif2\\"
+          },
+          \\"shown\\": function () {return (this.testCondition)&&!(this.testCondition)&&!(this.testCondition)}
+        },
+        {
+          \\"type\\": \\"text\\",
+          \\"attr\\": {
+            \\"value\\": \\"elif3\\"
+          },
+          \\"shown\\": function () {return (this.testCondition)&&!(this.testCondition)&&!(this.testCondition)&&!(this.testCondition)}
+        },
+        {
+          \\"type\\": \\"text\\",
+          \\"attr\\": {
+            \\"value\\": \\"else\\"
+          },
+          \\"shown\\": function () {return !(this.testCondition)&&!(this.testCondition)&&!(this.testCondition)&&!(this.testCondition)}
+        }
+      ]
+    }
+  ]
+}"
+`;
+
+exports[`Template 编译测试 ux templates: ../../../lib/loaders/template-loader.js!../../../lib/loaders/fragment-loader.js?index=0&type=template!./TestTemplate/ImportFeature/testimportfeature.ux?uxType=page& 1`] = `
+"module.exports = {
+  \\"type\\": \\"div\\",
+  \\"attr\\": {}
+}"
+`;
+
+exports[`Template 编译测试 ux templates: ../../../lib/loaders/template-loader.js!../../../lib/loaders/fragment-loader.js?index=0&type=template!./TestTemplate/ImportStyle/testimportstyle.ux?uxType=page& 1`] = `
+"module.exports = {
+  \\"type\\": \\"div\\",
+  \\"attr\\": {}
+}"
+`;
+
+exports[`Template 编译测试 ux templates: ../../../lib/loaders/template-loader.js!../../../lib/loaders/fragment-loader.js?index=0&type=template!./TestTemplate/ImportTemplate/comp.ux?uxType=page& 1`] = `
+"module.exports = {
+  \\"type\\": \\"text\\",
+  \\"attr\\": {
+    \\"value\\": function () {return this.message}
+  }
+}"
+`;
+
+exports[`Template 编译测试 ux templates: ../../../lib/loaders/template-loader.js!../../../lib/loaders/fragment-loader.js?index=0&type=template!./TestTemplate/ImportTemplate/testimporttemplate.ux?uxType=page& 1`] = `
+"module.exports = {
+  \\"type\\": \\"div\\",
+  \\"attr\\": {},
+  \\"classList\\": [
+    \\"container\\"
+  ],
+  \\"children\\": [
+    {
+      \\"type\\": \\"comp\\",
+      \\"attr\\": {
+        \\"message\\": \\"TEXT\\"
+      }
+    }
+  ]
+}"
+`;
+
+exports[`Template 编译测试 ux templates: ../../../lib/loaders/template-loader.js!../../../lib/loaders/fragment-loader.js?index=0&type=template!./TestTemplate/ImportTemplateAlias/comp.ux?uxType=page& 1`] = `
+"module.exports = {
+  \\"type\\": \\"text\\",
+  \\"attr\\": {
+    \\"value\\": function () {return this.message}
+  }
+}"
+`;
+
+exports[`Template 编译测试 ux templates: ../../../lib/loaders/template-loader.js!../../../lib/loaders/fragment-loader.js?index=0&type=template!./TestTemplate/ImportTemplateAlias/testimporttemplatealias.ux?uxType=page& 1`] = `
+"module.exports = {
+  \\"type\\": \\"div\\",
+  \\"attr\\": {},
+  \\"classList\\": [
+    \\"container\\"
+  ],
+  \\"children\\": [
+    {
+      \\"type\\": \\"comp1\\",
+      \\"attr\\": {
+        \\"message\\": \\"TEXT1\\"
+      }
+    },
+    {
+      \\"type\\": \\"comp2\\",
+      \\"attr\\": {
+        \\"message\\": \\"TEXT2\\"
+      }
+    },
+    {
+      \\"type\\": \\"comp3\\",
+      \\"attr\\": {
+        \\"message\\": \\"TEXT3\\"
+      }
+    },
+    {
+      \\"type\\": \\"comp4\\",
+      \\"attr\\": {
+        \\"message\\": \\"TEXT4\\"
+      }
+    },
+    {
+      \\"type\\": \\"comp5\\",
+      \\"attr\\": {
+        \\"message\\": \\"TEXT5\\"
+      }
+    },
+    {
+      \\"type\\": \\"comp6\\",
+      \\"attr\\": {
+        \\"message\\": \\"TEXT6\\"
+      }
+    }
+  ]
+}"
+`;
+
+exports[`Template 编译测试 ux templates: ../../../lib/loaders/template-loader.js!../../../lib/loaders/fragment-loader.js?index=0&type=template!./TestTemplate/InlineStyle/testinlinestyle.ux?uxType=page& 1`] = `
+"module.exports = {
+  \\"type\\": \\"div\\",
+  \\"attr\\": {},
+  \\"children\\": [
+    {
+      \\"type\\": \\"text\\",
+      \\"attr\\": {
+        \\"value\\": \\"test padding\\"
+      },
+      \\"style\\": {
+        \\"paddingTop\\": \\"10px\\",
+        \\"paddingRight\\": \\"20px\\",
+        \\"paddingBottom\\": \\"30px\\",
+        \\"paddingLeft\\": \\"40px\\"
+      }
+    },
+    {
+      \\"type\\": \\"text\\",
+      \\"attr\\": {
+        \\"value\\": \\"test margin\\"
+      },
+      \\"style\\": {
+        \\"marginTop\\": \\"10px\\",
+        \\"marginRight\\": \\"20px\\",
+        \\"marginBottom\\": \\"30px\\",
+        \\"marginLeft\\": \\"40px\\"
+      }
+    },
+    {
+      \\"type\\": \\"text\\",
+      \\"attr\\": {
+        \\"value\\": \\"test border\\"
+      },
+      \\"style\\": {
+        \\"borderTopWidth\\": \\"1px\\",
+        \\"borderRightWidth\\": \\"1px\\",
+        \\"borderBottomWidth\\": \\"1px\\",
+        \\"borderLeftWidth\\": \\"1px\\",
+        \\"borderStyle\\": \\"solid\\",
+        \\"borderTopColor\\": \\"#FF0000\\",
+        \\"borderRightColor\\": \\"#FF0000\\",
+        \\"borderBottomColor\\": \\"#FF0000\\",
+        \\"borderLeftColor\\": \\"#FF0000\\"
+      }
+    },
+    {
+      \\"type\\": \\"text\\",
+      \\"attr\\": {
+        \\"value\\": \\"test border-width\\"
+      },
+      \\"style\\": {
+        \\"borderTopWidth\\": \\"10px\\",
+        \\"borderRightWidth\\": \\"20px\\",
+        \\"borderBottomWidth\\": \\"30px\\",
+        \\"borderLeftWidth\\": \\"40px\\"
+      }
+    },
+    {
+      \\"type\\": \\"text\\",
+      \\"attr\\": {
+        \\"value\\": \\"test border-color\\"
+      },
+      \\"style\\": {
+        \\"borderTopColor\\": \\"#FF0000\\",
+        \\"borderRightColor\\": \\"#000000\\",
+        \\"borderBottomColor\\": \\"#0000FF\\",
+        \\"borderLeftColor\\": \\"#ffffff\\"
+      }
+    }
+  ]
+}"
+`;
+
+exports[`Template 编译测试 ux templates: ../../../lib/loaders/template-loader.js!../../../lib/loaders/fragment-loader.js?index=0&type=template!./TestTemplate/JSX/testjsx.ux?uxType=page& 1`] = `
+"module.exports = {
+  \\"type\\": \\"div\\",
+  \\"attr\\": {},
+  \\"classList\\": [
+    \\"container\\"
+  ],
+  \\"children\\": [
+    {
+      \\"type\\": \\"slot\\",
+      \\"attr\\": {
+        \\"content\\": \\"renderA\\",
+        \\"name\\": \\"default\\"
+      }
+    },
+    {
+      \\"type\\": \\"block\\",
+      \\"attr\\": {},
+      \\"repeat\\": function () {return this.list},
+      \\"children\\": [
+        {
+          \\"type\\": \\"slot\\",
+          \\"attr\\": {
+            \\"content\\": function () {return this.renderB(this.$item)},
+            \\"name\\": \\"default\\"
+          }
+        }
+      ]
+    }
+  ]
+}"
+`;
+
+exports[`Template 编译测试 ux templates: ../../../lib/loaders/template-loader.js!../../../lib/loaders/fragment-loader.js?index=0&type=template!./TestTemplate/List/testlist.ux?uxType=page& 1`] = `
+"module.exports = {
+  \\"type\\": \\"div\\",
+  \\"attr\\": {},
+  \\"classList\\": [
+    \\"container\\"
+  ],
+  \\"children\\": [
+    {
+      \\"type\\": \\"list\\",
+      \\"attr\\": {},
+      \\"events\\": {
+        \\"scroll\\": \\"scroll\\",
+        \\"scrollbottom\\": \\"scrollbottom\\",
+        \\"scrolltop\\": \\"scrolltop\\",
+        \\"scrollend\\": \\"scrollend\\",
+        \\"scrolltouchup\\": \\"scrolltouchup\\"
+      },
+      \\"children\\": [
+        {
+          \\"type\\": \\"block\\",
+          \\"attr\\": {},
+          \\"repeat\\": function () {return this.cities},
+          \\"children\\": [
+            {
+              \\"type\\": \\"list-item\\",
+              \\"attr\\": {
+                \\"type\\": \\"city\\"
+              },
+              \\"children\\": [
+                {
+                  \\"type\\": \\"div\\",
+                  \\"attr\\": {},
+                  \\"children\\": [
+                    {
+                      \\"type\\": \\"text\\",
+                      \\"attr\\": {
+                        \\"value\\": \\"城市名称\\"
+                      }
+                    },
+                    {
+                      \\"type\\": \\"text\\",
+                      \\"attr\\": {
+                        \\"value\\": function () {return this.$item.name}
+                      }
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              \\"type\\": \\"block\\",
+              \\"attr\\": {},
+              \\"repeat\\": function () {return this.$item.spots},
+              \\"children\\": [
+                {
+                  \\"type\\": \\"list-item\\",
+                  \\"attr\\": {
+                    \\"type\\": \\"spot\\"
+                  },
+                  \\"children\\": [
+                    {
+                      \\"type\\": \\"stack\\",
+                      \\"attr\\": {},
+                      \\"children\\": [
+                        {
+                          \\"type\\": \\"text\\",
+                          \\"attr\\": {
+                            \\"value\\": \\"城市地址\\"
+                          }
+                        },
+                        {
+                          \\"type\\": \\"text\\",
+                          \\"attr\\": {
+                            \\"value\\": function () {return this.$item.address}
+                          }
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          \\"type\\": \\"list-item\\",
+          \\"attr\\": {
+            \\"type\\": \\"loadMore\\"
+          },
+          \\"children\\": [
+            {
+              \\"type\\": \\"progress\\",
+              \\"attr\\": {
+                \\"type\\": \\"circular\\"
+              }
+            },
+            {
+              \\"type\\": \\"text\\",
+              \\"attr\\": {
+                \\"value\\": \\"加载更多\\"
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}"
+`;
+
+exports[`Template 编译测试 ux templates: ../../../lib/loaders/template-loader.js!../../../lib/loaders/fragment-loader.js?index=0&type=template!./TestTemplate/NestedIf/testnestedif.ux?uxType=page& 1`] = `
+"module.exports = {
+  \\"type\\": \\"div\\",
+  \\"attr\\": {},
+  \\"classList\\": [
+    \\"doc-page\\"
+  ],
+  \\"children\\": [
+    {
+      \\"type\\": \\"div\\",
+      \\"attr\\": {},
+      \\"classList\\": [
+        \\"doc-row\\"
+      ],
+      \\"shown\\": function () {return this.level1True},
+      \\"children\\": [
+        {
+          \\"type\\": \\"text\\",
+          \\"attr\\": {
+            \\"value\\": \\"1. visible\\"
+          },
+          \\"shown\\": function () {return this.level2True}
+        },
+        {
+          \\"type\\": \\"text\\",
+          \\"attr\\": {
+            \\"value\\": \\"2. invisible\\"
+          },
+          \\"shown\\": function () {return this.level2False}
+        }
+      ]
+    },
+    {
+      \\"type\\": \\"div\\",
+      \\"attr\\": {},
+      \\"classList\\": [
+        \\"doc-row\\"
+      ],
+      \\"shown\\": function () {return this.level1False},
+      \\"children\\": [
+        {
+          \\"type\\": \\"text\\",
+          \\"attr\\": {
+            \\"value\\": \\"3. invisible\\"
+          }
+        }
+      ]
+    },
+    {
+      \\"type\\": \\"div\\",
+      \\"attr\\": {},
+      \\"classList\\": [
+        \\"doc-row\\"
+      ],
+      \\"shown\\": function () {return (this.level1True)&&!(this.level1False)},
+      \\"children\\": [
+        {
+          \\"type\\": \\"text\\",
+          \\"attr\\": {
+            \\"value\\": \\"4. invisible\\"
+          },
+          \\"shown\\": function () {return this.level2False}
+        },
+        {
+          \\"type\\": \\"div\\",
+          \\"attr\\": {},
+          \\"shown\\": function () {return (this.level2True)&&!(this.level2False)},
+          \\"children\\": [
+            {
+              \\"type\\": \\"text\\",
+              \\"attr\\": {
+                \\"value\\": \\"5. invisible\\"
+              },
+              \\"shown\\": function () {return this.level3False}
+            },
+            {
+              \\"type\\": \\"text\\",
+              \\"attr\\": {
+                \\"value\\": \\"6. visible\\"
+              },
+              \\"shown\\": function () {return (this.level3True)&&!(this.level3False)}
+            }
+          ]
+        }
+      ]
+    },
+    {
+      \\"type\\": \\"div\\",
+      \\"attr\\": {},
+      \\"classList\\": [
+        \\"doc-row\\"
+      ],
+      \\"shown\\": function () {return this.level1True},
+      \\"children\\": [
+        {
+          \\"type\\": \\"text\\",
+          \\"attr\\": {
+            \\"value\\": \\"7. invisible\\"
+          },
+          \\"shown\\": function () {return this.level2False}
+        },
+        {
+          \\"type\\": \\"text\\",
+          \\"attr\\": {
+            \\"value\\": \\"8. visible\\"
+          },
+          \\"shown\\": function () {return !(this.level2False)}
+        }
+      ]
+    },
+    {
+      \\"type\\": \\"div\\",
+      \\"attr\\": {},
+      \\"classList\\": [
+        \\"doc-row\\"
+      ],
+      \\"shown\\": function () {return !(this.level1True)},
+      \\"children\\": [
+        {
+          \\"type\\": \\"text\\",
+          \\"attr\\": {
+            \\"value\\": \\"9. invisible\\"
+          },
+          \\"shown\\": function () {return this.level2True}
+        },
+        {
+          \\"type\\": \\"text\\",
+          \\"attr\\": {
+            \\"value\\": \\"10. invisible\\"
+          },
+          \\"shown\\": function () {return !(this.level2True)}
+        }
+      ]
+    },
+    {
+      \\"type\\": \\"div\\",
+      \\"attr\\": {},
+      \\"classList\\": [
+        \\"doc-row\\"
+      ],
+      \\"shown\\": function () {return this.level1False},
+      \\"children\\": [
+        {
+          \\"type\\": \\"text\\",
+          \\"attr\\": {
+            \\"value\\": \\"11. invisible\\"
+          }
+        }
+      ]
+    },
+    {
+      \\"type\\": \\"div\\",
+      \\"attr\\": {},
+      \\"classList\\": [
+        \\"doc-row\\"
+      ],
+      \\"shown\\": function () {return (this.level1True)&&!(this.level1False)},
+      \\"children\\": [
+        {
+          \\"type\\": \\"text\\",
+          \\"attr\\": {
+            \\"value\\": \\"12. invisible\\"
+          },
+          \\"shown\\": function () {return this.level2False}
+        },
+        {
+          \\"type\\": \\"text\\",
+          \\"attr\\": {
+            \\"value\\": \\"13. visible\\"
+          },
+          \\"shown\\": function () {return (this.level2True)&&!(this.level2False)}
+        },
+        {
+          \\"type\\": \\"text\\",
+          \\"attr\\": {
+            \\"value\\": \\"14. invisible\\"
+          },
+          \\"shown\\": function () {return !(this.level2False)&&!(this.level2True)}
+        }
+      ]
+    },
+    {
+      \\"type\\": \\"div\\",
+      \\"attr\\": {},
+      \\"shown\\": function () {return !(this.level1False)&&!(this.level1True)},
+      \\"children\\": [
+        {
+          \\"type\\": \\"text\\",
+          \\"attr\\": {
+            \\"value\\": \\"15. invisible\\"
+          }
+        }
+      ]
+    },
+    {
+      \\"type\\": \\"div\\",
+      \\"attr\\": {},
+      \\"classList\\": [
+        \\"doc-row\\"
+      ],
+      \\"shown\\": function () {return this.level1False},
+      \\"children\\": [
+        {
+          \\"type\\": \\"text\\",
+          \\"attr\\": {
+            \\"value\\": \\"16. invisible\\"
+          }
+        }
+      ]
+    },
+    {
+      \\"type\\": \\"div\\",
+      \\"attr\\": {},
+      \\"classList\\": [
+        \\"doc-row\\"
+      ],
+      \\"shown\\": function () {return (this.level1True===true)&&!(this.level1False)},
+      \\"children\\": [
+        {
+          \\"type\\": \\"text\\",
+          \\"attr\\": {
+            \\"value\\": \\"17. visible\\"
+          },
+          \\"shown\\": function () {return this.level2False==false}
+        },
+        {
+          \\"type\\": \\"div\\",
+          \\"attr\\": {},
+          \\"classList\\": [
+            \\"doc-row\\"
+          ],
+          \\"shown\\": function () {return this.level2True},
+          \\"children\\": [
+            {
+              \\"type\\": \\"text\\",
+              \\"attr\\": {
+                \\"value\\": \\"18. visible\\"
+              }
+            }
+          ]
+        },
+        {
+          \\"type\\": \\"div\\",
+          \\"attr\\": {},
+          \\"shown\\": function () {return !(this.level2True)},
+          \\"children\\": [
+            {
+              \\"type\\": \\"text\\",
+              \\"attr\\": {
+                \\"value\\": \\"19. invisible\\"
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}"
+`;
+
+exports[`Template 编译测试 ux templates: ../../../lib/loaders/template-loader.js!../../../lib/loaders/fragment-loader.js?index=0&type=template!./TestTemplate/PlainText/testplaintext.ux?uxType=page& 1`] = `
+"module.exports = {
+  \\"type\\": \\"template\\",
+  \\"attr\\": {}
+}"
+`;
+
+exports[`Template 编译测试 ux templates: ../../../lib/loaders/template-loader.js!../../../lib/loaders/fragment-loader.js?index=0&type=template!./TestTemplate/Refresh/testrefresh.ux?uxType=page& 1`] = `
+"module.exports = {
+  \\"type\\": \\"div\\",
+  \\"attr\\": {},
+  \\"classList\\": [
+    \\"container\\"
+  ],
+  \\"children\\": [
+    {
+      \\"type\\": \\"refresh\\",
+      \\"attr\\": {
+        \\"offset\\": \\"200px\\",
+        \\"refreshing\\": \\"false\\"
+      },
+      \\"style\\": {
+        \\"backgroundColor\\": \\"#FF0000\\",
+        \\"progressColor\\": \\"#FFFFFF\\"
+      },
+      \\"events\\": {
+        \\"refresh\\": \\"refresh\\"
+      },
+      \\"children\\": [
+        {
+          \\"type\\": \\"richtext\\",
+          \\"attr\\": {},
+          \\"children\\": [
+            {
+              \\"type\\": \\"text\\",
+              \\"attr\\": {
+                \\"value\\": \\"TEXT\\"
+              }
+            }
+          ]
+        },
+        {
+          \\"type\\": \\"stack\\",
+          \\"attr\\": {},
+          \\"children\\": [
+            {
+              \\"type\\": \\"image\\",
+              \\"attr\\": {
+                \\"src\\": \\"/packages/hap-dsl-xvm/test/case/ux/TestTemplate/Refresh/A\\"
+              }
+            },
+            {
+              \\"type\\": \\"text\\",
+              \\"attr\\": {
+                \\"value\\": \\"stack\\"
+              }
+            }
+          ]
+        },
+        {
+          \\"type\\": \\"swiper\\",
+          \\"attr\\": {
+            \\"index\\": \\"1\\",
+            \\"autoplay\\": \\"true\\",
+            \\"interval\\": \\"1000ms\\",
+            \\"indicator\\": \\"true\\"
+          },
+          \\"events\\": {
+            \\"change\\": \\"changeSwiper\\"
+          },
+          \\"children\\": [
+            {
+              \\"type\\": \\"block\\",
+              \\"attr\\": {},
+              \\"repeat\\": function () {return this.swiperList},
+              \\"children\\": [
+                {
+                  \\"type\\": \\"image\\",
+                  \\"attr\\": {
+                    \\"src\\": function () {return this.$item}
+                  }
+                }
+              ]
+            }
+          ]
+        },
+        {
+          \\"type\\": \\"tabs\\",
+          \\"attr\\": {
+            \\"index\\": \\"1\\"
+          },
+          \\"events\\": {
+            \\"change\\": \\"changeTabs\\"
+          },
+          \\"children\\": [
+            {
+              \\"type\\": \\"tab-bar\\",
+              \\"attr\\": {},
+              \\"children\\": [
+                {
+                  \\"type\\": \\"text\\",
+                  \\"attr\\": {
+                    \\"value\\": \\"A\\"
+                  }
+                },
+                {
+                  \\"type\\": \\"text\\",
+                  \\"attr\\": {
+                    \\"value\\": \\"B\\"
+                  }
+                },
+                {
+                  \\"type\\": \\"text\\",
+                  \\"attr\\": {
+                    \\"value\\": \\"C\\"
+                  }
+                }
+              ]
+            },
+            {
+              \\"type\\": \\"tab-content\\",
+              \\"attr\\": {},
+              \\"children\\": [
+                {
+                  \\"type\\": \\"text\\",
+                  \\"attr\\": {
+                    \\"value\\": \\"A-content\\"
+                  }
+                },
+                {
+                  \\"type\\": \\"text\\",
+                  \\"attr\\": {
+                    \\"value\\": \\"B-content\\"
+                  }
+                },
+                {
+                  \\"type\\": \\"text\\",
+                  \\"attr\\": {
+                    \\"value\\": \\"C-content\\"
+                  }
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}"
+`;
+
+exports[`Template 编译测试 ux templates: ../../../lib/loaders/template-loader.js!../../../lib/loaders/fragment-loader.js?index=0&type=template!./TestTemplate/RegExp/testregexp.ux?uxType=page& 1`] = `
+"module.exports = {
+  \\"type\\": \\"div\\",
+  \\"attr\\": {
+    \\"attr\\": function () {return '' + '\\"width\\":' + (this.width)},
+    \\"reg\\": function () {return /abc/g}
+  },
+  \\"classList\\": [
+    \\"container\\"
+  ]
+}"
+`;
+
+exports[`Template 编译测试 ux templates: ../../../lib/loaders/template-loader.js!../../../lib/loaders/fragment-loader.js?index=0&type=template!./TestTemplate/RegExpText/testregexp.ux?uxType=page& 1`] = `
+"module.exports = {
+  \\"type\\": \\"div\\",
+  \\"attr\\": {},
+  \\"classList\\": [
+    \\"container\\"
+  ],
+  \\"children\\": [
+    {
+      \\"type\\": \\"div\\",
+      \\"attr\\": {},
+      \\"children\\": [
+        {
+          \\"type\\": \\"text\\",
+          \\"attr\\": {
+            \\"value\\": function () {return 'p123P90p'.replace(/[0-9]+/,'--flag--').replace(new RegExp('[a-zA-Z]+','g'),'$')}
+          }
+        }
+      ]
+    },
+    {
+      \\"type\\": \\"div\\",
+      \\"attr\\": {},
+      \\"children\\": [
+        {
+          \\"type\\": \\"text\\",
+          \\"attr\\": {
+            \\"value\\": function () {return 'p123P90p'.replace(/[0-9]+/,'--flag--').replace(/[a-z]+/g,'$')}
+          }
+        }
+      ]
+    },
+    {
+      \\"type\\": \\"div\\",
+      \\"attr\\": {},
+      \\"children\\": [
+        {
+          \\"type\\": \\"text\\",
+          \\"attr\\": {
+            \\"value\\": function () {return 'p123P90p'.replace(/[0-9]+/,'--flag--').replace(new RegExp('[a-zA-Z]+','ig'),'$')}
+          }
+        }
+      ]
+    }
+  ]
+}"
+`;
+
+exports[`Template 编译测试 ux templates: ../../../lib/loaders/template-loader.js!../../../lib/loaders/fragment-loader.js?index=0&type=template!./TestTemplate/Show/testshow.ux?uxType=page& 1`] = `
+"module.exports = {
+  \\"type\\": \\"div\\",
+  \\"attr\\": {},
+  \\"classList\\": [
+    \\"container\\"
+  ],
+  \\"children\\": [
+    {
+      \\"type\\": \\"text\\",
+      \\"attr\\": {
+        \\"show\\": function () {return this.visible},
+        \\"value\\": \\"TEXT\\"
+      }
+    }
+  ]
+}"
+`;
+
+exports[`Template 编译测试 ux templates: ../../../lib/loaders/template-loader.js!../../../lib/loaders/fragment-loader.js?index=0&type=template!./TestTemplate/Simple/testsimple.ux?uxType=page& 1`] = `
+"module.exports = {
+  \\"type\\": \\"div\\",
+  \\"attr\\": {},
+  \\"classList\\": [
+    \\"container\\"
+  ]
+}"
+`;
+
+exports[`Template 编译测试 ux templates: ../../../lib/loaders/template-loader.js!../../../lib/loaders/fragment-loader.js?index=0&type=template!./TestTemplate/Slot/comp1.ux?uxType=page& 1`] = `
+"module.exports = {
+  \\"type\\": \\"div\\",
+  \\"attr\\": {},
+  \\"children\\": [
+    {
+      \\"type\\": \\"text\\",
+      \\"attr\\": {
+        \\"value\\": \\"header\\"
+      }
+    },
+    {
+      \\"type\\": \\"text\\",
+      \\"attr\\": {},
+      \\"children\\": [
+        {
+          \\"type\\": \\"slot\\",
+          \\"attr\\": {
+            \\"name\\": \\"default\\"
+          }
+        }
+      ]
+    },
+    {
+      \\"type\\": \\"text\\",
+      \\"attr\\": {
+        \\"value\\": \\"footer\\"
+      }
+    }
+  ]
+}"
+`;
+
+exports[`Template 编译测试 ux templates: ../../../lib/loaders/template-loader.js!../../../lib/loaders/fragment-loader.js?index=0&type=template!./TestTemplate/Slot/comp2.ux?uxType=page& 1`] = `
+"module.exports = {
+  \\"type\\": \\"div\\",
+  \\"attr\\": {},
+  \\"children\\": [
+    {
+      \\"type\\": \\"text\\",
+      \\"attr\\": {
+        \\"value\\": \\"header\\"
+      }
+    },
+    {
+      \\"type\\": \\"slot\\",
+      \\"attr\\": {
+        \\"name\\": \\"default\\"
+      }
+    },
+    {
+      \\"type\\": \\"text\\",
+      \\"attr\\": {
+        \\"value\\": \\"footer\\"
+      }
+    }
+  ]
+}"
+`;
+
+exports[`Template 编译测试 ux templates: ../../../lib/loaders/template-loader.js!../../../lib/loaders/fragment-loader.js?index=0&type=template!./TestTemplate/Slot/comp3.ux?uxType=page& 1`] = `
+"module.exports = {
+  \\"type\\": \\"div\\",
+  \\"attr\\": {},
+  \\"children\\": [
+    {
+      \\"type\\": \\"text\\",
+      \\"attr\\": {
+        \\"value\\": \\"header\\"
+      }
+    },
+    {
+      \\"type\\": \\"slot\\",
+      \\"attr\\": {
+        \\"name\\": \\"default\\"
+      },
+      \\"children\\": [
+        {
+          \\"type\\": \\"text\\",
+          \\"attr\\": {
+            \\"value\\": \\"default slot header\\"
+          }
+        },
+        {
+          \\"type\\": \\"div\\",
+          \\"attr\\": {},
+          \\"children\\": [
+            {
+              \\"type\\": \\"text\\",
+              \\"attr\\": {
+                \\"value\\": \\"default slot main\\"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      \\"type\\": \\"text\\",
+      \\"attr\\": {
+        \\"value\\": \\"footer\\"
+      }
+    }
+  ]
+}"
+`;
+
+exports[`Template 编译测试 ux templates: ../../../lib/loaders/template-loader.js!../../../lib/loaders/fragment-loader.js?index=0&type=template!./TestTemplate/Slot/testslot.ux?uxType=page& 1`] = `
+"module.exports = {
+  \\"type\\": \\"div\\",
+  \\"attr\\": {},
+  \\"classList\\": [
+    \\"container\\"
+  ],
+  \\"children\\": [
+    {
+      \\"type\\": \\"comp1\\",
+      \\"attr\\": {}
+    },
+    {
+      \\"type\\": \\"comp1\\",
+      \\"attr\\": {},
+      \\"children\\": [
+        {
+          \\"type\\": \\"span\\",
+          \\"attr\\": {
+            \\"value\\": \\"body\\"
+          }
+        }
+      ]
+    },
+    {
+      \\"type\\": \\"comp1\\",
+      \\"attr\\": {},
+      \\"children\\": [
+        {
+          \\"type\\": \\"span\\",
+          \\"attr\\": {
+            \\"value\\": \\"body2\\"
+          }
+        }
+      ]
+    },
+    {
+      \\"type\\": \\"comp2\\",
+      \\"attr\\": {},
+      \\"children\\": [
+        {
+          \\"type\\": \\"text\\",
+          \\"attr\\": {
+            \\"value\\": \\"body\\"
+          }
+        }
+      ]
+    },
+    {
+      \\"type\\": \\"comp3\\",
+      \\"attr\\": {}
+    }
+  ]
+}"
+`;
+
+exports[`Template 编译测试 ux templates: ../../../lib/loaders/template-loader.js!../../../lib/loaders/fragment-loader.js?index=0&type=template!./TestTemplate/Tabs/testtabs.ux?uxType=page& 1`] = `
+"module.exports = {
+  \\"type\\": \\"div\\",
+  \\"attr\\": {},
+  \\"classList\\": [
+    \\"container\\"
+  ],
+  \\"children\\": [
+    {
+      \\"type\\": \\"tabs\\",
+      \\"attr\\": {},
+      \\"events\\": {
+        \\"change\\": \\"changeTabs\\"
+      },
+      \\"children\\": [
+        {
+          \\"type\\": \\"tab-bar\\",
+          \\"attr\\": {},
+          \\"children\\": [
+            {
+              \\"type\\": \\"text\\",
+              \\"attr\\": {
+                \\"value\\": \\"list\\"
+              }
+            },
+            {
+              \\"type\\": \\"text\\",
+              \\"attr\\": {
+                \\"value\\": \\"refresh\\"
+              }
+            },
+            {
+              \\"type\\": \\"text\\",
+              \\"attr\\": {
+                \\"value\\": \\"richtext\\"
+              }
+            },
+            {
+              \\"type\\": \\"text\\",
+              \\"attr\\": {
+                \\"value\\": \\"stack\\"
+              }
+            },
+            {
+              \\"type\\": \\"text\\",
+              \\"attr\\": {
+                \\"value\\": \\"swiper\\"
+              }
+            }
+          ]
+        },
+        {
+          \\"type\\": \\"tab-content\\",
+          \\"attr\\": {},
+          \\"children\\": [
+            {
+              \\"type\\": \\"list\\",
+              \\"attr\\": {},
+              \\"events\\": {
+                \\"scroll\\": \\"scroll\\",
+                \\"scrollbottom\\": \\"scrollbottom\\",
+                \\"scrolltop\\": \\"scrolltop\\"
+              },
+              \\"children\\": [
+                {
+                  \\"type\\": \\"block\\",
+                  \\"attr\\": {},
+                  \\"repeat\\": function () {return this.cities},
+                  \\"children\\": [
+                    {
+                      \\"type\\": \\"list-item\\",
+                      \\"attr\\": {
+                        \\"type\\": \\"city\\"
+                      },
+                      \\"children\\": [
+                        {
+                          \\"type\\": \\"div\\",
+                          \\"attr\\": {},
+                          \\"children\\": [
+                            {
+                              \\"type\\": \\"text\\",
+                              \\"attr\\": {
+                                \\"value\\": \\"城市名称\\"
+                              }
+                            },
+                            {
+                              \\"type\\": \\"text\\",
+                              \\"attr\\": {
+                                \\"value\\": function () {return this.$item.name}
+                              }
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      \\"type\\": \\"block\\",
+                      \\"attr\\": {},
+                      \\"repeat\\": function () {return this.$item.spots},
+                      \\"children\\": [
+                        {
+                          \\"type\\": \\"list-item\\",
+                          \\"attr\\": {
+                            \\"type\\": \\"spot\\"
+                          },
+                          \\"children\\": [
+                            {
+                              \\"type\\": \\"div\\",
+                              \\"attr\\": {},
+                              \\"children\\": [
+                                {
+                                  \\"type\\": \\"text\\",
+                                  \\"attr\\": {
+                                    \\"value\\": \\"城市地址\\"
+                                  }
+                                },
+                                {
+                                  \\"type\\": \\"text\\",
+                                  \\"attr\\": {
+                                    \\"value\\": function () {return this.$item.address}
+                                  }
+                                }
+                              ]
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  \\"type\\": \\"list-item\\",
+                  \\"attr\\": {
+                    \\"type\\": \\"loadMore\\"
+                  },
+                  \\"children\\": [
+                    {
+                      \\"type\\": \\"progress\\",
+                      \\"attr\\": {
+                        \\"type\\": \\"circular\\"
+                      }
+                    },
+                    {
+                      \\"type\\": \\"text\\",
+                      \\"attr\\": {
+                        \\"value\\": \\"加载更多\\"
+                      }
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              \\"type\\": \\"refresh\\",
+              \\"attr\\": {},
+              \\"events\\": {
+                \\"refresh\\": \\"refresh\\"
+              },
+              \\"children\\": [
+                {
+                  \\"type\\": \\"text\\",
+                  \\"attr\\": {
+                    \\"value\\": \\"refresh\\"
+                  }
+                }
+              ]
+            },
+            {
+              \\"type\\": \\"richtext\\",
+              \\"attr\\": {},
+              \\"children\\": [
+                {
+                  \\"type\\": \\"text\\",
+                  \\"attr\\": {
+                    \\"value\\": \\"richtext\\"
+                  }
+                }
+              ]
+            },
+            {
+              \\"type\\": \\"stack\\",
+              \\"attr\\": {},
+              \\"children\\": [
+                {
+                  \\"type\\": \\"image\\",
+                  \\"attr\\": {
+                    \\"src\\": \\"/packages/hap-dsl-xvm/test/case/ux/TestTemplate/Tabs/A\\"
+                  }
+                },
+                {
+                  \\"type\\": \\"text\\",
+                  \\"attr\\": {
+                    \\"value\\": \\"stack\\"
+                  }
+                }
+              ]
+            },
+            {
+              \\"type\\": \\"swiper\\",
+              \\"attr\\": {
+                \\"index\\": \\"1\\",
+                \\"autoplay\\": \\"true\\",
+                \\"interval\\": \\"1000ms\\",
+                \\"indicator\\": \\"true\\"
+              },
+              \\"events\\": {
+                \\"change\\": \\"changeSwiper\\"
+              },
+              \\"children\\": [
+                {
+                  \\"type\\": \\"block\\",
+                  \\"attr\\": {},
+                  \\"repeat\\": function () {return this.swiperList},
+                  \\"children\\": [
+                    {
+                      \\"type\\": \\"image\\",
+                      \\"attr\\": {
+                        \\"src\\": function () {return this.$item}
+                      }
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}"
+`;
+
+exports[`Template 编译测试 ux templates: ../../../lib/loaders/template-loader.js!../../../lib/loaders/fragment-loader.js?index=0&type=template!./TestTemplate/TemplateLiterals/testtemplateliterals.ux?uxType=page& 1`] = `
+"module.exports = {
+  \\"type\\": \\"div\\",
+  \\"attr\\": {},
+  \\"classList\\": [
+    \\"container\\"
+  ],
+  \\"children\\": [
+    {
+      \\"type\\": \\"div\\",
+      \\"attr\\": {
+        \\"str\\": function () {return \`message:\${this.message}\`}
+      }
+    },
+    {
+      \\"type\\": \\"text\\",
+      \\"attr\\": {
+        \\"value\\": function () {return this.flag?\`This is \${this.sub.str1+this.sub.str2}\`:'ok'}
+      }
+    },
+    {
+      \\"type\\": \\"text\\",
+      \\"attr\\": {
+        \\"value\\": function () {return true?\`\${this.sub.str1}\`:'ok'}
+      }
+    },
+    {
+      \\"type\\": \\"text\\",
+      \\"attr\\": {
+        \\"value\\": function () {return this.sub.str1+this.sub.str2}
+      }
+    },
+    {
+      \\"type\\": \\"text\\",
+      \\"attr\\": {
+        \\"value\\": function () {return 'hello'+this.sub.str2}
+      }
+    }
+  ]
+}"
+`;
+
+exports[`Template 编译测试 ux templates: ../../../lib/loaders/template-loader.js!../../../lib/loaders/fragment-loader.js?index=0&type=template!./TestTemplate/TextContent/testtextcontent.ux?uxType=page& 1`] = `
+"module.exports = {
+  \\"type\\": \\"div\\",
+  \\"attr\\": {},
+  \\"children\\": [
+    {
+      \\"type\\": \\"text\\",
+      \\"attr\\": {
+        \\"value\\": \\" text \\"
+      }
+    },
+    {
+      \\"type\\": \\"text\\",
+      \\"attr\\": {},
+      \\"children\\": [
+        {
+          \\"type\\": \\"span\\",
+          \\"attr\\": {
+            \\"value\\": \\" span \\"
+          }
+        }
+      ]
+    },
+    {
+      \\"type\\": \\"text\\",
+      \\"attr\\": {},
+      \\"children\\": [
+        {
+          \\"type\\": \\"span\\",
+          \\"attr\\": {
+            \\"value\\": \\" text\\"
+          }
+        },
+        {
+          \\"type\\": \\"span\\",
+          \\"attr\\": {
+            \\"value\\": \\"span\\"
+          }
+        }
+      ]
+    },
+    {
+      \\"type\\": \\"text\\",
+      \\"attr\\": {},
+      \\"children\\": [
+        {
+          \\"type\\": \\"span\\",
+          \\"attr\\": {
+            \\"value\\": \\"span\\"
+          }
+        },
+        {
+          \\"type\\": \\"span\\",
+          \\"attr\\": {
+            \\"value\\": \\"text \\"
+          }
+        }
+      ]
+    },
+    {
+      \\"type\\": \\"text\\",
+      \\"attr\\": {},
+      \\"children\\": [
+        {
+          \\"type\\": \\"span\\",
+          \\"attr\\": {
+            \\"value\\": \\" text \\"
+          }
+        },
+        {
+          \\"type\\": \\"span\\",
+          \\"attr\\": {
+            \\"value\\": \\"span\\"
+          }
+        },
+        {
+          \\"type\\": \\"span\\",
+          \\"attr\\": {
+            \\"value\\": \\" text \\"
+          }
+        }
+      ]
+    },
+    {
+      \\"type\\": \\"text\\",
+      \\"attr\\": {},
+      \\"children\\": [
+        {
+          \\"type\\": \\"span\\",
+          \\"attr\\": {
+            \\"value\\": \\" text \\"
+          }
+        },
+        {
+          \\"type\\": \\"span\\",
+          \\"attr\\": {
+            \\"value\\": \\"span\\"
+          }
+        },
+        {
+          \\"type\\": \\"span\\",
+          \\"attr\\": {
+            \\"value\\": \\"span\\"
+          }
+        },
+        {
+          \\"type\\": \\"span\\",
+          \\"attr\\": {
+            \\"value\\": \\" text \\"
+          }
+        }
+      ]
+    },
+    {
+      \\"type\\": \\"text\\",
+      \\"attr\\": {},
+      \\"children\\": [
+        {
+          \\"type\\": \\"span\\",
+          \\"attr\\": {
+            \\"value\\": \\" text \\"
+          }
+        },
+        {
+          \\"type\\": \\"span\\",
+          \\"attr\\": {
+            \\"value\\": \\"span\\"
+          }
+        },
+        {
+          \\"type\\": \\"span\\",
+          \\"attr\\": {
+            \\"value\\": \\" text \\"
+          }
+        },
+        {
+          \\"type\\": \\"span\\",
+          \\"attr\\": {
+            \\"value\\": \\"span\\"
+          }
+        }
+      ]
+    },
+    {
+      \\"type\\": \\"text\\",
+      \\"attr\\": {},
+      \\"children\\": [
+        {
+          \\"type\\": \\"span\\",
+          \\"attr\\": {
+            \\"value\\": \\" text \\"
+          }
+        },
+        {
+          \\"type\\": \\"span\\",
+          \\"attr\\": {
+            \\"value\\": \\"span\\"
+          }
+        },
+        {
+          \\"type\\": \\"span\\",
+          \\"attr\\": {
+            \\"value\\": \\" text \\"
+          }
+        },
+        {
+          \\"type\\": \\"span\\",
+          \\"attr\\": {
+            \\"value\\": \\"span\\"
+          }
+        },
+        {
+          \\"type\\": \\"span\\",
+          \\"attr\\": {
+            \\"value\\": \\" text \\"
+          }
+        }
+      ]
+    },
+    {
+      \\"type\\": \\"text\\",
+      \\"attr\\": {},
+      \\"children\\": [
+        {
+          \\"type\\": \\"a\\",
+          \\"attr\\": {
+            \\"href\\": \\"#\\",
+            \\"value\\": \\"a\\"
+          }
+        }
+      ]
+    },
+    {
+      \\"type\\": \\"text\\",
+      \\"attr\\": {},
+      \\"children\\": [
+        {
+          \\"type\\": \\"span\\",
+          \\"attr\\": {
+            \\"value\\": \\" text \\"
+          }
+        },
+        {
+          \\"type\\": \\"a\\",
+          \\"attr\\": {
+            \\"href\\": \\"#\\",
+            \\"value\\": \\"a\\"
+          }
+        }
+      ]
+    },
+    {
+      \\"type\\": \\"text\\",
+      \\"attr\\": {},
+      \\"children\\": [
+        {
+          \\"type\\": \\"a\\",
+          \\"attr\\": {
+            \\"href\\": \\"#\\",
+            \\"value\\": \\"a\\"
+          }
+        },
+        {
+          \\"type\\": \\"span\\",
+          \\"attr\\": {
+            \\"value\\": \\" text \\"
+          }
+        }
+      ]
+    },
+    {
+      \\"type\\": \\"text\\",
+      \\"attr\\": {},
+      \\"children\\": [
+        {
+          \\"type\\": \\"span\\",
+          \\"attr\\": {
+            \\"value\\": \\" text \\"
+          }
+        },
+        {
+          \\"type\\": \\"a\\",
+          \\"attr\\": {
+            \\"href\\": \\"#\\",
+            \\"value\\": \\"a\\"
+          }
+        },
+        {
+          \\"type\\": \\"span\\",
+          \\"attr\\": {
+            \\"value\\": \\" text \\"
+          }
+        }
+      ]
+    },
+    {
+      \\"type\\": \\"text\\",
+      \\"attr\\": {},
+      \\"children\\": [
+        {
+          \\"type\\": \\"span\\",
+          \\"attr\\": {
+            \\"value\\": \\"span\\"
+          }
+        },
+        {
+          \\"type\\": \\"a\\",
+          \\"attr\\": {
+            \\"href\\": \\"#\\",
+            \\"value\\": \\"a\\"
+          }
+        }
+      ]
+    },
+    {
+      \\"type\\": \\"text\\",
+      \\"attr\\": {},
+      \\"children\\": [
+        {
+          \\"type\\": \\"a\\",
+          \\"attr\\": {
+            \\"href\\": \\"#\\",
+            \\"value\\": \\"a\\"
+          }
+        },
+        {
+          \\"type\\": \\"span\\",
+          \\"attr\\": {
+            \\"value\\": \\"span\\"
+          }
+        }
+      ]
+    },
+    {
+      \\"type\\": \\"text\\",
+      \\"attr\\": {},
+      \\"children\\": [
+        {
+          \\"type\\": \\"span\\",
+          \\"attr\\": {
+            \\"value\\": \\"span\\"
+          }
+        },
+        {
+          \\"type\\": \\"a\\",
+          \\"attr\\": {
+            \\"href\\": \\"#\\",
+            \\"value\\": \\"a\\"
+          }
+        },
+        {
+          \\"type\\": \\"span\\",
+          \\"attr\\": {
+            \\"value\\": \\"span\\"
+          }
+        }
+      ]
+    },
+    {
+      \\"type\\": \\"text\\",
+      \\"attr\\": {},
+      \\"children\\": [
+        {
+          \\"type\\": \\"span\\",
+          \\"attr\\": {
+            \\"value\\": \\" text \\"
+          }
+        },
+        {
+          \\"type\\": \\"a\\",
+          \\"attr\\": {
+            \\"href\\": \\"#\\",
+            \\"value\\": \\"a\\"
+          }
+        },
+        {
+          \\"type\\": \\"span\\",
+          \\"attr\\": {
+            \\"value\\": \\"span\\"
+          }
+        }
+      ]
+    },
+    {
+      \\"type\\": \\"text\\",
+      \\"attr\\": {},
+      \\"children\\": [
+        {
+          \\"type\\": \\"span\\",
+          \\"attr\\": {
+            \\"value\\": \\"span\\"
+          }
+        },
+        {
+          \\"type\\": \\"a\\",
+          \\"attr\\": {
+            \\"href\\": \\"#\\",
+            \\"value\\": \\"a\\"
+          }
+        },
+        {
+          \\"type\\": \\"span\\",
+          \\"attr\\": {
+            \\"value\\": \\" text \\"
+          }
+        }
+      ]
+    },
+    {
+      \\"type\\": \\"a\\",
+      \\"attr\\": {
+        \\"value\\": \\"a\\"
+      }
+    },
+    {
+      \\"type\\": \\"a\\",
+      \\"attr\\": {},
+      \\"children\\": [
+        {
+          \\"type\\": \\"span\\",
+          \\"attr\\": {
+            \\"value\\": \\"span\\"
+          }
+        }
+      ]
+    },
+    {
+      \\"type\\": \\"a\\",
+      \\"attr\\": {},
+      \\"children\\": [
+        {
+          \\"type\\": \\"span\\",
+          \\"attr\\": {
+            \\"value\\": \\" a\\"
+          }
+        },
+        {
+          \\"type\\": \\"span\\",
+          \\"attr\\": {
+            \\"value\\": \\"span\\"
+          }
+        }
+      ]
+    },
+    {
+      \\"type\\": \\"a\\",
+      \\"attr\\": {},
+      \\"children\\": [
+        {
+          \\"type\\": \\"span\\",
+          \\"attr\\": {
+            \\"value\\": \\"span\\"
+          }
+        },
+        {
+          \\"type\\": \\"span\\",
+          \\"attr\\": {
+            \\"value\\": \\"a \\"
+          }
+        }
+      ]
+    },
+    {
+      \\"type\\": \\"a\\",
+      \\"attr\\": {},
+      \\"children\\": [
+        {
+          \\"type\\": \\"span\\",
+          \\"attr\\": {
+            \\"value\\": \\" a \\"
+          }
+        },
+        {
+          \\"type\\": \\"span\\",
+          \\"attr\\": {
+            \\"value\\": \\"span\\"
+          }
+        },
+        {
+          \\"type\\": \\"span\\",
+          \\"attr\\": {
+            \\"value\\": \\" a \\"
+          }
+        }
+      ]
+    },
+    {
+      \\"type\\": \\"a\\",
+      \\"attr\\": {},
+      \\"children\\": [
+        {
+          \\"type\\": \\"span\\",
+          \\"attr\\": {
+            \\"value\\": \\" a \\"
+          }
+        },
+        {
+          \\"type\\": \\"span\\",
+          \\"attr\\": {
+            \\"value\\": \\"span\\"
+          }
+        },
+        {
+          \\"type\\": \\"span\\",
+          \\"attr\\": {
+            \\"value\\": \\"span\\"
+          }
+        },
+        {
+          \\"type\\": \\"span\\",
+          \\"attr\\": {
+            \\"value\\": \\" a \\"
+          }
+        }
+      ]
+    },
+    {
+      \\"type\\": \\"a\\",
+      \\"attr\\": {},
+      \\"children\\": [
+        {
+          \\"type\\": \\"span\\",
+          \\"attr\\": {
+            \\"value\\": \\" a \\"
+          }
+        },
+        {
+          \\"type\\": \\"span\\",
+          \\"attr\\": {
+            \\"value\\": \\"span\\"
+          }
+        },
+        {
+          \\"type\\": \\"span\\",
+          \\"attr\\": {
+            \\"value\\": \\" a \\"
+          }
+        },
+        {
+          \\"type\\": \\"span\\",
+          \\"attr\\": {
+            \\"value\\": \\"span\\"
+          }
+        }
+      ]
+    },
+    {
+      \\"type\\": \\"a\\",
+      \\"attr\\": {},
+      \\"children\\": [
+        {
+          \\"type\\": \\"span\\",
+          \\"attr\\": {
+            \\"value\\": \\" a \\"
+          }
+        },
+        {
+          \\"type\\": \\"span\\",
+          \\"attr\\": {
+            \\"value\\": \\"span\\"
+          }
+        },
+        {
+          \\"type\\": \\"span\\",
+          \\"attr\\": {
+            \\"value\\": \\" a \\"
+          }
+        },
+        {
+          \\"type\\": \\"span\\",
+          \\"attr\\": {
+            \\"value\\": \\"span\\"
+          }
+        },
+        {
+          \\"type\\": \\"span\\",
+          \\"attr\\": {
+            \\"value\\": \\" a \\"
+          }
+        }
+      ]
+    }
+  ]
+}"
+`;
+
+exports[`Template 编译测试 ux templates: ../../../lib/loaders/template-loader.js!../../../lib/loaders/fragment-loader.js?index=0&type=template!./TestTemplate/Xml/testxml.ux?uxType=page& 1`] = `
+"module.exports = {
+  \\"type\\": \\"div\\",
+  \\"attr\\": {},
+  \\"children\\": [
+    {
+      \\"type\\": \\"picker\\",
+      \\"attr\\": {}
+    },
+    {
+      \\"type\\": \\"image\\",
+      \\"attr\\": {}
+    },
+    {
+      \\"type\\": \\"slider\\",
+      \\"attr\\": {}
+    },
+    {
+      \\"type\\": \\"input\\",
+      \\"attr\\": {}
+    },
+    {
+      \\"type\\": \\"progress\\",
+      \\"attr\\": {}
+    },
+    {
+      \\"type\\": \\"switch\\",
+      \\"attr\\": {}
+    },
+    {
+      \\"type\\": \\"slot\\",
+      \\"attr\\": {
+        \\"name\\": \\"default\\"
+      }
+    },
+    {
+      \\"type\\": \\"picker\\",
+      \\"attr\\": {}
+    },
+    {
+      \\"type\\": \\"image\\",
+      \\"attr\\": {}
+    },
+    {
+      \\"type\\": \\"slider\\",
+      \\"attr\\": {}
+    },
+    {
+      \\"type\\": \\"input\\",
+      \\"attr\\": {}
+    },
+    {
+      \\"type\\": \\"progress\\",
+      \\"attr\\": {}
+    },
+    {
+      \\"type\\": \\"switch\\",
+      \\"attr\\": {}
+    },
+    {
+      \\"type\\": \\"slot\\",
+      \\"attr\\": {
+        \\"name\\": \\"default\\"
+      }
+    }
+  ]
+}"
+`;
+
+exports[`Template 编译测试 ux templates: ../../../lib/loaders/ux-loader.js?cwd=<CWD>&type=import!./TestTemplate/CustomDirectives/part1.ux?uxType=comp&name=sub-component 1`] = `
+"
+var $app_style$ = {}
+var $app_script$ = require(\\"!../../../../../lib/loaders/script-loader.js!../../../../../lib/loaders/module-loader.js!../../../../../node_modules/babel-loader/lib/index.js?cwd=<CWD>&cacheDirectory&plugins[]=<CWD>/packages/hap-dsl-xvm/lib/loaders/babel-plugin-jsx.js&comments=false&configFile=<CWD>/babel.config.js!../../../../../lib/loaders/fragment-loader.js?index=0&type=script!./part1.ux?uxType=comp\\")
+
+$app_define$('@app-component/sub-component', [], function($app_require$, $app_exports$, $app_module$) {
+     $app_script$($app_module$, $app_exports$, $app_require$)
+         if ($app_exports$.__esModule && $app_exports$.default) {
+            $app_module$.exports = $app_exports$.default
+        }
+     $app_module$.exports.template = require(\\"!../../../../../lib/loaders/template-loader.js!../../../../../lib/loaders/fragment-loader.js?index=0&type=template!./part1.ux?uxType=comp&\\")
+
+})"
+`;
+
+exports[`Template 编译测试 ux templates: ./TestTemplate/AllowedKeywords/testallowedkeywords.ux?uxType=page 1`] = `
+"
+var $app_style$ = require(\\"!../../../../../lib/loaders/style-loader.js?index=0&type=style!../../../../../lib/loaders/fragment-loader.js?index=0&type=style!./testallowedkeywords.ux?uxType=page\\")
+
+var $app_script$ = require(\\"!../../../../../lib/loaders/script-loader.js!../../../../../lib/loaders/module-loader.js!../../../../../node_modules/babel-loader/lib/index.js?cwd=<CWD>&cacheDirectory&plugins[]=<CWD>/packages/hap-dsl-xvm/lib/loaders/babel-plugin-jsx.js&comments=false&configFile=<CWD>/babel.config.js!../../../../../lib/loaders/access-loader.js!../../../../../lib/loaders/fragment-loader.js?index=0&type=script!./testallowedkeywords.ux?uxType=page\\")
+
+$app_define$('@app-component/testallowedkeywords', [], function($app_require$, $app_exports$, $app_module$) {
+     $app_script$($app_module$, $app_exports$, $app_require$)
+         if ($app_exports$.__esModule && $app_exports$.default) {
+            $app_module$.exports = $app_exports$.default
+        }
+     $app_module$.exports.template = require(\\"!../../../../../lib/loaders/template-loader.js!../../../../../lib/loaders/fragment-loader.js?index=0&type=template!./testallowedkeywords.ux?uxType=page&\\")
+
+     $app_module$.exports.style = $app_style$
+})
+$app_bootstrap$('@app-component/testallowedkeywords',{ packagerVersion: QUICKAPP_TOOLKIT_VERSION })"
+`;
+
+exports[`Template 编译测试 ux templates: ./TestTemplate/Aria/testaria.ux?uxType=page 1`] = `
+"
+var $app_style$ = require(\\"!../../../../../lib/loaders/style-loader.js?index=0&type=style!../../../../../lib/loaders/fragment-loader.js?index=0&type=style!./testaria.ux?uxType=page\\")
+
+var $app_script$ = require(\\"!../../../../../lib/loaders/script-loader.js!../../../../../lib/loaders/module-loader.js!../../../../../node_modules/babel-loader/lib/index.js?cwd=<CWD>&cacheDirectory&plugins[]=<CWD>/packages/hap-dsl-xvm/lib/loaders/babel-plugin-jsx.js&comments=false&configFile=<CWD>/babel.config.js!../../../../../lib/loaders/access-loader.js!../../../../../lib/loaders/fragment-loader.js?index=0&type=script!./testaria.ux?uxType=page\\")
+
+$app_define$('@app-component/testaria', [], function($app_require$, $app_exports$, $app_module$) {
+     $app_script$($app_module$, $app_exports$, $app_require$)
+         if ($app_exports$.__esModule && $app_exports$.default) {
+            $app_module$.exports = $app_exports$.default
+        }
+     $app_module$.exports.template = require(\\"!../../../../../lib/loaders/template-loader.js!../../../../../lib/loaders/fragment-loader.js?index=0&type=template!./testaria.ux?uxType=page&\\")
+
+     $app_module$.exports.style = $app_style$
+})
+$app_bootstrap$('@app-component/testaria',{ packagerVersion: QUICKAPP_TOOLKIT_VERSION })"
+`;
+
+exports[`Template 编译测试 ux templates: ./TestTemplate/Block/testblock.ux?uxType=page 1`] = `
+"
+var $app_style$ = require(\\"!../../../../../lib/loaders/style-loader.js?index=0&type=style!../../../../../lib/loaders/fragment-loader.js?index=0&type=style!./testblock.ux?uxType=page\\")
+
+var $app_script$ = require(\\"!../../../../../lib/loaders/script-loader.js!../../../../../lib/loaders/module-loader.js!../../../../../node_modules/babel-loader/lib/index.js?cwd=<CWD>&cacheDirectory&plugins[]=<CWD>/packages/hap-dsl-xvm/lib/loaders/babel-plugin-jsx.js&comments=false&configFile=<CWD>/babel.config.js!../../../../../lib/loaders/access-loader.js!../../../../../lib/loaders/fragment-loader.js?index=0&type=script!./testblock.ux?uxType=page\\")
+
+$app_define$('@app-component/testblock', [], function($app_require$, $app_exports$, $app_module$) {
+     $app_script$($app_module$, $app_exports$, $app_require$)
+         if ($app_exports$.__esModule && $app_exports$.default) {
+            $app_module$.exports = $app_exports$.default
+        }
+     $app_module$.exports.template = require(\\"!../../../../../lib/loaders/template-loader.js!../../../../../lib/loaders/fragment-loader.js?index=0&type=template!./testblock.ux?uxType=page&\\")
+
+     $app_module$.exports.style = $app_style$
+})
+$app_bootstrap$('@app-component/testblock',{ packagerVersion: QUICKAPP_TOOLKIT_VERSION })"
+`;
+
+exports[`Template 编译测试 ux templates: ./TestTemplate/Component/index.ux?uxType=page 1`] = `
+"
+var $app_style$ = {}
+var $app_script$ = null
+$app_define$('@app-component/index', [], function($app_require$, $app_exports$, $app_module$) {
+     $app_module$.exports.template = require(\\"!../../../../../lib/loaders/template-loader.js!../../../../../lib/loaders/fragment-loader.js?index=0&type=template!./index.ux?uxType=page&\\")
+
+})
+$app_bootstrap$('@app-component/index',{ packagerVersion: QUICKAPP_TOOLKIT_VERSION })"
+`;
+
+exports[`Template 编译测试 ux templates: ./TestTemplate/Component/part1.ux?uxType=page 1`] = `
+"
+var $app_style$ = {}
+var $app_script$ = null
+$app_define$('@app-component/part1', [], function($app_require$, $app_exports$, $app_module$) {
+     $app_module$.exports.template = require(\\"!../../../../../lib/loaders/template-loader.js!../../../../../lib/loaders/fragment-loader.js?index=0&type=template!./part1.ux?uxType=page&\\")
+
+})
+$app_bootstrap$('@app-component/part1',{ packagerVersion: QUICKAPP_TOOLKIT_VERSION })"
+`;
+
+exports[`Template 编译测试 ux templates: ./TestTemplate/Component/part2.ux?uxType=page 1`] = `
+"
+var $app_style$ = {}
+var $app_script$ = null
+$app_define$('@app-component/part2', [], function($app_require$, $app_exports$, $app_module$) {
+     $app_module$.exports.template = require(\\"!../../../../../lib/loaders/template-loader.js!../../../../../lib/loaders/fragment-loader.js?index=0&type=template!./part2.ux?uxType=page&\\")
+
+})
+$app_bootstrap$('@app-component/part2',{ packagerVersion: QUICKAPP_TOOLKIT_VERSION })"
+`;
+
+exports[`Template 编译测试 ux templates: ./TestTemplate/ComponentName/header.ux?uxType=page 1`] = `
+"
+var $app_style$ = {}
+var $app_script$ = null
+$app_define$('@app-component/header', [], function($app_require$, $app_exports$, $app_module$) {
+     $app_module$.exports.template = require(\\"!../../../../../lib/loaders/template-loader.js!../../../../../lib/loaders/fragment-loader.js?index=0&type=template!./header.ux?uxType=page&\\")
+
+})
+$app_bootstrap$('@app-component/header',{ packagerVersion: QUICKAPP_TOOLKIT_VERSION })"
+`;
+
+exports[`Template 编译测试 ux templates: ./TestTemplate/ComponentName/testcomponentname.ux?uxType=page 1`] = `
+"
+var $app_style$ = {}
+var $app_script$ = null
+$app_define$('@app-component/testcomponentname', [], function($app_require$, $app_exports$, $app_module$) {
+     $app_module$.exports.template = require(\\"!../../../../../lib/loaders/template-loader.js!../../../../../lib/loaders/fragment-loader.js?index=0&type=template!./testcomponentname.ux?uxType=page&\\")
+
+})
+$app_bootstrap$('@app-component/testcomponentname',{ packagerVersion: QUICKAPP_TOOLKIT_VERSION })"
+`;
+
+exports[`Template 编译测试 ux templates: ./TestTemplate/CustomDirectives/part1.ux?uxType=page 1`] = `
+"
+var $app_style$ = {}
+var $app_script$ = require(\\"!../../../../../lib/loaders/script-loader.js!../../../../../lib/loaders/module-loader.js!../../../../../node_modules/babel-loader/lib/index.js?cwd=<CWD>&cacheDirectory&plugins[]=<CWD>/packages/hap-dsl-xvm/lib/loaders/babel-plugin-jsx.js&comments=false&configFile=<CWD>/babel.config.js!../../../../../lib/loaders/access-loader.js!../../../../../lib/loaders/fragment-loader.js?index=0&type=script!./part1.ux?uxType=page\\")
+
+$app_define$('@app-component/part1', [], function($app_require$, $app_exports$, $app_module$) {
+     $app_script$($app_module$, $app_exports$, $app_require$)
+         if ($app_exports$.__esModule && $app_exports$.default) {
+            $app_module$.exports = $app_exports$.default
+        }
+     $app_module$.exports.template = require(\\"!../../../../../lib/loaders/template-loader.js!../../../../../lib/loaders/fragment-loader.js?index=0&type=template!./part1.ux?uxType=page&\\")
+
+})
+$app_bootstrap$('@app-component/part1',{ packagerVersion: QUICKAPP_TOOLKIT_VERSION })"
+`;
+
+exports[`Template 编译测试 ux templates: ./TestTemplate/CustomDirectives/testcustomdirectives.ux?uxType=page 1`] = `
+"require(\\"!../../../../../lib/loaders/ux-loader.js?cwd=<CWD>&type=import!./part1.ux?uxType=comp&name=sub-component\\")
+
+var $app_style$ = {}
+var $app_script$ = require(\\"!../../../../../lib/loaders/script-loader.js!../../../../../lib/loaders/module-loader.js!../../../../../node_modules/babel-loader/lib/index.js?cwd=<CWD>&cacheDirectory&plugins[]=<CWD>/packages/hap-dsl-xvm/lib/loaders/babel-plugin-jsx.js&comments=false&configFile=<CWD>/babel.config.js!../../../../../lib/loaders/access-loader.js!../../../../../lib/loaders/fragment-loader.js?index=0&type=script!./testcustomdirectives.ux?uxType=page\\")
+
+$app_define$('@app-component/testcustomdirectives', [], function($app_require$, $app_exports$, $app_module$) {
+     $app_script$($app_module$, $app_exports$, $app_require$)
+         if ($app_exports$.__esModule && $app_exports$.default) {
+            $app_module$.exports = $app_exports$.default
+        }
+     $app_module$.exports.template = require(\\"!../../../../../lib/loaders/template-loader.js!../../../../../lib/loaders/fragment-loader.js?index=0&type=template!./testcustomdirectives.ux?uxType=page&importNames[]=sub-component\\")
+
+})
+$app_bootstrap$('@app-component/testcustomdirectives',{ packagerVersion: QUICKAPP_TOOLKIT_VERSION })"
+`;
+
+exports[`Template 编译测试 ux templates: ./TestTemplate/DataBinding/testdatabinding.ux?uxType=page 1`] = `
+"
+var $app_style$ = require(\\"!../../../../../lib/loaders/style-loader.js?index=0&type=style!../../../../../lib/loaders/fragment-loader.js?index=0&type=style!./testdatabinding.ux?uxType=page\\")
+
+var $app_script$ = require(\\"!../../../../../lib/loaders/script-loader.js!../../../../../lib/loaders/module-loader.js!../../../../../node_modules/babel-loader/lib/index.js?cwd=<CWD>&cacheDirectory&plugins[]=<CWD>/packages/hap-dsl-xvm/lib/loaders/babel-plugin-jsx.js&comments=false&configFile=<CWD>/babel.config.js!../../../../../lib/loaders/access-loader.js!../../../../../lib/loaders/fragment-loader.js?index=0&type=script!./testdatabinding.ux?uxType=page\\")
+
+$app_define$('@app-component/testdatabinding', [], function($app_require$, $app_exports$, $app_module$) {
+     $app_script$($app_module$, $app_exports$, $app_require$)
+         if ($app_exports$.__esModule && $app_exports$.default) {
+            $app_module$.exports = $app_exports$.default
+        }
+     $app_module$.exports.template = require(\\"!../../../../../lib/loaders/template-loader.js!../../../../../lib/loaders/fragment-loader.js?index=0&type=template!./testdatabinding.ux?uxType=page&\\")
+
+     $app_module$.exports.style = $app_style$
+})
+$app_bootstrap$('@app-component/testdatabinding',{ packagerVersion: QUICKAPP_TOOLKIT_VERSION })"
+`;
+
+exports[`Template 编译测试 ux templates: ./TestTemplate/EventBinding/testeventbinding.ux?uxType=page 1`] = `
+"
+var $app_style$ = require(\\"!../../../../../lib/loaders/style-loader.js?index=0&type=style!../../../../../lib/loaders/fragment-loader.js?index=0&type=style!./testeventbinding.ux?uxType=page\\")
+
+var $app_script$ = require(\\"!../../../../../lib/loaders/script-loader.js!../../../../../lib/loaders/module-loader.js!../../../../../node_modules/babel-loader/lib/index.js?cwd=<CWD>&cacheDirectory&plugins[]=<CWD>/packages/hap-dsl-xvm/lib/loaders/babel-plugin-jsx.js&comments=false&configFile=<CWD>/babel.config.js!../../../../../lib/loaders/access-loader.js!../../../../../lib/loaders/fragment-loader.js?index=0&type=script!./testeventbinding.ux?uxType=page\\")
+
+$app_define$('@app-component/testeventbinding', [], function($app_require$, $app_exports$, $app_module$) {
+     $app_script$($app_module$, $app_exports$, $app_require$)
+         if ($app_exports$.__esModule && $app_exports$.default) {
+            $app_module$.exports = $app_exports$.default
+        }
+     $app_module$.exports.template = require(\\"!../../../../../lib/loaders/template-loader.js!../../../../../lib/loaders/fragment-loader.js?index=0&type=template!./testeventbinding.ux?uxType=page&\\")
+
+     $app_module$.exports.style = $app_style$
+})
+$app_bootstrap$('@app-component/testeventbinding',{ packagerVersion: QUICKAPP_TOOLKIT_VERSION })"
+`;
+
+exports[`Template 编译测试 ux templates: ./TestTemplate/Expression/testexpression.ux?uxType=page 1`] = `
+"
+var $app_style$ = require(\\"!../../../../../lib/loaders/style-loader.js?index=0&type=style!../../../../../lib/loaders/fragment-loader.js?index=0&type=style!./testexpression.ux?uxType=page\\")
+
+var $app_script$ = require(\\"!../../../../../lib/loaders/script-loader.js!../../../../../lib/loaders/module-loader.js!../../../../../node_modules/babel-loader/lib/index.js?cwd=<CWD>&cacheDirectory&plugins[]=<CWD>/packages/hap-dsl-xvm/lib/loaders/babel-plugin-jsx.js&comments=false&configFile=<CWD>/babel.config.js!../../../../../lib/loaders/access-loader.js!../../../../../lib/loaders/fragment-loader.js?index=0&type=script!./testexpression.ux?uxType=page\\")
+
+$app_define$('@app-component/testexpression', [], function($app_require$, $app_exports$, $app_module$) {
+     $app_script$($app_module$, $app_exports$, $app_require$)
+         if ($app_exports$.__esModule && $app_exports$.default) {
+            $app_module$.exports = $app_exports$.default
+        }
+     $app_module$.exports.template = require(\\"!../../../../../lib/loaders/template-loader.js!../../../../../lib/loaders/fragment-loader.js?index=0&type=template!./testexpression.ux?uxType=page&\\")
+
+     $app_module$.exports.style = $app_style$
+})
+$app_bootstrap$('@app-component/testexpression',{ packagerVersion: QUICKAPP_TOOLKIT_VERSION })"
+`;
+
+exports[`Template 编译测试 ux templates: ./TestTemplate/Filter/testfilter.ux?uxType=page 1`] = `
+"
+var $app_style$ = {}
+var $app_script$ = require(\\"!../../../../../lib/loaders/script-loader.js!../../../../../lib/loaders/module-loader.js!../../../../../node_modules/babel-loader/lib/index.js?cwd=<CWD>&cacheDirectory&plugins[]=<CWD>/packages/hap-dsl-xvm/lib/loaders/babel-plugin-jsx.js&comments=false&configFile=<CWD>/babel.config.js!../../../../../lib/loaders/access-loader.js!../../../../../lib/loaders/fragment-loader.js?index=0&type=script!./testfilter.ux?uxType=page\\")
+
+$app_define$('@app-component/testfilter', [], function($app_require$, $app_exports$, $app_module$) {
+     $app_script$($app_module$, $app_exports$, $app_require$)
+         if ($app_exports$.__esModule && $app_exports$.default) {
+            $app_module$.exports = $app_exports$.default
+        }
+     $app_module$.exports.template = require(\\"!../../../../../lib/loaders/template-loader.js!../../../../../lib/loaders/fragment-loader.js?index=0&type=template!./testfilter.ux?uxType=page&\\")
+
+})
+$app_bootstrap$('@app-component/testfilter',{ packagerVersion: QUICKAPP_TOOLKIT_VERSION })"
+`;
+
+exports[`Template 编译测试 ux templates: ./TestTemplate/For/testfor.ux?uxType=page 1`] = `
+"
+var $app_style$ = require(\\"!../../../../../lib/loaders/style-loader.js?index=0&type=style!../../../../../lib/loaders/fragment-loader.js?index=0&type=style!./testfor.ux?uxType=page\\")
+
+var $app_script$ = require(\\"!../../../../../lib/loaders/script-loader.js!../../../../../lib/loaders/module-loader.js!../../../../../node_modules/babel-loader/lib/index.js?cwd=<CWD>&cacheDirectory&plugins[]=<CWD>/packages/hap-dsl-xvm/lib/loaders/babel-plugin-jsx.js&comments=false&configFile=<CWD>/babel.config.js!../../../../../lib/loaders/access-loader.js!../../../../../lib/loaders/fragment-loader.js?index=0&type=script!./testfor.ux?uxType=page\\")
+
+$app_define$('@app-component/testfor', [], function($app_require$, $app_exports$, $app_module$) {
+     $app_script$($app_module$, $app_exports$, $app_require$)
+         if ($app_exports$.__esModule && $app_exports$.default) {
+            $app_module$.exports = $app_exports$.default
+        }
+     $app_module$.exports.template = require(\\"!../../../../../lib/loaders/template-loader.js!../../../../../lib/loaders/fragment-loader.js?index=0&type=template!./testfor.ux?uxType=page&\\")
+
+     $app_module$.exports.style = $app_style$
+})
+$app_bootstrap$('@app-component/testfor',{ packagerVersion: QUICKAPP_TOOLKIT_VERSION })"
+`;
+
+exports[`Template 编译测试 ux templates: ./TestTemplate/If/testif.ux?uxType=page 1`] = `
+"
+var $app_style$ = require(\\"!../../../../../lib/loaders/style-loader.js?index=0&type=style!../../../../../lib/loaders/fragment-loader.js?index=0&type=style!./testif.ux?uxType=page\\")
+
+var $app_script$ = require(\\"!../../../../../lib/loaders/script-loader.js!../../../../../lib/loaders/module-loader.js!../../../../../node_modules/babel-loader/lib/index.js?cwd=<CWD>&cacheDirectory&plugins[]=<CWD>/packages/hap-dsl-xvm/lib/loaders/babel-plugin-jsx.js&comments=false&configFile=<CWD>/babel.config.js!../../../../../lib/loaders/access-loader.js!../../../../../lib/loaders/fragment-loader.js?index=0&type=script!./testif.ux?uxType=page\\")
+
+$app_define$('@app-component/testif', [], function($app_require$, $app_exports$, $app_module$) {
+     $app_script$($app_module$, $app_exports$, $app_require$)
+         if ($app_exports$.__esModule && $app_exports$.default) {
+            $app_module$.exports = $app_exports$.default
+        }
+     $app_module$.exports.template = require(\\"!../../../../../lib/loaders/template-loader.js!../../../../../lib/loaders/fragment-loader.js?index=0&type=template!./testif.ux?uxType=page&\\")
+
+     $app_module$.exports.style = $app_style$
+})
+$app_bootstrap$('@app-component/testif',{ packagerVersion: QUICKAPP_TOOLKIT_VERSION })"
+`;
+
+exports[`Template 编译测试 ux templates: ./TestTemplate/ImportFeature/foo.js 1`] = `
+"\\"use strict\\";
+
+Object.defineProperty(exports, \\"__esModule\\", {
+  value: true
+});
+exports.default = void 0;
+
+/*
+ * Copyright (c) 2021, the hapjs-platform Project Contributors
+ * SPDX-License-Identifier: Apache-2.0
+ */
+// just a normal module
+var _default = 'foo';
+exports.default = _default;"
+`;
+
+exports[`Template 编译测试 ux templates: ./TestTemplate/ImportFeature/helper.js 1`] = `
+"\\"use strict\\";
+
+Object.defineProperty(exports, \\"__esModule\\", {
+  value: true
+});
+exports.default = void 0;
+
+var _foo = _interopRequireDefault(require(\\"./foo\\"));
+
+var _system = _interopRequireDefault($app_require$(\\"@app-module/system.fetch\\"));
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+/*
+ * Copyright (c) 2021, the hapjs-platform Project Contributors
+ * SPDX-License-Identifier: Apache-2.0
+ */
+// a normal module before builtin module
+var _default = {
+  foo: _foo.default,
+  fetch: _system.default
+};
+exports.default = _default;"
+`;
+
+exports[`Template 编译测试 ux templates: ./TestTemplate/ImportFeature/testimportfeature.ux?uxType=page 1`] = `
+"
+var $app_style$ = require(\\"!../../../../../lib/loaders/style-loader.js?index=0&type=style!../../../../../lib/loaders/fragment-loader.js?index=0&type=style!./testimportfeature.ux?uxType=page\\")
+
+var $app_script$ = require(\\"!../../../../../lib/loaders/script-loader.js!../../../../../lib/loaders/module-loader.js!../../../../../node_modules/babel-loader/lib/index.js?cwd=<CWD>&cacheDirectory&plugins[]=<CWD>/packages/hap-dsl-xvm/lib/loaders/babel-plugin-jsx.js&comments=false&configFile=<CWD>/babel.config.js!../../../../../lib/loaders/access-loader.js!../../../../../lib/loaders/fragment-loader.js?index=0&type=script!./testimportfeature.ux?uxType=page\\")
+
+$app_define$('@app-component/testimportfeature', [], function($app_require$, $app_exports$, $app_module$) {
+     $app_script$($app_module$, $app_exports$, $app_require$)
+         if ($app_exports$.__esModule && $app_exports$.default) {
+            $app_module$.exports = $app_exports$.default
+        }
+     $app_module$.exports.template = require(\\"!../../../../../lib/loaders/template-loader.js!../../../../../lib/loaders/fragment-loader.js?index=0&type=template!./testimportfeature.ux?uxType=page&\\")
+
+     $app_module$.exports.style = $app_style$
+})
+$app_bootstrap$('@app-component/testimportfeature',{ packagerVersion: QUICKAPP_TOOLKIT_VERSION })"
+`;
+
+exports[`Template 编译测试 ux templates: ./TestTemplate/ImportStyle/testimportstyle.ux?uxType=page 1`] = `
+"
+var $app_style$ = require(\\"!../../../../../lib/loaders/style-loader.js?index=0&type=style!../../../../../lib/loaders/fragment-loader.js?index=0&type=style!./testimportstyle.ux?uxType=page\\")
+
+var $app_script$ = require(\\"!../../../../../lib/loaders/script-loader.js!../../../../../lib/loaders/module-loader.js!../../../../../node_modules/babel-loader/lib/index.js?cwd=<CWD>&cacheDirectory&plugins[]=<CWD>/packages/hap-dsl-xvm/lib/loaders/babel-plugin-jsx.js&comments=false&configFile=<CWD>/babel.config.js!../../../../../lib/loaders/access-loader.js!../../../../../lib/loaders/fragment-loader.js?index=0&type=script!./testimportstyle.ux?uxType=page\\")
+
+$app_define$('@app-component/testimportstyle', [], function($app_require$, $app_exports$, $app_module$) {
+     $app_script$($app_module$, $app_exports$, $app_require$)
+         if ($app_exports$.__esModule && $app_exports$.default) {
+            $app_module$.exports = $app_exports$.default
+        }
+     $app_module$.exports.template = require(\\"!../../../../../lib/loaders/template-loader.js!../../../../../lib/loaders/fragment-loader.js?index=0&type=template!./testimportstyle.ux?uxType=page&\\")
+
+     $app_module$.exports.style = $app_style$
+})
+$app_bootstrap$('@app-component/testimportstyle',{ packagerVersion: QUICKAPP_TOOLKIT_VERSION })"
+`;
+
+exports[`Template 编译测试 ux templates: ./TestTemplate/ImportTemplate/comp.ux?uxType=page 1`] = `
+"
+var $app_style$ = {}
+var $app_script$ = require(\\"!../../../../../lib/loaders/script-loader.js!../../../../../lib/loaders/module-loader.js!../../../../../node_modules/babel-loader/lib/index.js?cwd=<CWD>&cacheDirectory&plugins[]=<CWD>/packages/hap-dsl-xvm/lib/loaders/babel-plugin-jsx.js&comments=false&configFile=<CWD>/babel.config.js!../../../../../lib/loaders/access-loader.js!../../../../../lib/loaders/fragment-loader.js?index=0&type=script!./comp.ux?uxType=page\\")
+
+$app_define$('@app-component/comp', [], function($app_require$, $app_exports$, $app_module$) {
+     $app_script$($app_module$, $app_exports$, $app_require$)
+         if ($app_exports$.__esModule && $app_exports$.default) {
+            $app_module$.exports = $app_exports$.default
+        }
+     $app_module$.exports.template = require(\\"!../../../../../lib/loaders/template-loader.js!../../../../../lib/loaders/fragment-loader.js?index=0&type=template!./comp.ux?uxType=page&\\")
+
+})
+$app_bootstrap$('@app-component/comp',{ packagerVersion: QUICKAPP_TOOLKIT_VERSION })"
+`;
+
+exports[`Template 编译测试 ux templates: ./TestTemplate/ImportTemplate/testimporttemplate.ux?uxType=page 1`] = `
+"
+var $app_style$ = require(\\"!../../../../../lib/loaders/style-loader.js?index=0&type=style!../../../../../lib/loaders/fragment-loader.js?index=0&type=style!./testimporttemplate.ux?uxType=page\\")
+
+var $app_script$ = require(\\"!../../../../../lib/loaders/script-loader.js!../../../../../lib/loaders/module-loader.js!../../../../../node_modules/babel-loader/lib/index.js?cwd=<CWD>&cacheDirectory&plugins[]=<CWD>/packages/hap-dsl-xvm/lib/loaders/babel-plugin-jsx.js&comments=false&configFile=<CWD>/babel.config.js!../../../../../lib/loaders/access-loader.js!../../../../../lib/loaders/fragment-loader.js?index=0&type=script!./testimporttemplate.ux?uxType=page\\")
+
+$app_define$('@app-component/testimporttemplate', [], function($app_require$, $app_exports$, $app_module$) {
+     $app_script$($app_module$, $app_exports$, $app_require$)
+         if ($app_exports$.__esModule && $app_exports$.default) {
+            $app_module$.exports = $app_exports$.default
+        }
+     $app_module$.exports.template = require(\\"!../../../../../lib/loaders/template-loader.js!../../../../../lib/loaders/fragment-loader.js?index=0&type=template!./testimporttemplate.ux?uxType=page&\\")
+
+     $app_module$.exports.style = $app_style$
+})
+$app_bootstrap$('@app-component/testimporttemplate',{ packagerVersion: QUICKAPP_TOOLKIT_VERSION })"
+`;
+
+exports[`Template 编译测试 ux templates: ./TestTemplate/ImportTemplateAlias/comp.ux?uxType=page 1`] = `
+"
+var $app_style$ = {}
+var $app_script$ = require(\\"!../../../../../lib/loaders/script-loader.js!../../../../../lib/loaders/module-loader.js!../../../../../node_modules/babel-loader/lib/index.js?cwd=<CWD>&cacheDirectory&plugins[]=<CWD>/packages/hap-dsl-xvm/lib/loaders/babel-plugin-jsx.js&comments=false&configFile=<CWD>/babel.config.js!../../../../../lib/loaders/access-loader.js!../../../../../lib/loaders/fragment-loader.js?index=0&type=script!./comp.ux?uxType=page\\")
+
+$app_define$('@app-component/comp', [], function($app_require$, $app_exports$, $app_module$) {
+     $app_script$($app_module$, $app_exports$, $app_require$)
+         if ($app_exports$.__esModule && $app_exports$.default) {
+            $app_module$.exports = $app_exports$.default
+        }
+     $app_module$.exports.template = require(\\"!../../../../../lib/loaders/template-loader.js!../../../../../lib/loaders/fragment-loader.js?index=0&type=template!./comp.ux?uxType=page&\\")
+
+})
+$app_bootstrap$('@app-component/comp',{ packagerVersion: QUICKAPP_TOOLKIT_VERSION })"
+`;
+
+exports[`Template 编译测试 ux templates: ./TestTemplate/ImportTemplateAlias/testimporttemplatealias.ux?uxType=page 1`] = `
+"
+var $app_style$ = require(\\"!../../../../../lib/loaders/style-loader.js?index=0&type=style!../../../../../lib/loaders/fragment-loader.js?index=0&type=style!./testimporttemplatealias.ux?uxType=page\\")
+
+var $app_script$ = require(\\"!../../../../../lib/loaders/script-loader.js!../../../../../lib/loaders/module-loader.js!../../../../../node_modules/babel-loader/lib/index.js?cwd=<CWD>&cacheDirectory&plugins[]=<CWD>/packages/hap-dsl-xvm/lib/loaders/babel-plugin-jsx.js&comments=false&configFile=<CWD>/babel.config.js!../../../../../lib/loaders/access-loader.js!../../../../../lib/loaders/fragment-loader.js?index=0&type=script!./testimporttemplatealias.ux?uxType=page\\")
+
+$app_define$('@app-component/testimporttemplatealias', [], function($app_require$, $app_exports$, $app_module$) {
+     $app_script$($app_module$, $app_exports$, $app_require$)
+         if ($app_exports$.__esModule && $app_exports$.default) {
+            $app_module$.exports = $app_exports$.default
+        }
+     $app_module$.exports.template = require(\\"!../../../../../lib/loaders/template-loader.js!../../../../../lib/loaders/fragment-loader.js?index=0&type=template!./testimporttemplatealias.ux?uxType=page&\\")
+
+     $app_module$.exports.style = $app_style$
+})
+$app_bootstrap$('@app-component/testimporttemplatealias',{ packagerVersion: QUICKAPP_TOOLKIT_VERSION })"
+`;
+
+exports[`Template 编译测试 ux templates: ./TestTemplate/InlineStyle/testinlinestyle.ux?uxType=page 1`] = `
+"
+var $app_style$ = {}
+var $app_script$ = null
+$app_define$('@app-component/testinlinestyle', [], function($app_require$, $app_exports$, $app_module$) {
+     $app_module$.exports.template = require(\\"!../../../../../lib/loaders/template-loader.js!../../../../../lib/loaders/fragment-loader.js?index=0&type=template!./testinlinestyle.ux?uxType=page&\\")
+
+})
+$app_bootstrap$('@app-component/testinlinestyle',{ packagerVersion: QUICKAPP_TOOLKIT_VERSION })"
+`;
+
+exports[`Template 编译测试 ux templates: ./TestTemplate/JSX/testjsx.ux?uxType=page 1`] = `
+"
+var $app_style$ = require(\\"!../../../../../lib/loaders/style-loader.js?index=0&type=style!../../../../../lib/loaders/fragment-loader.js?index=0&type=style!./testjsx.ux?uxType=page\\")
+
+var $app_script$ = require(\\"!../../../../../lib/loaders/script-loader.js!../../../../../lib/loaders/module-loader.js!../../../../../node_modules/babel-loader/lib/index.js?cwd=<CWD>&cacheDirectory&plugins[]=<CWD>/packages/hap-dsl-xvm/lib/loaders/babel-plugin-jsx.js&comments=false&configFile=<CWD>/babel.config.js!../../../../../lib/loaders/access-loader.js!../../../../../lib/loaders/fragment-loader.js?index=0&type=script!./testjsx.ux?uxType=page\\")
+
+$app_define$('@app-component/testjsx', [], function($app_require$, $app_exports$, $app_module$) {
+     $app_script$($app_module$, $app_exports$, $app_require$)
+         if ($app_exports$.__esModule && $app_exports$.default) {
+            $app_module$.exports = $app_exports$.default
+        }
+     $app_module$.exports.template = require(\\"!../../../../../lib/loaders/template-loader.js!../../../../../lib/loaders/fragment-loader.js?index=0&type=template!./testjsx.ux?uxType=page&\\")
+
+     $app_module$.exports.style = $app_style$
+})
+$app_bootstrap$('@app-component/testjsx',{ packagerVersion: QUICKAPP_TOOLKIT_VERSION })"
+`;
+
+exports[`Template 编译测试 ux templates: ./TestTemplate/List/testlist.ux?uxType=page 1`] = `
+"
+var $app_style$ = require(\\"!../../../../../lib/loaders/style-loader.js?index=0&type=style!../../../../../lib/loaders/fragment-loader.js?index=0&type=style!./testlist.ux?uxType=page\\")
+
+var $app_script$ = require(\\"!../../../../../lib/loaders/script-loader.js!../../../../../lib/loaders/module-loader.js!../../../../../node_modules/babel-loader/lib/index.js?cwd=<CWD>&cacheDirectory&plugins[]=<CWD>/packages/hap-dsl-xvm/lib/loaders/babel-plugin-jsx.js&comments=false&configFile=<CWD>/babel.config.js!../../../../../lib/loaders/access-loader.js!../../../../../lib/loaders/fragment-loader.js?index=0&type=script!./testlist.ux?uxType=page\\")
+
+$app_define$('@app-component/testlist', [], function($app_require$, $app_exports$, $app_module$) {
+     $app_script$($app_module$, $app_exports$, $app_require$)
+         if ($app_exports$.__esModule && $app_exports$.default) {
+            $app_module$.exports = $app_exports$.default
+        }
+     $app_module$.exports.template = require(\\"!../../../../../lib/loaders/template-loader.js!../../../../../lib/loaders/fragment-loader.js?index=0&type=template!./testlist.ux?uxType=page&\\")
+
+     $app_module$.exports.style = $app_style$
+})
+$app_bootstrap$('@app-component/testlist',{ packagerVersion: QUICKAPP_TOOLKIT_VERSION })"
+`;
+
+exports[`Template 编译测试 ux templates: ./TestTemplate/NestedIf/testnestedif.ux?uxType=page 1`] = `
+"
+var $app_style$ = require(\\"!../../../../../lib/loaders/style-loader.js?index=0&type=style!../../../../../lib/loaders/fragment-loader.js?index=0&type=style!./testnestedif.ux?uxType=page\\")
+
+var $app_script$ = require(\\"!../../../../../lib/loaders/script-loader.js!../../../../../lib/loaders/module-loader.js!../../../../../node_modules/babel-loader/lib/index.js?cwd=<CWD>&cacheDirectory&plugins[]=<CWD>/packages/hap-dsl-xvm/lib/loaders/babel-plugin-jsx.js&comments=false&configFile=<CWD>/babel.config.js!../../../../../lib/loaders/access-loader.js!../../../../../lib/loaders/fragment-loader.js?index=0&type=script!./testnestedif.ux?uxType=page\\")
+
+$app_define$('@app-component/testnestedif', [], function($app_require$, $app_exports$, $app_module$) {
+     $app_script$($app_module$, $app_exports$, $app_require$)
+         if ($app_exports$.__esModule && $app_exports$.default) {
+            $app_module$.exports = $app_exports$.default
+        }
+     $app_module$.exports.template = require(\\"!../../../../../lib/loaders/template-loader.js!../../../../../lib/loaders/fragment-loader.js?index=0&type=template!./testnestedif.ux?uxType=page&\\")
+
+     $app_module$.exports.style = $app_style$
+})
+$app_bootstrap$('@app-component/testnestedif',{ packagerVersion: QUICKAPP_TOOLKIT_VERSION })"
+`;
+
+exports[`Template 编译测试 ux templates: ./TestTemplate/PlainText/testplaintext.ux?uxType=page 1`] = `
+"
+var $app_style$ = {}
+var $app_script$ = null
+$app_define$('@app-component/testplaintext', [], function($app_require$, $app_exports$, $app_module$) {
+     $app_module$.exports.template = require(\\"!../../../../../lib/loaders/template-loader.js!../../../../../lib/loaders/fragment-loader.js?index=0&type=template!./testplaintext.ux?uxType=page&\\")
+
+})
+$app_bootstrap$('@app-component/testplaintext',{ packagerVersion: QUICKAPP_TOOLKIT_VERSION })"
+`;
+
+exports[`Template 编译测试 ux templates: ./TestTemplate/Refresh/testrefresh.ux?uxType=page 1`] = `
+"
+var $app_style$ = require(\\"!../../../../../lib/loaders/style-loader.js?index=0&type=style!../../../../../lib/loaders/fragment-loader.js?index=0&type=style!./testrefresh.ux?uxType=page\\")
+
+var $app_script$ = require(\\"!../../../../../lib/loaders/script-loader.js!../../../../../lib/loaders/module-loader.js!../../../../../node_modules/babel-loader/lib/index.js?cwd=<CWD>&cacheDirectory&plugins[]=<CWD>/packages/hap-dsl-xvm/lib/loaders/babel-plugin-jsx.js&comments=false&configFile=<CWD>/babel.config.js!../../../../../lib/loaders/access-loader.js!../../../../../lib/loaders/fragment-loader.js?index=0&type=script!./testrefresh.ux?uxType=page\\")
+
+$app_define$('@app-component/testrefresh', [], function($app_require$, $app_exports$, $app_module$) {
+     $app_script$($app_module$, $app_exports$, $app_require$)
+         if ($app_exports$.__esModule && $app_exports$.default) {
+            $app_module$.exports = $app_exports$.default
+        }
+     $app_module$.exports.template = require(\\"!../../../../../lib/loaders/template-loader.js!../../../../../lib/loaders/fragment-loader.js?index=0&type=template!./testrefresh.ux?uxType=page&\\")
+
+     $app_module$.exports.style = $app_style$
+})
+$app_bootstrap$('@app-component/testrefresh',{ packagerVersion: QUICKAPP_TOOLKIT_VERSION })"
+`;
+
+exports[`Template 编译测试 ux templates: ./TestTemplate/RegExp/testregexp.ux?uxType=page 1`] = `
+"
+var $app_style$ = require(\\"!../../../../../lib/loaders/style-loader.js?index=0&type=style!../../../../../lib/loaders/fragment-loader.js?index=0&type=style!./testregexp.ux?uxType=page\\")
+
+var $app_script$ = require(\\"!../../../../../lib/loaders/script-loader.js!../../../../../lib/loaders/module-loader.js!../../../../../node_modules/babel-loader/lib/index.js?cwd=<CWD>&cacheDirectory&plugins[]=<CWD>/packages/hap-dsl-xvm/lib/loaders/babel-plugin-jsx.js&comments=false&configFile=<CWD>/babel.config.js!../../../../../lib/loaders/access-loader.js!../../../../../lib/loaders/fragment-loader.js?index=0&type=script!./testregexp.ux?uxType=page\\")
+
+$app_define$('@app-component/testregexp', [], function($app_require$, $app_exports$, $app_module$) {
+     $app_script$($app_module$, $app_exports$, $app_require$)
+         if ($app_exports$.__esModule && $app_exports$.default) {
+            $app_module$.exports = $app_exports$.default
+        }
+     $app_module$.exports.template = require(\\"!../../../../../lib/loaders/template-loader.js!../../../../../lib/loaders/fragment-loader.js?index=0&type=template!./testregexp.ux?uxType=page&\\")
+
+     $app_module$.exports.style = $app_style$
+})
+$app_bootstrap$('@app-component/testregexp',{ packagerVersion: QUICKAPP_TOOLKIT_VERSION })"
+`;
+
+exports[`Template 编译测试 ux templates: ./TestTemplate/RegExpText/testregexp.ux?uxType=page 1`] = `
+"
+var $app_style$ = require(\\"!../../../../../lib/loaders/style-loader.js?index=0&type=style!../../../../../lib/loaders/fragment-loader.js?index=0&type=style!./testregexp.ux?uxType=page\\")
+
+var $app_script$ = require(\\"!../../../../../lib/loaders/script-loader.js!../../../../../lib/loaders/module-loader.js!../../../../../node_modules/babel-loader/lib/index.js?cwd=<CWD>&cacheDirectory&plugins[]=<CWD>/packages/hap-dsl-xvm/lib/loaders/babel-plugin-jsx.js&comments=false&configFile=<CWD>/babel.config.js!../../../../../lib/loaders/access-loader.js!../../../../../lib/loaders/fragment-loader.js?index=0&type=script!./testregexp.ux?uxType=page\\")
+
+$app_define$('@app-component/testregexp', [], function($app_require$, $app_exports$, $app_module$) {
+     $app_script$($app_module$, $app_exports$, $app_require$)
+         if ($app_exports$.__esModule && $app_exports$.default) {
+            $app_module$.exports = $app_exports$.default
+        }
+     $app_module$.exports.template = require(\\"!../../../../../lib/loaders/template-loader.js!../../../../../lib/loaders/fragment-loader.js?index=0&type=template!./testregexp.ux?uxType=page&\\")
+
+     $app_module$.exports.style = $app_style$
+})
+$app_bootstrap$('@app-component/testregexp',{ packagerVersion: QUICKAPP_TOOLKIT_VERSION })"
+`;
+
+exports[`Template 编译测试 ux templates: ./TestTemplate/Show/testshow.ux?uxType=page 1`] = `
+"
+var $app_style$ = require(\\"!../../../../../lib/loaders/style-loader.js?index=0&type=style!../../../../../lib/loaders/fragment-loader.js?index=0&type=style!./testshow.ux?uxType=page\\")
+
+var $app_script$ = require(\\"!../../../../../lib/loaders/script-loader.js!../../../../../lib/loaders/module-loader.js!../../../../../node_modules/babel-loader/lib/index.js?cwd=<CWD>&cacheDirectory&plugins[]=<CWD>/packages/hap-dsl-xvm/lib/loaders/babel-plugin-jsx.js&comments=false&configFile=<CWD>/babel.config.js!../../../../../lib/loaders/access-loader.js!../../../../../lib/loaders/fragment-loader.js?index=0&type=script!./testshow.ux?uxType=page\\")
+
+$app_define$('@app-component/testshow', [], function($app_require$, $app_exports$, $app_module$) {
+     $app_script$($app_module$, $app_exports$, $app_require$)
+         if ($app_exports$.__esModule && $app_exports$.default) {
+            $app_module$.exports = $app_exports$.default
+        }
+     $app_module$.exports.template = require(\\"!../../../../../lib/loaders/template-loader.js!../../../../../lib/loaders/fragment-loader.js?index=0&type=template!./testshow.ux?uxType=page&\\")
+
+     $app_module$.exports.style = $app_style$
+})
+$app_bootstrap$('@app-component/testshow',{ packagerVersion: QUICKAPP_TOOLKIT_VERSION })"
+`;
+
+exports[`Template 编译测试 ux templates: ./TestTemplate/Simple/testsimple.ux?uxType=page 1`] = `
+"
+var $app_style$ = require(\\"!../../../../../lib/loaders/style-loader.js?index=0&type=style!../../../../../lib/loaders/fragment-loader.js?index=0&type=style!./testsimple.ux?uxType=page\\")
+
+var $app_script$ = require(\\"!../../../../../lib/loaders/script-loader.js!../../../../../lib/loaders/module-loader.js!../../../../../node_modules/babel-loader/lib/index.js?cwd=<CWD>&cacheDirectory&plugins[]=<CWD>/packages/hap-dsl-xvm/lib/loaders/babel-plugin-jsx.js&comments=false&configFile=<CWD>/babel.config.js!../../../../../lib/loaders/access-loader.js!../../../../../lib/loaders/fragment-loader.js?index=0&type=script!./testsimple.ux?uxType=page\\")
+
+$app_define$('@app-component/testsimple', [], function($app_require$, $app_exports$, $app_module$) {
+     $app_script$($app_module$, $app_exports$, $app_require$)
+         if ($app_exports$.__esModule && $app_exports$.default) {
+            $app_module$.exports = $app_exports$.default
+        }
+     $app_module$.exports.template = require(\\"!../../../../../lib/loaders/template-loader.js!../../../../../lib/loaders/fragment-loader.js?index=0&type=template!./testsimple.ux?uxType=page&\\")
+
+     $app_module$.exports.style = $app_style$
+})
+$app_bootstrap$('@app-component/testsimple',{ packagerVersion: QUICKAPP_TOOLKIT_VERSION })"
+`;
+
+exports[`Template 编译测试 ux templates: ./TestTemplate/Slot/comp1.ux?uxType=page 1`] = `
+"
+var $app_style$ = {}
+var $app_script$ = null
+$app_define$('@app-component/comp1', [], function($app_require$, $app_exports$, $app_module$) {
+     $app_module$.exports.template = require(\\"!../../../../../lib/loaders/template-loader.js!../../../../../lib/loaders/fragment-loader.js?index=0&type=template!./comp1.ux?uxType=page&\\")
+
+})
+$app_bootstrap$('@app-component/comp1',{ packagerVersion: QUICKAPP_TOOLKIT_VERSION })"
+`;
+
+exports[`Template 编译测试 ux templates: ./TestTemplate/Slot/comp2.ux?uxType=page 1`] = `
+"
+var $app_style$ = {}
+var $app_script$ = null
+$app_define$('@app-component/comp2', [], function($app_require$, $app_exports$, $app_module$) {
+     $app_module$.exports.template = require(\\"!../../../../../lib/loaders/template-loader.js!../../../../../lib/loaders/fragment-loader.js?index=0&type=template!./comp2.ux?uxType=page&\\")
+
+})
+$app_bootstrap$('@app-component/comp2',{ packagerVersion: QUICKAPP_TOOLKIT_VERSION })"
+`;
+
+exports[`Template 编译测试 ux templates: ./TestTemplate/Slot/comp3.ux?uxType=page 1`] = `
+"
+var $app_style$ = {}
+var $app_script$ = null
+$app_define$('@app-component/comp3', [], function($app_require$, $app_exports$, $app_module$) {
+     $app_module$.exports.template = require(\\"!../../../../../lib/loaders/template-loader.js!../../../../../lib/loaders/fragment-loader.js?index=0&type=template!./comp3.ux?uxType=page&\\")
+
+})
+$app_bootstrap$('@app-component/comp3',{ packagerVersion: QUICKAPP_TOOLKIT_VERSION })"
+`;
+
+exports[`Template 编译测试 ux templates: ./TestTemplate/Slot/testslot.ux?uxType=page 1`] = `
+"
+var $app_style$ = require(\\"!../../../../../lib/loaders/style-loader.js?index=0&type=style!../../../../../lib/loaders/fragment-loader.js?index=0&type=style!./testslot.ux?uxType=page\\")
+
+var $app_script$ = require(\\"!../../../../../lib/loaders/script-loader.js!../../../../../lib/loaders/module-loader.js!../../../../../node_modules/babel-loader/lib/index.js?cwd=<CWD>&cacheDirectory&plugins[]=<CWD>/packages/hap-dsl-xvm/lib/loaders/babel-plugin-jsx.js&comments=false&configFile=<CWD>/babel.config.js!../../../../../lib/loaders/access-loader.js!../../../../../lib/loaders/fragment-loader.js?index=0&type=script!./testslot.ux?uxType=page\\")
+
+$app_define$('@app-component/testslot', [], function($app_require$, $app_exports$, $app_module$) {
+     $app_script$($app_module$, $app_exports$, $app_require$)
+         if ($app_exports$.__esModule && $app_exports$.default) {
+            $app_module$.exports = $app_exports$.default
+        }
+     $app_module$.exports.template = require(\\"!../../../../../lib/loaders/template-loader.js!../../../../../lib/loaders/fragment-loader.js?index=0&type=template!./testslot.ux?uxType=page&\\")
+
+     $app_module$.exports.style = $app_style$
+})
+$app_bootstrap$('@app-component/testslot',{ packagerVersion: QUICKAPP_TOOLKIT_VERSION })"
+`;
+
+exports[`Template 编译测试 ux templates: ./TestTemplate/Tabs/testtabs.ux?uxType=page 1`] = `
+"
+var $app_style$ = require(\\"!../../../../../lib/loaders/style-loader.js?index=0&type=style!../../../../../lib/loaders/fragment-loader.js?index=0&type=style!./testtabs.ux?uxType=page\\")
+
+var $app_script$ = require(\\"!../../../../../lib/loaders/script-loader.js!../../../../../lib/loaders/module-loader.js!../../../../../node_modules/babel-loader/lib/index.js?cwd=<CWD>&cacheDirectory&plugins[]=<CWD>/packages/hap-dsl-xvm/lib/loaders/babel-plugin-jsx.js&comments=false&configFile=<CWD>/babel.config.js!../../../../../lib/loaders/access-loader.js!../../../../../lib/loaders/fragment-loader.js?index=0&type=script!./testtabs.ux?uxType=page\\")
+
+$app_define$('@app-component/testtabs', [], function($app_require$, $app_exports$, $app_module$) {
+     $app_script$($app_module$, $app_exports$, $app_require$)
+         if ($app_exports$.__esModule && $app_exports$.default) {
+            $app_module$.exports = $app_exports$.default
+        }
+     $app_module$.exports.template = require(\\"!../../../../../lib/loaders/template-loader.js!../../../../../lib/loaders/fragment-loader.js?index=0&type=template!./testtabs.ux?uxType=page&\\")
+
+     $app_module$.exports.style = $app_style$
+})
+$app_bootstrap$('@app-component/testtabs',{ packagerVersion: QUICKAPP_TOOLKIT_VERSION })"
+`;
+
+exports[`Template 编译测试 ux templates: ./TestTemplate/TemplateLiterals/testtemplateliterals.ux?uxType=page 1`] = `
+"
+var $app_style$ = require(\\"!../../../../../lib/loaders/style-loader.js?index=0&type=style!../../../../../lib/loaders/fragment-loader.js?index=0&type=style!./testtemplateliterals.ux?uxType=page\\")
+
+var $app_script$ = require(\\"!../../../../../lib/loaders/script-loader.js!../../../../../lib/loaders/module-loader.js!../../../../../node_modules/babel-loader/lib/index.js?cwd=<CWD>&cacheDirectory&plugins[]=<CWD>/packages/hap-dsl-xvm/lib/loaders/babel-plugin-jsx.js&comments=false&configFile=<CWD>/babel.config.js!../../../../../lib/loaders/access-loader.js!../../../../../lib/loaders/fragment-loader.js?index=0&type=script!./testtemplateliterals.ux?uxType=page\\")
+
+$app_define$('@app-component/testtemplateliterals', [], function($app_require$, $app_exports$, $app_module$) {
+     $app_script$($app_module$, $app_exports$, $app_require$)
+         if ($app_exports$.__esModule && $app_exports$.default) {
+            $app_module$.exports = $app_exports$.default
+        }
+     $app_module$.exports.template = require(\\"!../../../../../lib/loaders/template-loader.js!../../../../../lib/loaders/fragment-loader.js?index=0&type=template!./testtemplateliterals.ux?uxType=page&\\")
+
+     $app_module$.exports.style = $app_style$
+})
+$app_bootstrap$('@app-component/testtemplateliterals',{ packagerVersion: QUICKAPP_TOOLKIT_VERSION })"
+`;
+
+exports[`Template 编译测试 ux templates: ./TestTemplate/TextContent/testtextcontent.ux?uxType=page 1`] = `
+"
+var $app_style$ = {}
+var $app_script$ = null
+$app_define$('@app-component/testtextcontent', [], function($app_require$, $app_exports$, $app_module$) {
+     $app_module$.exports.template = require(\\"!../../../../../lib/loaders/template-loader.js!../../../../../lib/loaders/fragment-loader.js?index=0&type=template!./testtextcontent.ux?uxType=page&\\")
+
+})
+$app_bootstrap$('@app-component/testtextcontent',{ packagerVersion: QUICKAPP_TOOLKIT_VERSION })"
+`;
+
+exports[`Template 编译测试 ux templates: ./TestTemplate/Xml/testxml.ux?uxType=page 1`] = `
+"
+var $app_style$ = {}
+var $app_script$ = null
+$app_define$('@app-component/testxml', [], function($app_require$, $app_exports$, $app_module$) {
+     $app_module$.exports.template = require(\\"!../../../../../lib/loaders/template-loader.js!../../../../../lib/loaders/fragment-loader.js?index=0&type=template!./testxml.ux?uxType=page&\\")
+
+})
+$app_bootstrap$('@app-component/testxml',{ packagerVersion: QUICKAPP_TOOLKIT_VERSION })"
+`;
+
+exports[`Template 编译测试 ux templates: ./TestTemplate/manifest.json 1`] = `
+"{
+  \\"package\\": \\"com.app.case.testtemplate\\",
+  \\"name\\": \\"testtemplate\\",
+  \\"version\\": \\"1.0\\",
+  \\"versionCode\\": \\"1\\",
+  \\"icon\\": \\"/Common/icon.png\\",
+  \\"features\\": [
+  ],
+  \\"components\\": [
+  ],
+  \\"permissions\\": [
+    {
+      \\"origin\\": \\"*\\"
+    }
+  ],
+  \\"config\\": {
+    \\"logLevel\\": \\"off\\"
+  },
+  \\"router\\": {
+    \\"entry\\": \\"Simple\\",
+    \\"pages\\": {
+      \\"Simple\\": {
+        \\"component\\": \\"testsimple\\"
+      },
+      \\"If\\": {
+        \\"component\\": \\"testif\\"
+      },
+      \\"NestedIf\\": {
+        \\"component\\": \\"testnestedif\\"
+      }
+    }
+  }
+}"
+`;

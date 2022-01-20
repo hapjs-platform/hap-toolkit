@@ -1,0 +1,34 @@
+/*
+ * Copyright (c) 2021, the hapjs-platform Project Contributors
+ * SPDX-License-Identifier: Apache-2.0
+ */
+
+<template>
+  <div>
+    <input
+      type="button"
+      aria-label="无障碍模式1"
+      aria-unfocusable="false"
+    />
+    <input
+      type="button"
+      aria-label="无障碍模式2"
+      aria-unfocusable="true"
+    />
+    <input
+      type="button"
+      aria-label="无障碍模式3"
+      aria-unfocusable="123"
+    />
+  </div>
+</template>
+
+<style>
+</style>
+
+<script>
+  export default {
+    data: {
+    }
+  }
+</script>

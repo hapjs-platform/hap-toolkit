@@ -1,0 +1,84 @@
+/*
+ * Copyright (c) 2021, the hapjs-platform Project Contributors
+ * SPDX-License-Identifier: Apache-2.0
+ */
+
+<template>
+  <div>
+  </div>
+</template>
+
+<style>
+  .A {
+    mylocation-fill-color: red;
+  }
+  .B1 {
+    mylocation-fill-color: #FFF;
+  }
+  .B2 {
+    mylocation-fill-color: #FFFFFF;
+  }
+  .C1 {
+    mylocation-fill-color: rgb(255,255,255);
+  }
+  .C2 {
+    mylocation-fill-color: rgb(0,  0,   0);
+  }
+  .C3 {
+    mylocation-fill-color: hsl(360,100%,100%);
+  }
+  .C4 {
+    mylocation-fill-color: hsl(0,  0%,   0%);
+  }
+  .D1 {
+    mylocation-fill-color: rgba(255,255,255,.5);
+  }
+  .D2 {
+    mylocation-fill-color: rgba(0,0, 0, .0);
+  }
+  .D3 {
+    mylocation-fill-color: rgba(0, 0,0, 1.0);
+  }
+  .D4 {
+    mylocation-fill-color: rgba(255, 255,255, .5);
+  }
+
+  .E1 {
+    mylocation-fill-color: hsla(360,100%,100%,.5);
+  }
+  .E2 {
+    mylocation-fill-color: hsla(0,0%, 0%, .0);
+  }
+  .E3 {
+    mylocation-fill-color: hsla(0, 0%,0%, 1.0);
+  }
+  .E4 {
+    mylocation-fill-color: hsla(360, 100%,100%, .5);
+  }
+
+  .a1{
+    mylocation-fill-color: 'red';
+  }
+  .a2 {
+    mylocation-fill-color: @red;
+  }
+  .b1 {
+    mylocation-fill-color: #FFFF;
+  }
+  .b2 {
+    mylocation-fill-color: #FFFFF;
+  }
+  .c1 {
+    mylocation-fill-color: rgb(,,0);
+  }
+  .c2 {
+    mylocation-fill-color: hsl(,,0%);
+  }
+</style>
+
+<script>
+  export default {
+    data: {
+    }
+  }
+</script>

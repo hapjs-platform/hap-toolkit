@@ -1,0 +1,34 @@
+/*
+ * Copyright (c) 2021, the hapjs-platform Project Contributors
+ * SPDX-License-Identifier: Apache-2.0
+ */
+
+<template>
+  <div>
+  </div>
+</template>
+
+<style lang="less">
+  @import './ls.less' screen and (max-width: 100px);
+  .demo {
+    color: red;
+  }
+  @media screen and (orientation: portrait) {
+    .demo1 {
+      color: red;
+    }
+    @import url('./ls1.less');
+    @import url('./ls3.less') screen and (resolution:96dpi);
+    .demo2 {
+      color: red;
+    }
+  }
+  @import url('./ls2.less');
+</style>
+
+<script>
+  export default {
+    data: {
+    }
+  }
+</script>

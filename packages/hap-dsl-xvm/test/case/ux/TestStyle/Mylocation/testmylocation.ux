@@ -1,0 +1,50 @@
+/*
+ * Copyright (c) 2021, the hapjs-platform Project Contributors
+ * SPDX-License-Identifier: Apache-2.0
+ */
+
+<template>
+    <div>
+    </div>
+</template>
+
+<style>
+    .A1 {
+        mylocation: red green url('./ma1.png');
+    }
+
+    .A2 {
+        mylocation: rgb(255,255,255) green url('./ma1.png');
+    }
+
+    .A3 {
+        mylocation: red rgba(255,255,255,.5) url('./ma1.png');
+    }
+
+    .B1 {
+        mylocation: red url('./ma1.png') green;
+    }
+
+    .B2 {
+        mylocation: url('./ma1.png') green red;
+    }
+
+    .C1 {
+        mylocation: red url('./ma1.png');
+    }
+
+    .C2 {
+        mylocation: url('./ma1.png');
+    }
+
+    .C3 {
+        mylocation: red;
+    }
+</style>
+
+<script>
+  export default {
+    data: {
+    }
+  }
+</script>

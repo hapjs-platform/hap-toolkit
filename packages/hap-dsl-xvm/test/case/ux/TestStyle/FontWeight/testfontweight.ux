@@ -1,0 +1,50 @@
+/*
+ * Copyright (c) 2021, the hapjs-platform Project Contributors
+ * SPDX-License-Identifier: Apache-2.0
+ */
+
+<template>
+  <div>
+  </div>
+</template>
+
+<style>
+  .A {
+    font-weight: normal;
+  }
+
+  .B {
+    font-weight: bold;
+  }
+
+  .C {
+    font-weight: 100;
+  }
+
+  .D {
+    font-weight: lighter;
+  }
+
+  .E {
+    font-weight: bolder;
+  }
+
+  .F {
+    font-weight: 101;
+  }
+
+  .a {
+    font-weight: 'normal';
+  }
+
+  .b {
+    font-weight: @fontWeight;
+  }
+</style>
+
+<script>
+  export default {
+    data: {
+    }
+  }
+</script>

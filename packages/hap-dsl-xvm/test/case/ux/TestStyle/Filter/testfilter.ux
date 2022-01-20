@@ -1,0 +1,28 @@
+/*
+ * Copyright (c) 2021, the hapjs-platform Project Contributors
+ * SPDX-License-Identifier: Apache-2.0
+ */
+
+<template>
+  <div>
+  </div>
+</template>
+
+<style>
+.A {
+  filter: blur(2px);
+}
+.B {
+  filter: blur(5dp);
+}
+.C {
+  filter: blur(5%);
+}
+</style>
+
+<script>
+export default {
+  data: {
+  }
+}
+</script>

@@ -1,0 +1,26 @@
+/*
+ * Copyright (c) 2021, the hapjs-platform Project Contributors
+ * SPDX-License-Identifier: Apache-2.0
+ */
+
+<template>
+ <div>
+ </div>
+ </template>
+ <style >
+  .box {
+    animation-duration: 1000ms;
+  }
+  .box1 {
+    animation-duration: 1s;
+  }
+  .box2 {
+    animation-duration: 1000ss;
+  }
+ </style>
+ <script>
+  export default {
+    data: {
+    }
+  }
+</script>

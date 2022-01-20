@@ -1,0 +1,27 @@
+/*
+ * Copyright (c) 2021, the hapjs-platform Project Contributors
+ * SPDX-License-Identifier: Apache-2.0
+ */
+
+<import name="comp" src="./comp"></import>
+
+<template>
+  <div class="container">
+    <comp message="TEXT"></comp>
+  </div>
+</template>
+
+<style>
+  .container {
+    flex: 1;
+    flex-direction: column;
+    background-color: #FFFFFF;
+  }
+</style>
+
+<script>
+  export default {
+    data: {
+    }
+  }
+</script>

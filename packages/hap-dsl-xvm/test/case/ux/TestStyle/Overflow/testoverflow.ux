@@ -1,0 +1,28 @@
+/*
+ * Copyright (c) 2021, the hapjs-platform Project Contributors
+ * SPDX-License-Identifier: Apache-2.0
+ */
+
+<template>
+  <div>
+  </div>
+</template>
+
+<style>
+  .A1 {
+    overflow: hidden;
+  }
+
+  .A2 {
+    overflow: visible;
+  }
+
+  .B1 {
+    overflow: 123
+  }
+
+  .B2 {
+    overflow: abc;
+  }
+
+</style>

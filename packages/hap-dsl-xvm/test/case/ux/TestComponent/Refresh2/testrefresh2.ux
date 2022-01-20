@@ -1,0 +1,90 @@
+/*
+ * Copyright (c) 2021, the hapjs-platform Project Contributors
+ * SPDX-License-Identifier: Apache-2.0
+ */
+
+<template>
+  <div class="container">
+    <refresh2
+      offset="200px"
+      refreshing="false"
+      style="background-color: red; progress-color: white"
+      onrefresh="refresh2"
+    >
+      <refresh-header>
+        <text>this is refresh-header1</text>
+      </refresh-header>
+      <refresh-header>
+        <text>this is refresh-header2</text>
+      </refresh-header>
+      <refresh-header>
+        <text>this is refresh-header3</text>
+      </refresh-header>
+      <refresh-footer>
+        <text>this is refresh-footer1</text>
+      </refresh-footer>
+      <refresh-footer>
+        <text>this is refresh-footer2</text>
+      </refresh-footer>
+      <refresh-footer>
+        <text>this is refresh-footer3</text>
+      </refresh-footer>
+      <!--richtext in refresh2-->
+      <richtext>
+        <text>TEXT</text>
+      </richtext>
+
+      <!--stack in refresh2-->
+      <stack>
+        <image src="A"></image>
+        <text>stack</text>
+      </stack>
+
+      <!--swiper in refresh2-->
+      <swiper index="1" autoplay="true" interval="1000ms" indicator="true" onchange="changeSwiper">
+        <block v-for="swiperList">
+          <image src="{{$item}}"></image>
+        </block>
+      </swiper>
+
+      <!--tabs in refresh2-->
+      <tabs index="1" onchange="changeTabs">
+        <tab-bar>
+          <text>A</text>
+          <text>B</text>
+          <text>C</text>
+        </tab-bar>
+        <tab-content>
+          <text>A-content</text>
+          <text>B-content</text>
+          <text>C-content</text>
+        </tab-content>
+      </tabs>
+    </refresh2>
+  </div>
+</template>
+
+<style>
+.container {
+  flex: 1;
+  flex-direction: column;
+  background-color: #ffffff;
+}
+</style>
+
+<script>
+export default {
+  data: {
+    swiperList: ['A', 'B', 'C', 'D', 'E', 'F']
+  },
+  refresh2: function (e) {
+    // {refreshing: refreshingValue}
+  },
+  changeSwiper: function (e) {
+    // {index: currentIndex}
+  },
+  changeTabs: function (e) {
+    // {index: indexValue}
+  }
+}
+</script>

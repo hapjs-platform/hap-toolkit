@@ -1,0 +1,31 @@
+/*
+ * Copyright (c) 2021, the hapjs-platform Project Contributors
+ * SPDX-License-Identifier: Apache-2.0
+ */
+
+<template>
+  <div>
+    <!--不支持的组件-->
+    <list>
+      <list-item type="item"></list-item>
+    </list>
+    <refresh></refresh>
+    <richtext type="ux"></richtext>
+    <swiper>
+      <text></text>
+    </swiper>
+    <tabs>
+      <tab-bar></tab-bar>
+      <tab-content>
+      </tab-content>
+    </tabs>
+
+    <!--表单-->
+    <slider></slider>
+    <!--媒体-->
+    <video src=""></video>
+    <!--其他-->
+    <web></web>
+    <!--/不支持的组件-->
+  </div>
+</template>

@@ -1,0 +1,65 @@
+/*
+ * Copyright (c) 2021, the hapjs-platform Project Contributors
+ * SPDX-License-Identifier: Apache-2.0
+ */
+
+<import name='titlebar' src='./ux-title-bar'></import>
+
+<template>
+  <div class="doc-page">
+    <div class="item">
+      <titlebar show="true"
+                title="titleBar1"
+                onleft-button-clicked="onLeftButtonClicked"
+                onright-button-clicked="onRightButtonClicked"
+                right-button="./images/share-1.png"></titlebar>
+    </div>
+
+    <div class="item">
+      <titlebar title="tileBar2"
+                right-button="./images/share-1.png"
+                background-color="#ffd341"></titlebar>
+    </div>
+
+    <div class="item">
+      <titlebar title="titleBar3"
+                right-text="完成"></titlebar>
+    </div>
+
+    <div class="item">
+      <titlebar title="tileBar4"
+                background-color="#f2f3f4"
+                text-color="#333333"
+                text-align="left"
+                left-button="./images/arrow-left-0.png"></titlebar>
+    </div>
+  </div>
+</template>
+
+<style>
+  .doc-page {
+    flex-direction: column;
+  }
+  .item {
+    margin-top: 50px;
+  }
+</style>
+
+<script>
+  import prompt from '@system.prompt'
+  export default {
+    onInit () {
+      this.$page.setTitleBar({ text: '自定义titleBar' })
+    },
+    onLeftButtonClicked () {
+      prompt.showToast({
+        message: 'leftButtonClicked'
+      })
+    },
+    onRightButtonClicked () {
+      prompt.showToast({
+        message: 'rightButtonClicked'
+      })
+    }
+  }
+</script>

@@ -1,0 +1,44 @@
+/*
+ * Copyright (c) 2021, the hapjs-platform Project Contributors
+ * SPDX-License-Identifier: Apache-2.0
+ */
+
+<template>
+  <div class="container">
+    <text>
+      <span style="color: red; text-decoration: underline;">hello</span>
+    </text>
+    <a href="https://www.quickapp.cn">
+      <span style="color: red;"></span>
+      <span style="color: red; text-decoration: line-through;"></span>
+      <span style="color: red; text-decoration: underline;"></span>
+    </a>
+
+    <a href="https://www.quickapp.cn">
+      hello
+      <span style="color: red; text-decoration: underline;">1<span style="color: red; text-decoration: underline;">2</span></span>
+    </a>
+    <text>
+      hello
+      <span class="a">1 <span class="a">2 <span class="a">3</span></span></span>
+    </text>
+    <text>
+        {{msg}}
+        <span>{{msg}}<span>{{msg}}</span></span>
+      </text>
+  </div>
+</template>
+
+<style>
+  .container {
+    flex:1;
+    flex-direction: column;
+    background-color: #FFFFFF;
+  }
+</style>
+
+<script>
+  export default {
+    data: {}
+  }
+</script>

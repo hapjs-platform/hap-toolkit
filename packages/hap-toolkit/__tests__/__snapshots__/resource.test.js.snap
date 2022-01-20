@@ -1,0 +1,136 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`compile a project and test resource collect resource collect 1`] = `
+Array [
+  "app.js",
+  "assets",
+  "assets/2.png",
+  "assets/4.png",
+  "assets/5.png",
+  "Common",
+  "Common/1.png",
+  "Common/2.png",
+  "Common/3.png",
+  "Common/4.png",
+  "Common/5.png",
+  "Common/6.png",
+  "Common/7.png",
+  "Common/logo.png",
+  "Demo",
+  "Demo/index.js",
+  "manifest.json",
+  "node_modules",
+  "node_modules/qa-test-ui",
+  "node_modules/qa-test-ui/assets",
+  "node_modules/qa-test-ui/assets/1.png",
+  "node_modules/qa-test-ui/assets/3.png",
+  "node_modules/qa-test-ui/assets/6.png",
+  "node_modules/qa-test-ui/assets/7.png",
+]
+`;
+
+exports[`css样式抽取 Each page folder contains a *.css.json file 1`] = `
+Array [
+  "CardDemo/index.css.json",
+  "Demo/index.css.json",
+]
+`;
+
+exports[`css样式抽取 make sure the rules contain meta 1`] = `
+Object {
+  ".bg-img-1": Object {
+    "backgroundImage": "/node_modules/qa-test-ui/assets/3.png",
+  },
+  ".bg-img-2": Object {
+    "backgroundImage": "/assets/4.png",
+  },
+  ".column": Object {
+    "alignItems": "center",
+    "borderBottomColor": "#cccccc",
+    "borderBottomWidth": "1px",
+    "borderLeftColor": "#cccccc",
+    "borderLeftWidth": "1px",
+    "borderRightColor": "#cccccc",
+    "borderRightWidth": "1px",
+    "borderStyle": "solid",
+    "borderTopColor": "#cccccc",
+    "borderTopWidth": "1px",
+    "flexDirection": "column",
+    "marginBottom": "18px",
+    "marginRight": "18px",
+    "width": "30%",
+  },
+  ".image": Object {
+    "height": "200px",
+    "width": "200px",
+  },
+  ".page": Object {
+    "flexDirection": "column",
+  },
+  ".row": Object {
+    "flexDirection": "row",
+    "flexWrap": "wrap",
+  },
+  "@info": Any<Object>,
+  "image": Object {
+    "height": "200px",
+    "width": "200px",
+  },
+  "text": Object {
+    "textAlign": "center",
+    "width": "100%",
+  },
+}
+`;
+
+exports[`css样式抽取 make sure the rules contain meta 2`] = `
+Object {
+  ".bg-img-1": Object {
+    "backgroundImage": "/Common/3.png",
+  },
+  ".column": Object {
+    "alignItems": "center",
+    "borderBottomColor": "#cccccc",
+    "borderBottomWidth": "1px",
+    "borderLeftColor": "#cccccc",
+    "borderLeftWidth": "1px",
+    "borderRightColor": "#cccccc",
+    "borderRightWidth": "1px",
+    "borderStyle": "solid",
+    "borderTopColor": "#cccccc",
+    "borderTopWidth": "1px",
+    "flexDirection": "column",
+    "marginBottom": "18px",
+    "marginRight": "18px",
+    "width": "30%",
+  },
+  ".image": Object {
+    "height": "200px",
+    "width": "200px",
+  },
+  ".page": Object {
+    "flexDirection": "column",
+  },
+  ".row": Object {
+    "flexDirection": "row",
+    "flexWrap": "wrap",
+  },
+  "@MEDIA": Array [
+    Object {
+      ".bg-img-2": Object {
+        "backgroundImage": "/Common/4.png",
+      },
+      "condition": "screen and (orientation: landscape)",
+    },
+  ],
+  "@info": Any<Object>,
+  "image": Object {
+    "height": "200px",
+    "width": "200px",
+  },
+  "text": Object {
+    "textAlign": "center",
+    "width": "100%",
+  },
+}
+`;

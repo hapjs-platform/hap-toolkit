@@ -1,0 +1,41 @@
+/*
+ * Copyright (c) 2021, the hapjs-platform Project Contributors
+ * SPDX-License-Identifier: Apache-2.0
+ */
+
+<import name="comp1" src="./comp1"></import>
+<import name="comp2" src="./comp2"></import>
+<import name="comp3" src="./comp3"></import>
+
+<template>
+  <div class="container">
+    <!--支持：自定义组件comp中text的slot功能（comp1只能包含文本节点或span组件）。传递纯文本-->
+    <comp1>body</comp1>
+
+    <!--支持：自定义组件comp中text的slot功能（comp1只能包含文本节点或span组件）。传递一个span组件-->
+    <comp1><span>body</span></comp1>
+
+    <!--支持：自定义组件comp中text的slot功能（comp1只能包含文本节点或span组件）。传递纯文本和span组件-->
+    <comp1>body1<span>body2</span></comp1>
+
+    <!--支持：自定义组件comp中div的slot功能。传递组件-->
+    <comp2><text>body</text></comp2>
+
+    <comp3></comp3>
+  </div>
+</template>
+
+<style>
+  .container {
+    flex: 1;
+    flex-direction: column;
+    background-color: #FFFFFF;
+  }
+</style>
+
+<script>
+  export default {
+    data: {
+    }
+  }
+</script>

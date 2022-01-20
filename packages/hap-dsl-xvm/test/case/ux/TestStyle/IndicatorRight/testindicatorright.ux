@@ -1,0 +1,50 @@
+/*
+ * Copyright (c) 2021, the hapjs-platform Project Contributors
+ * SPDX-License-Identifier: Apache-2.0
+ */
+
+<template>
+  <div>
+  </div>
+</template>
+
+<style>
+  .A {
+    indicator-right: 0;
+  }
+
+  .B {
+    indicator-right: 10px;
+  }
+
+  .C {
+    indicator-right: 10%;
+  }
+
+  .a {
+    indicator-right: 10rem;
+  }
+
+  .b {
+    indicator-right: 10em;
+  }
+
+  .c {
+    indicator-right: 10pt;
+  }
+
+  .d {
+    indicator-right: @indicatorTopLength;
+  }
+
+  .e {
+    indicator-right: a;
+  }
+</style>
+
+<script>
+  export default {
+    data: {
+    }
+  }
+</script>

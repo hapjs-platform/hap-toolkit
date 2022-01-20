@@ -1,0 +1,46 @@
+/*
+ * Copyright (c) 2021, the hapjs-platform Project Contributors
+ * SPDX-License-Identifier: Apache-2.0
+ */
+
+<template>
+ <div>
+ </div>
+ </template>
+ <style >
+  @keyframes box__rotate1 {
+    0% {
+      transform: scale(0);
+    }
+    100% {
+      transform: scale(1);
+    }
+  }
+  @keyframes box__width {
+    0% {
+      width: 100px;
+    }
+    100% {
+      width: 200px;
+    }
+  }
+
+  .box {
+    animation-name: box__rotate1;
+  }
+  .box1 {
+    animation-name: box__rotate1  , box__width;
+  }
+  .box2 {
+    animation-name: 1box__rotate1  , box__width;
+  }
+  .box3 {
+    animation-name: box__rotate1  , 1box__width;
+  }
+ </style>
+ <script>
+  export default {
+    data: {
+    }
+  }
+</script>

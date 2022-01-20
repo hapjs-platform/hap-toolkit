@@ -1,0 +1,29 @@
+/*
+ * Copyright (c) 2021, the hapjs-platform Project Contributors
+ * SPDX-License-Identifier: Apache-2.0
+ */
+
+<template>
+  <div class="container">
+    <image data-data1="abc" src="/Common/home.png" alt="/Common/home.png"></image>
+    <image data-data2="{{attrData}}" src="./Common/home.png" alt="./Common/home.png"></image>
+    <image data-data1-data2="abc" src="../Common/home.png" alt="../Common/home.png"></image>
+    <image src="../Common/home.png" alt="blank"></image>
+    <image src="{{imgSrc}}" oncomplete="completeFn" @error="erroreFn"></image>
+    <image src="{{imgSrc}}" autoplay="true"></image>
+  </div>
+</template>
+
+<style>
+  .container {
+    flex:1;
+    flex-direction: column;
+    background-color: #FFFFFF;
+  }
+</style>
+
+<script>
+  export default {
+    data: {}
+  }
+</script>

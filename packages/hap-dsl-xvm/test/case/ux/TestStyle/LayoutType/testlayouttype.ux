@@ -1,0 +1,24 @@
+/*
+ * Copyright (c) 2021, the hapjs-platform Project Contributors
+ * SPDX-License-Identifier: Apache-2.0
+ */
+
+<template>
+  <div>
+  </div>
+</template>
+
+<style>
+  .A1 {
+    layout-type: grid;
+  }
+  .A2 {
+    layout-type: stagger;
+  }
+  .a1 {
+    layout-type: #ff00ff;
+  }
+  .a2 {
+    layout-type: gride;
+  }
+</style>

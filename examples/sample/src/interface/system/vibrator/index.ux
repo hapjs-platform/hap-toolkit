@@ -1,0 +1,63 @@
+/*
+ * Copyright (c) 2021, the hapjs-platform Project Contributors
+ * SPDX-License-Identifier: Apache-2.0
+ */
+
+<template>
+  <div class="doc-page">
+    <div class="page-title-wrap">
+      <text class="page-title">{{componentName}}</text>
+    </div>
+
+    <div class="item-container">
+      <div class="item-content">
+        <text class="txt">{{vibratorInfo}}</text>
+      </div>
+      <input type="button" class="btn" onclick="vibratorLong" value="开启长时震动"/>
+      <input type="button" class="btn" onclick="vibratorShort" value="开启短时震动"/>
+    </div>
+  </div>
+</template>
+
+<style>
+  @import '../../../common/css/common.css';
+
+  .item-container {
+    margin-bottom: 50px;
+    margin-right: 60px;
+    margin-left: 60px;
+    flex-direction: column;
+  }
+
+  .item-content {
+    flex-direction: column;
+    background-color: #ffffff;
+    padding: 30px;
+    margin-bottom: 100px;
+    align-items: center;
+  }
+</style>
+
+<script>
+  import vibrator from '@system.vibrator'
+
+  export default {
+    private: {
+      componentName: 'vibrator',
+      vibratorInfo: '触发震动，支持长时和短时两种',
+    },
+    onInit () {
+      this.$page.setTitleBar({text: 'Vibrator'})
+    },
+    vibratorLong () {
+      vibrator.vibrate({
+         mode: 'long' // 默认值，可不加
+      })
+    },
+    vibratorShort () {
+      vibrator.vibrate({
+        mode: 'short'
+      })
+    }
+  }
+</script>

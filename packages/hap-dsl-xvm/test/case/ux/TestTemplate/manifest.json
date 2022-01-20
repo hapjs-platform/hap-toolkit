@@ -1,0 +1,33 @@
+{
+  "package": "com.app.case.testtemplate",
+  "name": "testtemplate",
+  "version": "1.0",
+  "versionCode": "1",
+  "icon": "/Common/icon.png",
+  "features": [
+  ],
+  "components": [
+  ],
+  "permissions": [
+    {
+      "origin": "*"
+    }
+  ],
+  "config": {
+    "logLevel": "off"
+  },
+  "router": {
+    "entry": "Simple",
+    "pages": {
+      "Simple": {
+        "component": "testsimple"
+      },
+      "If": {
+        "component": "testif"
+      },
+      "NestedIf": {
+        "component": "testnestedif"
+      }
+    }
+  }
+}

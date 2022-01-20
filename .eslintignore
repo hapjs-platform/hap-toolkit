@@ -1,0 +1,14 @@
+/coverage
+node_modules
+/packages/hap-debugger/lib/
+/packages/hap-debugger/inspector/
+/packages/hap-debugger/devtools/
+/packages/hap-debugger/src/client/
+/packages/*/lib
+/packages/hap-server/lib
+/packages/hap-server/src/preview/static
+/packages/hap-toolkit/fixtures
+/packages/hap-packager/test/fixtures/
+/packages/hap-packager/test/build/
+/packages/sample/**
+!/packages/sample/__tests__/** # doesn't work

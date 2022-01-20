@@ -1,0 +1,67 @@
+/*
+ * Copyright (c) 2021, the hapjs-platform Project Contributors
+ * SPDX-License-Identifier: Apache-2.0
+ */
+
+<template>
+  <div>
+  </div>
+</template>
+
+<style>
+  .A1 {
+    border-right-width: 1px;
+  }
+
+  .A2 {
+    border-right-width:   1px;
+  }
+
+  .B1 {
+    border-right-width: 1;
+  }
+
+  .B2 {
+    border-right-width: 0;
+  }
+
+  .a1 {
+    border-right-width: 1rem;
+  }
+
+  .a2 {
+    border-right-width: 1em;
+  }
+
+  .a3 {
+    border-right-width: 1pt;
+  }
+
+  .b {
+    border-right-width: 1 px;
+  }
+
+  .c {
+    border-right-width: none;
+  }
+
+  .d {
+    border-right-width: @borderLength;
+  }
+
+  .e1 {
+    border-right-width: 1px 2px 3px 4px;
+  }
+
+  .e2 {
+    border-right-width: 1px 2px;
+  }
+
+</style>
+
+<script>
+  export default {
+    data: {
+    }
+  }
+</script>

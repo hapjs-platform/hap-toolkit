@@ -1,0 +1,64 @@
+/*
+ * Copyright (c) 2021, the hapjs-platform Project Contributors
+ * SPDX-License-Identifier: Apache-2.0
+ */
+
+<template>
+    <div class="doc-page">
+        <div class="page-title-wrap">
+            <text class="page-title">{{componentName}}</text>
+        </div>
+
+        <div class="item-container">
+          <input type="button" value="允许cookie跨域读取" @click="openWeb(true)"/>
+        </div>
+        <div class="item-container">
+          <input type="button" value="禁止cookie跨域读取(1010+)" @click="openWeb(false)"/>
+        </div>
+        <div class="item-container">
+          <input type="button" value="进入京东拉起微信支付" @click="gotoPay('weixin')"/>
+        </div>
+        <div class="item-container">
+          <input type="button" value="进入淘宝拉起支付宝支付" @click="gotoPay('zhifubao')"/>
+        </div>
+    </div>
+</template>
+<style>
+  @import '../../../common/css/common.css';
+  .item-container {
+    margin-bottom: 50px;
+    margin-right: 60px;
+    margin-left: 60px;
+    flex-direction: column;
+  }
+</style>
+<script>
+  import router from "@system.router"
+
+  export default {
+    private: {
+      componentName: 'web'
+    },
+    onInit () {
+      this.$page.setTitleBar({ text: 'Web' })
+    },
+    openWeb (allowthirdpartycookies) {
+      router.push({
+        uri: '/component/media/web/detail',
+        params: {
+          url: 'https://www.quickapp.cn/',
+          allowthirdpartycookies
+        }
+      })
+    },
+    gotoPay (type) {
+      router.push({
+        uri: '/component/media/web/detail',
+        params: {
+          url: type === 'weixin' ? 'https://www.jd.com' : 'https://www.taobao.com',
+          allowthirdpartycookies: false
+        }
+      })
+    }
+  }
+</script>

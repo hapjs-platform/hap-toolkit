@@ -1,0 +1,27 @@
+/*
+ * Copyright (c) 2021, the hapjs-platform Project Contributors
+ * SPDX-License-Identifier: Apache-2.0
+ */
+
+<template>
+  <div>
+    <scrollview show-scrollbar="false" scroll-direction="vertical">
+      <div></div>
+    </scrollview>
+    <scrollview show-scrollbar="true" scroll-direction="horizontal">
+    </scrollview>
+    <scrollview show-scrollbar="123" scroll-direction="vertical_horizontal">
+    </scrollview>
+    <scrollview scroll-direction="123" @scroll="fn" @scrollbegindrag="fn" @scrollenddrag="fn" @scrollstart="fn" @scrollstop="fn">
+    </scrollview>
+  </div>
+</template>
+
+<style>
+</style>
+
+<script>
+  export default {
+    fn() {}
+  }
+</script>

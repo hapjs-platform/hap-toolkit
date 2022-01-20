@@ -1,0 +1,44 @@
+/*
+ * Copyright (c) 2021, the hapjs-platform Project Contributors
+ * SPDX-License-Identifier: Apache-2.0
+ */
+
+<template>
+    <div>
+    </div>
+</template>
+
+<style>
+    .A1 {
+        star-foreground: url('./a.png');
+    }
+    .A2 {
+        star-foreground: url(./a.png)
+    }
+    .a1 {
+        star-foreground: url();
+    }
+    .a2 {
+        star-foreground: './a.png';
+    }
+    .a3 {
+        star-foreground: @uri;
+    }
+    .a4 {
+        star-foreground: url(a);
+    }
+    .a5 {
+        star-foreground: url(@uri);
+    }
+    .a6 {
+        star-foreground: uri('./a.png');
+    }
+</style>
+
+<script>
+  export default {
+    data: {
+    }
+  }
+</script>
+'

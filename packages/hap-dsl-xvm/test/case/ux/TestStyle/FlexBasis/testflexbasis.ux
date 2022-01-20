@@ -1,0 +1,90 @@
+/*
+ * Copyright (c) 2021, the hapjs-platform Project Contributors
+ * SPDX-License-Identifier: Apache-2.0
+ */
+
+<template>
+  <div>
+  </div>
+</template>
+
+<style>
+  .A1 {
+    flex-basis: 100px;
+  }
+
+  .A2 {
+    flex-basis: 100;
+  }
+
+  .A3 {
+    flex-basis:   100 px;
+  }
+
+  .B {
+    flex-basis: 50%;
+  }
+
+  .a {
+    flex-basis: auto;
+  }
+
+  .b1 {
+    flex-basis: 100pt;
+  }
+
+  .b2 {
+    flex-basis: 100em;
+  }
+
+  .b3 {
+    flex-basis: 100rem;
+  }
+
+  .b4 {
+    flex-basis: 100mm;
+  }
+
+  .c1 {
+    flex-basis: fill;
+  }
+
+  .c2 {
+    flex-basis: max-content;
+  }
+
+  .c3 {
+    flex-basis: min-content;
+  }
+
+  .c4 {
+    flex-basis: fit-content;
+  }
+
+  .d {
+    flex-basis: content;
+  }
+
+  .e1 {
+    flex-basis: inherit;
+  }
+
+  .e2 {
+    flex-basis: initial;
+  }
+
+  .e3 {
+    flex-basis: unset;
+  }
+
+  .f {
+    flex-basis: -1;
+  }
+</style>
+
+<script>
+  export default {
+    data: {
+    }
+  }
+</script>

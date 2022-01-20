@@ -1,0 +1,25 @@
+/*
+ * Copyright (c) 2021, the hapjs-platform Project Contributors
+ * SPDX-License-Identifier: Apache-2.0
+ */
+
+<template>
+  <div>
+  </div>
+</template>
+
+<style>
+</style>
+
+<script>
+  // just a normal module
+  import helper from './helper'
+  import A from '@system.feature'
+  import {B} from '@system.feature'
+  import {C as cc} from '@system.feature'
+  import {D, E} from '@system.feature'
+
+  export default {
+    data: {}
+  }
+</script>

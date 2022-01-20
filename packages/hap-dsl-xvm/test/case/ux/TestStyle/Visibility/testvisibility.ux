@@ -1,0 +1,50 @@
+/*
+ * Copyright (c) 2021, the hapjs-platform Project Contributors
+ * SPDX-License-Identifier: Apache-2.0
+ */
+
+<template>
+  <div>
+  </div>
+</template>
+
+<style>
+  .A {
+    visibility: visible;
+  }
+
+  .B {
+    visibility: hidden;
+  }
+
+  .a1 {
+    visibility: 'visible';
+  }
+
+  .a2 {
+    visibility: 'hidden';
+  }
+
+  .b1 {
+    visibility: collapse;
+  }
+
+  .b2 {
+    visibility: inherit;
+  }
+
+  .c1 {
+    visibility: true;
+  }
+
+  .c2 {
+    visibility: 1;
+  }
+</style>
+
+<script>
+  export default {
+    data: {
+    }
+  }
+</script>

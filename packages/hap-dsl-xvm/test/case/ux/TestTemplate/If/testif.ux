@@ -1,0 +1,37 @@
+/*
+ * Copyright (c) 2021, the hapjs-platform Project Contributors
+ * SPDX-License-Identifier: Apache-2.0
+ */
+
+<template>
+  <div class="container">
+    <div>
+      <text if="{{condition==1}}">if</text>
+      <text elif="{{condition==2}}">elif</text>
+      <text else>else</text>
+    </div>
+    <div>
+      <text if="{{testCondition}}">if</text>
+      <text elif="{{testCondition}}">elif1</text>
+      <text elif="{{testCondition}}">elif2</text>
+      <text elif="{{testCondition}}">elif3</text>
+      <text else>else</text>
+    </div>
+  </div>
+</template>
+
+<style>
+  .container {
+    flex: 1;
+    flex-direction: column;
+    background-color: #FFFFFF;
+  }
+</style>
+
+<script>
+  export default {
+    data: {
+      condition: -1
+    }
+  }
+</script>

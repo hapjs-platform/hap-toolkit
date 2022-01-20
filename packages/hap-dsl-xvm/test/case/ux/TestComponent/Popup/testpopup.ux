@@ -1,0 +1,31 @@
+/*
+ * Copyright (c) 2021, the hapjs-platform Project Contributors
+ * SPDX-License-Identifier: Apache-2.0
+ */
+
+<template>
+  <div class="container">
+    <input type="button" style="color: red;" id="popup1" value="top" />
+    <popup target="popup1" placement="top">
+        <text>这是popup测试</text>
+    </popup>
+    <input type="button" style="color: red;" id="popup2" value="top"/>
+    <popup target="test_popup" placement="top" style="mask-color:#ff0000">
+        <text>这是popup测试</text>
+    </popup>
+  </div>
+</template>
+
+<style>
+  .container {
+    flex:1;
+    flex-direction: column;
+    background-color: #FFFFFF;
+  }
+</style>
+
+<script>
+  export default {
+    data: {}
+  }
+</script>

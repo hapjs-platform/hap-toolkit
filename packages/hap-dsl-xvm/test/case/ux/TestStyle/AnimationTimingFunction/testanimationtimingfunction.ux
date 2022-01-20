@@ -1,0 +1,93 @@
+/*
+ * Copyright (c) 2021, the hapjs-platform Project Contributors
+ * SPDX-License-Identifier: Apache-2.0
+ */
+
+<template>
+ <div>
+ </div>
+ </template>
+ <style >
+  .box {
+    animation-timing-function: linear;
+  }
+  .box01 {
+    animation-timing-function: ease;
+  }
+  .box02 {
+    animation-timing-function: ease-in;
+  }
+  .box03 {
+    animation-timing-function: ease-out;
+  }
+  .box04 {
+    animation-timing-function: ease-in-out;
+  }
+  .box05 {
+    animation-timing-function: none;
+  }
+  .box06 {
+    animation-timing-function: step-start;
+  }
+  .box07 {
+    animation-timing-function: step-end;
+  }
+  /*steps direction参数可缺省，默认为end*/
+  .box08 {
+    animation-timing-function: steps(1);
+  }
+  .box09 {
+    animation-timing-function: steps(2, jump-start);
+  }
+  .box10 {
+    animation-timing-function: steps(3, jump-end);
+  }
+  .box11 {
+    animation-timing-function: steps(4, jump-none);
+  }
+  .box12 {
+    animation-timing-function: steps(5, jump-both);
+  }
+  .box13 {
+    animation-timing-function: steps(6, start);
+  }
+  .box14 {
+    animation-timing-function: steps(7, end);
+  }
+  /*steps number_of_steps参数错误值*/
+  .box15 {
+    animation-timing-function: steps(a, end);
+  }
+  /*steps direction参数错误值*/
+  .box16 {
+    animation-timing-function: steps(1, none);
+  }
+  .box17 {
+    animation-timing-function: cubic-bezier(0.1, 0.1, 0.1, 0.1);
+  }
+  .box18 {
+    animation-timing-function: cubic-bezier(1, 2, 1, 2);
+  }
+  /*cubic-bezier(<x1>,<y1>,<x2>,<y2>) x1错误值：非数字*/
+  .box19 {
+    animation-timing-function: cubic-bezier(a, 0.1, 0.1, 0.1);
+  }
+  /*cubic-bezier(<x1>,<y1>,<x2>,<y2>) y2错误值：非数字*/
+  .box20 {
+    animation-timing-function: cubic-bezier(0.1, 0.1, 0.1, a);
+  }
+  /*cubic-bezier(<x1>,<y1>,<x2>,<y2>) x1错误值：不在 0~1 范围*/
+  .box21 {
+    animation-timing-function: cubic-bezier(2, 0.1, 0.1, 0.1);
+  }
+  /*cubic-bezier(<x1>,<y1>,<x2>,<y2>) x2错误值：不在 0~1 范围*/
+  .box22 {
+    animation-timing-function: cubic-bezier(0.5, 0.1, 1.1, 0.1);
+  }
+ </style>
+ <script>
+  export default {
+    data: {
+    }
+  }
+</script>

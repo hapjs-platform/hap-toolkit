@@ -1,0 +1,82 @@
+/*
+ * Copyright (c) 2021, the hapjs-platform Project Contributors
+ * SPDX-License-Identifier: Apache-2.0
+ */
+
+<template>
+  <div>
+  </div>
+</template>
+
+<style>
+  .A {
+    mylocation-stroke-color: red;
+  }
+  .B1 {
+    mylocation-stroke-color: #FFF;
+  }
+  .B2 {
+    mylocation-stroke-color: #FFFFFF;
+  }
+  .C1 {
+    mylocation-stroke-color: rgb(255,255,255);
+  }
+  .C2 {
+    mylocation-stroke-color: rgb(0,  0,   0);
+  }
+  .C3 {
+    mylocation-stroke-color: hsl(360,100%,100%);
+  }
+  .C4 {
+    mylocation-stroke-color: hsl(0,  0%,   0%);
+  }
+  .D1 {
+    mylocation-stroke-color: rgba(255,255,255,.5);
+  }
+  .D2 {
+    mylocation-stroke-color: rgba(0,0, 0, .0);
+  }
+  .D3 {
+    mylocation-stroke-color: rgba(0, 0,0, 1.0);
+  }
+  .D4 {
+    mylocation-stroke-color: rgba(255, 255,255, .5);
+  }
+  .E1 {
+    mylocation-stroke-color: hsla(360,100%,100%,.5);
+  }
+  .E2 {
+    mylocation-stroke-color: hsla(0,0%, 0%, .0);
+  }
+  .E3 {
+    mylocation-stroke-color: hsla(0, 0%,0%, 1.0);
+  }
+  .E4 {
+    mylocation-stroke-color: hsla(360, 100%,100%, .5);
+  }
+  .a1{
+    mylocation-stroke-color: 'red';
+  }
+  .a2 {
+    mylocation-stroke-color: @red;
+  }
+  .b1 {
+    mylocation-stroke-color: #FFFF;
+  }
+  .b2 {
+    mylocation-stroke-color: #FFFFF;
+  }
+  .c1 {
+    mylocation-stroke-color: rgb(,,0);
+  }
+  .c2 {
+    mylocation-stroke-color: hsl(,,0%);
+  }
+</style>
+
+<script>
+  export default {
+    data: {
+    }
+  }
+</script>

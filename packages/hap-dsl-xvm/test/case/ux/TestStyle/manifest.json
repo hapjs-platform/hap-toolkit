@@ -1,0 +1,36 @@
+{
+  "package": "com.app.case.teststyle",
+  "name": "teststyle",
+  "version": "1.0",
+  "versionCode": "1",
+  "icon": "/Common/icon.png",
+  "features": [
+  ],
+  "components": [
+  ],
+  "permissions": [
+    {
+      "origin": "*"
+    }
+  ],
+  "config": {
+    "logLevel": "off"
+  },
+  "router": {
+    "entry": "Simple",
+    "pages": {
+      "Flex": {
+        "component": "testflex"
+      },
+      "FlexDirection": {
+        "component": "testflexdirection"
+      },
+      "BackgroundColor": {
+        "component": "testbackgroundcolor"
+      },
+      "Pseudo": {
+        "component": "testpseudo"
+      }
+    }
+  }
+}

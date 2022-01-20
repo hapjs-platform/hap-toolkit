@@ -1,0 +1,270 @@
+/*
+ * Copyright (c) 2021, the hapjs-platform Project Contributors
+ * SPDX-License-Identifier: Apache-2.0
+ */
+
+<template>
+  <div>
+  </div>
+</template>
+
+<style>
+  .A1 {
+    background: linear-gradient(red, yellow);
+  }
+
+  .A2 {
+    background: linear-gradient(red, #FF0000);
+  }
+
+  .A3 {
+    background: linear-gradient(red, #FF0000, rgb(255,255,255));
+  }
+
+  /* rgb|rgba|red|#FF000 多种颜色形式共存测试 */
+  .A4 {
+    background: linear-gradient(rgb(255,255,255),rgba(255 , 255 , 255 ,.5));
+  }
+
+  .A5 {
+    background: linear-gradient(red, rgba(255 , 255 , 255 ,.5));
+  }
+
+  .A6 {
+    background: linear-gradient(rgba(255 , 255 , 255 ,.5), red , blue);
+  }
+
+  .A7 {
+    background: linear-gradient(#FF0000, red, rgba(255 , 255 , 255 ,.5));
+  }
+
+  /* direction测试 */
+  .B1 {
+    background: linear-gradient(to right, red , yellow );
+  }
+
+  .B2 {
+    background: linear-gradient(to right top, red , yellow );
+  }
+
+  .B3 {
+    background: linear-gradient(to bottom left, red , yellow );
+  }
+
+  .B4 {
+    background: linear-gradient(to left bottom, red , yellow );
+  }
+
+  /* color-stop测试 */
+  .C1 {
+    background: linear-gradient(#FF0000 10px,red 10px);
+  }
+
+  .C2 {
+    background: linear-gradient(#FF0000 10px,rgb(0,0,0) 10px);
+  }
+
+  .C3 {
+    background: linear-gradient(#FF0000 10px,red, rgba(0,0,0,.5) 10px);
+  }
+
+  .C4 {
+    background: linear-gradient(#FF0000 10px,red 10,rgb(0,0,0) 10px);
+  }
+
+  /* Angle测试 */
+  .D1 {
+    background: linear-gradient(10deg, red ,yellow);
+  }
+
+   /* 存在默认单位deg */
+  .D2 {
+    background: linear-gradient(10, red ,yellow);
+  }
+
+  /* 换行测试 */
+  .D3 {
+    background: linear-gradient(
+      90deg,
+      rgba(0, 255, 0, 1),
+      rgba(255, 0, 255, 1)
+    );
+  }
+
+  /* direction+(color-stop) */
+  .E1 {
+    background: linear-gradient(to right , red, yellow);
+  }
+
+  .E2 {
+    background: linear-gradient(to top left,#FF0000,rgb(0,0,0),rgba(0,0,0,1));
+  }
+
+  .E3 {
+    background: linear-gradient(to right , #FF0000 10px, yellow 10px);
+  }
+
+  /* repeating-linear-gradient测试 */
+  .F1 {
+    background: repeating-linear-gradient(to left , red,yellow);
+  }
+
+  .F2 {
+    background: repeating-linear-gradient(to right , red 10px, yellow 10px);
+  }
+
+  /* 换行测试 */
+  .F3 {
+    background: repeating-linear-gradient(
+      to right,
+      red 10px,
+      yellow 10px
+    );
+  }
+
+  /* 多组repeating-linear-gradient测试 */
+  .G1 {
+    background: repeating-linear-gradient( red, yellow), repeating-linear-gradient( rgb(255, 255,255) 10%, yellow 20%),repeating-linear-gradient(red , yellow 20%);
+  }
+
+  .G2 {
+    background: repeating-linear-gradient( red, #FF0000 10px), repeating-linear-gradient( rgb(255, 255,255) 10%, yellow 20%),repeating-linear-gradient(red , yellow 20%);
+  }
+
+  /* 换行测试 */
+  .G3 {
+    background:
+      repeating-linear-gradient(
+        red,
+        #FF0000 10px
+      ),
+      repeating-linear-gradient( rgb(255, 255,255) 10%, yellow 20%),
+      repeating-linear-gradient(red , yellow 20%);
+  }
+
+  .a1 {
+    background: linear-gradient();
+  }
+
+  .a2 {
+    background: linear-gradient(red);
+  }
+
+  .a3 {
+    background: linear-gradient(red 10px);
+  }
+
+  /* direction测试 */
+  .b1 {
+    background: linear-gradient(to);
+  }
+
+  .b2 {
+    background: linear-gradient(to red);
+  }
+
+  .b3 {
+    background: linear-gradient(to top);
+  }
+
+  .b4 {
+    background: linear-gradient(to rgba(0, 0 , 0, .0));
+  }
+
+  .b5 {
+    background: linear-gradient( to top left );
+  }
+
+  .b6 {
+    background: linear-gradient(to top top,red,yellow);
+  }
+
+  .b7 {
+    background: linear-gradient(to top left right,red,yellow);
+  }
+
+  .b8 {
+    background: linear-gradient(left right,red,yellow);
+  }
+
+  .b9 {
+    background: linear-gradient( top left right);
+  }
+
+  /* color-stop测试 */
+  .c1 {
+    background: linear-gradient(to right,#FF0000 10px);
+  }
+
+  .c2 {
+    background: linear-gradient( 10px );
+  }
+
+  .c3 {
+    background: linear-gradient(to right, 10px #FF0000,red 10px);
+  }
+
+  /* Angle测试 */
+  .d1 {
+    background: linear-gradient(10deg);
+  }
+
+  .d2 {
+    background: linear-gradient(10);
+  }
+
+  .d3 {
+    background: linear-gradient(deg red, yellow);
+  }
+
+  /* direction+(color-stop) */
+  .e1 {
+    background: linear-gradient(to left , red);
+  }
+
+  .e2 {
+    background: linear-gradient(to left , red 10px);
+  }
+
+  /* 至少两种颜色测试 */
+  .f1 {
+    background: linear-gradient(red);
+  }
+
+  /* rgb|rgba|red|#FF000 多种颜色形式共存测试 */
+  .f2 {
+    background: linear-gradient(#FF);
+  }
+
+  .f3 {
+    background: linear-gradient(#FFFF,rgb(0,0,),ok, rgba(0,0,0,.5));
+  }
+
+  .f4{
+    background: linear-gradient(red, rgba(255,255));
+  }
+
+  .f5 {
+    background: linear-gradient(#FF0000,rgba(255,255, 255),rgb(255,255, 255) , rgba(0 ,0 , 0 ,1));
+  }
+
+  /* 未支持类型 */
+  .k1 {
+    background: url(bgimage.gif);
+  }
+
+  .k2 {
+    background: red;
+  }
+
+  .k3 {
+    background: #00FF00 url(bgimage.gif) no-repeat fixed top;
+  }
+</style>
+
+<script>
+  export default {
+    data: {
+    }
+  }
+</script>

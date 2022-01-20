@@ -1,0 +1,39 @@
+/*
+ * Copyright (c) 2021, the hapjs-platform Project Contributors
+ * SPDX-License-Identifier: Apache-2.0
+ */
+
+<template>
+  <div class="container">
+    <label>标签名称：</label>
+
+    <label target="input1">input1:</label>
+    <input type="text" id="input1" placeholder="input1" />
+
+    <label target="textarea1">textarea1:</label>
+    <textarea  id="textarea1" placeholder="textarea..."></textarea>
+
+    <label target="radio1">radio1:</label>
+    <input type="radio" id="radio1" style="width: 50px;"/>
+
+    <label onclick="clicklabel">clickLabel:</label>
+
+  </div>
+</template>
+
+<style>
+  .container {
+    flex: 1;
+    flex-direction: column;
+    background-color: #FFFFFF;
+  }
+</style>
+
+<script>
+  export default {
+    data: {},
+    clicklabel: function () {
+      // clicklabel
+    }
+  }
+</script>

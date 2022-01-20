@@ -1,0 +1,42 @@
+/*
+ * Copyright (c) 2021, the hapjs-platform Project Contributors
+ * SPDX-License-Identifier: Apache-2.0
+ */
+
+<template>
+  <div>
+  </div>
+</template>
+
+<style>
+  .A {
+    text-overflow: clip;
+  }
+
+  .B {
+    text-overflow: ellipsis;
+  }
+
+  .a1 {
+    text-overflow: 'clip
+  }
+
+  .a2 {
+    text-overflow: 'ellipsis';
+  }
+
+  .b {
+    text-overflow: 1;
+  }
+
+  .c {
+    text-overflow: @textOverflow;
+  }
+</style>
+
+<script>
+  export default {
+    data: {
+    }
+  }
+</script>

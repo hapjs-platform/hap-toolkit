@@ -1,0 +1,45 @@
+/*
+ * Copyright (c) 2021, the hapjs-platform Project Contributors
+ * SPDX-License-Identifier: Apache-2.0
+ */
+
+<template>
+  <div>
+  </div>
+</template>
+
+<style>
+  .A1 {
+    opacity: 1.0;
+  }
+
+  .A2 {
+    opacity: 1;
+  }
+
+  .B1 {
+    opacity: 0.50;
+  }
+
+  .B2 {
+    opacity: .50;
+  }
+
+  .a {
+    opacity: 2;
+  }
+
+  .b {
+    opacity: transparent;
+  }
+
+  .c {
+    opacity: @opacity;
+  }
+</style>
+
+<script>
+  export default {
+    data: {}
+  }
+</script>

@@ -1,0 +1,105 @@
+image: node:lts
+
+cache:
+  paths:
+    - node_modules/
+    #    wait for https://gitlab.com/gitlab-org/gitlab-runner/issues/2620
+    # - packages/**/node_modules/
+    - packages/hap-compiler/node_modules/
+    - packages/hap-debugger/node_modules/
+    - packages/hap-dev-utils/node_modules/
+    - packages/hap-dsl-xvm/node_modules/
+    - packages/hap-packager/node_modules/
+    - packages/hap-server/node_modules/
+    - packages/hap-shared-utils/node_modules/
+    - packages/hap-toolkit/node_modules/
+    - packages/integration-tests/node_modules/
+    - examples/sample/node_modules/
+
+stages:
+  - test
+  - build
+  - release
+  - deploy
+
+before_script:
+  - npx envinfo
+  - npm install
+  - npm run bootstrap
+
+build:
+  stage: build
+  script:
+    - npm run build
+  tags:
+    - docker
+
+build-on-node10:
+  image: node:10
+  stage: build
+  script:
+    - npm run build
+  tags:
+    - docker
+
+build-on-node-latest:
+  image: node:latest
+  stage: build
+  script:
+    - npm run build
+  tags:
+    - docker
+
+coverage:
+  stage: test
+  # https://ac.gerrit.sodajs.org/fe/common-docker
+  image: quickapp/qa-fe-common
+  coverage: '/^Lines\s*: (\d+\.\d+)%/'
+  script:
+    - npm run build:dev # to test coverage, don't minify code
+    - npm run test:cov
+  artifacts:
+    paths:
+      - coverage/
+    expire_in: 2 weeks
+  tags:
+    - docker
+
+test:
+  stage: test
+  image: quickapp/qa-fe-common
+  script:
+    - npm run build
+    - npm run prettier-check
+    - npm run test
+  tags:
+    - docker
+
+pack:
+  stage: release
+  script:
+    - npm run build
+    - npm run pack
+    - npm run pack-sourcemaps
+  artifacts:
+    name: 'hap-toolkit-$CI_COMMIT_REF_NAME'
+    paths:
+      - 'packages/*/*.tgz'
+    expire_in: 2 weeks
+  tags:
+    - docker
+  only:
+    - tag
+# not supported now
+#pages:
+#  stage: deploy
+#  dependencies:
+#    - coverage
+#  script:
+#    - mv coverage/ public/
+#  artifacts:
+#    paths:
+#      - public
+#    expire_in: 90 days
+#  tags:
+#    - docker

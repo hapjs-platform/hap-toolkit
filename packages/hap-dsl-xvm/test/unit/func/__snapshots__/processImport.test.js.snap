@@ -1,0 +1,50 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`测试processImport函数 process import 1`] = `
+"/* comment */
+
+
+@media  screen and (orientation: portrait) {
+/*
+    Copyright (c) 2021, the hapjs-platform Project Contributors
+    SPDX-License-Identifier: Apache-2.0
+*/
+
+/*@import  './common2.css';*/
+
+
+/*
+    Copyright (c) 2021, the hapjs-platform Project Contributors
+    SPDX-License-Identifier: Apache-2.0
+*/
+
+
+@media  screen and (resolution: 96dpi) {
+/*
+    Copyright (c) 2021, the hapjs-platform Project Contributors
+    SPDX-License-Identifier: Apache-2.0
+*/
+
+.commom3 {
+  color: #000033;
+}
+}
+
+
+.common1 {
+  color: #000001;
+}
+
+
+.common {
+  color: #000000;
+}
+}
+
+
+.box {
+  width: 100px;
+}
+
+@import './common2.css' screen and (orientation: portrait);"
+`;

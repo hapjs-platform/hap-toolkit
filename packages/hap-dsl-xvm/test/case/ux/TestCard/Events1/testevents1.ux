@@ -1,0 +1,14 @@
+/*
+ * Copyright (c) 2021, the hapjs-platform Project Contributors
+ * SPDX-License-Identifier: Apache-2.0
+ */
+
+<template>
+  <div>
+    <!--支持通用事件-->
+    <div onclick="click"></div>
+    <div onlongpress="longpress"></div>
+    <input onfocus="focus" />
+    <input onblur="blur" />
+  </div>
+</template>

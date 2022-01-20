@@ -1,0 +1,29 @@
+/*
+ * Copyright (c) 2021, the hapjs-platform Project Contributors
+ * SPDX-License-Identifier: Apache-2.0
+ */
+
+<template>
+  <div class="container">
+    <switch checked="true" onchange="changeSwitch"></switch>
+    <switch checked="true" onchange="changeSwitch" style="thumb-color: #ff0000;track-color: #ff00ff"></switch>
+    <switch checked="false" onchange="changeSwitch"/>
+  </div>
+</template>
+
+<style>
+  .container {
+    flex: 1;
+    flex-direction: column;
+    background-color: #FFFFFF;
+  }
+</style>
+
+<script>
+  export default {
+    data: {},
+    changeSwitch: function (e) {
+      // changeSwitch
+    }
+  }
+</script>

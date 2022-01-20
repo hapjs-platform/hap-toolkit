@@ -1,0 +1,19 @@
+/*
+ * Copyright (c) 2021, the hapjs-platform Project Contributors
+ * SPDX-License-Identifier: Apache-2.0
+ */
+
+<template>
+  <div class="comp1">
+    <text>This is a comp1</text>
+  </div>
+</template>
+
+<style>
+.comp1 {
+  background-image: url('./comp1-image.jpg');
+}
+.comp1-not-ok {
+  background-image: url('../other-dir/comp1-image.jpg');
+}
+</style>

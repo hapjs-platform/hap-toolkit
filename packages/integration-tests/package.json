@@ -1,0 +1,26 @@
+{
+  "name": "integration-tests",
+  "version": "1.9.5",
+  "description": "intergration tests",
+  "engines": {
+    "node": ">=8.0.0"
+  },
+  "scripts": {
+    "test": "jest *.test.js"
+  },
+  "keywords": [
+    "integration",
+    "test"
+  ],
+  "author": "",
+  "license": "ISC",
+  "private": true,
+  "devDependencies": {
+    "del": "^3.0.0",
+    "glob": "^7.1.6",
+    "hap-dev-utils": "1.9.5",
+    "hap-toolkit": "1.9.5",
+    "jest": "^24.9.0",
+    "node-fetch": "^2.3.0"
+  }
+}

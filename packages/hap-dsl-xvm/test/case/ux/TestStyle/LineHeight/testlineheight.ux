@@ -1,0 +1,63 @@
+/*
+ * Copyright (c) 2021, the hapjs-platform Project Contributors
+ * SPDX-License-Identifier: Apache-2.0
+ */
+
+<template>
+  <div>
+  </div>
+</template>
+
+<style>
+  .A {
+    line-height: 30px;
+  }
+
+  .B {
+    line-height:   30px;
+  }
+
+  .C {
+    line-height: 0;
+  }
+
+  .a1 {
+    line-height: 30rem;
+  }
+
+  .a2 {
+    line-height: 30em;
+  }
+
+  .a3 {
+    line-height: 30pt;
+  }
+
+  .b {
+    line-height: 30%;
+  }
+
+  .c {
+    line-height: 30 px;
+  }
+
+  .d {
+    line-height: 1.5;
+  }
+
+  .e {
+    line-height: @lineHeight;
+  }
+
+  .f {
+    line-height: long;
+  }
+
+</style>
+
+<script>
+  export default {
+    data: {
+    }
+  }
+</script>

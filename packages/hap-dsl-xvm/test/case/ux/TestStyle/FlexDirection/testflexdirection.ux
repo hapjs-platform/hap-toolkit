@@ -1,0 +1,50 @@
+/*
+ * Copyright (c) 2021, the hapjs-platform Project Contributors
+ * SPDX-License-Identifier: Apache-2.0
+ */
+
+<template>
+    <div>
+    </div>
+</template>
+
+<style>
+    .A {
+        flex-direction: column;
+    }
+    .B {
+        flex-direction: row;
+    }
+    .C {
+        flex-direction:   row ;
+    }
+    .D {
+        flex-direction: row-reverse;
+    }
+    .E {
+        flex-direction: column-reverse;
+    }
+
+    .a {
+        flex-direction: 1;
+    }
+    .b {
+        flex-direction: row@;
+    }
+    .c {
+        flex-direction: row column;
+    }
+    .d {
+        flex-direction: rowcolumn;
+    }
+    .e {
+        flex-direction: 'row';
+    }
+</style>
+
+<script>
+  export default {
+    data: {
+    }
+  }
+</script>

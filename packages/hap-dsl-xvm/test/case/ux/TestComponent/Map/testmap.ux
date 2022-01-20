@@ -1,0 +1,77 @@
+/*
+ * Copyright (c) 2021, the hapjs-platform Project Contributors
+ * SPDX-License-Identifier: Apache-2.0
+ */
+
+<template>
+  <div class="container">
+    <map
+      longitude="90"
+      latitude="90"
+      coordtype="wgs84"
+      scale="4"
+      rotate="90"
+      markers="{{markers}}"
+      showmylocation="false"
+      polylines=""
+      polygons=""
+      circles=""
+      controls=""
+      groundoverlays=""
+      includepoints=""
+      heatmaplayer=""/>
+
+    <map
+      onloaded="loaded"
+      onregionchange="regionchange"
+      ontap="tap"
+      onmarkertap="markertap"
+      oncallouttap="callouttap"
+      oncontroltap="controltap"
+      onpoitap="poitap"/>
+
+    <map
+      showcompass="true"
+      enableoverlooking="false"
+      enablezoom="true"
+      enablescroll="true"
+      enablerotate="true"
+      showscale="false"
+      showzoom="false"/>
+
+    <map>
+      <custommarker>
+        <div>
+          <text></text>
+        </div>
+      </custommarker>
+    </map>
+  </div>
+</template>
+
+<style>
+  .container {
+    flex: 1;
+    flex-direction: column;
+    background-color: #FFFFFF;
+  }
+</style>
+
+<script>
+  export default {
+    data: {
+      markers: [{
+        id: 1,
+        longitude: 90,
+        latitude: 90
+      }]
+    },
+    loaded: function () {},
+    regionchange: function () {},
+    tap: function () {},
+    markertap: function () {},
+    callouttap: function () {},
+    controltap: function () {},
+    poitap: function () {}
+  }
+</script>

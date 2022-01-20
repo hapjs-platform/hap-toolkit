@@ -1,0 +1,19 @@
+/*
+ * Copyright (c) 2021, the hapjs-platform Project Contributors
+ * SPDX-License-Identifier: Apache-2.0
+ */
+
+<template>
+  <div class="child">
+    <text>This is a child</text>
+  </div>
+</template>
+
+<style>
+.child.ok {
+  background-image: url('./image.jpg');
+}
+.child-not-ok {
+  background-image: url('../other-dir/image.jpg');
+}
+</style>

@@ -1,0 +1,40 @@
+/*
+ * Copyright (c) 2021, the hapjs-platform Project Contributors
+ * SPDX-License-Identifier: Apache-2.0
+ */
+
+<template>
+  <div>
+  </div>
+</template>
+
+<style>
+  .A1 {
+    alt-object-fit: fill;
+  }
+  .A2 {
+    alt-object-fit: contain;
+  }
+  .A3 {
+    alt-object-fit: cover;
+  }
+  .A4 {
+    alt-object-fit: none;
+  }
+  .A5 {
+    alt-object-fit: scale-down;
+  }
+
+  .a1 {
+    alt-object-fit: #ffffff;
+  }
+  .a2 {
+    alt-object-fit: fill cover;
+  }
+  .a3 {
+    alt-object-fit: filled;
+  }
+  .a4 {
+    alt-object-fit: scaleDown;
+  }
+</style>

@@ -1,0 +1,27 @@
+/*
+ * Copyright (c) 2021, the hapjs-platform Project Contributors
+ * SPDX-License-Identifier: Apache-2.0
+ */
+
+<template>
+  <div class="container">
+    <div attr="{{value | filterA}}"></div>
+    <div attr="{{value | filterA(value2, 3)}}"></div>
+    <div attr="{{value | filterA | filterB}}"></div>
+  </div>
+</template>
+
+<script>
+  export default {
+    data: {
+      value: 1,
+      value2: 2,
+    },
+    filterA: function(v) {
+      return v
+    },
+    filterB: function(v) {
+      return v
+    }
+  }
+</script>

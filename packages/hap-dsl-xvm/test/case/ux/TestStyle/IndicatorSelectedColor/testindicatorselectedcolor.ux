@@ -1,0 +1,84 @@
+/*
+ * Copyright (c) 2021, the hapjs-platform Project Contributors
+ * SPDX-License-Identifier: Apache-2.0
+ */
+
+<template>
+  <div>
+  </div>
+</template>
+
+<style>
+  .A {
+    indicator-selected-color: red;
+  }
+  .B1 {
+    indicator-selected-color: #FFF;
+  }
+  .B2 {
+    indicator-selected-color: #FFFFFF;
+  }
+  .C1 {
+    indicator-selected-color: rgb(255,255,255);
+  }
+  .C2 {
+    indicator-selected-color: rgb(0,  0,   0);
+  }
+  .C3 {
+    indicator-selected-color: hsl(360,100%,100%);
+  }
+  .C4 {
+    indicator-selected-color: hsl(0,  0%,   0%);
+  }
+  .D1 {
+    indicator-selected-color: rgba(255,255,255,.5);
+  }
+  .D2 {
+    indicator-selected-color: rgba(0,0, 0, .0);
+  }
+  .D3 {
+    indicator-selected-color: rgba(0, 0,0, 1.0);
+  }
+  .D4 {
+    indicator-selected-color: rgba(255, 255,255, .5);
+  }
+
+  .E1 {
+    indicator-selected-color: hsla(360,100%,100%,.5);
+  }
+  .E2 {
+    indicator-selected-color: hsla(0,0%, 0%, .0);
+  }
+  .E3 {
+    indicator-selected-color: hsla(0, 0%,0%, 1.0);
+  }
+  .E4 {
+    indicator-selected-color: hsla(360, 100%,100%, .5);
+  }
+
+  .a1{
+    indicator-selected-color: 'red';
+  }
+  .a2 {
+    indicator-selected-color: @red;
+  }
+  .b1 {
+    indicator-selected-color: #FFFF;
+  }
+  .b2 {
+    indicator-selected-color: #FFFFF;
+  }
+  .c1 {
+    indicator-selected-color: rgb(,,0);
+  }
+  .c2 {
+    indicator-selected-color: hsl(,,0%);
+  }
+</style>
+
+<script>
+  export default {
+    data: {
+    }
+  }
+</script>

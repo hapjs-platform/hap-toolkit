@@ -1,0 +1,166 @@
+/*
+ * Copyright (c) 2021, the hapjs-platform Project Contributors
+ * SPDX-License-Identifier: Apache-2.0
+ */
+
+<template>
+  <div>
+  </div>
+</template>
+
+<style>
+  .A1 {
+    border: 1;
+  }
+
+  .A2 {
+    border: 1px;
+  }
+
+  .A3 {
+    border: 1%;
+  }
+
+  .A4 {
+    border: dotted;
+  }
+
+  .A5 {
+    border: #fff;
+  }
+
+  .B1 {
+    border: 1 solid;
+  }
+
+  .B2 {
+    border: 1px solid;
+  }
+
+  .B3 {
+    border: 1px dotted;
+  }
+
+  .B4 {
+    border: 1px dashed;
+  }
+
+  .C1 {
+    border: 1px red;
+  }
+
+  .C2 {
+    border: 1px #fff;
+  }
+
+  .C2 {
+    border: 1px #ffffff;
+  }
+
+  .C3 {
+    border: 1px rgb(255,255,255);
+  }
+
+  .C4 {
+    border: 1px rgba(255,255,255,.5);
+  }
+
+  .D1 {
+    border: solid red;
+  }
+
+  .D2 {
+    border: solid #ffffff;
+  }
+
+  .D3 {
+    border: solid rgba(255,255,255,.5);
+  }
+
+  .E1 {
+    border: 1 solid red;
+  }
+
+  .E2 {
+    border: 1px solid red;
+  }
+
+  .E3 {
+    border: 1px solid rgba(255,255,255,.5);
+  }
+
+  .E4 {
+    border-left: 1px dashed rgb(255,255,0);
+    border-right: 2px dotted rgb(255,0,0);
+    border-top: 2px solid rgb(255,0,255);
+    border-bottom: 4px rgba(255, 100, 200, 0.5);
+  }
+  
+  .F {
+    border-top-width: 10px;
+    border: 0;
+  }
+
+  .a1 {
+    border: 1pt;
+  }
+
+  .a2 {
+    border: 1em;
+  }
+
+  .a3 {
+    border: style;
+  }
+
+  .a4 {
+    border: fff;
+  }
+
+  .b1 {
+    border: 1px style;
+  }
+
+  .b2 {
+    border: 1em solid;
+  }
+
+  .b3 {
+    border: solid 1px;
+  }
+
+  .c1 {
+    border: 1px 'red';
+  }
+
+  .c2 {
+    border: length red;
+  }
+
+  .c3 {
+    border: red 1px;
+  }
+
+  .d1 {
+    border: 1px red solid;
+  }
+
+  .d2 {
+    border: 1px solid rgb(,,0);
+  }
+
+  .d3 {
+    border: 1 solid ffffff;
+  }
+
+  .d4 {
+    border: 1em solid red;
+  }
+</style>
+
+<script>
+  export default {
+    data: {
+    }
+  }
+</script>

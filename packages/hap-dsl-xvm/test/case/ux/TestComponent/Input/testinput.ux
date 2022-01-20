@@ -1,0 +1,59 @@
+/*
+ * Copyright (c) 2021, the hapjs-platform Project Contributors
+ * SPDX-License-Identifier: Apache-2.0
+ */
+
+<template>
+  <div class="container">
+    <input type="button" style="color: red;" onclick="clickBtn"/>
+    <input type="checkbox" style="color: red;" name="myCheckbox" value="first checkbox"/>
+    <input type="checkbox" style="color: red;" name="myCheckbox" value="second checkbox"/>
+    <input type="text" style="font-size: 50px; placeholde-color:red;" placeholder="text" enterkeytype="next" maxlength="5" onenterkeyclick="enterkeyclickfn" onchange="changeText" onselectionchange="selectionchangeFn"/>
+    <input type="mail" style="font-size: 50px; placeholde-color:red;" placeholder="mail" onchange="changeMail"/>
+    <input type="date" style="font-size: 50px; placeholde-color:red;" placeholder="date" onchange="changeDate"/>
+    <input type="time" style="font-size: 50px; placeholde-color:red;" placeholder="time" onchange="changeTime"/>
+    <input type="number" style="font-size: 50px; placeholde-color:red;" placeholder="number" onchange="changeNumber"/>
+    <input type="password" style="font-size: 50px"/>
+    <input type="radio" style="width: 50px;" onchange="clickBtn" />
+    <input type="tel" autocomplete="on">
+    <input type="eventbutton" eventtype="shortcut" style="color: red;" onclick="clickBtn" />
+  </div>
+</template>
+
+<style>
+  .container {
+    flex: 1;
+    flex-direction: column;
+    background-color: #FFFFFF;
+  }
+</style>
+
+<script>
+  export default {
+    data: {},
+    clickBtn: function () {
+      // clickBtn
+    },
+    changeText: function (e) {
+      // changeText
+    },
+    enterkeyclickfn: function (e) {
+      // enterkeyclickfn
+    },
+    changeMail: function (e) {
+      // changeMail
+    },
+    changeDate: function (e) {
+      // changeDate
+    },
+    changeTime: function (e) {
+      // changeTime
+    },
+    changeNumber: function (e) {
+      // changeNumber
+    },
+    selectionchangeFn: function (e) {
+      // selectionchange
+    }
+  }
+</script>

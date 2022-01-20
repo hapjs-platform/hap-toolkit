@@ -1,0 +1,8 @@
+.DS_Store
+Thumbs.db
+/lib
+node_modules
+.idea/
+dist
+*.pyc
+*.map

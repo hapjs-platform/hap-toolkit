@@ -1,0 +1,122 @@
+/*
+ * Copyright (c) 2021, the hapjs-platform Project Contributors
+ * SPDX-License-Identifier: Apache-2.0
+ */
+
+<template>
+  <div class="container">
+    <tabs onchange="changeTabs">
+      <tab-bar>
+        <text>list</text>
+        <text>refresh</text>
+        <text>richtext</text>
+        <text>stack</text>
+        <text>swiper</text>
+      </tab-bar>
+
+      <tab-content>
+        <!--list in tabs-->
+        <list onscroll="scroll" onscrollbottom="scrollbottom" onscrolltop="scrolltop">
+          <block for="cities">
+            <list-item type="city">
+              <div>
+                <text>城市名称</text>
+                <text>{{$item.name}}</text>
+              </div>
+            </list-item>
+
+            <block for="$item.spots">
+              <list-item type="spot">
+                <div>
+                  <text>城市地址</text>
+                  <text>{{$item.address}}</text>
+                </div>
+              </list-item>
+            </block>
+          </block>
+
+          <list-item type="loadMore">
+            <progress type="circular"></progress>
+            <text>加载更多</text>
+          </list-item>
+        </list>
+
+        <!--refresh in tabs-->
+        <refresh onrefresh="refresh">
+          <text>refresh</text>
+        </refresh>
+
+        <!--richtext in tabs-->
+        <richtext>
+          <text>richtext</text>
+        </richtext>
+
+        <!--stack in tabs-->
+        <stack>
+          <image src="A"></image>
+          <text>stack</text>
+        </stack>
+
+        <!--swiper in tabs-->
+        <swiper index="1" autoplay="true" interval="1000ms" indicator="true" onchange="changeSwiper">
+          <block for="swiperList">
+            <image src="{{$item}}"></image>
+          </block>
+        </swiper>
+      </tab-content>
+    </tabs>
+  </div>
+</template>
+
+<style>
+  .container {
+    flex: 1;
+    flex-direction: column;
+    background-color: #FFFFFF;
+  }
+</style>
+
+<script>
+  export default {
+    data: {
+      cities: [{
+        name: 'beijing',
+        spots: [{
+          name: '海淀',
+          address: '海淀区'
+        }, {
+          name: '朝阳',
+          address: '朝阳区'
+        }]
+      }, {
+        name: 'shanghai',
+        spots: [{
+          name: '浦东',
+          address: '浦东新区'
+        }, {
+          name: '金山',
+          address: '金山区'
+        }]
+      }],
+      swiperList: ['A', 'B', 'C', 'D', 'E', 'F']
+    },
+    changeTabs: function (e) {
+      // {index: indexValue}
+    },
+    scroll: function (e) {
+      // {scrollX:scrollXValue, scrollY:scrollYValue}，均为相对上次滚动距离
+    },
+    scrollbottom: function (e) {
+      // 列表滚动到底部
+    },
+    scrolltop: function (e) {
+      // 列表滚动到顶部
+    },
+    refresh: function (e) {
+      // {refreshing: refreshingValue}
+    },
+    changeSwiper: function (e) {
+      // {index: currentIndex}
+    }
+  }
+</script>

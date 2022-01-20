@@ -1,0 +1,20 @@
+/*
+ * Copyright (c) 2021, the hapjs-platform Project Contributors
+ * SPDX-License-Identifier: Apache-2.0
+ */
+
+<import name="compa" src="../Common/compA.ux"></import>
+
+<template>
+  <div></div>
+</template>
+
+<script>
+import { add } from '../Common/moduleA.js'
+
+export default {
+  onMenuPress() {
+    this.$app.$def.showMenu()
+  }
+}
+</script>

@@ -1,0 +1,68 @@
+/*
+ * Copyright (c) 2021, the hapjs-platform Project Contributors
+ * SPDX-License-Identifier: Apache-2.0
+ */
+
+<template>
+  <div class="container">
+    <refresh offset="200px" refreshing="false" style="background-color: red; progress-color: white;"
+             onrefresh="refresh">
+      <!--richtext in refresh-->
+      <richtext>
+        <text>TEXT</text>
+      </richtext>
+
+      <!--stack in refresh-->
+      <stack>
+        <image src="A"></image>
+        <text>stack</text>
+      </stack>
+
+      <!--swiper in refresh-->
+      <swiper index="1" autoplay="true" interval="1000ms" indicator="true" onchange="changeSwiper">
+        <block for="swiperList">
+          <image src="{{$item}}"></image>
+        </block>
+      </swiper>
+
+      <!--tabs in refresh-->
+      <tabs index="1" onchange="changeTabs">
+        <tab-bar>
+          <text>A</text>
+          <text>B</text>
+          <text>C</text>
+        </tab-bar>
+        <tab-content>
+          <text>A-content</text>
+          <text>B-content</text>
+          <text>C-content</text>
+        </tab-content>
+      </tabs>
+    </refresh>
+  </div>
+</template>
+
+<style>
+  .container {
+    flex: 1;
+    flex-direction: column;
+    background-color: #FFFFFF;
+  }
+</style>
+
+<script>
+  export default {
+    data: {
+      swiperList: ['A', 'B', 'C', 'D', 'E', 'F']
+    },
+    refresh: function (e) {
+      // {refreshing: refreshingValue}
+    },
+    changeSwiper: function (e) {
+      // {index: currentIndex}
+    },
+    changeTabs: function (e) {
+      // {index: indexValue}
+    }
+  }
+</script>

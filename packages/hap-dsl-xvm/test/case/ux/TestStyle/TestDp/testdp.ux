@@ -1,0 +1,76 @@
+/*
+ * Copyright (c) 2021, the hapjs-platform Project Contributors
+ * SPDX-License-Identifier: Apache-2.0
+ */
+
+<template>
+    <div></div>
+</template>
+<style>
+    .A1{
+        width: 200dp;
+        height: 200dp;
+        border: 1dp solid #ff0000;
+        margin: 20dp;
+        padding: 20dp;
+        border-radius: 20dp;
+        font-size: 20dp;
+        line-height: 20dp;
+        text-indent: 20dp;
+        stroke-width: 20dp;
+        indicator-size: 20dp;
+        indicator-left: 20dp;
+    }
+    /* background-position */
+    .B1 {
+        background-position: 50dp 50dp;
+    }
+    .B2 {
+        background-position: 50% 50dp;
+    }
+    .B3{
+        background-position: left 10dp bottom 20dp;
+    }
+    .B4 {
+        background-position: left 20dp bottom 20%;
+    }
+    /* background-size */
+    .C1 {
+        background-size: 10dp 10dp;
+    }
+    .C2 {
+        background-size: 10dp;
+    }
+    .C3 {
+        background-size: 10dp auto;
+    }
+    .C4 {
+        background-size: auto 10dp;
+    }
+    /* linear-gradient */
+
+    .D1 {
+        background: repeating-linear-gradient( red, #FF0000 10dp), repeating-linear-gradient( rgb(255, 255,255) 10%, yellow 20%),repeating-linear-gradient(red , yellow 20%);
+    }
+    .D2 {
+        background: linear-gradient(to right,#FF0000 10dp);
+    }
+
+    .D3 {
+        background: linear-gradient( 10dp );
+    }
+
+    .D4 {
+        background: linear-gradient(to right, 10dp #FF0000,red 10dp);
+    }
+    /* transform */
+    .E1 {
+        transform: translate(20dp, 20dp);
+    }
+    .E2 {
+        transform: translateX(20dp);
+    }
+    .E3 {
+        transform: translateY(20dp);
+    }
+</style>

@@ -1,0 +1,75 @@
+/*
+ * Copyright (c) 2021, the hapjs-platform Project Contributors
+ * SPDX-License-Identifier: Apache-2.0
+ */
+
+<template>
+  <div>
+  </div>
+</template>
+
+<style>
+  .A {
+    text-indent: 100px;
+  }
+
+  .B {
+    text-indent: 100%;
+  }
+
+  .C {
+    text-indent:   100px;
+  }
+
+  .D {
+    text-indent:   100%;
+  }
+
+  .E {
+    text-indent: 100;
+  }
+
+  .F {
+    text-indent: 0;
+  }
+
+  .a {
+    text-indent: 100rem;
+  }
+
+  .b {
+    text-indent: 100em;
+  }
+
+  .c {
+    text-indent: 100pt;
+  }
+
+  .d {
+    text-indent: 100 %;
+  }
+
+  .e {
+    text-indent: 100 px;
+  }
+
+  .f {
+    text-indent: @text-indentLength;
+  }
+
+  .g {
+    text-indent: long;
+  }
+  
+  .h {
+    text-indent: 1cm;
+  }
+
+</style>
+
+<script>
+  export default {
+    data: {
+    }
+  }
+</script>

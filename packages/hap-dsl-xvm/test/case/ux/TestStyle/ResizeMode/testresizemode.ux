@@ -1,0 +1,58 @@
+/*
+ * Copyright (c) 2021, the hapjs-platform Project Contributors
+ * SPDX-License-Identifier: Apache-2.0
+ */
+
+<template>
+  <div>
+  </div>
+</template>
+
+<style>
+  .A {
+    resize-mode: cover;
+  }
+
+  .B {
+    resize-mode: contain;
+  }
+
+  .C {
+    resize-mode: stretch;
+  }
+
+  .D {
+    resize-mode: center;
+  }
+
+  .a1 {
+    resize-mode: "cover";
+  }
+
+  .a2 {
+    resize-mode: "contain";
+  }
+
+  .a3 {
+    resize-mode: "stretch";
+  }
+
+  .a4 {
+    resize-mode: "center";
+  }
+
+  .b {
+    resize-mode: @resizeMode;
+  }
+
+  .c {
+    resize-mode: ;
+  }
+</style>
+
+<script>
+  export default {
+    data: {
+    }
+  }
+</script>

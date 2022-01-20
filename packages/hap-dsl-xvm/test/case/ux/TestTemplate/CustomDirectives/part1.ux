@@ -1,0 +1,26 @@
+/*
+ * Copyright (c) 2021, the hapjs-platform Project Contributors
+ * SPDX-License-Identifier: Apache-2.0
+ */
+
+<template>
+  <div dir:subDir="sub component">
+    <text>sub component</text>
+  </div>
+</template>
+
+<script>
+  import prompt from '@system.prompt'
+
+  export default {
+    directives: {
+      subDir: {
+        mounted(el, binding) {
+          prompt.showToast({
+            message: `子组件已创建完毕, 参数：${JSON.stringify(binding)}`
+          })
+        }
+      }
+    }
+  }
+</script>

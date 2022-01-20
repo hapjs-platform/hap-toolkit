@@ -1,0 +1,18 @@
+/*
+ * Copyright (c) 2021, the hapjs-platform Project Contributors
+ * SPDX-License-Identifier: Apache-2.0
+ */
+
+<import name="compa" src="../Common/compA.ux"></import>
+<import name="compb" src="../Common/compB.ux"></import>
+<template>
+  <div></div>
+</template>
+
+<script>
+import { add } from '../Common/moduleA.js'
+import { multiply } from '../Common/moduleB.js'
+
+export default {
+}
+</script>

@@ -1,0 +1,46 @@
+/*
+ * Copyright (c) 2021, the hapjs-platform Project Contributors
+ * SPDX-License-Identifier: Apache-2.0
+ */
+
+<template>
+  <div>
+  </div>
+</template>
+
+<style>
+  .A {
+    background-repeat: repeat;
+  }
+  .B {
+    background-repeat: repeat-x;
+  }
+  .C {
+    background-repeat: repeat-y;
+  }
+  .D {
+    background-repeat: no-repeat;
+  }
+  .a1 {
+    background-repeat: 'repeat';
+  }
+  .a2 {
+    background-repeat: 'repeat-x';
+  }
+  .a3 {
+    background-repeat: 'repeat-y';
+  }
+  .a4 {
+    background-repeat: 'no-repeat';
+  }
+  .b {
+    background-repeat: @backgroundRepeat;
+  }
+</style>
+
+<script>
+  export default {
+    data: {
+    }
+  }
+</script>

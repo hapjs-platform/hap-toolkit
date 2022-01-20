@@ -1,0 +1,48 @@
+/*
+ * Copyright (c) 2021, the hapjs-platform Project Contributors
+ * SPDX-License-Identifier: Apache-2.0
+ */
+
+<template>
+  <div class="demo-page">
+    <text>当前页面：{{title}}</text>
+    <text>加载模块：{{ moduleName }}</text>
+    <input class="btn" type="button" value="showMod2" onclick="showMod2" />
+    <input class="btn" type="button" value="showModAll" onclick="showModAll" />
+  </div>
+</template>
+
+<script>
+import { showMod2 } from '../../modules/modSub2'
+import { showModAll } from '../../modules/modSubAll'
+
+export default {
+  private: {
+    title: 'sub2 page1',
+    moduleName: ''
+  },
+  showMod2 () {
+    this.moduleName = showMod2()
+  },
+  showModAll () {
+    this.moduleName = showModAll()
+  }
+}
+</script>
+
+<style>
+  .demo-page {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  .btn {
+    width: 550px;
+    height: 86px;
+    margin-top: 75px;
+    border-radius: 43px;
+    background-color: #09ba07;
+    font-size: 30px;
+    color: #ffffff;
+  }
+</style>

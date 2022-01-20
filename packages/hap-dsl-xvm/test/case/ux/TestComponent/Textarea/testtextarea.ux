@@ -1,0 +1,37 @@
+/*
+ * Copyright (c) 2021, the hapjs-platform Project Contributors
+ * SPDX-License-Identifier: Apache-2.0
+ */
+
+<template>
+  <div class="container">
+    <textarea type="text" maxlength="5" onchange="changeText" onselectionchange="selectionchangeFn" onlinechange="linechangeFn"></textarea>
+    <textarea type="email" style="placeholder-color: red;"></textarea>
+    <textarea type="date"></textarea>
+    <textarea type="time"></textarea>
+    <textarea type="number"></textarea>
+  </div>
+</template>
+
+<style>
+  .container {
+    flex: 1;
+    flex-direction: column;
+    background-color: #FFFFFF;
+  }
+</style>
+
+<script>
+  export default {
+    data: {},
+    changeText: function (e) {
+      // changeTextarea
+    },
+    selectionchangeFn: function (e) {
+      // selectionchange
+    },
+    linechangeFn: function (e) {
+      // linechange
+    }
+  }
+</script>

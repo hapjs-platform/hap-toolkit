@@ -1,0 +1,33 @@
+{
+  "name": "@hap-toolkit/shared-utils",
+  "version": "1.9.5",
+  "description": "hap shared utils",
+  "engines": {
+    "node": ">=8.0.0"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "keywords": [
+    "hap-toolkit",
+    "quickapp"
+  ],
+  "main": "lib/index.js",
+  "directories": {
+    "lib": "lib",
+    "test": "__tests__"
+  },
+  "files": [
+    "lib/**/*.js",
+    "config.js",
+    "compilation-config.js",
+    "event-bus.js"
+  ],
+  "dependencies": {
+    "chalk": "^2.4.2",
+    "qrcode-terminal": "^0.12.0"
+  },
+  "devDependencies": {
+    "strip-ansi": "^5.2.0"
+  }
+}

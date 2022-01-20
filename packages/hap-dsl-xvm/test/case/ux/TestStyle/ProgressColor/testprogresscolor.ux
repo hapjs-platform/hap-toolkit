@@ -1,0 +1,86 @@
+/*
+ * Copyright (c) 2021, the hapjs-platform Project Contributors
+ * SPDX-License-Identifier: Apache-2.0
+ */
+
+<template>
+  <div>
+  </div>
+</template>
+
+<style>
+  .A {
+    progress-color: red;
+  }
+  .B1 {
+    progress-color: #FFF;
+  }
+  .B2 {
+    progress-color: #FFFFFF;
+  }
+  .C1 {
+    progress-color: rgb(255,255,255);
+  }
+  .C2 {
+    progress-color: rgb(0,  0,   0);
+  }
+  .C3 {
+    progress-color: hsl(360,100%,100%);
+  }
+  .C4 {
+    progress-color: hsl(0,  0%,   0%);
+  }
+
+  .D1 {
+    progress-color: rgba(255,255,255,.5);
+  }
+  .D2 {
+    progress-color: rgba(0,0, 0, .0);
+  }
+  .D3 {
+    progress-color: rgba(0, 0,0, 1.0);
+  }
+  .D4 {
+    progress-color: rgba(255, 255,255, .5);
+  }
+
+
+  .E1 {
+    progress-color: hsla(360,100%,100%,.5);
+  }
+  .E2 {
+    progress-color: hsla(0,0%, 0%, .0);
+  }
+  .E3 {
+    progress-color: hsla(0, 0%,0%, 1.0);
+  }
+  .E4 {
+    progress-color: hsla(360, 100%,100%, .5);
+  }
+
+  .a1{
+    progress-color: 'red';
+  }
+  .a2 {
+    progress-color: @red;
+  }
+  .b1 {
+    progress-color: #FFFF;
+  }
+  .b2 {
+    progress-color: #FFFFF;
+  }
+  .c1 {
+    progress-color: rgb(,,0);
+  }
+  .c2 {
+    color: hsl(,,0%);
+  }
+</style>
+
+<script>
+  export default {
+    data: {
+    }
+  }
+</script>

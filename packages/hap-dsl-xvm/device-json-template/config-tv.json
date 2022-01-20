@@ -1,0 +1,14 @@
+{
+  "config": {
+    "designWidth": 1920
+  },
+  "display": {
+    "menu": false,
+    "fullScreen": true,
+    "titleBar": false,
+    "orientation": "landscape",
+    "menuBarData": {
+      "menuBar": false
+    }
+  }
+}

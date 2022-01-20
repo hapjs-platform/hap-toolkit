@@ -1,0 +1,111 @@
+/*
+ * Copyright (c) 2021, the hapjs-platform Project Contributors
+ * SPDX-License-Identifier: Apache-2.0
+ */
+
+<template>
+  <div class="doc-page">
+    <ad class="ad-list-container" unitid="{{adUnitId}}" type="{{type}}" show="{{loadSuccess}}" onload="loadAdData" onerror="errorLoadingAdData">
+      <block if="adData">
+        <image class="ad-icon" src="{{adData.icon || icon}}"></image>
+        <div class="ad-info-wrap">
+          <text class="ad-info-title">{{ adData.title }}</text>
+          <text class="ad-info-desc">{{ adData.desc }}</text>
+        </div>
+        <!-- 根据需要可以不显示clickBtnText内容 -->
+        <text class="ad-btn">{{ adData.clickBtnText }}</text>
+        <div class="ad-logo-wrap">
+          <!-- 根据广告法，广告标识一定要有 -->
+          <image class="ad-logo-img" src="{{adData.logoUrl}}" if="{{adData.logoUrl}}"></image>
+          <!-- 如果上面标示没返回，可以使用文字自定义标识 -->
+          <text class="ad-logo-text">广告</text>
+        </div>
+      </block>
+    </ad>
+    <ad class="ad-list-container" unitid="{{adUnitId}}" type="{{type}}" show="{{loadSuccess}}" onload="loadAdData" onerror="errorLoadingAdData">
+      <block if="adList">
+        <list class="ad-list">
+          <list-item
+            type="ad"
+            style="{{$item.imgUrlList?`background-image: ${$item.imgUrlList[0]}`:`background-color: #bbb`}}"
+            class="ad-list-item"
+            for="{{adList}}"
+          >
+            <image class="ad-icon" src="{{$item.icon || icon}}"></image>
+            <div class="ad-info-wrap">
+              <text class="ad-info-title">{{ $item.title || '广告标题' }}</text>
+              <text class="ad-info-desc">{{ $item.desc || '一段广告描述一段广告描述一段广告描述' }}</text>
+            </div>
+            <!-- 根据需要可以不显示clickBtnText内容 -->
+            <text class="ad-btn">{{ $item.clickBtnText || '查看详情' }}</text>
+            <div class="ad-logo-wrap">
+              <!-- 根据广告法，广告标识一定要有 -->
+              <image class="ad-logo-img" src="{{$item.logoUrl}}" if="{{$item.logoUrl}}"></image>
+              <!-- 如果上面标示没返回，可以使用文字自定义标识 -->
+              <text class="ad-logo-text">广告</text>
+            </div>
+          </list-item>
+        </list>
+      </block>
+    </ad>
+  </div>
+</template>
+
+<script>
+import prompt from '@system.prompt'
+export default {
+  data: {
+    adUnitId: '替换为申请到的广告位id',
+    type: 'native',
+    icon: '',
+    loadSuccess: false,
+    adData: null,
+    adList: null,
+  },
+  onShow() {},
+  loadAdData(e) {
+    this.loadSuccess = true
+    this.adData = e.adData
+    prompt.showDialog({
+      message: `${JSON.stringify(e)}`,
+    })
+  },
+  errorLoadingAdData(e) {
+    this.loadSuccess = false
+    prompt.showDialog({
+      message: `${JSON.stringify(e.errMsg)}`,
+    })
+  },
+}
+</script>
+
+<style>
+@import '../../Common/css/common.css';
+.btn {
+  width: 70%;
+  height: 80px;
+  background-color: #00bfff;
+  color: #ffffff;
+  text-align: center;
+}
+.btn :active {
+  opacity: 0.5;
+}
+.input_text {
+  width: 80%;
+  height: 80px;
+  font-size: 24px;
+  padding-left: 20px;
+  border: 1px solid #000;
+  margin-top: 10px;
+}
+.input_text:focus {
+  border: 1px solid red;
+}
+.ad-list-container {
+  height: 200px;
+  width: 100%;
+  background-color: #fff000;
+  border: 1px solid #000;
+}
+</style>

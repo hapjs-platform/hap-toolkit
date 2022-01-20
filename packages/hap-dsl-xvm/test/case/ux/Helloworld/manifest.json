@@ -1,0 +1,26 @@
+{
+  "package": "com.app.case.example",
+  "name": "example",
+  "version": "1.0",
+  "versionCode": "1",
+  "icon": "/Common/icon.png",
+  "features": [
+  ],
+  "permissions": [
+    {
+      "origin": "*"
+    }
+  ],
+  "config": {
+    "logLevel": "off"
+  },
+  "router": {
+    "entry": "Hello",
+    "pages": {
+      "Hello": {
+        "component": "video",
+        "path": "/"
+      }
+    }
+  }
+}

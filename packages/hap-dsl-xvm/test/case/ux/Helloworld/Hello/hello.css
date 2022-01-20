@@ -1,0 +1,24 @@
+/*
+ * Copyright (c) 2021, the hapjs-platform Project Contributors
+ * SPDX-License-Identifier: Apache-2.0
+ */
+ 
+.container {
+  flex-direction: column;
+  flex: 1;
+  justify-content: center;
+  margin: 0%;
+  padding: 0%;
+  font-size: 15px;
+  color: #434141;
+}
+
+.header,
+.title {
+  height: 80px;
+}
+
+.title {
+  width: 50px;
+  background-image: url('/abc/adff.jpg');
+}

@@ -1,0 +1,33 @@
+/*
+ * Copyright (c) 2021, the hapjs-platform Project Contributors
+ * SPDX-License-Identifier: Apache-2.0
+ */
+
+<import src='../components/comp1'></import>
+<import src='./child'></import>
+<template>
+    <div class="container" style='background-image: url(  "../page2/image.jpg" )'>
+      <image src='../../image.jpg'></image>
+      <image src='../Common/image.jpg'></image>
+      <div class="box-ok"></div>
+      <div class="box-not-ok-1"></div>
+      <div class="box-not-ok-2"></div>
+
+      <comp1></comp1>
+    </div>
+</template>
+
+<style>
+@import url(./style.css);
+.box-ok {
+  background-image: url('../Common/image.jpg');
+}
+.box-no-ok-1 {
+  /*宽字符*/  background-image: url(
+      '../../图片1.jpg'
+      );
+}
+.box-no-ok-2 {
+  background-image: url('/page2/image.jpg');
+}
+</style>

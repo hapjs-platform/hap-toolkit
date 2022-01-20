@@ -1,0 +1,17 @@
+/coverage
+node_modules
+/packages/*/lib/
+/packages/hap-toolkit/lib/
+/packages/hap-toolkit/coverage/
+/packages/hap-debugger/devtools/
+/packages/hap-packager/lib/
+/packages/hap-packager/test/build/
+/packages/hap-packager/test/case/
+/packages/hap-packager/test/fixtures/
+/packages/hap-server/lib/
+/packages/hap-server/src/preview/static
+.prettierignore
+.prettierrc
+/packages/hap-toolkit/fixtures/temp-test-app*
+/packages/hap-dsl-xvm/test/
+/examples/sample/**

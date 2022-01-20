@@ -1,0 +1,50 @@
+/*
+ * Copyright (c) 2021, the hapjs-platform Project Contributors
+ * SPDX-License-Identifier: Apache-2.0
+ */
+
+<template>
+  <div>
+  </div>
+</template>
+
+<style>
+  .A {
+    flex-wrap: nowrap;
+  }
+
+  .B {
+    flex-wrap: wrap;
+  }
+
+  .C {
+    flex-wrap: wrap-reverse;
+  }
+
+  .a1 {
+    flex-wrap: 'nowrap';
+  }
+
+  .a2 {
+    flex-wrap: 'wrap';
+  }
+
+  .a3 {
+    flex-wrap: 'wrap-reverse';
+  }
+
+  .b {
+    flex-wrap: inherit;
+  }
+
+  .c {
+    flex-wrap: @flex-wrap;
+  }
+</style>
+
+<script>
+  export default {
+    data: {
+    }
+  }
+</script>

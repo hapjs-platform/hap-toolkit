@@ -1,0 +1,46 @@
+/*
+ * Copyright (c) 2021, the hapjs-platform Project Contributors
+ * SPDX-License-Identifier: Apache-2.0
+ */
+
+<template>
+  <div>
+  </div>
+</template>
+
+<style>
+  .A {
+    top: 0;
+  }
+
+  .B1 {
+    top: 100px;
+  }
+
+  .B2 {
+    top: 100;
+  }
+
+  .C {
+    top: 20%;
+  }
+
+  .a {
+    top: '100';
+  }
+
+  .b {
+    top: none;
+  }
+
+  .c {
+    top: @top;
+  }
+</style>
+
+<script>
+  export default {
+    data: {
+    }
+  }
+</script>

@@ -1,0 +1,9 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`i18n配置文件打包测试 copy i18n to build 1`] = `
+Array [
+  "i18n/en.json",
+  "lottie/lottie.json",
+  "manifest.json",
+]
+`;

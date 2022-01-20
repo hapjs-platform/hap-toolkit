@@ -1,0 +1,1533 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`split chunks on a project build results include split chunks for [SMART] 1`] = `
+"
+var $app_style$ = {}
+var $app_script$ = require(\\"!../../../../hap-dsl-xvm/lib/loaders/script-loader.js!../../../../hap-dsl-xvm/lib/loaders/module-loader.js!../../../../hap-dsl-xvm/lib/loaders/manifest-loader.js?path=<project-root>/src!../../../../hap-dsl-xvm/node_modules/babel-loader/lib/index.js?cwd=<project-root>&cacheDirectory&comments=false&configFile=<project-root>/babel.config.js!../../../../hap-dsl-xvm/lib/loaders/fragment-loader.js?index=0&type=script!./app.ux?uxType=app\\")
+
+$app_define$('@app-application/app', [], function ($app_require$, $app_exports$, $app_module$) {
+  
+  $app_script$($app_module$, $app_exports$, $app_require$)
+  if ($app_exports$.__esModule && $app_exports$.default) {
+    $app_module$.exports = $app_exports$.default
+  }
+  $app_module$.exports.manifest = require(\\"./manifest.json\\")
+  $app_module$.exports.style = { list: [ $app_style$ ] }
+  
+})
+$app_bootstrap$('@app-application/app', { packagerVersion: QUICKAPP_TOOLKIT_VERSION })
+"
+`;
+
+exports[`split chunks on a project build results include split chunks for [SMART] 2`] = `
+"require(\\"!../../../../../hap-dsl-xvm/lib/loaders/ux-loader.js?cwd=<project-root>&type=import!../Common/compA.ux?uxType=comp&name=compa\\")
+require(\\"!../../../../../hap-dsl-xvm/lib/loaders/ux-loader.js?cwd=<project-root>&type=import!../Common/compB.ux?uxType=comp&name=compb\\")
+
+var $app_style$ = {}
+var $app_script$ = require(\\"!../../../../../hap-dsl-xvm/lib/loaders/script-loader.js!../../../../../hap-dsl-xvm/lib/loaders/module-loader.js!../../../../../hap-dsl-xvm/node_modules/babel-loader/lib/index.js?cwd=<project-root>&cacheDirectory&plugins[]=<CWD>/packages/hap-dsl-xvm/lib/loaders/babel-plugin-jsx.js&comments=false&configFile=<project-root>/babel.config.js!../../../../../hap-dsl-xvm/lib/loaders/access-loader.js!../../../../../hap-dsl-xvm/lib/loaders/fragment-loader.js?index=0&type=script!./index.ux?uxType=page\\")
+
+$app_define$('@app-component/index', [], function($app_require$, $app_exports$, $app_module$) {
+     $app_script$($app_module$, $app_exports$, $app_require$)
+         if ($app_exports$.__esModule && $app_exports$.default) {
+            $app_module$.exports = $app_exports$.default
+        }
+     $app_module$.exports.template = require(\\"!../../../../../hap-dsl-xvm/lib/loaders/template-loader.js!../../../../../hap-dsl-xvm/lib/loaders/fragment-loader.js?index=0&type=template!./index.ux?uxType=page&importNames[]=compa,importNames[]=compb\\")
+
+})
+$app_bootstrap$('@app-component/index',{ packagerVersion: QUICKAPP_TOOLKIT_VERSION })"
+`;
+
+exports[`split chunks on a project build results include split chunks for [SMART] 3`] = `
+"require(\\"!../../../../../hap-dsl-xvm/lib/loaders/ux-loader.js?cwd=<project-root>&type=import!../Common/compA.ux?uxType=comp&name=compa\\")
+
+var $app_style$ = {}
+var $app_script$ = require(\\"!../../../../../hap-dsl-xvm/lib/loaders/script-loader.js!../../../../../hap-dsl-xvm/lib/loaders/module-loader.js!../../../../../hap-dsl-xvm/node_modules/babel-loader/lib/index.js?cwd=<project-root>&cacheDirectory&plugins[]=<CWD>/packages/hap-dsl-xvm/lib/loaders/babel-plugin-jsx.js&comments=false&configFile=<project-root>/babel.config.js!../../../../../hap-dsl-xvm/lib/loaders/access-loader.js!../../../../../hap-dsl-xvm/lib/loaders/fragment-loader.js?index=0&type=script!./index.ux?uxType=page\\")
+
+$app_define$('@app-component/index', [], function($app_require$, $app_exports$, $app_module$) {
+     $app_script$($app_module$, $app_exports$, $app_require$)
+         if ($app_exports$.__esModule && $app_exports$.default) {
+            $app_module$.exports = $app_exports$.default
+        }
+     $app_module$.exports.template = require(\\"!../../../../../hap-dsl-xvm/lib/loaders/template-loader.js!../../../../../hap-dsl-xvm/lib/loaders/fragment-loader.js?index=0&type=template!./index.ux?uxType=page&importNames[]=compa\\")
+
+})
+$app_bootstrap$('@app-component/index',{ packagerVersion: QUICKAPP_TOOLKIT_VERSION })"
+`;
+
+exports[`split chunks on a project build results include split chunks for [SMART] 4`] = `
+"require(\\"!../../../../../hap-dsl-xvm/lib/loaders/ux-loader.js?cwd=<project-root>&type=import!../Common/compB.ux?uxType=comp&name=compb\\")
+
+var $app_style$ = {}
+var $app_script$ = require(\\"!../../../../../hap-dsl-xvm/lib/loaders/script-loader.js!../../../../../hap-dsl-xvm/lib/loaders/module-loader.js!../../../../../hap-dsl-xvm/node_modules/babel-loader/lib/index.js?cwd=<project-root>&cacheDirectory&plugins[]=<CWD>/packages/hap-dsl-xvm/lib/loaders/babel-plugin-jsx.js&comments=false&configFile=<project-root>/babel.config.js!../../../../../hap-dsl-xvm/lib/loaders/access-loader.js!../../../../../hap-dsl-xvm/lib/loaders/fragment-loader.js?index=0&type=script!./index.ux?uxType=page\\")
+
+$app_define$('@app-component/index', [], function($app_require$, $app_exports$, $app_module$) {
+     $app_script$($app_module$, $app_exports$, $app_require$)
+         if ($app_exports$.__esModule && $app_exports$.default) {
+            $app_module$.exports = $app_exports$.default
+        }
+     $app_module$.exports.template = require(\\"!../../../../../hap-dsl-xvm/lib/loaders/template-loader.js!../../../../../hap-dsl-xvm/lib/loaders/fragment-loader.js?index=0&type=template!./index.ux?uxType=page&importNames[]=compb\\")
+
+})
+$app_bootstrap$('@app-component/index',{ packagerVersion: QUICKAPP_TOOLKIT_VERSION })"
+`;
+
+exports[`split chunks on a project build results include split chunks for [SMART] 5`] = `
+"module.exports = function __scriptModule__ (module, exports, $app_require$){\\"use strict\\";
+
+var _moduleA = require(\\"./Common/moduleA.js\\");}"
+`;
+
+exports[`split chunks on a project build results include split chunks for [SMART] 6`] = `
+"{
+  \\"package\\": \\"com.application.demo\\",
+  \\"name\\": \\"lewis-demo\\",
+  \\"versionName\\": \\"1.0.0\\",
+  \\"versionCode\\": \\"1\\",
+  \\"minPlatformVersion\\": 1070,
+  \\"icon\\": \\"/Common/logo.png\\",
+  \\"features\\": [
+    { \\"name\\": \\"system.prompt\\" },
+    { \\"name\\": \\"system.router\\" },
+    { \\"name\\": \\"system.shortcut\\" }
+  ],
+  \\"permissions\\": [
+    { \\"origin\\": \\"*\\" }
+  ],
+  \\"config\\": {
+    \\"logLevel\\": \\"trace\\"
+  },
+  \\"router\\": {
+    \\"entry\\": \\"Demo\\",
+    \\"pages\\": {
+      \\"Demo\\": {
+        \\"component\\": \\"index\\"
+      },
+      \\"DemoDetail\\": {
+        \\"component\\": \\"index\\"
+      },
+      \\"About\\": {
+        \\"component\\": \\"index\\"
+      }
+    }
+  },
+  \\"display\\": {
+    \\"titleBarBackgroundColor\\": \\"#f2f2f2\\",
+    \\"titleBarTextColor\\": \\"#414141\\",
+    \\"menu\\": true,
+    \\"pages\\": {
+      \\"Demo\\": {
+        \\"titleBarText\\": \\"示例页\\",
+        \\"menu\\": false
+      },
+      \\"DemoDetail\\": {
+        \\"titleBarText\\": \\"详情页\\"
+      },
+      \\"About\\": {
+        \\"menu\\": false
+      }
+    }
+  }
+}"
+`;
+
+exports[`split chunks on a project build results include split chunks for [SMART] 7`] = `
+"
+var $app_style$ = {}
+var $app_script$ = require(\\"!../../../../../hap-dsl-xvm/lib/loaders/script-loader.js!../../../../../hap-dsl-xvm/lib/loaders/module-loader.js!../../../../../hap-dsl-xvm/node_modules/babel-loader/lib/index.js?cwd=<project-root>&cacheDirectory&plugins[]=<CWD>/packages/hap-dsl-xvm/lib/loaders/babel-plugin-jsx.js&comments=false&configFile=<project-root>/babel.config.js!../../../../../hap-dsl-xvm/lib/loaders/fragment-loader.js?index=0&type=script!./compA.ux?uxType=comp\\")
+
+$app_define$('@app-component/compa', [], function($app_require$, $app_exports$, $app_module$) {
+     $app_script$($app_module$, $app_exports$, $app_require$)
+         if ($app_exports$.__esModule && $app_exports$.default) {
+            $app_module$.exports = $app_exports$.default
+        }
+     $app_module$.exports.template = require(\\"!../../../../../hap-dsl-xvm/lib/loaders/template-loader.js!../../../../../hap-dsl-xvm/lib/loaders/fragment-loader.js?index=0&type=template!./compA.ux?uxType=comp&\\")
+
+})"
+`;
+
+exports[`split chunks on a project build results include split chunks for [SMART] 8`] = `
+"
+var $app_style$ = {}
+var $app_script$ = require(\\"!../../../../../hap-dsl-xvm/lib/loaders/script-loader.js!../../../../../hap-dsl-xvm/lib/loaders/module-loader.js!../../../../../hap-dsl-xvm/node_modules/babel-loader/lib/index.js?cwd=<project-root>&cacheDirectory&plugins[]=<CWD>/packages/hap-dsl-xvm/lib/loaders/babel-plugin-jsx.js&comments=false&configFile=<project-root>/babel.config.js!../../../../../hap-dsl-xvm/lib/loaders/fragment-loader.js?index=0&type=script!./compB.ux?uxType=comp\\")
+
+$app_define$('@app-component/compb', [], function($app_require$, $app_exports$, $app_module$) {
+     $app_script$($app_module$, $app_exports$, $app_require$)
+         if ($app_exports$.__esModule && $app_exports$.default) {
+            $app_module$.exports = $app_exports$.default
+        }
+     $app_module$.exports.template = require(\\"!../../../../../hap-dsl-xvm/lib/loaders/template-loader.js!../../../../../hap-dsl-xvm/lib/loaders/fragment-loader.js?index=0&type=template!./compB.ux?uxType=comp&\\")
+
+})"
+`;
+
+exports[`split chunks on a project build results include split chunks for [SMART] 9`] = `
+"module.exports = function __scriptModule__ (module, exports, $app_require$){\\"use strict\\";
+
+Object.defineProperty(exports, \\"__esModule\\", {
+  value: true
+});
+exports[\\"default\\"] = void 0;
+
+var _moduleA = require(\\"../Common/moduleA.js\\");
+
+var _moduleB = require(\\"../Common/moduleB.js\\");
+
+function _typeof(obj) { \\"@babel/helpers - typeof\\"; if (typeof Symbol === \\"function\\" && typeof Symbol.iterator === \\"symbol\\") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === \\"function\\" && obj.constructor === Symbol && obj !== Symbol.prototype ? \\"symbol\\" : typeof obj; }; } return _typeof(obj); }
+
+var _default = {};
+exports[\\"default\\"] = _default;
+var moduleOwn = exports[\\"default\\"] || module.exports;
+var accessors = ['public', 'protected', 'private'];
+
+if (moduleOwn.data && accessors.some(function (acc) {
+  return moduleOwn[acc];
+})) {
+  throw new Error('页面VM对象中的属性data不可与\\"' + accessors.join(',') + '\\"同时存在，请使用private替换data名称');
+} else if (!moduleOwn.data) {
+  moduleOwn.data = {};
+  moduleOwn._descriptor = {};
+  accessors.forEach(function (acc) {
+    var accType = _typeof(moduleOwn[acc]);
+
+    if (accType === 'object') {
+      moduleOwn.data = Object.assign(moduleOwn.data, moduleOwn[acc]);
+
+      for (var name in moduleOwn[acc]) {
+        moduleOwn._descriptor[name] = {
+          access: acc
+        };
+      }
+    } else if (accType === 'function') {
+      console.warn('页面VM对象中的属性' + acc + '的值不能是函数，请使用对象');
+    }
+  });
+}}"
+`;
+
+exports[`split chunks on a project build results include split chunks for [SMART] 10`] = `
+"module.exports = {
+  \\"type\\": \\"div\\",
+  \\"attr\\": {}
+}"
+`;
+
+exports[`split chunks on a project build results include split chunks for [SMART] 11`] = `
+"module.exports = function __scriptModule__ (module, exports, $app_require$){\\"use strict\\";
+
+Object.defineProperty(exports, \\"__esModule\\", {
+  value: true
+});
+exports[\\"default\\"] = void 0;
+
+var _moduleA = require(\\"../Common/moduleA.js\\");
+
+function _typeof(obj) { \\"@babel/helpers - typeof\\"; if (typeof Symbol === \\"function\\" && typeof Symbol.iterator === \\"symbol\\") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === \\"function\\" && obj.constructor === Symbol && obj !== Symbol.prototype ? \\"symbol\\" : typeof obj; }; } return _typeof(obj); }
+
+var _default = {
+  onMenuPress: function onMenuPress() {
+    this.$app.$def.showMenu();
+  }
+};
+exports[\\"default\\"] = _default;
+var moduleOwn = exports[\\"default\\"] || module.exports;
+var accessors = ['public', 'protected', 'private'];
+
+if (moduleOwn.data && accessors.some(function (acc) {
+  return moduleOwn[acc];
+})) {
+  throw new Error('页面VM对象中的属性data不可与\\"' + accessors.join(',') + '\\"同时存在，请使用private替换data名称');
+} else if (!moduleOwn.data) {
+  moduleOwn.data = {};
+  moduleOwn._descriptor = {};
+  accessors.forEach(function (acc) {
+    var accType = _typeof(moduleOwn[acc]);
+
+    if (accType === 'object') {
+      moduleOwn.data = Object.assign(moduleOwn.data, moduleOwn[acc]);
+
+      for (var name in moduleOwn[acc]) {
+        moduleOwn._descriptor[name] = {
+          access: acc
+        };
+      }
+    } else if (accType === 'function') {
+      console.warn('页面VM对象中的属性' + acc + '的值不能是函数，请使用对象');
+    }
+  });
+}}"
+`;
+
+exports[`split chunks on a project build results include split chunks for [SMART] 12`] = `
+"module.exports = {
+  \\"type\\": \\"div\\",
+  \\"attr\\": {}
+}"
+`;
+
+exports[`split chunks on a project build results include split chunks for [SMART] 13`] = `
+"module.exports = function __scriptModule__ (module, exports, $app_require$){\\"use strict\\";
+
+Object.defineProperty(exports, \\"__esModule\\", {
+  value: true
+});
+exports[\\"default\\"] = void 0;
+
+var _moduleB = require(\\"../Common/moduleB.js\\");
+
+function _typeof(obj) { \\"@babel/helpers - typeof\\"; if (typeof Symbol === \\"function\\" && typeof Symbol.iterator === \\"symbol\\") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === \\"function\\" && obj.constructor === Symbol && obj !== Symbol.prototype ? \\"symbol\\" : typeof obj; }; } return _typeof(obj); }
+
+var _default = {};
+exports[\\"default\\"] = _default;
+var moduleOwn = exports[\\"default\\"] || module.exports;
+var accessors = ['public', 'protected', 'private'];
+
+if (moduleOwn.data && accessors.some(function (acc) {
+  return moduleOwn[acc];
+})) {
+  throw new Error('页面VM对象中的属性data不可与\\"' + accessors.join(',') + '\\"同时存在，请使用private替换data名称');
+} else if (!moduleOwn.data) {
+  moduleOwn.data = {};
+  moduleOwn._descriptor = {};
+  accessors.forEach(function (acc) {
+    var accType = _typeof(moduleOwn[acc]);
+
+    if (accType === 'object') {
+      moduleOwn.data = Object.assign(moduleOwn.data, moduleOwn[acc]);
+
+      for (var name in moduleOwn[acc]) {
+        moduleOwn._descriptor[name] = {
+          access: acc
+        };
+      }
+    } else if (accType === 'function') {
+      console.warn('页面VM对象中的属性' + acc + '的值不能是函数，请使用对象');
+    }
+  });
+}}"
+`;
+
+exports[`split chunks on a project build results include split chunks for [SMART] 14`] = `
+"module.exports = {
+  \\"type\\": \\"div\\",
+  \\"attr\\": {}
+}"
+`;
+
+exports[`split chunks on a project build results include split chunks for [SMART] 15`] = `
+"\\"use strict\\";
+
+Object.defineProperty(exports, \\"__esModule\\", {
+  value: true
+});
+exports.add = add;
+
+/*
+ * Copyright (c) 2021, the hapjs-platform Project Contributors
+ * SPDX-License-Identifier: Apache-2.0
+ */
+function add(a, b) {
+  return a + b;
+}"
+`;
+
+exports[`split chunks on a project build results include split chunks for [SMART] 16`] = `
+"module.exports = function __scriptModule__ (module, exports, $app_require$){\\"use strict\\";
+
+Object.defineProperty(exports, \\"__esModule\\", {
+  value: true
+});
+exports[\\"default\\"] = void 0;
+var _default = {};
+exports[\\"default\\"] = _default;}"
+`;
+
+exports[`split chunks on a project build results include split chunks for [SMART] 17`] = `
+"module.exports = {
+  \\"type\\": \\"div\\",
+  \\"attr\\": {}
+}"
+`;
+
+exports[`split chunks on a project build results include split chunks for [SMART] 18`] = `
+"module.exports = function __scriptModule__ (module, exports, $app_require$){\\"use strict\\";
+
+Object.defineProperty(exports, \\"__esModule\\", {
+  value: true
+});
+exports[\\"default\\"] = void 0;
+var _default = {};
+exports[\\"default\\"] = _default;}"
+`;
+
+exports[`split chunks on a project build results include split chunks for [SMART] 19`] = `
+"module.exports = {
+  \\"type\\": \\"div\\",
+  \\"attr\\": {}
+}"
+`;
+
+exports[`split chunks on a project build results include split chunks for [SMART] 20`] = `
+"\\"use strict\\";
+
+Object.defineProperty(exports, \\"__esModule\\", {
+  value: true
+});
+exports.multiply = multiply;
+
+/*
+ * Copyright (c) 2021, the hapjs-platform Project Contributors
+ * SPDX-License-Identifier: Apache-2.0
+ */
+function multiply(a, b) {
+  return a * b;
+}"
+`;
+
+exports[`split chunks on a project release results include split chunks for [SMART] 1`] = `
+"
+var $app_style$ = {}
+var $app_script$ = require(\\"!../../../../hap-dsl-xvm/lib/loaders/script-loader.js!../../../../hap-dsl-xvm/lib/loaders/module-loader.js!../../../../hap-dsl-xvm/lib/loaders/manifest-loader.js?path=<project-root>/src!../../../../hap-dsl-xvm/node_modules/babel-loader/lib/index.js?cwd=<project-root>&cacheDirectory&comments=false&configFile=<project-root>/babel.config.js!../../../../hap-dsl-xvm/lib/loaders/fragment-loader.js?index=0&type=script!./app.ux?uxType=app\\")
+
+$app_define$('@app-application/app', [], function ($app_require$, $app_exports$, $app_module$) {
+  
+  $app_script$($app_module$, $app_exports$, $app_require$)
+  if ($app_exports$.__esModule && $app_exports$.default) {
+    $app_module$.exports = $app_exports$.default
+  }
+  $app_module$.exports.manifest = require(\\"./manifest.json\\")
+  $app_module$.exports.style = { list: [ $app_style$ ] }
+  
+})
+$app_bootstrap$('@app-application/app', { packagerVersion: QUICKAPP_TOOLKIT_VERSION })
+"
+`;
+
+exports[`split chunks on a project release results include split chunks for [SMART] 2`] = `
+"require(\\"!../../../../../hap-dsl-xvm/lib/loaders/ux-loader.js?cwd=<project-root>&type=import!../Common/compA.ux?uxType=comp&name=compa\\")
+require(\\"!../../../../../hap-dsl-xvm/lib/loaders/ux-loader.js?cwd=<project-root>&type=import!../Common/compB.ux?uxType=comp&name=compb\\")
+
+var $app_style$ = {}
+var $app_script$ = require(\\"!../../../../../hap-dsl-xvm/lib/loaders/script-loader.js!../../../../../hap-dsl-xvm/lib/loaders/module-loader.js!../../../../../hap-dsl-xvm/node_modules/babel-loader/lib/index.js?cwd=<project-root>&cacheDirectory&plugins[]=<CWD>/packages/hap-dsl-xvm/lib/loaders/babel-plugin-jsx.js&comments=false&configFile=<project-root>/babel.config.js!../../../../../hap-dsl-xvm/lib/loaders/access-loader.js!../../../../../hap-dsl-xvm/lib/loaders/fragment-loader.js?index=0&type=script!./index.ux?uxType=page\\")
+
+$app_define$('@app-component/index', [], function($app_require$, $app_exports$, $app_module$) {
+     $app_script$($app_module$, $app_exports$, $app_require$)
+         if ($app_exports$.__esModule && $app_exports$.default) {
+            $app_module$.exports = $app_exports$.default
+        }
+     $app_module$.exports.template = require(\\"!../../../../../hap-dsl-xvm/lib/loaders/template-loader.js!../../../../../hap-dsl-xvm/lib/loaders/fragment-loader.js?index=0&type=template!./index.ux?uxType=page&importNames[]=compa,importNames[]=compb\\")
+
+})
+$app_bootstrap$('@app-component/index',{ packagerVersion: QUICKAPP_TOOLKIT_VERSION })"
+`;
+
+exports[`split chunks on a project release results include split chunks for [SMART] 3`] = `
+"require(\\"!../../../../../hap-dsl-xvm/lib/loaders/ux-loader.js?cwd=<project-root>&type=import!../Common/compA.ux?uxType=comp&name=compa\\")
+
+var $app_style$ = {}
+var $app_script$ = require(\\"!../../../../../hap-dsl-xvm/lib/loaders/script-loader.js!../../../../../hap-dsl-xvm/lib/loaders/module-loader.js!../../../../../hap-dsl-xvm/node_modules/babel-loader/lib/index.js?cwd=<project-root>&cacheDirectory&plugins[]=<CWD>/packages/hap-dsl-xvm/lib/loaders/babel-plugin-jsx.js&comments=false&configFile=<project-root>/babel.config.js!../../../../../hap-dsl-xvm/lib/loaders/access-loader.js!../../../../../hap-dsl-xvm/lib/loaders/fragment-loader.js?index=0&type=script!./index.ux?uxType=page\\")
+
+$app_define$('@app-component/index', [], function($app_require$, $app_exports$, $app_module$) {
+     $app_script$($app_module$, $app_exports$, $app_require$)
+         if ($app_exports$.__esModule && $app_exports$.default) {
+            $app_module$.exports = $app_exports$.default
+        }
+     $app_module$.exports.template = require(\\"!../../../../../hap-dsl-xvm/lib/loaders/template-loader.js!../../../../../hap-dsl-xvm/lib/loaders/fragment-loader.js?index=0&type=template!./index.ux?uxType=page&importNames[]=compa\\")
+
+})
+$app_bootstrap$('@app-component/index',{ packagerVersion: QUICKAPP_TOOLKIT_VERSION })"
+`;
+
+exports[`split chunks on a project release results include split chunks for [SMART] 4`] = `
+"require(\\"!../../../../../hap-dsl-xvm/lib/loaders/ux-loader.js?cwd=<project-root>&type=import!../Common/compB.ux?uxType=comp&name=compb\\")
+
+var $app_style$ = {}
+var $app_script$ = require(\\"!../../../../../hap-dsl-xvm/lib/loaders/script-loader.js!../../../../../hap-dsl-xvm/lib/loaders/module-loader.js!../../../../../hap-dsl-xvm/node_modules/babel-loader/lib/index.js?cwd=<project-root>&cacheDirectory&plugins[]=<CWD>/packages/hap-dsl-xvm/lib/loaders/babel-plugin-jsx.js&comments=false&configFile=<project-root>/babel.config.js!../../../../../hap-dsl-xvm/lib/loaders/access-loader.js!../../../../../hap-dsl-xvm/lib/loaders/fragment-loader.js?index=0&type=script!./index.ux?uxType=page\\")
+
+$app_define$('@app-component/index', [], function($app_require$, $app_exports$, $app_module$) {
+     $app_script$($app_module$, $app_exports$, $app_require$)
+         if ($app_exports$.__esModule && $app_exports$.default) {
+            $app_module$.exports = $app_exports$.default
+        }
+     $app_module$.exports.template = require(\\"!../../../../../hap-dsl-xvm/lib/loaders/template-loader.js!../../../../../hap-dsl-xvm/lib/loaders/fragment-loader.js?index=0&type=template!./index.ux?uxType=page&importNames[]=compb\\")
+
+})
+$app_bootstrap$('@app-component/index',{ packagerVersion: QUICKAPP_TOOLKIT_VERSION })"
+`;
+
+exports[`split chunks on a project release results include split chunks for [SMART] 5`] = `
+"module.exports = function __scriptModule__ (module, exports, $app_require$){\\"use strict\\";
+
+var _moduleA = require(\\"./Common/moduleA.js\\");}"
+`;
+
+exports[`split chunks on a project release results include split chunks for [SMART] 6`] = `
+"{
+  \\"package\\": \\"com.application.demo\\",
+  \\"name\\": \\"lewis-demo\\",
+  \\"versionName\\": \\"1.0.0\\",
+  \\"versionCode\\": \\"1\\",
+  \\"minPlatformVersion\\": 1070,
+  \\"icon\\": \\"/Common/logo.png\\",
+  \\"features\\": [
+    { \\"name\\": \\"system.prompt\\" },
+    { \\"name\\": \\"system.router\\" },
+    { \\"name\\": \\"system.shortcut\\" }
+  ],
+  \\"permissions\\": [
+    { \\"origin\\": \\"*\\" }
+  ],
+  \\"config\\": {
+    \\"logLevel\\": \\"trace\\"
+  },
+  \\"router\\": {
+    \\"entry\\": \\"Demo\\",
+    \\"pages\\": {
+      \\"Demo\\": {
+        \\"component\\": \\"index\\"
+      },
+      \\"DemoDetail\\": {
+        \\"component\\": \\"index\\"
+      },
+      \\"About\\": {
+        \\"component\\": \\"index\\"
+      }
+    }
+  },
+  \\"display\\": {
+    \\"titleBarBackgroundColor\\": \\"#f2f2f2\\",
+    \\"titleBarTextColor\\": \\"#414141\\",
+    \\"menu\\": true,
+    \\"pages\\": {
+      \\"Demo\\": {
+        \\"titleBarText\\": \\"示例页\\",
+        \\"menu\\": false
+      },
+      \\"DemoDetail\\": {
+        \\"titleBarText\\": \\"详情页\\"
+      },
+      \\"About\\": {
+        \\"menu\\": false
+      }
+    }
+  }
+}"
+`;
+
+exports[`split chunks on a project release results include split chunks for [SMART] 7`] = `
+"
+var $app_style$ = {}
+var $app_script$ = require(\\"!../../../../../hap-dsl-xvm/lib/loaders/script-loader.js!../../../../../hap-dsl-xvm/lib/loaders/module-loader.js!../../../../../hap-dsl-xvm/node_modules/babel-loader/lib/index.js?cwd=<project-root>&cacheDirectory&plugins[]=<CWD>/packages/hap-dsl-xvm/lib/loaders/babel-plugin-jsx.js&comments=false&configFile=<project-root>/babel.config.js!../../../../../hap-dsl-xvm/lib/loaders/fragment-loader.js?index=0&type=script!./compA.ux?uxType=comp\\")
+
+$app_define$('@app-component/compa', [], function($app_require$, $app_exports$, $app_module$) {
+     $app_script$($app_module$, $app_exports$, $app_require$)
+         if ($app_exports$.__esModule && $app_exports$.default) {
+            $app_module$.exports = $app_exports$.default
+        }
+     $app_module$.exports.template = require(\\"!../../../../../hap-dsl-xvm/lib/loaders/template-loader.js!../../../../../hap-dsl-xvm/lib/loaders/fragment-loader.js?index=0&type=template!./compA.ux?uxType=comp&\\")
+
+})"
+`;
+
+exports[`split chunks on a project release results include split chunks for [SMART] 8`] = `
+"
+var $app_style$ = {}
+var $app_script$ = require(\\"!../../../../../hap-dsl-xvm/lib/loaders/script-loader.js!../../../../../hap-dsl-xvm/lib/loaders/module-loader.js!../../../../../hap-dsl-xvm/node_modules/babel-loader/lib/index.js?cwd=<project-root>&cacheDirectory&plugins[]=<CWD>/packages/hap-dsl-xvm/lib/loaders/babel-plugin-jsx.js&comments=false&configFile=<project-root>/babel.config.js!../../../../../hap-dsl-xvm/lib/loaders/fragment-loader.js?index=0&type=script!./compB.ux?uxType=comp\\")
+
+$app_define$('@app-component/compb', [], function($app_require$, $app_exports$, $app_module$) {
+     $app_script$($app_module$, $app_exports$, $app_require$)
+         if ($app_exports$.__esModule && $app_exports$.default) {
+            $app_module$.exports = $app_exports$.default
+        }
+     $app_module$.exports.template = require(\\"!../../../../../hap-dsl-xvm/lib/loaders/template-loader.js!../../../../../hap-dsl-xvm/lib/loaders/fragment-loader.js?index=0&type=template!./compB.ux?uxType=comp&\\")
+
+})"
+`;
+
+exports[`split chunks on a project release results include split chunks for [SMART] 9`] = `
+"module.exports = function __scriptModule__ (module, exports, $app_require$){\\"use strict\\";
+
+Object.defineProperty(exports, \\"__esModule\\", {
+  value: true
+});
+exports[\\"default\\"] = void 0;
+
+var _moduleA = require(\\"../Common/moduleA.js\\");
+
+var _moduleB = require(\\"../Common/moduleB.js\\");
+
+function _typeof(obj) { \\"@babel/helpers - typeof\\"; if (typeof Symbol === \\"function\\" && typeof Symbol.iterator === \\"symbol\\") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === \\"function\\" && obj.constructor === Symbol && obj !== Symbol.prototype ? \\"symbol\\" : typeof obj; }; } return _typeof(obj); }
+
+var _default = {};
+exports[\\"default\\"] = _default;
+var moduleOwn = exports[\\"default\\"] || module.exports;
+var accessors = ['public', 'protected', 'private'];
+
+if (moduleOwn.data && accessors.some(function (acc) {
+  return moduleOwn[acc];
+})) {
+  throw new Error('页面VM对象中的属性data不可与\\"' + accessors.join(',') + '\\"同时存在，请使用private替换data名称');
+} else if (!moduleOwn.data) {
+  moduleOwn.data = {};
+  moduleOwn._descriptor = {};
+  accessors.forEach(function (acc) {
+    var accType = _typeof(moduleOwn[acc]);
+
+    if (accType === 'object') {
+      moduleOwn.data = Object.assign(moduleOwn.data, moduleOwn[acc]);
+
+      for (var name in moduleOwn[acc]) {
+        moduleOwn._descriptor[name] = {
+          access: acc
+        };
+      }
+    } else if (accType === 'function') {
+      console.warn('页面VM对象中的属性' + acc + '的值不能是函数，请使用对象');
+    }
+  });
+}}"
+`;
+
+exports[`split chunks on a project release results include split chunks for [SMART] 10`] = `
+"module.exports = {
+  \\"type\\": \\"div\\",
+  \\"attr\\": {}
+}"
+`;
+
+exports[`split chunks on a project release results include split chunks for [SMART] 11`] = `
+"module.exports = function __scriptModule__ (module, exports, $app_require$){\\"use strict\\";
+
+Object.defineProperty(exports, \\"__esModule\\", {
+  value: true
+});
+exports[\\"default\\"] = void 0;
+
+var _moduleA = require(\\"../Common/moduleA.js\\");
+
+function _typeof(obj) { \\"@babel/helpers - typeof\\"; if (typeof Symbol === \\"function\\" && typeof Symbol.iterator === \\"symbol\\") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === \\"function\\" && obj.constructor === Symbol && obj !== Symbol.prototype ? \\"symbol\\" : typeof obj; }; } return _typeof(obj); }
+
+var _default = {
+  onMenuPress: function onMenuPress() {
+    this.$app.$def.showMenu();
+  }
+};
+exports[\\"default\\"] = _default;
+var moduleOwn = exports[\\"default\\"] || module.exports;
+var accessors = ['public', 'protected', 'private'];
+
+if (moduleOwn.data && accessors.some(function (acc) {
+  return moduleOwn[acc];
+})) {
+  throw new Error('页面VM对象中的属性data不可与\\"' + accessors.join(',') + '\\"同时存在，请使用private替换data名称');
+} else if (!moduleOwn.data) {
+  moduleOwn.data = {};
+  moduleOwn._descriptor = {};
+  accessors.forEach(function (acc) {
+    var accType = _typeof(moduleOwn[acc]);
+
+    if (accType === 'object') {
+      moduleOwn.data = Object.assign(moduleOwn.data, moduleOwn[acc]);
+
+      for (var name in moduleOwn[acc]) {
+        moduleOwn._descriptor[name] = {
+          access: acc
+        };
+      }
+    } else if (accType === 'function') {
+      console.warn('页面VM对象中的属性' + acc + '的值不能是函数，请使用对象');
+    }
+  });
+}}"
+`;
+
+exports[`split chunks on a project release results include split chunks for [SMART] 12`] = `
+"module.exports = {
+  \\"type\\": \\"div\\",
+  \\"attr\\": {}
+}"
+`;
+
+exports[`split chunks on a project release results include split chunks for [SMART] 13`] = `
+"module.exports = function __scriptModule__ (module, exports, $app_require$){\\"use strict\\";
+
+Object.defineProperty(exports, \\"__esModule\\", {
+  value: true
+});
+exports[\\"default\\"] = void 0;
+
+var _moduleB = require(\\"../Common/moduleB.js\\");
+
+function _typeof(obj) { \\"@babel/helpers - typeof\\"; if (typeof Symbol === \\"function\\" && typeof Symbol.iterator === \\"symbol\\") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === \\"function\\" && obj.constructor === Symbol && obj !== Symbol.prototype ? \\"symbol\\" : typeof obj; }; } return _typeof(obj); }
+
+var _default = {};
+exports[\\"default\\"] = _default;
+var moduleOwn = exports[\\"default\\"] || module.exports;
+var accessors = ['public', 'protected', 'private'];
+
+if (moduleOwn.data && accessors.some(function (acc) {
+  return moduleOwn[acc];
+})) {
+  throw new Error('页面VM对象中的属性data不可与\\"' + accessors.join(',') + '\\"同时存在，请使用private替换data名称');
+} else if (!moduleOwn.data) {
+  moduleOwn.data = {};
+  moduleOwn._descriptor = {};
+  accessors.forEach(function (acc) {
+    var accType = _typeof(moduleOwn[acc]);
+
+    if (accType === 'object') {
+      moduleOwn.data = Object.assign(moduleOwn.data, moduleOwn[acc]);
+
+      for (var name in moduleOwn[acc]) {
+        moduleOwn._descriptor[name] = {
+          access: acc
+        };
+      }
+    } else if (accType === 'function') {
+      console.warn('页面VM对象中的属性' + acc + '的值不能是函数，请使用对象');
+    }
+  });
+}}"
+`;
+
+exports[`split chunks on a project release results include split chunks for [SMART] 14`] = `
+"module.exports = {
+  \\"type\\": \\"div\\",
+  \\"attr\\": {}
+}"
+`;
+
+exports[`split chunks on a project release results include split chunks for [SMART] 15`] = `
+"\\"use strict\\";
+
+Object.defineProperty(exports, \\"__esModule\\", {
+  value: true
+});
+exports.add = add;
+
+/*
+ * Copyright (c) 2021, the hapjs-platform Project Contributors
+ * SPDX-License-Identifier: Apache-2.0
+ */
+function add(a, b) {
+  return a + b;
+}"
+`;
+
+exports[`split chunks on a project release results include split chunks for [SMART] 16`] = `
+"module.exports = function __scriptModule__ (module, exports, $app_require$){\\"use strict\\";
+
+Object.defineProperty(exports, \\"__esModule\\", {
+  value: true
+});
+exports[\\"default\\"] = void 0;
+var _default = {};
+exports[\\"default\\"] = _default;}"
+`;
+
+exports[`split chunks on a project release results include split chunks for [SMART] 17`] = `
+"module.exports = {
+  \\"type\\": \\"div\\",
+  \\"attr\\": {}
+}"
+`;
+
+exports[`split chunks on a project release results include split chunks for [SMART] 18`] = `
+"module.exports = function __scriptModule__ (module, exports, $app_require$){\\"use strict\\";
+
+Object.defineProperty(exports, \\"__esModule\\", {
+  value: true
+});
+exports[\\"default\\"] = void 0;
+var _default = {};
+exports[\\"default\\"] = _default;}"
+`;
+
+exports[`split chunks on a project release results include split chunks for [SMART] 19`] = `
+"module.exports = {
+  \\"type\\": \\"div\\",
+  \\"attr\\": {}
+}"
+`;
+
+exports[`split chunks on a project release results include split chunks for [SMART] 20`] = `
+"\\"use strict\\";
+
+Object.defineProperty(exports, \\"__esModule\\", {
+  value: true
+});
+exports.multiply = multiply;
+
+/*
+ * Copyright (c) 2021, the hapjs-platform Project Contributors
+ * SPDX-License-Identifier: Apache-2.0
+ */
+function multiply(a, b) {
+  return a * b;
+}"
+`;
+
+exports[`split chunks on a project release results not include split chunks for [REDUNDANCY] 1`] = `
+"
+var $app_style$ = {}
+var $app_script$ = require(\\"!../../../../hap-dsl-xvm/lib/loaders/script-loader.js!../../../../hap-dsl-xvm/lib/loaders/module-loader.js!../../../../hap-dsl-xvm/lib/loaders/manifest-loader.js?path=<project-root>/src!../../../../hap-dsl-xvm/node_modules/babel-loader/lib/index.js?cwd=<project-root>&cacheDirectory&comments=false&configFile=<project-root>/babel.config.js!../../../../hap-dsl-xvm/lib/loaders/fragment-loader.js?index=0&type=script!./app.ux?uxType=app\\")
+
+$app_define$('@app-application/app', [], function ($app_require$, $app_exports$, $app_module$) {
+  
+  $app_script$($app_module$, $app_exports$, $app_require$)
+  if ($app_exports$.__esModule && $app_exports$.default) {
+    $app_module$.exports = $app_exports$.default
+  }
+  $app_module$.exports.manifest = require(\\"./manifest.json\\")
+  $app_module$.exports.style = { list: [ $app_style$ ] }
+  
+})
+$app_bootstrap$('@app-application/app', { packagerVersion: QUICKAPP_TOOLKIT_VERSION })
+"
+`;
+
+exports[`split chunks on a project release results not include split chunks for [REDUNDANCY] 2`] = `
+"require(\\"!../../../../../hap-dsl-xvm/lib/loaders/ux-loader.js?cwd=<project-root>&type=import!../Common/compA.ux?uxType=comp&name=compa\\")
+require(\\"!../../../../../hap-dsl-xvm/lib/loaders/ux-loader.js?cwd=<project-root>&type=import!../Common/compB.ux?uxType=comp&name=compb\\")
+
+var $app_style$ = {}
+var $app_script$ = require(\\"!../../../../../hap-dsl-xvm/lib/loaders/script-loader.js!../../../../../hap-dsl-xvm/lib/loaders/module-loader.js!../../../../../hap-dsl-xvm/node_modules/babel-loader/lib/index.js?cwd=<project-root>&cacheDirectory&plugins[]=<CWD>/packages/hap-dsl-xvm/lib/loaders/babel-plugin-jsx.js&comments=false&configFile=<project-root>/babel.config.js!../../../../../hap-dsl-xvm/lib/loaders/access-loader.js!../../../../../hap-dsl-xvm/lib/loaders/fragment-loader.js?index=0&type=script!./index.ux?uxType=page\\")
+
+$app_define$('@app-component/index', [], function($app_require$, $app_exports$, $app_module$) {
+     $app_script$($app_module$, $app_exports$, $app_require$)
+         if ($app_exports$.__esModule && $app_exports$.default) {
+            $app_module$.exports = $app_exports$.default
+        }
+     $app_module$.exports.template = require(\\"!../../../../../hap-dsl-xvm/lib/loaders/template-loader.js!../../../../../hap-dsl-xvm/lib/loaders/fragment-loader.js?index=0&type=template!./index.ux?uxType=page&importNames[]=compa,importNames[]=compb\\")
+
+})
+$app_bootstrap$('@app-component/index',{ packagerVersion: QUICKAPP_TOOLKIT_VERSION })"
+`;
+
+exports[`split chunks on a project release results not include split chunks for [REDUNDANCY] 3`] = `
+"require(\\"!../../../../../hap-dsl-xvm/lib/loaders/ux-loader.js?cwd=<project-root>&type=import!../Common/compA.ux?uxType=comp&name=compa\\")
+
+var $app_style$ = {}
+var $app_script$ = require(\\"!../../../../../hap-dsl-xvm/lib/loaders/script-loader.js!../../../../../hap-dsl-xvm/lib/loaders/module-loader.js!../../../../../hap-dsl-xvm/node_modules/babel-loader/lib/index.js?cwd=<project-root>&cacheDirectory&plugins[]=<CWD>/packages/hap-dsl-xvm/lib/loaders/babel-plugin-jsx.js&comments=false&configFile=<project-root>/babel.config.js!../../../../../hap-dsl-xvm/lib/loaders/access-loader.js!../../../../../hap-dsl-xvm/lib/loaders/fragment-loader.js?index=0&type=script!./index.ux?uxType=page\\")
+
+$app_define$('@app-component/index', [], function($app_require$, $app_exports$, $app_module$) {
+     $app_script$($app_module$, $app_exports$, $app_require$)
+         if ($app_exports$.__esModule && $app_exports$.default) {
+            $app_module$.exports = $app_exports$.default
+        }
+     $app_module$.exports.template = require(\\"!../../../../../hap-dsl-xvm/lib/loaders/template-loader.js!../../../../../hap-dsl-xvm/lib/loaders/fragment-loader.js?index=0&type=template!./index.ux?uxType=page&importNames[]=compa\\")
+
+})
+$app_bootstrap$('@app-component/index',{ packagerVersion: QUICKAPP_TOOLKIT_VERSION })"
+`;
+
+exports[`split chunks on a project release results not include split chunks for [REDUNDANCY] 4`] = `
+"require(\\"!../../../../../hap-dsl-xvm/lib/loaders/ux-loader.js?cwd=<project-root>&type=import!../Common/compB.ux?uxType=comp&name=compb\\")
+
+var $app_style$ = {}
+var $app_script$ = require(\\"!../../../../../hap-dsl-xvm/lib/loaders/script-loader.js!../../../../../hap-dsl-xvm/lib/loaders/module-loader.js!../../../../../hap-dsl-xvm/node_modules/babel-loader/lib/index.js?cwd=<project-root>&cacheDirectory&plugins[]=<CWD>/packages/hap-dsl-xvm/lib/loaders/babel-plugin-jsx.js&comments=false&configFile=<project-root>/babel.config.js!../../../../../hap-dsl-xvm/lib/loaders/access-loader.js!../../../../../hap-dsl-xvm/lib/loaders/fragment-loader.js?index=0&type=script!./index.ux?uxType=page\\")
+
+$app_define$('@app-component/index', [], function($app_require$, $app_exports$, $app_module$) {
+     $app_script$($app_module$, $app_exports$, $app_require$)
+         if ($app_exports$.__esModule && $app_exports$.default) {
+            $app_module$.exports = $app_exports$.default
+        }
+     $app_module$.exports.template = require(\\"!../../../../../hap-dsl-xvm/lib/loaders/template-loader.js!../../../../../hap-dsl-xvm/lib/loaders/fragment-loader.js?index=0&type=template!./index.ux?uxType=page&importNames[]=compb\\")
+
+})
+$app_bootstrap$('@app-component/index',{ packagerVersion: QUICKAPP_TOOLKIT_VERSION })"
+`;
+
+exports[`split chunks on a project release results not include split chunks for [REDUNDANCY] 5`] = `
+"module.exports = function __scriptModule__ (module, exports, $app_require$){\\"use strict\\";
+
+var _moduleA = require(\\"./Common/moduleA.js\\");}"
+`;
+
+exports[`split chunks on a project release results not include split chunks for [REDUNDANCY] 6`] = `
+"{
+  \\"package\\": \\"com.application.demo\\",
+  \\"name\\": \\"lewis-demo\\",
+  \\"versionName\\": \\"1.0.0\\",
+  \\"versionCode\\": \\"1\\",
+  \\"minPlatformVersion\\": 1070,
+  \\"icon\\": \\"/Common/logo.png\\",
+  \\"features\\": [
+    { \\"name\\": \\"system.prompt\\" },
+    { \\"name\\": \\"system.router\\" },
+    { \\"name\\": \\"system.shortcut\\" }
+  ],
+  \\"permissions\\": [
+    { \\"origin\\": \\"*\\" }
+  ],
+  \\"config\\": {
+    \\"logLevel\\": \\"trace\\"
+  },
+  \\"router\\": {
+    \\"entry\\": \\"Demo\\",
+    \\"pages\\": {
+      \\"Demo\\": {
+        \\"component\\": \\"index\\"
+      },
+      \\"DemoDetail\\": {
+        \\"component\\": \\"index\\"
+      },
+      \\"About\\": {
+        \\"component\\": \\"index\\"
+      }
+    }
+  },
+  \\"display\\": {
+    \\"titleBarBackgroundColor\\": \\"#f2f2f2\\",
+    \\"titleBarTextColor\\": \\"#414141\\",
+    \\"menu\\": true,
+    \\"pages\\": {
+      \\"Demo\\": {
+        \\"titleBarText\\": \\"示例页\\",
+        \\"menu\\": false
+      },
+      \\"DemoDetail\\": {
+        \\"titleBarText\\": \\"详情页\\"
+      },
+      \\"About\\": {
+        \\"menu\\": false
+      }
+    }
+  }
+}"
+`;
+
+exports[`split chunks on a project release results not include split chunks for [REDUNDANCY] 7`] = `
+"
+var $app_style$ = {}
+var $app_script$ = require(\\"!../../../../../hap-dsl-xvm/lib/loaders/script-loader.js!../../../../../hap-dsl-xvm/lib/loaders/module-loader.js!../../../../../hap-dsl-xvm/node_modules/babel-loader/lib/index.js?cwd=<project-root>&cacheDirectory&plugins[]=<CWD>/packages/hap-dsl-xvm/lib/loaders/babel-plugin-jsx.js&comments=false&configFile=<project-root>/babel.config.js!../../../../../hap-dsl-xvm/lib/loaders/fragment-loader.js?index=0&type=script!./compA.ux?uxType=comp\\")
+
+$app_define$('@app-component/compa', [], function($app_require$, $app_exports$, $app_module$) {
+     $app_script$($app_module$, $app_exports$, $app_require$)
+         if ($app_exports$.__esModule && $app_exports$.default) {
+            $app_module$.exports = $app_exports$.default
+        }
+     $app_module$.exports.template = require(\\"!../../../../../hap-dsl-xvm/lib/loaders/template-loader.js!../../../../../hap-dsl-xvm/lib/loaders/fragment-loader.js?index=0&type=template!./compA.ux?uxType=comp&\\")
+
+})"
+`;
+
+exports[`split chunks on a project release results not include split chunks for [REDUNDANCY] 8`] = `
+"
+var $app_style$ = {}
+var $app_script$ = require(\\"!../../../../../hap-dsl-xvm/lib/loaders/script-loader.js!../../../../../hap-dsl-xvm/lib/loaders/module-loader.js!../../../../../hap-dsl-xvm/node_modules/babel-loader/lib/index.js?cwd=<project-root>&cacheDirectory&plugins[]=<CWD>/packages/hap-dsl-xvm/lib/loaders/babel-plugin-jsx.js&comments=false&configFile=<project-root>/babel.config.js!../../../../../hap-dsl-xvm/lib/loaders/fragment-loader.js?index=0&type=script!./compB.ux?uxType=comp\\")
+
+$app_define$('@app-component/compb', [], function($app_require$, $app_exports$, $app_module$) {
+     $app_script$($app_module$, $app_exports$, $app_require$)
+         if ($app_exports$.__esModule && $app_exports$.default) {
+            $app_module$.exports = $app_exports$.default
+        }
+     $app_module$.exports.template = require(\\"!../../../../../hap-dsl-xvm/lib/loaders/template-loader.js!../../../../../hap-dsl-xvm/lib/loaders/fragment-loader.js?index=0&type=template!./compB.ux?uxType=comp&\\")
+
+})"
+`;
+
+exports[`split chunks on a project release results not include split chunks for [REDUNDANCY] 9`] = `
+"module.exports = function __scriptModule__ (module, exports, $app_require$){\\"use strict\\";
+
+Object.defineProperty(exports, \\"__esModule\\", {
+  value: true
+});
+exports[\\"default\\"] = void 0;
+
+var _moduleA = require(\\"../Common/moduleA.js\\");
+
+var _moduleB = require(\\"../Common/moduleB.js\\");
+
+function _typeof(obj) { \\"@babel/helpers - typeof\\"; if (typeof Symbol === \\"function\\" && typeof Symbol.iterator === \\"symbol\\") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === \\"function\\" && obj.constructor === Symbol && obj !== Symbol.prototype ? \\"symbol\\" : typeof obj; }; } return _typeof(obj); }
+
+var _default = {};
+exports[\\"default\\"] = _default;
+var moduleOwn = exports[\\"default\\"] || module.exports;
+var accessors = ['public', 'protected', 'private'];
+
+if (moduleOwn.data && accessors.some(function (acc) {
+  return moduleOwn[acc];
+})) {
+  throw new Error('页面VM对象中的属性data不可与\\"' + accessors.join(',') + '\\"同时存在，请使用private替换data名称');
+} else if (!moduleOwn.data) {
+  moduleOwn.data = {};
+  moduleOwn._descriptor = {};
+  accessors.forEach(function (acc) {
+    var accType = _typeof(moduleOwn[acc]);
+
+    if (accType === 'object') {
+      moduleOwn.data = Object.assign(moduleOwn.data, moduleOwn[acc]);
+
+      for (var name in moduleOwn[acc]) {
+        moduleOwn._descriptor[name] = {
+          access: acc
+        };
+      }
+    } else if (accType === 'function') {
+      console.warn('页面VM对象中的属性' + acc + '的值不能是函数，请使用对象');
+    }
+  });
+}}"
+`;
+
+exports[`split chunks on a project release results not include split chunks for [REDUNDANCY] 10`] = `
+"module.exports = {
+  \\"type\\": \\"div\\",
+  \\"attr\\": {}
+}"
+`;
+
+exports[`split chunks on a project release results not include split chunks for [REDUNDANCY] 11`] = `
+"module.exports = function __scriptModule__ (module, exports, $app_require$){\\"use strict\\";
+
+Object.defineProperty(exports, \\"__esModule\\", {
+  value: true
+});
+exports[\\"default\\"] = void 0;
+
+var _moduleA = require(\\"../Common/moduleA.js\\");
+
+function _typeof(obj) { \\"@babel/helpers - typeof\\"; if (typeof Symbol === \\"function\\" && typeof Symbol.iterator === \\"symbol\\") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === \\"function\\" && obj.constructor === Symbol && obj !== Symbol.prototype ? \\"symbol\\" : typeof obj; }; } return _typeof(obj); }
+
+var _default = {
+  onMenuPress: function onMenuPress() {
+    this.$app.$def.showMenu();
+  }
+};
+exports[\\"default\\"] = _default;
+var moduleOwn = exports[\\"default\\"] || module.exports;
+var accessors = ['public', 'protected', 'private'];
+
+if (moduleOwn.data && accessors.some(function (acc) {
+  return moduleOwn[acc];
+})) {
+  throw new Error('页面VM对象中的属性data不可与\\"' + accessors.join(',') + '\\"同时存在，请使用private替换data名称');
+} else if (!moduleOwn.data) {
+  moduleOwn.data = {};
+  moduleOwn._descriptor = {};
+  accessors.forEach(function (acc) {
+    var accType = _typeof(moduleOwn[acc]);
+
+    if (accType === 'object') {
+      moduleOwn.data = Object.assign(moduleOwn.data, moduleOwn[acc]);
+
+      for (var name in moduleOwn[acc]) {
+        moduleOwn._descriptor[name] = {
+          access: acc
+        };
+      }
+    } else if (accType === 'function') {
+      console.warn('页面VM对象中的属性' + acc + '的值不能是函数，请使用对象');
+    }
+  });
+}}"
+`;
+
+exports[`split chunks on a project release results not include split chunks for [REDUNDANCY] 12`] = `
+"module.exports = {
+  \\"type\\": \\"div\\",
+  \\"attr\\": {}
+}"
+`;
+
+exports[`split chunks on a project release results not include split chunks for [REDUNDANCY] 13`] = `
+"module.exports = function __scriptModule__ (module, exports, $app_require$){\\"use strict\\";
+
+Object.defineProperty(exports, \\"__esModule\\", {
+  value: true
+});
+exports[\\"default\\"] = void 0;
+
+var _moduleB = require(\\"../Common/moduleB.js\\");
+
+function _typeof(obj) { \\"@babel/helpers - typeof\\"; if (typeof Symbol === \\"function\\" && typeof Symbol.iterator === \\"symbol\\") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === \\"function\\" && obj.constructor === Symbol && obj !== Symbol.prototype ? \\"symbol\\" : typeof obj; }; } return _typeof(obj); }
+
+var _default = {};
+exports[\\"default\\"] = _default;
+var moduleOwn = exports[\\"default\\"] || module.exports;
+var accessors = ['public', 'protected', 'private'];
+
+if (moduleOwn.data && accessors.some(function (acc) {
+  return moduleOwn[acc];
+})) {
+  throw new Error('页面VM对象中的属性data不可与\\"' + accessors.join(',') + '\\"同时存在，请使用private替换data名称');
+} else if (!moduleOwn.data) {
+  moduleOwn.data = {};
+  moduleOwn._descriptor = {};
+  accessors.forEach(function (acc) {
+    var accType = _typeof(moduleOwn[acc]);
+
+    if (accType === 'object') {
+      moduleOwn.data = Object.assign(moduleOwn.data, moduleOwn[acc]);
+
+      for (var name in moduleOwn[acc]) {
+        moduleOwn._descriptor[name] = {
+          access: acc
+        };
+      }
+    } else if (accType === 'function') {
+      console.warn('页面VM对象中的属性' + acc + '的值不能是函数，请使用对象');
+    }
+  });
+}}"
+`;
+
+exports[`split chunks on a project release results not include split chunks for [REDUNDANCY] 14`] = `
+"module.exports = {
+  \\"type\\": \\"div\\",
+  \\"attr\\": {}
+}"
+`;
+
+exports[`split chunks on a project release results not include split chunks for [REDUNDANCY] 15`] = `
+"\\"use strict\\";
+
+Object.defineProperty(exports, \\"__esModule\\", {
+  value: true
+});
+exports.add = add;
+
+/*
+ * Copyright (c) 2021, the hapjs-platform Project Contributors
+ * SPDX-License-Identifier: Apache-2.0
+ */
+function add(a, b) {
+  return a + b;
+}"
+`;
+
+exports[`split chunks on a project release results not include split chunks for [REDUNDANCY] 16`] = `
+"module.exports = function __scriptModule__ (module, exports, $app_require$){\\"use strict\\";
+
+Object.defineProperty(exports, \\"__esModule\\", {
+  value: true
+});
+exports[\\"default\\"] = void 0;
+var _default = {};
+exports[\\"default\\"] = _default;}"
+`;
+
+exports[`split chunks on a project release results not include split chunks for [REDUNDANCY] 17`] = `
+"module.exports = {
+  \\"type\\": \\"div\\",
+  \\"attr\\": {}
+}"
+`;
+
+exports[`split chunks on a project release results not include split chunks for [REDUNDANCY] 18`] = `
+"module.exports = function __scriptModule__ (module, exports, $app_require$){\\"use strict\\";
+
+Object.defineProperty(exports, \\"__esModule\\", {
+  value: true
+});
+exports[\\"default\\"] = void 0;
+var _default = {};
+exports[\\"default\\"] = _default;}"
+`;
+
+exports[`split chunks on a project release results not include split chunks for [REDUNDANCY] 19`] = `
+"module.exports = {
+  \\"type\\": \\"div\\",
+  \\"attr\\": {}
+}"
+`;
+
+exports[`split chunks on a project release results not include split chunks for [REDUNDANCY] 20`] = `
+"\\"use strict\\";
+
+Object.defineProperty(exports, \\"__esModule\\", {
+  value: true
+});
+exports.multiply = multiply;
+
+/*
+ * Copyright (c) 2021, the hapjs-platform Project Contributors
+ * SPDX-License-Identifier: Apache-2.0
+ */
+function multiply(a, b) {
+  return a * b;
+}"
+`;
+
+exports[`split chunks on a project release results not include split chunks for [other value] 1`] = `
+"
+var $app_style$ = {}
+var $app_script$ = require(\\"!../../../../hap-dsl-xvm/lib/loaders/script-loader.js!../../../../hap-dsl-xvm/lib/loaders/module-loader.js!../../../../hap-dsl-xvm/lib/loaders/manifest-loader.js?path=<project-root>/src!../../../../hap-dsl-xvm/node_modules/babel-loader/lib/index.js?cwd=<project-root>&cacheDirectory&comments=false&configFile=<project-root>/babel.config.js!../../../../hap-dsl-xvm/lib/loaders/fragment-loader.js?index=0&type=script!./app.ux?uxType=app\\")
+
+$app_define$('@app-application/app', [], function ($app_require$, $app_exports$, $app_module$) {
+  
+  $app_script$($app_module$, $app_exports$, $app_require$)
+  if ($app_exports$.__esModule && $app_exports$.default) {
+    $app_module$.exports = $app_exports$.default
+  }
+  $app_module$.exports.manifest = require(\\"./manifest.json\\")
+  $app_module$.exports.style = { list: [ $app_style$ ] }
+  
+})
+$app_bootstrap$('@app-application/app', { packagerVersion: QUICKAPP_TOOLKIT_VERSION })
+"
+`;
+
+exports[`split chunks on a project release results not include split chunks for [other value] 2`] = `
+"require(\\"!../../../../../hap-dsl-xvm/lib/loaders/ux-loader.js?cwd=<project-root>&type=import!../Common/compA.ux?uxType=comp&name=compa\\")
+require(\\"!../../../../../hap-dsl-xvm/lib/loaders/ux-loader.js?cwd=<project-root>&type=import!../Common/compB.ux?uxType=comp&name=compb\\")
+
+var $app_style$ = {}
+var $app_script$ = require(\\"!../../../../../hap-dsl-xvm/lib/loaders/script-loader.js!../../../../../hap-dsl-xvm/lib/loaders/module-loader.js!../../../../../hap-dsl-xvm/node_modules/babel-loader/lib/index.js?cwd=<project-root>&cacheDirectory&plugins[]=<CWD>/packages/hap-dsl-xvm/lib/loaders/babel-plugin-jsx.js&comments=false&configFile=<project-root>/babel.config.js!../../../../../hap-dsl-xvm/lib/loaders/access-loader.js!../../../../../hap-dsl-xvm/lib/loaders/fragment-loader.js?index=0&type=script!./index.ux?uxType=page\\")
+
+$app_define$('@app-component/index', [], function($app_require$, $app_exports$, $app_module$) {
+     $app_script$($app_module$, $app_exports$, $app_require$)
+         if ($app_exports$.__esModule && $app_exports$.default) {
+            $app_module$.exports = $app_exports$.default
+        }
+     $app_module$.exports.template = require(\\"!../../../../../hap-dsl-xvm/lib/loaders/template-loader.js!../../../../../hap-dsl-xvm/lib/loaders/fragment-loader.js?index=0&type=template!./index.ux?uxType=page&importNames[]=compa,importNames[]=compb\\")
+
+})
+$app_bootstrap$('@app-component/index',{ packagerVersion: QUICKAPP_TOOLKIT_VERSION })"
+`;
+
+exports[`split chunks on a project release results not include split chunks for [other value] 3`] = `
+"require(\\"!../../../../../hap-dsl-xvm/lib/loaders/ux-loader.js?cwd=<project-root>&type=import!../Common/compA.ux?uxType=comp&name=compa\\")
+
+var $app_style$ = {}
+var $app_script$ = require(\\"!../../../../../hap-dsl-xvm/lib/loaders/script-loader.js!../../../../../hap-dsl-xvm/lib/loaders/module-loader.js!../../../../../hap-dsl-xvm/node_modules/babel-loader/lib/index.js?cwd=<project-root>&cacheDirectory&plugins[]=<CWD>/packages/hap-dsl-xvm/lib/loaders/babel-plugin-jsx.js&comments=false&configFile=<project-root>/babel.config.js!../../../../../hap-dsl-xvm/lib/loaders/access-loader.js!../../../../../hap-dsl-xvm/lib/loaders/fragment-loader.js?index=0&type=script!./index.ux?uxType=page\\")
+
+$app_define$('@app-component/index', [], function($app_require$, $app_exports$, $app_module$) {
+     $app_script$($app_module$, $app_exports$, $app_require$)
+         if ($app_exports$.__esModule && $app_exports$.default) {
+            $app_module$.exports = $app_exports$.default
+        }
+     $app_module$.exports.template = require(\\"!../../../../../hap-dsl-xvm/lib/loaders/template-loader.js!../../../../../hap-dsl-xvm/lib/loaders/fragment-loader.js?index=0&type=template!./index.ux?uxType=page&importNames[]=compa\\")
+
+})
+$app_bootstrap$('@app-component/index',{ packagerVersion: QUICKAPP_TOOLKIT_VERSION })"
+`;
+
+exports[`split chunks on a project release results not include split chunks for [other value] 4`] = `
+"require(\\"!../../../../../hap-dsl-xvm/lib/loaders/ux-loader.js?cwd=<project-root>&type=import!../Common/compB.ux?uxType=comp&name=compb\\")
+
+var $app_style$ = {}
+var $app_script$ = require(\\"!../../../../../hap-dsl-xvm/lib/loaders/script-loader.js!../../../../../hap-dsl-xvm/lib/loaders/module-loader.js!../../../../../hap-dsl-xvm/node_modules/babel-loader/lib/index.js?cwd=<project-root>&cacheDirectory&plugins[]=<CWD>/packages/hap-dsl-xvm/lib/loaders/babel-plugin-jsx.js&comments=false&configFile=<project-root>/babel.config.js!../../../../../hap-dsl-xvm/lib/loaders/access-loader.js!../../../../../hap-dsl-xvm/lib/loaders/fragment-loader.js?index=0&type=script!./index.ux?uxType=page\\")
+
+$app_define$('@app-component/index', [], function($app_require$, $app_exports$, $app_module$) {
+     $app_script$($app_module$, $app_exports$, $app_require$)
+         if ($app_exports$.__esModule && $app_exports$.default) {
+            $app_module$.exports = $app_exports$.default
+        }
+     $app_module$.exports.template = require(\\"!../../../../../hap-dsl-xvm/lib/loaders/template-loader.js!../../../../../hap-dsl-xvm/lib/loaders/fragment-loader.js?index=0&type=template!./index.ux?uxType=page&importNames[]=compb\\")
+
+})
+$app_bootstrap$('@app-component/index',{ packagerVersion: QUICKAPP_TOOLKIT_VERSION })"
+`;
+
+exports[`split chunks on a project release results not include split chunks for [other value] 5`] = `
+"module.exports = function __scriptModule__ (module, exports, $app_require$){\\"use strict\\";
+
+var _moduleA = require(\\"./Common/moduleA.js\\");}"
+`;
+
+exports[`split chunks on a project release results not include split chunks for [other value] 6`] = `
+"{
+  \\"package\\": \\"com.application.demo\\",
+  \\"name\\": \\"lewis-demo\\",
+  \\"versionName\\": \\"1.0.0\\",
+  \\"versionCode\\": \\"1\\",
+  \\"minPlatformVersion\\": 1070,
+  \\"icon\\": \\"/Common/logo.png\\",
+  \\"features\\": [
+    { \\"name\\": \\"system.prompt\\" },
+    { \\"name\\": \\"system.router\\" },
+    { \\"name\\": \\"system.shortcut\\" }
+  ],
+  \\"permissions\\": [
+    { \\"origin\\": \\"*\\" }
+  ],
+  \\"config\\": {
+    \\"logLevel\\": \\"trace\\"
+  },
+  \\"router\\": {
+    \\"entry\\": \\"Demo\\",
+    \\"pages\\": {
+      \\"Demo\\": {
+        \\"component\\": \\"index\\"
+      },
+      \\"DemoDetail\\": {
+        \\"component\\": \\"index\\"
+      },
+      \\"About\\": {
+        \\"component\\": \\"index\\"
+      }
+    }
+  },
+  \\"display\\": {
+    \\"titleBarBackgroundColor\\": \\"#f2f2f2\\",
+    \\"titleBarTextColor\\": \\"#414141\\",
+    \\"menu\\": true,
+    \\"pages\\": {
+      \\"Demo\\": {
+        \\"titleBarText\\": \\"示例页\\",
+        \\"menu\\": false
+      },
+      \\"DemoDetail\\": {
+        \\"titleBarText\\": \\"详情页\\"
+      },
+      \\"About\\": {
+        \\"menu\\": false
+      }
+    }
+  }
+}"
+`;
+
+exports[`split chunks on a project release results not include split chunks for [other value] 7`] = `
+"
+var $app_style$ = {}
+var $app_script$ = require(\\"!../../../../../hap-dsl-xvm/lib/loaders/script-loader.js!../../../../../hap-dsl-xvm/lib/loaders/module-loader.js!../../../../../hap-dsl-xvm/node_modules/babel-loader/lib/index.js?cwd=<project-root>&cacheDirectory&plugins[]=<CWD>/packages/hap-dsl-xvm/lib/loaders/babel-plugin-jsx.js&comments=false&configFile=<project-root>/babel.config.js!../../../../../hap-dsl-xvm/lib/loaders/fragment-loader.js?index=0&type=script!./compA.ux?uxType=comp\\")
+
+$app_define$('@app-component/compa', [], function($app_require$, $app_exports$, $app_module$) {
+     $app_script$($app_module$, $app_exports$, $app_require$)
+         if ($app_exports$.__esModule && $app_exports$.default) {
+            $app_module$.exports = $app_exports$.default
+        }
+     $app_module$.exports.template = require(\\"!../../../../../hap-dsl-xvm/lib/loaders/template-loader.js!../../../../../hap-dsl-xvm/lib/loaders/fragment-loader.js?index=0&type=template!./compA.ux?uxType=comp&\\")
+
+})"
+`;
+
+exports[`split chunks on a project release results not include split chunks for [other value] 8`] = `
+"
+var $app_style$ = {}
+var $app_script$ = require(\\"!../../../../../hap-dsl-xvm/lib/loaders/script-loader.js!../../../../../hap-dsl-xvm/lib/loaders/module-loader.js!../../../../../hap-dsl-xvm/node_modules/babel-loader/lib/index.js?cwd=<project-root>&cacheDirectory&plugins[]=<CWD>/packages/hap-dsl-xvm/lib/loaders/babel-plugin-jsx.js&comments=false&configFile=<project-root>/babel.config.js!../../../../../hap-dsl-xvm/lib/loaders/fragment-loader.js?index=0&type=script!./compB.ux?uxType=comp\\")
+
+$app_define$('@app-component/compb', [], function($app_require$, $app_exports$, $app_module$) {
+     $app_script$($app_module$, $app_exports$, $app_require$)
+         if ($app_exports$.__esModule && $app_exports$.default) {
+            $app_module$.exports = $app_exports$.default
+        }
+     $app_module$.exports.template = require(\\"!../../../../../hap-dsl-xvm/lib/loaders/template-loader.js!../../../../../hap-dsl-xvm/lib/loaders/fragment-loader.js?index=0&type=template!./compB.ux?uxType=comp&\\")
+
+})"
+`;
+
+exports[`split chunks on a project release results not include split chunks for [other value] 9`] = `
+"module.exports = function __scriptModule__ (module, exports, $app_require$){\\"use strict\\";
+
+Object.defineProperty(exports, \\"__esModule\\", {
+  value: true
+});
+exports[\\"default\\"] = void 0;
+
+var _moduleA = require(\\"../Common/moduleA.js\\");
+
+var _moduleB = require(\\"../Common/moduleB.js\\");
+
+function _typeof(obj) { \\"@babel/helpers - typeof\\"; if (typeof Symbol === \\"function\\" && typeof Symbol.iterator === \\"symbol\\") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === \\"function\\" && obj.constructor === Symbol && obj !== Symbol.prototype ? \\"symbol\\" : typeof obj; }; } return _typeof(obj); }
+
+var _default = {};
+exports[\\"default\\"] = _default;
+var moduleOwn = exports[\\"default\\"] || module.exports;
+var accessors = ['public', 'protected', 'private'];
+
+if (moduleOwn.data && accessors.some(function (acc) {
+  return moduleOwn[acc];
+})) {
+  throw new Error('页面VM对象中的属性data不可与\\"' + accessors.join(',') + '\\"同时存在，请使用private替换data名称');
+} else if (!moduleOwn.data) {
+  moduleOwn.data = {};
+  moduleOwn._descriptor = {};
+  accessors.forEach(function (acc) {
+    var accType = _typeof(moduleOwn[acc]);
+
+    if (accType === 'object') {
+      moduleOwn.data = Object.assign(moduleOwn.data, moduleOwn[acc]);
+
+      for (var name in moduleOwn[acc]) {
+        moduleOwn._descriptor[name] = {
+          access: acc
+        };
+      }
+    } else if (accType === 'function') {
+      console.warn('页面VM对象中的属性' + acc + '的值不能是函数，请使用对象');
+    }
+  });
+}}"
+`;
+
+exports[`split chunks on a project release results not include split chunks for [other value] 10`] = `
+"module.exports = {
+  \\"type\\": \\"div\\",
+  \\"attr\\": {}
+}"
+`;
+
+exports[`split chunks on a project release results not include split chunks for [other value] 11`] = `
+"module.exports = function __scriptModule__ (module, exports, $app_require$){\\"use strict\\";
+
+Object.defineProperty(exports, \\"__esModule\\", {
+  value: true
+});
+exports[\\"default\\"] = void 0;
+
+var _moduleA = require(\\"../Common/moduleA.js\\");
+
+function _typeof(obj) { \\"@babel/helpers - typeof\\"; if (typeof Symbol === \\"function\\" && typeof Symbol.iterator === \\"symbol\\") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === \\"function\\" && obj.constructor === Symbol && obj !== Symbol.prototype ? \\"symbol\\" : typeof obj; }; } return _typeof(obj); }
+
+var _default = {
+  onMenuPress: function onMenuPress() {
+    this.$app.$def.showMenu();
+  }
+};
+exports[\\"default\\"] = _default;
+var moduleOwn = exports[\\"default\\"] || module.exports;
+var accessors = ['public', 'protected', 'private'];
+
+if (moduleOwn.data && accessors.some(function (acc) {
+  return moduleOwn[acc];
+})) {
+  throw new Error('页面VM对象中的属性data不可与\\"' + accessors.join(',') + '\\"同时存在，请使用private替换data名称');
+} else if (!moduleOwn.data) {
+  moduleOwn.data = {};
+  moduleOwn._descriptor = {};
+  accessors.forEach(function (acc) {
+    var accType = _typeof(moduleOwn[acc]);
+
+    if (accType === 'object') {
+      moduleOwn.data = Object.assign(moduleOwn.data, moduleOwn[acc]);
+
+      for (var name in moduleOwn[acc]) {
+        moduleOwn._descriptor[name] = {
+          access: acc
+        };
+      }
+    } else if (accType === 'function') {
+      console.warn('页面VM对象中的属性' + acc + '的值不能是函数，请使用对象');
+    }
+  });
+}}"
+`;
+
+exports[`split chunks on a project release results not include split chunks for [other value] 12`] = `
+"module.exports = {
+  \\"type\\": \\"div\\",
+  \\"attr\\": {}
+}"
+`;
+
+exports[`split chunks on a project release results not include split chunks for [other value] 13`] = `
+"module.exports = function __scriptModule__ (module, exports, $app_require$){\\"use strict\\";
+
+Object.defineProperty(exports, \\"__esModule\\", {
+  value: true
+});
+exports[\\"default\\"] = void 0;
+
+var _moduleB = require(\\"../Common/moduleB.js\\");
+
+function _typeof(obj) { \\"@babel/helpers - typeof\\"; if (typeof Symbol === \\"function\\" && typeof Symbol.iterator === \\"symbol\\") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === \\"function\\" && obj.constructor === Symbol && obj !== Symbol.prototype ? \\"symbol\\" : typeof obj; }; } return _typeof(obj); }
+
+var _default = {};
+exports[\\"default\\"] = _default;
+var moduleOwn = exports[\\"default\\"] || module.exports;
+var accessors = ['public', 'protected', 'private'];
+
+if (moduleOwn.data && accessors.some(function (acc) {
+  return moduleOwn[acc];
+})) {
+  throw new Error('页面VM对象中的属性data不可与\\"' + accessors.join(',') + '\\"同时存在，请使用private替换data名称');
+} else if (!moduleOwn.data) {
+  moduleOwn.data = {};
+  moduleOwn._descriptor = {};
+  accessors.forEach(function (acc) {
+    var accType = _typeof(moduleOwn[acc]);
+
+    if (accType === 'object') {
+      moduleOwn.data = Object.assign(moduleOwn.data, moduleOwn[acc]);
+
+      for (var name in moduleOwn[acc]) {
+        moduleOwn._descriptor[name] = {
+          access: acc
+        };
+      }
+    } else if (accType === 'function') {
+      console.warn('页面VM对象中的属性' + acc + '的值不能是函数，请使用对象');
+    }
+  });
+}}"
+`;
+
+exports[`split chunks on a project release results not include split chunks for [other value] 14`] = `
+"module.exports = {
+  \\"type\\": \\"div\\",
+  \\"attr\\": {}
+}"
+`;
+
+exports[`split chunks on a project release results not include split chunks for [other value] 15`] = `
+"\\"use strict\\";
+
+Object.defineProperty(exports, \\"__esModule\\", {
+  value: true
+});
+exports.add = add;
+
+/*
+ * Copyright (c) 2021, the hapjs-platform Project Contributors
+ * SPDX-License-Identifier: Apache-2.0
+ */
+function add(a, b) {
+  return a + b;
+}"
+`;
+
+exports[`split chunks on a project release results not include split chunks for [other value] 16`] = `
+"module.exports = function __scriptModule__ (module, exports, $app_require$){\\"use strict\\";
+
+Object.defineProperty(exports, \\"__esModule\\", {
+  value: true
+});
+exports[\\"default\\"] = void 0;
+var _default = {};
+exports[\\"default\\"] = _default;}"
+`;
+
+exports[`split chunks on a project release results not include split chunks for [other value] 17`] = `
+"module.exports = {
+  \\"type\\": \\"div\\",
+  \\"attr\\": {}
+}"
+`;
+
+exports[`split chunks on a project release results not include split chunks for [other value] 18`] = `
+"module.exports = function __scriptModule__ (module, exports, $app_require$){\\"use strict\\";
+
+Object.defineProperty(exports, \\"__esModule\\", {
+  value: true
+});
+exports[\\"default\\"] = void 0;
+var _default = {};
+exports[\\"default\\"] = _default;}"
+`;
+
+exports[`split chunks on a project release results not include split chunks for [other value] 19`] = `
+"module.exports = {
+  \\"type\\": \\"div\\",
+  \\"attr\\": {}
+}"
+`;
+
+exports[`split chunks on a project release results not include split chunks for [other value] 20`] = `
+"\\"use strict\\";
+
+Object.defineProperty(exports, \\"__esModule\\", {
+  value: true
+});
+exports.multiply = multiply;
+
+/*
+ * Copyright (c) 2021, the hapjs-platform Project Contributors
+ * SPDX-License-Identifier: Apache-2.0
+ */
+function multiply(a, b) {
+  return a * b;
+}"
+`;

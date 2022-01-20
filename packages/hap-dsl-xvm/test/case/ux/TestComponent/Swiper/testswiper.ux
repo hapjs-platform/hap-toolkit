@@ -1,0 +1,53 @@
+/*
+ * Copyright (c) 2021, the hapjs-platform Project Contributors
+ * SPDX-License-Identifier: Apache-2.0
+ */
+
+<template>
+  <div class="container">
+    <swiper index="1"
+      autoplay="true"
+      interval="1000ms"
+      indicator="false"
+      loop="true"
+      duration="1"
+      vertical="false"
+      previousmargin="10px"
+      nextmargin="10px"
+      enableswipe="false"
+      >
+      <text>item1</text>
+      <text>item2</text>
+      <text>item3</text>
+    </swiper>
+  </div>
+</template>
+
+<style>
+  .container {
+    flex:1;
+    flex-direction: column;
+    background-color: #FFFFFF;
+  }
+  swiper {
+    page-animation-name: Opacity;
+    page-transform-origin: 0px 0px;
+    animation-timing-function: linear;
+  }
+
+  @keyframes Opacity {
+    from {
+      opacity: 1;
+    }
+    to {
+      opacity: 0.1;
+    }
+  }
+</style>
+
+<script>
+  export default {
+    data: {
+    }
+  }
+</script>

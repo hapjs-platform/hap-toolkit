@@ -1,0 +1,30 @@
+{
+  "package": "com.app.case.example",
+  "name": "example",
+  "versionName": "1.0.0",
+  "versionCode": "1",
+  "minPlatformVersion": 1070,
+  "icon": "/Common/logo.png",
+  "features": [
+  ],
+  "permissions": [
+    { "origin": "*" }
+  ],
+  "config": {
+    "logLevel": "off"
+  },
+  "router": {
+    "entry": "Home",
+    "pages": {
+      "Home": {
+        "component": "home"
+      },
+      "PackageA/Page1": {
+        "component": "Page1"
+      },
+      "PackageB/Page2": {
+        "component": "Page2"
+      }
+    }
+  }
+}

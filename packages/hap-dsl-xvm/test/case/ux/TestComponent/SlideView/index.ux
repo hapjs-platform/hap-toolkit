@@ -1,0 +1,43 @@
+/*
+ * Copyright (c) 2021, the hapjs-platform Project Contributors
+ * SPDX-License-Identifier: Apache-2.0
+ */
+
+<template>
+  <div class="container">
+    <slide-view class="slide-view" buttons="{{slideButtons}}" layer="above" edge="right" enableslide="true"
+    onOpen="slideViewOpen" onClose="slideViewClose" onSlide="slideViewSlide" onButtonClick="buttonClick">
+    <div class="inner-div">
+      <div class="text-div">
+        <text class="title-text">Title</text>
+        <text class="content-text">Content</text>
+        <text class="desc-text">Desc</text>
+      </div>
+    </div>
+  </slide-view>
+  </div>
+</template>
+
+<style>
+  .container {
+    flex: 1;
+    flex-direction: column;
+    background-color: #FFFFFF;
+  }
+</style>
+
+<script>
+  export default {
+    data: {
+      slideButtons: {},
+    },
+    slideViewOpen() {
+    },
+    slideViewClose() {
+    },
+    slideViewSlide() {
+    },
+    buttonClick() {
+    }
+  }
+</script>

@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<!--  
+    Copyright (c) 2021, the hapjs-platform Project Contributors
+    SPDX-License-Identifier: Apache-2.0
+ -->
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>{{ title }}</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+    <meta name="apple-touch-fullscreen" content="yes" />
+    <meta name="format-detection" content="telephone=no, email=no" />
+    <meta name="referrer" content="no-referrer" />
+    <style>
+      #mask {
+        position: fixed;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        background: rgba(42, 43, 46, 0.9);
+        padding: 0.8rem 0.27rem 0.27rem 0.27rem;
+        z-index: 1002;
+      }
+      #btn {
+        width: 0.67rem;
+        height: 0.67rem;
+        border: 0.04rem solid #ccc;
+        border-radius: 50%;
+        color: #ccc;
+        line-height: 0.59rem;
+        font-size: 0.67rem;
+        text-align: center;
+        margin: auto;
+      }
+      #text {
+        height: 95%;
+        color: #ff6600;
+        font-size: 0.35rem;
+        white-space: break-spaces;
+        word-break: break-word;
+        overflow: auto;
+        margin-top: 0.27rem;
+      }
+      #text::-webkit-scrollbar {
+        display: none;
+      }
+      #loading {
+        position: fixed;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        background: url('/preview-static/loading.gif') no-repeat center;
+        background-size: 15%;
+        background-position: center;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        z-index: 1001;
+      }
+      .dark {
+        background-color: #252526 !important;
+        color: rgba(255, 255, 255, 0.8);
+      }
+      .light {
+        background-color: white !important;
+        color: rgba(0, 0, 0, 0.8);
+      }
+      #loading:after {
+        display: block;
+        font-size: 0.45rem;
+        transform: translateY(200%);
+      }
+      #progress-bar {
+        position: fixed;
+        top: 55%;
+        width: 100%;
+        font-size: 0.45rem;
+        text-align: center;
+        z-index: 1002;
+      }
+    </style>
+    <script src="hap-preview://index.js"></script>
+    <!-- https://statres.quickapp.cn/quickapp/ide/web.js -->
+    <script src="{{webJsUrl}}"></script>
+    <script type="text/javascript">
+      if (!window.Hap) {
+        document.write('<script src="/preview-static/web.js">\x3C/script>')
+      }
+    </script>
+    <script type="text/javascript">
+      var base = '/preview'
+      ;(function preview() {
+        var routeName = '{{ routeName }}'
+        Hap.init({
+          base
+        })
+      })()
+    </script>
+    <script src="/preview-static/common.js"></script>
+  </head>
+  <body>
+    <div id="scriptNotFound" style="display: none">
+      <p>找不到页面 js 文件 {{ script }}</p>
+      <p>编译可能存在异常</p>
+    </div>
+    <script type="text/javascript">
+      if ({{ scriptNotFound }}) {
+        // TODO loading
+        setTimeout(() => {
+          var el = document.getElementById('scriptNotFound')
+          // 如果页面 js 已加载，#scriptNotFound 将会被 web.js 移除
+          if (el) {
+            el.style.display = 'block'
+          }
+        }, 1000)
+      }
+    </script>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-129793617-6"></script>
+    <script>
+      window.dataLayer = window.dataLayer || []
+      function gtag() {
+        dataLayer.push(arguments)
+      }
+      window.GA_USER_ID &&
+        gtag('set', {
+          user_id: window.GA_USER_ID
+        })
+      gtag('js', new Date())
+      gtag('config', 'UA-129793617-6')
+    </script>
+  </body>
+</html>

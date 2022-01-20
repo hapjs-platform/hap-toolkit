@@ -1,0 +1,70 @@
+/*
+ * Copyright (c) 2021, the hapjs-platform Project Contributors
+ * SPDX-License-Identifier: Apache-2.0
+ */
+
+<template>
+  <div>
+  </div>
+</template>
+
+<style>
+  .A {
+    align-content: stretch;
+  }
+
+  .B {
+    align-content: flex-start;
+  }
+
+  .C {
+    align-content: flex-end;
+  }
+
+  .D {
+    align-content: center;
+  }
+
+  .E {
+    align-content: space-between;
+  }
+
+  .F {
+    align-content: space-around;
+  }
+
+  .a1 {
+    align-content: 'stretch';
+  }
+
+  .a2 {
+    align-content: 'flex-start';
+  }
+
+  .a3 {
+    align-content: 'flex-end';
+  }
+
+  .a4 {
+    align-content: 'center';
+  }
+
+  .a5 {
+    align-content: 'space-between';
+  }
+
+  .a6 {
+    align-content: 'space-around';
+  }
+
+  .b {
+    align-content: @alignContent;
+  }
+</style>
+
+<script>
+  export default {
+    data: {
+    }
+  }
+</script>

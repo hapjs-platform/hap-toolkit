@@ -1,0 +1,27 @@
+/*
+ * Copyright (c) 2021, the hapjs-platform Project Contributors
+ * SPDX-License-Identifier: Apache-2.0
+ */
+
+<template>
+  <div class="container">
+    <div><text>{{ 'p123P90p'.replace(/[0-9]+/,'--flag--').replace(new RegExp('[a-zA-Z]+', 'g'), '$') }}</text></div>
+    <div><text>{{ 'p123P90p'.replace(/[0-9]+/,'--flag--').replace(/[a-z]+/g, '$') }}</text></div>
+    <div><text>{{ 'p123P90p'.replace(/[0-9]+/,'--flag--').replace(new RegExp('[a-zA-Z]+', 'ig'), '$') }}</text></div>
+  </div>
+</template>
+
+<style>
+  .container {
+      flex:1;
+      flex-direction: column;
+      background-color: #FFFFFF;
+  }
+</style>
+
+<script>
+export default {
+  data: {
+  }
+}
+</script>

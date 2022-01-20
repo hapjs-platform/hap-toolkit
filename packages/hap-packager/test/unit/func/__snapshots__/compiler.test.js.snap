@@ -1,0 +1,30 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`compile functions replaceModuleImport 1`] = `
+"
+      import $utils from './utils'
+      var fetch = $app_require$('@app-module/system.fetch')
+      var prompt = $app_require$('@app-module/system.prompt')
+    "
+`;
+
+exports[`compile functions replaceModuleImport 2`] = `
+"
+      import $utils from './utils'
+      var system = $app_require$('@app-module/system')
+    "
+`;
+
+exports[`compile functions replaceModuleImport 3`] = `
+"
+      const fetch = $app_require$('@app-module/system.fetch')
+      const prompt = $app_require$(\\"@app-module/system.prompt\\")
+    "
+`;
+
+exports[`compile functions replaceModuleImport 4`] = `
+"
+      const fetch = $app_require$('@app-module/system.fetch')
+      const system = $app_require$(\\"@app-module/system\\")
+    "
+`;

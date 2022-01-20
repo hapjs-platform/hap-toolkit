@@ -1,0 +1,136 @@
+/*
+ * Copyright (c) 2021, the hapjs-platform Project Contributors
+ * SPDX-License-Identifier: Apache-2.0
+ */
+
+<template>
+  <div>
+  </div>
+</template>
+
+<style>
+  .A1 {
+    background-position: center;
+  }
+  .A2 {
+    background-position: top;
+  }
+  .A3 {
+    background-position: right;
+  }
+  .A4 {
+    background-position: left;
+  }
+  .A5 {
+    background-position: bottom;
+  }
+  .A6 {
+    background-position: 100px;
+  }
+  .A7 {
+    background-position: 50%;
+  }
+  .B1 {
+    background-position: 50px 50px;
+  }
+  .B2 {
+    background-position: 50% 50px;
+  }
+  .B3 {
+    background-position: left 50px;
+  }
+  .B4 {
+    background-position: right 50px;
+  }
+  .C1 {
+    background-position: 50% 50%;
+  }
+  .C2 {
+    background-position: 50% top;
+  }
+  .C3 {
+    background-position: left bottom;
+  }
+  .C4 {
+    background-position: right center;
+  }
+  .D1 {
+    background-position: top left;
+  }
+  .D2 {
+    background-position: top right;
+  }
+  .D3 {
+    background-position: top center;
+  }
+  .D4 {
+    background-position: bottom left;
+  }
+  .D5 {
+    background-position: bottom right;
+  }
+  .D6 {
+    background-position: bottom center;
+  }
+  .E1 {
+    background-position: center center; 
+  }
+  .E2 {
+    background-position: center top;
+  }
+  .E3 {
+    background-position: center right;
+  }
+  .E4 {
+    background-position: center left;
+  }
+  .E5 {
+    background-position: center bottom;
+  }
+  .E6 {
+    background-position: center 50px;
+  }
+  .E7 {
+    background-position: center 50%;
+  }
+  .F1 {
+    background-position: right bottom 20px;
+  }
+  .F2 {
+    background-position: left 20% bottom;
+  }
+  .G1 {
+    background-position: right 20% bottom 20px;
+  }
+  .G2 {
+    background-position: left 20px bottom 20%;
+  }
+  .a1 {
+    background-position: '50px 50px';
+  }
+  .a2 {
+    background-position: 50px left;
+  }
+  .a3 {
+    background-position: top bottom;
+  }
+  .a4 {
+    background-position: left right;
+  }
+  .a5 {
+    background-position: center '50px';
+  }
+  .a6 {
+    background-position: 10px bottom 20px;
+  }
+  .a7 {
+    background-position: 10px 10px bottom 20px;
+  }
+</style>
+
+<script>
+  export default {
+    data: {
+    }
+  }
+</script>

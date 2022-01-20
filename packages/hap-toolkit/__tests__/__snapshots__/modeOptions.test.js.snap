@@ -1,0 +1,23 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`测试编译模式 BuildModeManager 1`] = `
+Object {
+  "current": 1,
+  "list": Array [
+    Object {
+      "id": 0,
+      "name": "Demo",
+      "pathName": "Demo",
+      "query": "a=1&b=2",
+      "scene": 0,
+    },
+    Object {
+      "id": 1,
+      "name": "Demo1",
+      "pathName": "Demo1",
+      "query": "a=1&b=2",
+      "scene": 0,
+    },
+  ],
+}
+`;

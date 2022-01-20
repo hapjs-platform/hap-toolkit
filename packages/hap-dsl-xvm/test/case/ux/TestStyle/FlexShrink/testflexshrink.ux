@@ -1,0 +1,50 @@
+/*
+ * Copyright (c) 2021, the hapjs-platform Project Contributors
+ * SPDX-License-Identifier: Apache-2.0
+ */
+
+<template>
+  <div>
+  </div>
+</template>
+
+<style>
+  .A1 {
+    flex-shrink: 1;
+  }
+
+  .A2 {
+    flex-shrink: 3;
+  }
+
+  .A3 {
+    flex-shrink: 0.6;
+  }
+
+  .a {
+    flex-shrink: '1';
+  }
+
+  .b1 {
+    flex-shrink: inherit;
+  }
+
+  .b2 {
+    flex-shrink: initial;
+  }
+
+  .b3 {
+    flex-shrink: unset;
+  }
+
+  .c {
+    flex-shrink: -1;
+  }
+</style>
+
+<script>
+  export default {
+    data: {
+    }
+  }
+</script>

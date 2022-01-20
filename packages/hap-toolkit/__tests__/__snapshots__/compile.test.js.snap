@@ -1,0 +1,375 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`测试compile compile build devtool=false 1`] = `
+Array [
+  "app.js",
+  "CardDemo/index.js",
+  "Demo/index.js",
+  "workers/request/index.js",
+]
+`;
+
+exports[`测试compile compile build devtool=false 2`] = `
+"
+var $app_style$ = {}
+var $app_script$ = require(\\"!../../../../hap-dsl-xvm/lib/loaders/script-loader.js!../../../../hap-dsl-xvm/lib/loaders/module-loader.js!../../../../hap-dsl-xvm/lib/loaders/manifest-loader.js?path=<project-root>/src!../../../../hap-dsl-xvm/node_modules/babel-loader/lib/index.js?cwd=<project-root>&cacheDirectory&comments=false&configFile=<project-root>/babel.config.js!../../../../hap-dsl-xvm/lib/loaders/fragment-loader.js?index=0&type=script!./app.ux?uxType=app\\")
+
+$app_define$('@app-application/app', [], function ($app_require$, $app_exports$, $app_module$) {
+  
+  $app_script$($app_module$, $app_exports$, $app_require$)
+  if ($app_exports$.__esModule && $app_exports$.default) {
+    $app_module$.exports = $app_exports$.default
+  }
+  $app_module$.exports.manifest = require(\\"./manifest.json\\")
+  $app_module$.exports.style = { list: [ $app_style$ ] }
+  
+})
+$app_bootstrap$('@app-application/app', { packagerVersion: QUICKAPP_TOOLKIT_VERSION })
+"
+`;
+
+exports[`测试compile compile build devtool=false 3`] = `
+"
+var $app_style$ = require(\\"!../../../../../hap-dsl-xvm/lib/loaders/style-loader.js?index=0&type=style!../../../../../hap-dsl-xvm/lib/loaders/fragment-loader.js?index=0&type=style!./index.ux?uxType=page\\")
+
+var $app_script$ = require(\\"!../../../../../hap-dsl-xvm/lib/loaders/script-loader.js!../../../../../hap-dsl-xvm/lib/loaders/module-loader.js!../../../../../hap-dsl-xvm/node_modules/babel-loader/lib/index.js?cwd=<project-root>&cacheDirectory&plugins[]=<CWD>/packages/hap-dsl-xvm/lib/loaders/babel-plugin-jsx.js&comments=false&configFile=<project-root>/babel.config.js!../../../../../hap-dsl-xvm/lib/loaders/access-loader.js!../../../../../hap-dsl-xvm/lib/loaders/fragment-loader.js?index=0&type=script!./index.ux?uxType=page\\")
+
+$app_define$('@app-component/index', [], function($app_require$, $app_exports$, $app_module$) {
+     $app_script$($app_module$, $app_exports$, $app_require$)
+         if ($app_exports$.__esModule && $app_exports$.default) {
+            $app_module$.exports = $app_exports$.default
+        }
+     $app_module$.exports.template = require(\\"!../../../../../hap-dsl-xvm/lib/loaders/template-loader.js!../../../../../hap-dsl-xvm/lib/loaders/fragment-loader.js?index=0&type=template!./index.ux?uxType=page&\\")
+
+     $app_module$.exports.style = $app_style$
+})
+$app_bootstrap$('@app-component/index',{ packagerVersion: QUICKAPP_TOOLKIT_VERSION })"
+`;
+
+exports[`测试compile compile build devtool=false 4`] = `
+"
+var $app_style$ = require(\\"!../../../../../hap-dsl-xvm/lib/loaders/style-loader.js?index=0&type=style!../../../../../hap-dsl-xvm/lib/loaders/fragment-loader.js?index=0&type=style!./index.ux?uxType=card\\")
+
+var $app_script$ = require(\\"!../../../../../hap-dsl-xvm/lib/loaders/script-loader.js!../../../../../hap-dsl-xvm/lib/loaders/module-loader.js!../../../../../hap-dsl-xvm/node_modules/babel-loader/lib/index.js?cwd=<project-root>&cacheDirectory&plugins[]=<CWD>/packages/hap-dsl-xvm/lib/loaders/babel-plugin-jsx.js&comments=false&configFile=<project-root>/babel.config.js!../../../../../hap-dsl-xvm/lib/loaders/access-loader.js!../../../../../hap-dsl-xvm/lib/loaders/fragment-loader.js?index=0&type=script!./index.ux?uxType=card\\")
+
+$app_define$('@app-component/index', [], function($app_require$, $app_exports$, $app_module$) {
+     $app_script$($app_module$, $app_exports$, $app_require$)
+         if ($app_exports$.__esModule && $app_exports$.default) {
+            $app_module$.exports = $app_exports$.default
+        }
+     $app_module$.exports.template = require(\\"!../../../../../hap-dsl-xvm/lib/loaders/template-loader.js!../../../../../hap-dsl-xvm/lib/loaders/fragment-loader.js?index=0&type=template!./index.ux?uxType=card&\\")
+
+     $app_module$.exports.style = $app_style$
+})
+$app_bootstrap$('@app-component/index',{ packagerVersion: QUICKAPP_TOOLKIT_VERSION })"
+`;
+
+exports[`测试compile compile build devtool=false 5`] = `
+"\\"use strict\\";
+
+/*
+ * Copyright (c) 2021, the hapjs-platform Project Contributors
+ * SPDX-License-Identifier: Apache-2.0
+ */
+console.log('hello worker');
+postMessage({
+  msg: 'hello from worker: ' + utils.test(),
+  buffer: utils.str2ab('hello arrayBuffer from worker')
+});
+onMessage(function (msg) {
+  console.log('[Worker] on appservice message', msg);
+  var buffer = msg.buffer;
+  console.log('[Worker] on appservice buffer length ', buffer);
+  console.log('[Worker] on appservice buffer', utils.ab2str(buffer));
+});"
+`;
+
+exports[`测试compile compile build devtool=false 6`] = `
+"module.exports = function __scriptModule__ (module, exports, $app_require$){\\"use strict\\";
+
+Object.defineProperty(exports, \\"__esModule\\", {
+  value: true
+});
+exports[\\"default\\"] = void 0;
+var _default = {};
+exports[\\"default\\"] = _default;}"
+`;
+
+exports[`测试compile compile build devtool=false 7`] = `
+"{
+  \\"package\\": \\"com.application.demo\\",
+  \\"name\\": \\"app\\",
+  \\"versionName\\": \\"1.0.0\\",
+  \\"versionCode\\": \\"1\\",
+  \\"minPlatformVersion\\": 1070,
+  \\"icon\\": \\"/Common/logo.png\\",
+  \\"features\\": [
+  ],
+  \\"permissions\\": [
+    { \\"origin\\": \\"*\\" }
+  ],
+  \\"config\\": {
+    \\"logLevel\\": \\"off\\"
+  },
+  \\"router\\": {
+    \\"entry\\": \\"Demo\\",
+    \\"pages\\": {
+      \\"Demo\\": {
+        \\"component\\": \\"index\\"
+      }
+    },
+    \\"widgets\\": {
+      \\"CardDemo\\": {
+        \\"name\\": \\"CardDemo\\",
+        \\"decription\\": \\"快应用卡片展示\\",
+        \\"component\\": \\"index\\",
+        \\"path\\": \\"/CardDemo\\",
+        \\"features\\": []
+      }
+    }
+  },
+  \\"workers\\": {
+    \\"entries\\": [
+      {
+        \\"file\\": \\"workers/request/index.js\\"
+      }
+    ]
+  }
+}"
+`;
+
+exports[`测试compile compile build devtool=false 8`] = `
+"module.exports = {
+  \\".demo-page\\": {
+    \\"flexDirection\\": \\"column\\",
+    \\"justifyContent\\": \\"center\\",
+    \\"alignItems\\": \\"center\\"
+  },
+  \\".title\\": {
+    \\"fontSize\\": \\"40px\\",
+    \\"textAlign\\": \\"center\\"
+  },
+  \\".btn\\": {
+    \\"width\\": \\"550px\\",
+    \\"height\\": \\"86px\\",
+    \\"marginTop\\": \\"75px\\",
+    \\"borderRadius\\": \\"43px\\",
+    \\"backgroundColor\\": \\"#09ba07\\",
+    \\"fontSize\\": \\"30px\\",
+    \\"color\\": \\"#ffffff\\"
+  }
+}"
+`;
+
+exports[`测试compile compile build devtool=false 9`] = `
+"module.exports = function __scriptModule__ (module, exports, $app_require$){\\"use strict\\";
+
+Object.defineProperty(exports, \\"__esModule\\", {
+  value: true
+});
+exports[\\"default\\"] = void 0;
+
+function _typeof(obj) { \\"@babel/helpers - typeof\\"; if (typeof Symbol === \\"function\\" && typeof Symbol.iterator === \\"symbol\\") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === \\"function\\" && obj.constructor === Symbol && obj !== Symbol.prototype ? \\"symbol\\" : typeof obj; }; } return _typeof(obj); }
+
+var _default = {
+  \\"private\\": {
+    title: '示例页面'
+  }
+};
+exports[\\"default\\"] = _default;
+var moduleOwn = exports[\\"default\\"] || module.exports;
+var accessors = ['public', 'protected', 'private'];
+
+if (moduleOwn.data && accessors.some(function (acc) {
+  return moduleOwn[acc];
+})) {
+  throw new Error('页面VM对象中的属性data不可与\\"' + accessors.join(',') + '\\"同时存在，请使用private替换data名称');
+} else if (!moduleOwn.data) {
+  moduleOwn.data = {};
+  moduleOwn._descriptor = {};
+  accessors.forEach(function (acc) {
+    var accType = _typeof(moduleOwn[acc]);
+
+    if (accType === 'object') {
+      moduleOwn.data = Object.assign(moduleOwn.data, moduleOwn[acc]);
+
+      for (var name in moduleOwn[acc]) {
+        moduleOwn._descriptor[name] = {
+          access: acc
+        };
+      }
+    } else if (accType === 'function') {
+      console.warn('页面VM对象中的属性' + acc + '的值不能是函数，请使用对象');
+    }
+  });
+}}"
+`;
+
+exports[`测试compile compile build devtool=false 10`] = `
+"module.exports = {
+  \\"type\\": \\"div\\",
+  \\"attr\\": {},
+  \\"classList\\": [
+    \\"demo-page\\"
+  ],
+  \\"children\\": [
+    {
+      \\"type\\": \\"text\\",
+      \\"attr\\": {
+        \\"value\\": function () {return '' + '欢迎打开' + (this.title)}
+      },
+      \\"classList\\": [
+        \\"title\\"
+      ]
+    }
+  ]
+}"
+`;
+
+exports[`测试compile compile build devtool=false 11`] = `
+"module.exports = {
+  \\".demo-page\\": {
+    \\"flex\\": 1,
+    \\"flexDirection\\": \\"column\\",
+    \\"alignItems\\": \\"center\\"
+  }
+}"
+`;
+
+exports[`测试compile compile build devtool=false 12`] = `
+"module.exports = function __scriptModule__ (module, exports, $app_require$){\\"use strict\\";
+
+Object.defineProperty(exports, \\"__esModule\\", {
+  value: true
+});
+exports[\\"default\\"] = void 0;
+
+function _typeof(obj) { \\"@babel/helpers - typeof\\"; if (typeof Symbol === \\"function\\" && typeof Symbol.iterator === \\"symbol\\") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === \\"function\\" && obj.constructor === Symbol && obj !== Symbol.prototype ? \\"symbol\\" : typeof obj; }; } return _typeof(obj); }
+
+var _default = {
+  \\"private\\": {
+    text: '欢迎使用快应用卡片',
+    des: '卡片是一种轻量级的快应用，快应用卡片使快应用能够在其他app和系统里提供可扩展的app功能'
+  }
+};
+exports[\\"default\\"] = _default;
+var moduleOwn = exports[\\"default\\"] || module.exports;
+var accessors = ['public', 'protected', 'private'];
+
+if (moduleOwn.data && accessors.some(function (acc) {
+  return moduleOwn[acc];
+})) {
+  throw new Error('页面VM对象中的属性data不可与\\"' + accessors.join(',') + '\\"同时存在，请使用private替换data名称');
+} else if (!moduleOwn.data) {
+  moduleOwn.data = {};
+  moduleOwn._descriptor = {};
+  accessors.forEach(function (acc) {
+    var accType = _typeof(moduleOwn[acc]);
+
+    if (accType === 'object') {
+      moduleOwn.data = Object.assign(moduleOwn.data, moduleOwn[acc]);
+
+      for (var name in moduleOwn[acc]) {
+        moduleOwn._descriptor[name] = {
+          access: acc
+        };
+      }
+    } else if (accType === 'function') {
+      console.warn('页面VM对象中的属性' + acc + '的值不能是函数，请使用对象');
+    }
+  });
+}}"
+`;
+
+exports[`测试compile compile build devtool=false 13`] = `
+"module.exports = {
+  \\"type\\": \\"div\\",
+  \\"attr\\": {},
+  \\"classList\\": [
+    \\"demo-page\\"
+  ],
+  \\"children\\": [
+    {
+      \\"type\\": \\"text\\",
+      \\"attr\\": {
+        \\"value\\": function () {return this.text}
+      }
+    },
+    {
+      \\"type\\": \\"text\\",
+      \\"attr\\": {
+        \\"value\\": function () {return this.des}
+      }
+    }
+  ]
+}"
+`;
+
+exports[`测试compile compile build devtool=false: assets list 1`] = `
+Array [
+  "Demo/index.js",
+  "CardDemo/index.js",
+  "app.js",
+  "workers/request/index.js",
+]
+`;
+
+exports[`测试compile compile build devtool=false: outputs 1`] = `
+"[WARN] 您使用了自定义 babel.config.js，请确认是否有安装相关依赖
+
+[ERROR] 校验 manifest.json 错误 
+versionCode 字段必须为 Integer 类型
+参考: https://doc.quickapp.cn/framework/manifest.html
+
+[LOG] 当前minPlatformVersion >= 1040，平台采用v8版本为6.5+（对应chrome版本为65版+），工具将不再对V8 6.5版本支持的ES6代码进行转换
+
+[INFO] 配置环境：{\\"NODE_PLATFORM\\":\\"native\\",\\"NODE_PHASE\\":\\"dev\\"}
+
+[INFO] 获取到app文件后缀: ux
+
+[INFO] Build Time Cost: : <time-cost>
+
+[LOG] ### App Loader ### 项目构建启用了用户 debug 签名
+
+[LOG] ### App Loader ### 项目构建并生成文件：com.application.demo.__preview__.debug.1.0.0.rpk
+
+[LOG] ### App Server ### 没有记录手机地址，不会通知手机更新rpk文件
+"
+`;
+
+exports[`测试compile compile build devtool=source-map 1`] = `
+Array [
+  "app.js",
+  "app.js.map",
+  "CardDemo/index.js",
+  "CardDemo/index.js.map",
+  "Common/logo.png",
+  "Common/tu.9.png",
+  "Demo/index.js",
+  "Demo/index.js.map",
+  "manifest.json",
+  "workers/request/index.js",
+  "workers/request/index.js.map",
+]
+`;
+
+exports[`测试compile compile release 1`] = `
+Array [
+  "app.js",
+  "CardDemo/index.js",
+  "Common/logo.png",
+  "Common/tu.9.png",
+  "Demo/index.js",
+  "manifest.json",
+  "workers/request/index.js",
+]
+`;
+
+exports[`测试compile generate webpack config 1`] = `
+Object {
+  "CardDemo/index": "./src/CardDemo/index.ux?uxType=card",
+  "Demo/index": "./src/Demo/index.ux?uxType=page",
+  "app": "./src/app.ux?uxType=app",
+  "workers/request/index": "./src/workers/request/index.js",
+}
+`;

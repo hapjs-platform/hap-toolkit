@@ -1,0 +1,29 @@
+/*
+ * Copyright (c) 2021, the hapjs-platform Project Contributors
+ * SPDX-License-Identifier: Apache-2.0
+ */
+
+<template>
+ <div>
+ </div>
+ </template>
+ <style >
+  @keyframes multiVal {
+    0% {
+    transform: scale(0) translateX(0) rotate(0);
+    }
+    100% {
+    transform: scale(1) translateX(100) rotate(150deg);
+    }
+  }
+
+  .box {
+    animation-name: multiVal;
+  }
+ </style>
+ <script>
+  export default {
+    data: {
+    }
+  }
+</script>

@@ -1,0 +1,109 @@
+/*
+ * Copyright (c) 2021, the hapjs-platform Project Contributors
+ * SPDX-License-Identifier: Apache-2.0
+ */
+
+<template>
+  <div>
+  </div>
+</template>
+
+<style>
+  /*
+  this is comment
+  @import      '.common2.css'; this is comment*/
+  /*@import  '.common.css';*/
+  @import url(./common.css)     screen      and        (height > 100px)    ;
+  @import './common1.css' screen and (orientation: portrait);
+  @media screen and (orientation: landscape) {
+    .container1 {
+      background-color:#00FF00;
+      width: 100px;
+    }
+    .container2 {
+      background-color:#00FF00;
+      height: 200px;
+    }
+    @media screen and (min-height: 400px) or (min-width: 400px) {
+
+      @media screen and (max-height: 500px) {
+        .container4 {
+          height: 1400px;
+        }
+      }
+      .container3 {
+        height: 1200px;
+        color: red;
+      }
+      .container3 {
+        height: 1300px;
+        font-size: 50px;
+      }
+    }
+  }
+  @media screen and (min-width: 400px) and (max-width: 700px), screen and (aspect-ratio: 1/1) {
+    .containerA {
+      background-color:#00FF00;
+      width: 300px;
+    }
+    .containerB {
+      background-color:#00FF00;
+      height: 400px;
+    }
+    .custom-color { color: #123546; }
+    .custom-color { color: #fff000; }
+  }
+
+  @media tty and (min-width: 400px) and (max-width: 700px) {
+    .a {  color: #123456; }
+    @media (orientation: landscape) {
+      .b { color: #123456; }
+    }
+  }
+
+  @media not screen and (min-color-index: 256) {
+    .a1 {  color: #123456; }
+    @media screen and (orientation: landscape) {
+      .b1 { color: #123456; }
+    }
+  }
+
+  @media only screen and (100px <= width < 200px) {
+    @media screen and (orientation: landscape) {
+      .b2 { color: #abcdef; }
+      @media screen and (orientation: landscape) and xxx {
+        .d2 { color: #abcdef; }
+      }
+    }
+    .a2 {  color: #abcdef; }
+    @media abc and (max-width: 100px) {
+      .c2 { color: #abcdef; }
+    }
+  }
+  @import  './common2.css' screen and (min-width: 10px);
+  .demo-page {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  .demo-page {
+    flex-direction: column-reverse;
+  }
+
+  .container1 {
+    background-color:#00FF00;
+    width: 1000px;
+  }
+  .container2 {
+    background-color:#00FF00;
+    height: 2000px;
+  }
+
+</style>
+
+<script>
+  export default {
+    data: {
+    }
+  }
+</script>

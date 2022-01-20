@@ -1,0 +1,84 @@
+/*
+ * Copyright (c) 2021, the hapjs-platform Project Contributors
+ * SPDX-License-Identifier: Apache-2.0
+ */
+
+<template>
+  <div>
+  </div>
+</template>
+
+<style>
+  .A {
+    placeholder-color: red;
+  }
+  .B1 {
+    placeholder-color: #FFF;
+  }
+  .B2 {
+    placeholder-color: #FFFFFF;
+  }
+  .C1 {
+    placeholder-color: rgb(255,255,255);
+  }
+  .C2 {
+    placeholder-color: rgb(0,  0,   0);
+  }
+  .C3 {
+    placeholder-color: hsl(360,100%,100%);
+  }
+  .C4 {
+    placeholder-color: hsl(0,  0%,   0%);
+  }
+  .D1 {
+    placeholder-color: rgba(255,255,255,.5);
+  }
+  .D2 {
+    placeholder-color: rgba(0,0, 0, .0);
+  }
+  .D3 {
+    placeholder-color: rgba(0, 0,0, 1.0);
+  }
+  .D4 {
+    placeholder-color: rgba(255, 255,255, .5);
+  }
+
+  .E1 {
+    placeholder-color: hsla(360,100%,100%,.5);
+  }
+  .E2 {
+    placeholder-color: hsla(0,0%, 0%, .0);
+  }
+  .E3 {
+    placeholder-color: hsla(0, 0%,0%, 1.0);
+  }
+  .E4 {
+    placeholder-color: hsla(360, 100%,100%, .5);
+  }
+
+  .a1{
+    placeholder-color: 'red';
+  }
+  .a2 {
+    placeholder-color: @red;
+  }
+  .b1 {
+    placeholder-color: #FFFF;
+  }
+  .b2 {
+    placeholder-color: #FFFFF;
+  }
+  .c1 {
+    placeholder-color: rgb(,,0);
+  }
+  .c2 {
+    placeholder-color: hsl(,,0%);
+  }
+</style>
+
+<script>
+  export default {
+    data: {
+    }
+  }
+</script>

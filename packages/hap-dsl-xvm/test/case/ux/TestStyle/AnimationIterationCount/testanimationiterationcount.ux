@@ -1,0 +1,26 @@
+/*
+ * Copyright (c) 2021, the hapjs-platform Project Contributors
+ * SPDX-License-Identifier: Apache-2.0
+ */
+
+<template>
+ <div>
+ </div>
+ </template>
+ <style >
+  .box {
+    animation-iteration-count: 1;
+  }
+  .box1 {
+    animation-iteration-count: a;
+  }
+  .box2 {
+    animation-iteration-count: infinite;
+  }
+ </style>
+ <script>
+  export default {
+    data: {
+    }
+  }
+</script>

@@ -1,0 +1,26 @@
+/*
+ * Copyright (c) 2021, the hapjs-platform Project Contributors
+ * SPDX-License-Identifier: Apache-2.0
+ */
+
+<template>
+  <div>
+  </div>
+</template>
+
+
+<style>
+  @import './a.css';
+  @import './c.css';
+
+  .A {
+    background-color: white;
+    color: red;
+  }
+</style>
+
+<script>
+  export default {
+    data: {}
+  }
+</script>

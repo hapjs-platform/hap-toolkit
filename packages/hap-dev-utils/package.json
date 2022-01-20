@@ -1,0 +1,23 @@
+{
+  "name": "hap-dev-utils",
+  "version": "1.9.5",
+  "private": true,
+  "description": "utils of development and testing",
+  "engines": {
+    "node": ">=8.0.0"
+  },
+  "keywords": [
+    "hap-toolkit",
+    "dev",
+    "utils"
+  ],
+  "main": "index.js",
+  "files": [
+    "*.js"
+  ],
+  "dependencies": {
+    "fs-extra": "^7.0.1",
+    "glob": "^7.1.6",
+    "jszip": "^3.4.0"
+  }
+}

@@ -1,0 +1,231 @@
+/*
+ * Copyright (c) 2021, the hapjs-platform Project Contributors
+ * SPDX-License-Identifier: Apache-2.0
+ */
+
+<template>
+  <div>
+  </div>
+</template>
+
+<style>
+  .A1 {
+    border-color: red;
+  }
+
+  .A2 {
+    border-color: #FFF;
+  }
+
+  .A3 {
+    border-color: #FFFFFF;
+  }
+
+  .A4 {
+    border-color: rgb(255,255,255);
+  }
+
+  .A5 {
+    border-color: rgb(0,0,0);
+  }
+
+  .A6 {
+    border-color: rgba(255,255,255,.5);
+  }
+
+  .A7 {
+    border-color: rgba(0,0,0,.0);
+  }
+
+  .A8 {
+    border-color: rgba(0,0,0,1.0);
+  }
+
+  .A9 {
+    border-color: rgba(255,255,255,.5);
+  }
+
+  .B1 {
+    border-color: red #FFF;
+  }
+
+  .B2 {
+    border-color: #FFFFFF rgb(255,255,255);
+  }
+
+  .B3 {
+    border-color: rgb(0,0,0) rgba(255,255,255,.5);
+  }
+
+  .B4 {
+    border-color: rgba(0,0,0,.0) rgba(0,0,0,1.0);
+  }
+
+  .B5 {
+    border-color: rgba(255,255,255,.5) red;
+  }
+
+  .C1 {
+    border-color: red #FFF #FFFFFF;
+  }
+
+  .C2 {
+    border-color: rgb(255,255,255) rgb(0,0,0) rgba(255,255,255,.5);
+  }
+
+  .C3 {
+    border-color: rgba(0,0,0,.0) rgba(0,0,0,1.0) rgba(255,255,255,.5);
+  }
+
+  .D1 {
+    border-color: red #FFF #FFFFFF rgb(255,255,255);
+  }
+
+  .D2 {
+    border-color: rgb(0,0,0) rgba(255,255,255,.5) rgba(0,0,0,.0) rgba(0,0,0,1.0);
+  }
+
+  .D3 {
+    border-color: rgba(255,255,255,.5) red #FFF #FFFFFF;
+  }
+
+  .E1 {
+    border-color: rgba(255, 255, 255, 0.5);
+  }
+
+  .E2{
+    border-color: rgba(255 , 255 ,  255 , .5);
+  }
+
+  .E3 {
+    border-color: rgba( 255,255,255,0.5 );
+  }
+
+  .E4 {
+    border-color: rgba(255,255,255,0.5)   ;
+  }
+
+  .E5 {
+    border-color: rgba(255, 255, 255, 0.1)   rgba(0, 0, 0, .2)  ;
+  }
+
+  .E6 {
+    border-color: rgba(255, 255, 255, 0.1) rgba(0, 0, 0, .2)   rgba( 255 , 255 , 255 , .3 ) ;
+  }
+
+  .E7 {
+    border-color: rgba(255, 255, 255, 0.1) rgba(0, 0, 0, .2)   rgba(0, 0, 0, .3 )    rgba( 255,255,  255,   0.4 );
+  }
+
+  .E8 {
+    border-color: rgba(255, 255, 255, 0.1)  #FFF  red  rgba( 255,255,  255 ,   0.4 )  ;
+  }
+  .F1 {
+    border-color: rgba(255, 255, 255, 0.1)  #FFF  red  hsla( 360,100%,  100% ,   0.4 )  ;
+  }
+  .F2 {
+    border-color: hsl(0,0%,0%) rgb(255, 255,255) hsla( 123 , 46%,38%, 0.6) rgba(0,0,0,1.0);
+  }
+  .a1{
+    border-color: 'red';
+  }
+
+  .a2 {
+    border-color: @red;
+  }
+
+  .a3 {
+    border-color: #FFFF;
+  }
+
+  .a4 {
+    border-color: #FFFFF;
+  }
+
+  .a5 {
+    border-color: #FFF FFF;
+  }
+
+  .a6 {
+    border-color:  rgba (0,0,0,1);
+  }
+
+  .a7 {
+    border-color: rgb(,,0);
+  }
+
+  .a8 {
+    border-color: rgba(255,255,'255',.5);
+  }
+
+
+  .b1 {
+    border-color: 'red' red;
+  }
+
+  .b2 {
+    border-color: @red red;
+  }
+
+  .b3 {
+    border-color: #FFFF #FFFFFF;
+  }
+
+  .b4 {
+    border-color: #FFFFF #FFFFFF;
+  }
+
+  .b5 {
+    border-color: #FFF FFF #FFFFFF;
+  }
+
+  .b6 {
+    border-color: rgba(255,255,  red,.5) #FFFFFF;
+  }
+
+  .b7 {
+    border-color: rgb(,,0) #FFFFFF;
+  }
+
+  .b8 {
+    border-color: hsla(360,100%,  red,.5) #FFFFFF;
+  }
+
+  .b9 {
+    border-color: hsl(,,0) #FFFFFF;
+  }
+
+  .c1 {
+    border-color: 'red' @red red;
+  }
+
+  .c2 {
+    border-color: #FFFF #FFFFF #FFF FFF;
+  }
+
+  .c3 {
+    border-color: rgba(255,255,  255,.5) rgb(,,0) rgba(255,255,255,.5);
+  }
+
+  .d1 {
+    border-color: 'red' @red red red;
+  }
+
+  .d2 {
+    border-color: #FFFF #FFFFF #FFF FFF #FFFFFF;
+  }
+
+  .d3 {
+    border-color: rgba(255,255,  255,.5) rgb(,,0) rgba(255,255,255,.5) rgba(0,0,0,.0);
+  }
+  .d4 {
+    border-color: hsla(360,100%,  100%,.5) hsl(,,0) hsla(360,100%,100%,.5) hsla(0,0%,0%,.0);
+  }
+</style>
+
+<script>
+  export default {
+    data: {
+    }
+  }
+</script>

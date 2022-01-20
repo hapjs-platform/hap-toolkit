@@ -1,0 +1,31 @@
+/*
+ * Copyright (c) 2021, the hapjs-platform Project Contributors
+ * SPDX-License-Identifier: Apache-2.0
+ */
+
+<template>
+    <div class="container">
+      <text class='title' for="title">{{$item}}</text>
+    </div>
+</template>
+
+<style>
+    .container{
+        flex-direction: column;
+        flex: 1;
+        justify-content: center;
+    }
+    .title {
+        color: red;
+    }
+</style>
+
+<script>
+    import utils from '../Static/utils'
+  module.exports = {
+    props:['title'],
+    data:{
+      title:['aaa','bbb','ccc']
+    }
+  }
+</script>

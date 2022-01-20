@@ -1,0 +1,40 @@
+/*
+ * Copyright (c) 2021, the hapjs-platform Project Contributors
+ * SPDX-License-Identifier: Apache-2.0
+ */
+
+<template>
+  <div class="container">
+    <list
+      onscroll="scrollFn"
+      onscrollbottom="scrollbottomFn"
+      onscrolltop="scrolltopFn"
+      onscrollend="scrollendFn"
+      onscrolltouchup="scrolltouchupFn"
+      onselected="selectedFn"
+      focusbehavior="edged">
+      <list-item></list-item>
+      <list-item></list-item>
+    </list>
+  </div>
+</template>
+
+<style>
+  .container {
+    flex:1;
+    flex-direction: column;
+    background-color: #FFFFFF;
+  }
+</style>
+
+<script>
+  export default {
+    data: {},
+    scrollFn () {},
+    scrollbottomFn () {},
+    scrolltopFn () {},
+    scrollendFn () {},
+    scrolltouchupFn () {},
+    selectedFn () {}
+  }
+</script>

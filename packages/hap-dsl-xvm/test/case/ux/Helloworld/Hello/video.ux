@@ -1,0 +1,56 @@
+/*
+ * Copyright (c) 2021, the hapjs-platform Project Contributors
+ * SPDX-License-Identifier: Apache-2.0
+ */
+
+<import src="../Common/a/common"></import>
+
+<template>
+    <div class="container" @click="abc" style="flex:1;flex-direction: column;">
+        <div if="cond"></div>
+        <div elif="ab && b"></div>
+        <div elif="c"></div>
+        <div elif="d<0"></div>
+        <div else></div>
+        <com c="{{abc}}"></com>
+    </div>
+</template>
+
+<style>
+    .container {
+        flex:1;
+        flex-direction: column;
+        background-color: rgba(0, 0 , 0, .5);
+        background-image: url("/abc/adff.jpg");
+    }
+    .block {
+        background-color: red;
+        width: 100px;
+        height: 100px;
+    }
+    .anim {
+        animation-duration: 5s;
+        animation-delay: 0s;
+        animation-fill-mode: none;
+        animation-timing-function: ease;
+        animation-name: abc;
+    }
+    @keyframes abc {
+        0% {background-color:red;}
+        100% {background-color:blue;}
+    }
+</style>
+
+<script>
+  import network from '@system.network'
+  import utils from '../Common/utils.js'
+  export default {
+    data: {
+      title: 'Video',
+      color:'000'
+    },
+    abc: function () {
+
+    }
+  }
+</script>

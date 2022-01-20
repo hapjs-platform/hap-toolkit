@@ -1,0 +1,35 @@
+/*
+ * Copyright (c) 2021, the hapjs-platform Project Contributors
+ * SPDX-License-Identifier: Apache-2.0
+ */
+
+<template>
+  <div class="container">
+    <div str="{{`message:${message}`}}"></div>
+    <text>{{ flag ? `This is ${sub.str1 + sub.str2}` : 'ok'}}</text>
+    <text>{{ true ? `${sub.str1}` : 'ok'}}</text>
+    <text>{{ sub.str1 + sub.str2 }}</text>
+    <text>{{ 'hello' + sub.str2 }}</text>
+  </div>
+</template>
+
+<style>
+  .container {
+      flex:1;
+      flex-direction: column;
+      background-color: #FFFFFF;
+  }
+</style>
+
+<script>
+export default {
+  data: {
+    flag: true,
+    message: 'hell world',
+    sub: {
+      str1: 'hello',
+      str2: 'world'
+    }
+  }
+}
+</script>

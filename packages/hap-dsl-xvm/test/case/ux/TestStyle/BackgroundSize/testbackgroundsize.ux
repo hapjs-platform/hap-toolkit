@@ -1,0 +1,101 @@
+/*
+ * Copyright (c) 2021, the hapjs-platform Project Contributors
+ * SPDX-License-Identifier: Apache-2.0
+ */
+
+<template>
+  <div>
+  </div>
+</template>
+
+<style>
+  .A1 {
+    background-size: 10px 10px;
+  }
+  .A2 {
+    background-size: 10px;
+  }
+  .A3 {
+    background-size: 10px auto;
+  }
+  .A4 {
+    background-size: auto 10px;
+  }
+  .A5 {
+    background-size: 10;
+  }
+  .B1 {
+    background-size: 10% 10%;
+  }
+  .B2 {
+    background-size: 10%;
+  }
+  .B3 {
+    background-size: 10% auto;
+  }
+  .B4 {
+    background-size: auto 10%;
+  }
+  .C1 {
+    background-size: auto;
+  }
+  .C2 {
+    background-size: auto auto;
+  }
+  .D {
+    background-size: cover;
+  }
+  .E {
+    background-size: contain;
+  }
+  .a1{
+    background-size: 10 px 10 px;
+  }
+  .a2 {
+    background-size: 10 px;
+  }
+  .a3 {
+    background-size: 10 px auto;
+  }
+  .a4 {
+    background-size: auto 10 px;
+  }
+  .b1 {
+    background-size: 10 % 10 %;
+  }
+  .b2 {
+    background-size: 10 %;
+  }
+  .b3 {
+    background-size: 10 % auto;
+  }
+  .b4 {
+    background-size: auto 10 %;
+  }
+  .c1 {
+    background-size: auto cover;
+  }
+  .c2 {
+    background-size: auto contain;
+  }
+  .d1 {
+    background-size: cover 10px;
+  }
+  .d2 {
+    background-size: cover auto;
+  }
+  .e1 {
+    background-size: contain 10px;
+  }
+  .e2 {
+    background-size: contain auto;
+  }
+
+</style>
+
+<script>
+  export default {
+    data: {
+    }
+  }
+</script>

@@ -1,0 +1,213 @@
+/*
+ * Copyright (c) 2021, the hapjs-platform Project Contributors
+ * SPDX-License-Identifier: Apache-2.0
+ */
+
+<template>
+  <div>
+  </div>
+</template>
+
+<style>
+  .demo1 {
+    color: red;
+    width: 100px;
+  }
+  @media (prefers-color-scheme: dark) {
+    .themed {
+      background: white;
+      color: black;
+    }
+  }
+  @media {
+    .box {
+      height: 10px
+    }
+  }
+  @media screen {
+    .box1 {
+      height: 10dp;
+    }
+  }
+  @media screen and {
+    .box2 {
+      height: 10dp;
+    }
+  }
+  @media only　screen {
+    .box3 {
+      height: 10dp;
+    }
+  }
+  @media not screen {
+    .box3 {
+      height: 10dp;
+    }
+  }
+  @media (min-height: 1500px) and (max-height: 500px) or (900 <= height < 1100) {
+    .box1 {
+      width: 100px;
+    }
+    .box1 {
+      width: 200px;
+      height: 200px;
+    }
+  }
+  @media not screen and (min-width: 1500px) and (max-width: 500px) and (900px < width <= 1100px) {
+    .box1 {
+      width: 100px;
+    }
+    .box1 {
+      width: 200px;
+      height: 200px;
+    }
+  }
+  @media only screen and (min-device-height: 1500px) and (max-device-height: 500px) and (900 < device-height < 1100) {
+    .box2 {
+      width: 100px;
+    }
+  }
+  @media screen and (min-device-width: 1500px) and (max-device-width: 500px) and (900px <= device-width <= 1100px) {
+    .box3 {
+      width: 100px;
+    }
+  }
+  @media screen and (width: 300px) and (height: 500) and (device-width: 300px) and (device-height: 500) {
+    .box4 {
+      width: 100px;
+    }
+  }
+  @media screen and (width: 300dp) and (height: 500) and (device-width: 300dp) and (device-height: 500) {
+    .box4-1 {
+      width: 100px;
+    }
+  }
+  @media screen and (width: 300dp) and (height: 500dp) and (device-width: 300dp) and (device-height: 500dp) {
+    .box4-2 {
+      width: 100px;
+    }
+  }
+  @media screen and (orientation: portrait), not screen and (orientation:landscape) {
+    .box5 {
+      width: 100px;
+    }
+  }
+  @media screen and (resolution: 96dpi) and (resolution:1dppx) and (resolution:36dpi) {
+    .box6 {
+      width: 100px;
+    }
+  }
+  @media screen and (min-resolution: 96dpi) and (max-resolution: 1dppx) {
+    .box7 {
+      width: 100px;
+    }
+  }
+  @media screen and (aspect-ratio: 1/2) and (1 /2 > aspect-ratio > 1/5) {
+    .box8 {
+      width: 100px;
+    }
+  }
+  @media screen and (max-aspect-ratio: 1/1) and (min-aspect-ratio: 0.1) {
+    .box9 {
+      width: 100px;
+    }
+  }
+  @media screen and (width: 375dp) and (height: 500dp) and (device-width: 375dp) and (device-height: 500dp) {
+    .box10 {
+      width: 100px;
+    }
+    .box10 {
+      width: 100dp;
+      height: 100dp;
+    }
+  }
+
+  /* 书写错误，整条媒体查询无效 */
+  /* 错误的orientation值: 必须 portrait | landscape */
+  @media screen and (orientation: portrait1) {
+    .error1 {
+      height: 100px;
+    }
+  }
+  /* 不支持的媒体特征:  color */
+  @media screen and (color) {
+    .error2 {
+      height: 100px;
+    }
+  }
+  /* 不支持的媒体特征:  xxx */
+  @media screen and (xxx: 500) {
+    .error3 {
+      height: 100px;
+    }
+  }
+  /* 不支持的resolution单位: 必须 dpi、dppx */
+  @media screen and (resolution: 700i) {
+    .error4 {
+      height: 100px;
+    }
+  }
+  /* 不支持的媒体特征值: zzz */
+  @media screen and (device-width: zzz) {
+    .error5 {
+      height: 100px;
+    }
+  }
+  /* 不支持的媒体特征表达: min-、max- 必须为离散值不能为范围值 */
+  @media screen and (min-height > 100px) {
+    .error6 {
+      height: 100px;
+    }
+  }
+  /* 不支持的媒体特征值: 1/f, 须为数值 */
+  @media screen and (max-aspect-ratio: 1/f) {
+    .error7 {
+      height: 100px;
+    }
+  }
+  /* 不支持的媒体类型: all */
+  @media all and (max-device-height: 100) {
+    .error8 {
+      height: 100px;
+    }
+  }
+  /* 不支持的媒体类型: xyz */
+  @media xyz and (min-resolution: 96dpi) {
+    .error9 {
+      height: 100px;
+    }
+  }
+  /* 不支持的连接符: not 必须 and | or */
+  @media screen and (max-device-height: 100) not (max-device-width: 100px) {
+    .error10 {
+      height: 100px;
+    }
+  }
+  /* 不支持的连接符: xxx */
+  @media (max-device-height: 100) xxx (max-device-width: 100px) {
+    .error11 {
+      height: 100px;
+    }
+  }
+  /* 不支持的媒体特征值: 100xp */
+  @media screen and (device-width: 100xp) {
+    .error12 {
+      height: 100px;
+    }
+  }
+  .demo1 {
+    color: red;
+    width: 200px;
+    height: 200px;
+  }
+  .demo2 {
+    border: 1px solid #123456;
+  }
+</style>
+
+<script>
+  export default {
+    data: {
+    }
+  }
+</script>

@@ -1,0 +1,94 @@
+/*
+ * Copyright (c) 2021, the hapjs-platform Project Contributors
+ * SPDX-License-Identifier: Apache-2.0
+ */
+
+<import name="node-modules-component" src="qa-test-ui/Components/index.ux"></import>
+
+<template>
+  <div class="page">
+    <div class="row">
+      <div class="column">
+        <image src="../Common/1.png"></image>
+        <text>src="../Common/1.png"</text>
+      </div>
+      <div class="column">
+        <image src="/Common/2.png"></image>
+        <text>src="/Common/2.png"</text>
+      </div>
+      <div class="column">
+        <div class="image bg-img-1"></div>
+        <text>bg-img: ../Common/3.png</text>
+      </div>
+      <div class="column">
+        <div class="image bg-img-2"></div>
+        <text>bg-img: /Common/4.png</text>
+      </div>
+      <div class="column">
+        <div class="image" style="background-image: url('/Common/5.png')"></div>
+        <text>inline-style: bg-img: /Common/5.png</text>
+      </div>
+      <div class="column">
+        <div class="image" style="background-image: url('../Common/6.png')"></div>
+        <text>inline-style: bg-img: ../Common/6.png</text>
+      </div>
+      <div class="column">
+        <image src="{{img7}}"></image>
+        <text>require("../Common/7.png")</text>
+      </div>
+    </div>
+    <text>位于node_modules里的组件</text>
+    <node-modules-component></node-modules-component>
+  </div>
+</template>
+
+<style >
+  .page {
+    flex-direction: column;
+  }
+  .row {
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+  .column {
+    flex-direction: column;
+    width: 30%;
+    border: 1px solid #ccc;
+    align-items: center;
+    margin-right: 18px;
+    margin-bottom: 18px;
+  }
+  image, .image {
+    width: 200px;
+    height: 200px;
+  }
+  text {
+    text-align: center;
+    width: 100%;
+  }
+
+  .bg-img-1 {
+    background-image: url("../Common/3.png")
+  }
+  
+  @media screen and (orientation: landscape) {
+    .bg-img-2 {
+      background-image: url("/Common/4.png")
+    }
+  }
+</style>
+
+<script>
+  import router from '@system.router'
+  const img7 = require('../Common/7.png')
+  
+  export default {
+    private: {
+      title: '示例页面',
+      'img7': img7
+    },
+    onInit() {
+            
+    }
+  }
+</script>

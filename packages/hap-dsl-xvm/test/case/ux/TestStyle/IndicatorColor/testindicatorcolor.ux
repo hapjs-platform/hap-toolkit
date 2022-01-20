@@ -1,0 +1,84 @@
+/*
+ * Copyright (c) 2021, the hapjs-platform Project Contributors
+ * SPDX-License-Identifier: Apache-2.0
+ */
+
+<template>
+  <div>
+  </div>
+</template>
+
+<style>
+  .A {
+    indicator-color: red;
+  }
+  .B1 {
+    indicator-color: #FFF;
+  }
+  .B2 {
+    indicator-color: #FFFFFF;
+  }
+  .C1 {
+    indicator-color: rgb(255,255,255);
+  }
+  .C2 {
+    indicator-color: rgb(0,  0,   0);
+  }
+  .C3 {
+    indicator-color: hsl(360,100%,100%);
+  }
+  .C4 {
+    indicator-color: hsl(0,  0%,   0%);
+  }
+
+  .D1 {
+    indicator-color: rgba(255,255,255,.5);
+  }
+  .D2 {
+    indicator-color: rgba(0,0, 0, .0);
+  }
+  .D3 {
+    indicator-color: rgba(0, 0,0, 1.0);
+  }
+  .D4 {
+    indicator-color: rgba(255, 255,255, .5);
+  }
+  .E1 {
+    indicator-color: hsla(360,100%,100%,.5);
+  }
+  .E2 {
+    indicator-color: hsla(0,0%, 0%, .0);
+  }
+  .E3 {
+    indicator-color: hsla(0, 0%,0%, 1.0);
+  }
+  .E4 {
+    indicator-color: hsla(360, 100%,100%, .5);
+  }
+
+  .a1{
+    indicator-color: 'red';
+  }
+  .a2 {
+    indicator-color: @red;
+  }
+  .b1 {
+    indicator-color: #FFFF;
+  }
+  .b2 {
+    indicator-color: #FFFFF;
+  }
+  .c1 {
+    indicator-color: rgb(,,0);
+  }
+  .c2 {
+    indicator-color: hsl(,,0%);
+  }
+</style>
+
+<script>
+  export default {
+    data: {
+    }
+  }
+</script>

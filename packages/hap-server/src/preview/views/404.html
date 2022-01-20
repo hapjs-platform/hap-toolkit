@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<!--  
+    Copyright (c) 2021, the hapjs-platform Project Contributors
+    SPDX-License-Identifier: Apache-2.0
+ -->
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>404 Not Found</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+    <meta name="apple-touch-fullscreen" content="yes" />
+    <meta name="format-detection" content="telephone=no, email=no" />
+    <meta name="referrer" content="no-referrer" />
+    <link href="/preview-static/common.css" rel="stylesheet" />
+    <style type="text/css">
+      body {
+        margin: 0;
+        background-color: #ffffff;
+        font-size: 16px;
+      }
+
+      .content {
+        padding-top: 26vh;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .img {
+        display: block;
+        width: 100px;
+        height: 100px;
+      }
+
+      .tips {
+        margin-top: 6px;
+        margin-bottom: 0;
+        color: rgba(0, 0, 0, 0.5);
+      }
+
+      .btn {
+        margin-top: 20px;
+        font-size: 16px;
+        line-height: 34px;
+        border-radius: 17px;
+        padding: 0 13px;
+        background: white;
+        color: rgba(14, 168, 255, 1);
+        text-align: center;
+        text-decoration: none;
+        border: 2px solid rgba(14, 168, 255, 1);
+      }
+    </style>
+  </head>
+  <body>
+    <div class="content">
+      <img src="/preview-static/img.png" alt="page-not-found" class="img" />
+      <p class="tips">很抱歉，该页面不存在</p>
+      <p class="tips"><b>{{message}}</b></p>
+      <a class="btn" href="/preview">返回快应用首页</a>
+    </div>
+    <script src="/preview-static/common.js"></script>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-129793617-6"></script>
+    <script>
+      window.dataLayer = window.dataLayer || []
+      function gtag() {
+        dataLayer.push(arguments)
+      }
+      gtag('js', new Date())
+      gtag('config', 'UA-129793617-6')
+    </script>
+  </body>
+</html>
