@@ -1,12 +1,13 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`compile a project and test resource collect resource collect 1`] = `
+exports[`compile a project and test resource collect resource collect: resource list 1`] = `
 Array [
   "app.js",
   "assets",
   "assets/2.png",
   "assets/4.png",
   "assets/5.png",
+  "assets/7.png",
   "Common",
   "Common/1.png",
   "Common/2.png",

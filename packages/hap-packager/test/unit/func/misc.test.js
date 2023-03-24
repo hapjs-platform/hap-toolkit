@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2021, the hapjs-platform Project Contributors
+ * Copyright (c) 2021-present, the hapjs-platform Project Contributors
  * SPDX-License-Identifier: Apache-2.0
  */
 
@@ -72,15 +72,15 @@ describe('serialize', () => {
     const target = {
       a: null,
       b: 2,
-      f: function() {
+      f: function () {
         console.log('hello')
-        return function() {
+        return function () {
           return '__FKS_1_FKE__0' + '__FKS_1_FKE__1'
         }
       },
-      f2: function() {
-        return function() {
-          return function() {
+      f2: function () {
+        return function () {
+          return function () {
             return Math.random()
           }
         }
@@ -92,28 +92,28 @@ describe('serialize', () => {
 
   it('Special keys', () => {
     const orignRand = Math.random
-    Math.random = function() {
+    Math.random = function () {
       return 0x101
     }
     const target = {
       a: null,
       b: 2,
-      f: function() {
+      f: function () {
         console.log('hello')
-        return function() {
+        return function () {
           return '__FKS_1_FKE__0' + '__FKS_1_FKE__1'
         }
       },
-      __FKS_1_FKE__1: function() {
-        return function() {
-          return function() {
+      __FKS_1_FKE__1: function () {
+        return function () {
+          return function () {
             return Math.random()
           }
         }
       },
-      f2: function() {
-        return function() {
-          return function() {
+      f2: function () {
+        return function () {
+          return function () {
             return Math.random()
           }
         }

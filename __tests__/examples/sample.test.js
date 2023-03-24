@@ -1,7 +1,8 @@
 /*
- * Copyright (c) 2021, the hapjs-platform Project Contributors
+ * Copyright (c) 2021-present, the hapjs-platform Project Contributors
  * SPDX-License-Identifier: Apache-2.0
  */
+
 const path = require('path')
 const { Writable } = require('stream')
 const fetch = require('node-fetch')
@@ -23,12 +24,11 @@ describe('hap-toolkit', () => {
       expect(rpks.length).toBe(1)
       let rpkPath = path.resolve(cwd, rpks[0])
       // 读取压缩包中的内容
-      readZip(rpkPath).then(packages => {
-        const hasMeta = packages.files['META-INF/']
-        const hasMetaCert = packages.files['META-INF/CERT']
-        expect(hasMeta).toBeTruthy()
-        expect(hasMetaCert).toBeTruthy()
-      })
+      const packages = await readZip(rpkPath)
+      const hasMeta = packages.files['META-INF/']
+      const hasMetaCert = packages.files['META-INF/CERT']
+      expect(hasMeta).toBeTruthy()
+      expect(hasMetaCert).toBeTruthy()
     },
     6 * 60 * 1000
   )
@@ -40,10 +40,9 @@ describe('hap-toolkit', () => {
       const rpks = await lsfiles('dist/*.rpk', { cwd })
       let rpkPath = path.resolve(cwd, rpks[0])
       // 读取压缩包中的内容
-      readZip(rpkPath).then(packages => {
-        const hasMeta = packages.files['META-INF/']
-        expect(hasMeta).toBeFalsy()
-      })
+      const packages = await readZip(rpkPath)
+      const hasMeta = packages.files['META-INF/']
+      expect(hasMeta).toBeFalsy()
     },
     6 * 60 * 1000
   )
@@ -53,23 +52,23 @@ describe('hap-toolkit', () => {
     async () => {
       const dialogs = [
         {
-          pattern: output => {
+          pattern: (output) => {
             return output.match(/生成HTTP服务器的二维码: (http:\/\/.*)/)
           },
           feeds: (proc, output) => {
             const match = output.match(/生成HTTP服务器的二维码: (http:\/\/.*)/)
             const url = match[1]
             const p1 = fetch(url)
-              .then(res => {
+              .then((res) => {
                 expect(res.status).toBe(200)
                 return res.text()
               })
-              .then(text => {
+              .then((text) => {
                 expect(text).toMatch('<title>调试器</title>')
               })
             const p2 = fetch(url + '/qrcode')
-              .then(res => res.arrayBuffer())
-              .then(buffer => {
+              .then((res) => res.arrayBuffer())
+              .then((buffer) => {
                 expect(Buffer.from(buffer).readUInt32BE(0)).toBe(0x89504e47)
               })
 
@@ -108,6 +107,11 @@ describe('hap-toolkit', () => {
         }
       ]
       await run('npm', ['run', 'release'], dialogs, { cwd })
+      /**
+      TODO fix:
+      在windows平台上， function talkTo 里面不能正确拿到完整的 stdout, stderr
+       */
+
       expect(happened).toBe(true)
     },
     6 * 60 * 1000
@@ -130,24 +134,29 @@ describe('hap-toolkit', () => {
       // TODO other than `native`?
       const data = await compile('native', 'dev', false, {
         cwd: projectRoot,
-        log: outputStream
+        log: outputStream,
+        buildNameFormat: 'CUSTOM=dev'
       })
       // 更详细的 snapshots
       const json = data.stats.toJson({
         source: true
       })
-      const wipe = content =>
+      const wipe = (content) =>
         wipeDynamic(content, [
           [projectRoot, '<project-root>'],
           [/大小为 \d+ KB/g, '大小为 <SIZE> KB']
         ])
-      json.modules.forEach(module => {
+      json.modules.forEach((module) => {
         if (module.source) {
-          expect(wipe(module.source)).toMatchSnapshot()
+          expect(wipe(module.source)).toMatchSnapshot(wipe(module.identifier))
         }
       })
 
-      expect(json.assets.map(a => a.name).sort()).toMatchSnapshot('assets list')
+      const rpks = await lsfiles('dist/*.rpk', { cwd: projectRoot })
+      const hasCustom = rpks[0].indexOf('dev') !== -1
+      expect(hasCustom).toBeTruthy()
+
+      expect(json.assets.map((a) => a.name).sort()).toMatchSnapshot('assets list')
       const output = stripAnsi(outputs.join('\n'))
       // TODO expect(wipe(output)).toMatchSnapshot('outputs')
       expect(wipe(output)).not.toBeNull()

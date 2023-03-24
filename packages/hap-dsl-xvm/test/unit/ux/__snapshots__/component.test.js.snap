@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Component 编译测试 ux components: ../../../lib/loaders/script-loader.js!../../../lib/loaders/module-loader.js!../../../node_modules/babel-loader/lib/index.js?cwd=<CWD>&cacheDirectory&plugins[]=<CWD>/packages/hap-dsl-xvm/lib/loaders/babel-plugin-jsx.js&comments=false&configFile=<CWD>/babel.config.js!../../../lib/loaders/access-loader.js!../../../lib/loaders/fragment-loader.js?index=0&type=script!./TestComponent/A/testa.ux?uxType=page 1`] = `
+exports[`Component 编译测试 ux components: ../../../lib/loaders/script-loader.js!../../../../hap-packager/lib/loaders/module-loader.js!../../../../../node_modules/babel-loader/lib/index.js?cwd=<CWD>&cacheDirectory&plugins[]=<CWD>/packages/hap-dsl-xvm/lib/loaders/babel-plugin-jsx.js&comments=false&configFile=<CWD>/babel.config.js!../../../lib/loaders/access-loader.js!../../../lib/loaders/fragment-loader.js?index=0&type=script!./TestComponent/A/testa.ux?uxType=page 1`] = `
 "module.exports = function __scriptModule__ (module, exports, $app_require$){\\"use strict\\";
 
 Object.defineProperty(exports, \\"__esModule\\", {
@@ -13,7 +13,6 @@ var _default = {
 exports.default = _default;
 const moduleOwn = exports.default || module.exports;
 const accessors = ['public', 'protected', 'private'];
-
 if (moduleOwn.data && accessors.some(function (acc) {
   return moduleOwn[acc];
 })) {
@@ -23,10 +22,8 @@ if (moduleOwn.data && accessors.some(function (acc) {
   moduleOwn._descriptor = {};
   accessors.forEach(function (acc) {
     const accType = typeof moduleOwn[acc];
-
     if (accType === 'object') {
       moduleOwn.data = Object.assign(moduleOwn.data, moduleOwn[acc]);
-
       for (const name in moduleOwn[acc]) {
         moduleOwn._descriptor[name] = {
           access: acc
@@ -39,18 +36,15 @@ if (moduleOwn.data && accessors.some(function (acc) {
 }}"
 `;
 
-exports[`Component 编译测试 ux components: ../../../lib/loaders/script-loader.js!../../../lib/loaders/module-loader.js!../../../node_modules/babel-loader/lib/index.js?cwd=<CWD>&cacheDirectory&plugins[]=<CWD>/packages/hap-dsl-xvm/lib/loaders/babel-plugin-jsx.js&comments=false&configFile=<CWD>/babel.config.js!../../../lib/loaders/access-loader.js!../../../lib/loaders/fragment-loader.js?index=0&type=script!./TestComponent/Ad/testad.ux?uxType=page 1`] = `
+exports[`Component 编译测试 ux components: ../../../lib/loaders/script-loader.js!../../../../hap-packager/lib/loaders/module-loader.js!../../../../../node_modules/babel-loader/lib/index.js?cwd=<CWD>&cacheDirectory&plugins[]=<CWD>/packages/hap-dsl-xvm/lib/loaders/babel-plugin-jsx.js&comments=false&configFile=<CWD>/babel.config.js!../../../lib/loaders/access-loader.js!../../../lib/loaders/fragment-loader.js?index=0&type=script!./TestComponent/Ad/testad.ux?uxType=page 1`] = `
 "module.exports = function __scriptModule__ (module, exports, $app_require$){\\"use strict\\";
 
 Object.defineProperty(exports, \\"__esModule\\", {
   value: true
 });
 exports.default = void 0;
-
 var _system = _interopRequireDefault($app_require$(\\"@app-module/system.prompt\\"));
-
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
 var _default = {
   data: {
     adUnitId: '替换为申请到的广告位id',
@@ -60,31 +54,24 @@ var _default = {
     adData: null,
     adList: null
   },
-
   onShow() {},
-
   loadAdData(e) {
     this.loadSuccess = true;
     this.adData = e.adData;
-
     _system.default.showDialog({
       message: \`\${JSON.stringify(e)}\`
     });
   },
-
   errorLoadingAdData(e) {
     this.loadSuccess = false;
-
     _system.default.showDialog({
       message: \`\${JSON.stringify(e.errMsg)}\`
     });
   }
-
 };
 exports.default = _default;
 const moduleOwn = exports.default || module.exports;
 const accessors = ['public', 'protected', 'private'];
-
 if (moduleOwn.data && accessors.some(function (acc) {
   return moduleOwn[acc];
 })) {
@@ -94,10 +81,8 @@ if (moduleOwn.data && accessors.some(function (acc) {
   moduleOwn._descriptor = {};
   accessors.forEach(function (acc) {
     const accType = typeof moduleOwn[acc];
-
     if (accType === 'object') {
       moduleOwn.data = Object.assign(moduleOwn.data, moduleOwn[acc]);
-
       for (const name in moduleOwn[acc]) {
         moduleOwn._descriptor[name] = {
           access: acc
@@ -110,7 +95,7 @@ if (moduleOwn.data && accessors.some(function (acc) {
 }}"
 `;
 
-exports[`Component 编译测试 ux components: ../../../lib/loaders/script-loader.js!../../../lib/loaders/module-loader.js!../../../node_modules/babel-loader/lib/index.js?cwd=<CWD>&cacheDirectory&plugins[]=<CWD>/packages/hap-dsl-xvm/lib/loaders/babel-plugin-jsx.js&comments=false&configFile=<CWD>/babel.config.js!../../../lib/loaders/access-loader.js!../../../lib/loaders/fragment-loader.js?index=0&type=script!./TestComponent/Camera/testcamera.ux?uxType=page 1`] = `
+exports[`Component 编译测试 ux components: ../../../lib/loaders/script-loader.js!../../../../hap-packager/lib/loaders/module-loader.js!../../../../../node_modules/babel-loader/lib/index.js?cwd=<CWD>&cacheDirectory&plugins[]=<CWD>/packages/hap-dsl-xvm/lib/loaders/babel-plugin-jsx.js&comments=false&configFile=<CWD>/babel.config.js!../../../lib/loaders/access-loader.js!../../../lib/loaders/fragment-loader.js?index=0&type=script!./TestComponent/Camera/testcamera.ux?uxType=page 1`] = `
 "module.exports = function __scriptModule__ (module, exports, $app_require$){\\"use strict\\";
 
 Object.defineProperty(exports, \\"__esModule\\", {
@@ -119,18 +104,13 @@ Object.defineProperty(exports, \\"__esModule\\", {
 exports.default = void 0;
 var _default = {
   data: {},
-
   errorFn() {},
-
   camerainitdone() {},
-
   cameraframe() {}
-
 };
 exports.default = _default;
 const moduleOwn = exports.default || module.exports;
 const accessors = ['public', 'protected', 'private'];
-
 if (moduleOwn.data && accessors.some(function (acc) {
   return moduleOwn[acc];
 })) {
@@ -140,10 +120,8 @@ if (moduleOwn.data && accessors.some(function (acc) {
   moduleOwn._descriptor = {};
   accessors.forEach(function (acc) {
     const accType = typeof moduleOwn[acc];
-
     if (accType === 'object') {
       moduleOwn.data = Object.assign(moduleOwn.data, moduleOwn[acc]);
-
       for (const name in moduleOwn[acc]) {
         moduleOwn._descriptor[name] = {
           access: acc
@@ -156,20 +134,16 @@ if (moduleOwn.data && accessors.some(function (acc) {
 }}"
 `;
 
-exports[`Component 编译测试 ux components: ../../../lib/loaders/script-loader.js!../../../lib/loaders/module-loader.js!../../../node_modules/babel-loader/lib/index.js?cwd=<CWD>&cacheDirectory&plugins[]=<CWD>/packages/hap-dsl-xvm/lib/loaders/babel-plugin-jsx.js&comments=false&configFile=<CWD>/babel.config.js!../../../lib/loaders/access-loader.js!../../../lib/loaders/fragment-loader.js?index=0&type=script!./TestComponent/Div/testdiv.ux?uxType=page 1`] = `
+exports[`Component 编译测试 ux components: ../../../lib/loaders/script-loader.js!../../../../hap-packager/lib/loaders/module-loader.js!../../../../../node_modules/babel-loader/lib/index.js?cwd=<CWD>&cacheDirectory&plugins[]=<CWD>/packages/hap-dsl-xvm/lib/loaders/babel-plugin-jsx.js&comments=false&configFile=<CWD>/babel.config.js!../../../lib/loaders/access-loader.js!../../../lib/loaders/fragment-loader.js?index=0&type=script!./TestComponent/Div/testdiv.ux?uxType=page 1`] = `
 "module.exports = function __scriptModule__ (module, exports, $app_require$){\\"use strict\\";
 
 Object.defineProperty(exports, \\"__esModule\\", {
   value: true
 });
 exports.default = void 0;
-
 var _testES = _interopRequireDefault(require(\\"./testES\\"));
-
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
 class A1 {}
-
 var _default = {
   data: {},
   testES: _testES.default,
@@ -178,7 +152,6 @@ var _default = {
 exports.default = _default;
 const moduleOwn = exports.default || module.exports;
 const accessors = ['public', 'protected', 'private'];
-
 if (moduleOwn.data && accessors.some(function (acc) {
   return moduleOwn[acc];
 })) {
@@ -188,10 +161,8 @@ if (moduleOwn.data && accessors.some(function (acc) {
   moduleOwn._descriptor = {};
   accessors.forEach(function (acc) {
     const accType = typeof moduleOwn[acc];
-
     if (accType === 'object') {
       moduleOwn.data = Object.assign(moduleOwn.data, moduleOwn[acc]);
-
       for (const name in moduleOwn[acc]) {
         moduleOwn._descriptor[name] = {
           access: acc
@@ -204,7 +175,7 @@ if (moduleOwn.data && accessors.some(function (acc) {
 }}"
 `;
 
-exports[`Component 编译测试 ux components: ../../../lib/loaders/script-loader.js!../../../lib/loaders/module-loader.js!../../../node_modules/babel-loader/lib/index.js?cwd=<CWD>&cacheDirectory&plugins[]=<CWD>/packages/hap-dsl-xvm/lib/loaders/babel-plugin-jsx.js&comments=false&configFile=<CWD>/babel.config.js!../../../lib/loaders/access-loader.js!../../../lib/loaders/fragment-loader.js?index=0&type=script!./TestComponent/Drawer/testdrawer.ux?uxType=page 1`] = `
+exports[`Component 编译测试 ux components: ../../../lib/loaders/script-loader.js!../../../../hap-packager/lib/loaders/module-loader.js!../../../../../node_modules/babel-loader/lib/index.js?cwd=<CWD>&cacheDirectory&plugins[]=<CWD>/packages/hap-dsl-xvm/lib/loaders/babel-plugin-jsx.js&comments=false&configFile=<CWD>/babel.config.js!../../../lib/loaders/access-loader.js!../../../lib/loaders/fragment-loader.js?index=0&type=script!./TestComponent/Drawer/testdrawer.ux?uxType=page 1`] = `
 "module.exports = function __scriptModule__ (module, exports, $app_require$){\\"use strict\\";
 
 Object.defineProperty(exports, \\"__esModule\\", {
@@ -213,12 +184,10 @@ Object.defineProperty(exports, \\"__esModule\\", {
 exports.default = void 0;
 var _default = {
   fn() {}
-
 };
 exports.default = _default;
 const moduleOwn = exports.default || module.exports;
 const accessors = ['public', 'protected', 'private'];
-
 if (moduleOwn.data && accessors.some(function (acc) {
   return moduleOwn[acc];
 })) {
@@ -228,10 +197,8 @@ if (moduleOwn.data && accessors.some(function (acc) {
   moduleOwn._descriptor = {};
   accessors.forEach(function (acc) {
     const accType = typeof moduleOwn[acc];
-
     if (accType === 'object') {
       moduleOwn.data = Object.assign(moduleOwn.data, moduleOwn[acc]);
-
       for (const name in moduleOwn[acc]) {
         moduleOwn._descriptor[name] = {
           access: acc
@@ -244,7 +211,7 @@ if (moduleOwn.data && accessors.some(function (acc) {
 }}"
 `;
 
-exports[`Component 编译测试 ux components: ../../../lib/loaders/script-loader.js!../../../lib/loaders/module-loader.js!../../../node_modules/babel-loader/lib/index.js?cwd=<CWD>&cacheDirectory&plugins[]=<CWD>/packages/hap-dsl-xvm/lib/loaders/babel-plugin-jsx.js&comments=false&configFile=<CWD>/babel.config.js!../../../lib/loaders/access-loader.js!../../../lib/loaders/fragment-loader.js?index=0&type=script!./TestComponent/Image/testimage.ux?uxType=page 1`] = `
+exports[`Component 编译测试 ux components: ../../../lib/loaders/script-loader.js!../../../../hap-packager/lib/loaders/module-loader.js!../../../../../node_modules/babel-loader/lib/index.js?cwd=<CWD>&cacheDirectory&plugins[]=<CWD>/packages/hap-dsl-xvm/lib/loaders/babel-plugin-jsx.js&comments=false&configFile=<CWD>/babel.config.js!../../../lib/loaders/access-loader.js!../../../lib/loaders/fragment-loader.js?index=0&type=script!./TestComponent/Image/testimage.ux?uxType=page 1`] = `
 "module.exports = function __scriptModule__ (module, exports, $app_require$){\\"use strict\\";
 
 Object.defineProperty(exports, \\"__esModule\\", {
@@ -257,7 +224,6 @@ var _default = {
 exports.default = _default;
 const moduleOwn = exports.default || module.exports;
 const accessors = ['public', 'protected', 'private'];
-
 if (moduleOwn.data && accessors.some(function (acc) {
   return moduleOwn[acc];
 })) {
@@ -267,10 +233,8 @@ if (moduleOwn.data && accessors.some(function (acc) {
   moduleOwn._descriptor = {};
   accessors.forEach(function (acc) {
     const accType = typeof moduleOwn[acc];
-
     if (accType === 'object') {
       moduleOwn.data = Object.assign(moduleOwn.data, moduleOwn[acc]);
-
       for (const name in moduleOwn[acc]) {
         moduleOwn._descriptor[name] = {
           access: acc
@@ -283,7 +247,7 @@ if (moduleOwn.data && accessors.some(function (acc) {
 }}"
 `;
 
-exports[`Component 编译测试 ux components: ../../../lib/loaders/script-loader.js!../../../lib/loaders/module-loader.js!../../../node_modules/babel-loader/lib/index.js?cwd=<CWD>&cacheDirectory&plugins[]=<CWD>/packages/hap-dsl-xvm/lib/loaders/babel-plugin-jsx.js&comments=false&configFile=<CWD>/babel.config.js!../../../lib/loaders/access-loader.js!../../../lib/loaders/fragment-loader.js?index=0&type=script!./TestComponent/Input/testinput.ux?uxType=page 1`] = `
+exports[`Component 编译测试 ux components: ../../../lib/loaders/script-loader.js!../../../../hap-packager/lib/loaders/module-loader.js!../../../../../node_modules/babel-loader/lib/index.js?cwd=<CWD>&cacheDirectory&plugins[]=<CWD>/packages/hap-dsl-xvm/lib/loaders/babel-plugin-jsx.js&comments=false&configFile=<CWD>/babel.config.js!../../../lib/loaders/access-loader.js!../../../lib/loaders/fragment-loader.js?index=0&type=script!./TestComponent/Input/testinput.ux?uxType=page 1`] = `
 "module.exports = function __scriptModule__ (module, exports, $app_require$){\\"use strict\\";
 
 Object.defineProperty(exports, \\"__esModule\\", {
@@ -292,19 +256,33 @@ Object.defineProperty(exports, \\"__esModule\\", {
 exports.default = void 0;
 var _default = {
   data: {},
-  clickBtn: function () {},
-  changeText: function (e) {},
-  enterkeyclickfn: function (e) {},
-  changeMail: function (e) {},
-  changeDate: function (e) {},
-  changeTime: function (e) {},
-  changeNumber: function (e) {},
-  selectionchangeFn: function (e) {}
+  clickBtn: function () {
+  },
+
+  changeText: function (e) {
+  },
+
+  enterkeyclickfn: function (e) {
+  },
+
+  changeMail: function (e) {
+  },
+
+  changeDate: function (e) {
+  },
+
+  changeTime: function (e) {
+  },
+
+  changeNumber: function (e) {
+  },
+
+  selectionchangeFn: function (e) {
+  }
 };
 exports.default = _default;
 const moduleOwn = exports.default || module.exports;
 const accessors = ['public', 'protected', 'private'];
-
 if (moduleOwn.data && accessors.some(function (acc) {
   return moduleOwn[acc];
 })) {
@@ -314,10 +292,8 @@ if (moduleOwn.data && accessors.some(function (acc) {
   moduleOwn._descriptor = {};
   accessors.forEach(function (acc) {
     const accType = typeof moduleOwn[acc];
-
     if (accType === 'object') {
       moduleOwn.data = Object.assign(moduleOwn.data, moduleOwn[acc]);
-
       for (const name in moduleOwn[acc]) {
         moduleOwn._descriptor[name] = {
           access: acc
@@ -330,7 +306,7 @@ if (moduleOwn.data && accessors.some(function (acc) {
 }}"
 `;
 
-exports[`Component 编译测试 ux components: ../../../lib/loaders/script-loader.js!../../../lib/loaders/module-loader.js!../../../node_modules/babel-loader/lib/index.js?cwd=<CWD>&cacheDirectory&plugins[]=<CWD>/packages/hap-dsl-xvm/lib/loaders/babel-plugin-jsx.js&comments=false&configFile=<CWD>/babel.config.js!../../../lib/loaders/access-loader.js!../../../lib/loaders/fragment-loader.js?index=0&type=script!./TestComponent/Label/testlabel.ux?uxType=page 1`] = `
+exports[`Component 编译测试 ux components: ../../../lib/loaders/script-loader.js!../../../../hap-packager/lib/loaders/module-loader.js!../../../../../node_modules/babel-loader/lib/index.js?cwd=<CWD>&cacheDirectory&plugins[]=<CWD>/packages/hap-dsl-xvm/lib/loaders/babel-plugin-jsx.js&comments=false&configFile=<CWD>/babel.config.js!../../../lib/loaders/access-loader.js!../../../lib/loaders/fragment-loader.js?index=0&type=script!./TestComponent/Label/testlabel.ux?uxType=page 1`] = `
 "module.exports = function __scriptModule__ (module, exports, $app_require$){\\"use strict\\";
 
 Object.defineProperty(exports, \\"__esModule\\", {
@@ -339,12 +315,12 @@ Object.defineProperty(exports, \\"__esModule\\", {
 exports.default = void 0;
 var _default = {
   data: {},
-  clicklabel: function () {}
+  clicklabel: function () {
+  }
 };
 exports.default = _default;
 const moduleOwn = exports.default || module.exports;
 const accessors = ['public', 'protected', 'private'];
-
 if (moduleOwn.data && accessors.some(function (acc) {
   return moduleOwn[acc];
 })) {
@@ -354,10 +330,8 @@ if (moduleOwn.data && accessors.some(function (acc) {
   moduleOwn._descriptor = {};
   accessors.forEach(function (acc) {
     const accType = typeof moduleOwn[acc];
-
     if (accType === 'object') {
       moduleOwn.data = Object.assign(moduleOwn.data, moduleOwn[acc]);
-
       for (const name in moduleOwn[acc]) {
         moduleOwn._descriptor[name] = {
           access: acc
@@ -370,7 +344,7 @@ if (moduleOwn.data && accessors.some(function (acc) {
 }}"
 `;
 
-exports[`Component 编译测试 ux components: ../../../lib/loaders/script-loader.js!../../../lib/loaders/module-loader.js!../../../node_modules/babel-loader/lib/index.js?cwd=<CWD>&cacheDirectory&plugins[]=<CWD>/packages/hap-dsl-xvm/lib/loaders/babel-plugin-jsx.js&comments=false&configFile=<CWD>/babel.config.js!../../../lib/loaders/access-loader.js!../../../lib/loaders/fragment-loader.js?index=0&type=script!./TestComponent/List/testlist.ux?uxType=page 1`] = `
+exports[`Component 编译测试 ux components: ../../../lib/loaders/script-loader.js!../../../../hap-packager/lib/loaders/module-loader.js!../../../../../node_modules/babel-loader/lib/index.js?cwd=<CWD>&cacheDirectory&plugins[]=<CWD>/packages/hap-dsl-xvm/lib/loaders/babel-plugin-jsx.js&comments=false&configFile=<CWD>/babel.config.js!../../../lib/loaders/access-loader.js!../../../lib/loaders/fragment-loader.js?index=0&type=script!./TestComponent/List/testlist.ux?uxType=page 1`] = `
 "module.exports = function __scriptModule__ (module, exports, $app_require$){\\"use strict\\";
 
 Object.defineProperty(exports, \\"__esModule\\", {
@@ -379,24 +353,16 @@ Object.defineProperty(exports, \\"__esModule\\", {
 exports.default = void 0;
 var _default = {
   data: {},
-
   scrollFn() {},
-
   scrollbottomFn() {},
-
   scrolltopFn() {},
-
   scrollendFn() {},
-
   scrolltouchupFn() {},
-
   selectedFn() {}
-
 };
 exports.default = _default;
 const moduleOwn = exports.default || module.exports;
 const accessors = ['public', 'protected', 'private'];
-
 if (moduleOwn.data && accessors.some(function (acc) {
   return moduleOwn[acc];
 })) {
@@ -406,10 +372,8 @@ if (moduleOwn.data && accessors.some(function (acc) {
   moduleOwn._descriptor = {};
   accessors.forEach(function (acc) {
     const accType = typeof moduleOwn[acc];
-
     if (accType === 'object') {
       moduleOwn.data = Object.assign(moduleOwn.data, moduleOwn[acc]);
-
       for (const name in moduleOwn[acc]) {
         moduleOwn._descriptor[name] = {
           access: acc
@@ -422,18 +386,15 @@ if (moduleOwn.data && accessors.some(function (acc) {
 }}"
 `;
 
-exports[`Component 编译测试 ux components: ../../../lib/loaders/script-loader.js!../../../lib/loaders/module-loader.js!../../../node_modules/babel-loader/lib/index.js?cwd=<CWD>&cacheDirectory&plugins[]=<CWD>/packages/hap-dsl-xvm/lib/loaders/babel-plugin-jsx.js&comments=false&configFile=<CWD>/babel.config.js!../../../lib/loaders/access-loader.js!../../../lib/loaders/fragment-loader.js?index=0&type=script!./TestComponent/Lottie/testlottie.ux?uxType=page 1`] = `
+exports[`Component 编译测试 ux components: ../../../lib/loaders/script-loader.js!../../../../hap-packager/lib/loaders/module-loader.js!../../../../../node_modules/babel-loader/lib/index.js?cwd=<CWD>&cacheDirectory&plugins[]=<CWD>/packages/hap-dsl-xvm/lib/loaders/babel-plugin-jsx.js&comments=false&configFile=<CWD>/babel.config.js!../../../lib/loaders/access-loader.js!../../../lib/loaders/fragment-loader.js?index=0&type=script!./TestComponent/Lottie/testlottie.ux?uxType=page 1`] = `
 "module.exports = function __scriptModule__ (module, exports, $app_require$){\\"use strict\\";
 
 Object.defineProperty(exports, \\"__esModule\\", {
   value: true
 });
 exports.default = void 0;
-
 var _system = _interopRequireDefault($app_require$(\\"@app-module/system.prompt\\"));
-
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
 var _default = {
   private: {
     progress: 0,
@@ -445,69 +406,54 @@ var _default = {
     progressComputed() {
       return this.progress / 10;
     }
-
   },
-
   playAnimation(startFrame, endFrame) {
     this.$element('lottie1').play({
       startFrame: startFrame,
       endFrame: endFrame
     });
   },
-
   resetAnimation() {
     this.$element('lottie1').reset();
   },
-
   resumeAnimation() {
     this.$element('lottie1').resume();
   },
-
   pauseAnimation() {
     this.$element('lottie1').pause();
   },
-
   getProgressValue(event) {
     this.progress = event.progress;
   },
-
   getSpeedValue(event) {
     this.speed = event.progress;
   },
-
   loopChange() {
     this.loop = !this.loop;
   },
-
   animationFinished() {
     _system.default.showToast({
       message: '动画播放完啦'
     });
   },
-
   changeRenderMode(event) {
     this.renderMode = event.newValue;
   },
-
   animationChanged(event) {
     this.progress = event.progress * 10;
-
     _system.default.showToast({
       message: '现在进度：' + event.progress
     });
   },
-
   errorFunction() {
     _system.default.showToast({
       message: 'lottie动画加载出错了'
     });
   }
-
 };
 exports.default = _default;
 const moduleOwn = exports.default || module.exports;
 const accessors = ['public', 'protected', 'private'];
-
 if (moduleOwn.data && accessors.some(function (acc) {
   return moduleOwn[acc];
 })) {
@@ -517,10 +463,8 @@ if (moduleOwn.data && accessors.some(function (acc) {
   moduleOwn._descriptor = {};
   accessors.forEach(function (acc) {
     const accType = typeof moduleOwn[acc];
-
     if (accType === 'object') {
       moduleOwn.data = Object.assign(moduleOwn.data, moduleOwn[acc]);
-
       for (const name in moduleOwn[acc]) {
         moduleOwn._descriptor[name] = {
           access: acc
@@ -533,7 +477,7 @@ if (moduleOwn.data && accessors.some(function (acc) {
 }}"
 `;
 
-exports[`Component 编译测试 ux components: ../../../lib/loaders/script-loader.js!../../../lib/loaders/module-loader.js!../../../node_modules/babel-loader/lib/index.js?cwd=<CWD>&cacheDirectory&plugins[]=<CWD>/packages/hap-dsl-xvm/lib/loaders/babel-plugin-jsx.js&comments=false&configFile=<CWD>/babel.config.js!../../../lib/loaders/access-loader.js!../../../lib/loaders/fragment-loader.js?index=0&type=script!./TestComponent/Map/testmap.ux?uxType=page 1`] = `
+exports[`Component 编译测试 ux components: ../../../lib/loaders/script-loader.js!../../../../hap-packager/lib/loaders/module-loader.js!../../../../../node_modules/babel-loader/lib/index.js?cwd=<CWD>&cacheDirectory&plugins[]=<CWD>/packages/hap-dsl-xvm/lib/loaders/babel-plugin-jsx.js&comments=false&configFile=<CWD>/babel.config.js!../../../lib/loaders/access-loader.js!../../../lib/loaders/fragment-loader.js?index=0&type=script!./TestComponent/Map/testmap.ux?uxType=page 1`] = `
 "module.exports = function __scriptModule__ (module, exports, $app_require$){\\"use strict\\";
 
 Object.defineProperty(exports, \\"__esModule\\", {
@@ -559,7 +503,6 @@ var _default = {
 exports.default = _default;
 const moduleOwn = exports.default || module.exports;
 const accessors = ['public', 'protected', 'private'];
-
 if (moduleOwn.data && accessors.some(function (acc) {
   return moduleOwn[acc];
 })) {
@@ -569,10 +512,8 @@ if (moduleOwn.data && accessors.some(function (acc) {
   moduleOwn._descriptor = {};
   accessors.forEach(function (acc) {
     const accType = typeof moduleOwn[acc];
-
     if (accType === 'object') {
       moduleOwn.data = Object.assign(moduleOwn.data, moduleOwn[acc]);
-
       for (const name in moduleOwn[acc]) {
         moduleOwn._descriptor[name] = {
           access: acc
@@ -585,7 +526,7 @@ if (moduleOwn.data && accessors.some(function (acc) {
 }}"
 `;
 
-exports[`Component 编译测试 ux components: ../../../lib/loaders/script-loader.js!../../../lib/loaders/module-loader.js!../../../node_modules/babel-loader/lib/index.js?cwd=<CWD>&cacheDirectory&plugins[]=<CWD>/packages/hap-dsl-xvm/lib/loaders/babel-plugin-jsx.js&comments=false&configFile=<CWD>/babel.config.js!../../../lib/loaders/access-loader.js!../../../lib/loaders/fragment-loader.js?index=0&type=script!./TestComponent/Picker/testpicker.ux?uxType=page 1`] = `
+exports[`Component 编译测试 ux components: ../../../lib/loaders/script-loader.js!../../../../hap-packager/lib/loaders/module-loader.js!../../../../../node_modules/babel-loader/lib/index.js?cwd=<CWD>&cacheDirectory&plugins[]=<CWD>/packages/hap-dsl-xvm/lib/loaders/babel-plugin-jsx.js&comments=false&configFile=<CWD>/babel.config.js!../../../lib/loaders/access-loader.js!../../../lib/loaders/fragment-loader.js?index=0&type=script!./TestComponent/Picker/testpicker.ux?uxType=page 1`] = `
 "module.exports = function __scriptModule__ (module, exports, $app_require$){\\"use strict\\";
 
 Object.defineProperty(exports, \\"__esModule\\", {
@@ -594,14 +535,18 @@ Object.defineProperty(exports, \\"__esModule\\", {
 exports.default = void 0;
 var _default = {
   data: {},
-  changeText: function (e) {},
-  changeDate: function (e) {},
-  changeTime: function (e) {}
+  changeText: function (e) {
+  },
+
+  changeDate: function (e) {
+  },
+
+  changeTime: function (e) {
+  }
 };
 exports.default = _default;
 const moduleOwn = exports.default || module.exports;
 const accessors = ['public', 'protected', 'private'];
-
 if (moduleOwn.data && accessors.some(function (acc) {
   return moduleOwn[acc];
 })) {
@@ -611,10 +556,8 @@ if (moduleOwn.data && accessors.some(function (acc) {
   moduleOwn._descriptor = {};
   accessors.forEach(function (acc) {
     const accType = typeof moduleOwn[acc];
-
     if (accType === 'object') {
       moduleOwn.data = Object.assign(moduleOwn.data, moduleOwn[acc]);
-
       for (const name in moduleOwn[acc]) {
         moduleOwn._descriptor[name] = {
           access: acc
@@ -627,7 +570,7 @@ if (moduleOwn.data && accessors.some(function (acc) {
 }}"
 `;
 
-exports[`Component 编译测试 ux components: ../../../lib/loaders/script-loader.js!../../../lib/loaders/module-loader.js!../../../node_modules/babel-loader/lib/index.js?cwd=<CWD>&cacheDirectory&plugins[]=<CWD>/packages/hap-dsl-xvm/lib/loaders/babel-plugin-jsx.js&comments=false&configFile=<CWD>/babel.config.js!../../../lib/loaders/access-loader.js!../../../lib/loaders/fragment-loader.js?index=0&type=script!./TestComponent/Popup/testpopup.ux?uxType=page 1`] = `
+exports[`Component 编译测试 ux components: ../../../lib/loaders/script-loader.js!../../../../hap-packager/lib/loaders/module-loader.js!../../../../../node_modules/babel-loader/lib/index.js?cwd=<CWD>&cacheDirectory&plugins[]=<CWD>/packages/hap-dsl-xvm/lib/loaders/babel-plugin-jsx.js&comments=false&configFile=<CWD>/babel.config.js!../../../lib/loaders/access-loader.js!../../../lib/loaders/fragment-loader.js?index=0&type=script!./TestComponent/Popup/testpopup.ux?uxType=page 1`] = `
 "module.exports = function __scriptModule__ (module, exports, $app_require$){\\"use strict\\";
 
 Object.defineProperty(exports, \\"__esModule\\", {
@@ -640,7 +583,6 @@ var _default = {
 exports.default = _default;
 const moduleOwn = exports.default || module.exports;
 const accessors = ['public', 'protected', 'private'];
-
 if (moduleOwn.data && accessors.some(function (acc) {
   return moduleOwn[acc];
 })) {
@@ -650,10 +592,8 @@ if (moduleOwn.data && accessors.some(function (acc) {
   moduleOwn._descriptor = {};
   accessors.forEach(function (acc) {
     const accType = typeof moduleOwn[acc];
-
     if (accType === 'object') {
       moduleOwn.data = Object.assign(moduleOwn.data, moduleOwn[acc]);
-
       for (const name in moduleOwn[acc]) {
         moduleOwn._descriptor[name] = {
           access: acc
@@ -666,7 +606,7 @@ if (moduleOwn.data && accessors.some(function (acc) {
 }}"
 `;
 
-exports[`Component 编译测试 ux components: ../../../lib/loaders/script-loader.js!../../../lib/loaders/module-loader.js!../../../node_modules/babel-loader/lib/index.js?cwd=<CWD>&cacheDirectory&plugins[]=<CWD>/packages/hap-dsl-xvm/lib/loaders/babel-plugin-jsx.js&comments=false&configFile=<CWD>/babel.config.js!../../../lib/loaders/access-loader.js!../../../lib/loaders/fragment-loader.js?index=0&type=script!./TestComponent/Progress/testprogress.ux?uxType=page 1`] = `
+exports[`Component 编译测试 ux components: ../../../lib/loaders/script-loader.js!../../../../hap-packager/lib/loaders/module-loader.js!../../../../../node_modules/babel-loader/lib/index.js?cwd=<CWD>&cacheDirectory&plugins[]=<CWD>/packages/hap-dsl-xvm/lib/loaders/babel-plugin-jsx.js&comments=false&configFile=<CWD>/babel.config.js!../../../lib/loaders/access-loader.js!../../../lib/loaders/fragment-loader.js?index=0&type=script!./TestComponent/Progress/testprogress.ux?uxType=page 1`] = `
 "module.exports = function __scriptModule__ (module, exports, $app_require$){\\"use strict\\";
 
 Object.defineProperty(exports, \\"__esModule\\", {
@@ -679,7 +619,6 @@ var _default = {
 exports.default = _default;
 const moduleOwn = exports.default || module.exports;
 const accessors = ['public', 'protected', 'private'];
-
 if (moduleOwn.data && accessors.some(function (acc) {
   return moduleOwn[acc];
 })) {
@@ -689,10 +628,8 @@ if (moduleOwn.data && accessors.some(function (acc) {
   moduleOwn._descriptor = {};
   accessors.forEach(function (acc) {
     const accType = typeof moduleOwn[acc];
-
     if (accType === 'object') {
       moduleOwn.data = Object.assign(moduleOwn.data, moduleOwn[acc]);
-
       for (const name in moduleOwn[acc]) {
         moduleOwn._descriptor[name] = {
           access: acc
@@ -705,7 +642,7 @@ if (moduleOwn.data && accessors.some(function (acc) {
 }}"
 `;
 
-exports[`Component 编译测试 ux components: ../../../lib/loaders/script-loader.js!../../../lib/loaders/module-loader.js!../../../node_modules/babel-loader/lib/index.js?cwd=<CWD>&cacheDirectory&plugins[]=<CWD>/packages/hap-dsl-xvm/lib/loaders/babel-plugin-jsx.js&comments=false&configFile=<CWD>/babel.config.js!../../../lib/loaders/access-loader.js!../../../lib/loaders/fragment-loader.js?index=0&type=script!./TestComponent/Rating/testrating.ux?uxType=page 1`] = `
+exports[`Component 编译测试 ux components: ../../../lib/loaders/script-loader.js!../../../../hap-packager/lib/loaders/module-loader.js!../../../../../node_modules/babel-loader/lib/index.js?cwd=<CWD>&cacheDirectory&plugins[]=<CWD>/packages/hap-dsl-xvm/lib/loaders/babel-plugin-jsx.js&comments=false&configFile=<CWD>/babel.config.js!../../../lib/loaders/access-loader.js!../../../lib/loaders/fragment-loader.js?index=0&type=script!./TestComponent/Rating/testrating.ux?uxType=page 1`] = `
 "module.exports = function __scriptModule__ (module, exports, $app_require$){\\"use strict\\";
 
 Object.defineProperty(exports, \\"__esModule\\", {
@@ -714,14 +651,12 @@ Object.defineProperty(exports, \\"__esModule\\", {
 exports.default = void 0;
 var _default = {
   data: {},
-
-  changeNum(e) {}
-
+  changeNum(e) {
+  }
 };
 exports.default = _default;
 const moduleOwn = exports.default || module.exports;
 const accessors = ['public', 'protected', 'private'];
-
 if (moduleOwn.data && accessors.some(function (acc) {
   return moduleOwn[acc];
 })) {
@@ -731,10 +666,8 @@ if (moduleOwn.data && accessors.some(function (acc) {
   moduleOwn._descriptor = {};
   accessors.forEach(function (acc) {
     const accType = typeof moduleOwn[acc];
-
     if (accType === 'object') {
       moduleOwn.data = Object.assign(moduleOwn.data, moduleOwn[acc]);
-
       for (const name in moduleOwn[acc]) {
         moduleOwn._descriptor[name] = {
           access: acc
@@ -747,7 +680,7 @@ if (moduleOwn.data && accessors.some(function (acc) {
 }}"
 `;
 
-exports[`Component 编译测试 ux components: ../../../lib/loaders/script-loader.js!../../../lib/loaders/module-loader.js!../../../node_modules/babel-loader/lib/index.js?cwd=<CWD>&cacheDirectory&plugins[]=<CWD>/packages/hap-dsl-xvm/lib/loaders/babel-plugin-jsx.js&comments=false&configFile=<CWD>/babel.config.js!../../../lib/loaders/access-loader.js!../../../lib/loaders/fragment-loader.js?index=0&type=script!./TestComponent/Refresh/testrefresh.ux?uxType=page 1`] = `
+exports[`Component 编译测试 ux components: ../../../lib/loaders/script-loader.js!../../../../hap-packager/lib/loaders/module-loader.js!../../../../../node_modules/babel-loader/lib/index.js?cwd=<CWD>&cacheDirectory&plugins[]=<CWD>/packages/hap-dsl-xvm/lib/loaders/babel-plugin-jsx.js&comments=false&configFile=<CWD>/babel.config.js!../../../lib/loaders/access-loader.js!../../../lib/loaders/fragment-loader.js?index=0&type=script!./TestComponent/Refresh/testrefresh.ux?uxType=page 1`] = `
 "module.exports = function __scriptModule__ (module, exports, $app_require$){\\"use strict\\";
 
 Object.defineProperty(exports, \\"__esModule\\", {
@@ -770,7 +703,6 @@ var _default = {
 exports.default = _default;
 const moduleOwn = exports.default || module.exports;
 const accessors = ['public', 'protected', 'private'];
-
 if (moduleOwn.data && accessors.some(function (acc) {
   return moduleOwn[acc];
 })) {
@@ -780,10 +712,8 @@ if (moduleOwn.data && accessors.some(function (acc) {
   moduleOwn._descriptor = {};
   accessors.forEach(function (acc) {
     const accType = typeof moduleOwn[acc];
-
     if (accType === 'object') {
       moduleOwn.data = Object.assign(moduleOwn.data, moduleOwn[acc]);
-
       for (const name in moduleOwn[acc]) {
         moduleOwn._descriptor[name] = {
           access: acc
@@ -796,7 +726,7 @@ if (moduleOwn.data && accessors.some(function (acc) {
 }}"
 `;
 
-exports[`Component 编译测试 ux components: ../../../lib/loaders/script-loader.js!../../../lib/loaders/module-loader.js!../../../node_modules/babel-loader/lib/index.js?cwd=<CWD>&cacheDirectory&plugins[]=<CWD>/packages/hap-dsl-xvm/lib/loaders/babel-plugin-jsx.js&comments=false&configFile=<CWD>/babel.config.js!../../../lib/loaders/access-loader.js!../../../lib/loaders/fragment-loader.js?index=0&type=script!./TestComponent/Refresh2/testrefresh2.ux?uxType=page 1`] = `
+exports[`Component 编译测试 ux components: ../../../lib/loaders/script-loader.js!../../../../hap-packager/lib/loaders/module-loader.js!../../../../../node_modules/babel-loader/lib/index.js?cwd=<CWD>&cacheDirectory&plugins[]=<CWD>/packages/hap-dsl-xvm/lib/loaders/babel-plugin-jsx.js&comments=false&configFile=<CWD>/babel.config.js!../../../lib/loaders/access-loader.js!../../../lib/loaders/fragment-loader.js?index=0&type=script!./TestComponent/Refresh2/testrefresh2.ux?uxType=page 1`] = `
 "module.exports = function __scriptModule__ (module, exports, $app_require$){\\"use strict\\";
 
 Object.defineProperty(exports, \\"__esModule\\", {
@@ -807,14 +737,18 @@ var _default = {
   data: {
     swiperList: ['A', 'B', 'C', 'D', 'E', 'F']
   },
-  refresh2: function (e) {},
-  changeSwiper: function (e) {},
-  changeTabs: function (e) {}
+  refresh2: function (e) {
+  },
+
+  changeSwiper: function (e) {
+  },
+
+  changeTabs: function (e) {
+  }
 };
 exports.default = _default;
 const moduleOwn = exports.default || module.exports;
 const accessors = ['public', 'protected', 'private'];
-
 if (moduleOwn.data && accessors.some(function (acc) {
   return moduleOwn[acc];
 })) {
@@ -824,10 +758,8 @@ if (moduleOwn.data && accessors.some(function (acc) {
   moduleOwn._descriptor = {};
   accessors.forEach(function (acc) {
     const accType = typeof moduleOwn[acc];
-
     if (accType === 'object') {
       moduleOwn.data = Object.assign(moduleOwn.data, moduleOwn[acc]);
-
       for (const name in moduleOwn[acc]) {
         moduleOwn._descriptor[name] = {
           access: acc
@@ -840,7 +772,7 @@ if (moduleOwn.data && accessors.some(function (acc) {
 }}"
 `;
 
-exports[`Component 编译测试 ux components: ../../../lib/loaders/script-loader.js!../../../lib/loaders/module-loader.js!../../../node_modules/babel-loader/lib/index.js?cwd=<CWD>&cacheDirectory&plugins[]=<CWD>/packages/hap-dsl-xvm/lib/loaders/babel-plugin-jsx.js&comments=false&configFile=<CWD>/babel.config.js!../../../lib/loaders/access-loader.js!../../../lib/loaders/fragment-loader.js?index=0&type=script!./TestComponent/RichText/testrichtext.ux?uxType=page 1`] = `
+exports[`Component 编译测试 ux components: ../../../lib/loaders/script-loader.js!../../../../hap-packager/lib/loaders/module-loader.js!../../../../../node_modules/babel-loader/lib/index.js?cwd=<CWD>&cacheDirectory&plugins[]=<CWD>/packages/hap-dsl-xvm/lib/loaders/babel-plugin-jsx.js&comments=false&configFile=<CWD>/babel.config.js!../../../lib/loaders/access-loader.js!../../../lib/loaders/fragment-loader.js?index=0&type=script!./TestComponent/RichText/testrichtext.ux?uxType=page 1`] = `
 "module.exports = function __scriptModule__ (module, exports, $app_require$){\\"use strict\\";
 
 Object.defineProperty(exports, \\"__esModule\\", {
@@ -858,7 +790,6 @@ var _default = {
 exports.default = _default;
 const moduleOwn = exports.default || module.exports;
 const accessors = ['public', 'protected', 'private'];
-
 if (moduleOwn.data && accessors.some(function (acc) {
   return moduleOwn[acc];
 })) {
@@ -868,10 +799,8 @@ if (moduleOwn.data && accessors.some(function (acc) {
   moduleOwn._descriptor = {};
   accessors.forEach(function (acc) {
     const accType = typeof moduleOwn[acc];
-
     if (accType === 'object') {
       moduleOwn.data = Object.assign(moduleOwn.data, moduleOwn[acc]);
-
       for (const name in moduleOwn[acc]) {
         moduleOwn._descriptor[name] = {
           access: acc
@@ -884,7 +813,7 @@ if (moduleOwn.data && accessors.some(function (acc) {
 }}"
 `;
 
-exports[`Component 编译测试 ux components: ../../../lib/loaders/script-loader.js!../../../lib/loaders/module-loader.js!../../../node_modules/babel-loader/lib/index.js?cwd=<CWD>&cacheDirectory&plugins[]=<CWD>/packages/hap-dsl-xvm/lib/loaders/babel-plugin-jsx.js&comments=false&configFile=<CWD>/babel.config.js!../../../lib/loaders/access-loader.js!../../../lib/loaders/fragment-loader.js?index=0&type=script!./TestComponent/Scrollview/testscrollview.ux?uxType=page 1`] = `
+exports[`Component 编译测试 ux components: ../../../lib/loaders/script-loader.js!../../../../hap-packager/lib/loaders/module-loader.js!../../../../../node_modules/babel-loader/lib/index.js?cwd=<CWD>&cacheDirectory&plugins[]=<CWD>/packages/hap-dsl-xvm/lib/loaders/babel-plugin-jsx.js&comments=false&configFile=<CWD>/babel.config.js!../../../lib/loaders/access-loader.js!../../../lib/loaders/fragment-loader.js?index=0&type=script!./TestComponent/Scrollview/testscrollview.ux?uxType=page 1`] = `
 "module.exports = function __scriptModule__ (module, exports, $app_require$){\\"use strict\\";
 
 Object.defineProperty(exports, \\"__esModule\\", {
@@ -893,12 +822,10 @@ Object.defineProperty(exports, \\"__esModule\\", {
 exports.default = void 0;
 var _default = {
   fn() {}
-
 };
 exports.default = _default;
 const moduleOwn = exports.default || module.exports;
 const accessors = ['public', 'protected', 'private'];
-
 if (moduleOwn.data && accessors.some(function (acc) {
   return moduleOwn[acc];
 })) {
@@ -908,10 +835,8 @@ if (moduleOwn.data && accessors.some(function (acc) {
   moduleOwn._descriptor = {};
   accessors.forEach(function (acc) {
     const accType = typeof moduleOwn[acc];
-
     if (accType === 'object') {
       moduleOwn.data = Object.assign(moduleOwn.data, moduleOwn[acc]);
-
       for (const name in moduleOwn[acc]) {
         moduleOwn._descriptor[name] = {
           access: acc
@@ -924,7 +849,7 @@ if (moduleOwn.data && accessors.some(function (acc) {
 }}"
 `;
 
-exports[`Component 编译测试 ux components: ../../../lib/loaders/script-loader.js!../../../lib/loaders/module-loader.js!../../../node_modules/babel-loader/lib/index.js?cwd=<CWD>&cacheDirectory&plugins[]=<CWD>/packages/hap-dsl-xvm/lib/loaders/babel-plugin-jsx.js&comments=false&configFile=<CWD>/babel.config.js!../../../lib/loaders/access-loader.js!../../../lib/loaders/fragment-loader.js?index=0&type=script!./TestComponent/SectionList/index.ux?uxType=page 1`] = `
+exports[`Component 编译测试 ux components: ../../../lib/loaders/script-loader.js!../../../../hap-packager/lib/loaders/module-loader.js!../../../../../node_modules/babel-loader/lib/index.js?cwd=<CWD>&cacheDirectory&plugins[]=<CWD>/packages/hap-dsl-xvm/lib/loaders/babel-plugin-jsx.js&comments=false&configFile=<CWD>/babel.config.js!../../../lib/loaders/access-loader.js!../../../lib/loaders/fragment-loader.js?index=0&type=script!./TestComponent/SectionList/index.ux?uxType=page 1`] = `
 "module.exports = function __scriptModule__ (module, exports, $app_require$){\\"use strict\\";
 
 Object.defineProperty(exports, \\"__esModule\\", {
@@ -933,22 +858,15 @@ Object.defineProperty(exports, \\"__esModule\\", {
 exports.default = void 0;
 var _default = {
   scrollfn() {},
-
   scrollend() {},
-
   scrolltouchup() {},
-
   scrolltop() {},
-
   scrollbottom() {},
-
   change() {}
-
 };
 exports.default = _default;
 const moduleOwn = exports.default || module.exports;
 const accessors = ['public', 'protected', 'private'];
-
 if (moduleOwn.data && accessors.some(function (acc) {
   return moduleOwn[acc];
 })) {
@@ -958,10 +876,8 @@ if (moduleOwn.data && accessors.some(function (acc) {
   moduleOwn._descriptor = {};
   accessors.forEach(function (acc) {
     const accType = typeof moduleOwn[acc];
-
     if (accType === 'object') {
       moduleOwn.data = Object.assign(moduleOwn.data, moduleOwn[acc]);
-
       for (const name in moduleOwn[acc]) {
         moduleOwn._descriptor[name] = {
           access: acc
@@ -974,7 +890,7 @@ if (moduleOwn.data && accessors.some(function (acc) {
 }}"
 `;
 
-exports[`Component 编译测试 ux components: ../../../lib/loaders/script-loader.js!../../../lib/loaders/module-loader.js!../../../node_modules/babel-loader/lib/index.js?cwd=<CWD>&cacheDirectory&plugins[]=<CWD>/packages/hap-dsl-xvm/lib/loaders/babel-plugin-jsx.js&comments=false&configFile=<CWD>/babel.config.js!../../../lib/loaders/access-loader.js!../../../lib/loaders/fragment-loader.js?index=0&type=script!./TestComponent/SelectOption/testselectoption.ux?uxType=page 1`] = `
+exports[`Component 编译测试 ux components: ../../../lib/loaders/script-loader.js!../../../../hap-packager/lib/loaders/module-loader.js!../../../../../node_modules/babel-loader/lib/index.js?cwd=<CWD>&cacheDirectory&plugins[]=<CWD>/packages/hap-dsl-xvm/lib/loaders/babel-plugin-jsx.js&comments=false&configFile=<CWD>/babel.config.js!../../../lib/loaders/access-loader.js!../../../lib/loaders/fragment-loader.js?index=0&type=script!./TestComponent/SelectOption/testselectoption.ux?uxType=page 1`] = `
 "module.exports = function __scriptModule__ (module, exports, $app_require$){\\"use strict\\";
 
 Object.defineProperty(exports, \\"__esModule\\", {
@@ -987,7 +903,6 @@ var _default = {
 exports.default = _default;
 const moduleOwn = exports.default || module.exports;
 const accessors = ['public', 'protected', 'private'];
-
 if (moduleOwn.data && accessors.some(function (acc) {
   return moduleOwn[acc];
 })) {
@@ -997,10 +912,8 @@ if (moduleOwn.data && accessors.some(function (acc) {
   moduleOwn._descriptor = {};
   accessors.forEach(function (acc) {
     const accType = typeof moduleOwn[acc];
-
     if (accType === 'object') {
       moduleOwn.data = Object.assign(moduleOwn.data, moduleOwn[acc]);
-
       for (const name in moduleOwn[acc]) {
         moduleOwn._descriptor[name] = {
           access: acc
@@ -1013,7 +926,7 @@ if (moduleOwn.data && accessors.some(function (acc) {
 }}"
 `;
 
-exports[`Component 编译测试 ux components: ../../../lib/loaders/script-loader.js!../../../lib/loaders/module-loader.js!../../../node_modules/babel-loader/lib/index.js?cwd=<CWD>&cacheDirectory&plugins[]=<CWD>/packages/hap-dsl-xvm/lib/loaders/babel-plugin-jsx.js&comments=false&configFile=<CWD>/babel.config.js!../../../lib/loaders/access-loader.js!../../../lib/loaders/fragment-loader.js?index=0&type=script!./TestComponent/SlideView/index.ux?uxType=page 1`] = `
+exports[`Component 编译测试 ux components: ../../../lib/loaders/script-loader.js!../../../../hap-packager/lib/loaders/module-loader.js!../../../../../node_modules/babel-loader/lib/index.js?cwd=<CWD>&cacheDirectory&plugins[]=<CWD>/packages/hap-dsl-xvm/lib/loaders/babel-plugin-jsx.js&comments=false&configFile=<CWD>/babel.config.js!../../../lib/loaders/access-loader.js!../../../lib/loaders/fragment-loader.js?index=0&type=script!./TestComponent/SlideView/index.ux?uxType=page 1`] = `
 "module.exports = function __scriptModule__ (module, exports, $app_require$){\\"use strict\\";
 
 Object.defineProperty(exports, \\"__esModule\\", {
@@ -1024,20 +937,14 @@ var _default = {
   data: {
     slideButtons: {}
   },
-
   slideViewOpen() {},
-
   slideViewClose() {},
-
   slideViewSlide() {},
-
   buttonClick() {}
-
 };
 exports.default = _default;
 const moduleOwn = exports.default || module.exports;
 const accessors = ['public', 'protected', 'private'];
-
 if (moduleOwn.data && accessors.some(function (acc) {
   return moduleOwn[acc];
 })) {
@@ -1047,10 +954,8 @@ if (moduleOwn.data && accessors.some(function (acc) {
   moduleOwn._descriptor = {};
   accessors.forEach(function (acc) {
     const accType = typeof moduleOwn[acc];
-
     if (accType === 'object') {
       moduleOwn.data = Object.assign(moduleOwn.data, moduleOwn[acc]);
-
       for (const name in moduleOwn[acc]) {
         moduleOwn._descriptor[name] = {
           access: acc
@@ -1063,7 +968,7 @@ if (moduleOwn.data && accessors.some(function (acc) {
 }}"
 `;
 
-exports[`Component 编译测试 ux components: ../../../lib/loaders/script-loader.js!../../../lib/loaders/module-loader.js!../../../node_modules/babel-loader/lib/index.js?cwd=<CWD>&cacheDirectory&plugins[]=<CWD>/packages/hap-dsl-xvm/lib/loaders/babel-plugin-jsx.js&comments=false&configFile=<CWD>/babel.config.js!../../../lib/loaders/access-loader.js!../../../lib/loaders/fragment-loader.js?index=0&type=script!./TestComponent/Slider/testslider.ux?uxType=page 1`] = `
+exports[`Component 编译测试 ux components: ../../../lib/loaders/script-loader.js!../../../../hap-packager/lib/loaders/module-loader.js!../../../../../node_modules/babel-loader/lib/index.js?cwd=<CWD>&cacheDirectory&plugins[]=<CWD>/packages/hap-dsl-xvm/lib/loaders/babel-plugin-jsx.js&comments=false&configFile=<CWD>/babel.config.js!../../../lib/loaders/access-loader.js!../../../lib/loaders/fragment-loader.js?index=0&type=script!./TestComponent/Slider/testslider.ux?uxType=page 1`] = `
 "module.exports = function __scriptModule__ (module, exports, $app_require$){\\"use strict\\";
 
 Object.defineProperty(exports, \\"__esModule\\", {
@@ -1072,15 +977,21 @@ Object.defineProperty(exports, \\"__esModule\\", {
 exports.default = void 0;
 var _default = {
   data: {},
-  changeText: function (e) {},
-  changeDate: function (e) {},
-  changeTime: function (e) {},
-  changeSlider: function (e) {}
+  changeText: function (e) {
+  },
+
+  changeDate: function (e) {
+  },
+
+  changeTime: function (e) {
+  },
+
+  changeSlider: function (e) {
+  }
 };
 exports.default = _default;
 const moduleOwn = exports.default || module.exports;
 const accessors = ['public', 'protected', 'private'];
-
 if (moduleOwn.data && accessors.some(function (acc) {
   return moduleOwn[acc];
 })) {
@@ -1090,10 +1001,8 @@ if (moduleOwn.data && accessors.some(function (acc) {
   moduleOwn._descriptor = {};
   accessors.forEach(function (acc) {
     const accType = typeof moduleOwn[acc];
-
     if (accType === 'object') {
       moduleOwn.data = Object.assign(moduleOwn.data, moduleOwn[acc]);
-
       for (const name in moduleOwn[acc]) {
         moduleOwn._descriptor[name] = {
           access: acc
@@ -1106,7 +1015,7 @@ if (moduleOwn.data && accessors.some(function (acc) {
 }}"
 `;
 
-exports[`Component 编译测试 ux components: ../../../lib/loaders/script-loader.js!../../../lib/loaders/module-loader.js!../../../node_modules/babel-loader/lib/index.js?cwd=<CWD>&cacheDirectory&plugins[]=<CWD>/packages/hap-dsl-xvm/lib/loaders/babel-plugin-jsx.js&comments=false&configFile=<CWD>/babel.config.js!../../../lib/loaders/access-loader.js!../../../lib/loaders/fragment-loader.js?index=0&type=script!./TestComponent/Span/testspan.ux?uxType=page 1`] = `
+exports[`Component 编译测试 ux components: ../../../lib/loaders/script-loader.js!../../../../hap-packager/lib/loaders/module-loader.js!../../../../../node_modules/babel-loader/lib/index.js?cwd=<CWD>&cacheDirectory&plugins[]=<CWD>/packages/hap-dsl-xvm/lib/loaders/babel-plugin-jsx.js&comments=false&configFile=<CWD>/babel.config.js!../../../lib/loaders/access-loader.js!../../../lib/loaders/fragment-loader.js?index=0&type=script!./TestComponent/Span/testspan.ux?uxType=page 1`] = `
 "module.exports = function __scriptModule__ (module, exports, $app_require$){\\"use strict\\";
 
 Object.defineProperty(exports, \\"__esModule\\", {
@@ -1119,7 +1028,6 @@ var _default = {
 exports.default = _default;
 const moduleOwn = exports.default || module.exports;
 const accessors = ['public', 'protected', 'private'];
-
 if (moduleOwn.data && accessors.some(function (acc) {
   return moduleOwn[acc];
 })) {
@@ -1129,10 +1037,8 @@ if (moduleOwn.data && accessors.some(function (acc) {
   moduleOwn._descriptor = {};
   accessors.forEach(function (acc) {
     const accType = typeof moduleOwn[acc];
-
     if (accType === 'object') {
       moduleOwn.data = Object.assign(moduleOwn.data, moduleOwn[acc]);
-
       for (const name in moduleOwn[acc]) {
         moduleOwn._descriptor[name] = {
           access: acc
@@ -1145,7 +1051,7 @@ if (moduleOwn.data && accessors.some(function (acc) {
 }}"
 `;
 
-exports[`Component 编译测试 ux components: ../../../lib/loaders/script-loader.js!../../../lib/loaders/module-loader.js!../../../node_modules/babel-loader/lib/index.js?cwd=<CWD>&cacheDirectory&plugins[]=<CWD>/packages/hap-dsl-xvm/lib/loaders/babel-plugin-jsx.js&comments=false&configFile=<CWD>/babel.config.js!../../../lib/loaders/access-loader.js!../../../lib/loaders/fragment-loader.js?index=0&type=script!./TestComponent/Stack/teststack.ux?uxType=page 1`] = `
+exports[`Component 编译测试 ux components: ../../../lib/loaders/script-loader.js!../../../../hap-packager/lib/loaders/module-loader.js!../../../../../node_modules/babel-loader/lib/index.js?cwd=<CWD>&cacheDirectory&plugins[]=<CWD>/packages/hap-dsl-xvm/lib/loaders/babel-plugin-jsx.js&comments=false&configFile=<CWD>/babel.config.js!../../../lib/loaders/access-loader.js!../../../lib/loaders/fragment-loader.js?index=0&type=script!./TestComponent/Stack/teststack.ux?uxType=page 1`] = `
 "module.exports = function __scriptModule__ (module, exports, $app_require$){\\"use strict\\";
 
 Object.defineProperty(exports, \\"__esModule\\", {
@@ -1158,7 +1064,6 @@ var _default = {
 exports.default = _default;
 const moduleOwn = exports.default || module.exports;
 const accessors = ['public', 'protected', 'private'];
-
 if (moduleOwn.data && accessors.some(function (acc) {
   return moduleOwn[acc];
 })) {
@@ -1168,10 +1073,8 @@ if (moduleOwn.data && accessors.some(function (acc) {
   moduleOwn._descriptor = {};
   accessors.forEach(function (acc) {
     const accType = typeof moduleOwn[acc];
-
     if (accType === 'object') {
       moduleOwn.data = Object.assign(moduleOwn.data, moduleOwn[acc]);
-
       for (const name in moduleOwn[acc]) {
         moduleOwn._descriptor[name] = {
           access: acc
@@ -1184,7 +1087,7 @@ if (moduleOwn.data && accessors.some(function (acc) {
 }}"
 `;
 
-exports[`Component 编译测试 ux components: ../../../lib/loaders/script-loader.js!../../../lib/loaders/module-loader.js!../../../node_modules/babel-loader/lib/index.js?cwd=<CWD>&cacheDirectory&plugins[]=<CWD>/packages/hap-dsl-xvm/lib/loaders/babel-plugin-jsx.js&comments=false&configFile=<CWD>/babel.config.js!../../../lib/loaders/access-loader.js!../../../lib/loaders/fragment-loader.js?index=0&type=script!./TestComponent/StarBackground/teststarBackground.ux?uxType=page 1`] = `
+exports[`Component 编译测试 ux components: ../../../lib/loaders/script-loader.js!../../../../hap-packager/lib/loaders/module-loader.js!../../../../../node_modules/babel-loader/lib/index.js?cwd=<CWD>&cacheDirectory&plugins[]=<CWD>/packages/hap-dsl-xvm/lib/loaders/babel-plugin-jsx.js&comments=false&configFile=<CWD>/babel.config.js!../../../lib/loaders/access-loader.js!../../../lib/loaders/fragment-loader.js?index=0&type=script!./TestComponent/StarBackground/teststarBackground.ux?uxType=page 1`] = `
 "module.exports = function __scriptModule__ (module, exports, $app_require$){\\"use strict\\";
 
 Object.defineProperty(exports, \\"__esModule\\", {
@@ -1197,7 +1100,6 @@ var _default = {
 exports.default = _default;
 const moduleOwn = exports.default || module.exports;
 const accessors = ['public', 'protected', 'private'];
-
 if (moduleOwn.data && accessors.some(function (acc) {
   return moduleOwn[acc];
 })) {
@@ -1207,10 +1109,8 @@ if (moduleOwn.data && accessors.some(function (acc) {
   moduleOwn._descriptor = {};
   accessors.forEach(function (acc) {
     const accType = typeof moduleOwn[acc];
-
     if (accType === 'object') {
       moduleOwn.data = Object.assign(moduleOwn.data, moduleOwn[acc]);
-
       for (const name in moduleOwn[acc]) {
         moduleOwn._descriptor[name] = {
           access: acc
@@ -1223,7 +1123,7 @@ if (moduleOwn.data && accessors.some(function (acc) {
 }}"
 `;
 
-exports[`Component 编译测试 ux components: ../../../lib/loaders/script-loader.js!../../../lib/loaders/module-loader.js!../../../node_modules/babel-loader/lib/index.js?cwd=<CWD>&cacheDirectory&plugins[]=<CWD>/packages/hap-dsl-xvm/lib/loaders/babel-plugin-jsx.js&comments=false&configFile=<CWD>/babel.config.js!../../../lib/loaders/access-loader.js!../../../lib/loaders/fragment-loader.js?index=0&type=script!./TestComponent/StarForeground/teststarForeground.ux?uxType=page 1`] = `
+exports[`Component 编译测试 ux components: ../../../lib/loaders/script-loader.js!../../../../hap-packager/lib/loaders/module-loader.js!../../../../../node_modules/babel-loader/lib/index.js?cwd=<CWD>&cacheDirectory&plugins[]=<CWD>/packages/hap-dsl-xvm/lib/loaders/babel-plugin-jsx.js&comments=false&configFile=<CWD>/babel.config.js!../../../lib/loaders/access-loader.js!../../../lib/loaders/fragment-loader.js?index=0&type=script!./TestComponent/StarForeground/teststarForeground.ux?uxType=page 1`] = `
 "module.exports = function __scriptModule__ (module, exports, $app_require$){\\"use strict\\";
 
 Object.defineProperty(exports, \\"__esModule\\", {
@@ -1236,7 +1136,6 @@ var _default = {
 exports.default = _default;
 const moduleOwn = exports.default || module.exports;
 const accessors = ['public', 'protected', 'private'];
-
 if (moduleOwn.data && accessors.some(function (acc) {
   return moduleOwn[acc];
 })) {
@@ -1246,10 +1145,8 @@ if (moduleOwn.data && accessors.some(function (acc) {
   moduleOwn._descriptor = {};
   accessors.forEach(function (acc) {
     const accType = typeof moduleOwn[acc];
-
     if (accType === 'object') {
       moduleOwn.data = Object.assign(moduleOwn.data, moduleOwn[acc]);
-
       for (const name in moduleOwn[acc]) {
         moduleOwn._descriptor[name] = {
           access: acc
@@ -1262,7 +1159,7 @@ if (moduleOwn.data && accessors.some(function (acc) {
 }}"
 `;
 
-exports[`Component 编译测试 ux components: ../../../lib/loaders/script-loader.js!../../../lib/loaders/module-loader.js!../../../node_modules/babel-loader/lib/index.js?cwd=<CWD>&cacheDirectory&plugins[]=<CWD>/packages/hap-dsl-xvm/lib/loaders/babel-plugin-jsx.js&comments=false&configFile=<CWD>/babel.config.js!../../../lib/loaders/access-loader.js!../../../lib/loaders/fragment-loader.js?index=0&type=script!./TestComponent/StarSecondary/teststarSecondary.ux?uxType=page 1`] = `
+exports[`Component 编译测试 ux components: ../../../lib/loaders/script-loader.js!../../../../hap-packager/lib/loaders/module-loader.js!../../../../../node_modules/babel-loader/lib/index.js?cwd=<CWD>&cacheDirectory&plugins[]=<CWD>/packages/hap-dsl-xvm/lib/loaders/babel-plugin-jsx.js&comments=false&configFile=<CWD>/babel.config.js!../../../lib/loaders/access-loader.js!../../../lib/loaders/fragment-loader.js?index=0&type=script!./TestComponent/StarSecondary/teststarSecondary.ux?uxType=page 1`] = `
 "module.exports = function __scriptModule__ (module, exports, $app_require$){\\"use strict\\";
 
 Object.defineProperty(exports, \\"__esModule\\", {
@@ -1275,7 +1172,6 @@ var _default = {
 exports.default = _default;
 const moduleOwn = exports.default || module.exports;
 const accessors = ['public', 'protected', 'private'];
-
 if (moduleOwn.data && accessors.some(function (acc) {
   return moduleOwn[acc];
 })) {
@@ -1285,10 +1181,8 @@ if (moduleOwn.data && accessors.some(function (acc) {
   moduleOwn._descriptor = {};
   accessors.forEach(function (acc) {
     const accType = typeof moduleOwn[acc];
-
     if (accType === 'object') {
       moduleOwn.data = Object.assign(moduleOwn.data, moduleOwn[acc]);
-
       for (const name in moduleOwn[acc]) {
         moduleOwn._descriptor[name] = {
           access: acc
@@ -1301,7 +1195,7 @@ if (moduleOwn.data && accessors.some(function (acc) {
 }}"
 `;
 
-exports[`Component 编译测试 ux components: ../../../lib/loaders/script-loader.js!../../../lib/loaders/module-loader.js!../../../node_modules/babel-loader/lib/index.js?cwd=<CWD>&cacheDirectory&plugins[]=<CWD>/packages/hap-dsl-xvm/lib/loaders/babel-plugin-jsx.js&comments=false&configFile=<CWD>/babel.config.js!../../../lib/loaders/access-loader.js!../../../lib/loaders/fragment-loader.js?index=0&type=script!./TestComponent/Swiper/testswiper.ux?uxType=page 1`] = `
+exports[`Component 编译测试 ux components: ../../../lib/loaders/script-loader.js!../../../../hap-packager/lib/loaders/module-loader.js!../../../../../node_modules/babel-loader/lib/index.js?cwd=<CWD>&cacheDirectory&plugins[]=<CWD>/packages/hap-dsl-xvm/lib/loaders/babel-plugin-jsx.js&comments=false&configFile=<CWD>/babel.config.js!../../../lib/loaders/access-loader.js!../../../lib/loaders/fragment-loader.js?index=0&type=script!./TestComponent/Swiper/testswiper.ux?uxType=page 1`] = `
 "module.exports = function __scriptModule__ (module, exports, $app_require$){\\"use strict\\";
 
 Object.defineProperty(exports, \\"__esModule\\", {
@@ -1314,7 +1208,6 @@ var _default = {
 exports.default = _default;
 const moduleOwn = exports.default || module.exports;
 const accessors = ['public', 'protected', 'private'];
-
 if (moduleOwn.data && accessors.some(function (acc) {
   return moduleOwn[acc];
 })) {
@@ -1324,10 +1217,8 @@ if (moduleOwn.data && accessors.some(function (acc) {
   moduleOwn._descriptor = {};
   accessors.forEach(function (acc) {
     const accType = typeof moduleOwn[acc];
-
     if (accType === 'object') {
       moduleOwn.data = Object.assign(moduleOwn.data, moduleOwn[acc]);
-
       for (const name in moduleOwn[acc]) {
         moduleOwn._descriptor[name] = {
           access: acc
@@ -1340,7 +1231,7 @@ if (moduleOwn.data && accessors.some(function (acc) {
 }}"
 `;
 
-exports[`Component 编译测试 ux components: ../../../lib/loaders/script-loader.js!../../../lib/loaders/module-loader.js!../../../node_modules/babel-loader/lib/index.js?cwd=<CWD>&cacheDirectory&plugins[]=<CWD>/packages/hap-dsl-xvm/lib/loaders/babel-plugin-jsx.js&comments=false&configFile=<CWD>/babel.config.js!../../../lib/loaders/access-loader.js!../../../lib/loaders/fragment-loader.js?index=0&type=script!./TestComponent/Switch/testswitch.ux?uxType=page 1`] = `
+exports[`Component 编译测试 ux components: ../../../lib/loaders/script-loader.js!../../../../hap-packager/lib/loaders/module-loader.js!../../../../../node_modules/babel-loader/lib/index.js?cwd=<CWD>&cacheDirectory&plugins[]=<CWD>/packages/hap-dsl-xvm/lib/loaders/babel-plugin-jsx.js&comments=false&configFile=<CWD>/babel.config.js!../../../lib/loaders/access-loader.js!../../../lib/loaders/fragment-loader.js?index=0&type=script!./TestComponent/Switch/testswitch.ux?uxType=page 1`] = `
 "module.exports = function __scriptModule__ (module, exports, $app_require$){\\"use strict\\";
 
 Object.defineProperty(exports, \\"__esModule\\", {
@@ -1349,12 +1240,12 @@ Object.defineProperty(exports, \\"__esModule\\", {
 exports.default = void 0;
 var _default = {
   data: {},
-  changeSwitch: function (e) {}
+  changeSwitch: function (e) {
+  }
 };
 exports.default = _default;
 const moduleOwn = exports.default || module.exports;
 const accessors = ['public', 'protected', 'private'];
-
 if (moduleOwn.data && accessors.some(function (acc) {
   return moduleOwn[acc];
 })) {
@@ -1364,10 +1255,8 @@ if (moduleOwn.data && accessors.some(function (acc) {
   moduleOwn._descriptor = {};
   accessors.forEach(function (acc) {
     const accType = typeof moduleOwn[acc];
-
     if (accType === 'object') {
       moduleOwn.data = Object.assign(moduleOwn.data, moduleOwn[acc]);
-
       for (const name in moduleOwn[acc]) {
         moduleOwn._descriptor[name] = {
           access: acc
@@ -1380,7 +1269,7 @@ if (moduleOwn.data && accessors.some(function (acc) {
 }}"
 `;
 
-exports[`Component 编译测试 ux components: ../../../lib/loaders/script-loader.js!../../../lib/loaders/module-loader.js!../../../node_modules/babel-loader/lib/index.js?cwd=<CWD>&cacheDirectory&plugins[]=<CWD>/packages/hap-dsl-xvm/lib/loaders/babel-plugin-jsx.js&comments=false&configFile=<CWD>/babel.config.js!../../../lib/loaders/access-loader.js!../../../lib/loaders/fragment-loader.js?index=0&type=script!./TestComponent/Tabs/testtabs.ux?uxType=page 1`] = `
+exports[`Component 编译测试 ux components: ../../../lib/loaders/script-loader.js!../../../../hap-packager/lib/loaders/module-loader.js!../../../../../node_modules/babel-loader/lib/index.js?cwd=<CWD>&cacheDirectory&plugins[]=<CWD>/packages/hap-dsl-xvm/lib/loaders/babel-plugin-jsx.js&comments=false&configFile=<CWD>/babel.config.js!../../../lib/loaders/access-loader.js!../../../lib/loaders/fragment-loader.js?index=0&type=script!./TestComponent/Tabs/testtabs.ux?uxType=page 1`] = `
 "module.exports = function __scriptModule__ (module, exports, $app_require$){\\"use strict\\";
 
 Object.defineProperty(exports, \\"__esModule\\", {
@@ -1389,12 +1278,12 @@ Object.defineProperty(exports, \\"__esModule\\", {
 exports.default = void 0;
 var _default = {
   data: {},
-  changeActive: function (e) {}
+  changeActive: function (e) {
+  }
 };
 exports.default = _default;
 const moduleOwn = exports.default || module.exports;
 const accessors = ['public', 'protected', 'private'];
-
 if (moduleOwn.data && accessors.some(function (acc) {
   return moduleOwn[acc];
 })) {
@@ -1404,10 +1293,8 @@ if (moduleOwn.data && accessors.some(function (acc) {
   moduleOwn._descriptor = {};
   accessors.forEach(function (acc) {
     const accType = typeof moduleOwn[acc];
-
     if (accType === 'object') {
       moduleOwn.data = Object.assign(moduleOwn.data, moduleOwn[acc]);
-
       for (const name in moduleOwn[acc]) {
         moduleOwn._descriptor[name] = {
           access: acc
@@ -1420,7 +1307,7 @@ if (moduleOwn.data && accessors.some(function (acc) {
 }}"
 `;
 
-exports[`Component 编译测试 ux components: ../../../lib/loaders/script-loader.js!../../../lib/loaders/module-loader.js!../../../node_modules/babel-loader/lib/index.js?cwd=<CWD>&cacheDirectory&plugins[]=<CWD>/packages/hap-dsl-xvm/lib/loaders/babel-plugin-jsx.js&comments=false&configFile=<CWD>/babel.config.js!../../../lib/loaders/access-loader.js!../../../lib/loaders/fragment-loader.js?index=0&type=script!./TestComponent/Text/testtext.ux?uxType=page 1`] = `
+exports[`Component 编译测试 ux components: ../../../lib/loaders/script-loader.js!../../../../hap-packager/lib/loaders/module-loader.js!../../../../../node_modules/babel-loader/lib/index.js?cwd=<CWD>&cacheDirectory&plugins[]=<CWD>/packages/hap-dsl-xvm/lib/loaders/babel-plugin-jsx.js&comments=false&configFile=<CWD>/babel.config.js!../../../lib/loaders/access-loader.js!../../../lib/loaders/fragment-loader.js?index=0&type=script!./TestComponent/Text/testtext.ux?uxType=page 1`] = `
 "module.exports = function __scriptModule__ (module, exports, $app_require$){\\"use strict\\";
 
 Object.defineProperty(exports, \\"__esModule\\", {
@@ -1433,7 +1320,6 @@ var _default = {
 exports.default = _default;
 const moduleOwn = exports.default || module.exports;
 const accessors = ['public', 'protected', 'private'];
-
 if (moduleOwn.data && accessors.some(function (acc) {
   return moduleOwn[acc];
 })) {
@@ -1443,10 +1329,8 @@ if (moduleOwn.data && accessors.some(function (acc) {
   moduleOwn._descriptor = {};
   accessors.forEach(function (acc) {
     const accType = typeof moduleOwn[acc];
-
     if (accType === 'object') {
       moduleOwn.data = Object.assign(moduleOwn.data, moduleOwn[acc]);
-
       for (const name in moduleOwn[acc]) {
         moduleOwn._descriptor[name] = {
           access: acc
@@ -1459,7 +1343,7 @@ if (moduleOwn.data && accessors.some(function (acc) {
 }}"
 `;
 
-exports[`Component 编译测试 ux components: ../../../lib/loaders/script-loader.js!../../../lib/loaders/module-loader.js!../../../node_modules/babel-loader/lib/index.js?cwd=<CWD>&cacheDirectory&plugins[]=<CWD>/packages/hap-dsl-xvm/lib/loaders/babel-plugin-jsx.js&comments=false&configFile=<CWD>/babel.config.js!../../../lib/loaders/access-loader.js!../../../lib/loaders/fragment-loader.js?index=0&type=script!./TestComponent/Textarea/testtextarea.ux?uxType=page 1`] = `
+exports[`Component 编译测试 ux components: ../../../lib/loaders/script-loader.js!../../../../hap-packager/lib/loaders/module-loader.js!../../../../../node_modules/babel-loader/lib/index.js?cwd=<CWD>&cacheDirectory&plugins[]=<CWD>/packages/hap-dsl-xvm/lib/loaders/babel-plugin-jsx.js&comments=false&configFile=<CWD>/babel.config.js!../../../lib/loaders/access-loader.js!../../../lib/loaders/fragment-loader.js?index=0&type=script!./TestComponent/Textarea/testtextarea.ux?uxType=page 1`] = `
 "module.exports = function __scriptModule__ (module, exports, $app_require$){\\"use strict\\";
 
 Object.defineProperty(exports, \\"__esModule\\", {
@@ -1468,14 +1352,18 @@ Object.defineProperty(exports, \\"__esModule\\", {
 exports.default = void 0;
 var _default = {
   data: {},
-  changeText: function (e) {},
-  selectionchangeFn: function (e) {},
-  linechangeFn: function (e) {}
+  changeText: function (e) {
+  },
+
+  selectionchangeFn: function (e) {
+  },
+
+  linechangeFn: function (e) {
+  }
 };
 exports.default = _default;
 const moduleOwn = exports.default || module.exports;
 const accessors = ['public', 'protected', 'private'];
-
 if (moduleOwn.data && accessors.some(function (acc) {
   return moduleOwn[acc];
 })) {
@@ -1485,10 +1373,8 @@ if (moduleOwn.data && accessors.some(function (acc) {
   moduleOwn._descriptor = {};
   accessors.forEach(function (acc) {
     const accType = typeof moduleOwn[acc];
-
     if (accType === 'object') {
       moduleOwn.data = Object.assign(moduleOwn.data, moduleOwn[acc]);
-
       for (const name in moduleOwn[acc]) {
         moduleOwn._descriptor[name] = {
           access: acc
@@ -1501,7 +1387,7 @@ if (moduleOwn.data && accessors.some(function (acc) {
 }}"
 `;
 
-exports[`Component 编译测试 ux components: ../../../lib/loaders/script-loader.js!../../../lib/loaders/module-loader.js!../../../node_modules/babel-loader/lib/index.js?cwd=<CWD>&cacheDirectory&plugins[]=<CWD>/packages/hap-dsl-xvm/lib/loaders/babel-plugin-jsx.js&comments=false&configFile=<CWD>/babel.config.js!../../../lib/loaders/access-loader.js!../../../lib/loaders/fragment-loader.js?index=0&type=script!./TestComponent/Video/testvideo.ux?uxType=page 1`] = `
+exports[`Component 编译测试 ux components: ../../../lib/loaders/script-loader.js!../../../../hap-packager/lib/loaders/module-loader.js!../../../../../node_modules/babel-loader/lib/index.js?cwd=<CWD>&cacheDirectory&plugins[]=<CWD>/packages/hap-dsl-xvm/lib/loaders/babel-plugin-jsx.js&comments=false&configFile=<CWD>/babel.config.js!../../../lib/loaders/access-loader.js!../../../lib/loaders/fragment-loader.js?index=0&type=script!./TestComponent/Video/testvideo.ux?uxType=page 1`] = `
 "module.exports = function __scriptModule__ (module, exports, $app_require$){\\"use strict\\";
 
 Object.defineProperty(exports, \\"__esModule\\", {
@@ -1512,16 +1398,24 @@ var _default = {
   private: {
     speed: 1
   },
-  preparedVideo: function () {},
-  startVideo: function () {},
-  pauseVideo: function () {},
-  onfinish: function () {},
-  onerror: function () {}
+  preparedVideo: function () {
+  },
+
+  startVideo: function () {
+  },
+
+  pauseVideo: function () {
+  },
+
+  onfinish: function () {
+  },
+
+  onerror: function () {
+  }
 };
 exports.default = _default;
 const moduleOwn = exports.default || module.exports;
 const accessors = ['public', 'protected', 'private'];
-
 if (moduleOwn.data && accessors.some(function (acc) {
   return moduleOwn[acc];
 })) {
@@ -1531,10 +1425,8 @@ if (moduleOwn.data && accessors.some(function (acc) {
   moduleOwn._descriptor = {};
   accessors.forEach(function (acc) {
     const accType = typeof moduleOwn[acc];
-
     if (accType === 'object') {
       moduleOwn.data = Object.assign(moduleOwn.data, moduleOwn[acc]);
-
       for (const name in moduleOwn[acc]) {
         moduleOwn._descriptor[name] = {
           access: acc
@@ -1547,7 +1439,7 @@ if (moduleOwn.data && accessors.some(function (acc) {
 }}"
 `;
 
-exports[`Component 编译测试 ux components: ../../../lib/loaders/script-loader.js!../../../lib/loaders/module-loader.js!../../../node_modules/babel-loader/lib/index.js?cwd=<CWD>&cacheDirectory&plugins[]=<CWD>/packages/hap-dsl-xvm/lib/loaders/babel-plugin-jsx.js&comments=false&configFile=<CWD>/babel.config.js!../../../lib/loaders/access-loader.js!../../../lib/loaders/fragment-loader.js?index=0&type=script!./TestComponent/Web/testweb.ux?uxType=page 1`] = `
+exports[`Component 编译测试 ux components: ../../../lib/loaders/script-loader.js!../../../../hap-packager/lib/loaders/module-loader.js!../../../../../node_modules/babel-loader/lib/index.js?cwd=<CWD>&cacheDirectory&plugins[]=<CWD>/packages/hap-dsl-xvm/lib/loaders/babel-plugin-jsx.js&comments=false&configFile=<CWD>/babel.config.js!../../../lib/loaders/access-loader.js!../../../lib/loaders/fragment-loader.js?index=0&type=script!./TestComponent/Web/testweb.ux?uxType=page 1`] = `
 "module.exports = function __scriptModule__ (module, exports, $app_require$){\\"use strict\\";
 
 Object.defineProperty(exports, \\"__esModule\\", {
@@ -1556,17 +1448,27 @@ Object.defineProperty(exports, \\"__esModule\\", {
 exports.default = void 0;
 var _default = {
   data: {},
-  pagestartfn: function () {},
-  pagefinishfn: function () {},
-  titlereceivefn: function () {},
-  errorfn: function () {},
-  messagefn: function () {},
-  messagefn: function () {}
+  pagestartfn: function () {
+  },
+
+  pagefinishfn: function () {
+  },
+
+  titlereceivefn: function () {
+  },
+
+  errorfn: function () {
+  },
+
+  messagefn: function () {
+  },
+
+  messagefn: function () {
+  }
 };
 exports.default = _default;
 const moduleOwn = exports.default || module.exports;
 const accessors = ['public', 'protected', 'private'];
-
 if (moduleOwn.data && accessors.some(function (acc) {
   return moduleOwn[acc];
 })) {
@@ -1576,10 +1478,8 @@ if (moduleOwn.data && accessors.some(function (acc) {
   moduleOwn._descriptor = {};
   accessors.forEach(function (acc) {
     const accType = typeof moduleOwn[acc];
-
     if (accType === 'object') {
       moduleOwn.data = Object.assign(moduleOwn.data, moduleOwn[acc]);
-
       for (const name in moduleOwn[acc]) {
         moduleOwn._descriptor[name] = {
           access: acc
@@ -1592,7 +1492,7 @@ if (moduleOwn.data && accessors.some(function (acc) {
 }}"
 `;
 
-exports[`Component 编译测试 ux components: ../../../lib/loaders/script-loader.js!../../../lib/loaders/module-loader.js!../../../node_modules/babel-loader/lib/index.js?cwd=<CWD>&cacheDirectory&plugins[]=<CWD>/packages/hap-dsl-xvm/lib/loaders/babel-plugin-jsx.js&comments=false&configFile=<CWD>/babel.config.js!../../../lib/loaders/access-loader.js!../../../lib/loaders/fragment-loader.js?index=0&type=script!./TestComponent/model/baseCheckbox.ux?uxType=page 1`] = `
+exports[`Component 编译测试 ux components: ../../../lib/loaders/script-loader.js!../../../../hap-packager/lib/loaders/module-loader.js!../../../../../node_modules/babel-loader/lib/index.js?cwd=<CWD>&cacheDirectory&plugins[]=<CWD>/packages/hap-dsl-xvm/lib/loaders/babel-plugin-jsx.js&comments=false&configFile=<CWD>/babel.config.js!../../../lib/loaders/access-loader.js!../../../lib/loaders/fragment-loader.js?index=0&type=script!./TestComponent/model/baseCheckbox.ux?uxType=page 1`] = `
 "module.exports = function __scriptModule__ (module, exports, $app_require$){\\"use strict\\";
 
 Object.defineProperty(exports, \\"__esModule\\", {
@@ -1605,7 +1505,6 @@ var _default = {
 exports.default = _default;
 const moduleOwn = exports.default || module.exports;
 const accessors = ['public', 'protected', 'private'];
-
 if (moduleOwn.data && accessors.some(function (acc) {
   return moduleOwn[acc];
 })) {
@@ -1615,10 +1514,8 @@ if (moduleOwn.data && accessors.some(function (acc) {
   moduleOwn._descriptor = {};
   accessors.forEach(function (acc) {
     const accType = typeof moduleOwn[acc];
-
     if (accType === 'object') {
       moduleOwn.data = Object.assign(moduleOwn.data, moduleOwn[acc]);
-
       for (const name in moduleOwn[acc]) {
         moduleOwn._descriptor[name] = {
           access: acc
@@ -1631,7 +1528,7 @@ if (moduleOwn.data && accessors.some(function (acc) {
 }}"
 `;
 
-exports[`Component 编译测试 ux components: ../../../lib/loaders/script-loader.js!../../../lib/loaders/module-loader.js!../../../node_modules/babel-loader/lib/index.js?cwd=<CWD>&cacheDirectory&plugins[]=<CWD>/packages/hap-dsl-xvm/lib/loaders/babel-plugin-jsx.js&comments=false&configFile=<CWD>/babel.config.js!../../../lib/loaders/access-loader.js!../../../lib/loaders/fragment-loader.js?index=0&type=script!./TestComponent/model/testmodel.ux?uxType=page 1`] = `
+exports[`Component 编译测试 ux components: ../../../lib/loaders/script-loader.js!../../../../hap-packager/lib/loaders/module-loader.js!../../../../../node_modules/babel-loader/lib/index.js?cwd=<CWD>&cacheDirectory&plugins[]=<CWD>/packages/hap-dsl-xvm/lib/loaders/babel-plugin-jsx.js&comments=false&configFile=<CWD>/babel.config.js!../../../lib/loaders/access-loader.js!../../../lib/loaders/fragment-loader.js?index=0&type=script!./TestComponent/model/testmodel.ux?uxType=page 1`] = `
 "module.exports = function __scriptModule__ (module, exports, $app_require$){\\"use strict\\";
 
 Object.defineProperty(exports, \\"__esModule\\", {
@@ -1655,22 +1552,18 @@ var _default = {
     lovingQa: false,
     checkboxName: 'bad box'
   },
-
   changeType(type) {
     this.dynamicType = type;
   },
-
   onInit() {
     this.$page.setTitleBar({
       text: this.componentName
     });
   }
-
 };
 exports.default = _default;
 const moduleOwn = exports.default || module.exports;
 const accessors = ['public', 'protected', 'private'];
-
 if (moduleOwn.data && accessors.some(function (acc) {
   return moduleOwn[acc];
 })) {
@@ -1680,10 +1573,8 @@ if (moduleOwn.data && accessors.some(function (acc) {
   moduleOwn._descriptor = {};
   accessors.forEach(function (acc) {
     const accType = typeof moduleOwn[acc];
-
     if (accType === 'object') {
       moduleOwn.data = Object.assign(moduleOwn.data, moduleOwn[acc]);
-
       for (const name in moduleOwn[acc]) {
         moduleOwn._descriptor[name] = {
           access: acc
@@ -1696,7 +1587,7 @@ if (moduleOwn.data && accessors.some(function (acc) {
 }}"
 `;
 
-exports[`Component 编译测试 ux components: ../../../lib/loaders/script-loader.js!../../../lib/loaders/module-loader.js!../../../node_modules/babel-loader/lib/index.js?cwd=<CWD>&cacheDirectory&plugins[]=<CWD>/packages/hap-dsl-xvm/lib/loaders/babel-plugin-jsx.js&comments=false&configFile=<CWD>/babel.config.js!../../../lib/loaders/fragment-loader.js?index=0&type=script!./TestComponent/model/baseCheckbox.ux?uxType=comp 1`] = `
+exports[`Component 编译测试 ux components: ../../../lib/loaders/script-loader.js!../../../../hap-packager/lib/loaders/module-loader.js!../../../../../node_modules/babel-loader/lib/index.js?cwd=<CWD>&cacheDirectory&plugins[]=<CWD>/packages/hap-dsl-xvm/lib/loaders/babel-plugin-jsx.js&comments=false&configFile=<CWD>/babel.config.js!../../../lib/loaders/fragment-loader.js?index=0&type=script!./TestComponent/model/baseCheckbox.ux?uxType=comp 1`] = `
 "module.exports = function __scriptModule__ (module, exports, $app_require$){\\"use strict\\";
 
 Object.defineProperty(exports, \\"__esModule\\", {
@@ -5247,7 +5138,7 @@ exports[`Component 编译测试 ux components: ../../../lib/loaders/ux-loader.js
 "
 var $app_style$ = require(\\"!../../../../../lib/loaders/style-loader.js?index=0&type=style!../../../../../lib/loaders/fragment-loader.js?index=0&type=style!./baseCheckbox.ux?uxType=comp\\")
 
-var $app_script$ = require(\\"!../../../../../lib/loaders/script-loader.js!../../../../../lib/loaders/module-loader.js!../../../../../node_modules/babel-loader/lib/index.js?cwd=<CWD>&cacheDirectory&plugins[]=<CWD>/packages/hap-dsl-xvm/lib/loaders/babel-plugin-jsx.js&comments=false&configFile=<CWD>/babel.config.js!../../../../../lib/loaders/fragment-loader.js?index=0&type=script!./baseCheckbox.ux?uxType=comp\\")
+var $app_script$ = require(\\"!../../../../../lib/loaders/script-loader.js!../../../../../../hap-packager/lib/loaders/module-loader.js!../../../../../../../node_modules/babel-loader/lib/index.js?cwd=<CWD>&cacheDirectory&plugins[]=<CWD>/packages/hap-dsl-xvm/lib/loaders/babel-plugin-jsx.js&comments=false&configFile=<CWD>/babel.config.js!../../../../../lib/loaders/fragment-loader.js?index=0&type=script!./baseCheckbox.ux?uxType=comp\\")
 
 $app_define$('@app-component/base-checkbox', [], function($app_require$, $app_exports$, $app_module$) {
      $app_script$($app_module$, $app_exports$, $app_require$)
@@ -5264,7 +5155,7 @@ exports[`Component 编译测试 ux components: ./TestComponent/A/testa.ux?uxType
 "
 var $app_style$ = require(\\"!../../../../../lib/loaders/style-loader.js?index=0&type=style!../../../../../lib/loaders/fragment-loader.js?index=0&type=style!./testa.ux?uxType=page\\")
 
-var $app_script$ = require(\\"!../../../../../lib/loaders/script-loader.js!../../../../../lib/loaders/module-loader.js!../../../../../node_modules/babel-loader/lib/index.js?cwd=<CWD>&cacheDirectory&plugins[]=<CWD>/packages/hap-dsl-xvm/lib/loaders/babel-plugin-jsx.js&comments=false&configFile=<CWD>/babel.config.js!../../../../../lib/loaders/access-loader.js!../../../../../lib/loaders/fragment-loader.js?index=0&type=script!./testa.ux?uxType=page\\")
+var $app_script$ = require(\\"!../../../../../lib/loaders/script-loader.js!../../../../../../hap-packager/lib/loaders/module-loader.js!../../../../../../../node_modules/babel-loader/lib/index.js?cwd=<CWD>&cacheDirectory&plugins[]=<CWD>/packages/hap-dsl-xvm/lib/loaders/babel-plugin-jsx.js&comments=false&configFile=<CWD>/babel.config.js!../../../../../lib/loaders/access-loader.js!../../../../../lib/loaders/fragment-loader.js?index=0&type=script!./testa.ux?uxType=page\\")
 
 $app_define$('@app-component/testa', [], function($app_require$, $app_exports$, $app_module$) {
      $app_script$($app_module$, $app_exports$, $app_require$)
@@ -5282,7 +5173,7 @@ exports[`Component 编译测试 ux components: ./TestComponent/Ad/testad.ux?uxTy
 "
 var $app_style$ = require(\\"!../../../../../lib/loaders/style-loader.js?index=0&type=style!../../../../../lib/loaders/fragment-loader.js?index=0&type=style!./testad.ux?uxType=page\\")
 
-var $app_script$ = require(\\"!../../../../../lib/loaders/script-loader.js!../../../../../lib/loaders/module-loader.js!../../../../../node_modules/babel-loader/lib/index.js?cwd=<CWD>&cacheDirectory&plugins[]=<CWD>/packages/hap-dsl-xvm/lib/loaders/babel-plugin-jsx.js&comments=false&configFile=<CWD>/babel.config.js!../../../../../lib/loaders/access-loader.js!../../../../../lib/loaders/fragment-loader.js?index=0&type=script!./testad.ux?uxType=page\\")
+var $app_script$ = require(\\"!../../../../../lib/loaders/script-loader.js!../../../../../../hap-packager/lib/loaders/module-loader.js!../../../../../../../node_modules/babel-loader/lib/index.js?cwd=<CWD>&cacheDirectory&plugins[]=<CWD>/packages/hap-dsl-xvm/lib/loaders/babel-plugin-jsx.js&comments=false&configFile=<CWD>/babel.config.js!../../../../../lib/loaders/access-loader.js!../../../../../lib/loaders/fragment-loader.js?index=0&type=script!./testad.ux?uxType=page\\")
 
 $app_define$('@app-component/testad', [], function($app_require$, $app_exports$, $app_module$) {
      $app_script$($app_module$, $app_exports$, $app_require$)
@@ -5300,7 +5191,7 @@ exports[`Component 编译测试 ux components: ./TestComponent/Camera/testcamera
 "
 var $app_style$ = require(\\"!../../../../../lib/loaders/style-loader.js?index=0&type=style!../../../../../lib/loaders/fragment-loader.js?index=0&type=style!./testcamera.ux?uxType=page\\")
 
-var $app_script$ = require(\\"!../../../../../lib/loaders/script-loader.js!../../../../../lib/loaders/module-loader.js!../../../../../node_modules/babel-loader/lib/index.js?cwd=<CWD>&cacheDirectory&plugins[]=<CWD>/packages/hap-dsl-xvm/lib/loaders/babel-plugin-jsx.js&comments=false&configFile=<CWD>/babel.config.js!../../../../../lib/loaders/access-loader.js!../../../../../lib/loaders/fragment-loader.js?index=0&type=script!./testcamera.ux?uxType=page\\")
+var $app_script$ = require(\\"!../../../../../lib/loaders/script-loader.js!../../../../../../hap-packager/lib/loaders/module-loader.js!../../../../../../../node_modules/babel-loader/lib/index.js?cwd=<CWD>&cacheDirectory&plugins[]=<CWD>/packages/hap-dsl-xvm/lib/loaders/babel-plugin-jsx.js&comments=false&configFile=<CWD>/babel.config.js!../../../../../lib/loaders/access-loader.js!../../../../../lib/loaders/fragment-loader.js?index=0&type=script!./testcamera.ux?uxType=page\\")
 
 $app_define$('@app-component/testcamera', [], function($app_require$, $app_exports$, $app_module$) {
      $app_script$($app_module$, $app_exports$, $app_require$)
@@ -5321,17 +5212,14 @@ Object.defineProperty(exports, \\"__esModule\\", {
   value: true
 });
 exports.default = void 0;
-
 var _manifest = _interopRequireDefault(require(\\"../manifest.json\\"));
-
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
 /*
- * Copyright (c) 2021, the hapjs-platform Project Contributors
+ * Copyright (c) 2021-present, the hapjs-platform Project Contributors
  * SPDX-License-Identifier: Apache-2.0
  */
-class A1 {}
 
+class A1 {}
 var _default = {
   A1,
   manifestJSON: _manifest.default
@@ -5343,7 +5231,7 @@ exports[`Component 编译测试 ux components: ./TestComponent/Div/testdiv.ux?ux
 "
 var $app_style$ = require(\\"!../../../../../lib/loaders/style-loader.js?index=0&type=style!../../../../../lib/loaders/fragment-loader.js?index=0&type=style!./testdiv.ux?uxType=page\\")
 
-var $app_script$ = require(\\"!../../../../../lib/loaders/script-loader.js!../../../../../lib/loaders/module-loader.js!../../../../../node_modules/babel-loader/lib/index.js?cwd=<CWD>&cacheDirectory&plugins[]=<CWD>/packages/hap-dsl-xvm/lib/loaders/babel-plugin-jsx.js&comments=false&configFile=<CWD>/babel.config.js!../../../../../lib/loaders/access-loader.js!../../../../../lib/loaders/fragment-loader.js?index=0&type=script!./testdiv.ux?uxType=page\\")
+var $app_script$ = require(\\"!../../../../../lib/loaders/script-loader.js!../../../../../../hap-packager/lib/loaders/module-loader.js!../../../../../../../node_modules/babel-loader/lib/index.js?cwd=<CWD>&cacheDirectory&plugins[]=<CWD>/packages/hap-dsl-xvm/lib/loaders/babel-plugin-jsx.js&comments=false&configFile=<CWD>/babel.config.js!../../../../../lib/loaders/access-loader.js!../../../../../lib/loaders/fragment-loader.js?index=0&type=script!./testdiv.ux?uxType=page\\")
 
 $app_define$('@app-component/testdiv', [], function($app_require$, $app_exports$, $app_module$) {
      $app_script$($app_module$, $app_exports$, $app_require$)
@@ -5361,7 +5249,7 @@ exports[`Component 编译测试 ux components: ./TestComponent/Drawer/testdrawer
 "
 var $app_style$ = require(\\"!../../../../../lib/loaders/style-loader.js?index=0&type=style!../../../../../lib/loaders/fragment-loader.js?index=0&type=style!./testdrawer.ux?uxType=page\\")
 
-var $app_script$ = require(\\"!../../../../../lib/loaders/script-loader.js!../../../../../lib/loaders/module-loader.js!../../../../../node_modules/babel-loader/lib/index.js?cwd=<CWD>&cacheDirectory&plugins[]=<CWD>/packages/hap-dsl-xvm/lib/loaders/babel-plugin-jsx.js&comments=false&configFile=<CWD>/babel.config.js!../../../../../lib/loaders/access-loader.js!../../../../../lib/loaders/fragment-loader.js?index=0&type=script!./testdrawer.ux?uxType=page\\")
+var $app_script$ = require(\\"!../../../../../lib/loaders/script-loader.js!../../../../../../hap-packager/lib/loaders/module-loader.js!../../../../../../../node_modules/babel-loader/lib/index.js?cwd=<CWD>&cacheDirectory&plugins[]=<CWD>/packages/hap-dsl-xvm/lib/loaders/babel-plugin-jsx.js&comments=false&configFile=<CWD>/babel.config.js!../../../../../lib/loaders/access-loader.js!../../../../../lib/loaders/fragment-loader.js?index=0&type=script!./testdrawer.ux?uxType=page\\")
 
 $app_define$('@app-component/testdrawer', [], function($app_require$, $app_exports$, $app_module$) {
      $app_script$($app_module$, $app_exports$, $app_require$)
@@ -5379,7 +5267,7 @@ exports[`Component 编译测试 ux components: ./TestComponent/Image/testimage.u
 "
 var $app_style$ = require(\\"!../../../../../lib/loaders/style-loader.js?index=0&type=style!../../../../../lib/loaders/fragment-loader.js?index=0&type=style!./testimage.ux?uxType=page\\")
 
-var $app_script$ = require(\\"!../../../../../lib/loaders/script-loader.js!../../../../../lib/loaders/module-loader.js!../../../../../node_modules/babel-loader/lib/index.js?cwd=<CWD>&cacheDirectory&plugins[]=<CWD>/packages/hap-dsl-xvm/lib/loaders/babel-plugin-jsx.js&comments=false&configFile=<CWD>/babel.config.js!../../../../../lib/loaders/access-loader.js!../../../../../lib/loaders/fragment-loader.js?index=0&type=script!./testimage.ux?uxType=page\\")
+var $app_script$ = require(\\"!../../../../../lib/loaders/script-loader.js!../../../../../../hap-packager/lib/loaders/module-loader.js!../../../../../../../node_modules/babel-loader/lib/index.js?cwd=<CWD>&cacheDirectory&plugins[]=<CWD>/packages/hap-dsl-xvm/lib/loaders/babel-plugin-jsx.js&comments=false&configFile=<CWD>/babel.config.js!../../../../../lib/loaders/access-loader.js!../../../../../lib/loaders/fragment-loader.js?index=0&type=script!./testimage.ux?uxType=page\\")
 
 $app_define$('@app-component/testimage', [], function($app_require$, $app_exports$, $app_module$) {
      $app_script$($app_module$, $app_exports$, $app_require$)
@@ -5397,7 +5285,7 @@ exports[`Component 编译测试 ux components: ./TestComponent/Input/testinput.u
 "
 var $app_style$ = require(\\"!../../../../../lib/loaders/style-loader.js?index=0&type=style!../../../../../lib/loaders/fragment-loader.js?index=0&type=style!./testinput.ux?uxType=page\\")
 
-var $app_script$ = require(\\"!../../../../../lib/loaders/script-loader.js!../../../../../lib/loaders/module-loader.js!../../../../../node_modules/babel-loader/lib/index.js?cwd=<CWD>&cacheDirectory&plugins[]=<CWD>/packages/hap-dsl-xvm/lib/loaders/babel-plugin-jsx.js&comments=false&configFile=<CWD>/babel.config.js!../../../../../lib/loaders/access-loader.js!../../../../../lib/loaders/fragment-loader.js?index=0&type=script!./testinput.ux?uxType=page\\")
+var $app_script$ = require(\\"!../../../../../lib/loaders/script-loader.js!../../../../../../hap-packager/lib/loaders/module-loader.js!../../../../../../../node_modules/babel-loader/lib/index.js?cwd=<CWD>&cacheDirectory&plugins[]=<CWD>/packages/hap-dsl-xvm/lib/loaders/babel-plugin-jsx.js&comments=false&configFile=<CWD>/babel.config.js!../../../../../lib/loaders/access-loader.js!../../../../../lib/loaders/fragment-loader.js?index=0&type=script!./testinput.ux?uxType=page\\")
 
 $app_define$('@app-component/testinput', [], function($app_require$, $app_exports$, $app_module$) {
      $app_script$($app_module$, $app_exports$, $app_require$)
@@ -5415,7 +5303,7 @@ exports[`Component 编译测试 ux components: ./TestComponent/Label/testlabel.u
 "
 var $app_style$ = require(\\"!../../../../../lib/loaders/style-loader.js?index=0&type=style!../../../../../lib/loaders/fragment-loader.js?index=0&type=style!./testlabel.ux?uxType=page\\")
 
-var $app_script$ = require(\\"!../../../../../lib/loaders/script-loader.js!../../../../../lib/loaders/module-loader.js!../../../../../node_modules/babel-loader/lib/index.js?cwd=<CWD>&cacheDirectory&plugins[]=<CWD>/packages/hap-dsl-xvm/lib/loaders/babel-plugin-jsx.js&comments=false&configFile=<CWD>/babel.config.js!../../../../../lib/loaders/access-loader.js!../../../../../lib/loaders/fragment-loader.js?index=0&type=script!./testlabel.ux?uxType=page\\")
+var $app_script$ = require(\\"!../../../../../lib/loaders/script-loader.js!../../../../../../hap-packager/lib/loaders/module-loader.js!../../../../../../../node_modules/babel-loader/lib/index.js?cwd=<CWD>&cacheDirectory&plugins[]=<CWD>/packages/hap-dsl-xvm/lib/loaders/babel-plugin-jsx.js&comments=false&configFile=<CWD>/babel.config.js!../../../../../lib/loaders/access-loader.js!../../../../../lib/loaders/fragment-loader.js?index=0&type=script!./testlabel.ux?uxType=page\\")
 
 $app_define$('@app-component/testlabel', [], function($app_require$, $app_exports$, $app_module$) {
      $app_script$($app_module$, $app_exports$, $app_require$)
@@ -5433,7 +5321,7 @@ exports[`Component 编译测试 ux components: ./TestComponent/List/testlist.ux?
 "
 var $app_style$ = require(\\"!../../../../../lib/loaders/style-loader.js?index=0&type=style!../../../../../lib/loaders/fragment-loader.js?index=0&type=style!./testlist.ux?uxType=page\\")
 
-var $app_script$ = require(\\"!../../../../../lib/loaders/script-loader.js!../../../../../lib/loaders/module-loader.js!../../../../../node_modules/babel-loader/lib/index.js?cwd=<CWD>&cacheDirectory&plugins[]=<CWD>/packages/hap-dsl-xvm/lib/loaders/babel-plugin-jsx.js&comments=false&configFile=<CWD>/babel.config.js!../../../../../lib/loaders/access-loader.js!../../../../../lib/loaders/fragment-loader.js?index=0&type=script!./testlist.ux?uxType=page\\")
+var $app_script$ = require(\\"!../../../../../lib/loaders/script-loader.js!../../../../../../hap-packager/lib/loaders/module-loader.js!../../../../../../../node_modules/babel-loader/lib/index.js?cwd=<CWD>&cacheDirectory&plugins[]=<CWD>/packages/hap-dsl-xvm/lib/loaders/babel-plugin-jsx.js&comments=false&configFile=<CWD>/babel.config.js!../../../../../lib/loaders/access-loader.js!../../../../../lib/loaders/fragment-loader.js?index=0&type=script!./testlist.ux?uxType=page\\")
 
 $app_define$('@app-component/testlist', [], function($app_require$, $app_exports$, $app_module$) {
      $app_script$($app_module$, $app_exports$, $app_require$)
@@ -5451,7 +5339,7 @@ exports[`Component 编译测试 ux components: ./TestComponent/Lottie/testlottie
 "
 var $app_style$ = require(\\"!../../../../../lib/loaders/style-loader.js?index=0&type=style!../../../../../lib/loaders/fragment-loader.js?index=0&type=style!./testlottie.ux?uxType=page\\")
 
-var $app_script$ = require(\\"!../../../../../lib/loaders/script-loader.js!../../../../../lib/loaders/module-loader.js!../../../../../node_modules/babel-loader/lib/index.js?cwd=<CWD>&cacheDirectory&plugins[]=<CWD>/packages/hap-dsl-xvm/lib/loaders/babel-plugin-jsx.js&comments=false&configFile=<CWD>/babel.config.js!../../../../../lib/loaders/access-loader.js!../../../../../lib/loaders/fragment-loader.js?index=0&type=script!./testlottie.ux?uxType=page\\")
+var $app_script$ = require(\\"!../../../../../lib/loaders/script-loader.js!../../../../../../hap-packager/lib/loaders/module-loader.js!../../../../../../../node_modules/babel-loader/lib/index.js?cwd=<CWD>&cacheDirectory&plugins[]=<CWD>/packages/hap-dsl-xvm/lib/loaders/babel-plugin-jsx.js&comments=false&configFile=<CWD>/babel.config.js!../../../../../lib/loaders/access-loader.js!../../../../../lib/loaders/fragment-loader.js?index=0&type=script!./testlottie.ux?uxType=page\\")
 
 $app_define$('@app-component/testlottie', [], function($app_require$, $app_exports$, $app_module$) {
      $app_script$($app_module$, $app_exports$, $app_require$)
@@ -5469,7 +5357,7 @@ exports[`Component 编译测试 ux components: ./TestComponent/Map/testmap.ux?ux
 "
 var $app_style$ = require(\\"!../../../../../lib/loaders/style-loader.js?index=0&type=style!../../../../../lib/loaders/fragment-loader.js?index=0&type=style!./testmap.ux?uxType=page\\")
 
-var $app_script$ = require(\\"!../../../../../lib/loaders/script-loader.js!../../../../../lib/loaders/module-loader.js!../../../../../node_modules/babel-loader/lib/index.js?cwd=<CWD>&cacheDirectory&plugins[]=<CWD>/packages/hap-dsl-xvm/lib/loaders/babel-plugin-jsx.js&comments=false&configFile=<CWD>/babel.config.js!../../../../../lib/loaders/access-loader.js!../../../../../lib/loaders/fragment-loader.js?index=0&type=script!./testmap.ux?uxType=page\\")
+var $app_script$ = require(\\"!../../../../../lib/loaders/script-loader.js!../../../../../../hap-packager/lib/loaders/module-loader.js!../../../../../../../node_modules/babel-loader/lib/index.js?cwd=<CWD>&cacheDirectory&plugins[]=<CWD>/packages/hap-dsl-xvm/lib/loaders/babel-plugin-jsx.js&comments=false&configFile=<CWD>/babel.config.js!../../../../../lib/loaders/access-loader.js!../../../../../lib/loaders/fragment-loader.js?index=0&type=script!./testmap.ux?uxType=page\\")
 
 $app_define$('@app-component/testmap', [], function($app_require$, $app_exports$, $app_module$) {
      $app_script$($app_module$, $app_exports$, $app_require$)
@@ -5487,7 +5375,7 @@ exports[`Component 编译测试 ux components: ./TestComponent/Picker/testpicker
 "
 var $app_style$ = require(\\"!../../../../../lib/loaders/style-loader.js?index=0&type=style!../../../../../lib/loaders/fragment-loader.js?index=0&type=style!./testpicker.ux?uxType=page\\")
 
-var $app_script$ = require(\\"!../../../../../lib/loaders/script-loader.js!../../../../../lib/loaders/module-loader.js!../../../../../node_modules/babel-loader/lib/index.js?cwd=<CWD>&cacheDirectory&plugins[]=<CWD>/packages/hap-dsl-xvm/lib/loaders/babel-plugin-jsx.js&comments=false&configFile=<CWD>/babel.config.js!../../../../../lib/loaders/access-loader.js!../../../../../lib/loaders/fragment-loader.js?index=0&type=script!./testpicker.ux?uxType=page\\")
+var $app_script$ = require(\\"!../../../../../lib/loaders/script-loader.js!../../../../../../hap-packager/lib/loaders/module-loader.js!../../../../../../../node_modules/babel-loader/lib/index.js?cwd=<CWD>&cacheDirectory&plugins[]=<CWD>/packages/hap-dsl-xvm/lib/loaders/babel-plugin-jsx.js&comments=false&configFile=<CWD>/babel.config.js!../../../../../lib/loaders/access-loader.js!../../../../../lib/loaders/fragment-loader.js?index=0&type=script!./testpicker.ux?uxType=page\\")
 
 $app_define$('@app-component/testpicker', [], function($app_require$, $app_exports$, $app_module$) {
      $app_script$($app_module$, $app_exports$, $app_require$)
@@ -5505,7 +5393,7 @@ exports[`Component 编译测试 ux components: ./TestComponent/Popup/testpopup.u
 "
 var $app_style$ = require(\\"!../../../../../lib/loaders/style-loader.js?index=0&type=style!../../../../../lib/loaders/fragment-loader.js?index=0&type=style!./testpopup.ux?uxType=page\\")
 
-var $app_script$ = require(\\"!../../../../../lib/loaders/script-loader.js!../../../../../lib/loaders/module-loader.js!../../../../../node_modules/babel-loader/lib/index.js?cwd=<CWD>&cacheDirectory&plugins[]=<CWD>/packages/hap-dsl-xvm/lib/loaders/babel-plugin-jsx.js&comments=false&configFile=<CWD>/babel.config.js!../../../../../lib/loaders/access-loader.js!../../../../../lib/loaders/fragment-loader.js?index=0&type=script!./testpopup.ux?uxType=page\\")
+var $app_script$ = require(\\"!../../../../../lib/loaders/script-loader.js!../../../../../../hap-packager/lib/loaders/module-loader.js!../../../../../../../node_modules/babel-loader/lib/index.js?cwd=<CWD>&cacheDirectory&plugins[]=<CWD>/packages/hap-dsl-xvm/lib/loaders/babel-plugin-jsx.js&comments=false&configFile=<CWD>/babel.config.js!../../../../../lib/loaders/access-loader.js!../../../../../lib/loaders/fragment-loader.js?index=0&type=script!./testpopup.ux?uxType=page\\")
 
 $app_define$('@app-component/testpopup', [], function($app_require$, $app_exports$, $app_module$) {
      $app_script$($app_module$, $app_exports$, $app_require$)
@@ -5523,7 +5411,7 @@ exports[`Component 编译测试 ux components: ./TestComponent/Progress/testprog
 "
 var $app_style$ = require(\\"!../../../../../lib/loaders/style-loader.js?index=0&type=style!../../../../../lib/loaders/fragment-loader.js?index=0&type=style!./testprogress.ux?uxType=page\\")
 
-var $app_script$ = require(\\"!../../../../../lib/loaders/script-loader.js!../../../../../lib/loaders/module-loader.js!../../../../../node_modules/babel-loader/lib/index.js?cwd=<CWD>&cacheDirectory&plugins[]=<CWD>/packages/hap-dsl-xvm/lib/loaders/babel-plugin-jsx.js&comments=false&configFile=<CWD>/babel.config.js!../../../../../lib/loaders/access-loader.js!../../../../../lib/loaders/fragment-loader.js?index=0&type=script!./testprogress.ux?uxType=page\\")
+var $app_script$ = require(\\"!../../../../../lib/loaders/script-loader.js!../../../../../../hap-packager/lib/loaders/module-loader.js!../../../../../../../node_modules/babel-loader/lib/index.js?cwd=<CWD>&cacheDirectory&plugins[]=<CWD>/packages/hap-dsl-xvm/lib/loaders/babel-plugin-jsx.js&comments=false&configFile=<CWD>/babel.config.js!../../../../../lib/loaders/access-loader.js!../../../../../lib/loaders/fragment-loader.js?index=0&type=script!./testprogress.ux?uxType=page\\")
 
 $app_define$('@app-component/testprogress', [], function($app_require$, $app_exports$, $app_module$) {
      $app_script$($app_module$, $app_exports$, $app_require$)
@@ -5541,7 +5429,7 @@ exports[`Component 编译测试 ux components: ./TestComponent/Rating/testrating
 "
 var $app_style$ = require(\\"!../../../../../lib/loaders/style-loader.js?index=0&type=style!../../../../../lib/loaders/fragment-loader.js?index=0&type=style!./testrating.ux?uxType=page\\")
 
-var $app_script$ = require(\\"!../../../../../lib/loaders/script-loader.js!../../../../../lib/loaders/module-loader.js!../../../../../node_modules/babel-loader/lib/index.js?cwd=<CWD>&cacheDirectory&plugins[]=<CWD>/packages/hap-dsl-xvm/lib/loaders/babel-plugin-jsx.js&comments=false&configFile=<CWD>/babel.config.js!../../../../../lib/loaders/access-loader.js!../../../../../lib/loaders/fragment-loader.js?index=0&type=script!./testrating.ux?uxType=page\\")
+var $app_script$ = require(\\"!../../../../../lib/loaders/script-loader.js!../../../../../../hap-packager/lib/loaders/module-loader.js!../../../../../../../node_modules/babel-loader/lib/index.js?cwd=<CWD>&cacheDirectory&plugins[]=<CWD>/packages/hap-dsl-xvm/lib/loaders/babel-plugin-jsx.js&comments=false&configFile=<CWD>/babel.config.js!../../../../../lib/loaders/access-loader.js!../../../../../lib/loaders/fragment-loader.js?index=0&type=script!./testrating.ux?uxType=page\\")
 
 $app_define$('@app-component/testrating', [], function($app_require$, $app_exports$, $app_module$) {
      $app_script$($app_module$, $app_exports$, $app_require$)
@@ -5559,7 +5447,7 @@ exports[`Component 编译测试 ux components: ./TestComponent/Refresh/testrefre
 "
 var $app_style$ = require(\\"!../../../../../lib/loaders/style-loader.js?index=0&type=style!../../../../../lib/loaders/fragment-loader.js?index=0&type=style!./testrefresh.ux?uxType=page\\")
 
-var $app_script$ = require(\\"!../../../../../lib/loaders/script-loader.js!../../../../../lib/loaders/module-loader.js!../../../../../node_modules/babel-loader/lib/index.js?cwd=<CWD>&cacheDirectory&plugins[]=<CWD>/packages/hap-dsl-xvm/lib/loaders/babel-plugin-jsx.js&comments=false&configFile=<CWD>/babel.config.js!../../../../../lib/loaders/access-loader.js!../../../../../lib/loaders/fragment-loader.js?index=0&type=script!./testrefresh.ux?uxType=page\\")
+var $app_script$ = require(\\"!../../../../../lib/loaders/script-loader.js!../../../../../../hap-packager/lib/loaders/module-loader.js!../../../../../../../node_modules/babel-loader/lib/index.js?cwd=<CWD>&cacheDirectory&plugins[]=<CWD>/packages/hap-dsl-xvm/lib/loaders/babel-plugin-jsx.js&comments=false&configFile=<CWD>/babel.config.js!../../../../../lib/loaders/access-loader.js!../../../../../lib/loaders/fragment-loader.js?index=0&type=script!./testrefresh.ux?uxType=page\\")
 
 $app_define$('@app-component/testrefresh', [], function($app_require$, $app_exports$, $app_module$) {
      $app_script$($app_module$, $app_exports$, $app_require$)
@@ -5577,7 +5465,7 @@ exports[`Component 编译测试 ux components: ./TestComponent/Refresh2/testrefr
 "
 var $app_style$ = require(\\"!../../../../../lib/loaders/style-loader.js?index=0&type=style!../../../../../lib/loaders/fragment-loader.js?index=0&type=style!./testrefresh2.ux?uxType=page\\")
 
-var $app_script$ = require(\\"!../../../../../lib/loaders/script-loader.js!../../../../../lib/loaders/module-loader.js!../../../../../node_modules/babel-loader/lib/index.js?cwd=<CWD>&cacheDirectory&plugins[]=<CWD>/packages/hap-dsl-xvm/lib/loaders/babel-plugin-jsx.js&comments=false&configFile=<CWD>/babel.config.js!../../../../../lib/loaders/access-loader.js!../../../../../lib/loaders/fragment-loader.js?index=0&type=script!./testrefresh2.ux?uxType=page\\")
+var $app_script$ = require(\\"!../../../../../lib/loaders/script-loader.js!../../../../../../hap-packager/lib/loaders/module-loader.js!../../../../../../../node_modules/babel-loader/lib/index.js?cwd=<CWD>&cacheDirectory&plugins[]=<CWD>/packages/hap-dsl-xvm/lib/loaders/babel-plugin-jsx.js&comments=false&configFile=<CWD>/babel.config.js!../../../../../lib/loaders/access-loader.js!../../../../../lib/loaders/fragment-loader.js?index=0&type=script!./testrefresh2.ux?uxType=page\\")
 
 $app_define$('@app-component/testrefresh2', [], function($app_require$, $app_exports$, $app_module$) {
      $app_script$($app_module$, $app_exports$, $app_require$)
@@ -5595,7 +5483,7 @@ exports[`Component 编译测试 ux components: ./TestComponent/RichText/testrich
 "
 var $app_style$ = require(\\"!../../../../../lib/loaders/style-loader.js?index=0&type=style!../../../../../lib/loaders/fragment-loader.js?index=0&type=style!./testrichtext.ux?uxType=page\\")
 
-var $app_script$ = require(\\"!../../../../../lib/loaders/script-loader.js!../../../../../lib/loaders/module-loader.js!../../../../../node_modules/babel-loader/lib/index.js?cwd=<CWD>&cacheDirectory&plugins[]=<CWD>/packages/hap-dsl-xvm/lib/loaders/babel-plugin-jsx.js&comments=false&configFile=<CWD>/babel.config.js!../../../../../lib/loaders/access-loader.js!../../../../../lib/loaders/fragment-loader.js?index=0&type=script!./testrichtext.ux?uxType=page\\")
+var $app_script$ = require(\\"!../../../../../lib/loaders/script-loader.js!../../../../../../hap-packager/lib/loaders/module-loader.js!../../../../../../../node_modules/babel-loader/lib/index.js?cwd=<CWD>&cacheDirectory&plugins[]=<CWD>/packages/hap-dsl-xvm/lib/loaders/babel-plugin-jsx.js&comments=false&configFile=<CWD>/babel.config.js!../../../../../lib/loaders/access-loader.js!../../../../../lib/loaders/fragment-loader.js?index=0&type=script!./testrichtext.ux?uxType=page\\")
 
 $app_define$('@app-component/testrichtext', [], function($app_require$, $app_exports$, $app_module$) {
      $app_script$($app_module$, $app_exports$, $app_require$)
@@ -5613,7 +5501,7 @@ exports[`Component 编译测试 ux components: ./TestComponent/Scrollview/testsc
 "
 var $app_style$ = require(\\"!../../../../../lib/loaders/style-loader.js?index=0&type=style!../../../../../lib/loaders/fragment-loader.js?index=0&type=style!./testscrollview.ux?uxType=page\\")
 
-var $app_script$ = require(\\"!../../../../../lib/loaders/script-loader.js!../../../../../lib/loaders/module-loader.js!../../../../../node_modules/babel-loader/lib/index.js?cwd=<CWD>&cacheDirectory&plugins[]=<CWD>/packages/hap-dsl-xvm/lib/loaders/babel-plugin-jsx.js&comments=false&configFile=<CWD>/babel.config.js!../../../../../lib/loaders/access-loader.js!../../../../../lib/loaders/fragment-loader.js?index=0&type=script!./testscrollview.ux?uxType=page\\")
+var $app_script$ = require(\\"!../../../../../lib/loaders/script-loader.js!../../../../../../hap-packager/lib/loaders/module-loader.js!../../../../../../../node_modules/babel-loader/lib/index.js?cwd=<CWD>&cacheDirectory&plugins[]=<CWD>/packages/hap-dsl-xvm/lib/loaders/babel-plugin-jsx.js&comments=false&configFile=<CWD>/babel.config.js!../../../../../lib/loaders/access-loader.js!../../../../../lib/loaders/fragment-loader.js?index=0&type=script!./testscrollview.ux?uxType=page\\")
 
 $app_define$('@app-component/testscrollview', [], function($app_require$, $app_exports$, $app_module$) {
      $app_script$($app_module$, $app_exports$, $app_require$)
@@ -5630,7 +5518,7 @@ $app_bootstrap$('@app-component/testscrollview',{ packagerVersion: QUICKAPP_TOOL
 exports[`Component 编译测试 ux components: ./TestComponent/SectionList/index.ux?uxType=page 1`] = `
 "
 var $app_style$ = {}
-var $app_script$ = require(\\"!../../../../../lib/loaders/script-loader.js!../../../../../lib/loaders/module-loader.js!../../../../../node_modules/babel-loader/lib/index.js?cwd=<CWD>&cacheDirectory&plugins[]=<CWD>/packages/hap-dsl-xvm/lib/loaders/babel-plugin-jsx.js&comments=false&configFile=<CWD>/babel.config.js!../../../../../lib/loaders/access-loader.js!../../../../../lib/loaders/fragment-loader.js?index=0&type=script!./index.ux?uxType=page\\")
+var $app_script$ = require(\\"!../../../../../lib/loaders/script-loader.js!../../../../../../hap-packager/lib/loaders/module-loader.js!../../../../../../../node_modules/babel-loader/lib/index.js?cwd=<CWD>&cacheDirectory&plugins[]=<CWD>/packages/hap-dsl-xvm/lib/loaders/babel-plugin-jsx.js&comments=false&configFile=<CWD>/babel.config.js!../../../../../lib/loaders/access-loader.js!../../../../../lib/loaders/fragment-loader.js?index=0&type=script!./index.ux?uxType=page\\")
 
 $app_define$('@app-component/index', [], function($app_require$, $app_exports$, $app_module$) {
      $app_script$($app_module$, $app_exports$, $app_require$)
@@ -5647,7 +5535,7 @@ exports[`Component 编译测试 ux components: ./TestComponent/SelectOption/test
 "
 var $app_style$ = require(\\"!../../../../../lib/loaders/style-loader.js?index=0&type=style!../../../../../lib/loaders/fragment-loader.js?index=0&type=style!./testselectoption.ux?uxType=page\\")
 
-var $app_script$ = require(\\"!../../../../../lib/loaders/script-loader.js!../../../../../lib/loaders/module-loader.js!../../../../../node_modules/babel-loader/lib/index.js?cwd=<CWD>&cacheDirectory&plugins[]=<CWD>/packages/hap-dsl-xvm/lib/loaders/babel-plugin-jsx.js&comments=false&configFile=<CWD>/babel.config.js!../../../../../lib/loaders/access-loader.js!../../../../../lib/loaders/fragment-loader.js?index=0&type=script!./testselectoption.ux?uxType=page\\")
+var $app_script$ = require(\\"!../../../../../lib/loaders/script-loader.js!../../../../../../hap-packager/lib/loaders/module-loader.js!../../../../../../../node_modules/babel-loader/lib/index.js?cwd=<CWD>&cacheDirectory&plugins[]=<CWD>/packages/hap-dsl-xvm/lib/loaders/babel-plugin-jsx.js&comments=false&configFile=<CWD>/babel.config.js!../../../../../lib/loaders/access-loader.js!../../../../../lib/loaders/fragment-loader.js?index=0&type=script!./testselectoption.ux?uxType=page\\")
 
 $app_define$('@app-component/testselectoption', [], function($app_require$, $app_exports$, $app_module$) {
      $app_script$($app_module$, $app_exports$, $app_require$)
@@ -5665,7 +5553,7 @@ exports[`Component 编译测试 ux components: ./TestComponent/SlideView/index.u
 "
 var $app_style$ = require(\\"!../../../../../lib/loaders/style-loader.js?index=0&type=style!../../../../../lib/loaders/fragment-loader.js?index=0&type=style!./index.ux?uxType=page\\")
 
-var $app_script$ = require(\\"!../../../../../lib/loaders/script-loader.js!../../../../../lib/loaders/module-loader.js!../../../../../node_modules/babel-loader/lib/index.js?cwd=<CWD>&cacheDirectory&plugins[]=<CWD>/packages/hap-dsl-xvm/lib/loaders/babel-plugin-jsx.js&comments=false&configFile=<CWD>/babel.config.js!../../../../../lib/loaders/access-loader.js!../../../../../lib/loaders/fragment-loader.js?index=0&type=script!./index.ux?uxType=page\\")
+var $app_script$ = require(\\"!../../../../../lib/loaders/script-loader.js!../../../../../../hap-packager/lib/loaders/module-loader.js!../../../../../../../node_modules/babel-loader/lib/index.js?cwd=<CWD>&cacheDirectory&plugins[]=<CWD>/packages/hap-dsl-xvm/lib/loaders/babel-plugin-jsx.js&comments=false&configFile=<CWD>/babel.config.js!../../../../../lib/loaders/access-loader.js!../../../../../lib/loaders/fragment-loader.js?index=0&type=script!./index.ux?uxType=page\\")
 
 $app_define$('@app-component/index', [], function($app_require$, $app_exports$, $app_module$) {
      $app_script$($app_module$, $app_exports$, $app_require$)
@@ -5683,7 +5571,7 @@ exports[`Component 编译测试 ux components: ./TestComponent/Slider/testslider
 "
 var $app_style$ = require(\\"!../../../../../lib/loaders/style-loader.js?index=0&type=style!../../../../../lib/loaders/fragment-loader.js?index=0&type=style!./testslider.ux?uxType=page\\")
 
-var $app_script$ = require(\\"!../../../../../lib/loaders/script-loader.js!../../../../../lib/loaders/module-loader.js!../../../../../node_modules/babel-loader/lib/index.js?cwd=<CWD>&cacheDirectory&plugins[]=<CWD>/packages/hap-dsl-xvm/lib/loaders/babel-plugin-jsx.js&comments=false&configFile=<CWD>/babel.config.js!../../../../../lib/loaders/access-loader.js!../../../../../lib/loaders/fragment-loader.js?index=0&type=script!./testslider.ux?uxType=page\\")
+var $app_script$ = require(\\"!../../../../../lib/loaders/script-loader.js!../../../../../../hap-packager/lib/loaders/module-loader.js!../../../../../../../node_modules/babel-loader/lib/index.js?cwd=<CWD>&cacheDirectory&plugins[]=<CWD>/packages/hap-dsl-xvm/lib/loaders/babel-plugin-jsx.js&comments=false&configFile=<CWD>/babel.config.js!../../../../../lib/loaders/access-loader.js!../../../../../lib/loaders/fragment-loader.js?index=0&type=script!./testslider.ux?uxType=page\\")
 
 $app_define$('@app-component/testslider', [], function($app_require$, $app_exports$, $app_module$) {
      $app_script$($app_module$, $app_exports$, $app_require$)
@@ -5701,7 +5589,7 @@ exports[`Component 编译测试 ux components: ./TestComponent/Span/testspan.ux?
 "
 var $app_style$ = require(\\"!../../../../../lib/loaders/style-loader.js?index=0&type=style!../../../../../lib/loaders/fragment-loader.js?index=0&type=style!./testspan.ux?uxType=page\\")
 
-var $app_script$ = require(\\"!../../../../../lib/loaders/script-loader.js!../../../../../lib/loaders/module-loader.js!../../../../../node_modules/babel-loader/lib/index.js?cwd=<CWD>&cacheDirectory&plugins[]=<CWD>/packages/hap-dsl-xvm/lib/loaders/babel-plugin-jsx.js&comments=false&configFile=<CWD>/babel.config.js!../../../../../lib/loaders/access-loader.js!../../../../../lib/loaders/fragment-loader.js?index=0&type=script!./testspan.ux?uxType=page\\")
+var $app_script$ = require(\\"!../../../../../lib/loaders/script-loader.js!../../../../../../hap-packager/lib/loaders/module-loader.js!../../../../../../../node_modules/babel-loader/lib/index.js?cwd=<CWD>&cacheDirectory&plugins[]=<CWD>/packages/hap-dsl-xvm/lib/loaders/babel-plugin-jsx.js&comments=false&configFile=<CWD>/babel.config.js!../../../../../lib/loaders/access-loader.js!../../../../../lib/loaders/fragment-loader.js?index=0&type=script!./testspan.ux?uxType=page\\")
 
 $app_define$('@app-component/testspan', [], function($app_require$, $app_exports$, $app_module$) {
      $app_script$($app_module$, $app_exports$, $app_require$)
@@ -5719,7 +5607,7 @@ exports[`Component 编译测试 ux components: ./TestComponent/Stack/teststack.u
 "
 var $app_style$ = require(\\"!../../../../../lib/loaders/style-loader.js?index=0&type=style!../../../../../lib/loaders/fragment-loader.js?index=0&type=style!./teststack.ux?uxType=page\\")
 
-var $app_script$ = require(\\"!../../../../../lib/loaders/script-loader.js!../../../../../lib/loaders/module-loader.js!../../../../../node_modules/babel-loader/lib/index.js?cwd=<CWD>&cacheDirectory&plugins[]=<CWD>/packages/hap-dsl-xvm/lib/loaders/babel-plugin-jsx.js&comments=false&configFile=<CWD>/babel.config.js!../../../../../lib/loaders/access-loader.js!../../../../../lib/loaders/fragment-loader.js?index=0&type=script!./teststack.ux?uxType=page\\")
+var $app_script$ = require(\\"!../../../../../lib/loaders/script-loader.js!../../../../../../hap-packager/lib/loaders/module-loader.js!../../../../../../../node_modules/babel-loader/lib/index.js?cwd=<CWD>&cacheDirectory&plugins[]=<CWD>/packages/hap-dsl-xvm/lib/loaders/babel-plugin-jsx.js&comments=false&configFile=<CWD>/babel.config.js!../../../../../lib/loaders/access-loader.js!../../../../../lib/loaders/fragment-loader.js?index=0&type=script!./teststack.ux?uxType=page\\")
 
 $app_define$('@app-component/teststack', [], function($app_require$, $app_exports$, $app_module$) {
      $app_script$($app_module$, $app_exports$, $app_require$)
@@ -5737,7 +5625,7 @@ exports[`Component 编译测试 ux components: ./TestComponent/StarBackground/te
 "
 var $app_style$ = require(\\"!../../../../../lib/loaders/style-loader.js?index=0&type=style!../../../../../lib/loaders/fragment-loader.js?index=0&type=style!./teststarBackground.ux?uxType=page\\")
 
-var $app_script$ = require(\\"!../../../../../lib/loaders/script-loader.js!../../../../../lib/loaders/module-loader.js!../../../../../node_modules/babel-loader/lib/index.js?cwd=<CWD>&cacheDirectory&plugins[]=<CWD>/packages/hap-dsl-xvm/lib/loaders/babel-plugin-jsx.js&comments=false&configFile=<CWD>/babel.config.js!../../../../../lib/loaders/access-loader.js!../../../../../lib/loaders/fragment-loader.js?index=0&type=script!./teststarBackground.ux?uxType=page\\")
+var $app_script$ = require(\\"!../../../../../lib/loaders/script-loader.js!../../../../../../hap-packager/lib/loaders/module-loader.js!../../../../../../../node_modules/babel-loader/lib/index.js?cwd=<CWD>&cacheDirectory&plugins[]=<CWD>/packages/hap-dsl-xvm/lib/loaders/babel-plugin-jsx.js&comments=false&configFile=<CWD>/babel.config.js!../../../../../lib/loaders/access-loader.js!../../../../../lib/loaders/fragment-loader.js?index=0&type=script!./teststarBackground.ux?uxType=page\\")
 
 $app_define$('@app-component/teststarBackground', [], function($app_require$, $app_exports$, $app_module$) {
      $app_script$($app_module$, $app_exports$, $app_require$)
@@ -5755,7 +5643,7 @@ exports[`Component 编译测试 ux components: ./TestComponent/StarForeground/te
 "
 var $app_style$ = require(\\"!../../../../../lib/loaders/style-loader.js?index=0&type=style!../../../../../lib/loaders/fragment-loader.js?index=0&type=style!./teststarForeground.ux?uxType=page\\")
 
-var $app_script$ = require(\\"!../../../../../lib/loaders/script-loader.js!../../../../../lib/loaders/module-loader.js!../../../../../node_modules/babel-loader/lib/index.js?cwd=<CWD>&cacheDirectory&plugins[]=<CWD>/packages/hap-dsl-xvm/lib/loaders/babel-plugin-jsx.js&comments=false&configFile=<CWD>/babel.config.js!../../../../../lib/loaders/access-loader.js!../../../../../lib/loaders/fragment-loader.js?index=0&type=script!./teststarForeground.ux?uxType=page\\")
+var $app_script$ = require(\\"!../../../../../lib/loaders/script-loader.js!../../../../../../hap-packager/lib/loaders/module-loader.js!../../../../../../../node_modules/babel-loader/lib/index.js?cwd=<CWD>&cacheDirectory&plugins[]=<CWD>/packages/hap-dsl-xvm/lib/loaders/babel-plugin-jsx.js&comments=false&configFile=<CWD>/babel.config.js!../../../../../lib/loaders/access-loader.js!../../../../../lib/loaders/fragment-loader.js?index=0&type=script!./teststarForeground.ux?uxType=page\\")
 
 $app_define$('@app-component/teststarForeground', [], function($app_require$, $app_exports$, $app_module$) {
      $app_script$($app_module$, $app_exports$, $app_require$)
@@ -5773,7 +5661,7 @@ exports[`Component 编译测试 ux components: ./TestComponent/StarSecondary/tes
 "
 var $app_style$ = require(\\"!../../../../../lib/loaders/style-loader.js?index=0&type=style!../../../../../lib/loaders/fragment-loader.js?index=0&type=style!./teststarSecondary.ux?uxType=page\\")
 
-var $app_script$ = require(\\"!../../../../../lib/loaders/script-loader.js!../../../../../lib/loaders/module-loader.js!../../../../../node_modules/babel-loader/lib/index.js?cwd=<CWD>&cacheDirectory&plugins[]=<CWD>/packages/hap-dsl-xvm/lib/loaders/babel-plugin-jsx.js&comments=false&configFile=<CWD>/babel.config.js!../../../../../lib/loaders/access-loader.js!../../../../../lib/loaders/fragment-loader.js?index=0&type=script!./teststarSecondary.ux?uxType=page\\")
+var $app_script$ = require(\\"!../../../../../lib/loaders/script-loader.js!../../../../../../hap-packager/lib/loaders/module-loader.js!../../../../../../../node_modules/babel-loader/lib/index.js?cwd=<CWD>&cacheDirectory&plugins[]=<CWD>/packages/hap-dsl-xvm/lib/loaders/babel-plugin-jsx.js&comments=false&configFile=<CWD>/babel.config.js!../../../../../lib/loaders/access-loader.js!../../../../../lib/loaders/fragment-loader.js?index=0&type=script!./teststarSecondary.ux?uxType=page\\")
 
 $app_define$('@app-component/teststarSecondary', [], function($app_require$, $app_exports$, $app_module$) {
      $app_script$($app_module$, $app_exports$, $app_require$)
@@ -5791,7 +5679,7 @@ exports[`Component 编译测试 ux components: ./TestComponent/Swiper/testswiper
 "
 var $app_style$ = require(\\"!../../../../../lib/loaders/style-loader.js?index=0&type=style!../../../../../lib/loaders/fragment-loader.js?index=0&type=style!./testswiper.ux?uxType=page\\")
 
-var $app_script$ = require(\\"!../../../../../lib/loaders/script-loader.js!../../../../../lib/loaders/module-loader.js!../../../../../node_modules/babel-loader/lib/index.js?cwd=<CWD>&cacheDirectory&plugins[]=<CWD>/packages/hap-dsl-xvm/lib/loaders/babel-plugin-jsx.js&comments=false&configFile=<CWD>/babel.config.js!../../../../../lib/loaders/access-loader.js!../../../../../lib/loaders/fragment-loader.js?index=0&type=script!./testswiper.ux?uxType=page\\")
+var $app_script$ = require(\\"!../../../../../lib/loaders/script-loader.js!../../../../../../hap-packager/lib/loaders/module-loader.js!../../../../../../../node_modules/babel-loader/lib/index.js?cwd=<CWD>&cacheDirectory&plugins[]=<CWD>/packages/hap-dsl-xvm/lib/loaders/babel-plugin-jsx.js&comments=false&configFile=<CWD>/babel.config.js!../../../../../lib/loaders/access-loader.js!../../../../../lib/loaders/fragment-loader.js?index=0&type=script!./testswiper.ux?uxType=page\\")
 
 $app_define$('@app-component/testswiper', [], function($app_require$, $app_exports$, $app_module$) {
      $app_script$($app_module$, $app_exports$, $app_require$)
@@ -5809,7 +5697,7 @@ exports[`Component 编译测试 ux components: ./TestComponent/Switch/testswitch
 "
 var $app_style$ = require(\\"!../../../../../lib/loaders/style-loader.js?index=0&type=style!../../../../../lib/loaders/fragment-loader.js?index=0&type=style!./testswitch.ux?uxType=page\\")
 
-var $app_script$ = require(\\"!../../../../../lib/loaders/script-loader.js!../../../../../lib/loaders/module-loader.js!../../../../../node_modules/babel-loader/lib/index.js?cwd=<CWD>&cacheDirectory&plugins[]=<CWD>/packages/hap-dsl-xvm/lib/loaders/babel-plugin-jsx.js&comments=false&configFile=<CWD>/babel.config.js!../../../../../lib/loaders/access-loader.js!../../../../../lib/loaders/fragment-loader.js?index=0&type=script!./testswitch.ux?uxType=page\\")
+var $app_script$ = require(\\"!../../../../../lib/loaders/script-loader.js!../../../../../../hap-packager/lib/loaders/module-loader.js!../../../../../../../node_modules/babel-loader/lib/index.js?cwd=<CWD>&cacheDirectory&plugins[]=<CWD>/packages/hap-dsl-xvm/lib/loaders/babel-plugin-jsx.js&comments=false&configFile=<CWD>/babel.config.js!../../../../../lib/loaders/access-loader.js!../../../../../lib/loaders/fragment-loader.js?index=0&type=script!./testswitch.ux?uxType=page\\")
 
 $app_define$('@app-component/testswitch', [], function($app_require$, $app_exports$, $app_module$) {
      $app_script$($app_module$, $app_exports$, $app_require$)
@@ -5827,7 +5715,7 @@ exports[`Component 编译测试 ux components: ./TestComponent/Tabs/testtabs.ux?
 "
 var $app_style$ = require(\\"!../../../../../lib/loaders/style-loader.js?index=0&type=style!../../../../../lib/loaders/fragment-loader.js?index=0&type=style!./testtabs.ux?uxType=page\\")
 
-var $app_script$ = require(\\"!../../../../../lib/loaders/script-loader.js!../../../../../lib/loaders/module-loader.js!../../../../../node_modules/babel-loader/lib/index.js?cwd=<CWD>&cacheDirectory&plugins[]=<CWD>/packages/hap-dsl-xvm/lib/loaders/babel-plugin-jsx.js&comments=false&configFile=<CWD>/babel.config.js!../../../../../lib/loaders/access-loader.js!../../../../../lib/loaders/fragment-loader.js?index=0&type=script!./testtabs.ux?uxType=page\\")
+var $app_script$ = require(\\"!../../../../../lib/loaders/script-loader.js!../../../../../../hap-packager/lib/loaders/module-loader.js!../../../../../../../node_modules/babel-loader/lib/index.js?cwd=<CWD>&cacheDirectory&plugins[]=<CWD>/packages/hap-dsl-xvm/lib/loaders/babel-plugin-jsx.js&comments=false&configFile=<CWD>/babel.config.js!../../../../../lib/loaders/access-loader.js!../../../../../lib/loaders/fragment-loader.js?index=0&type=script!./testtabs.ux?uxType=page\\")
 
 $app_define$('@app-component/testtabs', [], function($app_require$, $app_exports$, $app_module$) {
      $app_script$($app_module$, $app_exports$, $app_require$)
@@ -5845,7 +5733,7 @@ exports[`Component 编译测试 ux components: ./TestComponent/Text/testtext.ux?
 "
 var $app_style$ = require(\\"!../../../../../lib/loaders/style-loader.js?index=0&type=style!../../../../../lib/loaders/fragment-loader.js?index=0&type=style!./testtext.ux?uxType=page\\")
 
-var $app_script$ = require(\\"!../../../../../lib/loaders/script-loader.js!../../../../../lib/loaders/module-loader.js!../../../../../node_modules/babel-loader/lib/index.js?cwd=<CWD>&cacheDirectory&plugins[]=<CWD>/packages/hap-dsl-xvm/lib/loaders/babel-plugin-jsx.js&comments=false&configFile=<CWD>/babel.config.js!../../../../../lib/loaders/access-loader.js!../../../../../lib/loaders/fragment-loader.js?index=0&type=script!./testtext.ux?uxType=page\\")
+var $app_script$ = require(\\"!../../../../../lib/loaders/script-loader.js!../../../../../../hap-packager/lib/loaders/module-loader.js!../../../../../../../node_modules/babel-loader/lib/index.js?cwd=<CWD>&cacheDirectory&plugins[]=<CWD>/packages/hap-dsl-xvm/lib/loaders/babel-plugin-jsx.js&comments=false&configFile=<CWD>/babel.config.js!../../../../../lib/loaders/access-loader.js!../../../../../lib/loaders/fragment-loader.js?index=0&type=script!./testtext.ux?uxType=page\\")
 
 $app_define$('@app-component/testtext', [], function($app_require$, $app_exports$, $app_module$) {
      $app_script$($app_module$, $app_exports$, $app_require$)
@@ -5863,7 +5751,7 @@ exports[`Component 编译测试 ux components: ./TestComponent/Textarea/testtext
 "
 var $app_style$ = require(\\"!../../../../../lib/loaders/style-loader.js?index=0&type=style!../../../../../lib/loaders/fragment-loader.js?index=0&type=style!./testtextarea.ux?uxType=page\\")
 
-var $app_script$ = require(\\"!../../../../../lib/loaders/script-loader.js!../../../../../lib/loaders/module-loader.js!../../../../../node_modules/babel-loader/lib/index.js?cwd=<CWD>&cacheDirectory&plugins[]=<CWD>/packages/hap-dsl-xvm/lib/loaders/babel-plugin-jsx.js&comments=false&configFile=<CWD>/babel.config.js!../../../../../lib/loaders/access-loader.js!../../../../../lib/loaders/fragment-loader.js?index=0&type=script!./testtextarea.ux?uxType=page\\")
+var $app_script$ = require(\\"!../../../../../lib/loaders/script-loader.js!../../../../../../hap-packager/lib/loaders/module-loader.js!../../../../../../../node_modules/babel-loader/lib/index.js?cwd=<CWD>&cacheDirectory&plugins[]=<CWD>/packages/hap-dsl-xvm/lib/loaders/babel-plugin-jsx.js&comments=false&configFile=<CWD>/babel.config.js!../../../../../lib/loaders/access-loader.js!../../../../../lib/loaders/fragment-loader.js?index=0&type=script!./testtextarea.ux?uxType=page\\")
 
 $app_define$('@app-component/testtextarea', [], function($app_require$, $app_exports$, $app_module$) {
      $app_script$($app_module$, $app_exports$, $app_require$)
@@ -5881,7 +5769,7 @@ exports[`Component 编译测试 ux components: ./TestComponent/Video/testvideo.u
 "
 var $app_style$ = require(\\"!../../../../../lib/loaders/style-loader.js?index=0&type=style!../../../../../lib/loaders/fragment-loader.js?index=0&type=style!./testvideo.ux?uxType=page\\")
 
-var $app_script$ = require(\\"!../../../../../lib/loaders/script-loader.js!../../../../../lib/loaders/module-loader.js!../../../../../node_modules/babel-loader/lib/index.js?cwd=<CWD>&cacheDirectory&plugins[]=<CWD>/packages/hap-dsl-xvm/lib/loaders/babel-plugin-jsx.js&comments=false&configFile=<CWD>/babel.config.js!../../../../../lib/loaders/access-loader.js!../../../../../lib/loaders/fragment-loader.js?index=0&type=script!./testvideo.ux?uxType=page\\")
+var $app_script$ = require(\\"!../../../../../lib/loaders/script-loader.js!../../../../../../hap-packager/lib/loaders/module-loader.js!../../../../../../../node_modules/babel-loader/lib/index.js?cwd=<CWD>&cacheDirectory&plugins[]=<CWD>/packages/hap-dsl-xvm/lib/loaders/babel-plugin-jsx.js&comments=false&configFile=<CWD>/babel.config.js!../../../../../lib/loaders/access-loader.js!../../../../../lib/loaders/fragment-loader.js?index=0&type=script!./testvideo.ux?uxType=page\\")
 
 $app_define$('@app-component/testvideo', [], function($app_require$, $app_exports$, $app_module$) {
      $app_script$($app_module$, $app_exports$, $app_require$)
@@ -5899,7 +5787,7 @@ exports[`Component 编译测试 ux components: ./TestComponent/Web/testweb.ux?ux
 "
 var $app_style$ = require(\\"!../../../../../lib/loaders/style-loader.js?index=0&type=style!../../../../../lib/loaders/fragment-loader.js?index=0&type=style!./testweb.ux?uxType=page\\")
 
-var $app_script$ = require(\\"!../../../../../lib/loaders/script-loader.js!../../../../../lib/loaders/module-loader.js!../../../../../node_modules/babel-loader/lib/index.js?cwd=<CWD>&cacheDirectory&plugins[]=<CWD>/packages/hap-dsl-xvm/lib/loaders/babel-plugin-jsx.js&comments=false&configFile=<CWD>/babel.config.js!../../../../../lib/loaders/access-loader.js!../../../../../lib/loaders/fragment-loader.js?index=0&type=script!./testweb.ux?uxType=page\\")
+var $app_script$ = require(\\"!../../../../../lib/loaders/script-loader.js!../../../../../../hap-packager/lib/loaders/module-loader.js!../../../../../../../node_modules/babel-loader/lib/index.js?cwd=<CWD>&cacheDirectory&plugins[]=<CWD>/packages/hap-dsl-xvm/lib/loaders/babel-plugin-jsx.js&comments=false&configFile=<CWD>/babel.config.js!../../../../../lib/loaders/access-loader.js!../../../../../lib/loaders/fragment-loader.js?index=0&type=script!./testweb.ux?uxType=page\\")
 
 $app_define$('@app-component/testweb', [], function($app_require$, $app_exports$, $app_module$) {
      $app_script$($app_module$, $app_exports$, $app_require$)
@@ -5956,7 +5844,7 @@ exports[`Component 编译测试 ux components: ./TestComponent/model/baseCheckbo
 "
 var $app_style$ = require(\\"!../../../../../lib/loaders/style-loader.js?index=0&type=style!../../../../../lib/loaders/fragment-loader.js?index=0&type=style!./baseCheckbox.ux?uxType=page\\")
 
-var $app_script$ = require(\\"!../../../../../lib/loaders/script-loader.js!../../../../../lib/loaders/module-loader.js!../../../../../node_modules/babel-loader/lib/index.js?cwd=<CWD>&cacheDirectory&plugins[]=<CWD>/packages/hap-dsl-xvm/lib/loaders/babel-plugin-jsx.js&comments=false&configFile=<CWD>/babel.config.js!../../../../../lib/loaders/access-loader.js!../../../../../lib/loaders/fragment-loader.js?index=0&type=script!./baseCheckbox.ux?uxType=page\\")
+var $app_script$ = require(\\"!../../../../../lib/loaders/script-loader.js!../../../../../../hap-packager/lib/loaders/module-loader.js!../../../../../../../node_modules/babel-loader/lib/index.js?cwd=<CWD>&cacheDirectory&plugins[]=<CWD>/packages/hap-dsl-xvm/lib/loaders/babel-plugin-jsx.js&comments=false&configFile=<CWD>/babel.config.js!../../../../../lib/loaders/access-loader.js!../../../../../lib/loaders/fragment-loader.js?index=0&type=script!./baseCheckbox.ux?uxType=page\\")
 
 $app_define$('@app-component/baseCheckbox', [], function($app_require$, $app_exports$, $app_module$) {
      $app_script$($app_module$, $app_exports$, $app_require$)
@@ -5975,7 +5863,7 @@ exports[`Component 编译测试 ux components: ./TestComponent/model/testmodel.u
 
 var $app_style$ = require(\\"!../../../../../lib/loaders/style-loader.js?index=0&type=style!../../../../../lib/loaders/fragment-loader.js?index=0&type=style!./testmodel.ux?uxType=page\\")
 
-var $app_script$ = require(\\"!../../../../../lib/loaders/script-loader.js!../../../../../lib/loaders/module-loader.js!../../../../../node_modules/babel-loader/lib/index.js?cwd=<CWD>&cacheDirectory&plugins[]=<CWD>/packages/hap-dsl-xvm/lib/loaders/babel-plugin-jsx.js&comments=false&configFile=<CWD>/babel.config.js!../../../../../lib/loaders/access-loader.js!../../../../../lib/loaders/fragment-loader.js?index=0&type=script!./testmodel.ux?uxType=page\\")
+var $app_script$ = require(\\"!../../../../../lib/loaders/script-loader.js!../../../../../../hap-packager/lib/loaders/module-loader.js!../../../../../../../node_modules/babel-loader/lib/index.js?cwd=<CWD>&cacheDirectory&plugins[]=<CWD>/packages/hap-dsl-xvm/lib/loaders/babel-plugin-jsx.js&comments=false&configFile=<CWD>/babel.config.js!../../../../../lib/loaders/access-loader.js!../../../../../lib/loaders/fragment-loader.js?index=0&type=script!./testmodel.ux?uxType=page\\")
 
 $app_define$('@app-component/testmodel', [], function($app_require$, $app_exports$, $app_module$) {
      $app_script$($app_module$, $app_exports$, $app_require$)

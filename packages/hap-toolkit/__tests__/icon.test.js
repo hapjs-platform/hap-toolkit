@@ -1,12 +1,13 @@
 /*
- * Copyright (c) 2021, the hapjs-platform Project Contributors
+ * Copyright (c) 2021-present, the hapjs-platform Project Contributors
  * SPDX-License-Identifier: Apache-2.0
  */
+
 'use strict'
 
 const process = require('process')
 const fs = require('fs')
-const path = require('path')
+const path = require('@jayfate/path')
 const del = require('del')
 const webpack = require('webpack')
 const JSZip = require('jszip')
@@ -44,7 +45,7 @@ function pack(projectRoot, platform = 'native', phase = 'dev', opts = {}) {
   return new Promise((resolve, reject) => {
     process.env.NODE_PLATFORM = platform
     process.env.NODE_PHASE = phase
-    globalConfig.projectPath = projectRoot
+    globalConfig.projectPath = path.resolve(projectRoot)
     const webpackConfig = genWebpackConf({ cwd: projectRoot, ...opts }, 'development')
 
     webpack(webpackConfig, (err, stats) => {
@@ -116,7 +117,7 @@ describe('分包资源包含icon打包测试', () => {
 
       expect(Object.keys(nonstandaloneSrpkFiles)).not.toContain(iconPath)
 
-      await del([tempAppDir])
+      await del([tempAppDir], { force: true })
     },
     5 * 60 * 1000
   )

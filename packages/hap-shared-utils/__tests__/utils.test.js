@@ -1,7 +1,8 @@
 /*
- * Copyright (c) 2021, the hapjs-platform Project Contributors
+ * Copyright (c) 2021-present, the hapjs-platform Project Contributors
  * SPDX-License-Identifier: Apache-2.0
  */
+
 const { Writable } = require('stream')
 const { Console } = require('console')
 const stripAnsi = require('strip-ansi')
@@ -11,7 +12,7 @@ describe('utils', () => {
   it('colorconsole.attach', () => {
     let output = ''
     const stream = new Writable()
-    stream._write = function(data, enc, next) {
+    stream._write = function (data, enc, next) {
       output += data.toString()
       next()
     }

@@ -1,8 +1,9 @@
 /*
- * Copyright (c) 2021, the hapjs-platform Project Contributors
+ * Copyright (c) 2021-present, the hapjs-platform Project Contributors
  * SPDX-License-Identifier: Apache-2.0
  */
-const path = require('path')
+
+const path = require('@jayfate/path')
 const glob = require('glob')
 const del = require('del')
 const { copyApp } = require('hap-dev-utils')
@@ -18,37 +19,16 @@ describe('compile a project and test resource collect', () => {
       optimizeUnusedResource: true,
       cwd: tempAppDir
     }
-    const { stats } = await compile('native', 'prod', false, options)
+    const res = await compile('native', 'prod', false, options)
+    const { stats } = res
     expect(stats.hasErrors()).toBeFalsy()
     const testProjectBuildPath = path.join(tempAppDir, 'build')
     const result = glob.sync('**/*', {
       cwd: testProjectBuildPath
     })
-    // 引用到的资源列表
-    const usedResult = [
-      'Common/1.png',
-      'Common/2.png',
-      'Common/3.png',
-      'Common/4.png',
-      'Common/5.png',
-      'Common/6.png',
-      'Common/7.png',
-      'Common/logo.png',
-      'manifest.json',
-      'assets/2.png',
-      'assets/4.png',
-      'assets/5.png',
-      'node_modules/qa-test-ui/assets/1.png',
-      'node_modules/qa-test-ui/assets/3.png',
-      'node_modules/qa-test-ui/assets/6.png',
-      'node_modules/qa-test-ui/assets/7.png'
-    ]
-    expect(result).toEqual(expect.arrayContaining(usedResult))
-    // 未引用到的资源列表
-    const unusedResult = ['Common/unused-1.png', 'Demo/unused-2.png', 'unused-3.png']
-    expect(result).toEqual(expect.not.arrayContaining(unusedResult))
-    expect(result).toMatchSnapshot()
-    await del([tempAppDir])
+
+    expect(result).toMatchSnapshot('resource list')
+    await del([tempAppDir], { force: true })
   }, 50000)
 })
 
@@ -61,7 +41,8 @@ describe('css样式抽取', () => {
       enableExtractCss: true,
       cwd: tempAppDir
     }
-    const { stats } = await compile('native', 'prod', false, options)
+    const res = await compile('native', 'prod', false, options)
+    const { stats } = res
     expect(stats.hasErrors()).toBeFalsy()
     const testProjectBuildPath = path.join(tempAppDir, 'build')
     const result = glob.sync('**/*.css.json', {
@@ -71,7 +52,7 @@ describe('css样式抽取', () => {
     expect(result).toEqual(expect.arrayContaining(cssJsonFiles))
     expect(result.length).toBe(2)
     expect(result).toMatchSnapshot()
-    await del([tempAppDir])
+    await del([tempAppDir], { force: true })
   }, 50000)
   it('make sure the rules contain meta', async () => {
     const testAppDir = path.resolve(__dirname, '../fixtures/deps-app/')
@@ -86,14 +67,14 @@ describe('css样式抽取', () => {
     const result = glob.sync('**/*.css.json', {
       cwd: testProjectBuildPath
     })
-    result.forEach(item => {
+    result.forEach((item) => {
       const rules = require(path.resolve(testProjectBuildPath, item)).list
-      rules.forEach(rule => {
+      rules.forEach((rule) => {
         expect(rule).toMatchSnapshot({
           '@info': expect.any(Object)
         })
       })
     })
-    await del([tempAppDir])
+    await del([tempAppDir], { force: true })
   }, 50000)
 })

@@ -1,20 +1,21 @@
 /*
- * Copyright (c) 2021, the hapjs-platform Project Contributors
+ * Copyright (c) 2021-present, the hapjs-platform Project Contributors
  * SPDX-License-Identifier: Apache-2.0
  */
 
 const fs = require('fs')
-const path = require('path')
+const path = require('@jayfate/path')
 const del = require('del')
 const { copyApp, wipeDynamic } = require('hap-dev-utils')
 const { compile } = require('../lib')
 
 function testContentMatch(stats, projectRoot) {
+  projectRoot = path.resolve(projectRoot)
   const projectRootReg = new RegExp(projectRoot, 'g')
   const json = stats.toJson({ source: true })
   json.modules
-    .filter(mod => mod.source)
-    .forEach(module => {
+    .filter((mod) => mod.source)
+    .forEach((module) => {
       expect(wipeDynamic(module.source, [[projectRootReg, '<project-root>']])).toMatchSnapshot()
     })
 }

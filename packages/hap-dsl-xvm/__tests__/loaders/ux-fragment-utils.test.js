@@ -1,7 +1,8 @@
 /*
- * Copyright (c) 2021, the hapjs-platform Project Contributors
+ * Copyright (c) 2021-present, the hapjs-platform Project Contributors
  * SPDX-License-Identifier: Apache-2.0
  */
+
 const { wipeDynamic } = require('hap-dev-utils')
 const { parseFragmentsWithCache, parseTemplate } = require('@hap-toolkit/compiler')
 const { processImportFrag } = require('../../lib/loaders/ux-fragment-utils')
@@ -46,7 +47,7 @@ describe('ux-fragment-utils', () => {
     `
     const frags = parseFragmentsWithCache(code, '/mock/path')
     // bypass validate
-    frags.import.forEach(imp => {
+    frags.import.forEach((imp) => {
       imp.isValid = true
       imp.srcPath = '/mock/path'
     })

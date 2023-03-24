@@ -1,11 +1,11 @@
 /*
- * Copyright (c) 2021, the hapjs-platform Project Contributors
+ * Copyright (c) 2021-present, the hapjs-platform Project Contributors
  * SPDX-License-Identifier: Apache-2.0
  */
 
 const process = require('process')
 const fs = require('fs')
-const path = require('path')
+const path = require('@jayfate/path')
 const del = require('del')
 const webpack = require('webpack')
 const JSZip = require('jszip')
@@ -43,7 +43,7 @@ function pack(projectRoot, platform = 'native', phase = 'dev', opts = {}) {
   return new Promise((resolve, reject) => {
     process.env.NODE_PLATFORM = platform
     process.env.NODE_PHASE = phase
-    globalConfig.projectPath = projectRoot
+    globalConfig.projectPath = path.resolve(projectRoot)
     const webpackConfig = genWebpackConf({ cwd: projectRoot, ...opts }, 'development')
 
     webpack(webpackConfig, (err, stats) => {
@@ -85,7 +85,7 @@ describe('build quickapp', () => {
       expect(!!packageTxt).toBeTruthy()
       expect(await packageTxt.async('string')).toEqual(expect.stringMatching('originType=cmd'))
 
-      await del([tempAppDir])
+      await del([tempAppDir], { force: true })
     },
     5 * 60 * 1000
   )
@@ -110,7 +110,7 @@ describe('build quickapp', () => {
       expect(Object.keys(info)).toEqual(
         expect.arrayContaining(['arch', 'node', 'platform', 'toolkit'])
       )
-      await del([tempAppDir])
+      await del([tempAppDir], { force: true })
     },
     5 * 60 * 1000
   )

@@ -1,8 +1,9 @@
 /*
- * Copyright (c) 2021, the hapjs-platform Project Contributors
+ * Copyright (c) 2021-present, the hapjs-platform Project Contributors
  * SPDX-License-Identifier: Apache-2.0
  */
-const path = require('path')
+
+const path = require('@jayfate/path')
 const { getRecords, clearProjectRecord } = require('@hap-toolkit/shared-utils/lib/record-client')
 const globalConfig = require('@hap-toolkit/shared-utils/config')
 const { launchServer } = require('../lib')
@@ -20,7 +21,7 @@ describe('server', () => {
       disableADB: true,
       openDebugger: false,
       watch: false
-    }).then(data => {
+    }).then((data) => {
       server = data.server
     })
   }, 5000)
@@ -30,7 +31,7 @@ describe('server', () => {
       .get('/qrcode')
       .set('Host', '172.00.000.000:8000')
       .set('x-forwarded-for', ip)
-      .then(response => {
+      .then((response) => {
         const recordData = getRecords(clientRecordPath)
         expect(recordData.records[cwd][0].ip).toEqual(ip)
       })
@@ -47,13 +48,13 @@ describe('server', () => {
       .get('/qrcode')
       .set('Host', '172.00.000.000:8000')
       .set('x-forwarded-for', ip)
-      .then(response => {
+      .then((response) => {
         recordData = getRecords(clientRecordPath)
         expect(recordData.records[cwd][0].ip).toEqual(ip)
       })
   })
 
-  afterAll(done => {
+  afterAll((done) => {
     setTimeout(() => {
       server.close(done)
     }, 1000)

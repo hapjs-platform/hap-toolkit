@@ -2,40 +2,26 @@ image: node:lts
 
 cache:
   paths:
-    - node_modules/
+    # - node_modules/
     #    wait for https://gitlab.com/gitlab-org/gitlab-runner/issues/2620
     # - packages/**/node_modules/
-    - packages/hap-compiler/node_modules/
-    - packages/hap-debugger/node_modules/
-    - packages/hap-dev-utils/node_modules/
-    - packages/hap-dsl-xvm/node_modules/
-    - packages/hap-packager/node_modules/
-    - packages/hap-server/node_modules/
-    - packages/hap-shared-utils/node_modules/
-    - packages/hap-toolkit/node_modules/
-    - packages/integration-tests/node_modules/
-    - examples/sample/node_modules/
+    # - examples/sample/node_modules/
 
 stages:
   - test
+  - test:cov
   - build
   - release
   - deploy
 
 before_script:
-  - npx envinfo
-  - npm install
-  - npm run bootstrap
+  - npx envinfo --registry https://registry.npmmirror.com/
+  - yarn install --registry https://registry.npmmirror.com/
+  - cd examples/sample
+  - yarn install --registry https://registry.npmmirror.com/
+  - cd ../..
 
 build:
-  stage: build
-  script:
-    - npm run build
-  tags:
-    - docker
-
-build-on-node10:
-  image: node:10
   stage: build
   script:
     - npm run build
@@ -51,9 +37,9 @@ build-on-node-latest:
     - docker
 
 coverage:
-  stage: test
+  stage: test:cov
   # https://ac.gerrit.sodajs.org/fe/common-docker
-  image: quickapp/qa-fe-common
+  image: node:lts
   coverage: '/^Lines\s*: (\d+\.\d+)%/'
   script:
     - npm run build:dev # to test coverage, don't minify code
@@ -67,7 +53,7 @@ coverage:
 
 test:
   stage: test
-  image: quickapp/qa-fe-common
+  image: node:lts
   script:
     - npm run build
     - npm run prettier-check

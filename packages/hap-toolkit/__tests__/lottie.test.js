@@ -1,11 +1,12 @@
 /*
- * Copyright (c) 2021, the hapjs-platform Project Contributors
+ * Copyright (c) 2021-present, the hapjs-platform Project Contributors
  * SPDX-License-Identifier: Apache-2.0
  */
+
 'use strict'
 
 const fs = require('fs')
-const path = require('path')
+const path = require('@jayfate/path')
 const del = require('del')
 const glob = require('glob')
 const JSZip = require('jszip')
@@ -93,7 +94,7 @@ describe('lottie配置文件打包测试', () => {
       ]
       const lottiePath = path.join(projectRoot, 'src/lottie')
       // 把 lottie 配置文件删除
-      await del([lottiePath])
+      await del([lottiePath], { force: true })
       await compile(platform, mode, false, { cwd: projectRoot })
       await checkLottieFilesInRpk(pkgs, (pkgZipBuf, result) => {
         expect(!!pkgZipBuf.file('lottie/lottie.json')).toBe(result)
@@ -115,6 +116,6 @@ describe('lottie配置文件打包测试', () => {
     }
   }
   afterAll(async () => {
-    await del([projectRoot])
+    await del([projectRoot], { force: true })
   })
 })

@@ -6,7 +6,7 @@ require(\\"!../../../../hap-dsl-xvm/lib/loaders/ux-loader.js?cwd=<project-root>&
 
 
 var $app_style$ = {}
-var $app_script$ = require(\\"!../../../../hap-dsl-xvm/lib/loaders/script-loader.js!../../../../hap-dsl-xvm/lib/loaders/module-loader.js!../../../../hap-dsl-xvm/lib/loaders/manifest-loader.js?path=<project-root>/src!../../../../hap-dsl-xvm/node_modules/babel-loader/lib/index.js?cwd=<project-root>&cacheDirectory&comments=false&configFile=<project-root>/babel.config.js!../../../../hap-dsl-xvm/lib/loaders/fragment-loader.js?index=0&type=script!./app.ux?uxType=app\\")
+var $app_script$ = require(\\"!../../../../hap-dsl-xvm/lib/loaders/script-loader.js!../../../../hap-packager/lib/loaders/module-loader.js!../../../../hap-dsl-xvm/lib/loaders/manifest-loader.js?path=<project-root>/src!../../../../../node_modules/babel-loader/lib/index.js?cwd=<project-root>&cacheDirectory&comments=false&configFile=<project-root>/babel.config.js!../../../../hap-dsl-xvm/lib/loaders/fragment-loader.js?index=0&type=script!./app.ux?uxType=app\\")
 
 $app_define$('@app-application/app', [], function ($app_require$, $app_exports$, $app_module$) {
   
@@ -26,7 +26,7 @@ exports[`split common component on a project build results include split chunks 
 "
 var $app_style$ = require(\\"!../../../../../hap-dsl-xvm/lib/loaders/style-loader.js?index=0&type=style!../../../../../hap-dsl-xvm/lib/loaders/fragment-loader.js?index=0&type=style!./index.ux?uxType=page\\")
 
-var $app_script$ = require(\\"!../../../../../hap-dsl-xvm/lib/loaders/script-loader.js!../../../../../hap-dsl-xvm/lib/loaders/module-loader.js!../../../../../hap-dsl-xvm/node_modules/babel-loader/lib/index.js?cwd=<project-root>&cacheDirectory&plugins[]=<CWD>/packages/hap-dsl-xvm/lib/loaders/babel-plugin-jsx.js&comments=false&configFile=<project-root>/babel.config.js!../../../../../hap-dsl-xvm/lib/loaders/access-loader.js!../../../../../hap-dsl-xvm/lib/loaders/fragment-loader.js?index=0&type=script!./index.ux?uxType=page\\")
+var $app_script$ = require(\\"!../../../../../hap-dsl-xvm/lib/loaders/script-loader.js!../../../../../hap-packager/lib/loaders/module-loader.js!../../../../../../node_modules/babel-loader/lib/index.js?cwd=<project-root>&cacheDirectory&plugins[]=<CWD>/packages/hap-dsl-xvm/lib/loaders/babel-plugin-jsx.js&comments=false&configFile=<project-root>/babel.config.js!../../../../../hap-dsl-xvm/lib/loaders/access-loader.js!../../../../../hap-dsl-xvm/lib/loaders/fragment-loader.js?index=0&type=script!./index.ux?uxType=page\\")
 
 $app_define$('@app-component/index', [], function($app_require$, $app_exports$, $app_module$) {
      $app_script$($app_module$, $app_exports$, $app_require$)
@@ -44,7 +44,7 @@ exports[`split common component on a project build results include split chunks 
 "
 var $app_style$ = require(\\"!../../../../../hap-dsl-xvm/lib/loaders/style-loader.js?index=0&type=style!../../../../../hap-dsl-xvm/lib/loaders/fragment-loader.js?index=0&type=style!./index.ux?uxType=card\\")
 
-var $app_script$ = require(\\"!../../../../../hap-dsl-xvm/lib/loaders/script-loader.js!../../../../../hap-dsl-xvm/lib/loaders/module-loader.js!../../../../../hap-dsl-xvm/node_modules/babel-loader/lib/index.js?cwd=<project-root>&cacheDirectory&plugins[]=<CWD>/packages/hap-dsl-xvm/lib/loaders/babel-plugin-jsx.js&comments=false&configFile=<project-root>/babel.config.js!../../../../../hap-dsl-xvm/lib/loaders/access-loader.js!../../../../../hap-dsl-xvm/lib/loaders/fragment-loader.js?index=0&type=script!./index.ux?uxType=card\\")
+var $app_script$ = require(\\"!../../../../../hap-dsl-xvm/lib/loaders/script-loader.js!../../../../../hap-packager/lib/loaders/module-loader.js!../../../../../../node_modules/babel-loader/lib/index.js?cwd=<project-root>&cacheDirectory&plugins[]=<CWD>/packages/hap-dsl-xvm/lib/loaders/babel-plugin-jsx.js&comments=false&configFile=<project-root>/babel.config.js!../../../../../hap-dsl-xvm/lib/loaders/access-loader.js!../../../../../hap-dsl-xvm/lib/loaders/fragment-loader.js?index=0&type=script!./index.ux?uxType=card\\")
 
 $app_define$('@app-component/index', [], function($app_require$, $app_exports$, $app_module$) {
      $app_script$($app_module$, $app_exports$, $app_require$)
@@ -88,9 +88,9 @@ exports[`split common component on a project build results include split chunks 
 Object.defineProperty(exports, \\"__esModule\\", {
   value: true
 });
-exports[\\"default\\"] = void 0;
+exports.default = void 0;
 var _default = {};
-exports[\\"default\\"] = _default;}"
+exports.default = _default;}"
 `;
 
 exports[`split common component on a project build results include split chunks for [SMART]  7`] = `
@@ -101,11 +101,8 @@ exports[`split common component on a project build results include split chunks 
   \\"versionCode\\": \\"1\\",
   \\"minPlatformVersion\\": 1070,
   \\"icon\\": \\"/Common/logo.png\\",
-  \\"features\\": [
-  ],
-  \\"permissions\\": [
-    { \\"origin\\": \\"*\\" }
-  ],
+  \\"features\\": [],
+  \\"permissions\\": [{ \\"origin\\": \\"*\\" }],
   \\"config\\": {
     \\"logLevel\\": \\"off\\"
   },
@@ -126,7 +123,8 @@ exports[`split common component on a project build results include split chunks 
       }
     }
   }
-}"
+}
+"
 `;
 
 exports[`split common component on a project build results include split chunks for [SMART]  8`] = `
@@ -158,19 +156,15 @@ exports[`split common component on a project build results include split chunks 
 Object.defineProperty(exports, \\"__esModule\\", {
   value: true
 });
-exports[\\"default\\"] = void 0;
-
-function _typeof(obj) { \\"@babel/helpers - typeof\\"; if (typeof Symbol === \\"function\\" && typeof Symbol.iterator === \\"symbol\\") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === \\"function\\" && obj.constructor === Symbol && obj !== Symbol.prototype ? \\"symbol\\" : typeof obj; }; } return _typeof(obj); }
-
+exports.default = void 0;
 var _default = {
-  \\"private\\": {
+  private: {
     title: '示例页面'
   }
 };
-exports[\\"default\\"] = _default;
-var moduleOwn = exports[\\"default\\"] || module.exports;
-var accessors = ['public', 'protected', 'private'];
-
+exports.default = _default;
+const moduleOwn = exports.default || module.exports;
+const accessors = ['public', 'protected', 'private'];
 if (moduleOwn.data && accessors.some(function (acc) {
   return moduleOwn[acc];
 })) {
@@ -179,12 +173,10 @@ if (moduleOwn.data && accessors.some(function (acc) {
   moduleOwn.data = {};
   moduleOwn._descriptor = {};
   accessors.forEach(function (acc) {
-    var accType = _typeof(moduleOwn[acc]);
-
+    const accType = typeof moduleOwn[acc];
     if (accType === 'object') {
       moduleOwn.data = Object.assign(moduleOwn.data, moduleOwn[acc]);
-
-      for (var name in moduleOwn[acc]) {
+      for (const name in moduleOwn[acc]) {
         moduleOwn._descriptor[name] = {
           access: acc
         };
@@ -241,20 +233,16 @@ exports[`split common component on a project build results include split chunks 
 Object.defineProperty(exports, \\"__esModule\\", {
   value: true
 });
-exports[\\"default\\"] = void 0;
-
-function _typeof(obj) { \\"@babel/helpers - typeof\\"; if (typeof Symbol === \\"function\\" && typeof Symbol.iterator === \\"symbol\\") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === \\"function\\" && obj.constructor === Symbol && obj !== Symbol.prototype ? \\"symbol\\" : typeof obj; }; } return _typeof(obj); }
-
+exports.default = void 0;
 var _default = {
-  \\"private\\": {
+  private: {
     text: '欢迎使用快应用卡片',
     des: '卡片是一种轻量级的快应用，快应用卡片使快应用能够在其他app和系统里提供可扩展的app功能'
   }
 };
-exports[\\"default\\"] = _default;
-var moduleOwn = exports[\\"default\\"] || module.exports;
-var accessors = ['public', 'protected', 'private'];
-
+exports.default = _default;
+const moduleOwn = exports.default || module.exports;
+const accessors = ['public', 'protected', 'private'];
 if (moduleOwn.data && accessors.some(function (acc) {
   return moduleOwn[acc];
 })) {
@@ -263,12 +251,10 @@ if (moduleOwn.data && accessors.some(function (acc) {
   moduleOwn.data = {};
   moduleOwn._descriptor = {};
   accessors.forEach(function (acc) {
-    var accType = _typeof(moduleOwn[acc]);
-
+    const accType = typeof moduleOwn[acc];
     if (accType === 'object') {
       moduleOwn.data = Object.assign(moduleOwn.data, moduleOwn[acc]);
-
-      for (var name in moduleOwn[acc]) {
+      for (const name in moduleOwn[acc]) {
         moduleOwn._descriptor[name] = {
           access: acc
         };
