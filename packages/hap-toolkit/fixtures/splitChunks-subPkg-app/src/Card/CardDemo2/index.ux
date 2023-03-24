@@ -1,0 +1,49 @@
+<!-- 
+  Copyright (c) 2021-present, the hapjs-platform Project Contributors
+  SPDX-License-Identifier: Apache-2.0
+-->
+
+<template>
+  <!-- template里只能有一个根节点 -->
+  <div class="demo-page">
+    <text>{{ text }}</text>
+    <text>{{ des }}</text>
+    <text>testData: {{ testData }}</text>
+    <text>showCardData: {{ showCardData }}</text>
+    <text>showAllData: {{ showAllData }}</text>
+  </div>
+</template>
+
+<script>
+import { toUpper } from "lodash-es";
+import { showCard } from '../../modules/modCard.js'
+import { showAll } from '../../modules/modAll'
+export default {
+  private: {
+    text: '欢迎使用快应用卡片2',
+    des: '卡片是一种轻量级的快应用，快应用卡片使快应用能够在其他app和系统里提供可扩展的app功能',
+    testData: '',
+    showCardData: '',
+    showAllData:''
+  },
+  onShow() {
+    this.testlodash()
+    this.showCard()
+  },
+  testlodash() {
+    this.testData = toUpper('/root/path/to/src/Sub2/page2/index.ux')
+  },
+  showCard() {
+    this.showCardData = showCard()
+    this.showAllData = showAll()
+  }
+}
+</script>
+
+<style>
+.demo-page {
+  flex: 1;
+  flex-direction: column;
+  align-items: center;
+}
+</style>
