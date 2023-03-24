@@ -1,10 +1,11 @@
 /*
- * Copyright (c) 2021, the hapjs-platform Project Contributors
+ * Copyright (c) 2021-present, the hapjs-platform Project Contributors
  * SPDX-License-Identifier: Apache-2.0
  */
+
 'use strict'
 
-const path = require('path')
+const path = require('@jayfate/path')
 const fse = require('fs-extra')
 const del = require('del')
 const request = require('supertest')
@@ -33,13 +34,11 @@ describe('测试骨架屏功能', () => {
       })
       server = data.server
 
-      const response = await request(server)
-        .post('/saveskeletonfile')
-        .send({
-          page: 'Demo',
-          file: 'demo.sk',
-          code: '<skeleton><clipPath width="750"></clipPath></skeleton>'
-        })
+      const response = await request(server).post('/saveskeletonfile').send({
+        page: 'Demo',
+        file: 'demo.sk',
+        code: '<skeleton><clipPath width="750"></clipPath></skeleton>'
+      })
       expect(response.status).toBe(200)
 
       const configFile = path.join(projectRoot, 'src/skeleton/config.json')

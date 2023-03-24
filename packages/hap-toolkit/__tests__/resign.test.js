@@ -1,9 +1,9 @@
 /*
- * Copyright (c) 2021, the hapjs-platform Project Contributors
+ * Copyright (c) 2021-present, the hapjs-platform Project Contributors
  * SPDX-License-Identifier: Apache-2.0
  */
 
-const path = require('path')
+const path = require('@jayfate/path')
 const del = require('del')
 const glob = require('glob')
 const { copyApp } = require('hap-dev-utils')
@@ -39,7 +39,7 @@ describe('resign quickapp', () => {
         cwd: distProjectBuildPath
       })
 
-      files.forEach(item => {
+      files.forEach((item) => {
         expect(item).toMatch(/.*nosign.*/)
       })
 
@@ -56,7 +56,7 @@ describe('resign quickapp', () => {
 
       expect(resignFiles.length).toEqual(files.length)
 
-      await del([tempAppDir])
+      await del([tempAppDir], { force: true })
     },
     5 * 60 * 1000
   )

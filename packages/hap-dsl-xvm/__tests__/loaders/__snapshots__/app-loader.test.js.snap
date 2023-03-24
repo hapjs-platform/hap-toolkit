@@ -17,7 +17,7 @@ exports[`app-loader normal: source-vs-result 1`] = `
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 var $app_style$ = {}
-var $app_script$ = require(\\"!../../lib/loaders/script-loader.js!../../lib/loaders/module-loader.js!../../lib/loaders/manifest-loader.js?path=<CWD>/packages/hap-dsl-xvm/__tests__/loaders!../../node_modules/babel-loader/lib/index.js?cwd=<CWD>&cacheDirectory&comments=false&configFile=<CWD>/babel.config.js!../../lib/loaders/fragment-loader.js?index=0&type=script!./app.ux?uxType=app\\")
+var $app_script$ = require(\\"!../../lib/loaders/script-loader.js!../../../hap-packager/lib/loaders/module-loader.js!../../lib/loaders/manifest-loader.js?path=<CWD>/packages/hap-dsl-xvm/__tests__/loaders!../../../../node_modules/babel-loader/lib/index.js?cwd=<CWD>&cacheDirectory&comments=false&configFile=<CWD>/babel.config.js!../../lib/loaders/fragment-loader.js?index=0&type=script!./app.ux?uxType=app\\")
 
 $app_define$('@app-application/app', [], function ($app_require$, $app_exports$, $app_module$) {
   

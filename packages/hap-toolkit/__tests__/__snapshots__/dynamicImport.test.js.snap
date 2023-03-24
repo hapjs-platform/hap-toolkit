@@ -3,7 +3,7 @@
 exports[`use dynamic import in project build results include split chunks for [SMART] 1`] = `
 "
 var $app_style$ = {}
-var $app_script$ = require(\\"!../../../../hap-dsl-xvm/lib/loaders/script-loader.js!../../../../hap-dsl-xvm/lib/loaders/module-loader.js!../../../../hap-dsl-xvm/lib/loaders/manifest-loader.js?path=<project-root>/src!../../../../hap-dsl-xvm/node_modules/babel-loader/lib/index.js?cwd=<project-root>&cacheDirectory&comments=false&configFile=<project-root>/babel.config.js!../../../../hap-dsl-xvm/lib/loaders/fragment-loader.js?index=0&type=script!./app.ux?uxType=app\\")
+var $app_script$ = require(\\"!../../../../hap-dsl-xvm/lib/loaders/script-loader.js!../../../../hap-packager/lib/loaders/module-loader.js!../../../../hap-dsl-xvm/lib/loaders/manifest-loader.js?path=<project-root>/src!../../../../../node_modules/babel-loader/lib/index.js?cwd=<project-root>&cacheDirectory&comments=false&configFile=<project-root>/babel.config.js!../../../../hap-dsl-xvm/lib/loaders/fragment-loader.js?index=0&type=script!./app.ux?uxType=app\\")
 
 $app_define$('@app-application/app', [], function ($app_require$, $app_exports$, $app_module$) {
   
@@ -23,7 +23,7 @@ exports[`use dynamic import in project build results include split chunks for [S
 "
 var $app_style$ = require(\\"!../../../../../hap-dsl-xvm/lib/loaders/style-loader.js?index=0&type=style!../../../../../hap-dsl-xvm/lib/loaders/fragment-loader.js?index=0&type=style!./index.ux?uxType=page\\")
 
-var $app_script$ = require(\\"!../../../../../hap-dsl-xvm/lib/loaders/script-loader.js!../../../../../hap-dsl-xvm/lib/loaders/module-loader.js!../../../../../hap-dsl-xvm/node_modules/babel-loader/lib/index.js?cwd=<project-root>&cacheDirectory&plugins[]=<CWD>/packages/hap-dsl-xvm/lib/loaders/babel-plugin-jsx.js&comments=false&configFile=<project-root>/babel.config.js!../../../../../hap-dsl-xvm/lib/loaders/access-loader.js!../../../../../hap-dsl-xvm/lib/loaders/fragment-loader.js?index=0&type=script!./index.ux?uxType=page\\")
+var $app_script$ = require(\\"!../../../../../hap-dsl-xvm/lib/loaders/script-loader.js!../../../../../hap-packager/lib/loaders/module-loader.js!../../../../../../node_modules/babel-loader/lib/index.js?cwd=<project-root>&cacheDirectory&plugins[]=<CWD>/packages/hap-dsl-xvm/lib/loaders/babel-plugin-jsx.js&comments=false&configFile=<project-root>/babel.config.js!../../../../../hap-dsl-xvm/lib/loaders/access-loader.js!../../../../../hap-dsl-xvm/lib/loaders/fragment-loader.js?index=0&type=script!./index.ux?uxType=page\\")
 
 $app_define$('@app-component/index', [], function($app_require$, $app_exports$, $app_module$) {
      $app_script$($app_module$, $app_exports$, $app_require$)
@@ -41,7 +41,7 @@ exports[`use dynamic import in project build results include split chunks for [S
 "
 var $app_style$ = require(\\"!../../../../../hap-dsl-xvm/lib/loaders/style-loader.js?index=0&type=style!../../../../../hap-dsl-xvm/lib/loaders/fragment-loader.js?index=0&type=style!./index.ux?uxType=page\\")
 
-var $app_script$ = require(\\"!../../../../../hap-dsl-xvm/lib/loaders/script-loader.js!../../../../../hap-dsl-xvm/lib/loaders/module-loader.js!../../../../../hap-dsl-xvm/node_modules/babel-loader/lib/index.js?cwd=<project-root>&cacheDirectory&plugins[]=<CWD>/packages/hap-dsl-xvm/lib/loaders/babel-plugin-jsx.js&comments=false&configFile=<project-root>/babel.config.js!../../../../../hap-dsl-xvm/lib/loaders/access-loader.js!../../../../../hap-dsl-xvm/lib/loaders/fragment-loader.js?index=0&type=script!./index.ux?uxType=page\\")
+var $app_script$ = require(\\"!../../../../../hap-dsl-xvm/lib/loaders/script-loader.js!../../../../../hap-packager/lib/loaders/module-loader.js!../../../../../../node_modules/babel-loader/lib/index.js?cwd=<project-root>&cacheDirectory&plugins[]=<CWD>/packages/hap-dsl-xvm/lib/loaders/babel-plugin-jsx.js&comments=false&configFile=<project-root>/babel.config.js!../../../../../hap-dsl-xvm/lib/loaders/access-loader.js!../../../../../hap-dsl-xvm/lib/loaders/fragment-loader.js?index=0&type=script!./index.ux?uxType=page\\")
 
 $app_define$('@app-component/index', [], function($app_require$, $app_exports$, $app_module$) {
      $app_script$($app_module$, $app_exports$, $app_require$)
@@ -62,9 +62,7 @@ Object.defineProperty(exports, \\"__esModule\\", {
   value: true
 });
 exports.default = void 0;
-
 require(\\"./global\\");
-
 var _default = {};
 exports.default = _default;}"
 `;
@@ -77,9 +75,7 @@ exports[`use dynamic import in project build results include split chunks for [S
   \\"versionCode\\": \\"1\\",
   \\"minPlatformVersion\\": 1070,
   \\"icon\\": \\"/Common/logo.png\\",
-  \\"deviceTypeList\\": [
-    \\"phone\\"
-  ],
+  \\"deviceTypeList\\": [\\"phone\\"],
   \\"features\\": [],
   \\"permissions\\": [
     {
@@ -100,7 +96,8 @@ exports[`use dynamic import in project build results include split chunks for [S
       }
     }
   }
-}"
+}
+"
 `;
 
 exports[`use dynamic import in project build results include split chunks for [SMART] 6`] = `
@@ -137,25 +134,21 @@ var _default = {
   private: {
     time: new Date().toLocaleString()
   },
-
   dynamicImportJs() {
     if (this._loaded) {
       this.time = this.timerGenerator();
       return;
     }
-
     import('./timer').then(res => {
       this.timerGenerator = res.default;
       this._loaded = true;
       this.time = this.timerGenerator();
     });
   }
-
 };
 exports.default = _default;
 const moduleOwn = exports.default || module.exports;
 const accessors = ['public', 'protected', 'private'];
-
 if (moduleOwn.data && accessors.some(function (acc) {
   return moduleOwn[acc];
 })) {
@@ -165,10 +158,8 @@ if (moduleOwn.data && accessors.some(function (acc) {
   moduleOwn._descriptor = {};
   accessors.forEach(function (acc) {
     const accType = typeof moduleOwn[acc];
-
     if (accType === 'object') {
       moduleOwn.data = Object.assign(moduleOwn.data, moduleOwn[acc]);
-
       for (const name in moduleOwn[acc]) {
         moduleOwn._descriptor[name] = {
           access: acc
@@ -230,7 +221,6 @@ var _default = {
 exports.default = _default;
 const moduleOwn = exports.default || module.exports;
 const accessors = ['public', 'protected', 'private'];
-
 if (moduleOwn.data && accessors.some(function (acc) {
   return moduleOwn[acc];
 })) {
@@ -240,10 +230,8 @@ if (moduleOwn.data && accessors.some(function (acc) {
   moduleOwn._descriptor = {};
   accessors.forEach(function (acc) {
     const accType = typeof moduleOwn[acc];
-
     if (accType === 'object') {
       moduleOwn.data = Object.assign(moduleOwn.data, moduleOwn[acc]);
-
       for (const name in moduleOwn[acc]) {
         moduleOwn._descriptor[name] = {
           access: acc
@@ -269,43 +257,41 @@ exports[`use dynamic import in project build results include split chunks for [S
 Object.defineProperty(exports, \\"__esModule\\", {
   value: true
 });
-exports.setGlobalData = setGlobalData;
 exports.getGlobalData = getGlobalData;
-
+exports.setGlobalData = setGlobalData;
 /*
- * Copyright (c) 2021, the hapjs-platform Project Contributors
+ * Copyright (c) 2021-present, the hapjs-platform Project Contributors
  * SPDX-License-Identifier: Apache-2.0
  */
 
 /**
  * @file 全局能力的配置与获取
  */
+
 function getGlobalRef() {
   return Object.getPrototypeOf(global) || global;
 }
-
 const quickappGlobal = getGlobalRef();
+
 /**
  * 设置全局(被APP与Page共享)数据；
  * @param key {string}
  * @param val {*}
  */
-
 function setGlobalData(key, val) {
   quickappGlobal[key] = val;
 }
+
 /**
  * 获取全局(被APP与Page共享)数据；
  * @param key {string}
  * @return {*}
  */
-
-
 function getGlobalData(key) {
   return quickappGlobal[key];
-} // 两个方法默认定义在全局
+}
 
-
+// 两个方法默认定义在全局
 setGlobalData('setGlobalData', setGlobalData);
 setGlobalData('getGlobalData', getGlobalData);"
 `;
@@ -317,22 +303,20 @@ Object.defineProperty(exports, \\"__esModule\\", {
   value: true
 });
 exports.default = exports.b = exports.a = void 0;
-
 /*
- * Copyright (c) 2021, the hapjs-platform Project Contributors
+ * Copyright (c) 2021-present, the hapjs-platform Project Contributors
  * SPDX-License-Identifier: Apache-2.0
  */
+
 const a = 1;
 exports.a = a;
 const b = 2;
 exports.b = b;
-
 function timerGenerator() {
   const time = new Date().toLocaleString();
   console.log(\`TIME: \${time}\`);
   return time;
 }
-
 var _default = timerGenerator;
 exports.default = _default;"
 `;

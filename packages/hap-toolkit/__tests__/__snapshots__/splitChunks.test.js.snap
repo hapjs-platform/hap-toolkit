@@ -1,9 +1,717 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`split chunks on a project build results include split chunks for [SMART] 1`] = `
-"
+exports[`split chunks on a project build results include split chunks for [SMART]: <project-root>/build/About/index.js 1`] = `
+"(function(){
+    
+    var createPageHandler = function() {
+      return /******/ (() => { // webpackBootstrap
+
+					var __quickappGlobal = Object.getPrototypeOf(global) || global;
+					__quickappGlobal.chunkFileMap = __quickappGlobal.chunkFileMap || {\\"Common/moduleA\\": \\"Common/moduleA.js\\", \\"Common/compB\\": \\"Common/compB.js\\", \\"Common/compA\\": \\"Common/compA.js\\", \\"Common/moduleB\\": \\"Common/moduleB.js\\"};
+
+/******/ 	var __webpack_modules__ = ({
+
+/***/ \\"../../../hap-dsl-xvm/lib/loaders/script-loader.js!../../../hap-packager/lib/loaders/module-loader.js!../../../../node_modules/babel-loader/lib/index.js?cwd=<project-root>&cacheDirectory&plugins[]=<CWD>/packages/hap-dsl-xvm/lib/loaders/babel-plugin-jsx.js&comments=false&configFile=<project-root>/babel.config.js!../../../hap-dsl-xvm/lib/loaders/access-loader.js!../../../hap-dsl-xvm/lib/loaders/fragment-loader.js?index=0&type=script!./src/About/index.ux?uxType=page\\":
+/*!**********!*\\\\
+  !*** ../../../hap-dsl-xvm/lib/loaders/script-loader.js!../../../hap-packager/lib/loaders/module-loader.js!../../../../node_modules/babel-loader/lib/index.js?cwd=<project-root>&cacheDirectory&plugins[]=<CWD>/packages/hap-dsl-xvm/lib/loaders/babel-plugin-jsx.js&comments=false&configFile=<project-root>/babel.config.js!../../../hap-dsl-xvm/lib/loaders/access-loader.js!../../../hap-dsl-xvm/lib/loaders/fragment-loader.js?index=0&type=script!./src/About/index.ux?uxType=page ***!
+  \\\\**********/
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+module.exports = function __scriptModule__ (module, exports, $app_require$){\\"use strict\\";
+
+Object.defineProperty(exports, \\"__esModule\\", {
+  value: true
+});
+exports.default = void 0;
+var _moduleB = __webpack_require__(/*! ../Common/moduleB.js */ \\"./src/Common/moduleB.js\\");
+var _default = {};
+exports.default = _default;
+const moduleOwn = exports.default || module.exports;
+const accessors = ['public', 'protected', 'private'];
+if (moduleOwn.data && accessors.some(function (acc) {
+  return moduleOwn[acc];
+})) {
+  throw new Error('页面VM对象中的属性data不可与\\"' + accessors.join(',') + '\\"同时存在，请使用private替换data名称');
+} else if (!moduleOwn.data) {
+  moduleOwn.data = {};
+  moduleOwn._descriptor = {};
+  accessors.forEach(function (acc) {
+    const accType = typeof moduleOwn[acc];
+    if (accType === 'object') {
+      moduleOwn.data = Object.assign(moduleOwn.data, moduleOwn[acc]);
+      for (const name in moduleOwn[acc]) {
+        moduleOwn._descriptor[name] = {
+          access: acc
+        };
+      }
+    } else if (accType === 'function') {
+      console.warn('页面VM对象中的属性' + acc + '的值不能是函数，请使用对象');
+    }
+  });
+}}
+
+/***/ }),
+
+/***/ \\"../../../hap-dsl-xvm/lib/loaders/template-loader.js!../../../hap-dsl-xvm/lib/loaders/fragment-loader.js?index=0&type=template!./src/About/index.ux?uxType=page&importNames[]=compb\\":
+/*!**********!*\\\\
+  !*** ../../../hap-dsl-xvm/lib/loaders/template-loader.js!../../../hap-dsl-xvm/lib/loaders/fragment-loader.js?index=0&type=template!./src/About/index.ux?uxType=page&importNames[]=compb ***!
+  \\\\**********/
+/***/ ((module) => {
+
+module.exports = {
+  \\"type\\": \\"div\\",
+  \\"attr\\": {}
+}
+
+/***/ }),
+
+/***/ \\"./src/About/index.ux?uxType=page\\":
+/*!**********!*\\\\
+  !*** ./src/About/index.ux?uxType=page ***!
+  \\\\**********/
+/***/ ((__unused_webpack_module, __unused_webpack_exports, __webpack_require__, $app_define$, $app_bootstrap$, $app_require$, $app_define_wrap$) => {
+
+__webpack_require__(/*! !../../../../../hap-dsl-xvm/lib/loaders/ux-loader.js?cwd=<project-root>&type=import!../Common/compB.ux?uxType=comp&name=compb */ \\"../../../hap-dsl-xvm/lib/loaders/ux-loader.js?cwd=<project-root>&type=import!./src/Common/compB.ux?uxType=comp&name=compb\\")
+
 var $app_style$ = {}
-var $app_script$ = require(\\"!../../../../hap-dsl-xvm/lib/loaders/script-loader.js!../../../../hap-dsl-xvm/lib/loaders/module-loader.js!../../../../hap-dsl-xvm/lib/loaders/manifest-loader.js?path=<project-root>/src!../../../../hap-dsl-xvm/node_modules/babel-loader/lib/index.js?cwd=<project-root>&cacheDirectory&comments=false&configFile=<project-root>/babel.config.js!../../../../hap-dsl-xvm/lib/loaders/fragment-loader.js?index=0&type=script!./app.ux?uxType=app\\")
+var $app_script$ = __webpack_require__(/*! !../../../../../hap-dsl-xvm/lib/loaders/script-loader.js!../../../../../hap-packager/lib/loaders/module-loader.js!../../../../../../node_modules/babel-loader/lib/index.js?cwd=<project-root>&cacheDirectory&plugins[]=<CWD>/packages/hap-dsl-xvm/lib/loaders/babel-plugin-jsx.js&comments=false&configFile=<project-root>/babel.config.js!../../../../../hap-dsl-xvm/lib/loaders/access-loader.js!../../../../../hap-dsl-xvm/lib/loaders/fragment-loader.js?index=0&type=script!./index.ux?uxType=page */ \\"../../../hap-dsl-xvm/lib/loaders/script-loader.js!../../../hap-packager/lib/loaders/module-loader.js!../../../../node_modules/babel-loader/lib/index.js?cwd=<project-root>&cacheDirectory&plugins[]=<CWD>/packages/hap-dsl-xvm/lib/loaders/babel-plugin-jsx.js&comments=false&configFile=<project-root>/babel.config.js!../../../hap-dsl-xvm/lib/loaders/access-loader.js!../../../hap-dsl-xvm/lib/loaders/fragment-loader.js?index=0&type=script!./src/About/index.ux?uxType=page\\")
+
+$app_define$('@app-component/index', [], function($app_require$, $app_exports$, $app_module$) {
+     $app_script$($app_module$, $app_exports$, $app_require$)
+         if ($app_exports$.__esModule && $app_exports$.default) {
+            $app_module$.exports = $app_exports$.default
+        }
+     $app_module$.exports.template = __webpack_require__(/*! !../../../../../hap-dsl-xvm/lib/loaders/template-loader.js!../../../../../hap-dsl-xvm/lib/loaders/fragment-loader.js?index=0&type=template!./index.ux?uxType=page&importNames[]=compb */ \\"../../../hap-dsl-xvm/lib/loaders/template-loader.js!../../../hap-dsl-xvm/lib/loaders/fragment-loader.js?index=0&type=template!./src/About/index.ux?uxType=page&importNames[]=compb\\")
+
+})
+$app_bootstrap$('@app-component/index',{ packagerVersion: \\"<VERSION>\\" })
+
+/***/ })
+
+/******/ 	});
+/**********/
+/******/ 	// The module cache
+/******/ 	var __webpack_module_cache__ = {};
+/******/ 	
+/******/ 	// The require function
+/******/ 	function __webpack_require__(moduleId) {
+/******/ 		// Check if module is in cache
+/******/ 		var cachedModule = __webpack_module_cache__[moduleId];
+/******/ 		if (cachedModule !== undefined) {
+/******/ 			return cachedModule.exports;
+/******/ 		}
+/******/ 		// Create a new module (and put it into the cache)
+/******/ 		var module = __webpack_module_cache__[moduleId] = {
+/******/ 			// no module.id needed
+/******/ 			// no module.loaded needed
+/******/ 			exports: {}
+/******/ 		};
+/******/ 	
+/******/ 		// Execute the module function
+/******/ 		__webpack_modules__[moduleId].call(module.exports, module, module.exports, __webpack_require__, $app_define$, $app_bootstrap$, $app_require$, $app_define_wrap$);
+/******/ 	
+/******/ 		// Return the exports of the module
+/******/ 		return module.exports;
+/******/ 	}
+/******/ 	
+/******/ 	// expose the modules object (__webpack_modules__)
+/******/ 	__webpack_require__.m = __webpack_modules__;
+/******/ 	
+/**********/
+/******/ 	/* webpack/runtime/chunk loaded */
+/******/ 	(() => {
+/******/ 		var deferred = [];
+/******/ 		__webpack_require__.O = (result, chunkIds, fn, priority) => {
+/******/ 			if(chunkIds) {
+/******/ 				priority = priority || 0;
+/******/ 				for(var i = deferred.length; i > 0 && deferred[i - 1][2] > priority; i--) deferred[i] = deferred[i - 1];
+/******/ 				deferred[i] = [chunkIds, fn, priority];
+/******/ 				return;
+/******/ 			}
+/******/ 			var notFulfilled = Infinity;
+/******/ 			for (var i = 0; i < deferred.length; i++) {
+/******/ 				var [chunkIds, fn, priority] = deferred[i];
+/******/ 				var fulfilled = true;
+/******/ 				for (var j = 0; j < chunkIds.length; j++) {
+/******/ 					if ((priority & 1 === 0 || notFulfilled >= priority) && Object.keys(__webpack_require__.O).every((key) => (__webpack_require__.O[key](chunkIds[j])))) {
+/******/ 						chunkIds.splice(j--, 1);
+/******/ 					} else {
+/******/ 						fulfilled = false; $app_evaluate$(\`\${__quickappGlobal.chunkFileMap[chunkIds[j]]}\`);
+/******/ 						if(priority < notFulfilled) notFulfilled = priority;
+/******/ 					}
+/******/ 				}
+/******/ 				if(fulfilled) {
+/******/ 					deferred.splice(i--, 1)
+/******/ 					var r = fn();
+/******/ 					if (r !== undefined) result = r;
+/******/ 				}
+/******/ 			}
+/******/ 			return result;
+/******/ 		};
+/******/ 	})();
+/******/ 	
+/******/ 	/* webpack/runtime/hasOwnProperty shorthand */
+/******/ 	(() => {
+/******/ 		__webpack_require__.o = (obj, prop) => (Object.prototype.hasOwnProperty.call(obj, prop))
+/******/ 	})();
+/******/ 	
+/******/ 	/* webpack/runtime/jsonp chunk loading */
+/******/ 	(() => {
+/******/ 		// no baseURI
+/******/ 		
+/******/ 		// object to store loaded and loading chunks
+/******/ 		// undefined = chunk not loaded, null = chunk preloaded/prefetched
+/******/ 		// [resolve, reject, Promise] = chunk loading, 0 = chunk loaded
+/******/ 		var installedChunks = {
+/******/ 			\\"About/index\\": 0
+/******/ 		};
+/******/ 		
+/******/ 		// no chunk on demand loading
+/******/ 		
+/******/ 		// no prefetching
+/******/ 		
+/******/ 		// no preloaded
+/******/ 		
+/******/ 		// no HMR
+/******/ 		
+/******/ 		// no HMR manifest
+/******/ 		
+/******/ 		__webpack_require__.O.j = (chunkId) => (installedChunks[chunkId] === 0);
+/******/ 		
+/******/ 		// install a JSONP callback for chunk loading
+/******/ 		var webpackJsonpCallback = (parentChunkLoadingFunction, data) => {
+/******/ 			var [chunkIds, moreModules, runtime] = data;
+/******/ 			// add \\"moreModules\\" to the modules object,
+/******/ 			// then flag all \\"chunkIds\\" as loaded and fire callback
+/******/ 			var moduleId, chunkId, i = 0;
+/******/ 			if(chunkIds.some((id) => (installedChunks[id] !== 0))) {
+/******/ 				for(moduleId in moreModules) {
+/******/ 					if(__webpack_require__.o(moreModules, moduleId)) {
+/******/ 						__webpack_require__.m[moduleId] = moreModules[moduleId];
+/******/ 					}
+/******/ 				}
+/******/ 				if(runtime) var result = runtime(__webpack_require__);
+/******/ 			}
+/******/ 			if(parentChunkLoadingFunction) parentChunkLoadingFunction(data);
+/******/ 			for(;i < chunkIds.length; i++) {
+/******/ 				chunkId = chunkIds[i];
+/******/ 				if(__webpack_require__.o(installedChunks, chunkId) && installedChunks[chunkId]) {
+/******/ 					installedChunks[chunkId][0]();
+/******/ 				}
+/******/ 				installedChunks[chunkId] = 0;
+/******/ 			}
+/******/ 			return __webpack_require__.O(result);
+/******/ 		}
+/******/ 		
+/******/ 		var chunkLoadingGlobal = __quickappGlobal[\\"webpackChunksplitChunks_app\\"] = __quickappGlobal[\\"webpackChunksplitChunks_app\\"] || [];
+/******/ 		chunkLoadingGlobal.forEach(webpackJsonpCallback.bind(null, 0));
+/******/ 		chunkLoadingGlobal.push = webpackJsonpCallback.bind(null, chunkLoadingGlobal.push.bind(chunkLoadingGlobal));
+/******/ 	})();
+/******/ 	
+/**********/
+/******/ 	
+/******/ 	// startup
+/******/ 	// Load entry module and return exports
+/******/ 	// This entry module depends on other loaded chunks and execution need to be delayed
+/******/ 	var __webpack_exports__ = __webpack_require__.O(undefined, [\\"Common/compB\\",\\"Common/moduleB\\"], () => (__webpack_require__(\\"./src/About/index.ux?uxType=page\\")))
+/******/ 	__webpack_exports__ = __webpack_require__.O(__webpack_exports__);
+/******/ 	
+/******/ })()
+;
+    };
+    if (typeof window === \\"undefined\\") {
+      return createPageHandler();
+    }
+    else {
+      window.createPageHandler = createPageHandler
+    }
+  })();"
+`;
+
+exports[`split chunks on a project build results include split chunks for [SMART]: <project-root>/build/Demo/index.js 1`] = `
+"(function(){
+    
+    var createPageHandler = function() {
+      return /******/ (() => { // webpackBootstrap
+
+					var __quickappGlobal = Object.getPrototypeOf(global) || global;
+					__quickappGlobal.chunkFileMap = __quickappGlobal.chunkFileMap || {\\"Common/moduleA\\": \\"Common/moduleA.js\\", \\"Common/compB\\": \\"Common/compB.js\\", \\"Common/compA\\": \\"Common/compA.js\\", \\"Common/moduleB\\": \\"Common/moduleB.js\\"};
+
+/******/ 	var __webpack_modules__ = ({
+
+/***/ \\"../../../hap-dsl-xvm/lib/loaders/script-loader.js!../../../hap-packager/lib/loaders/module-loader.js!../../../../node_modules/babel-loader/lib/index.js?cwd=<project-root>&cacheDirectory&plugins[]=<CWD>/packages/hap-dsl-xvm/lib/loaders/babel-plugin-jsx.js&comments=false&configFile=<project-root>/babel.config.js!../../../hap-dsl-xvm/lib/loaders/access-loader.js!../../../hap-dsl-xvm/lib/loaders/fragment-loader.js?index=0&type=script!./src/Demo/index.ux?uxType=page\\":
+/*!**********!*\\\\
+  !*** ../../../hap-dsl-xvm/lib/loaders/script-loader.js!../../../hap-packager/lib/loaders/module-loader.js!../../../../node_modules/babel-loader/lib/index.js?cwd=<project-root>&cacheDirectory&plugins[]=<CWD>/packages/hap-dsl-xvm/lib/loaders/babel-plugin-jsx.js&comments=false&configFile=<project-root>/babel.config.js!../../../hap-dsl-xvm/lib/loaders/access-loader.js!../../../hap-dsl-xvm/lib/loaders/fragment-loader.js?index=0&type=script!./src/Demo/index.ux?uxType=page ***!
+  \\\\**********/
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+module.exports = function __scriptModule__ (module, exports, $app_require$){\\"use strict\\";
+
+Object.defineProperty(exports, \\"__esModule\\", {
+  value: true
+});
+exports.default = void 0;
+var _moduleA = __webpack_require__(/*! ../Common/moduleA.js */ \\"./src/Common/moduleA.js\\");
+var _moduleB = __webpack_require__(/*! ../Common/moduleB.js */ \\"./src/Common/moduleB.js\\");
+var _default = {};
+exports.default = _default;
+const moduleOwn = exports.default || module.exports;
+const accessors = ['public', 'protected', 'private'];
+if (moduleOwn.data && accessors.some(function (acc) {
+  return moduleOwn[acc];
+})) {
+  throw new Error('页面VM对象中的属性data不可与\\"' + accessors.join(',') + '\\"同时存在，请使用private替换data名称');
+} else if (!moduleOwn.data) {
+  moduleOwn.data = {};
+  moduleOwn._descriptor = {};
+  accessors.forEach(function (acc) {
+    const accType = typeof moduleOwn[acc];
+    if (accType === 'object') {
+      moduleOwn.data = Object.assign(moduleOwn.data, moduleOwn[acc]);
+      for (const name in moduleOwn[acc]) {
+        moduleOwn._descriptor[name] = {
+          access: acc
+        };
+      }
+    } else if (accType === 'function') {
+      console.warn('页面VM对象中的属性' + acc + '的值不能是函数，请使用对象');
+    }
+  });
+}}
+
+/***/ }),
+
+/***/ \\"../../../hap-dsl-xvm/lib/loaders/template-loader.js!../../../hap-dsl-xvm/lib/loaders/fragment-loader.js?index=0&type=template!./src/Demo/index.ux?uxType=page&importNames[]=compa,importNames[]=compb\\":
+/*!**********!*\\\\
+  !*** ../../../hap-dsl-xvm/lib/loaders/template-loader.js!../../../hap-dsl-xvm/lib/loaders/fragment-loader.js?index=0&type=template!./src/Demo/index.ux?uxType=page&importNames[]=compa,importNames[]=compb ***!
+  \\\\**********/
+/***/ ((module) => {
+
+module.exports = {
+  \\"type\\": \\"div\\",
+  \\"attr\\": {}
+}
+
+/***/ }),
+
+/***/ \\"./src/Demo/index.ux?uxType=page\\":
+/*!**********!*\\\\
+  !*** ./src/Demo/index.ux?uxType=page ***!
+  \\\\**********/
+/***/ ((__unused_webpack_module, __unused_webpack_exports, __webpack_require__, $app_define$, $app_bootstrap$, $app_require$, $app_define_wrap$) => {
+
+__webpack_require__(/*! !../../../../../hap-dsl-xvm/lib/loaders/ux-loader.js?cwd=<project-root>&type=import!../Common/compA.ux?uxType=comp&name=compa */ \\"../../../hap-dsl-xvm/lib/loaders/ux-loader.js?cwd=<project-root>&type=import!./src/Common/compA.ux?uxType=comp&name=compa\\")
+__webpack_require__(/*! !../../../../../hap-dsl-xvm/lib/loaders/ux-loader.js?cwd=<project-root>&type=import!../Common/compB.ux?uxType=comp&name=compb */ \\"../../../hap-dsl-xvm/lib/loaders/ux-loader.js?cwd=<project-root>&type=import!./src/Common/compB.ux?uxType=comp&name=compb\\")
+
+var $app_style$ = {}
+var $app_script$ = __webpack_require__(/*! !../../../../../hap-dsl-xvm/lib/loaders/script-loader.js!../../../../../hap-packager/lib/loaders/module-loader.js!../../../../../../node_modules/babel-loader/lib/index.js?cwd=<project-root>&cacheDirectory&plugins[]=<CWD>/packages/hap-dsl-xvm/lib/loaders/babel-plugin-jsx.js&comments=false&configFile=<project-root>/babel.config.js!../../../../../hap-dsl-xvm/lib/loaders/access-loader.js!../../../../../hap-dsl-xvm/lib/loaders/fragment-loader.js?index=0&type=script!./index.ux?uxType=page */ \\"../../../hap-dsl-xvm/lib/loaders/script-loader.js!../../../hap-packager/lib/loaders/module-loader.js!../../../../node_modules/babel-loader/lib/index.js?cwd=<project-root>&cacheDirectory&plugins[]=<CWD>/packages/hap-dsl-xvm/lib/loaders/babel-plugin-jsx.js&comments=false&configFile=<project-root>/babel.config.js!../../../hap-dsl-xvm/lib/loaders/access-loader.js!../../../hap-dsl-xvm/lib/loaders/fragment-loader.js?index=0&type=script!./src/Demo/index.ux?uxType=page\\")
+
+$app_define$('@app-component/index', [], function($app_require$, $app_exports$, $app_module$) {
+     $app_script$($app_module$, $app_exports$, $app_require$)
+         if ($app_exports$.__esModule && $app_exports$.default) {
+            $app_module$.exports = $app_exports$.default
+        }
+     $app_module$.exports.template = __webpack_require__(/*! !../../../../../hap-dsl-xvm/lib/loaders/template-loader.js!../../../../../hap-dsl-xvm/lib/loaders/fragment-loader.js?index=0&type=template!./index.ux?uxType=page&importNames[]=compa,importNames[]=compb */ \\"../../../hap-dsl-xvm/lib/loaders/template-loader.js!../../../hap-dsl-xvm/lib/loaders/fragment-loader.js?index=0&type=template!./src/Demo/index.ux?uxType=page&importNames[]=compa,importNames[]=compb\\")
+
+})
+$app_bootstrap$('@app-component/index',{ packagerVersion: \\"<VERSION>\\" })
+
+/***/ })
+
+/******/ 	});
+/**********/
+/******/ 	// The module cache
+/******/ 	var __webpack_module_cache__ = {};
+/******/ 	
+/******/ 	// The require function
+/******/ 	function __webpack_require__(moduleId) {
+/******/ 		// Check if module is in cache
+/******/ 		var cachedModule = __webpack_module_cache__[moduleId];
+/******/ 		if (cachedModule !== undefined) {
+/******/ 			return cachedModule.exports;
+/******/ 		}
+/******/ 		// Create a new module (and put it into the cache)
+/******/ 		var module = __webpack_module_cache__[moduleId] = {
+/******/ 			// no module.id needed
+/******/ 			// no module.loaded needed
+/******/ 			exports: {}
+/******/ 		};
+/******/ 	
+/******/ 		// Execute the module function
+/******/ 		__webpack_modules__[moduleId].call(module.exports, module, module.exports, __webpack_require__, $app_define$, $app_bootstrap$, $app_require$, $app_define_wrap$);
+/******/ 	
+/******/ 		// Return the exports of the module
+/******/ 		return module.exports;
+/******/ 	}
+/******/ 	
+/******/ 	// expose the modules object (__webpack_modules__)
+/******/ 	__webpack_require__.m = __webpack_modules__;
+/******/ 	
+/**********/
+/******/ 	/* webpack/runtime/chunk loaded */
+/******/ 	(() => {
+/******/ 		var deferred = [];
+/******/ 		__webpack_require__.O = (result, chunkIds, fn, priority) => {
+/******/ 			if(chunkIds) {
+/******/ 				priority = priority || 0;
+/******/ 				for(var i = deferred.length; i > 0 && deferred[i - 1][2] > priority; i--) deferred[i] = deferred[i - 1];
+/******/ 				deferred[i] = [chunkIds, fn, priority];
+/******/ 				return;
+/******/ 			}
+/******/ 			var notFulfilled = Infinity;
+/******/ 			for (var i = 0; i < deferred.length; i++) {
+/******/ 				var [chunkIds, fn, priority] = deferred[i];
+/******/ 				var fulfilled = true;
+/******/ 				for (var j = 0; j < chunkIds.length; j++) {
+/******/ 					if ((priority & 1 === 0 || notFulfilled >= priority) && Object.keys(__webpack_require__.O).every((key) => (__webpack_require__.O[key](chunkIds[j])))) {
+/******/ 						chunkIds.splice(j--, 1);
+/******/ 					} else {
+/******/ 						fulfilled = false; $app_evaluate$(\`\${__quickappGlobal.chunkFileMap[chunkIds[j]]}\`);
+/******/ 						if(priority < notFulfilled) notFulfilled = priority;
+/******/ 					}
+/******/ 				}
+/******/ 				if(fulfilled) {
+/******/ 					deferred.splice(i--, 1)
+/******/ 					var r = fn();
+/******/ 					if (r !== undefined) result = r;
+/******/ 				}
+/******/ 			}
+/******/ 			return result;
+/******/ 		};
+/******/ 	})();
+/******/ 	
+/******/ 	/* webpack/runtime/hasOwnProperty shorthand */
+/******/ 	(() => {
+/******/ 		__webpack_require__.o = (obj, prop) => (Object.prototype.hasOwnProperty.call(obj, prop))
+/******/ 	})();
+/******/ 	
+/******/ 	/* webpack/runtime/jsonp chunk loading */
+/******/ 	(() => {
+/******/ 		// no baseURI
+/******/ 		
+/******/ 		// object to store loaded and loading chunks
+/******/ 		// undefined = chunk not loaded, null = chunk preloaded/prefetched
+/******/ 		// [resolve, reject, Promise] = chunk loading, 0 = chunk loaded
+/******/ 		var installedChunks = {
+/******/ 			\\"Demo/index\\": 0
+/******/ 		};
+/******/ 		
+/******/ 		// no chunk on demand loading
+/******/ 		
+/******/ 		// no prefetching
+/******/ 		
+/******/ 		// no preloaded
+/******/ 		
+/******/ 		// no HMR
+/******/ 		
+/******/ 		// no HMR manifest
+/******/ 		
+/******/ 		__webpack_require__.O.j = (chunkId) => (installedChunks[chunkId] === 0);
+/******/ 		
+/******/ 		// install a JSONP callback for chunk loading
+/******/ 		var webpackJsonpCallback = (parentChunkLoadingFunction, data) => {
+/******/ 			var [chunkIds, moreModules, runtime] = data;
+/******/ 			// add \\"moreModules\\" to the modules object,
+/******/ 			// then flag all \\"chunkIds\\" as loaded and fire callback
+/******/ 			var moduleId, chunkId, i = 0;
+/******/ 			if(chunkIds.some((id) => (installedChunks[id] !== 0))) {
+/******/ 				for(moduleId in moreModules) {
+/******/ 					if(__webpack_require__.o(moreModules, moduleId)) {
+/******/ 						__webpack_require__.m[moduleId] = moreModules[moduleId];
+/******/ 					}
+/******/ 				}
+/******/ 				if(runtime) var result = runtime(__webpack_require__);
+/******/ 			}
+/******/ 			if(parentChunkLoadingFunction) parentChunkLoadingFunction(data);
+/******/ 			for(;i < chunkIds.length; i++) {
+/******/ 				chunkId = chunkIds[i];
+/******/ 				if(__webpack_require__.o(installedChunks, chunkId) && installedChunks[chunkId]) {
+/******/ 					installedChunks[chunkId][0]();
+/******/ 				}
+/******/ 				installedChunks[chunkId] = 0;
+/******/ 			}
+/******/ 			return __webpack_require__.O(result);
+/******/ 		}
+/******/ 		
+/******/ 		var chunkLoadingGlobal = __quickappGlobal[\\"webpackChunksplitChunks_app\\"] = __quickappGlobal[\\"webpackChunksplitChunks_app\\"] || [];
+/******/ 		chunkLoadingGlobal.forEach(webpackJsonpCallback.bind(null, 0));
+/******/ 		chunkLoadingGlobal.push = webpackJsonpCallback.bind(null, chunkLoadingGlobal.push.bind(chunkLoadingGlobal));
+/******/ 	})();
+/******/ 	
+/**********/
+/******/ 	
+/******/ 	// startup
+/******/ 	// Load entry module and return exports
+/******/ 	// This entry module depends on other loaded chunks and execution need to be delayed
+/******/ 	var __webpack_exports__ = __webpack_require__.O(undefined, [\\"Common/moduleA\\",\\"Common/compB\\",\\"Common/compA\\",\\"Common/moduleB\\"], () => (__webpack_require__(\\"./src/Demo/index.ux?uxType=page\\")))
+/******/ 	__webpack_exports__ = __webpack_require__.O(__webpack_exports__);
+/******/ 	
+/******/ })()
+;
+    };
+    if (typeof window === \\"undefined\\") {
+      return createPageHandler();
+    }
+    else {
+      window.createPageHandler = createPageHandler
+    }
+  })();"
+`;
+
+exports[`split chunks on a project build results include split chunks for [SMART]: <project-root>/build/DemoDetail/index.js 1`] = `
+"(function(){
+    
+    var createPageHandler = function() {
+      return /******/ (() => { // webpackBootstrap
+
+					var __quickappGlobal = Object.getPrototypeOf(global) || global;
+					__quickappGlobal.chunkFileMap = __quickappGlobal.chunkFileMap || {\\"Common/moduleA\\": \\"Common/moduleA.js\\", \\"Common/compB\\": \\"Common/compB.js\\", \\"Common/compA\\": \\"Common/compA.js\\", \\"Common/moduleB\\": \\"Common/moduleB.js\\"};
+
+/******/ 	var __webpack_modules__ = ({
+
+/***/ \\"../../../hap-dsl-xvm/lib/loaders/script-loader.js!../../../hap-packager/lib/loaders/module-loader.js!../../../../node_modules/babel-loader/lib/index.js?cwd=<project-root>&cacheDirectory&plugins[]=<CWD>/packages/hap-dsl-xvm/lib/loaders/babel-plugin-jsx.js&comments=false&configFile=<project-root>/babel.config.js!../../../hap-dsl-xvm/lib/loaders/access-loader.js!../../../hap-dsl-xvm/lib/loaders/fragment-loader.js?index=0&type=script!./src/DemoDetail/index.ux?uxType=page\\":
+/*!**********!*\\\\
+  !*** ../../../hap-dsl-xvm/lib/loaders/script-loader.js!../../../hap-packager/lib/loaders/module-loader.js!../../../../node_modules/babel-loader/lib/index.js?cwd=<project-root>&cacheDirectory&plugins[]=<CWD>/packages/hap-dsl-xvm/lib/loaders/babel-plugin-jsx.js&comments=false&configFile=<project-root>/babel.config.js!../../../hap-dsl-xvm/lib/loaders/access-loader.js!../../../hap-dsl-xvm/lib/loaders/fragment-loader.js?index=0&type=script!./src/DemoDetail/index.ux?uxType=page ***!
+  \\\\**********/
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+module.exports = function __scriptModule__ (module, exports, $app_require$){\\"use strict\\";
+
+Object.defineProperty(exports, \\"__esModule\\", {
+  value: true
+});
+exports.default = void 0;
+var _moduleA = __webpack_require__(/*! ../Common/moduleA.js */ \\"./src/Common/moduleA.js\\");
+var _default = {
+  onMenuPress() {
+    this.$app.$def.showMenu();
+  }
+};
+exports.default = _default;
+const moduleOwn = exports.default || module.exports;
+const accessors = ['public', 'protected', 'private'];
+if (moduleOwn.data && accessors.some(function (acc) {
+  return moduleOwn[acc];
+})) {
+  throw new Error('页面VM对象中的属性data不可与\\"' + accessors.join(',') + '\\"同时存在，请使用private替换data名称');
+} else if (!moduleOwn.data) {
+  moduleOwn.data = {};
+  moduleOwn._descriptor = {};
+  accessors.forEach(function (acc) {
+    const accType = typeof moduleOwn[acc];
+    if (accType === 'object') {
+      moduleOwn.data = Object.assign(moduleOwn.data, moduleOwn[acc]);
+      for (const name in moduleOwn[acc]) {
+        moduleOwn._descriptor[name] = {
+          access: acc
+        };
+      }
+    } else if (accType === 'function') {
+      console.warn('页面VM对象中的属性' + acc + '的值不能是函数，请使用对象');
+    }
+  });
+}}
+
+/***/ }),
+
+/***/ \\"../../../hap-dsl-xvm/lib/loaders/template-loader.js!../../../hap-dsl-xvm/lib/loaders/fragment-loader.js?index=0&type=template!./src/DemoDetail/index.ux?uxType=page&importNames[]=compa\\":
+/*!**********!*\\\\
+  !*** ../../../hap-dsl-xvm/lib/loaders/template-loader.js!../../../hap-dsl-xvm/lib/loaders/fragment-loader.js?index=0&type=template!./src/DemoDetail/index.ux?uxType=page&importNames[]=compa ***!
+  \\\\**********/
+/***/ ((module) => {
+
+module.exports = {
+  \\"type\\": \\"div\\",
+  \\"attr\\": {}
+}
+
+/***/ }),
+
+/***/ \\"./src/DemoDetail/index.ux?uxType=page\\":
+/*!**********!*\\\\
+  !*** ./src/DemoDetail/index.ux?uxType=page ***!
+  \\\\**********/
+/***/ ((__unused_webpack_module, __unused_webpack_exports, __webpack_require__, $app_define$, $app_bootstrap$, $app_require$, $app_define_wrap$) => {
+
+__webpack_require__(/*! !../../../../../hap-dsl-xvm/lib/loaders/ux-loader.js?cwd=<project-root>&type=import!../Common/compA.ux?uxType=comp&name=compa */ \\"../../../hap-dsl-xvm/lib/loaders/ux-loader.js?cwd=<project-root>&type=import!./src/Common/compA.ux?uxType=comp&name=compa\\")
+
+var $app_style$ = {}
+var $app_script$ = __webpack_require__(/*! !../../../../../hap-dsl-xvm/lib/loaders/script-loader.js!../../../../../hap-packager/lib/loaders/module-loader.js!../../../../../../node_modules/babel-loader/lib/index.js?cwd=<project-root>&cacheDirectory&plugins[]=<CWD>/packages/hap-dsl-xvm/lib/loaders/babel-plugin-jsx.js&comments=false&configFile=<project-root>/babel.config.js!../../../../../hap-dsl-xvm/lib/loaders/access-loader.js!../../../../../hap-dsl-xvm/lib/loaders/fragment-loader.js?index=0&type=script!./index.ux?uxType=page */ \\"../../../hap-dsl-xvm/lib/loaders/script-loader.js!../../../hap-packager/lib/loaders/module-loader.js!../../../../node_modules/babel-loader/lib/index.js?cwd=<project-root>&cacheDirectory&plugins[]=<CWD>/packages/hap-dsl-xvm/lib/loaders/babel-plugin-jsx.js&comments=false&configFile=<project-root>/babel.config.js!../../../hap-dsl-xvm/lib/loaders/access-loader.js!../../../hap-dsl-xvm/lib/loaders/fragment-loader.js?index=0&type=script!./src/DemoDetail/index.ux?uxType=page\\")
+
+$app_define$('@app-component/index', [], function($app_require$, $app_exports$, $app_module$) {
+     $app_script$($app_module$, $app_exports$, $app_require$)
+         if ($app_exports$.__esModule && $app_exports$.default) {
+            $app_module$.exports = $app_exports$.default
+        }
+     $app_module$.exports.template = __webpack_require__(/*! !../../../../../hap-dsl-xvm/lib/loaders/template-loader.js!../../../../../hap-dsl-xvm/lib/loaders/fragment-loader.js?index=0&type=template!./index.ux?uxType=page&importNames[]=compa */ \\"../../../hap-dsl-xvm/lib/loaders/template-loader.js!../../../hap-dsl-xvm/lib/loaders/fragment-loader.js?index=0&type=template!./src/DemoDetail/index.ux?uxType=page&importNames[]=compa\\")
+
+})
+$app_bootstrap$('@app-component/index',{ packagerVersion: \\"<VERSION>\\" })
+
+/***/ })
+
+/******/ 	});
+/**********/
+/******/ 	// The module cache
+/******/ 	var __webpack_module_cache__ = {};
+/******/ 	
+/******/ 	// The require function
+/******/ 	function __webpack_require__(moduleId) {
+/******/ 		// Check if module is in cache
+/******/ 		var cachedModule = __webpack_module_cache__[moduleId];
+/******/ 		if (cachedModule !== undefined) {
+/******/ 			return cachedModule.exports;
+/******/ 		}
+/******/ 		// Create a new module (and put it into the cache)
+/******/ 		var module = __webpack_module_cache__[moduleId] = {
+/******/ 			// no module.id needed
+/******/ 			// no module.loaded needed
+/******/ 			exports: {}
+/******/ 		};
+/******/ 	
+/******/ 		// Execute the module function
+/******/ 		__webpack_modules__[moduleId].call(module.exports, module, module.exports, __webpack_require__, $app_define$, $app_bootstrap$, $app_require$, $app_define_wrap$);
+/******/ 	
+/******/ 		// Return the exports of the module
+/******/ 		return module.exports;
+/******/ 	}
+/******/ 	
+/******/ 	// expose the modules object (__webpack_modules__)
+/******/ 	__webpack_require__.m = __webpack_modules__;
+/******/ 	
+/**********/
+/******/ 	/* webpack/runtime/chunk loaded */
+/******/ 	(() => {
+/******/ 		var deferred = [];
+/******/ 		__webpack_require__.O = (result, chunkIds, fn, priority) => {
+/******/ 			if(chunkIds) {
+/******/ 				priority = priority || 0;
+/******/ 				for(var i = deferred.length; i > 0 && deferred[i - 1][2] > priority; i--) deferred[i] = deferred[i - 1];
+/******/ 				deferred[i] = [chunkIds, fn, priority];
+/******/ 				return;
+/******/ 			}
+/******/ 			var notFulfilled = Infinity;
+/******/ 			for (var i = 0; i < deferred.length; i++) {
+/******/ 				var [chunkIds, fn, priority] = deferred[i];
+/******/ 				var fulfilled = true;
+/******/ 				for (var j = 0; j < chunkIds.length; j++) {
+/******/ 					if ((priority & 1 === 0 || notFulfilled >= priority) && Object.keys(__webpack_require__.O).every((key) => (__webpack_require__.O[key](chunkIds[j])))) {
+/******/ 						chunkIds.splice(j--, 1);
+/******/ 					} else {
+/******/ 						fulfilled = false; $app_evaluate$(\`\${__quickappGlobal.chunkFileMap[chunkIds[j]]}\`);
+/******/ 						if(priority < notFulfilled) notFulfilled = priority;
+/******/ 					}
+/******/ 				}
+/******/ 				if(fulfilled) {
+/******/ 					deferred.splice(i--, 1)
+/******/ 					var r = fn();
+/******/ 					if (r !== undefined) result = r;
+/******/ 				}
+/******/ 			}
+/******/ 			return result;
+/******/ 		};
+/******/ 	})();
+/******/ 	
+/******/ 	/* webpack/runtime/hasOwnProperty shorthand */
+/******/ 	(() => {
+/******/ 		__webpack_require__.o = (obj, prop) => (Object.prototype.hasOwnProperty.call(obj, prop))
+/******/ 	})();
+/******/ 	
+/******/ 	/* webpack/runtime/jsonp chunk loading */
+/******/ 	(() => {
+/******/ 		// no baseURI
+/******/ 		
+/******/ 		// object to store loaded and loading chunks
+/******/ 		// undefined = chunk not loaded, null = chunk preloaded/prefetched
+/******/ 		// [resolve, reject, Promise] = chunk loading, 0 = chunk loaded
+/******/ 		var installedChunks = {
+/******/ 			\\"DemoDetail/index\\": 0
+/******/ 		};
+/******/ 		
+/******/ 		// no chunk on demand loading
+/******/ 		
+/******/ 		// no prefetching
+/******/ 		
+/******/ 		// no preloaded
+/******/ 		
+/******/ 		// no HMR
+/******/ 		
+/******/ 		// no HMR manifest
+/******/ 		
+/******/ 		__webpack_require__.O.j = (chunkId) => (installedChunks[chunkId] === 0);
+/******/ 		
+/******/ 		// install a JSONP callback for chunk loading
+/******/ 		var webpackJsonpCallback = (parentChunkLoadingFunction, data) => {
+/******/ 			var [chunkIds, moreModules, runtime] = data;
+/******/ 			// add \\"moreModules\\" to the modules object,
+/******/ 			// then flag all \\"chunkIds\\" as loaded and fire callback
+/******/ 			var moduleId, chunkId, i = 0;
+/******/ 			if(chunkIds.some((id) => (installedChunks[id] !== 0))) {
+/******/ 				for(moduleId in moreModules) {
+/******/ 					if(__webpack_require__.o(moreModules, moduleId)) {
+/******/ 						__webpack_require__.m[moduleId] = moreModules[moduleId];
+/******/ 					}
+/******/ 				}
+/******/ 				if(runtime) var result = runtime(__webpack_require__);
+/******/ 			}
+/******/ 			if(parentChunkLoadingFunction) parentChunkLoadingFunction(data);
+/******/ 			for(;i < chunkIds.length; i++) {
+/******/ 				chunkId = chunkIds[i];
+/******/ 				if(__webpack_require__.o(installedChunks, chunkId) && installedChunks[chunkId]) {
+/******/ 					installedChunks[chunkId][0]();
+/******/ 				}
+/******/ 				installedChunks[chunkId] = 0;
+/******/ 			}
+/******/ 			return __webpack_require__.O(result);
+/******/ 		}
+/******/ 		
+/******/ 		var chunkLoadingGlobal = __quickappGlobal[\\"webpackChunksplitChunks_app\\"] = __quickappGlobal[\\"webpackChunksplitChunks_app\\"] || [];
+/******/ 		chunkLoadingGlobal.forEach(webpackJsonpCallback.bind(null, 0));
+/******/ 		chunkLoadingGlobal.push = webpackJsonpCallback.bind(null, chunkLoadingGlobal.push.bind(chunkLoadingGlobal));
+/******/ 	})();
+/******/ 	
+/**********/
+/******/ 	
+/******/ 	// startup
+/******/ 	// Load entry module and return exports
+/******/ 	// This entry module depends on other loaded chunks and execution need to be delayed
+/******/ 	var __webpack_exports__ = __webpack_require__.O(undefined, [\\"Common/moduleA\\",\\"Common/compA\\"], () => (__webpack_require__(\\"./src/DemoDetail/index.ux?uxType=page\\")))
+/******/ 	__webpack_exports__ = __webpack_require__.O(__webpack_exports__);
+/******/ 	
+/******/ })()
+;
+    };
+    if (typeof window === \\"undefined\\") {
+      return createPageHandler();
+    }
+    else {
+      window.createPageHandler = createPageHandler
+    }
+  })();"
+`;
+
+exports[`split chunks on a project build results include split chunks for [SMART]: <project-root>/build/app.js 1`] = `
+"(function(){
+    
+    var $app_define_wrap$ = $app_define_wrap$ || function() {}
+    var manifestJson = {\\"package\\":\\"com.application.demo\\",\\"name\\":\\"lewis-demo\\",\\"versionName\\":\\"1.0.0\\",\\"versionCode\\":\\"1\\",\\"minPlatformVersion\\":1070,\\"icon\\":\\"/Common/logo.png\\",\\"features\\":[{\\"name\\":\\"system.prompt\\"},{\\"name\\":\\"system.router\\"},{\\"name\\":\\"system.shortcut\\"}],\\"permissions\\":[{\\"origin\\":\\"*\\"}],\\"config\\":{\\"logLevel\\":\\"trace\\"},\\"router\\":{\\"entry\\":\\"Demo\\",\\"pages\\":{\\"Demo\\":{\\"component\\":\\"index\\"},\\"DemoDetail\\":{\\"component\\":\\"index\\"},\\"About\\":{\\"component\\":\\"index\\"}}},\\"display\\":{\\"titleBarBackgroundColor\\":\\"#f2f2f2\\",\\"titleBarTextColor\\":\\"#414141\\",\\"menu\\":true,\\"pages\\":{\\"Demo\\":{\\"titleBarText\\":\\"示例页\\",\\"menu\\":false},\\"DemoDetail\\":{\\"titleBarText\\":\\"详情页\\"},\\"About\\":{\\"menu\\":false}}}}
+    var createAppHandler = function() {
+      return /******/ (() => { // webpackBootstrap
+
+					var __quickappGlobal = Object.getPrototypeOf(global) || global;
+					__quickappGlobal.chunkFileMap = __quickappGlobal.chunkFileMap || {\\"Common/moduleA\\": \\"Common/moduleA.js\\", \\"Common/compB\\": \\"Common/compB.js\\", \\"Common/compA\\": \\"Common/compA.js\\", \\"Common/moduleB\\": \\"Common/moduleB.js\\"};
+
+/******/ 	var __webpack_modules__ = ({
+
+/***/ \\"./src/app.ux?uxType=app\\":
+/*!**********!*\\\\
+  !*** ./src/app.ux?uxType=app ***!
+  \\\\**********/
+/***/ ((__unused_webpack_module, __unused_webpack_exports, __webpack_require__, $app_define$, $app_bootstrap$, $app_require$, $app_define_wrap$) => {
+
+
+var $app_style$ = {}
+var $app_script$ = __webpack_require__(/*! !../../../../hap-dsl-xvm/lib/loaders/script-loader.js!../../../../hap-packager/lib/loaders/module-loader.js!../../../../hap-dsl-xvm/lib/loaders/manifest-loader.js?path=<project-root>/src!../../../../../node_modules/babel-loader/lib/index.js?cwd=<project-root>&cacheDirectory&comments=false&configFile=<project-root>/babel.config.js!../../../../hap-dsl-xvm/lib/loaders/fragment-loader.js?index=0&type=script!./app.ux?uxType=app */ \\"../../../hap-dsl-xvm/lib/loaders/script-loader.js!../../../hap-packager/lib/loaders/module-loader.js!../../../hap-dsl-xvm/lib/loaders/manifest-loader.js?path=<project-root>/src!../../../../node_modules/babel-loader/lib/index.js?cwd=<project-root>&cacheDirectory&comments=false&configFile=<project-root>/babel.config.js!../../../hap-dsl-xvm/lib/loaders/fragment-loader.js?index=0&type=script!./src/app.ux?uxType=app\\")
 
 $app_define$('@app-application/app', [], function ($app_require$, $app_exports$, $app_module$) {
   
@@ -11,1523 +719,200 @@ $app_define$('@app-application/app', [], function ($app_require$, $app_exports$,
   if ($app_exports$.__esModule && $app_exports$.default) {
     $app_module$.exports = $app_exports$.default
   }
-  $app_module$.exports.manifest = require(\\"./manifest.json\\")
+  $app_module$.exports.manifest = __webpack_require__(/*! ./manifest.json */ \\"./src/manifest.json\\")
   $app_module$.exports.style = { list: [ $app_style$ ] }
   
 })
-$app_bootstrap$('@app-application/app', { packagerVersion: QUICKAPP_TOOLKIT_VERSION })
-"
-`;
+$app_bootstrap$('@app-application/app', { packagerVersion: \\"<VERSION>\\" })
 
-exports[`split chunks on a project build results include split chunks for [SMART] 2`] = `
-"require(\\"!../../../../../hap-dsl-xvm/lib/loaders/ux-loader.js?cwd=<project-root>&type=import!../Common/compA.ux?uxType=comp&name=compa\\")
-require(\\"!../../../../../hap-dsl-xvm/lib/loaders/ux-loader.js?cwd=<project-root>&type=import!../Common/compB.ux?uxType=comp&name=compb\\")
 
-var $app_style$ = {}
-var $app_script$ = require(\\"!../../../../../hap-dsl-xvm/lib/loaders/script-loader.js!../../../../../hap-dsl-xvm/lib/loaders/module-loader.js!../../../../../hap-dsl-xvm/node_modules/babel-loader/lib/index.js?cwd=<project-root>&cacheDirectory&plugins[]=<CWD>/packages/hap-dsl-xvm/lib/loaders/babel-plugin-jsx.js&comments=false&configFile=<project-root>/babel.config.js!../../../../../hap-dsl-xvm/lib/loaders/access-loader.js!../../../../../hap-dsl-xvm/lib/loaders/fragment-loader.js?index=0&type=script!./index.ux?uxType=page\\")
+/***/ }),
 
-$app_define$('@app-component/index', [], function($app_require$, $app_exports$, $app_module$) {
-     $app_script$($app_module$, $app_exports$, $app_require$)
-         if ($app_exports$.__esModule && $app_exports$.default) {
-            $app_module$.exports = $app_exports$.default
-        }
-     $app_module$.exports.template = require(\\"!../../../../../hap-dsl-xvm/lib/loaders/template-loader.js!../../../../../hap-dsl-xvm/lib/loaders/fragment-loader.js?index=0&type=template!./index.ux?uxType=page&importNames[]=compa,importNames[]=compb\\")
+/***/ \\"../../../hap-dsl-xvm/lib/loaders/script-loader.js!../../../hap-packager/lib/loaders/module-loader.js!../../../hap-dsl-xvm/lib/loaders/manifest-loader.js?path=<project-root>/src!../../../../node_modules/babel-loader/lib/index.js?cwd=<project-root>&cacheDirectory&comments=false&configFile=<project-root>/babel.config.js!../../../hap-dsl-xvm/lib/loaders/fragment-loader.js?index=0&type=script!./src/app.ux?uxType=app\\":
+/*!**********!*\\\\
+  !*** ../../../hap-dsl-xvm/lib/loaders/script-loader.js!../../../hap-packager/lib/loaders/module-loader.js!../../../hap-dsl-xvm/lib/loaders/manifest-loader.js?path=<project-root>/src!../../../../node_modules/babel-loader/lib/index.js?cwd=<project-root>&cacheDirectory&comments=false&configFile=<project-root>/babel.config.js!../../../hap-dsl-xvm/lib/loaders/fragment-loader.js?index=0&type=script!./src/app.ux?uxType=app ***!
+  \\\\**********/
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
 
-})
-$app_bootstrap$('@app-component/index',{ packagerVersion: QUICKAPP_TOOLKIT_VERSION })"
-`;
+module.exports = function __scriptModule__ (module, exports, $app_require$){\\"use strict\\";
 
-exports[`split chunks on a project build results include split chunks for [SMART] 3`] = `
-"require(\\"!../../../../../hap-dsl-xvm/lib/loaders/ux-loader.js?cwd=<project-root>&type=import!../Common/compA.ux?uxType=comp&name=compa\\")
+var _moduleA = __webpack_require__(/*! ./Common/moduleA.js */ \\"./src/Common/moduleA.js\\");}
 
-var $app_style$ = {}
-var $app_script$ = require(\\"!../../../../../hap-dsl-xvm/lib/loaders/script-loader.js!../../../../../hap-dsl-xvm/lib/loaders/module-loader.js!../../../../../hap-dsl-xvm/node_modules/babel-loader/lib/index.js?cwd=<project-root>&cacheDirectory&plugins[]=<CWD>/packages/hap-dsl-xvm/lib/loaders/babel-plugin-jsx.js&comments=false&configFile=<project-root>/babel.config.js!../../../../../hap-dsl-xvm/lib/loaders/access-loader.js!../../../../../hap-dsl-xvm/lib/loaders/fragment-loader.js?index=0&type=script!./index.ux?uxType=page\\")
+/***/ }),
 
-$app_define$('@app-component/index', [], function($app_require$, $app_exports$, $app_module$) {
-     $app_script$($app_module$, $app_exports$, $app_require$)
-         if ($app_exports$.__esModule && $app_exports$.default) {
-            $app_module$.exports = $app_exports$.default
-        }
-     $app_module$.exports.template = require(\\"!../../../../../hap-dsl-xvm/lib/loaders/template-loader.js!../../../../../hap-dsl-xvm/lib/loaders/fragment-loader.js?index=0&type=template!./index.ux?uxType=page&importNames[]=compa\\")
+/***/ \\"./src/manifest.json\\":
+/*!**********!*\\\\
+  !*** ./src/manifest.json ***!
+  \\\\**********/
+/***/ ((module) => {
 
-})
-$app_bootstrap$('@app-component/index',{ packagerVersion: QUICKAPP_TOOLKIT_VERSION })"
-`;
+\\"use strict\\";
+module.exports = JSON.parse('{\\"package\\":\\"com.application.demo\\",\\"name\\":\\"lewis-demo\\",\\"versionName\\":\\"1.0.0\\",\\"versionCode\\":\\"1\\",\\"minPlatformVersion\\":1070,\\"icon\\":\\"/Common/logo.png\\",\\"features\\":[{\\"name\\":\\"system.prompt\\"},{\\"name\\":\\"system.router\\"},{\\"name\\":\\"system.shortcut\\"}],\\"permissions\\":[{\\"origin\\":\\"*\\"}],\\"config\\":{\\"logLevel\\":\\"trace\\"},\\"router\\":{\\"entry\\":\\"Demo\\",\\"pages\\":{\\"Demo\\":{\\"component\\":\\"index\\"},\\"DemoDetail\\":{\\"component\\":\\"index\\"},\\"About\\":{\\"component\\":\\"index\\"}}},\\"display\\":{\\"titleBarBackgroundColor\\":\\"#f2f2f2\\",\\"titleBarTextColor\\":\\"#414141\\",\\"menu\\":true,\\"pages\\":{\\"Demo\\":{\\"titleBarText\\":\\"示例页\\",\\"menu\\":false},\\"DemoDetail\\":{\\"titleBarText\\":\\"详情页\\"},\\"About\\":{\\"menu\\":false}}}}');
 
-exports[`split chunks on a project build results include split chunks for [SMART] 4`] = `
-"require(\\"!../../../../../hap-dsl-xvm/lib/loaders/ux-loader.js?cwd=<project-root>&type=import!../Common/compB.ux?uxType=comp&name=compb\\")
+/***/ })
 
-var $app_style$ = {}
-var $app_script$ = require(\\"!../../../../../hap-dsl-xvm/lib/loaders/script-loader.js!../../../../../hap-dsl-xvm/lib/loaders/module-loader.js!../../../../../hap-dsl-xvm/node_modules/babel-loader/lib/index.js?cwd=<project-root>&cacheDirectory&plugins[]=<CWD>/packages/hap-dsl-xvm/lib/loaders/babel-plugin-jsx.js&comments=false&configFile=<project-root>/babel.config.js!../../../../../hap-dsl-xvm/lib/loaders/access-loader.js!../../../../../hap-dsl-xvm/lib/loaders/fragment-loader.js?index=0&type=script!./index.ux?uxType=page\\")
-
-$app_define$('@app-component/index', [], function($app_require$, $app_exports$, $app_module$) {
-     $app_script$($app_module$, $app_exports$, $app_require$)
-         if ($app_exports$.__esModule && $app_exports$.default) {
-            $app_module$.exports = $app_exports$.default
-        }
-     $app_module$.exports.template = require(\\"!../../../../../hap-dsl-xvm/lib/loaders/template-loader.js!../../../../../hap-dsl-xvm/lib/loaders/fragment-loader.js?index=0&type=template!./index.ux?uxType=page&importNames[]=compb\\")
-
-})
-$app_bootstrap$('@app-component/index',{ packagerVersion: QUICKAPP_TOOLKIT_VERSION })"
-`;
-
-exports[`split chunks on a project build results include split chunks for [SMART] 5`] = `
-"module.exports = function __scriptModule__ (module, exports, $app_require$){\\"use strict\\";
-
-var _moduleA = require(\\"./Common/moduleA.js\\");}"
-`;
-
-exports[`split chunks on a project build results include split chunks for [SMART] 6`] = `
-"{
-  \\"package\\": \\"com.application.demo\\",
-  \\"name\\": \\"lewis-demo\\",
-  \\"versionName\\": \\"1.0.0\\",
-  \\"versionCode\\": \\"1\\",
-  \\"minPlatformVersion\\": 1070,
-  \\"icon\\": \\"/Common/logo.png\\",
-  \\"features\\": [
-    { \\"name\\": \\"system.prompt\\" },
-    { \\"name\\": \\"system.router\\" },
-    { \\"name\\": \\"system.shortcut\\" }
-  ],
-  \\"permissions\\": [
-    { \\"origin\\": \\"*\\" }
-  ],
-  \\"config\\": {
-    \\"logLevel\\": \\"trace\\"
-  },
-  \\"router\\": {
-    \\"entry\\": \\"Demo\\",
-    \\"pages\\": {
-      \\"Demo\\": {
-        \\"component\\": \\"index\\"
-      },
-      \\"DemoDetail\\": {
-        \\"component\\": \\"index\\"
-      },
-      \\"About\\": {
-        \\"component\\": \\"index\\"
-      }
+/******/ 	});
+/**********/
+/******/ 	// The module cache
+/******/ 	var __webpack_module_cache__ = {};
+/******/ 	
+/******/ 	// The require function
+/******/ 	function __webpack_require__(moduleId) {
+/******/ 		// Check if module is in cache
+/******/ 		var cachedModule = __webpack_module_cache__[moduleId];
+/******/ 		if (cachedModule !== undefined) {
+/******/ 			return cachedModule.exports;
+/******/ 		}
+/******/ 		// Create a new module (and put it into the cache)
+/******/ 		var module = __webpack_module_cache__[moduleId] = {
+/******/ 			// no module.id needed
+/******/ 			// no module.loaded needed
+/******/ 			exports: {}
+/******/ 		};
+/******/ 	
+/******/ 		// Execute the module function
+/******/ 		__webpack_modules__[moduleId].call(module.exports, module, module.exports, __webpack_require__, $app_define$, $app_bootstrap$, $app_require$, $app_define_wrap$);
+/******/ 	
+/******/ 		// Return the exports of the module
+/******/ 		return module.exports;
+/******/ 	}
+/******/ 	
+/******/ 	// expose the modules object (__webpack_modules__)
+/******/ 	__webpack_require__.m = __webpack_modules__;
+/******/ 	
+/**********/
+/******/ 	/* webpack/runtime/chunk loaded */
+/******/ 	(() => {
+/******/ 		var deferred = [];
+/******/ 		__webpack_require__.O = (result, chunkIds, fn, priority) => {
+/******/ 			if(chunkIds) {
+/******/ 				priority = priority || 0;
+/******/ 				for(var i = deferred.length; i > 0 && deferred[i - 1][2] > priority; i--) deferred[i] = deferred[i - 1];
+/******/ 				deferred[i] = [chunkIds, fn, priority];
+/******/ 				return;
+/******/ 			}
+/******/ 			var notFulfilled = Infinity;
+/******/ 			for (var i = 0; i < deferred.length; i++) {
+/******/ 				var [chunkIds, fn, priority] = deferred[i];
+/******/ 				var fulfilled = true;
+/******/ 				for (var j = 0; j < chunkIds.length; j++) {
+/******/ 					if ((priority & 1 === 0 || notFulfilled >= priority) && Object.keys(__webpack_require__.O).every((key) => (__webpack_require__.O[key](chunkIds[j])))) {
+/******/ 						chunkIds.splice(j--, 1);
+/******/ 					} else {
+/******/ 						fulfilled = false; $app_evaluate$(\`\${__quickappGlobal.chunkFileMap[chunkIds[j]]}\`);
+/******/ 						if(priority < notFulfilled) notFulfilled = priority;
+/******/ 					}
+/******/ 				}
+/******/ 				if(fulfilled) {
+/******/ 					deferred.splice(i--, 1)
+/******/ 					var r = fn();
+/******/ 					if (r !== undefined) result = r;
+/******/ 				}
+/******/ 			}
+/******/ 			return result;
+/******/ 		};
+/******/ 	})();
+/******/ 	
+/******/ 	/* webpack/runtime/hasOwnProperty shorthand */
+/******/ 	(() => {
+/******/ 		__webpack_require__.o = (obj, prop) => (Object.prototype.hasOwnProperty.call(obj, prop))
+/******/ 	})();
+/******/ 	
+/******/ 	/* webpack/runtime/jsonp chunk loading */
+/******/ 	(() => {
+/******/ 		// no baseURI
+/******/ 		
+/******/ 		// object to store loaded and loading chunks
+/******/ 		// undefined = chunk not loaded, null = chunk preloaded/prefetched
+/******/ 		// [resolve, reject, Promise] = chunk loading, 0 = chunk loaded
+/******/ 		var installedChunks = {
+/******/ 			\\"app\\": 0
+/******/ 		};
+/******/ 		
+/******/ 		// no chunk on demand loading
+/******/ 		
+/******/ 		// no prefetching
+/******/ 		
+/******/ 		// no preloaded
+/******/ 		
+/******/ 		// no HMR
+/******/ 		
+/******/ 		// no HMR manifest
+/******/ 		
+/******/ 		__webpack_require__.O.j = (chunkId) => (installedChunks[chunkId] === 0);
+/******/ 		
+/******/ 		// install a JSONP callback for chunk loading
+/******/ 		var webpackJsonpCallback = (parentChunkLoadingFunction, data) => {
+/******/ 			var [chunkIds, moreModules, runtime] = data;
+/******/ 			// add \\"moreModules\\" to the modules object,
+/******/ 			// then flag all \\"chunkIds\\" as loaded and fire callback
+/******/ 			var moduleId, chunkId, i = 0;
+/******/ 			if(chunkIds.some((id) => (installedChunks[id] !== 0))) {
+/******/ 				for(moduleId in moreModules) {
+/******/ 					if(__webpack_require__.o(moreModules, moduleId)) {
+/******/ 						__webpack_require__.m[moduleId] = moreModules[moduleId];
+/******/ 					}
+/******/ 				}
+/******/ 				if(runtime) var result = runtime(__webpack_require__);
+/******/ 			}
+/******/ 			if(parentChunkLoadingFunction) parentChunkLoadingFunction(data);
+/******/ 			for(;i < chunkIds.length; i++) {
+/******/ 				chunkId = chunkIds[i];
+/******/ 				if(__webpack_require__.o(installedChunks, chunkId) && installedChunks[chunkId]) {
+/******/ 					installedChunks[chunkId][0]();
+/******/ 				}
+/******/ 				installedChunks[chunkId] = 0;
+/******/ 			}
+/******/ 			return __webpack_require__.O(result);
+/******/ 		}
+/******/ 		
+/******/ 		var chunkLoadingGlobal = __quickappGlobal[\\"webpackChunksplitChunks_app\\"] = __quickappGlobal[\\"webpackChunksplitChunks_app\\"] || [];
+/******/ 		chunkLoadingGlobal.forEach(webpackJsonpCallback.bind(null, 0));
+/******/ 		chunkLoadingGlobal.push = webpackJsonpCallback.bind(null, chunkLoadingGlobal.push.bind(chunkLoadingGlobal));
+/******/ 	})();
+/******/ 	
+/**********/
+/******/ 	
+/******/ 	// startup
+/******/ 	// Load entry module and return exports
+/******/ 	// This entry module depends on other loaded chunks and execution need to be delayed
+/******/ 	var __webpack_exports__ = __webpack_require__.O(undefined, [\\"Common/moduleA\\"], () => (__webpack_require__(\\"./src/app.ux?uxType=app\\")))
+/******/ 	__webpack_exports__ = __webpack_require__.O(__webpack_exports__);
+/******/ 	
+/******/ })()
+;
+    };
+    if (typeof window === \\"undefined\\") {
+      return createAppHandler();
     }
-  },
-  \\"display\\": {
-    \\"titleBarBackgroundColor\\": \\"#f2f2f2\\",
-    \\"titleBarTextColor\\": \\"#414141\\",
-    \\"menu\\": true,
-    \\"pages\\": {
-      \\"Demo\\": {
-        \\"titleBarText\\": \\"示例页\\",
-        \\"menu\\": false
-      },
-      \\"DemoDetail\\": {
-        \\"titleBarText\\": \\"详情页\\"
-      },
-      \\"About\\": {
-        \\"menu\\": false
-      }
+    else {
+      window.createAppHandler = createAppHandler
+      // H5注入manifest以获取features
+      global.manifest = manifestJson;
     }
-  }
-}"
+  })();"
 `;
 
-exports[`split chunks on a project build results include split chunks for [SMART] 7`] = `
-"
-var $app_style$ = {}
-var $app_script$ = require(\\"!../../../../../hap-dsl-xvm/lib/loaders/script-loader.js!../../../../../hap-dsl-xvm/lib/loaders/module-loader.js!../../../../../hap-dsl-xvm/node_modules/babel-loader/lib/index.js?cwd=<project-root>&cacheDirectory&plugins[]=<CWD>/packages/hap-dsl-xvm/lib/loaders/babel-plugin-jsx.js&comments=false&configFile=<project-root>/babel.config.js!../../../../../hap-dsl-xvm/lib/loaders/fragment-loader.js?index=0&type=script!./compA.ux?uxType=comp\\")
+exports[`split chunks on a project release results include split chunks for [SMART]: <project-root>/build/About/index.js 1`] = `"!function(){var e=function(){return(()=>{var e=Object.getPrototypeOf(global)||global;e.chunkFileMap=e.chunkFileMap||{999:\\"Common/moduleA.js\\",999:\\"Common/compB.js\\",999:\\"Common/compA.js\\",999:\\"Common/moduleB.js\\"};var t,o={999:(e,t,o)=>{e.exports=function(e,t,r){\\"use strict\\";Object.defineProperty(t,\\"__esModule\\",{value:!0}),t.default=void 0,o(999),t.default={};const a=t.default||e.exports,n=[\\"public\\",\\"protected\\",\\"private\\"];if(a.data&&n.some((function(e){return a[e]})))throw new Error('页面VM对象中的属性data不可与\\"'+n.join(\\",\\")+'\\"同时存在，请使用private替换data名称');a.data||(a.data={},a._descriptor={},n.forEach((function(e){const t=typeof a[e];if(\\"object\\"===t){a.data=Object.assign(a.data,a[e]);for(const t in a[e])a._descriptor[t]={access:e}}else\\"function\\"===t&&console.warn(\\"页面VM对象中的属性\\"+e+\\"的值不能是函数，请使用对象\\")})))}},999:e=>{e.exports={type:\\"div\\",attr:{}}},999:(e,t,o,r,a,n,p)=>{o(999);var i=o(999);r(\\"@app-component/index\\",[],(function(e,t,r){i(r,t,e),t.__esModule&&t.default&&(r.exports=t.default),r.exports.template=o(999)})),a(\\"@app-component/index\\",{packagerVersion:\\"<VERSION>\\"})}},r={};function a(e){var t=r[e];if(void 0!==t)return t.exports;var n=r[e]={exports:{}};return o[e].call(n.exports,n,n.exports,a,$app_define$,$app_bootstrap$,$app_require$,$app_define_wrap$),n.exports}a.m=o,t=[],a.O=(o,r,n,p)=>{if(!r){var i=1/0;for(l=0;l<t.length;l++){for(var[r,n,p]=t[l],s=!0,c=0;c<r.length;c++)(!1&p||i>=p)&&Object.keys(a.O).every((e=>a.O[e](r[c])))?r.splice(c--,1):(s=!1,$app_evaluate$(\`\${e.chunkFileMap[r[c]]}\`),p<i&&(i=p));if(s){t.splice(l--,1);var u=n();void 0!==u&&(o=u)}}return o}p=p||0;for(var l=t.length;l>0&&t[l-1][2]>p;l--)t[l]=t[l-1];t[l]=[r,n,p]},a.o=(e,t)=>Object.prototype.hasOwnProperty.call(e,t),(()=>{var t={999:0};a.O.j=e=>0===t[e];var o=(e,o)=>{var r,n,[p,i,s]=o,c=0;if(p.some((e=>0!==t[e]))){for(r in i)a.o(i,r)&&(a.m[r]=i[r]);if(s)var u=s(a)}for(e&&e(o);c<p.length;c++)n=p[c],a.o(t,n)&&t[n]&&t[n][0](),t[n]=0;return a.O(u)},r=e.webpackChunksplitChunks_app=e.webpackChunksplitChunks_app||[];r.forEach(o.bind(null,0)),r.push=o.bind(null,r.push.bind(r))})();var n=a.O(void 0,[514,392],(()=>a(999)));n=a.O(n)})()};if(\\"undefined\\"==typeof window)return e();window.createPageHandler=e}();"`;
 
-$app_define$('@app-component/compa', [], function($app_require$, $app_exports$, $app_module$) {
-     $app_script$($app_module$, $app_exports$, $app_require$)
-         if ($app_exports$.__esModule && $app_exports$.default) {
-            $app_module$.exports = $app_exports$.default
-        }
-     $app_module$.exports.template = require(\\"!../../../../../hap-dsl-xvm/lib/loaders/template-loader.js!../../../../../hap-dsl-xvm/lib/loaders/fragment-loader.js?index=0&type=template!./compA.ux?uxType=comp&\\")
+exports[`split chunks on a project release results include split chunks for [SMART]: <project-root>/build/Demo/index.js 1`] = `"!function(){var e=function(){return(()=>{var e=Object.getPrototypeOf(global)||global;e.chunkFileMap=e.chunkFileMap||{999:\\"Common/moduleA.js\\",999:\\"Common/compB.js\\",999:\\"Common/compA.js\\",999:\\"Common/moduleB.js\\"};var t,o={999:(e,t,o)=>{e.exports=function(e,t,r){\\"use strict\\";Object.defineProperty(t,\\"__esModule\\",{value:!0}),t.default=void 0,o(999),o(999),t.default={};const a=t.default||e.exports,n=[\\"public\\",\\"protected\\",\\"private\\"];if(a.data&&n.some((function(e){return a[e]})))throw new Error('页面VM对象中的属性data不可与\\"'+n.join(\\",\\")+'\\"同时存在，请使用private替换data名称');a.data||(a.data={},a._descriptor={},n.forEach((function(e){const t=typeof a[e];if(\\"object\\"===t){a.data=Object.assign(a.data,a[e]);for(const t in a[e])a._descriptor[t]={access:e}}else\\"function\\"===t&&console.warn(\\"页面VM对象中的属性\\"+e+\\"的值不能是函数，请使用对象\\")})))}},999:e=>{e.exports={type:\\"div\\",attr:{}}},999:(e,t,o,r,a,n,p)=>{o(999),o(999);var i=o(999);r(\\"@app-component/index\\",[],(function(e,t,r){i(r,t,e),t.__esModule&&t.default&&(r.exports=t.default),r.exports.template=o(999)})),a(\\"@app-component/index\\",{packagerVersion:\\"<VERSION>\\"})}},r={};function a(e){var t=r[e];if(void 0!==t)return t.exports;var n=r[e]={exports:{}};return o[e].call(n.exports,n,n.exports,a,$app_define$,$app_bootstrap$,$app_require$,$app_define_wrap$),n.exports}a.m=o,t=[],a.O=(o,r,n,p)=>{if(!r){var i=1/0;for(l=0;l<t.length;l++){for(var[r,n,p]=t[l],s=!0,c=0;c<r.length;c++)(!1&p||i>=p)&&Object.keys(a.O).every((e=>a.O[e](r[c])))?r.splice(c--,1):(s=!1,$app_evaluate$(\`\${e.chunkFileMap[r[c]]}\`),p<i&&(i=p));if(s){t.splice(l--,1);var u=n();void 0!==u&&(o=u)}}return o}p=p||0;for(var l=t.length;l>0&&t[l-1][2]>p;l--)t[l]=t[l-1];t[l]=[r,n,p]},a.o=(e,t)=>Object.prototype.hasOwnProperty.call(e,t),(()=>{var t={999:0};a.O.j=e=>0===t[e];var o=(e,o)=>{var r,n,[p,i,s]=o,c=0;if(p.some((e=>0!==t[e]))){for(r in i)a.o(i,r)&&(a.m[r]=i[r]);if(s)var u=s(a)}for(e&&e(o);c<p.length;c++)n=p[c],a.o(t,n)&&t[n]&&t[n][0](),t[n]=0;return a.O(u)},r=e.webpackChunksplitChunks_app=e.webpackChunksplitChunks_app||[];r.forEach(o.bind(null,0)),r.push=o.bind(null,r.push.bind(r))})();var n=a.O(void 0,[418,514,626,392],(()=>a(999)));n=a.O(n)})()};if(\\"undefined\\"==typeof window)return e();window.createPageHandler=e}();"`;
 
-})"
-`;
-
-exports[`split chunks on a project build results include split chunks for [SMART] 8`] = `
-"
-var $app_style$ = {}
-var $app_script$ = require(\\"!../../../../../hap-dsl-xvm/lib/loaders/script-loader.js!../../../../../hap-dsl-xvm/lib/loaders/module-loader.js!../../../../../hap-dsl-xvm/node_modules/babel-loader/lib/index.js?cwd=<project-root>&cacheDirectory&plugins[]=<CWD>/packages/hap-dsl-xvm/lib/loaders/babel-plugin-jsx.js&comments=false&configFile=<project-root>/babel.config.js!../../../../../hap-dsl-xvm/lib/loaders/fragment-loader.js?index=0&type=script!./compB.ux?uxType=comp\\")
-
-$app_define$('@app-component/compb', [], function($app_require$, $app_exports$, $app_module$) {
-     $app_script$($app_module$, $app_exports$, $app_require$)
-         if ($app_exports$.__esModule && $app_exports$.default) {
-            $app_module$.exports = $app_exports$.default
-        }
-     $app_module$.exports.template = require(\\"!../../../../../hap-dsl-xvm/lib/loaders/template-loader.js!../../../../../hap-dsl-xvm/lib/loaders/fragment-loader.js?index=0&type=template!./compB.ux?uxType=comp&\\")
-
-})"
-`;
-
-exports[`split chunks on a project build results include split chunks for [SMART] 9`] = `
-"module.exports = function __scriptModule__ (module, exports, $app_require$){\\"use strict\\";
-
-Object.defineProperty(exports, \\"__esModule\\", {
-  value: true
-});
-exports[\\"default\\"] = void 0;
-
-var _moduleA = require(\\"../Common/moduleA.js\\");
-
-var _moduleB = require(\\"../Common/moduleB.js\\");
-
-function _typeof(obj) { \\"@babel/helpers - typeof\\"; if (typeof Symbol === \\"function\\" && typeof Symbol.iterator === \\"symbol\\") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === \\"function\\" && obj.constructor === Symbol && obj !== Symbol.prototype ? \\"symbol\\" : typeof obj; }; } return _typeof(obj); }
-
-var _default = {};
-exports[\\"default\\"] = _default;
-var moduleOwn = exports[\\"default\\"] || module.exports;
-var accessors = ['public', 'protected', 'private'];
-
-if (moduleOwn.data && accessors.some(function (acc) {
-  return moduleOwn[acc];
-})) {
-  throw new Error('页面VM对象中的属性data不可与\\"' + accessors.join(',') + '\\"同时存在，请使用private替换data名称');
-} else if (!moduleOwn.data) {
-  moduleOwn.data = {};
-  moduleOwn._descriptor = {};
-  accessors.forEach(function (acc) {
-    var accType = _typeof(moduleOwn[acc]);
-
-    if (accType === 'object') {
-      moduleOwn.data = Object.assign(moduleOwn.data, moduleOwn[acc]);
-
-      for (var name in moduleOwn[acc]) {
-        moduleOwn._descriptor[name] = {
-          access: acc
-        };
-      }
-    } else if (accType === 'function') {
-      console.warn('页面VM对象中的属性' + acc + '的值不能是函数，请使用对象');
-    }
-  });
-}}"
-`;
-
-exports[`split chunks on a project build results include split chunks for [SMART] 10`] = `
-"module.exports = {
-  \\"type\\": \\"div\\",
-  \\"attr\\": {}
-}"
-`;
-
-exports[`split chunks on a project build results include split chunks for [SMART] 11`] = `
-"module.exports = function __scriptModule__ (module, exports, $app_require$){\\"use strict\\";
-
-Object.defineProperty(exports, \\"__esModule\\", {
-  value: true
-});
-exports[\\"default\\"] = void 0;
-
-var _moduleA = require(\\"../Common/moduleA.js\\");
-
-function _typeof(obj) { \\"@babel/helpers - typeof\\"; if (typeof Symbol === \\"function\\" && typeof Symbol.iterator === \\"symbol\\") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === \\"function\\" && obj.constructor === Symbol && obj !== Symbol.prototype ? \\"symbol\\" : typeof obj; }; } return _typeof(obj); }
-
-var _default = {
-  onMenuPress: function onMenuPress() {
-    this.$app.$def.showMenu();
-  }
-};
-exports[\\"default\\"] = _default;
-var moduleOwn = exports[\\"default\\"] || module.exports;
-var accessors = ['public', 'protected', 'private'];
-
-if (moduleOwn.data && accessors.some(function (acc) {
-  return moduleOwn[acc];
-})) {
-  throw new Error('页面VM对象中的属性data不可与\\"' + accessors.join(',') + '\\"同时存在，请使用private替换data名称');
-} else if (!moduleOwn.data) {
-  moduleOwn.data = {};
-  moduleOwn._descriptor = {};
-  accessors.forEach(function (acc) {
-    var accType = _typeof(moduleOwn[acc]);
-
-    if (accType === 'object') {
-      moduleOwn.data = Object.assign(moduleOwn.data, moduleOwn[acc]);
-
-      for (var name in moduleOwn[acc]) {
-        moduleOwn._descriptor[name] = {
-          access: acc
-        };
-      }
-    } else if (accType === 'function') {
-      console.warn('页面VM对象中的属性' + acc + '的值不能是函数，请使用对象');
-    }
-  });
-}}"
-`;
-
-exports[`split chunks on a project build results include split chunks for [SMART] 12`] = `
-"module.exports = {
-  \\"type\\": \\"div\\",
-  \\"attr\\": {}
-}"
-`;
-
-exports[`split chunks on a project build results include split chunks for [SMART] 13`] = `
-"module.exports = function __scriptModule__ (module, exports, $app_require$){\\"use strict\\";
-
-Object.defineProperty(exports, \\"__esModule\\", {
-  value: true
-});
-exports[\\"default\\"] = void 0;
-
-var _moduleB = require(\\"../Common/moduleB.js\\");
-
-function _typeof(obj) { \\"@babel/helpers - typeof\\"; if (typeof Symbol === \\"function\\" && typeof Symbol.iterator === \\"symbol\\") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === \\"function\\" && obj.constructor === Symbol && obj !== Symbol.prototype ? \\"symbol\\" : typeof obj; }; } return _typeof(obj); }
-
-var _default = {};
-exports[\\"default\\"] = _default;
-var moduleOwn = exports[\\"default\\"] || module.exports;
-var accessors = ['public', 'protected', 'private'];
-
-if (moduleOwn.data && accessors.some(function (acc) {
-  return moduleOwn[acc];
-})) {
-  throw new Error('页面VM对象中的属性data不可与\\"' + accessors.join(',') + '\\"同时存在，请使用private替换data名称');
-} else if (!moduleOwn.data) {
-  moduleOwn.data = {};
-  moduleOwn._descriptor = {};
-  accessors.forEach(function (acc) {
-    var accType = _typeof(moduleOwn[acc]);
-
-    if (accType === 'object') {
-      moduleOwn.data = Object.assign(moduleOwn.data, moduleOwn[acc]);
-
-      for (var name in moduleOwn[acc]) {
-        moduleOwn._descriptor[name] = {
-          access: acc
-        };
-      }
-    } else if (accType === 'function') {
-      console.warn('页面VM对象中的属性' + acc + '的值不能是函数，请使用对象');
-    }
-  });
-}}"
-`;
-
-exports[`split chunks on a project build results include split chunks for [SMART] 14`] = `
-"module.exports = {
-  \\"type\\": \\"div\\",
-  \\"attr\\": {}
-}"
-`;
-
-exports[`split chunks on a project build results include split chunks for [SMART] 15`] = `
-"\\"use strict\\";
-
-Object.defineProperty(exports, \\"__esModule\\", {
-  value: true
-});
-exports.add = add;
-
-/*
- * Copyright (c) 2021, the hapjs-platform Project Contributors
- * SPDX-License-Identifier: Apache-2.0
- */
-function add(a, b) {
-  return a + b;
-}"
-`;
-
-exports[`split chunks on a project build results include split chunks for [SMART] 16`] = `
-"module.exports = function __scriptModule__ (module, exports, $app_require$){\\"use strict\\";
-
-Object.defineProperty(exports, \\"__esModule\\", {
-  value: true
-});
-exports[\\"default\\"] = void 0;
-var _default = {};
-exports[\\"default\\"] = _default;}"
-`;
-
-exports[`split chunks on a project build results include split chunks for [SMART] 17`] = `
-"module.exports = {
-  \\"type\\": \\"div\\",
-  \\"attr\\": {}
-}"
-`;
-
-exports[`split chunks on a project build results include split chunks for [SMART] 18`] = `
-"module.exports = function __scriptModule__ (module, exports, $app_require$){\\"use strict\\";
-
-Object.defineProperty(exports, \\"__esModule\\", {
-  value: true
-});
-exports[\\"default\\"] = void 0;
-var _default = {};
-exports[\\"default\\"] = _default;}"
-`;
-
-exports[`split chunks on a project build results include split chunks for [SMART] 19`] = `
-"module.exports = {
-  \\"type\\": \\"div\\",
-  \\"attr\\": {}
-}"
-`;
-
-exports[`split chunks on a project build results include split chunks for [SMART] 20`] = `
-"\\"use strict\\";
-
-Object.defineProperty(exports, \\"__esModule\\", {
-  value: true
-});
-exports.multiply = multiply;
-
-/*
- * Copyright (c) 2021, the hapjs-platform Project Contributors
- * SPDX-License-Identifier: Apache-2.0
- */
-function multiply(a, b) {
-  return a * b;
-}"
-`;
-
-exports[`split chunks on a project release results include split chunks for [SMART] 1`] = `
-"
-var $app_style$ = {}
-var $app_script$ = require(\\"!../../../../hap-dsl-xvm/lib/loaders/script-loader.js!../../../../hap-dsl-xvm/lib/loaders/module-loader.js!../../../../hap-dsl-xvm/lib/loaders/manifest-loader.js?path=<project-root>/src!../../../../hap-dsl-xvm/node_modules/babel-loader/lib/index.js?cwd=<project-root>&cacheDirectory&comments=false&configFile=<project-root>/babel.config.js!../../../../hap-dsl-xvm/lib/loaders/fragment-loader.js?index=0&type=script!./app.ux?uxType=app\\")
-
-$app_define$('@app-application/app', [], function ($app_require$, $app_exports$, $app_module$) {
-  
-  $app_script$($app_module$, $app_exports$, $app_require$)
-  if ($app_exports$.__esModule && $app_exports$.default) {
-    $app_module$.exports = $app_exports$.default
-  }
-  $app_module$.exports.manifest = require(\\"./manifest.json\\")
-  $app_module$.exports.style = { list: [ $app_style$ ] }
-  
-})
-$app_bootstrap$('@app-application/app', { packagerVersion: QUICKAPP_TOOLKIT_VERSION })
-"
-`;
-
-exports[`split chunks on a project release results include split chunks for [SMART] 2`] = `
-"require(\\"!../../../../../hap-dsl-xvm/lib/loaders/ux-loader.js?cwd=<project-root>&type=import!../Common/compA.ux?uxType=comp&name=compa\\")
-require(\\"!../../../../../hap-dsl-xvm/lib/loaders/ux-loader.js?cwd=<project-root>&type=import!../Common/compB.ux?uxType=comp&name=compb\\")
-
-var $app_style$ = {}
-var $app_script$ = require(\\"!../../../../../hap-dsl-xvm/lib/loaders/script-loader.js!../../../../../hap-dsl-xvm/lib/loaders/module-loader.js!../../../../../hap-dsl-xvm/node_modules/babel-loader/lib/index.js?cwd=<project-root>&cacheDirectory&plugins[]=<CWD>/packages/hap-dsl-xvm/lib/loaders/babel-plugin-jsx.js&comments=false&configFile=<project-root>/babel.config.js!../../../../../hap-dsl-xvm/lib/loaders/access-loader.js!../../../../../hap-dsl-xvm/lib/loaders/fragment-loader.js?index=0&type=script!./index.ux?uxType=page\\")
-
-$app_define$('@app-component/index', [], function($app_require$, $app_exports$, $app_module$) {
-     $app_script$($app_module$, $app_exports$, $app_require$)
-         if ($app_exports$.__esModule && $app_exports$.default) {
-            $app_module$.exports = $app_exports$.default
-        }
-     $app_module$.exports.template = require(\\"!../../../../../hap-dsl-xvm/lib/loaders/template-loader.js!../../../../../hap-dsl-xvm/lib/loaders/fragment-loader.js?index=0&type=template!./index.ux?uxType=page&importNames[]=compa,importNames[]=compb\\")
-
-})
-$app_bootstrap$('@app-component/index',{ packagerVersion: QUICKAPP_TOOLKIT_VERSION })"
-`;
-
-exports[`split chunks on a project release results include split chunks for [SMART] 3`] = `
-"require(\\"!../../../../../hap-dsl-xvm/lib/loaders/ux-loader.js?cwd=<project-root>&type=import!../Common/compA.ux?uxType=comp&name=compa\\")
-
-var $app_style$ = {}
-var $app_script$ = require(\\"!../../../../../hap-dsl-xvm/lib/loaders/script-loader.js!../../../../../hap-dsl-xvm/lib/loaders/module-loader.js!../../../../../hap-dsl-xvm/node_modules/babel-loader/lib/index.js?cwd=<project-root>&cacheDirectory&plugins[]=<CWD>/packages/hap-dsl-xvm/lib/loaders/babel-plugin-jsx.js&comments=false&configFile=<project-root>/babel.config.js!../../../../../hap-dsl-xvm/lib/loaders/access-loader.js!../../../../../hap-dsl-xvm/lib/loaders/fragment-loader.js?index=0&type=script!./index.ux?uxType=page\\")
-
-$app_define$('@app-component/index', [], function($app_require$, $app_exports$, $app_module$) {
-     $app_script$($app_module$, $app_exports$, $app_require$)
-         if ($app_exports$.__esModule && $app_exports$.default) {
-            $app_module$.exports = $app_exports$.default
-        }
-     $app_module$.exports.template = require(\\"!../../../../../hap-dsl-xvm/lib/loaders/template-loader.js!../../../../../hap-dsl-xvm/lib/loaders/fragment-loader.js?index=0&type=template!./index.ux?uxType=page&importNames[]=compa\\")
-
-})
-$app_bootstrap$('@app-component/index',{ packagerVersion: QUICKAPP_TOOLKIT_VERSION })"
-`;
-
-exports[`split chunks on a project release results include split chunks for [SMART] 4`] = `
-"require(\\"!../../../../../hap-dsl-xvm/lib/loaders/ux-loader.js?cwd=<project-root>&type=import!../Common/compB.ux?uxType=comp&name=compb\\")
-
-var $app_style$ = {}
-var $app_script$ = require(\\"!../../../../../hap-dsl-xvm/lib/loaders/script-loader.js!../../../../../hap-dsl-xvm/lib/loaders/module-loader.js!../../../../../hap-dsl-xvm/node_modules/babel-loader/lib/index.js?cwd=<project-root>&cacheDirectory&plugins[]=<CWD>/packages/hap-dsl-xvm/lib/loaders/babel-plugin-jsx.js&comments=false&configFile=<project-root>/babel.config.js!../../../../../hap-dsl-xvm/lib/loaders/access-loader.js!../../../../../hap-dsl-xvm/lib/loaders/fragment-loader.js?index=0&type=script!./index.ux?uxType=page\\")
-
-$app_define$('@app-component/index', [], function($app_require$, $app_exports$, $app_module$) {
-     $app_script$($app_module$, $app_exports$, $app_require$)
-         if ($app_exports$.__esModule && $app_exports$.default) {
-            $app_module$.exports = $app_exports$.default
-        }
-     $app_module$.exports.template = require(\\"!../../../../../hap-dsl-xvm/lib/loaders/template-loader.js!../../../../../hap-dsl-xvm/lib/loaders/fragment-loader.js?index=0&type=template!./index.ux?uxType=page&importNames[]=compb\\")
-
-})
-$app_bootstrap$('@app-component/index',{ packagerVersion: QUICKAPP_TOOLKIT_VERSION })"
-`;
-
-exports[`split chunks on a project release results include split chunks for [SMART] 5`] = `
-"module.exports = function __scriptModule__ (module, exports, $app_require$){\\"use strict\\";
-
-var _moduleA = require(\\"./Common/moduleA.js\\");}"
-`;
-
-exports[`split chunks on a project release results include split chunks for [SMART] 6`] = `
-"{
-  \\"package\\": \\"com.application.demo\\",
-  \\"name\\": \\"lewis-demo\\",
-  \\"versionName\\": \\"1.0.0\\",
-  \\"versionCode\\": \\"1\\",
-  \\"minPlatformVersion\\": 1070,
-  \\"icon\\": \\"/Common/logo.png\\",
-  \\"features\\": [
-    { \\"name\\": \\"system.prompt\\" },
-    { \\"name\\": \\"system.router\\" },
-    { \\"name\\": \\"system.shortcut\\" }
-  ],
-  \\"permissions\\": [
-    { \\"origin\\": \\"*\\" }
-  ],
-  \\"config\\": {
-    \\"logLevel\\": \\"trace\\"
-  },
-  \\"router\\": {
-    \\"entry\\": \\"Demo\\",
-    \\"pages\\": {
-      \\"Demo\\": {
-        \\"component\\": \\"index\\"
-      },
-      \\"DemoDetail\\": {
-        \\"component\\": \\"index\\"
-      },
-      \\"About\\": {
-        \\"component\\": \\"index\\"
-      }
-    }
-  },
-  \\"display\\": {
-    \\"titleBarBackgroundColor\\": \\"#f2f2f2\\",
-    \\"titleBarTextColor\\": \\"#414141\\",
-    \\"menu\\": true,
-    \\"pages\\": {
-      \\"Demo\\": {
-        \\"titleBarText\\": \\"示例页\\",
-        \\"menu\\": false
-      },
-      \\"DemoDetail\\": {
-        \\"titleBarText\\": \\"详情页\\"
-      },
-      \\"About\\": {
-        \\"menu\\": false
-      }
-    }
-  }
-}"
-`;
-
-exports[`split chunks on a project release results include split chunks for [SMART] 7`] = `
-"
-var $app_style$ = {}
-var $app_script$ = require(\\"!../../../../../hap-dsl-xvm/lib/loaders/script-loader.js!../../../../../hap-dsl-xvm/lib/loaders/module-loader.js!../../../../../hap-dsl-xvm/node_modules/babel-loader/lib/index.js?cwd=<project-root>&cacheDirectory&plugins[]=<CWD>/packages/hap-dsl-xvm/lib/loaders/babel-plugin-jsx.js&comments=false&configFile=<project-root>/babel.config.js!../../../../../hap-dsl-xvm/lib/loaders/fragment-loader.js?index=0&type=script!./compA.ux?uxType=comp\\")
-
-$app_define$('@app-component/compa', [], function($app_require$, $app_exports$, $app_module$) {
-     $app_script$($app_module$, $app_exports$, $app_require$)
-         if ($app_exports$.__esModule && $app_exports$.default) {
-            $app_module$.exports = $app_exports$.default
-        }
-     $app_module$.exports.template = require(\\"!../../../../../hap-dsl-xvm/lib/loaders/template-loader.js!../../../../../hap-dsl-xvm/lib/loaders/fragment-loader.js?index=0&type=template!./compA.ux?uxType=comp&\\")
-
-})"
-`;
-
-exports[`split chunks on a project release results include split chunks for [SMART] 8`] = `
-"
-var $app_style$ = {}
-var $app_script$ = require(\\"!../../../../../hap-dsl-xvm/lib/loaders/script-loader.js!../../../../../hap-dsl-xvm/lib/loaders/module-loader.js!../../../../../hap-dsl-xvm/node_modules/babel-loader/lib/index.js?cwd=<project-root>&cacheDirectory&plugins[]=<CWD>/packages/hap-dsl-xvm/lib/loaders/babel-plugin-jsx.js&comments=false&configFile=<project-root>/babel.config.js!../../../../../hap-dsl-xvm/lib/loaders/fragment-loader.js?index=0&type=script!./compB.ux?uxType=comp\\")
-
-$app_define$('@app-component/compb', [], function($app_require$, $app_exports$, $app_module$) {
-     $app_script$($app_module$, $app_exports$, $app_require$)
-         if ($app_exports$.__esModule && $app_exports$.default) {
-            $app_module$.exports = $app_exports$.default
-        }
-     $app_module$.exports.template = require(\\"!../../../../../hap-dsl-xvm/lib/loaders/template-loader.js!../../../../../hap-dsl-xvm/lib/loaders/fragment-loader.js?index=0&type=template!./compB.ux?uxType=comp&\\")
-
-})"
-`;
-
-exports[`split chunks on a project release results include split chunks for [SMART] 9`] = `
-"module.exports = function __scriptModule__ (module, exports, $app_require$){\\"use strict\\";
-
-Object.defineProperty(exports, \\"__esModule\\", {
-  value: true
-});
-exports[\\"default\\"] = void 0;
-
-var _moduleA = require(\\"../Common/moduleA.js\\");
-
-var _moduleB = require(\\"../Common/moduleB.js\\");
-
-function _typeof(obj) { \\"@babel/helpers - typeof\\"; if (typeof Symbol === \\"function\\" && typeof Symbol.iterator === \\"symbol\\") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === \\"function\\" && obj.constructor === Symbol && obj !== Symbol.prototype ? \\"symbol\\" : typeof obj; }; } return _typeof(obj); }
-
-var _default = {};
-exports[\\"default\\"] = _default;
-var moduleOwn = exports[\\"default\\"] || module.exports;
-var accessors = ['public', 'protected', 'private'];
-
-if (moduleOwn.data && accessors.some(function (acc) {
-  return moduleOwn[acc];
-})) {
-  throw new Error('页面VM对象中的属性data不可与\\"' + accessors.join(',') + '\\"同时存在，请使用private替换data名称');
-} else if (!moduleOwn.data) {
-  moduleOwn.data = {};
-  moduleOwn._descriptor = {};
-  accessors.forEach(function (acc) {
-    var accType = _typeof(moduleOwn[acc]);
-
-    if (accType === 'object') {
-      moduleOwn.data = Object.assign(moduleOwn.data, moduleOwn[acc]);
-
-      for (var name in moduleOwn[acc]) {
-        moduleOwn._descriptor[name] = {
-          access: acc
-        };
-      }
-    } else if (accType === 'function') {
-      console.warn('页面VM对象中的属性' + acc + '的值不能是函数，请使用对象');
-    }
-  });
-}}"
-`;
-
-exports[`split chunks on a project release results include split chunks for [SMART] 10`] = `
-"module.exports = {
-  \\"type\\": \\"div\\",
-  \\"attr\\": {}
-}"
-`;
-
-exports[`split chunks on a project release results include split chunks for [SMART] 11`] = `
-"module.exports = function __scriptModule__ (module, exports, $app_require$){\\"use strict\\";
-
-Object.defineProperty(exports, \\"__esModule\\", {
-  value: true
-});
-exports[\\"default\\"] = void 0;
-
-var _moduleA = require(\\"../Common/moduleA.js\\");
-
-function _typeof(obj) { \\"@babel/helpers - typeof\\"; if (typeof Symbol === \\"function\\" && typeof Symbol.iterator === \\"symbol\\") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === \\"function\\" && obj.constructor === Symbol && obj !== Symbol.prototype ? \\"symbol\\" : typeof obj; }; } return _typeof(obj); }
-
-var _default = {
-  onMenuPress: function onMenuPress() {
-    this.$app.$def.showMenu();
-  }
-};
-exports[\\"default\\"] = _default;
-var moduleOwn = exports[\\"default\\"] || module.exports;
-var accessors = ['public', 'protected', 'private'];
-
-if (moduleOwn.data && accessors.some(function (acc) {
-  return moduleOwn[acc];
-})) {
-  throw new Error('页面VM对象中的属性data不可与\\"' + accessors.join(',') + '\\"同时存在，请使用private替换data名称');
-} else if (!moduleOwn.data) {
-  moduleOwn.data = {};
-  moduleOwn._descriptor = {};
-  accessors.forEach(function (acc) {
-    var accType = _typeof(moduleOwn[acc]);
-
-    if (accType === 'object') {
-      moduleOwn.data = Object.assign(moduleOwn.data, moduleOwn[acc]);
-
-      for (var name in moduleOwn[acc]) {
-        moduleOwn._descriptor[name] = {
-          access: acc
-        };
-      }
-    } else if (accType === 'function') {
-      console.warn('页面VM对象中的属性' + acc + '的值不能是函数，请使用对象');
-    }
-  });
-}}"
-`;
-
-exports[`split chunks on a project release results include split chunks for [SMART] 12`] = `
-"module.exports = {
-  \\"type\\": \\"div\\",
-  \\"attr\\": {}
-}"
-`;
-
-exports[`split chunks on a project release results include split chunks for [SMART] 13`] = `
-"module.exports = function __scriptModule__ (module, exports, $app_require$){\\"use strict\\";
-
-Object.defineProperty(exports, \\"__esModule\\", {
-  value: true
-});
-exports[\\"default\\"] = void 0;
-
-var _moduleB = require(\\"../Common/moduleB.js\\");
-
-function _typeof(obj) { \\"@babel/helpers - typeof\\"; if (typeof Symbol === \\"function\\" && typeof Symbol.iterator === \\"symbol\\") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === \\"function\\" && obj.constructor === Symbol && obj !== Symbol.prototype ? \\"symbol\\" : typeof obj; }; } return _typeof(obj); }
-
-var _default = {};
-exports[\\"default\\"] = _default;
-var moduleOwn = exports[\\"default\\"] || module.exports;
-var accessors = ['public', 'protected', 'private'];
-
-if (moduleOwn.data && accessors.some(function (acc) {
-  return moduleOwn[acc];
-})) {
-  throw new Error('页面VM对象中的属性data不可与\\"' + accessors.join(',') + '\\"同时存在，请使用private替换data名称');
-} else if (!moduleOwn.data) {
-  moduleOwn.data = {};
-  moduleOwn._descriptor = {};
-  accessors.forEach(function (acc) {
-    var accType = _typeof(moduleOwn[acc]);
-
-    if (accType === 'object') {
-      moduleOwn.data = Object.assign(moduleOwn.data, moduleOwn[acc]);
-
-      for (var name in moduleOwn[acc]) {
-        moduleOwn._descriptor[name] = {
-          access: acc
-        };
-      }
-    } else if (accType === 'function') {
-      console.warn('页面VM对象中的属性' + acc + '的值不能是函数，请使用对象');
-    }
-  });
-}}"
-`;
-
-exports[`split chunks on a project release results include split chunks for [SMART] 14`] = `
-"module.exports = {
-  \\"type\\": \\"div\\",
-  \\"attr\\": {}
-}"
-`;
-
-exports[`split chunks on a project release results include split chunks for [SMART] 15`] = `
-"\\"use strict\\";
-
-Object.defineProperty(exports, \\"__esModule\\", {
-  value: true
-});
-exports.add = add;
-
-/*
- * Copyright (c) 2021, the hapjs-platform Project Contributors
- * SPDX-License-Identifier: Apache-2.0
- */
-function add(a, b) {
-  return a + b;
-}"
-`;
-
-exports[`split chunks on a project release results include split chunks for [SMART] 16`] = `
-"module.exports = function __scriptModule__ (module, exports, $app_require$){\\"use strict\\";
-
-Object.defineProperty(exports, \\"__esModule\\", {
-  value: true
-});
-exports[\\"default\\"] = void 0;
-var _default = {};
-exports[\\"default\\"] = _default;}"
-`;
-
-exports[`split chunks on a project release results include split chunks for [SMART] 17`] = `
-"module.exports = {
-  \\"type\\": \\"div\\",
-  \\"attr\\": {}
-}"
-`;
-
-exports[`split chunks on a project release results include split chunks for [SMART] 18`] = `
-"module.exports = function __scriptModule__ (module, exports, $app_require$){\\"use strict\\";
-
-Object.defineProperty(exports, \\"__esModule\\", {
-  value: true
-});
-exports[\\"default\\"] = void 0;
-var _default = {};
-exports[\\"default\\"] = _default;}"
-`;
-
-exports[`split chunks on a project release results include split chunks for [SMART] 19`] = `
-"module.exports = {
-  \\"type\\": \\"div\\",
-  \\"attr\\": {}
-}"
-`;
-
-exports[`split chunks on a project release results include split chunks for [SMART] 20`] = `
-"\\"use strict\\";
-
-Object.defineProperty(exports, \\"__esModule\\", {
-  value: true
-});
-exports.multiply = multiply;
-
-/*
- * Copyright (c) 2021, the hapjs-platform Project Contributors
- * SPDX-License-Identifier: Apache-2.0
- */
-function multiply(a, b) {
-  return a * b;
-}"
-`;
-
-exports[`split chunks on a project release results not include split chunks for [REDUNDANCY] 1`] = `
-"
-var $app_style$ = {}
-var $app_script$ = require(\\"!../../../../hap-dsl-xvm/lib/loaders/script-loader.js!../../../../hap-dsl-xvm/lib/loaders/module-loader.js!../../../../hap-dsl-xvm/lib/loaders/manifest-loader.js?path=<project-root>/src!../../../../hap-dsl-xvm/node_modules/babel-loader/lib/index.js?cwd=<project-root>&cacheDirectory&comments=false&configFile=<project-root>/babel.config.js!../../../../hap-dsl-xvm/lib/loaders/fragment-loader.js?index=0&type=script!./app.ux?uxType=app\\")
-
-$app_define$('@app-application/app', [], function ($app_require$, $app_exports$, $app_module$) {
-  
-  $app_script$($app_module$, $app_exports$, $app_require$)
-  if ($app_exports$.__esModule && $app_exports$.default) {
-    $app_module$.exports = $app_exports$.default
-  }
-  $app_module$.exports.manifest = require(\\"./manifest.json\\")
-  $app_module$.exports.style = { list: [ $app_style$ ] }
-  
-})
-$app_bootstrap$('@app-application/app', { packagerVersion: QUICKAPP_TOOLKIT_VERSION })
-"
-`;
-
-exports[`split chunks on a project release results not include split chunks for [REDUNDANCY] 2`] = `
-"require(\\"!../../../../../hap-dsl-xvm/lib/loaders/ux-loader.js?cwd=<project-root>&type=import!../Common/compA.ux?uxType=comp&name=compa\\")
-require(\\"!../../../../../hap-dsl-xvm/lib/loaders/ux-loader.js?cwd=<project-root>&type=import!../Common/compB.ux?uxType=comp&name=compb\\")
-
-var $app_style$ = {}
-var $app_script$ = require(\\"!../../../../../hap-dsl-xvm/lib/loaders/script-loader.js!../../../../../hap-dsl-xvm/lib/loaders/module-loader.js!../../../../../hap-dsl-xvm/node_modules/babel-loader/lib/index.js?cwd=<project-root>&cacheDirectory&plugins[]=<CWD>/packages/hap-dsl-xvm/lib/loaders/babel-plugin-jsx.js&comments=false&configFile=<project-root>/babel.config.js!../../../../../hap-dsl-xvm/lib/loaders/access-loader.js!../../../../../hap-dsl-xvm/lib/loaders/fragment-loader.js?index=0&type=script!./index.ux?uxType=page\\")
-
-$app_define$('@app-component/index', [], function($app_require$, $app_exports$, $app_module$) {
-     $app_script$($app_module$, $app_exports$, $app_require$)
-         if ($app_exports$.__esModule && $app_exports$.default) {
-            $app_module$.exports = $app_exports$.default
-        }
-     $app_module$.exports.template = require(\\"!../../../../../hap-dsl-xvm/lib/loaders/template-loader.js!../../../../../hap-dsl-xvm/lib/loaders/fragment-loader.js?index=0&type=template!./index.ux?uxType=page&importNames[]=compa,importNames[]=compb\\")
-
-})
-$app_bootstrap$('@app-component/index',{ packagerVersion: QUICKAPP_TOOLKIT_VERSION })"
-`;
+exports[`split chunks on a project release results include split chunks for [SMART]: <project-root>/build/DemoDetail/index.js 1`] = `"!function(){var e=function(){return(()=>{var e=Object.getPrototypeOf(global)||global;e.chunkFileMap=e.chunkFileMap||{999:\\"Common/moduleA.js\\",999:\\"Common/compB.js\\",999:\\"Common/compA.js\\",999:\\"Common/moduleB.js\\"};var o,t={999:(e,o,t)=>{e.exports=function(e,o,r){\\"use strict\\";Object.defineProperty(o,\\"__esModule\\",{value:!0}),o.default=void 0,t(999);var a={onMenuPress(){this.$app.$def.showMenu()}};o.default=a;const n=o.default||e.exports,p=[\\"public\\",\\"protected\\",\\"private\\"];if(n.data&&p.some((function(e){return n[e]})))throw new Error('页面VM对象中的属性data不可与\\"'+p.join(\\",\\")+'\\"同时存在，请使用private替换data名称');n.data||(n.data={},n._descriptor={},p.forEach((function(e){const o=typeof n[e];if(\\"object\\"===o){n.data=Object.assign(n.data,n[e]);for(const o in n[e])n._descriptor[o]={access:e}}else\\"function\\"===o&&console.warn(\\"页面VM对象中的属性\\"+e+\\"的值不能是函数，请使用对象\\")})))}},999:e=>{e.exports={type:\\"div\\",attr:{}}},999:(e,o,t,r,a,n,p)=>{t(999);var i=t(999);r(\\"@app-component/index\\",[],(function(e,o,r){i(r,o,e),o.__esModule&&o.default&&(r.exports=o.default),r.exports.template=t(999)})),a(\\"@app-component/index\\",{packagerVersion:\\"<VERSION>\\"})}},r={};function a(e){var o=r[e];if(void 0!==o)return o.exports;var n=r[e]={exports:{}};return t[e].call(n.exports,n,n.exports,a,$app_define$,$app_bootstrap$,$app_require$,$app_define_wrap$),n.exports}a.m=t,o=[],a.O=(t,r,n,p)=>{if(!r){var i=1/0;for(l=0;l<o.length;l++){for(var[r,n,p]=o[l],s=!0,u=0;u<r.length;u++)(!1&p||i>=p)&&Object.keys(a.O).every((e=>a.O[e](r[u])))?r.splice(u--,1):(s=!1,$app_evaluate$(\`\${e.chunkFileMap[r[u]]}\`),p<i&&(i=p));if(s){o.splice(l--,1);var c=n();void 0!==c&&(t=c)}}return t}p=p||0;for(var l=o.length;l>0&&o[l-1][2]>p;l--)o[l]=o[l-1];o[l]=[r,n,p]},a.o=(e,o)=>Object.prototype.hasOwnProperty.call(e,o),(()=>{var o={999:0};a.O.j=e=>0===o[e];var t=(e,t)=>{var r,n,[p,i,s]=t,u=0;if(p.some((e=>0!==o[e]))){for(r in i)a.o(i,r)&&(a.m[r]=i[r]);if(s)var c=s(a)}for(e&&e(t);u<p.length;u++)n=p[u],a.o(o,n)&&o[n]&&o[n][0](),o[n]=0;return a.O(c)},r=e.webpackChunksplitChunks_app=e.webpackChunksplitChunks_app||[];r.forEach(t.bind(null,0)),r.push=t.bind(null,r.push.bind(r))})();var n=a.O(void 0,[418,626],(()=>a(999)));n=a.O(n)})()};if(\\"undefined\\"==typeof window)return e();window.createPageHandler=e}();"`;
 
-exports[`split chunks on a project release results not include split chunks for [REDUNDANCY] 3`] = `
-"require(\\"!../../../../../hap-dsl-xvm/lib/loaders/ux-loader.js?cwd=<project-root>&type=import!../Common/compA.ux?uxType=comp&name=compa\\")
+exports[`split chunks on a project release results include split chunks for [SMART]: <project-root>/build/app.js 1`] = `"!function(){var e=e||function(){},o=function(){return(()=>{var o=Object.getPrototypeOf(global)||global;o.chunkFileMap=o.chunkFileMap||{999:\\"Common/moduleA.js\\",999:\\"Common/compB.js\\",999:\\"Common/compA.js\\",999:\\"Common/moduleB.js\\"};var t,n={999:(e,o,t,n,r,a,i)=>{var p={},s=t(999);n(\\"@app-application/app\\",[],(function(e,o,n){s(n,o,e),o.__esModule&&o.default&&(n.exports=o.default),n.exports.manifest=t(999),n.exports.style={list:[p]}})),r(\\"@app-application/app\\",{packagerVersion:\\"<VERSION>\\"})},999:(e,o,t)=>{e.exports=function(e,o,n){\\"use strict\\";t(999)}},999:e=>{\\"use strict\\";e.exports=JSON.parse('{\\"package\\":\\"com.application.demo\\",\\"name\\":\\"lewis-demo\\",\\"versionName\\":\\"1.0.0\\",\\"versionCode\\":\\"1\\",\\"minPlatformVersion\\":1070,\\"icon\\":\\"/Common/logo.png\\",\\"features\\":[{\\"name\\":\\"system.prompt\\"},{\\"name\\":\\"system.router\\"},{\\"name\\":\\"system.shortcut\\"}],\\"permissions\\":[{\\"origin\\":\\"*\\"}],\\"config\\":{\\"logLevel\\":\\"trace\\"},\\"router\\":{\\"entry\\":\\"Demo\\",\\"pages\\":{\\"Demo\\":{\\"component\\":\\"index\\"},\\"DemoDetail\\":{\\"component\\":\\"index\\"},\\"About\\":{\\"component\\":\\"index\\"}}},\\"display\\":{\\"titleBarBackgroundColor\\":\\"#f2f2f2\\",\\"titleBarTextColor\\":\\"#414141\\",\\"menu\\":true,\\"pages\\":{\\"Demo\\":{\\"titleBarText\\":\\"示例页\\",\\"menu\\":false},\\"DemoDetail\\":{\\"titleBarText\\":\\"详情页\\"},\\"About\\":{\\"menu\\":false}}}}')}},r={};function a(o){var t=r[o];if(void 0!==t)return t.exports;var i=r[o]={exports:{}};return n[o].call(i.exports,i,i.exports,a,$app_define$,$app_bootstrap$,$app_require$,e),i.exports}a.m=n,t=[],a.O=(e,n,r,i)=>{if(!n){var p=1/0;for(u=0;u<t.length;u++){for(var[n,r,i]=t[u],s=!0,m=0;m<n.length;m++)(!1&i||p>=i)&&Object.keys(a.O).every((e=>a.O[e](n[m])))?n.splice(m--,1):(s=!1,$app_evaluate$(\`\${o.chunkFileMap[n[m]]}\`),i<p&&(p=i));if(s){t.splice(u--,1);var l=r();void 0!==l&&(e=l)}}return e}i=i||0;for(var u=t.length;u>0&&t[u-1][2]>i;u--)t[u]=t[u-1];t[u]=[n,r,i]},a.o=(e,o)=>Object.prototype.hasOwnProperty.call(e,o),(()=>{var e={999:0};a.O.j=o=>0===e[o];var t=(o,t)=>{var n,r,[i,p,s]=t,m=0;if(i.some((o=>0!==e[o]))){for(n in p)a.o(p,n)&&(a.m[n]=p[n]);if(s)var l=s(a)}for(o&&o(t);m<i.length;m++)r=i[m],a.o(e,r)&&e[r]&&e[r][0](),e[r]=0;return a.O(l)},n=o.webpackChunksplitChunks_app=o.webpackChunksplitChunks_app||[];n.forEach(t.bind(null,0)),n.push=t.bind(null,n.push.bind(n))})();var i=a.O(void 0,[418],(()=>a(999)));i=a.O(i)})()};if(\\"undefined\\"==typeof window)return o();window.createAppHandler=o,global.manifest={package:\\"com.application.demo\\",name:\\"lewis-demo\\",versionName:\\"1.0.0\\",versionCode:\\"1\\",minPlatformVersion:1070,icon:\\"/Common/logo.png\\",features:[{name:\\"system.prompt\\"},{name:\\"system.router\\"},{name:\\"system.shortcut\\"}],permissions:[{origin:\\"*\\"}],config:{logLevel:\\"trace\\"},router:{entry:\\"Demo\\",pages:{Demo:{component:\\"index\\"},DemoDetail:{component:\\"index\\"},About:{component:\\"index\\"}}},display:{titleBarBackgroundColor:\\"#f2f2f2\\",titleBarTextColor:\\"#414141\\",menu:!0,pages:{Demo:{titleBarText:\\"示例页\\",menu:!1},DemoDetail:{titleBarText:\\"详情页\\"},About:{menu:!1}}}}}();"`;
 
-var $app_style$ = {}
-var $app_script$ = require(\\"!../../../../../hap-dsl-xvm/lib/loaders/script-loader.js!../../../../../hap-dsl-xvm/lib/loaders/module-loader.js!../../../../../hap-dsl-xvm/node_modules/babel-loader/lib/index.js?cwd=<project-root>&cacheDirectory&plugins[]=<CWD>/packages/hap-dsl-xvm/lib/loaders/babel-plugin-jsx.js&comments=false&configFile=<project-root>/babel.config.js!../../../../../hap-dsl-xvm/lib/loaders/access-loader.js!../../../../../hap-dsl-xvm/lib/loaders/fragment-loader.js?index=0&type=script!./index.ux?uxType=page\\")
+exports[`split chunks on a project release results not include split chunks for [REDUNDANCY]: <project-root>/build/About/index.js 1`] = `"!function(){var e=function(){return(()=>{var e={999:(e,t,o)=>{e.exports=function(e,t,r){\\"use strict\\";Object.defineProperty(t,\\"__esModule\\",{value:!0}),t.default=void 0,o(999),t.default={};const n=t.default||e.exports,a=[\\"public\\",\\"protected\\",\\"private\\"];if(n.data&&a.some((function(e){return n[e]})))throw new Error('页面VM对象中的属性data不可与\\"'+a.join(\\",\\")+'\\"同时存在，请使用private替换data名称');n.data||(n.data={},n._descriptor={},a.forEach((function(e){const t=typeof n[e];if(\\"object\\"===t){n.data=Object.assign(n.data,n[e]);for(const t in n[e])n._descriptor[t]={access:e}}else\\"function\\"===t&&console.warn(\\"页面VM对象中的属性\\"+e+\\"的值不能是函数，请使用对象\\")})))}},999:e=>{e.exports=function(e,t,o){\\"use strict\\";Object.defineProperty(t,\\"__esModule\\",{value:!0}),t.default=void 0,t.default={}}},999:e=>{e.exports={type:\\"div\\",attr:{}}},999:e=>{e.exports={type:\\"div\\",attr:{}}},999:(e,t,o)=>{var r=o(999);$app_define$(\\"@app-component/compb\\",[],(function(e,t,n){r(n,t,e),t.__esModule&&t.default&&(n.exports=t.default),n.exports.template=o(999)}))},999:(e,t)=>{\\"use strict\\";Object.defineProperty(t,\\"__esModule\\",{value:!0}),t.multiply=function(e,t){return e*t}}},t={};function o(r){var n=t[r];if(void 0!==n)return n.exports;var a=t[r]={exports:{}};return e[r](a,a.exports,o),a.exports}(()=>{o(999);var e=o(999);$app_define$(\\"@app-component/index\\",[],(function(t,r,n){e(n,r,t),r.__esModule&&r.default&&(n.exports=r.default),n.exports.template=o(999)})),$app_bootstrap$(\\"@app-component/index\\",{packagerVersion:\\"<VERSION>\\"})})()})()};if(\\"undefined\\"==typeof window)return e();window.createPageHandler=e}();"`;
 
-$app_define$('@app-component/index', [], function($app_require$, $app_exports$, $app_module$) {
-     $app_script$($app_module$, $app_exports$, $app_require$)
-         if ($app_exports$.__esModule && $app_exports$.default) {
-            $app_module$.exports = $app_exports$.default
-        }
-     $app_module$.exports.template = require(\\"!../../../../../hap-dsl-xvm/lib/loaders/template-loader.js!../../../../../hap-dsl-xvm/lib/loaders/fragment-loader.js?index=0&type=template!./index.ux?uxType=page&importNames[]=compa\\")
+exports[`split chunks on a project release results not include split chunks for [REDUNDANCY]: <project-root>/build/Demo/index.js 1`] = `"!function(){var e=function(){return(()=>{var e={999:(e,t,o)=>{e.exports=function(e,t,r){\\"use strict\\";Object.defineProperty(t,\\"__esModule\\",{value:!0}),t.default=void 0,o(999),o(999),t.default={};const n=t.default||e.exports,a=[\\"public\\",\\"protected\\",\\"private\\"];if(n.data&&a.some((function(e){return n[e]})))throw new Error('页面VM对象中的属性data不可与\\"'+a.join(\\",\\")+'\\"同时存在，请使用private替换data名称');n.data||(n.data={},n._descriptor={},a.forEach((function(e){const t=typeof n[e];if(\\"object\\"===t){n.data=Object.assign(n.data,n[e]);for(const t in n[e])n._descriptor[t]={access:e}}else\\"function\\"===t&&console.warn(\\"页面VM对象中的属性\\"+e+\\"的值不能是函数，请使用对象\\")})))}},999:e=>{e.exports=function(e,t,o){\\"use strict\\";Object.defineProperty(t,\\"__esModule\\",{value:!0}),t.default=void 0,t.default={}}},999:e=>{e.exports=function(e,t,o){\\"use strict\\";Object.defineProperty(t,\\"__esModule\\",{value:!0}),t.default=void 0,t.default={}}},999:e=>{e.exports={type:\\"div\\",attr:{}}},999:e=>{e.exports={type:\\"div\\",attr:{}}},999:e=>{e.exports={type:\\"div\\",attr:{}}},999:(e,t,o)=>{var r=o(999);$app_define$(\\"@app-component/compa\\",[],(function(e,t,n){r(n,t,e),t.__esModule&&t.default&&(n.exports=t.default),n.exports.template=o(999)}))},999:(e,t,o)=>{var r=o(999);$app_define$(\\"@app-component/compb\\",[],(function(e,t,n){r(n,t,e),t.__esModule&&t.default&&(n.exports=t.default),n.exports.template=o(999)}))},999:(e,t)=>{\\"use strict\\";Object.defineProperty(t,\\"__esModule\\",{value:!0}),t.add=function(e,t){return e+t}},999:(e,t)=>{\\"use strict\\";Object.defineProperty(t,\\"__esModule\\",{value:!0}),t.multiply=function(e,t){return e*t}}},t={};function o(r){var n=t[r];if(void 0!==n)return n.exports;var a=t[r]={exports:{}};return e[r](a,a.exports,o),a.exports}(()=>{o(999),o(999);var e=o(999);$app_define$(\\"@app-component/index\\",[],(function(t,r,n){e(n,r,t),r.__esModule&&r.default&&(n.exports=r.default),n.exports.template=o(999)})),$app_bootstrap$(\\"@app-component/index\\",{packagerVersion:\\"<VERSION>\\"})})()})()};if(\\"undefined\\"==typeof window)return e();window.createPageHandler=e}();"`;
 
-})
-$app_bootstrap$('@app-component/index',{ packagerVersion: QUICKAPP_TOOLKIT_VERSION })"
-`;
-
-exports[`split chunks on a project release results not include split chunks for [REDUNDANCY] 4`] = `
-"require(\\"!../../../../../hap-dsl-xvm/lib/loaders/ux-loader.js?cwd=<project-root>&type=import!../Common/compB.ux?uxType=comp&name=compb\\")
-
-var $app_style$ = {}
-var $app_script$ = require(\\"!../../../../../hap-dsl-xvm/lib/loaders/script-loader.js!../../../../../hap-dsl-xvm/lib/loaders/module-loader.js!../../../../../hap-dsl-xvm/node_modules/babel-loader/lib/index.js?cwd=<project-root>&cacheDirectory&plugins[]=<CWD>/packages/hap-dsl-xvm/lib/loaders/babel-plugin-jsx.js&comments=false&configFile=<project-root>/babel.config.js!../../../../../hap-dsl-xvm/lib/loaders/access-loader.js!../../../../../hap-dsl-xvm/lib/loaders/fragment-loader.js?index=0&type=script!./index.ux?uxType=page\\")
-
-$app_define$('@app-component/index', [], function($app_require$, $app_exports$, $app_module$) {
-     $app_script$($app_module$, $app_exports$, $app_require$)
-         if ($app_exports$.__esModule && $app_exports$.default) {
-            $app_module$.exports = $app_exports$.default
-        }
-     $app_module$.exports.template = require(\\"!../../../../../hap-dsl-xvm/lib/loaders/template-loader.js!../../../../../hap-dsl-xvm/lib/loaders/fragment-loader.js?index=0&type=template!./index.ux?uxType=page&importNames[]=compb\\")
-
-})
-$app_bootstrap$('@app-component/index',{ packagerVersion: QUICKAPP_TOOLKIT_VERSION })"
-`;
-
-exports[`split chunks on a project release results not include split chunks for [REDUNDANCY] 5`] = `
-"module.exports = function __scriptModule__ (module, exports, $app_require$){\\"use strict\\";
-
-var _moduleA = require(\\"./Common/moduleA.js\\");}"
-`;
-
-exports[`split chunks on a project release results not include split chunks for [REDUNDANCY] 6`] = `
-"{
-  \\"package\\": \\"com.application.demo\\",
-  \\"name\\": \\"lewis-demo\\",
-  \\"versionName\\": \\"1.0.0\\",
-  \\"versionCode\\": \\"1\\",
-  \\"minPlatformVersion\\": 1070,
-  \\"icon\\": \\"/Common/logo.png\\",
-  \\"features\\": [
-    { \\"name\\": \\"system.prompt\\" },
-    { \\"name\\": \\"system.router\\" },
-    { \\"name\\": \\"system.shortcut\\" }
-  ],
-  \\"permissions\\": [
-    { \\"origin\\": \\"*\\" }
-  ],
-  \\"config\\": {
-    \\"logLevel\\": \\"trace\\"
-  },
-  \\"router\\": {
-    \\"entry\\": \\"Demo\\",
-    \\"pages\\": {
-      \\"Demo\\": {
-        \\"component\\": \\"index\\"
-      },
-      \\"DemoDetail\\": {
-        \\"component\\": \\"index\\"
-      },
-      \\"About\\": {
-        \\"component\\": \\"index\\"
-      }
-    }
-  },
-  \\"display\\": {
-    \\"titleBarBackgroundColor\\": \\"#f2f2f2\\",
-    \\"titleBarTextColor\\": \\"#414141\\",
-    \\"menu\\": true,
-    \\"pages\\": {
-      \\"Demo\\": {
-        \\"titleBarText\\": \\"示例页\\",
-        \\"menu\\": false
-      },
-      \\"DemoDetail\\": {
-        \\"titleBarText\\": \\"详情页\\"
-      },
-      \\"About\\": {
-        \\"menu\\": false
-      }
-    }
-  }
-}"
-`;
-
-exports[`split chunks on a project release results not include split chunks for [REDUNDANCY] 7`] = `
-"
-var $app_style$ = {}
-var $app_script$ = require(\\"!../../../../../hap-dsl-xvm/lib/loaders/script-loader.js!../../../../../hap-dsl-xvm/lib/loaders/module-loader.js!../../../../../hap-dsl-xvm/node_modules/babel-loader/lib/index.js?cwd=<project-root>&cacheDirectory&plugins[]=<CWD>/packages/hap-dsl-xvm/lib/loaders/babel-plugin-jsx.js&comments=false&configFile=<project-root>/babel.config.js!../../../../../hap-dsl-xvm/lib/loaders/fragment-loader.js?index=0&type=script!./compA.ux?uxType=comp\\")
-
-$app_define$('@app-component/compa', [], function($app_require$, $app_exports$, $app_module$) {
-     $app_script$($app_module$, $app_exports$, $app_require$)
-         if ($app_exports$.__esModule && $app_exports$.default) {
-            $app_module$.exports = $app_exports$.default
-        }
-     $app_module$.exports.template = require(\\"!../../../../../hap-dsl-xvm/lib/loaders/template-loader.js!../../../../../hap-dsl-xvm/lib/loaders/fragment-loader.js?index=0&type=template!./compA.ux?uxType=comp&\\")
-
-})"
-`;
-
-exports[`split chunks on a project release results not include split chunks for [REDUNDANCY] 8`] = `
-"
-var $app_style$ = {}
-var $app_script$ = require(\\"!../../../../../hap-dsl-xvm/lib/loaders/script-loader.js!../../../../../hap-dsl-xvm/lib/loaders/module-loader.js!../../../../../hap-dsl-xvm/node_modules/babel-loader/lib/index.js?cwd=<project-root>&cacheDirectory&plugins[]=<CWD>/packages/hap-dsl-xvm/lib/loaders/babel-plugin-jsx.js&comments=false&configFile=<project-root>/babel.config.js!../../../../../hap-dsl-xvm/lib/loaders/fragment-loader.js?index=0&type=script!./compB.ux?uxType=comp\\")
-
-$app_define$('@app-component/compb', [], function($app_require$, $app_exports$, $app_module$) {
-     $app_script$($app_module$, $app_exports$, $app_require$)
-         if ($app_exports$.__esModule && $app_exports$.default) {
-            $app_module$.exports = $app_exports$.default
-        }
-     $app_module$.exports.template = require(\\"!../../../../../hap-dsl-xvm/lib/loaders/template-loader.js!../../../../../hap-dsl-xvm/lib/loaders/fragment-loader.js?index=0&type=template!./compB.ux?uxType=comp&\\")
-
-})"
-`;
-
-exports[`split chunks on a project release results not include split chunks for [REDUNDANCY] 9`] = `
-"module.exports = function __scriptModule__ (module, exports, $app_require$){\\"use strict\\";
-
-Object.defineProperty(exports, \\"__esModule\\", {
-  value: true
-});
-exports[\\"default\\"] = void 0;
-
-var _moduleA = require(\\"../Common/moduleA.js\\");
-
-var _moduleB = require(\\"../Common/moduleB.js\\");
-
-function _typeof(obj) { \\"@babel/helpers - typeof\\"; if (typeof Symbol === \\"function\\" && typeof Symbol.iterator === \\"symbol\\") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === \\"function\\" && obj.constructor === Symbol && obj !== Symbol.prototype ? \\"symbol\\" : typeof obj; }; } return _typeof(obj); }
-
-var _default = {};
-exports[\\"default\\"] = _default;
-var moduleOwn = exports[\\"default\\"] || module.exports;
-var accessors = ['public', 'protected', 'private'];
-
-if (moduleOwn.data && accessors.some(function (acc) {
-  return moduleOwn[acc];
-})) {
-  throw new Error('页面VM对象中的属性data不可与\\"' + accessors.join(',') + '\\"同时存在，请使用private替换data名称');
-} else if (!moduleOwn.data) {
-  moduleOwn.data = {};
-  moduleOwn._descriptor = {};
-  accessors.forEach(function (acc) {
-    var accType = _typeof(moduleOwn[acc]);
-
-    if (accType === 'object') {
-      moduleOwn.data = Object.assign(moduleOwn.data, moduleOwn[acc]);
-
-      for (var name in moduleOwn[acc]) {
-        moduleOwn._descriptor[name] = {
-          access: acc
-        };
-      }
-    } else if (accType === 'function') {
-      console.warn('页面VM对象中的属性' + acc + '的值不能是函数，请使用对象');
-    }
-  });
-}}"
-`;
-
-exports[`split chunks on a project release results not include split chunks for [REDUNDANCY] 10`] = `
-"module.exports = {
-  \\"type\\": \\"div\\",
-  \\"attr\\": {}
-}"
-`;
-
-exports[`split chunks on a project release results not include split chunks for [REDUNDANCY] 11`] = `
-"module.exports = function __scriptModule__ (module, exports, $app_require$){\\"use strict\\";
-
-Object.defineProperty(exports, \\"__esModule\\", {
-  value: true
-});
-exports[\\"default\\"] = void 0;
-
-var _moduleA = require(\\"../Common/moduleA.js\\");
-
-function _typeof(obj) { \\"@babel/helpers - typeof\\"; if (typeof Symbol === \\"function\\" && typeof Symbol.iterator === \\"symbol\\") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === \\"function\\" && obj.constructor === Symbol && obj !== Symbol.prototype ? \\"symbol\\" : typeof obj; }; } return _typeof(obj); }
-
-var _default = {
-  onMenuPress: function onMenuPress() {
-    this.$app.$def.showMenu();
-  }
-};
-exports[\\"default\\"] = _default;
-var moduleOwn = exports[\\"default\\"] || module.exports;
-var accessors = ['public', 'protected', 'private'];
-
-if (moduleOwn.data && accessors.some(function (acc) {
-  return moduleOwn[acc];
-})) {
-  throw new Error('页面VM对象中的属性data不可与\\"' + accessors.join(',') + '\\"同时存在，请使用private替换data名称');
-} else if (!moduleOwn.data) {
-  moduleOwn.data = {};
-  moduleOwn._descriptor = {};
-  accessors.forEach(function (acc) {
-    var accType = _typeof(moduleOwn[acc]);
-
-    if (accType === 'object') {
-      moduleOwn.data = Object.assign(moduleOwn.data, moduleOwn[acc]);
-
-      for (var name in moduleOwn[acc]) {
-        moduleOwn._descriptor[name] = {
-          access: acc
-        };
-      }
-    } else if (accType === 'function') {
-      console.warn('页面VM对象中的属性' + acc + '的值不能是函数，请使用对象');
-    }
-  });
-}}"
-`;
-
-exports[`split chunks on a project release results not include split chunks for [REDUNDANCY] 12`] = `
-"module.exports = {
-  \\"type\\": \\"div\\",
-  \\"attr\\": {}
-}"
-`;
-
-exports[`split chunks on a project release results not include split chunks for [REDUNDANCY] 13`] = `
-"module.exports = function __scriptModule__ (module, exports, $app_require$){\\"use strict\\";
-
-Object.defineProperty(exports, \\"__esModule\\", {
-  value: true
-});
-exports[\\"default\\"] = void 0;
-
-var _moduleB = require(\\"../Common/moduleB.js\\");
-
-function _typeof(obj) { \\"@babel/helpers - typeof\\"; if (typeof Symbol === \\"function\\" && typeof Symbol.iterator === \\"symbol\\") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === \\"function\\" && obj.constructor === Symbol && obj !== Symbol.prototype ? \\"symbol\\" : typeof obj; }; } return _typeof(obj); }
-
-var _default = {};
-exports[\\"default\\"] = _default;
-var moduleOwn = exports[\\"default\\"] || module.exports;
-var accessors = ['public', 'protected', 'private'];
-
-if (moduleOwn.data && accessors.some(function (acc) {
-  return moduleOwn[acc];
-})) {
-  throw new Error('页面VM对象中的属性data不可与\\"' + accessors.join(',') + '\\"同时存在，请使用private替换data名称');
-} else if (!moduleOwn.data) {
-  moduleOwn.data = {};
-  moduleOwn._descriptor = {};
-  accessors.forEach(function (acc) {
-    var accType = _typeof(moduleOwn[acc]);
-
-    if (accType === 'object') {
-      moduleOwn.data = Object.assign(moduleOwn.data, moduleOwn[acc]);
-
-      for (var name in moduleOwn[acc]) {
-        moduleOwn._descriptor[name] = {
-          access: acc
-        };
-      }
-    } else if (accType === 'function') {
-      console.warn('页面VM对象中的属性' + acc + '的值不能是函数，请使用对象');
-    }
-  });
-}}"
-`;
-
-exports[`split chunks on a project release results not include split chunks for [REDUNDANCY] 14`] = `
-"module.exports = {
-  \\"type\\": \\"div\\",
-  \\"attr\\": {}
-}"
-`;
-
-exports[`split chunks on a project release results not include split chunks for [REDUNDANCY] 15`] = `
-"\\"use strict\\";
-
-Object.defineProperty(exports, \\"__esModule\\", {
-  value: true
-});
-exports.add = add;
-
-/*
- * Copyright (c) 2021, the hapjs-platform Project Contributors
- * SPDX-License-Identifier: Apache-2.0
- */
-function add(a, b) {
-  return a + b;
-}"
-`;
-
-exports[`split chunks on a project release results not include split chunks for [REDUNDANCY] 16`] = `
-"module.exports = function __scriptModule__ (module, exports, $app_require$){\\"use strict\\";
-
-Object.defineProperty(exports, \\"__esModule\\", {
-  value: true
-});
-exports[\\"default\\"] = void 0;
-var _default = {};
-exports[\\"default\\"] = _default;}"
-`;
-
-exports[`split chunks on a project release results not include split chunks for [REDUNDANCY] 17`] = `
-"module.exports = {
-  \\"type\\": \\"div\\",
-  \\"attr\\": {}
-}"
-`;
-
-exports[`split chunks on a project release results not include split chunks for [REDUNDANCY] 18`] = `
-"module.exports = function __scriptModule__ (module, exports, $app_require$){\\"use strict\\";
-
-Object.defineProperty(exports, \\"__esModule\\", {
-  value: true
-});
-exports[\\"default\\"] = void 0;
-var _default = {};
-exports[\\"default\\"] = _default;}"
-`;
-
-exports[`split chunks on a project release results not include split chunks for [REDUNDANCY] 19`] = `
-"module.exports = {
-  \\"type\\": \\"div\\",
-  \\"attr\\": {}
-}"
-`;
-
-exports[`split chunks on a project release results not include split chunks for [REDUNDANCY] 20`] = `
-"\\"use strict\\";
-
-Object.defineProperty(exports, \\"__esModule\\", {
-  value: true
-});
-exports.multiply = multiply;
-
-/*
- * Copyright (c) 2021, the hapjs-platform Project Contributors
- * SPDX-License-Identifier: Apache-2.0
- */
-function multiply(a, b) {
-  return a * b;
-}"
-`;
-
-exports[`split chunks on a project release results not include split chunks for [other value] 1`] = `
-"
-var $app_style$ = {}
-var $app_script$ = require(\\"!../../../../hap-dsl-xvm/lib/loaders/script-loader.js!../../../../hap-dsl-xvm/lib/loaders/module-loader.js!../../../../hap-dsl-xvm/lib/loaders/manifest-loader.js?path=<project-root>/src!../../../../hap-dsl-xvm/node_modules/babel-loader/lib/index.js?cwd=<project-root>&cacheDirectory&comments=false&configFile=<project-root>/babel.config.js!../../../../hap-dsl-xvm/lib/loaders/fragment-loader.js?index=0&type=script!./app.ux?uxType=app\\")
-
-$app_define$('@app-application/app', [], function ($app_require$, $app_exports$, $app_module$) {
-  
-  $app_script$($app_module$, $app_exports$, $app_require$)
-  if ($app_exports$.__esModule && $app_exports$.default) {
-    $app_module$.exports = $app_exports$.default
-  }
-  $app_module$.exports.manifest = require(\\"./manifest.json\\")
-  $app_module$.exports.style = { list: [ $app_style$ ] }
-  
-})
-$app_bootstrap$('@app-application/app', { packagerVersion: QUICKAPP_TOOLKIT_VERSION })
-"
-`;
+exports[`split chunks on a project release results not include split chunks for [REDUNDANCY]: <project-root>/build/DemoDetail/index.js 1`] = `"!function(){var e=function(){return(()=>{var e={999:(e,t,o)=>{e.exports=function(e,t,r){\\"use strict\\";Object.defineProperty(t,\\"__esModule\\",{value:!0}),t.default=void 0,o(999);var n={onMenuPress(){this.$app.$def.showMenu()}};t.default=n;const a=t.default||e.exports,p=[\\"public\\",\\"protected\\",\\"private\\"];if(a.data&&p.some((function(e){return a[e]})))throw new Error('页面VM对象中的属性data不可与\\"'+p.join(\\",\\")+'\\"同时存在，请使用private替换data名称');a.data||(a.data={},a._descriptor={},p.forEach((function(e){const t=typeof a[e];if(\\"object\\"===t){a.data=Object.assign(a.data,a[e]);for(const t in a[e])a._descriptor[t]={access:e}}else\\"function\\"===t&&console.warn(\\"页面VM对象中的属性\\"+e+\\"的值不能是函数，请使用对象\\")})))}},999:e=>{e.exports=function(e,t,o){\\"use strict\\";Object.defineProperty(t,\\"__esModule\\",{value:!0}),t.default=void 0,t.default={}}},999:e=>{e.exports={type:\\"div\\",attr:{}}},999:e=>{e.exports={type:\\"div\\",attr:{}}},999:(e,t,o)=>{var r=o(999);$app_define$(\\"@app-component/compa\\",[],(function(e,t,n){r(n,t,e),t.__esModule&&t.default&&(n.exports=t.default),n.exports.template=o(999)}))},999:(e,t)=>{\\"use strict\\";Object.defineProperty(t,\\"__esModule\\",{value:!0}),t.add=function(e,t){return e+t}}},t={};function o(r){var n=t[r];if(void 0!==n)return n.exports;var a=t[r]={exports:{}};return e[r](a,a.exports,o),a.exports}(()=>{o(999);var e=o(999);$app_define$(\\"@app-component/index\\",[],(function(t,r,n){e(n,r,t),r.__esModule&&r.default&&(n.exports=r.default),n.exports.template=o(999)})),$app_bootstrap$(\\"@app-component/index\\",{packagerVersion:\\"<VERSION>\\"})})()})()};if(\\"undefined\\"==typeof window)return e();window.createPageHandler=e}();"`;
 
-exports[`split chunks on a project release results not include split chunks for [other value] 2`] = `
-"require(\\"!../../../../../hap-dsl-xvm/lib/loaders/ux-loader.js?cwd=<project-root>&type=import!../Common/compA.ux?uxType=comp&name=compa\\")
-require(\\"!../../../../../hap-dsl-xvm/lib/loaders/ux-loader.js?cwd=<project-root>&type=import!../Common/compB.ux?uxType=comp&name=compb\\")
+exports[`split chunks on a project release results not include split chunks for [REDUNDANCY]: <project-root>/build/app.js 1`] = `"!function(){var e=function(){return(()=>{var e,o,t={999:(e,o,t)=>{e.exports=function(e,o,n){\\"use strict\\";t(999)}},999:(e,o)=>{\\"use strict\\";Object.defineProperty(o,\\"__esModule\\",{value:!0}),o.add=function(e,o){return e+o}},999:e=>{\\"use strict\\";e.exports=JSON.parse('{\\"package\\":\\"com.application.demo\\",\\"name\\":\\"lewis-demo\\",\\"versionName\\":\\"1.0.0\\",\\"versionCode\\":\\"1\\",\\"minPlatformVersion\\":1070,\\"icon\\":\\"/Common/logo.png\\",\\"features\\":[{\\"name\\":\\"system.prompt\\"},{\\"name\\":\\"system.router\\"},{\\"name\\":\\"system.shortcut\\"}],\\"permissions\\":[{\\"origin\\":\\"*\\"}],\\"config\\":{\\"logLevel\\":\\"trace\\"},\\"router\\":{\\"entry\\":\\"Demo\\",\\"pages\\":{\\"Demo\\":{\\"component\\":\\"index\\"},\\"DemoDetail\\":{\\"component\\":\\"index\\"},\\"About\\":{\\"component\\":\\"index\\"}}},\\"display\\":{\\"titleBarBackgroundColor\\":\\"#f2f2f2\\",\\"titleBarTextColor\\":\\"#414141\\",\\"menu\\":true,\\"pages\\":{\\"Demo\\":{\\"titleBarText\\":\\"示例页\\",\\"menu\\":false},\\"DemoDetail\\":{\\"titleBarText\\":\\"详情页\\"},\\"About\\":{\\"menu\\":false}}}}')}},n={};function r(e){var o=n[e];if(void 0!==o)return o.exports;var a=n[e]={exports:{}};return t[e](a,a.exports,r),a.exports}e={},o=r(999),$app_define$(\\"@app-application/app\\",[],(function(t,n,a){o(a,n,t),n.__esModule&&n.default&&(a.exports=n.default),a.exports.manifest=r(999),a.exports.style={list:[e]}})),$app_bootstrap$(\\"@app-application/app\\",{packagerVersion:\\"<VERSION>\\"})})()};if(\\"undefined\\"==typeof window)return e();window.createAppHandler=e,global.manifest={package:\\"com.application.demo\\",name:\\"lewis-demo\\",versionName:\\"1.0.0\\",versionCode:\\"1\\",minPlatformVersion:1070,icon:\\"/Common/logo.png\\",features:[{name:\\"system.prompt\\"},{name:\\"system.router\\"},{name:\\"system.shortcut\\"}],permissions:[{origin:\\"*\\"}],config:{logLevel:\\"trace\\"},router:{entry:\\"Demo\\",pages:{Demo:{component:\\"index\\"},DemoDetail:{component:\\"index\\"},About:{component:\\"index\\"}}},display:{titleBarBackgroundColor:\\"#f2f2f2\\",titleBarTextColor:\\"#414141\\",menu:!0,pages:{Demo:{titleBarText:\\"示例页\\",menu:!1},DemoDetail:{titleBarText:\\"详情页\\"},About:{menu:!1}}}}}();"`;
 
-var $app_style$ = {}
-var $app_script$ = require(\\"!../../../../../hap-dsl-xvm/lib/loaders/script-loader.js!../../../../../hap-dsl-xvm/lib/loaders/module-loader.js!../../../../../hap-dsl-xvm/node_modules/babel-loader/lib/index.js?cwd=<project-root>&cacheDirectory&plugins[]=<CWD>/packages/hap-dsl-xvm/lib/loaders/babel-plugin-jsx.js&comments=false&configFile=<project-root>/babel.config.js!../../../../../hap-dsl-xvm/lib/loaders/access-loader.js!../../../../../hap-dsl-xvm/lib/loaders/fragment-loader.js?index=0&type=script!./index.ux?uxType=page\\")
+exports[`split chunks on a project release results not include split chunks for [other value]: <project-root>/build/About/index.js 1`] = `"!function(){var e=function(){return(()=>{var e={999:(e,t,o)=>{e.exports=function(e,t,r){\\"use strict\\";Object.defineProperty(t,\\"__esModule\\",{value:!0}),t.default=void 0,o(999),t.default={};const n=t.default||e.exports,a=[\\"public\\",\\"protected\\",\\"private\\"];if(n.data&&a.some((function(e){return n[e]})))throw new Error('页面VM对象中的属性data不可与\\"'+a.join(\\",\\")+'\\"同时存在，请使用private替换data名称');n.data||(n.data={},n._descriptor={},a.forEach((function(e){const t=typeof n[e];if(\\"object\\"===t){n.data=Object.assign(n.data,n[e]);for(const t in n[e])n._descriptor[t]={access:e}}else\\"function\\"===t&&console.warn(\\"页面VM对象中的属性\\"+e+\\"的值不能是函数，请使用对象\\")})))}},999:e=>{e.exports=function(e,t,o){\\"use strict\\";Object.defineProperty(t,\\"__esModule\\",{value:!0}),t.default=void 0,t.default={}}},999:e=>{e.exports={type:\\"div\\",attr:{}}},999:e=>{e.exports={type:\\"div\\",attr:{}}},999:(e,t,o)=>{var r=o(999);$app_define$(\\"@app-component/compb\\",[],(function(e,t,n){r(n,t,e),t.__esModule&&t.default&&(n.exports=t.default),n.exports.template=o(999)}))},999:(e,t)=>{\\"use strict\\";Object.defineProperty(t,\\"__esModule\\",{value:!0}),t.multiply=function(e,t){return e*t}}},t={};function o(r){var n=t[r];if(void 0!==n)return n.exports;var a=t[r]={exports:{}};return e[r](a,a.exports,o),a.exports}(()=>{o(999);var e=o(999);$app_define$(\\"@app-component/index\\",[],(function(t,r,n){e(n,r,t),r.__esModule&&r.default&&(n.exports=r.default),n.exports.template=o(999)})),$app_bootstrap$(\\"@app-component/index\\",{packagerVersion:\\"<VERSION>\\"})})()})()};if(\\"undefined\\"==typeof window)return e();window.createPageHandler=e}();"`;
 
-$app_define$('@app-component/index', [], function($app_require$, $app_exports$, $app_module$) {
-     $app_script$($app_module$, $app_exports$, $app_require$)
-         if ($app_exports$.__esModule && $app_exports$.default) {
-            $app_module$.exports = $app_exports$.default
-        }
-     $app_module$.exports.template = require(\\"!../../../../../hap-dsl-xvm/lib/loaders/template-loader.js!../../../../../hap-dsl-xvm/lib/loaders/fragment-loader.js?index=0&type=template!./index.ux?uxType=page&importNames[]=compa,importNames[]=compb\\")
+exports[`split chunks on a project release results not include split chunks for [other value]: <project-root>/build/Demo/index.js 1`] = `"!function(){var e=function(){return(()=>{var e={999:(e,t,o)=>{e.exports=function(e,t,r){\\"use strict\\";Object.defineProperty(t,\\"__esModule\\",{value:!0}),t.default=void 0,o(999),o(999),t.default={};const n=t.default||e.exports,a=[\\"public\\",\\"protected\\",\\"private\\"];if(n.data&&a.some((function(e){return n[e]})))throw new Error('页面VM对象中的属性data不可与\\"'+a.join(\\",\\")+'\\"同时存在，请使用private替换data名称');n.data||(n.data={},n._descriptor={},a.forEach((function(e){const t=typeof n[e];if(\\"object\\"===t){n.data=Object.assign(n.data,n[e]);for(const t in n[e])n._descriptor[t]={access:e}}else\\"function\\"===t&&console.warn(\\"页面VM对象中的属性\\"+e+\\"的值不能是函数，请使用对象\\")})))}},999:e=>{e.exports=function(e,t,o){\\"use strict\\";Object.defineProperty(t,\\"__esModule\\",{value:!0}),t.default=void 0,t.default={}}},999:e=>{e.exports=function(e,t,o){\\"use strict\\";Object.defineProperty(t,\\"__esModule\\",{value:!0}),t.default=void 0,t.default={}}},999:e=>{e.exports={type:\\"div\\",attr:{}}},999:e=>{e.exports={type:\\"div\\",attr:{}}},999:e=>{e.exports={type:\\"div\\",attr:{}}},999:(e,t,o)=>{var r=o(999);$app_define$(\\"@app-component/compa\\",[],(function(e,t,n){r(n,t,e),t.__esModule&&t.default&&(n.exports=t.default),n.exports.template=o(999)}))},999:(e,t,o)=>{var r=o(999);$app_define$(\\"@app-component/compb\\",[],(function(e,t,n){r(n,t,e),t.__esModule&&t.default&&(n.exports=t.default),n.exports.template=o(999)}))},999:(e,t)=>{\\"use strict\\";Object.defineProperty(t,\\"__esModule\\",{value:!0}),t.add=function(e,t){return e+t}},999:(e,t)=>{\\"use strict\\";Object.defineProperty(t,\\"__esModule\\",{value:!0}),t.multiply=function(e,t){return e*t}}},t={};function o(r){var n=t[r];if(void 0!==n)return n.exports;var a=t[r]={exports:{}};return e[r](a,a.exports,o),a.exports}(()=>{o(999),o(999);var e=o(999);$app_define$(\\"@app-component/index\\",[],(function(t,r,n){e(n,r,t),r.__esModule&&r.default&&(n.exports=r.default),n.exports.template=o(999)})),$app_bootstrap$(\\"@app-component/index\\",{packagerVersion:\\"<VERSION>\\"})})()})()};if(\\"undefined\\"==typeof window)return e();window.createPageHandler=e}();"`;
 
-})
-$app_bootstrap$('@app-component/index',{ packagerVersion: QUICKAPP_TOOLKIT_VERSION })"
-`;
-
-exports[`split chunks on a project release results not include split chunks for [other value] 3`] = `
-"require(\\"!../../../../../hap-dsl-xvm/lib/loaders/ux-loader.js?cwd=<project-root>&type=import!../Common/compA.ux?uxType=comp&name=compa\\")
-
-var $app_style$ = {}
-var $app_script$ = require(\\"!../../../../../hap-dsl-xvm/lib/loaders/script-loader.js!../../../../../hap-dsl-xvm/lib/loaders/module-loader.js!../../../../../hap-dsl-xvm/node_modules/babel-loader/lib/index.js?cwd=<project-root>&cacheDirectory&plugins[]=<CWD>/packages/hap-dsl-xvm/lib/loaders/babel-plugin-jsx.js&comments=false&configFile=<project-root>/babel.config.js!../../../../../hap-dsl-xvm/lib/loaders/access-loader.js!../../../../../hap-dsl-xvm/lib/loaders/fragment-loader.js?index=0&type=script!./index.ux?uxType=page\\")
-
-$app_define$('@app-component/index', [], function($app_require$, $app_exports$, $app_module$) {
-     $app_script$($app_module$, $app_exports$, $app_require$)
-         if ($app_exports$.__esModule && $app_exports$.default) {
-            $app_module$.exports = $app_exports$.default
-        }
-     $app_module$.exports.template = require(\\"!../../../../../hap-dsl-xvm/lib/loaders/template-loader.js!../../../../../hap-dsl-xvm/lib/loaders/fragment-loader.js?index=0&type=template!./index.ux?uxType=page&importNames[]=compa\\")
-
-})
-$app_bootstrap$('@app-component/index',{ packagerVersion: QUICKAPP_TOOLKIT_VERSION })"
-`;
-
-exports[`split chunks on a project release results not include split chunks for [other value] 4`] = `
-"require(\\"!../../../../../hap-dsl-xvm/lib/loaders/ux-loader.js?cwd=<project-root>&type=import!../Common/compB.ux?uxType=comp&name=compb\\")
-
-var $app_style$ = {}
-var $app_script$ = require(\\"!../../../../../hap-dsl-xvm/lib/loaders/script-loader.js!../../../../../hap-dsl-xvm/lib/loaders/module-loader.js!../../../../../hap-dsl-xvm/node_modules/babel-loader/lib/index.js?cwd=<project-root>&cacheDirectory&plugins[]=<CWD>/packages/hap-dsl-xvm/lib/loaders/babel-plugin-jsx.js&comments=false&configFile=<project-root>/babel.config.js!../../../../../hap-dsl-xvm/lib/loaders/access-loader.js!../../../../../hap-dsl-xvm/lib/loaders/fragment-loader.js?index=0&type=script!./index.ux?uxType=page\\")
-
-$app_define$('@app-component/index', [], function($app_require$, $app_exports$, $app_module$) {
-     $app_script$($app_module$, $app_exports$, $app_require$)
-         if ($app_exports$.__esModule && $app_exports$.default) {
-            $app_module$.exports = $app_exports$.default
-        }
-     $app_module$.exports.template = require(\\"!../../../../../hap-dsl-xvm/lib/loaders/template-loader.js!../../../../../hap-dsl-xvm/lib/loaders/fragment-loader.js?index=0&type=template!./index.ux?uxType=page&importNames[]=compb\\")
-
-})
-$app_bootstrap$('@app-component/index',{ packagerVersion: QUICKAPP_TOOLKIT_VERSION })"
-`;
-
-exports[`split chunks on a project release results not include split chunks for [other value] 5`] = `
-"module.exports = function __scriptModule__ (module, exports, $app_require$){\\"use strict\\";
-
-var _moduleA = require(\\"./Common/moduleA.js\\");}"
-`;
-
-exports[`split chunks on a project release results not include split chunks for [other value] 6`] = `
-"{
-  \\"package\\": \\"com.application.demo\\",
-  \\"name\\": \\"lewis-demo\\",
-  \\"versionName\\": \\"1.0.0\\",
-  \\"versionCode\\": \\"1\\",
-  \\"minPlatformVersion\\": 1070,
-  \\"icon\\": \\"/Common/logo.png\\",
-  \\"features\\": [
-    { \\"name\\": \\"system.prompt\\" },
-    { \\"name\\": \\"system.router\\" },
-    { \\"name\\": \\"system.shortcut\\" }
-  ],
-  \\"permissions\\": [
-    { \\"origin\\": \\"*\\" }
-  ],
-  \\"config\\": {
-    \\"logLevel\\": \\"trace\\"
-  },
-  \\"router\\": {
-    \\"entry\\": \\"Demo\\",
-    \\"pages\\": {
-      \\"Demo\\": {
-        \\"component\\": \\"index\\"
-      },
-      \\"DemoDetail\\": {
-        \\"component\\": \\"index\\"
-      },
-      \\"About\\": {
-        \\"component\\": \\"index\\"
-      }
-    }
-  },
-  \\"display\\": {
-    \\"titleBarBackgroundColor\\": \\"#f2f2f2\\",
-    \\"titleBarTextColor\\": \\"#414141\\",
-    \\"menu\\": true,
-    \\"pages\\": {
-      \\"Demo\\": {
-        \\"titleBarText\\": \\"示例页\\",
-        \\"menu\\": false
-      },
-      \\"DemoDetail\\": {
-        \\"titleBarText\\": \\"详情页\\"
-      },
-      \\"About\\": {
-        \\"menu\\": false
-      }
-    }
-  }
-}"
-`;
-
-exports[`split chunks on a project release results not include split chunks for [other value] 7`] = `
-"
-var $app_style$ = {}
-var $app_script$ = require(\\"!../../../../../hap-dsl-xvm/lib/loaders/script-loader.js!../../../../../hap-dsl-xvm/lib/loaders/module-loader.js!../../../../../hap-dsl-xvm/node_modules/babel-loader/lib/index.js?cwd=<project-root>&cacheDirectory&plugins[]=<CWD>/packages/hap-dsl-xvm/lib/loaders/babel-plugin-jsx.js&comments=false&configFile=<project-root>/babel.config.js!../../../../../hap-dsl-xvm/lib/loaders/fragment-loader.js?index=0&type=script!./compA.ux?uxType=comp\\")
-
-$app_define$('@app-component/compa', [], function($app_require$, $app_exports$, $app_module$) {
-     $app_script$($app_module$, $app_exports$, $app_require$)
-         if ($app_exports$.__esModule && $app_exports$.default) {
-            $app_module$.exports = $app_exports$.default
-        }
-     $app_module$.exports.template = require(\\"!../../../../../hap-dsl-xvm/lib/loaders/template-loader.js!../../../../../hap-dsl-xvm/lib/loaders/fragment-loader.js?index=0&type=template!./compA.ux?uxType=comp&\\")
-
-})"
-`;
-
-exports[`split chunks on a project release results not include split chunks for [other value] 8`] = `
-"
-var $app_style$ = {}
-var $app_script$ = require(\\"!../../../../../hap-dsl-xvm/lib/loaders/script-loader.js!../../../../../hap-dsl-xvm/lib/loaders/module-loader.js!../../../../../hap-dsl-xvm/node_modules/babel-loader/lib/index.js?cwd=<project-root>&cacheDirectory&plugins[]=<CWD>/packages/hap-dsl-xvm/lib/loaders/babel-plugin-jsx.js&comments=false&configFile=<project-root>/babel.config.js!../../../../../hap-dsl-xvm/lib/loaders/fragment-loader.js?index=0&type=script!./compB.ux?uxType=comp\\")
-
-$app_define$('@app-component/compb', [], function($app_require$, $app_exports$, $app_module$) {
-     $app_script$($app_module$, $app_exports$, $app_require$)
-         if ($app_exports$.__esModule && $app_exports$.default) {
-            $app_module$.exports = $app_exports$.default
-        }
-     $app_module$.exports.template = require(\\"!../../../../../hap-dsl-xvm/lib/loaders/template-loader.js!../../../../../hap-dsl-xvm/lib/loaders/fragment-loader.js?index=0&type=template!./compB.ux?uxType=comp&\\")
-
-})"
-`;
-
-exports[`split chunks on a project release results not include split chunks for [other value] 9`] = `
-"module.exports = function __scriptModule__ (module, exports, $app_require$){\\"use strict\\";
-
-Object.defineProperty(exports, \\"__esModule\\", {
-  value: true
-});
-exports[\\"default\\"] = void 0;
-
-var _moduleA = require(\\"../Common/moduleA.js\\");
-
-var _moduleB = require(\\"../Common/moduleB.js\\");
-
-function _typeof(obj) { \\"@babel/helpers - typeof\\"; if (typeof Symbol === \\"function\\" && typeof Symbol.iterator === \\"symbol\\") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === \\"function\\" && obj.constructor === Symbol && obj !== Symbol.prototype ? \\"symbol\\" : typeof obj; }; } return _typeof(obj); }
-
-var _default = {};
-exports[\\"default\\"] = _default;
-var moduleOwn = exports[\\"default\\"] || module.exports;
-var accessors = ['public', 'protected', 'private'];
-
-if (moduleOwn.data && accessors.some(function (acc) {
-  return moduleOwn[acc];
-})) {
-  throw new Error('页面VM对象中的属性data不可与\\"' + accessors.join(',') + '\\"同时存在，请使用private替换data名称');
-} else if (!moduleOwn.data) {
-  moduleOwn.data = {};
-  moduleOwn._descriptor = {};
-  accessors.forEach(function (acc) {
-    var accType = _typeof(moduleOwn[acc]);
-
-    if (accType === 'object') {
-      moduleOwn.data = Object.assign(moduleOwn.data, moduleOwn[acc]);
-
-      for (var name in moduleOwn[acc]) {
-        moduleOwn._descriptor[name] = {
-          access: acc
-        };
-      }
-    } else if (accType === 'function') {
-      console.warn('页面VM对象中的属性' + acc + '的值不能是函数，请使用对象');
-    }
-  });
-}}"
-`;
-
-exports[`split chunks on a project release results not include split chunks for [other value] 10`] = `
-"module.exports = {
-  \\"type\\": \\"div\\",
-  \\"attr\\": {}
-}"
-`;
-
-exports[`split chunks on a project release results not include split chunks for [other value] 11`] = `
-"module.exports = function __scriptModule__ (module, exports, $app_require$){\\"use strict\\";
+exports[`split chunks on a project release results not include split chunks for [other value]: <project-root>/build/DemoDetail/index.js 1`] = `"!function(){var e=function(){return(()=>{var e={999:(e,t,o)=>{e.exports=function(e,t,r){\\"use strict\\";Object.defineProperty(t,\\"__esModule\\",{value:!0}),t.default=void 0,o(999);var n={onMenuPress(){this.$app.$def.showMenu()}};t.default=n;const a=t.default||e.exports,p=[\\"public\\",\\"protected\\",\\"private\\"];if(a.data&&p.some((function(e){return a[e]})))throw new Error('页面VM对象中的属性data不可与\\"'+p.join(\\",\\")+'\\"同时存在，请使用private替换data名称');a.data||(a.data={},a._descriptor={},p.forEach((function(e){const t=typeof a[e];if(\\"object\\"===t){a.data=Object.assign(a.data,a[e]);for(const t in a[e])a._descriptor[t]={access:e}}else\\"function\\"===t&&console.warn(\\"页面VM对象中的属性\\"+e+\\"的值不能是函数，请使用对象\\")})))}},999:e=>{e.exports=function(e,t,o){\\"use strict\\";Object.defineProperty(t,\\"__esModule\\",{value:!0}),t.default=void 0,t.default={}}},999:e=>{e.exports={type:\\"div\\",attr:{}}},999:e=>{e.exports={type:\\"div\\",attr:{}}},999:(e,t,o)=>{var r=o(999);$app_define$(\\"@app-component/compa\\",[],(function(e,t,n){r(n,t,e),t.__esModule&&t.default&&(n.exports=t.default),n.exports.template=o(999)}))},999:(e,t)=>{\\"use strict\\";Object.defineProperty(t,\\"__esModule\\",{value:!0}),t.add=function(e,t){return e+t}}},t={};function o(r){var n=t[r];if(void 0!==n)return n.exports;var a=t[r]={exports:{}};return e[r](a,a.exports,o),a.exports}(()=>{o(999);var e=o(999);$app_define$(\\"@app-component/index\\",[],(function(t,r,n){e(n,r,t),r.__esModule&&r.default&&(n.exports=r.default),n.exports.template=o(999)})),$app_bootstrap$(\\"@app-component/index\\",{packagerVersion:\\"<VERSION>\\"})})()})()};if(\\"undefined\\"==typeof window)return e();window.createPageHandler=e}();"`;
 
-Object.defineProperty(exports, \\"__esModule\\", {
-  value: true
-});
-exports[\\"default\\"] = void 0;
-
-var _moduleA = require(\\"../Common/moduleA.js\\");
-
-function _typeof(obj) { \\"@babel/helpers - typeof\\"; if (typeof Symbol === \\"function\\" && typeof Symbol.iterator === \\"symbol\\") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === \\"function\\" && obj.constructor === Symbol && obj !== Symbol.prototype ? \\"symbol\\" : typeof obj; }; } return _typeof(obj); }
-
-var _default = {
-  onMenuPress: function onMenuPress() {
-    this.$app.$def.showMenu();
-  }
-};
-exports[\\"default\\"] = _default;
-var moduleOwn = exports[\\"default\\"] || module.exports;
-var accessors = ['public', 'protected', 'private'];
-
-if (moduleOwn.data && accessors.some(function (acc) {
-  return moduleOwn[acc];
-})) {
-  throw new Error('页面VM对象中的属性data不可与\\"' + accessors.join(',') + '\\"同时存在，请使用private替换data名称');
-} else if (!moduleOwn.data) {
-  moduleOwn.data = {};
-  moduleOwn._descriptor = {};
-  accessors.forEach(function (acc) {
-    var accType = _typeof(moduleOwn[acc]);
-
-    if (accType === 'object') {
-      moduleOwn.data = Object.assign(moduleOwn.data, moduleOwn[acc]);
-
-      for (var name in moduleOwn[acc]) {
-        moduleOwn._descriptor[name] = {
-          access: acc
-        };
-      }
-    } else if (accType === 'function') {
-      console.warn('页面VM对象中的属性' + acc + '的值不能是函数，请使用对象');
-    }
-  });
-}}"
-`;
-
-exports[`split chunks on a project release results not include split chunks for [other value] 12`] = `
-"module.exports = {
-  \\"type\\": \\"div\\",
-  \\"attr\\": {}
-}"
-`;
-
-exports[`split chunks on a project release results not include split chunks for [other value] 13`] = `
-"module.exports = function __scriptModule__ (module, exports, $app_require$){\\"use strict\\";
-
-Object.defineProperty(exports, \\"__esModule\\", {
-  value: true
-});
-exports[\\"default\\"] = void 0;
-
-var _moduleB = require(\\"../Common/moduleB.js\\");
-
-function _typeof(obj) { \\"@babel/helpers - typeof\\"; if (typeof Symbol === \\"function\\" && typeof Symbol.iterator === \\"symbol\\") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === \\"function\\" && obj.constructor === Symbol && obj !== Symbol.prototype ? \\"symbol\\" : typeof obj; }; } return _typeof(obj); }
-
-var _default = {};
-exports[\\"default\\"] = _default;
-var moduleOwn = exports[\\"default\\"] || module.exports;
-var accessors = ['public', 'protected', 'private'];
-
-if (moduleOwn.data && accessors.some(function (acc) {
-  return moduleOwn[acc];
-})) {
-  throw new Error('页面VM对象中的属性data不可与\\"' + accessors.join(',') + '\\"同时存在，请使用private替换data名称');
-} else if (!moduleOwn.data) {
-  moduleOwn.data = {};
-  moduleOwn._descriptor = {};
-  accessors.forEach(function (acc) {
-    var accType = _typeof(moduleOwn[acc]);
-
-    if (accType === 'object') {
-      moduleOwn.data = Object.assign(moduleOwn.data, moduleOwn[acc]);
-
-      for (var name in moduleOwn[acc]) {
-        moduleOwn._descriptor[name] = {
-          access: acc
-        };
-      }
-    } else if (accType === 'function') {
-      console.warn('页面VM对象中的属性' + acc + '的值不能是函数，请使用对象');
-    }
-  });
-}}"
-`;
-
-exports[`split chunks on a project release results not include split chunks for [other value] 14`] = `
-"module.exports = {
-  \\"type\\": \\"div\\",
-  \\"attr\\": {}
-}"
-`;
-
-exports[`split chunks on a project release results not include split chunks for [other value] 15`] = `
-"\\"use strict\\";
-
-Object.defineProperty(exports, \\"__esModule\\", {
-  value: true
-});
-exports.add = add;
-
-/*
- * Copyright (c) 2021, the hapjs-platform Project Contributors
- * SPDX-License-Identifier: Apache-2.0
- */
-function add(a, b) {
-  return a + b;
-}"
-`;
-
-exports[`split chunks on a project release results not include split chunks for [other value] 16`] = `
-"module.exports = function __scriptModule__ (module, exports, $app_require$){\\"use strict\\";
-
-Object.defineProperty(exports, \\"__esModule\\", {
-  value: true
-});
-exports[\\"default\\"] = void 0;
-var _default = {};
-exports[\\"default\\"] = _default;}"
-`;
-
-exports[`split chunks on a project release results not include split chunks for [other value] 17`] = `
-"module.exports = {
-  \\"type\\": \\"div\\",
-  \\"attr\\": {}
-}"
-`;
-
-exports[`split chunks on a project release results not include split chunks for [other value] 18`] = `
-"module.exports = function __scriptModule__ (module, exports, $app_require$){\\"use strict\\";
-
-Object.defineProperty(exports, \\"__esModule\\", {
-  value: true
-});
-exports[\\"default\\"] = void 0;
-var _default = {};
-exports[\\"default\\"] = _default;}"
-`;
-
-exports[`split chunks on a project release results not include split chunks for [other value] 19`] = `
-"module.exports = {
-  \\"type\\": \\"div\\",
-  \\"attr\\": {}
-}"
-`;
-
-exports[`split chunks on a project release results not include split chunks for [other value] 20`] = `
-"\\"use strict\\";
-
-Object.defineProperty(exports, \\"__esModule\\", {
-  value: true
-});
-exports.multiply = multiply;
-
-/*
- * Copyright (c) 2021, the hapjs-platform Project Contributors
- * SPDX-License-Identifier: Apache-2.0
- */
-function multiply(a, b) {
-  return a * b;
-}"
-`;
+exports[`split chunks on a project release results not include split chunks for [other value]: <project-root>/build/app.js 1`] = `"!function(){var e=function(){return(()=>{var e,o,t={999:(e,o,t)=>{e.exports=function(e,o,n){\\"use strict\\";t(999)}},999:(e,o)=>{\\"use strict\\";Object.defineProperty(o,\\"__esModule\\",{value:!0}),o.add=function(e,o){return e+o}},999:e=>{\\"use strict\\";e.exports=JSON.parse('{\\"package\\":\\"com.application.demo\\",\\"name\\":\\"lewis-demo\\",\\"versionName\\":\\"1.0.0\\",\\"versionCode\\":\\"1\\",\\"minPlatformVersion\\":1070,\\"icon\\":\\"/Common/logo.png\\",\\"features\\":[{\\"name\\":\\"system.prompt\\"},{\\"name\\":\\"system.router\\"},{\\"name\\":\\"system.shortcut\\"}],\\"permissions\\":[{\\"origin\\":\\"*\\"}],\\"config\\":{\\"logLevel\\":\\"trace\\"},\\"router\\":{\\"entry\\":\\"Demo\\",\\"pages\\":{\\"Demo\\":{\\"component\\":\\"index\\"},\\"DemoDetail\\":{\\"component\\":\\"index\\"},\\"About\\":{\\"component\\":\\"index\\"}}},\\"display\\":{\\"titleBarBackgroundColor\\":\\"#f2f2f2\\",\\"titleBarTextColor\\":\\"#414141\\",\\"menu\\":true,\\"pages\\":{\\"Demo\\":{\\"titleBarText\\":\\"示例页\\",\\"menu\\":false},\\"DemoDetail\\":{\\"titleBarText\\":\\"详情页\\"},\\"About\\":{\\"menu\\":false}}}}')}},n={};function r(e){var o=n[e];if(void 0!==o)return o.exports;var a=n[e]={exports:{}};return t[e](a,a.exports,r),a.exports}e={},o=r(999),$app_define$(\\"@app-application/app\\",[],(function(t,n,a){o(a,n,t),n.__esModule&&n.default&&(a.exports=n.default),a.exports.manifest=r(999),a.exports.style={list:[e]}})),$app_bootstrap$(\\"@app-application/app\\",{packagerVersion:\\"<VERSION>\\"})})()};if(\\"undefined\\"==typeof window)return e();window.createAppHandler=e,global.manifest={package:\\"com.application.demo\\",name:\\"lewis-demo\\",versionName:\\"1.0.0\\",versionCode:\\"1\\",minPlatformVersion:1070,icon:\\"/Common/logo.png\\",features:[{name:\\"system.prompt\\"},{name:\\"system.router\\"},{name:\\"system.shortcut\\"}],permissions:[{origin:\\"*\\"}],config:{logLevel:\\"trace\\"},router:{entry:\\"Demo\\",pages:{Demo:{component:\\"index\\"},DemoDetail:{component:\\"index\\"},About:{component:\\"index\\"}}},display:{titleBarBackgroundColor:\\"#f2f2f2\\",titleBarTextColor:\\"#414141\\",menu:!0,pages:{Demo:{titleBarText:\\"示例页\\",menu:!1},DemoDetail:{titleBarText:\\"详情页\\"},About:{menu:!1}}}}}();"`;

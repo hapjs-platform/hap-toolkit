@@ -1,11 +1,12 @@
 /*
- * Copyright (c) 2021, the hapjs-platform Project Contributors
+ * Copyright (c) 2021-present, the hapjs-platform Project Contributors
  * SPDX-License-Identifier: Apache-2.0
  */
+
 'use strict'
 
 const fs = require('fs')
-const path = require('path')
+const path = require('@jayfate/path')
 const { Writable } = require('stream')
 const del = require('del')
 const glob = require('glob')
@@ -151,10 +152,10 @@ describe('测试compile', () => {
       const json = data.stats.toJson({
         source: true
       })
-      json.modules.forEach(module => {
+      json.modules.forEach((module, index) => {
         expect(wipeDynamic(module.source, [[projectRoot, '<project-root>']])).toMatchSnapshot()
       })
-      expect(json.assets.map(a => a.name)).toMatchSnapshot('assets list')
+      expect(json.assets.map((a) => a.name)).toMatchSnapshot('assets list')
       // eg. '\u001B[4mUnicorn\u001B[0m' => 'Unicorn'
       const output = stripAnsi(outputs.join('\n'))
       expect(wipeDynamic(output)).toMatchSnapshot('outputs')
@@ -261,7 +262,7 @@ describe('测试compile', () => {
       const { stats } = await compile(platform, mode, false, {
         cwd: projectRoot
       })
-      stats.compilation.errors.forEach(error => {
+      stats.compilation.errors.forEach((error) => {
         expect(error.message).toMatch(`Cannot find module '${customBabelPlugin}'`)
       })
     },

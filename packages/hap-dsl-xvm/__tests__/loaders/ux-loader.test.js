@@ -1,8 +1,9 @@
 /*
- * Copyright (c) 2021, the hapjs-platform Project Contributors
+ * Copyright (c) 2021-present, the hapjs-platform Project Contributors
  * SPDX-License-Identifier: Apache-2.0
  */
-const path = require('path')
+
+const path = require('@jayfate/path')
 const { rowify } = require('hap-dev-utils')
 const uxLoader = require('../../lib/loaders/ux-loader')
 const { compileOptionsObject } = require('@hap-toolkit/shared-utils/compilation-config')
@@ -86,7 +87,7 @@ describe('ux-loader', () => {
       callback(err, result) {
         resolver([err, result])
       },
-      async: function() {
+      async: function () {
         return this.callback
       }
     })

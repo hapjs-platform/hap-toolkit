@@ -1,10 +1,11 @@
 /*
- * Copyright (c) 2021, the hapjs-platform Project Contributors
+ * Copyright (c) 2021-present, the hapjs-platform Project Contributors
  * SPDX-License-Identifier: Apache-2.0
  */
+
 'use strict'
 
-const path = require('path')
+const path = require('@jayfate/path')
 const del = require('del')
 const request = require('supertest')
 const { copyApp } = require('hap-dev-utils')

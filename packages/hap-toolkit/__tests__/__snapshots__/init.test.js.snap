@@ -1,25 +1,3 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`initialize a project init project 1`] = `
-Array [
-  ".eslintignore",
-  ".eslintrc.json",
-  ".gitignore",
-  "package.json",
-  "README.md",
-  "src",
-  "src/app.ux",
-  "src/CardDemo",
-  "src/CardDemo/index.ux",
-  "src/Common",
-  "src/Common/logo.png",
-  "src/config-phone.json",
-  "src/Demo",
-  "src/Demo/index.ux",
-  "src/DemoDetail",
-  "src/DemoDetail/index.ux",
-  "src/global.js",
-  "src/manifest.json",
-  "src/sitemap.json",
-]
-`;
+exports[`initialize a project init project 1`] = `Array []`;

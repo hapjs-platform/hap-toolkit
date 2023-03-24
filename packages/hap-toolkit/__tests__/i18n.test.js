@@ -1,11 +1,12 @@
 /*
- * Copyright (c) 2021, the hapjs-platform Project Contributors
+ * Copyright (c) 2021-present, the hapjs-platform Project Contributors
  * SPDX-License-Identifier: Apache-2.0
  */
+
 'use strict'
 
 const fs = require('fs')
-const path = require('path')
+const path = require('@jayfate/path')
 const del = require('del')
 const glob = require('glob')
 const JSZip = require('jszip')
@@ -93,7 +94,7 @@ describe('i18n配置文件打包测试', () => {
       ]
       const i18nPath = path.join(projectRoot, 'src/i18n')
       // 把 i18n 配置文件删除
-      await del([i18nPath])
+      await del([i18nPath], { force: true })
       await compile(platform, mode, false, { cwd: projectRoot })
       await checki18nFilesInRpk(pkgs, (pkgZipBuf, result) => {
         expect(!!pkgZipBuf.file('i18n/en.json')).toBe(result)
@@ -115,6 +116,6 @@ describe('i18n配置文件打包测试', () => {
     }
   }
   afterAll(async () => {
-    await del([projectRoot])
+    await del([projectRoot], { force: true })
   })
 })

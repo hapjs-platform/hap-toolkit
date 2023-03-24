@@ -1,11 +1,12 @@
 /*
- * Copyright (c) 2021, the hapjs-platform Project Contributors
+ * Copyright (c) 2021-present, the hapjs-platform Project Contributors
  * SPDX-License-Identifier: Apache-2.0
  */
+
 'use strict'
 
 const fs = require('fs')
-const path = require('path')
+const path = require('@jayfate/path')
 const del = require('del')
 const { copyApp } = require('hap-dev-utils')
 const { compile } = require('../lib')
@@ -45,7 +46,7 @@ describe('测试自定义配置', () => {
       },
       'development'
     )
-    conf.plugins.forEach(item => {
+    conf.plugins.forEach((item) => {
       if (item.constructor.name === 'PostHookTestPlugin') {
         checkvalue = true
       }
