@@ -1,6 +1,6 @@
 {
   "name": "@hap-toolkit/dsl-xvm",
-  "version": "1.9.5",
+  "version": "1.9.11",
   "description": "webpack {loader,plugin} for supporting xvm in quickapp",
   "engines": {
     "node": ">=8.0.0"
@@ -19,7 +19,7 @@
     "@babel/plugin-syntax-jsx": "^7.8.3",
     "@babel/preset-env": "^7.9.6",
     "chai": "^4.2.0",
-    "del": "^3.0.0",
+    "del": "^4.1.1",
     "hash-sum": "^1.0.2",
     "less": "^4.0.0",
     "less-loader": "^7.2.0",
@@ -33,12 +33,14 @@
     "!**/.DS_Store"
   ],
   "dependencies": {
-    "@hap-toolkit/compiler": "1.9.5",
-    "@hap-toolkit/packager": "1.9.5",
-    "@hap-toolkit/shared-utils": "1.9.5",
+    "@hap-toolkit/compiler": "1.9.11",
+    "@hap-toolkit/packager": "1.9.11",
+    "@hap-toolkit/shared-utils": "1.9.11",
+    "@jayfate/path": "^0.0.13",
     "babel-loader": "^8.1.0",
     "css-loader": "^5.0.1",
+    "loader-utils": "2.0.2",
     "url-loader": "^4.1.1",
-    "webpack": "5.24.0"
+    "webpack": "5.72.0"
   }
 }

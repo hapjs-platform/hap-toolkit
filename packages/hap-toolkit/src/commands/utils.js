@@ -1,10 +1,10 @@
 /*
- * Copyright (c) 2021, the hapjs-platform Project Contributors
+ * Copyright (c) 2021-present, the hapjs-platform Project Contributors
  * SPDX-License-Identifier: Apache-2.0
  */
 
 import fs from 'fs-extra'
-import path from 'path'
+import path from '@jayfate/path'
 import request from 'request'
 import http from 'http'
 import { getRecords, getProjectClients } from '@hap-toolkit/shared-utils/lib/record-client'
@@ -67,7 +67,7 @@ export function formatDate(format, date) {
  */
 export function summaryErrors(stats) {
   const errors = []
-  stats.compilation.errors.forEach(error => {
+  stats.compilation.errors.forEach((error) => {
     const message = error.message
     // 如果错误信息显示缺少某些loader，则提示安装
     const reg = /Can't resolve '(sass-loader|less-loader|stylus-loader)'/
@@ -95,7 +95,7 @@ export function summaryErrors(stats) {
  * @returns
  */
 export function summaryWarnings(stats) {
-  return stats.compilation.warnings.map(warn => warn.message).join('\n\n')
+  return stats.compilation.warnings.map((warn) => warn.message).join('\n\n')
 }
 
 const quickapp_url = 'https://statres.quickapp.cn/quickapp/quickapptool/release/platform/'
@@ -126,15 +126,15 @@ export function getQuickappPreviewUrl(version) {
  */
 export function downloadFile(url, fileName) {
   colorconsole.log(`开始下载文件：${fileName}，地址：${url}`)
-  return new Promise(function(resolve, reject) {
-    request(url, function(error, response, body) {
+  return new Promise(function (resolve, reject) {
+    request(url, function (error, response, body) {
       if (!error && response.statusCode === 200) {
         const targetDir = path.join(__dirname, './apk')
         fs.ensureDirSync(targetDir)
         let stream = fs.createWriteStream(path.join(targetDir, fileName))
         request(url)
           .pipe(stream)
-          .on('close', err => {
+          .on('close', (err) => {
             if (err) {
               reject(err)
             } else {
@@ -157,7 +157,7 @@ export function downloadFile(url, fileName) {
  * @param client {{ ip, port }}
  */
 export async function sendReq(client, api, params) {
-  return new Promise(resolve => {
+  return new Promise((resolve) => {
     const requrl = `http://${client.ip}:${client.port}${api}`
     // 发送请求
     let options = {
@@ -173,16 +173,16 @@ export async function sendReq(client, api, params) {
     }
 
     const req = http
-      .request(options, res => {
-        res.on('data', data => {
+      .request(options, (res) => {
+        res.on('data', (data) => {
           colorconsole.log(`### App Server ### 请求${requrl} 成功`)
           resolve(data.toString())
         })
       })
-      .on('error', err => {
+      .on('error', (err) => {
         colorconsole.error(`### App Server ### 请求${requrl} 错误信息: ${err.message}`)
       })
-      .on('timeout', function() {
+      .on('timeout', function () {
         colorconsole.log(`### App Server ### 请求${requrl}超时, 请重试`)
         req.abort()
       })
@@ -194,7 +194,7 @@ export async function sendReq(client, api, params) {
  * 获取已连接的设备信息
  */
 export async function getClients() {
-  return new Promise(resolve => {
+  return new Promise((resolve) => {
     if (fs.existsSync(clientRecordPath)) {
       const recordData = getRecords(clientRecordPath)
       const clients = getProjectClients(recordData)

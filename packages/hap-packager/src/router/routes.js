@@ -1,10 +1,10 @@
 /*
- * Copyright (c) 2021, the hapjs-platform Project Contributors
+ * Copyright (c) 2021-present, the hapjs-platform Project Contributors
  * SPDX-License-Identifier: Apache-2.0
  */
 
 import fs from 'fs-extra'
-import path from 'path'
+import path from '@jayfate/path'
 import qr from 'qr-image'
 import moment from 'moment'
 
@@ -195,7 +195,7 @@ async function saveDataLogs(context, next) {
   const fileName = path.resolve(logDir, `quickapp-${deviceId}-${brand}-${modelName}.log`)
 
   let fileContent = reqDataList
-    .map(logLineItem => {
+    .map((logLineItem) => {
       const { time, type, args } = logLineItem
       const timeNow = moment(time).format('YYYY.MM.DD hh:mm:ss.SSS')
       const logType = type.padStart(18, ' ')
@@ -205,7 +205,7 @@ async function saveDataLogs(context, next) {
     .join('')
 
   // 3. 每行格式如下：2020.03.21 16:04:21.234 console.debug XXX日志；
-  fs.appendFile(fileName, fileContent, err => {
+  fs.appendFile(fileName, fileContent, (err) => {
     if (err) {
       console.log(err)
     }

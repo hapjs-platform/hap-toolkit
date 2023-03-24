@@ -1,10 +1,10 @@
 /*
- * Copyright (c) 2021, the hapjs-platform Project Contributors
+ * Copyright (c) 2021-present, the hapjs-platform Project Contributors
  * SPDX-License-Identifier: Apache-2.0
  */
 
 import fs from 'fs'
-import path from 'path'
+import path from '@jayfate/path'
 
 import { compileOptionsMeta } from '@hap-toolkit/shared-utils/compilation-config'
 import { calcDataDigest } from '../common/utils'
@@ -38,7 +38,7 @@ function createPackagesDefinition(
 
   // 注释
   fullPackage.comment = comment
-  ;(subPackages || []).forEach(subPackageItem => {
+  ;(subPackages || []).forEach((subPackageItem) => {
     subPackageItem.comment = comment
   })
 
@@ -52,7 +52,7 @@ function createPackagesDefinition(
 function getBuildInfoResource(buildInfo) {
   buildInfo = JSON.parse(buildInfo)
   const content = Object.keys(buildInfo)
-    .map(key => {
+    .map((key) => {
       return key + '=' + buildInfo[key]
     })
     .join('\n')
@@ -75,7 +75,7 @@ function allocateResourceToPackages(files, base, fullPackage, subPackages, build
   const belongTofSubPkgReg = new RegExp(`\\/${SPLIT_CHUNKS_PAGE_NAME}$`)
   const basePageChunksJson = path.join(MAIN_PKG_NAME, SPLIT_CHUNKS_PAGE_NAME)
 
-  files.forEach(fileBuildPath => {
+  files.forEach((fileBuildPath) => {
     const fileAbsPath = path.join(base, fileBuildPath)
     const fileContentBuffer = fs.readFileSync(fileAbsPath)
     const fileContentDigest = calcDataDigest(fileContentBuffer)
@@ -135,7 +135,7 @@ function allocateResourceToPackages(files, base, fullPackage, subPackages, build
   }
   // 判断每个包的资源是否为空，如果为空抛出异常，停止打包
   if (subPackages) {
-    subPackages.forEach(item => {
+    subPackages.forEach((item) => {
       const resource = item.resourceList
       if (!resource.length) {
         throw new Error(`分包失败：分包${item.fileName}内不包含任何资源，请重新检查manifest`)

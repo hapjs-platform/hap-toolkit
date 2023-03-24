@@ -1,8 +1,9 @@
 /*
- * Copyright (c) 2021, the hapjs-platform Project Contributors
+ * Copyright (c) 2021-present, the hapjs-platform Project Contributors
  * SPDX-License-Identifier: Apache-2.0
  */
-const path = require('path')
+
+const path = require('@jayfate/path')
 // 用户home目录
 const home = require('os').homedir()
 const clientRecordPath = path.join(home, 'hap-toolkit-client-records.json')

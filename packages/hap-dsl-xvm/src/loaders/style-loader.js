@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2021, the hapjs-platform Project Contributors
+ * Copyright (c) 2021-present, the hapjs-platform Project Contributors
  * SPDX-License-Identifier: Apache-2.0
  */
 
@@ -29,7 +29,7 @@ const componentId = (() => {
   }
 })()
 
-module.exports = function(code) {
+module.exports = function (code) {
   const self = this
   const loaderQuery = loaderUtils.parseQuery(this.query)
   const suppresslogs = !!getWebpackOptions(this).suppresslogs
@@ -57,11 +57,11 @@ module.exports = function(code) {
   }
 
   // Recompile while dependency changed
-  depList.forEach(function(depFilePath) {
+  depList.forEach(function (depFilePath) {
     self.addDependency(depFilePath)
   })
 
-  depFiles.forEach(item => {
+  depFiles.forEach((item) => {
     self.addDependency(convertPath(item))
   })
 

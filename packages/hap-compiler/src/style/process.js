@@ -1,11 +1,11 @@
 /*
- * Copyright (c) 2021, the hapjs-platform Project Contributors
+ * Copyright (c) 2021-present, the hapjs-platform Project Contributors
  * SPDX-License-Identifier: Apache-2.0
  */
 
 'use strict'
 import fs from 'fs'
-import path from 'path'
+import path from '@jayfate/path'
 import css from 'css'
 import cssWhat from 'css-what'
 import { compileOptionsObject } from '@hap-toolkit/shared-utils/compilation-config'
@@ -64,7 +64,7 @@ function signValidCssImport(csscode) {
   ) {
     // 只需做最顶层的获取
     const rules = ast.stylesheet.rules
-    rules.forEach(rule => {
+    rules.forEach((rule) => {
       const type = rule.type
 
       // 在import前面的只能是注释或者import
@@ -96,7 +96,7 @@ function processImport(csscode, dir, log, depList) {
   if (importList && importList.length > 0) {
     if (dir) {
       // 读取css
-      importList.forEach(res => {
+      importList.forEach((res) => {
         const inMatch = res.match(IMPORT_URL_REG)
         if (inMatch.length > 1) {
           // 媒体查询条件，这里不做检验
@@ -142,7 +142,7 @@ function processImport(csscode, dir, log, depList) {
  * @param {Array} depFiles - 使用到的资源集合
  */
 function processSingleClass(rule, jsonStyle, ruleResult, log, filePath, depFiles) {
-  rule.declarations.forEach(function(declaration) {
+  rule.declarations.forEach(function (declaration) {
     const subType = declaration.type
 
     // 只考虑声明类型
@@ -159,7 +159,7 @@ function processSingleClass(rule, jsonStyle, ruleResult, log, filePath, depFiles
       filePath
     })
 
-    subResult.value.forEach(item => {
+    subResult.value.forEach((item) => {
       // 如果校验成功，则保存转换后的属性值
       if (isValidValue(item.v)) {
         ruleResult[item.n] = item.v
@@ -182,7 +182,7 @@ function processSingleClass(rule, jsonStyle, ruleResult, log, filePath, depFiles
   const REGEXP_SEL = /^[.#]?[A-Za-z0-9_\-:]+$/
   // 复合选择器：tag, class, id后代选择
   const REGEXP_SEL_COMPLEX = /^([.#]?[A-Za-z0-9_-]+(\s+|\s*>\s*))+([.#]?[A-Za-z0-9_\-:]+)$/
-  rule.selectors.forEach(function(selector) {
+  rule.selectors.forEach(function (selector) {
     // 定义
     const hash = {
       key: selector,
@@ -237,7 +237,7 @@ function processMediaQueryCss(rule, jsonStyleMedia, log, filePath, upperConditio
   const currentCondition = validateResult.value
   const errorReason = validateResult.reason
   if (errorReason && errorReason.length > 0) {
-    validateResult.reason.forEach(reason => {
+    validateResult.reason.forEach((reason) => {
       log.push({
         line: rule.position.start.line,
         column: rule.position.start.column,
@@ -251,7 +251,7 @@ function processMediaQueryCss(rule, jsonStyleMedia, log, filePath, upperConditio
   }
   // 嵌套层级的条件用and连接起来
   const condition = upperCondition ? `${upperCondition} and ${currentCondition}` : currentCondition
-  rule.rules.forEach(_rule => {
+  rule.rules.forEach((_rule) => {
     if (_rule.type === 'rule') {
       if (_rule.declarations && _rule.declarations.length) {
         let jsonClassMedia = findMediaClassByCondition(jsonStyleMedia, condition)
@@ -292,7 +292,7 @@ function processPseudoClass(hash, log, rule) {
     hash.key = hash.key.slice(0, pseudoIndex)
     const pseudoRuleResult = {}
     // 将伪选择器text:active中的样式color属性名转换为color:active
-    Object.keys(hash.val).forEach(function(prop) {
+    Object.keys(hash.val).forEach(function (prop) {
       pseudoRuleResult[prop + pseudoCls] = hash.val[prop]
     })
     hash.val = pseudoRuleResult

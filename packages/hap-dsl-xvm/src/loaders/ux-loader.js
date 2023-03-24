@@ -1,9 +1,9 @@
 /*
- * Copyright (c) 2021, the hapjs-platform Project Contributors
+ * Copyright (c) 2021-present, the hapjs-platform Project Contributors
  * SPDX-License-Identifier: Apache-2.0
  */
 
-import path from 'path'
+import path from '@jayfate/path'
 import loaderUtils from 'loader-utils'
 import { parseFragmentsWithCache } from '@hap-toolkit/compiler'
 import validator from '@hap-toolkit/compiler/lib/template/validator'
@@ -18,6 +18,8 @@ import {
 } from './ux-fragment-utils'
 import { getNameByPath, print, ENTRY_TYPE, isUXRender } from './common/utils'
 
+const globalConfig = require('@hap-toolkit/shared-utils/config')
+
 /**
  * 收集结果
  * @param $loader
@@ -27,6 +29,7 @@ import { getNameByPath, print, ENTRY_TYPE, isUXRender } from './common/utils'
  * @return {String}
  */
 function assemble($loader, frags, name, uxType) {
+  const isUseTreeShaking = !!globalConfig.useTreeShaking
   const outputs = []
 
   const { enablePerformanceCheck } = compileOptionsObject
@@ -64,11 +67,18 @@ function assemble($loader, frags, name, uxType) {
   outputs.push(
     `$app_define$('@app-component/${name}', [], function($app_require$, $app_exports$, $app_module$) {`
   )
-  if (frags.script.length > 0) {
-    outputs.push(`     $app_script$($app_module$, $app_exports$, $app_require$)
+  let moduleExports = `     $app_script$($app_module$, $app_exports$, $app_require$)
          if ($app_exports$.__esModule && $app_exports$.default) {
             $app_module$.exports = $app_exports$.default
-        }`)
+        }`
+  if (isUseTreeShaking) {
+    moduleExports = `
+    if($app_script$.default) {
+      $app_module$.exports = $app_script$.default
+    }`
+  }
+  if (frags.script.length > 0) {
+    outputs.push(moduleExports)
   }
   // require('template-loader!./page.ux?uxType=page')
   outputs.push(
@@ -170,10 +180,10 @@ function loader(source) {
     .then(() => {
       return assemble(this, frags, name, uxType)
     })
-    .then(result => {
+    .then((result) => {
       callback(null, result)
     })
-    .catch(err => {
+    .catch((err) => {
       callback(err, '')
     })
 }

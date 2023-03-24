@@ -5,9 +5,7 @@
   "versionCode": "1",
   "minPlatformVersion": 1070,
   "icon": "/Common/logo.png",
-  "deviceTypeList": [
-    "phone"
-  ],
+  "deviceTypeList": ["phone"],
   "features": [],
   "permissions": [
     {

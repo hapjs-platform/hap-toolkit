@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2021, the hapjs-platform Project Contributors
+ * Copyright (c) 2021-present, the hapjs-platform Project Contributors
  * SPDX-License-Identifier: Apache-2.0
  */
 
@@ -200,11 +200,14 @@ const cssUseLocalResource = [
 const REGEXP_LENGTH = /^[-+]?[0-9]*\.?[0-9]+(.*)$/
 const REGEXP_COLOR_LONG = /^#[0-9a-fA-F]{6}$/
 const REGEXP_COLOR_SHORT = /^#[0-9a-fA-F]{3}$/
+const REGEXP_COLOR_ALPHA_LONG = /^#[0-9a-fA-F]{8}$/
+const REGEXP_COLOR_ALPHA_SHORT = /^#[0-9a-fA-F]{4}$/
 const REGEXP_COLOR_RGB = /^rgb\(\s*(\d+)\s*,\s*(\d+)\s*,\s*(\d+)\s*\)$/
 const REGEXP_COLOR_RGBA = /^rgba\(\s*(\d+)\s*,\s*(\d+)\s*,\s*(\d+)\s*,\s*(\d*\.?\d+)\s*\)$/
 const REGEXP_COLOR_HSL = /^hsl\(\s*(\d+)\s*,\s*(\d+%)\s*,\s*(\d+%)\s*\)$/
 const REGEXP_COLOR_HSLA = /^hsla\(\s*(\d+)\s*,\s*(\d+%)\s*,\s*(\d+%)\s*,\s*(\d*\.?\d+)\s*\)$/
-const REGEXP_ARRAYCOLORSTOP = /(rgba|rgb)\([0-9,.\spx%]+\)\s?[0-9-+pxdp%]*|[#]?\w+\s?[0-9+-\spxdp%]*/gi
+const REGEXP_ARRAYCOLORSTOP =
+  /(rgba|rgb)\([0-9,.\spx%]+\)\s?[0-9-+pxdp%]*|[#]?\w+\s?[0-9+-\spxdp%]*/gi
 const REGEXP_ARRAYCOLOR = /(?:.+?\s(?=[#a-zA-Z]))|.+/g
 const REGEXP_INT = /^[-+]?[0-9]+$/
 const REGEXP_URL = /^url\(\s*(['"]?)\s*([^'"()]+?)\s*\1\s*\)$/
@@ -226,13 +229,15 @@ const REGEXP_INT_ABS = /^[1-9]\d*$/
 const REGEXP_CARET = /^(auto|transparent|currentColor)$/
 
 // animation-timing-function cubic-bezier(<x1>, <y1>, <x2>, <y2>) x值 为 0~1：0或0.x或1，不考虑1.0
-const REGEXP_CUBIC_BEZIER = /cubic-bezier\(\s*(0|1|0.\d+),\s*(\d+|\d+\.\d+),\s*(0|1|0.\d+),\s*(\d+|\d+\.\d+)\s*\)/
+const REGEXP_CUBIC_BEZIER =
+  /cubic-bezier\(\s*(0|1|0.\d+),\s*(\d+|\d+\.\d+),\s*(0|1|0.\d+),\s*(\d+|\d+\.\d+)\s*\)/
 // animation-timing-function steps(number_of_steps，direction)
-const REGEXP_STEPS = /steps\(\s*(\d+)\s*(?:,\s*(jump-start|jump-end|jump-none|jump-both|start|end))?\)/
+const REGEXP_STEPS =
+  /steps\(\s*(\d+)\s*(?:,\s*(jump-start|jump-end|jump-none|jump-both|start|end))?\)/
 
 function toCamelCase(str) {
   var re = /-(\w)/g
-  return str.replace(re, function($0, $1) {
+  return str.replace(re, function ($0, $1) {
     return $1.toUpperCase()
   })
 }
@@ -254,7 +259,7 @@ const timingFunctions = [
   'end'
 ]
 
-const validateTimingFunction = function(v) {
+const validateTimingFunction = function (v) {
   const list = timingFunctions
   const index = list.indexOf(v)
   if (index >= 0) {
@@ -319,7 +324,7 @@ const validateTimingFunction = function(v) {
   }
 }
 
-const validateTime = function(v) {
+const validateTime = function (v) {
   v = (v || '').toString()
   const match = v.match(REGEXP_TIME)
 
@@ -331,7 +336,7 @@ const validateTime = function(v) {
         value: parseFloat(v) + cssTimeUnits[0],
         reason: function reason(k) {
           return (
-            'WARNING: 属性 `' +
+            'WARN: 属性 `' +
             camelCaseToHyphened(k) +
             '` 没有指定单位，默认为 `' +
             cssTimeUnits[0] +
@@ -375,12 +380,9 @@ const validator = {
    * @param {String} v
    * @returns {*}
    */
-  transition: function(v) {
+  transition: function (v) {
     // 预处理 v
-    const subStringArr = v
-      .replace(/;$/, '')
-      .split(',')
-      .filter(Boolean)
+    const subStringArr = v.replace(/;$/, '').split(',').filter(Boolean)
     let value = [
       {
         n: 'transitionProperty',
@@ -401,11 +403,8 @@ const validator = {
     ]
     // 用于处理 transition-property 包含 none 的情况
     let hasNoneProperty = false
-    subStringArr.forEach(m => {
-      m = m
-        .toString()
-        .split(' ')
-        .filter(Boolean)
+    subStringArr.forEach((m) => {
+      m = m.toString().split(' ').filter(Boolean)
       let isDuration = true
       let isProperty = true
       const defaltProperty = {
@@ -414,9 +413,9 @@ const validator = {
         transitionDuration: '0s',
         transitionDelay: '0s'
       }
-      m.forEach(val => {
+      m.forEach((val) => {
         // cubic-bezier(<number>, <number>, <number>, <number>)、steps(<integer>[, <step-position>]?)不能使用全等判断
-        if (timingFunctions.filter(func => val.startsWith(func)).length) {
+        if (timingFunctions.filter((func) => val.startsWith(func)).length) {
           return (defaltProperty.transitionTimingFunction = val)
         }
         // 第一个时间为 transitionDuration
@@ -432,7 +431,7 @@ const validator = {
           return (defaltProperty.transitionProperty = val)
         }
       })
-      Object.keys(defaltProperty).forEach(key => {
+      Object.keys(defaltProperty).forEach((key) => {
         switch (key) {
           case 'transitionProperty': {
             if (defaltProperty[key].trim() === 'none') {
@@ -468,7 +467,7 @@ const validator = {
       value
     }
   },
-  transitionProperty: function(v) {
+  transitionProperty: function (v) {
     return {
       value: toCamelCase(v).trim() || ['all']
     }
@@ -484,7 +483,7 @@ const validator = {
    * @returns {*}
    * @constructor
    */
-  length: function(v, units, defaultValueIfNotSupported) {
+  length: function (v, units, defaultValueIfNotSupported) {
     v = (v || '').toString().trim()
     const match = v.match(REGEXP_LENGTH)
     if (!units) {
@@ -503,11 +502,7 @@ const validator = {
           value: parseFloat(v) + units[0],
           reason: function reason(k) {
             return (
-              'WARNING: 属性 `' +
-              camelCaseToHyphened(k) +
-              '` 没有指定单位，默认为 `' +
-              units[0] +
-              '`'
+              'WARN: 属性 `' + camelCaseToHyphened(k) + '` 没有指定单位，默认为 `' + units[0] + '`'
             )
           }
         }
@@ -542,15 +537,19 @@ const validator = {
     }
   },
   /**
-   * 颜色值校验, 支持 rgb, rgba, #fff, #ffffff, named-color
+   * 颜色值校验, 支持 rgb, rgba, #fff, #ffffff, named-color #f0ff #ff00ff00
    * @param v
    * @returns {*}
    * @constructor
    */
-  color: function(v) {
+  color: function (v) {
     v = (v || '').toString().trim()
 
-    if (v.match(REGEXP_COLOR_LONG)) {
+    if (
+      v.match(REGEXP_COLOR_LONG) ||
+      v.match(REGEXP_COLOR_ALPHA_LONG) ||
+      v.match(REGEXP_COLOR_ALPHA_SHORT)
+    ) {
       return { value: v }
     }
 
@@ -623,7 +622,7 @@ const validator = {
    * @param {String} v
    * @returns {*}
    */
-  number: function(v) {
+  number: function (v) {
     v = (v || '').toString().trim()
     const match = v.match(REGEXP_NUMBER)
 
@@ -643,7 +642,7 @@ const validator = {
    * @param {Array} names
    * @param {String} v
    */
-  arraynumber: function(names, v) {
+  arraynumber: function (names, v) {
     v = (v || '').toString().trim()
     // 空格或逗号分隔
     const items = v.split(/[,\s]+/)
@@ -710,7 +709,7 @@ const validator = {
    * @param {String} v
    * @returns {*}
    */
-  integer: function(v) {
+  integer: function (v) {
     v = (v || '').toString()
 
     if (v.match(REGEXP_INT)) {
@@ -729,7 +728,7 @@ const validator = {
    * @param {String} v
    * @returns {*}
    */
-  iterationcount: function(v) {
+  iterationcount: function (v) {
     v = (v || '').toString().trim()
 
     if (v.match(REGEXP_INT)) {
@@ -753,7 +752,7 @@ const validator = {
    * @param options.filePath
    * @returns {*}
    */
-  url: function(v, options) {
+  url: function (v, options) {
     v = (v || '').toString().trim()
     if (v.match(/^none$/i)) {
       return { value: 'none' }
@@ -773,7 +772,7 @@ const validator = {
       value: null,
       reason: function reason(k, v) {
         return (
-          'WARNING: 属性`' + camelCaseToHyphened(k) + '` 的值 `' + v + '` 必须是 none 或者 url(...)'
+          'WARN: 属性`' + camelCaseToHyphened(k) + '` 的值 `' + v + '` 必须是 none 或者 url(...)'
         )
       }
     }
@@ -784,7 +783,7 @@ const validator = {
    * @param options
    * @returns {*}
    */
-  fontSrc: function(v, options) {
+  fontSrc: function (v, options) {
     v = (v || '').toString().trim()
     const items = v.split(',')
     if (items && items.length > 0) {
@@ -792,7 +791,7 @@ const validator = {
       const values = []
       const logs = []
       let logType = 0
-      items.forEach(function(item, index) {
+      items.forEach(function (item, index) {
         item = item.trim()
         let result = {}
         // 校验local(系统字体)
@@ -807,7 +806,7 @@ const validator = {
             reason: !localValue
               ? function reason(k, v) {
                   return (
-                    'WARNING: @font-face中属性src`' +
+                    'WARN: @font-face中属性src`' +
                     camelCaseToHyphened(k) +
                     '`的值`' +
                     v +
@@ -874,7 +873,7 @@ const validator = {
    * @param v
    * @returns {*}
    */
-  fontFamily: function(v) {
+  fontFamily: function (v) {
     v = (v || '').toString().replace(/['"]+/g, '')
     if (v) {
       return { value: v }
@@ -893,7 +892,7 @@ const validator = {
    * @param v
    * @returns {*}
    */
-  position: function(v, units) {
+  position: function (v, units) {
     v = (v || '').toString()
     if (!units) {
       units = cssLengthUnits
@@ -964,7 +963,7 @@ const validator = {
    * @param {String} v
    * @returns {*}
    */
-  name: function(v) {
+  name: function (v) {
     v = (v || '').toString()
     if (v.match(REGEXP_NAME)) {
       return { value: v }
@@ -984,7 +983,7 @@ const validator = {
    * @param {object} validatorMap
    * @returns {*}
    */
-  multipleAttributesValidator: function(v, validatorMap) {
+  multipleAttributesValidator: function (v, validatorMap) {
     v = (v || '').toString().trim()
     // 转成数组
     const items = v.replace(/\)\s+/g, ')|').split('|')
@@ -1008,7 +1007,7 @@ const validator = {
             result = validator(value)
             // 返回值为Array
             if (result.value instanceof Array) {
-              result.value.forEach(item => {
+              result.value.forEach((item) => {
                 if (isValidValue(item.v)) {
                   values[item.n] = item.v
                 }
@@ -1042,7 +1041,7 @@ const validator = {
         value: isEmptyObject(values) ? null : JSON.stringify(values),
         reason:
           logs.length > 0
-            ? function(k, v) {
+            ? function (k, v) {
                 return (
                   logTypes[logType] +
                   ': 属性`' +
@@ -1069,7 +1068,7 @@ const validator = {
    * @param v
    * @returns {*}
    */
-  background: function(v) {
+  background: function (v) {
     v = (v || '').toString().trim()
     // 预留接口：分解background所有参数，存入数组
     let items = v.split()
@@ -1086,7 +1085,7 @@ const validator = {
       const logs = []
       let logType = 0
       // 逐项处理，校验后的值存入value
-      items.forEach(it => {
+      items.forEach((it) => {
         let key
         let validator
 
@@ -1128,7 +1127,7 @@ const validator = {
         value: logType < 2 ? JSON.stringify(value) : null,
         reason:
           logs.length > 0
-            ? function(k, v) {
+            ? function (k, v) {
                 return (
                   logTypes[logType] +
                   ': 属性`' +
@@ -1156,7 +1155,7 @@ const validator = {
    * @param v
    * @returns {*}
    */
-  backgroundSize: function(v, units) {
+  backgroundSize: function (v, units) {
     v = (v || '').toString().trim()
     if (!units) {
       units = cssLengthUnits
@@ -1254,7 +1253,7 @@ const validator = {
    * @param v
    * @returns {*}
    */
-  backgroundPosition: function(v, units) {
+  backgroundPosition: function (v, units) {
     v = (v || '').toString().trim()
     if (!units) {
       units = cssLengthUnits
@@ -1456,7 +1455,7 @@ const validator = {
    * @param v
    * @returns {*}
    */
-  fontWeight: function(v, units) {
+  fontWeight: function (v, units) {
     v = (v || '').toString().trim()
 
     if (REGEXP_FONT_WEIGHT.test(v) || REGEXP_INT_ABS.test(v)) return { value: v }
@@ -1479,7 +1478,7 @@ const validator = {
    * @param v
    * @returns {*}
    */
-  linearGradient: function(v) {
+  linearGradient: function (v) {
     v = (v || '').toString().trim()
     // 初始化返回对象格式
     const result = {
@@ -1564,7 +1563,7 @@ const validator = {
         value: logType < 2 ? JSON.stringify(result) : null,
         reason:
           logs.length > 0
-            ? function(k, v) {
+            ? function (k, v) {
                 return (
                   logTypes[logType] +
                   ': 属性`' +
@@ -1599,7 +1598,7 @@ const validator = {
    * @param v
    * @returns {*}
    */
-  angle: function(v) {
+  angle: function (v) {
     v = (v || '').toString().trim()
     const match = v.match(REGEXP_ANGLE)
 
@@ -1611,7 +1610,7 @@ const validator = {
           value: parseFloat(v) + cssAngleUnits[0],
           reason: function reason(k) {
             return (
-              'WARNING: 属性 `' +
+              'WARN: 属性 `' +
               camelCaseToHyphened(k) +
               '` 没有指定单位，默认为 `' +
               cssAngleUnits[0] +
@@ -1632,7 +1631,7 @@ const validator = {
             value: msv + cssAngleUnits[0],
             reason: function reason(k) {
               return (
-                'WARNING: 属性 `' +
+                'WARN: 属性 `' +
                 camelCaseToHyphened(k) +
                 '` 不支持单位 `' +
                 unit +
@@ -1675,7 +1674,7 @@ const validator = {
    * @param v
    * @returns {*}
    */
-  enum: function(list, v) {
+  enum: function (list, v) {
     const index = list.indexOf(v)
     if (index > 0) {
       return { value: v }
@@ -1724,13 +1723,13 @@ const validator = {
    * @returns {*}
    * @constructor
    */
-  gradientdirection: function(v) {
+  gradientdirection: function (v) {
     v = (v || '').toString().trim()
     // 空格分开的字符串转化为数组
     const items = v.split(/\s+/)
     let mismatch = []
     const arr = []
-    items.forEach(it => {
+    items.forEach((it) => {
       if (it === 'to') {
         arr.push(0)
       } else if ((it === 'top') | (it === 'bottom')) {
@@ -1781,7 +1780,7 @@ const validator = {
    * @param {Array} units - 支持的单位
    * @returns {*}
    */
-  multipleLength: function(v, units) {
+  multipleLength: function (v, units) {
     v = (v || '').toString().trim()
     if (v === 'auto') {
       return { value: v }
@@ -1802,7 +1801,7 @@ const validator = {
    * @param {Array} units - 支持的单位
    * @returns {*}
    */
-  arraylength: function(names, v, units) {
+  arraylength: function (names, v, units) {
     v = (v || '').toString().trim()
     // 空格或逗号分隔
     const items = v.split(/[,\s]+/)
@@ -1875,7 +1874,7 @@ const validator = {
    * @returns {*}
    * @constructor
    */
-  arraycolor: function(names, v) {
+  arraycolor: function (names, v) {
     v = (v || '').toString()
     const items = v.match(REGEXP_ARRAYCOLOR)
 
@@ -1942,7 +1941,7 @@ const validator = {
    * @param v
    * @returns {*}
    */
-  arraycolorstop: function(v) {
+  arraycolorstop: function (v) {
     v = (v || '').toString().trim()
     // 匹配color-stop组合
     const items = v.match(REGEXP_ARRAYCOLORSTOP)
@@ -2053,7 +2052,7 @@ const validator = {
    * @returns {*}
    * @constructor
    */
-  mylocation: function(v, options) {
+  mylocation: function (v, options) {
     v = (v || '').toString()
     // 空格分隔
     const items = v.split(/\s+/)
@@ -2122,7 +2121,7 @@ const validator = {
       })
 
       // 检测简写属性值中width、style和color的顺序是否符合标准
-      typeList.forEach(it => {
+      typeList.forEach((it) => {
         if (it > prevType) {
           prevType = it
         } else {
@@ -2166,7 +2165,7 @@ const validator = {
    * @returns {*}
    * @constructor
    */
-  border: function(v, units, position) {
+  border: function (v, units, position) {
     v = (v || '').toString()
 
     // 处理颜色内有逗号分割的情况
@@ -2246,7 +2245,7 @@ const validator = {
       })
 
       // 检测简写属性值中width、style和color的顺序是否符合标准
-      typeList.forEach(it => {
+      typeList.forEach((it) => {
         if (it > prevType) {
           prevType = it
         } else {
@@ -2282,16 +2281,16 @@ const validator = {
     }
   },
 
-  borderLeft: function(v, units) {
+  borderLeft: function (v, units) {
     return validator.border(v, units, 'Left')
   },
-  borderRight: function(v, units) {
+  borderRight: function (v, units) {
     return validator.border(v, units, 'Right')
   },
-  borderTop: function(v, units) {
+  borderTop: function (v, units) {
     return validator.border(v, units, 'Top')
   },
-  borderBottom: function(v, units) {
+  borderBottom: function (v, units) {
     return validator.border(v, units, 'Bottom')
   },
   /**
@@ -2300,7 +2299,7 @@ const validator = {
    * @returns {*}
    * @constructor
    */
-  display: function(v) {
+  display: function (v) {
     v = (v || '').toString()
     const list = ['flex', 'none']
     const index = list.indexOf(v)
@@ -2358,7 +2357,7 @@ const validator = {
    * @param v
    * @returns {*}
    */
-  caretColor: function(v, units) {
+  caretColor: function (v, units) {
     v = (v || '').toString().trim()
 
     if (REGEXP_CARET.test(v) || isValidValue(validator.color(v).value)) return { value: v }
@@ -2649,7 +2648,7 @@ function validate(name, value, options) {
   } else {
     // 如果没有类型校验器, 未知样式
     result = { value: value }
-    log = { reason: 'ERROR: 样式名`' + camelCaseToHyphened(name) + '`不支持' }
+    log = { reason: 'WARN: 样式名`' + camelCaseToHyphened(name) + '`不支持' }
   }
 
   return {

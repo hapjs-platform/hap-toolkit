@@ -1,9 +1,10 @@
 /*
- * Copyright (c) 2021, the hapjs-platform Project Contributors
+ * Copyright (c) 2021-present, the hapjs-platform Project Contributors
  * SPDX-License-Identifier: Apache-2.0
  */
+
 import fs from 'fs'
-import path from 'path'
+import path from '@jayfate/path'
 import { PassThrough } from 'stream'
 import util from 'util'
 import KoaRouter from 'koa-router'
@@ -70,7 +71,7 @@ export default async function createRouter(previewTarget) {
       }
       return file.async('string').then(jsonParse)
     }
-    scriptExists = function(script) {
+    scriptExists = function (script) {
       return zipBuffer.file(script) !== null
     }
   } else {
@@ -96,7 +97,7 @@ export default async function createRouter(previewTarget) {
       }
       return manifest
     }
-    scriptExists = function(script) {
+    scriptExists = function (script) {
       return fs.existsSync(path.resolve(previewTarget, script))
     }
   }
@@ -109,7 +110,7 @@ export default async function createRouter(previewTarget) {
     if (manifest && manifest.router && manifest.router.pages) {
       const pages = manifest.router.pages
       const routeNames = Object.keys(pages)
-      routeNames.forEach(routeName => {
+      routeNames.forEach((routeName) => {
         const key = trimSlash(routeName)
         const comp = trimSlash(pages[routeName].component)
         // comp 无后缀名？

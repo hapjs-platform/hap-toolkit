@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2021, the hapjs-platform Project Contributors
+ * Copyright (c) 2021-present, the hapjs-platform Project Contributors
  * SPDX-License-Identifier: Apache-2.0
  */
 
@@ -37,7 +37,7 @@ function _formatFragment(source, node) {
   }
 
   if (node.attrs && node.attrs.length) {
-    node.attrs.forEach(function(item) {
+    node.attrs.forEach(function (item) {
       attrs[item.name] = item.value
     })
   }
@@ -73,7 +73,7 @@ function parseFragments(source, filePath) {
   })
 
   // 存储片段解析结果
-  fragment.childNodes.forEach(node => {
+  fragment.childNodes.forEach((node) => {
     const fragmentInfo = _formatFragment(source, node)
     frags[node.nodeName] && frags[node.nodeName].push(fragmentInfo)
     // 判断<import>组件标签是否闭合

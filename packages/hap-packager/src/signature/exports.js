@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2021, the hapjs-platform Project Contributors
+ * Copyright (c) 2021-present, the hapjs-platform Project Contributors
  * SPDX-License-Identifier: Apache-2.0
  */
 
@@ -41,14 +41,14 @@ async function signForRpk(fileBuffer, privateKey, certificate) {
 async function signForRpks(fileBuffer, privateKey, certificate) {
   const zipFiles = await getFilesOfZipBuffer(fileBuffer)
   const containsRpkSuffixFile =
-    Object.keys(zipFiles).filter(path => path.endsWith('.rpk')).length > 0
+    Object.keys(zipFiles).filter((path) => path.endsWith('.rpk')).length > 0
   // 验证：必须拥有rpk后缀文件
   if (!containsRpkSuffixFile) {
     throw new Error(`签名失败：请确认参数为rpks文件！因为其中不存在：rpk后缀文件！`)
   }
 
   const zipInstWrap = await createFileListFromZipBuffer(fileBuffer)
-  let fileList = zipInstWrap.fileList.map(async file => {
+  let fileList = zipInstWrap.fileList.map(async (file) => {
     const signedBuffer = await signZipBufferForPackage(file.content, privateKey, certificate)
     return {
       path: file.path,

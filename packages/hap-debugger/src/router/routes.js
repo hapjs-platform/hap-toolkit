@@ -1,8 +1,9 @@
 /*
- * Copyright (c) 2021, the hapjs-platform Project Contributors
+ * Copyright (c) 2021-present, the hapjs-platform Project Contributors
  * SPDX-License-Identifier: Apache-2.0
  */
-import path from 'path'
+
+import path from '@jayfate/path'
 import fs from 'fs'
 
 import qr from 'qr-image'
@@ -16,7 +17,7 @@ import {
 } from '@hap-toolkit/shared-utils'
 import globalConfig from '@hap-toolkit/shared-utils/config'
 
-import { startChrome } from '../utils'
+import { startChrome, trackDebug, eventAlias } from '../utils'
 import { getDebugInfoFromRequest, getInspectorUrl, LINK_MODE, callDeviceWithOwnSn } from './service'
 
 /**
@@ -115,7 +116,7 @@ export async function searchSn(context, next) {
       const clients = getProjectClients(recordData)
       if (clients.length > 0) {
         colorconsole.log('### App Loader ### 通知设备开始下发SN')
-        clients.forEach(function(client) {
+        clients.forEach(function (client) {
           // 匹配hap-toolkit-client-records.json表里已存的通过ADB连接的设备信息
           if (client.ip === '127.0.0.1') {
             // 仅向ADB现在连接的且没有SN的设备下发SN请求
@@ -143,14 +144,18 @@ export async function searchSn(context, next) {
 export async function startDebug(context, next) {
   context.status = 200
   const params = getDebugInfoFromRequest(context.request)
-  const { sn, linkMode, devicePort, application, target } = params
+  const { sn, linkMode, devicePort, application, target, traceId } = params
   let ws = params.ws
+
+  process.env['TRACE_ID'] = traceId || 'NULL'
+  trackDebug(eventAlias.h_re_std, { DEVICE_SN: sn, DEVICE_PORT: devicePort })
 
   // ADB调试模式
   if (linkMode === LINK_MODE.ADB) {
     const { localWsPort, err } = await context.adbDebugger.forwardForWsChannel(sn, devicePort)
     if (err) {
       console.error(`startDebug(): adb forward 端口映射失败: ${err.message}`)
+      trackDebug(eventAlias.h_forward_err)
       await next()
       return
     }
@@ -160,7 +165,7 @@ export async function startDebug(context, next) {
 
   // 生成调试url，并且向页面输出调试APP信息
   const { serverPort } = context.conf.defaults
-  const inspectorUrl = getInspectorUrl({ ws, serverPort })
+  const inspectorUrl = getInspectorUrl({ ws, serverPort, traceId })
   emitWSEvent(context.io, 'appRegistered', { inspectorUrl, application })
   colorconsole.info(`请访问以下链接进行调试：\n\n${inspectorUrl}\n`)
 
@@ -172,7 +177,8 @@ export async function startDebug(context, next) {
     const params = { url: inspectorUrl, action: 'openDebugWin', target }
     cb(params)
   }
-
+  // openDebugger 是否打开调试窗口
+  trackDebug(eventAlias.h_ins_url, { inspectorUrl })
   if (context.conf.options.openDebugger !== false) {
     await startChrome(inspectorUrl, {
       chromePath: context.conf.options.chromePath

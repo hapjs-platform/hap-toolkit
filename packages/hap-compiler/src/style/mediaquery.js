@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2021, the hapjs-platform Project Contributors
+ * Copyright (c) 2021-present, the hapjs-platform Project Contributors
  * SPDX-License-Identifier: Apache-2.0
  */
 
@@ -18,7 +18,8 @@ const RE_MQ_DISCRETE_EXPRESSION = /\(\s*([^\s:)]+)\s*(?::\s*([^\s)]+))?\s*\)/
 // (width > 100) 此类表达式
 // ([-+]?\d*\.?(?:\d+[a-zA-Z]*|\d+\/\d+)) => 如，100、100px、1/1
 // (<|>|<=|>=)?\s*) => 如，< 、< 、>= 、<= 、
-const RE_MQ_RANGE_EXPRESSION = /^\((?:([-+]?\d*\.?(?:\d+[a-zA-Z]*|\d+\s*\/\s*\d+))\s*(<|>|<=|>=)?\s*)?(aspect-ratio|resolution|width|height|device-width|device-height)(?:\s*(<|>|<=|>=)?\s*([-+]?\d*\.?(?:\d+[a-zA-Z]*|\d+\s*\/\s*\d+)))?\)$/
+const RE_MQ_RANGE_EXPRESSION =
+  /^\((?:([-+]?\d*\.?(?:\d+[a-zA-Z]*|\d+\s*\/\s*\d+))\s*(<|>|<=|>=)?\s*)?(aspect-ratio|resolution|width|height|device-width|device-height)(?:\s*(<|>|<=|>=)?\s*([-+]?\d*\.?(?:\d+[a-zA-Z]*|\d+\s*\/\s*\d+)))?\)$/
 
 // 媒体查询类型
 const mediaQueryTypes = ['screen']
@@ -56,7 +57,7 @@ const featureValidator = {
       return { value }
     }
     return {
-      reason: function(feature) {
+      reason: function (feature) {
         return 'ERROR: 媒体特征 `' + feature + '` 的值 `' + value + '` 不正确, 必须为 `数值`'
       }
     }
@@ -71,14 +72,14 @@ const featureValidator = {
       const newVal = value + 'dpi'
       return {
         value: newVal,
-        reason: function(feature) {
+        reason: function (feature) {
           return 'WARN: 媒体特征 `' + feature + '` 的单位为 `dpi | dppx` ' + '自动补齐为 `' + 'dpi`'
         }
       }
     }
 
     return {
-      reason: function(feature) {
+      reason: function (feature) {
         return (
           'ERROR: 媒体特征 `' +
           feature +
@@ -95,7 +96,7 @@ const featureValidator = {
       return { value }
     }
     return {
-      reason: function(feature) {
+      reason: function (feature) {
         return (
           'WARN: 媒体特征 `' +
           feature +
@@ -112,7 +113,7 @@ const featureValidator = {
       return { value }
     }
     return {
-      reason: function(feature) {
+      reason: function (feature) {
         return (
           'WARN: 媒体特征 `' + feature + '` 的值 `' + value + '` 不正确, 必须为 `数值 | 数值/数值`'
         )
@@ -125,7 +126,7 @@ const featureValidator = {
       return { value }
     }
     return {
-      reason: function(feature) {
+      reason: function (feature) {
         return (
           'WARN: 媒体特征 `' +
           feature +
@@ -146,7 +147,7 @@ const featureValidator = {
  */
 function parseQuery(mediaQuery) {
   const error = []
-  const result = mediaQuery.split(',').map(function(query) {
+  const result = mediaQuery.split(',').map(function (query) {
     query = query.trim()
 
     const captures = query.match(RE_MEDIA_QUERY)
@@ -172,7 +173,7 @@ function parseQuery(mediaQuery) {
 
     parsed.operator = operator
 
-    parsed.expressions = expressions.map(function(expression) {
+    parsed.expressions = expressions.map(function (expression) {
       const combineReg = new RegExp(
         `\\)\\s+([a-zA-Z]+)?\\s+${expression.replace(/\(/, '\\(').replace(/\)/, '\\)')}`
       )
@@ -287,7 +288,7 @@ function validateMediaCondition(condition) {
     const logReason = []
     const ast = parseQuery(condition)
     if (ast.error.length > 0) {
-      ast.error.forEach(err => {
+      ast.error.forEach((err) => {
         err += ', 表达式: `' + condition + '`' + ' 有错误，请检查'
         logReason.push(err)
       })
@@ -297,7 +298,7 @@ function validateMediaCondition(condition) {
     }
     const conditionArr = []
     // 当用","表示或的时候解析为数组
-    ast.result.forEach(_ast => {
+    ast.result.forEach((_ast) => {
       const { modifier, type, operator, expressions } = _ast
       // type 需符合指定类型
       if (mediaQueryTypes.indexOf(type) === -1) {
@@ -311,7 +312,7 @@ function validateMediaCondition(condition) {
       }
       let conditionStr = modifier ? `${modifier} ${type} ${connector}` : `${type} ${connector}`
 
-      expressions.forEach(exp => {
+      expressions.forEach((exp) => {
         const { feature, combineSymbol, type: expType } = exp
         // feature 需符合指定类型. 同时寻找对应的校验模式
         const featureType = featureValidatorMap[feature]
@@ -353,7 +354,7 @@ function validateMediaCondition(condition) {
  */
 function findMediaClassByCondition(mediaClasses, condition) {
   if (condition) {
-    let mediaCls = mediaClasses.find(cls => {
+    let mediaCls = mediaClasses.find((cls) => {
       return cls.condition === condition
     })
     return mediaCls

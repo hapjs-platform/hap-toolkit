@@ -1,10 +1,10 @@
 /*
- * Copyright (c) 2021, the hapjs-platform Project Contributors
+ * Copyright (c) 2021-present, the hapjs-platform Project Contributors
  * SPDX-License-Identifier: Apache-2.0
  */
 
 import fs from 'fs'
-import path from 'path'
+import path from '@jayfate/path'
 import { readJson } from '../index'
 import { initProjectConfig, CONFIG_FILE } from './util'
 import eventBus from '../../event-bus'
@@ -34,7 +34,7 @@ function BuildModeManager(root) {
  * @private
  * @returns {ProjectConfig}
  */
-BuildModeManager.prototype._read = function() {
+BuildModeManager.prototype._read = function () {
   let config = {}
   try {
     config = readJson(this._configFile)
@@ -49,7 +49,7 @@ BuildModeManager.prototype._read = function() {
     }
   }
   const modeOptions = config.modeOptions
-  modeOptions.list = modeOptions.list.filter(m => m.id !== null && m.id !== -1)
+  modeOptions.list = modeOptions.list.filter((m) => m.id !== null && m.id !== -1)
   return config
 }
 
@@ -59,13 +59,13 @@ BuildModeManager.prototype._read = function() {
  * @private
  * @param {Object} config - 项目配置参数
  */
-BuildModeManager.prototype._write = function(config) {
+BuildModeManager.prototype._write = function (config) {
   const modeOptions = config.modeOptions
   //  -1 为“普通模式”
   modeOptions.list = modeOptions.list
-    .filter(m => m.id !== null && m.id !== -1)
+    .filter((m) => m.id !== null && m.id !== -1)
     .reduce((modes, mode) => {
-      if (!modes.find(m => m.id === mode.id)) {
+      if (!modes.find((m) => m.id === mode.id)) {
         modes.push(mode)
       }
       return modes
@@ -80,7 +80,7 @@ BuildModeManager.prototype._write = function(config) {
  *
  * @returns {BuildModeOptions} 当前编译模式配置
  */
-BuildModeManager.prototype.getConfig = function() {
+BuildModeManager.prototype.getConfig = function () {
   const config = this._read()
   return config.modeOptions
 }
@@ -90,7 +90,7 @@ BuildModeManager.prototype.getConfig = function() {
  *
  * @returns {Array<String>}
  */
-BuildModeManager.prototype.getAllPages = function() {
+BuildModeManager.prototype.getAllPages = function () {
   if (!this.root) {
     return []
   }
@@ -118,7 +118,7 @@ BuildModeManager.prototype.getAllPages = function() {
  * @param {String|null} [mode.scene] - 场景值
  * @returns {BuildModeOptions} 当前编译模式配置
  */
-BuildModeManager.prototype._addMode = function(config, mode, lazy) {
+BuildModeManager.prototype._addMode = function (config, mode, lazy) {
   const modeOptions = config.modeOptions
 
   let nextId
@@ -126,7 +126,7 @@ BuildModeManager.prototype._addMode = function(config, mode, lazy) {
     nextId =
       Math.max.apply(
         null,
-        modeOptions.list.map(m => m.id)
+        modeOptions.list.map((m) => m.id)
       ) + 1
   } else {
     nextId = 0
@@ -150,7 +150,7 @@ BuildModeManager.prototype._addMode = function(config, mode, lazy) {
  * @param {String|null} [mode.scene] - 场景值
  * @returns {BuildModeOptions} 当前编译模式配置
  */
-BuildModeManager.prototype.addMode = function(mode) {
+BuildModeManager.prototype.addMode = function (mode) {
   const config = this._read()
   return this._addMode(config, mode, false)
 }
@@ -165,9 +165,9 @@ BuildModeManager.prototype.addMode = function(mode) {
  * @param {String|null} [modes[].scene] - 场景值
  * @returns {BuildModeOptions} 当前编译模式配置
  */
-BuildModeManager.prototype.addModes = function(modes) {
+BuildModeManager.prototype.addModes = function (modes) {
   const config = this._read()
-  modes.forEach(mode => {
+  modes.forEach((mode) => {
     this._addMode(config, mode, true)
   })
   this._write(config)
@@ -180,10 +180,10 @@ BuildModeManager.prototype.addModes = function(modes) {
  * @param {Number} id - 编译模式 id
  * @returns {BuildModeOptions} 当前编译模式配置
  */
-BuildModeManager.prototype.delete = function(id) {
+BuildModeManager.prototype.delete = function (id) {
   const config = this._read()
   const modeOptions = config.modeOptions
-  const index = modeOptions.list.findIndex(m => m.id === id)
+  const index = modeOptions.list.findIndex((m) => m.id === id)
   modeOptions.current = -1
   if (index !== -1) {
     modeOptions.list.splice(index, 1)
@@ -203,10 +203,10 @@ BuildModeManager.prototype.delete = function(id) {
  * @param {String|null} [mode.scene] - 场景值
  * @returns {BuildModeOptions} 当前编译模式配置
  */
-BuildModeManager.prototype.update = function(mode) {
+BuildModeManager.prototype.update = function (mode) {
   const config = this._read()
   const modeOptions = config.modeOptions
-  const index = modeOptions.list.findIndex(m => m.id === mode.id)
+  const index = modeOptions.list.findIndex((m) => m.id === mode.id)
   if (index !== -1) {
     modeOptions.list[index] = mode
   }
@@ -219,10 +219,10 @@ BuildModeManager.prototype.update = function(mode) {
  * @param {Number} id - 目标编译模式 id
  * @returns {BuildModeOptions} 当前编译模式配置
  */
-BuildModeManager.prototype.select = function(id) {
+BuildModeManager.prototype.select = function (id) {
   const config = this._read()
   const modeOptions = config.modeOptions
-  const index = modeOptions.list.findIndex(m => m.id === id)
+  const index = modeOptions.list.findIndex((m) => m.id === id)
   if (index !== -1) {
     modeOptions.current = id
     this._write(config)
@@ -235,7 +235,7 @@ BuildModeManager.prototype.select = function(id) {
  * 设置为普通编译模式
  * @returns {BuildModeOptions} 当前编译模式配置
  */
-BuildModeManager.prototype.setToNormal = function() {
+BuildModeManager.prototype.setToNormal = function () {
   const config = this._read()
   const modeOptions = config.modeOptions
   modeOptions.current = -1
@@ -251,7 +251,7 @@ BuildModeManager.prototype.setToNormal = function() {
  * @param {String} [root] - 根目录
  * @returns {BuildModeOptions|null} 当前编译模式配置
  */
-BuildModeManager.prototype.setRoot = function(root) {
+BuildModeManager.prototype.setRoot = function (root) {
   if (typeof root === 'string') {
     this.root = root
     this._configFile = path.resolve(root, CONFIG_FILE)

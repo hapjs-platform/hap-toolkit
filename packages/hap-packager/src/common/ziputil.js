@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2021, the hapjs-platform Project Contributors
+ * Copyright (c) 2021-present, the hapjs-platform Project Contributors
  * SPDX-License-Identifier: Apache-2.0
  */
 
@@ -17,7 +17,7 @@ import { COMPRESS_OPTS, DIGEST_ZIP_DIR } from './constant'
 async function createZipBufferFromFileList(fileList, comment = null) {
   const zipInst = new JSZip()
 
-  fileList.forEach(fileItem => {
+  fileList.forEach((fileItem) => {
     if (!fileItem.path || !fileItem.content) {
       throw new Error(`### App Loader ### 创建ZIP流时的文件路径或内容不能为空：${fileItem}`)
     }
@@ -53,7 +53,7 @@ async function createFileListFromZipBuffer(zipBuffer) {
     fileList: fileList,
     comment: zipInst.comment,
     getFileBuffer(path) {
-      let buffer = fileList.find(item => item.path === path)
+      let buffer = fileList.find((item) => item.path === path)
       if (buffer) {
         buffer = buffer.content
       }

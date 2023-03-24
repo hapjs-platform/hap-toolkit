@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2021, the hapjs-platform Project Contributors
+ * Copyright (c) 2021-present, the hapjs-platform Project Contributors
  * SPDX-License-Identifier: Apache-2.0
  */
 
@@ -8,7 +8,7 @@ import { parseFragmentsWithCache } from '@hap-toolkit/compiler'
 
 import { splitSourceLine, generateMap, consumeMap, FRAG_TYPE } from './common/utils'
 
-module.exports = function(source, inputSourceMap) {
+module.exports = function (source, inputSourceMap) {
   const callback = this.async()
 
   // 获取query参数
@@ -24,7 +24,7 @@ module.exports = function(source, inputSourceMap) {
   }
 
   Promise.resolve(parseFragmentsWithCache(source, resourcePath)[type])
-    .then(result => {
+    .then((result) => {
       if (index != null) {
         result = result[index]
       }
@@ -70,7 +70,7 @@ module.exports = function(source, inputSourceMap) {
     .then(([content, map]) => {
       callback(null, content, (map && map.toJSON()) || inputSourceMap)
     })
-    .catch(e => {
+    .catch((e) => {
       callback(e, '')
     })
 }

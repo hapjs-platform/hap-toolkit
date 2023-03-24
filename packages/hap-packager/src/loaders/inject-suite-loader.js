@@ -1,7 +1,8 @@
 /*
- * Copyright (c) 2021, the hapjs-platform Project Contributors
+ * Copyright (c) 2021-present, the hapjs-platform Project Contributors
  * SPDX-License-Identifier: Apache-2.0
  */
+
 const fs = require('fs')
 const parser = require('@babel/parser')
 const generate = require('@babel/generator').default
@@ -73,7 +74,7 @@ function generateFn(hasTestcase = false) {
   return parser.parseExpression(fn).body
 }
 
-module.exports = function(source) {
+module.exports = function (source) {
   const query = loaderUtils.parseQuery(this.resourceQuery || '?')
 
   const options = loaderUtils.getOptions(this)
@@ -177,7 +178,7 @@ module.exports = function(source) {
   }
 
   // 替换原始的script文件内容为新内容
-  source = source.replace(/<script.*?>([\s\S]+)<\/script>/, function() {
+  source = source.replace(/<script.*?>([\s\S]+)<\/script>/, function () {
     return `<script>\n${generate(astBase).code}\n</script>`
   })
 

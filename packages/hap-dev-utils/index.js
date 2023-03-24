@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2021, the hapjs-platform Project Contributors
+ * Copyright (c) 2021-present, the hapjs-platform Project Contributors
  * SPDX-License-Identifier: Apache-2.0
  */
 
@@ -7,7 +7,7 @@ const process = require('process')
 const fs = require('fs')
 const { spawn } = require('child_process')
 const JSZip = require('jszip')
-const path = require('path')
+const path = require('@jayfate/path')
 const glob = require('glob')
 const fse = require('fs-extra')
 
@@ -24,16 +24,16 @@ function talkTo(proc, dialogs) {
   function stdHandler(type, dialogs) {
     const consumer = process[type]
     let _dialogs = dialogs.filter(
-      dlg => dlg.type === type || (type === 'stdout' && dlg.type !== 'stderr')
+      (dlg) => dlg.type === type || (type === 'stdout' && dlg.type !== 'stderr')
     )
     let output = ''
-    return function(data) {
+    return function (data) {
       consumer.write(data)
       output += data
       if (!_dialogs.length) {
         return
       }
-      const idx = _dialogs.findIndex(dlg => {
+      const idx = _dialogs.findIndex((dlg) => {
         if (typeof dlg.pattern === 'object' && dlg.pattern.constructor === RegExp) {
           return output.match(dlg.pattern)
         } else if (typeof dlg.pattern === 'function') {
@@ -85,10 +85,10 @@ function run(cmd, args = [], dialogs = [], opts = {}) {
       ...opts
     })
     talkTo(proc, dialogs)
-    proc.stdout.on('data', data => {
+    proc.stdout.on('data', (data) => {
       stdout += data.toString()
     })
-    proc.stderr.on('data', data => {
+    proc.stderr.on('data', (data) => {
       stderr += data.toString()
     })
 
@@ -133,6 +133,7 @@ function lsfiles(pattern = '**/{*,.*}', globopts = {}) {
   })
 }
 
+let uniqueId = process.env.JEST_WORKER_ID * 1000
 /**
  * 复制一份项目
  * 供测试
@@ -141,8 +142,17 @@ function lsfiles(pattern = '**/{*,.*}', globopts = {}) {
  * @returns {Promise<projectDir,buildDir>}
  */
 async function copyApp(projectDir) {
-  const target = path.resolve(projectDir, '../temp-test-app-' + Date.now())
-  await fse.copy(projectDir, target)
+  let target = path.resolve(projectDir, '../temp-test-app-' + uniqueId++)
+  while (fse.existsSync(target)) {
+    target = path.resolve(projectDir, '../temp-test-app-' + uniqueId++)
+  }
+  try {
+    await fse.copy(projectDir, target)
+  } catch (error) {
+    console.log(error)
+    console.log(`recopy`)
+    target = copyApp(projectDir)
+  }
   return target
 }
 
@@ -167,7 +177,7 @@ function readZip(zipfile) {
 
 const version = require('./package.json').version
 const versionRe = new RegExp(version.replace(/\./g, '\\.'), 'g')
-const cwdRe = new RegExp(process.cwd(), 'g')
+const cwdRe = new RegExp(path.resolve(process.cwd()), 'g')
 const buildTimeRe = /(Build Time Cost:\s+)[0-9.]+s/gm
 /**
  * 将各种动态数据置换为占位符
@@ -179,6 +189,9 @@ const buildTimeRe = /(Build Time Cost:\s+)[0-9.]+s/gm
 function wipeDynamic(string, extendList = []) {
   let wiped = string
   extendList.forEach(([pattern, placeholder]) => {
+    if (typeof pattern === 'string') {
+      pattern = path.resolve(pattern)
+    }
     const re = typeof pattern === 'string' ? new RegExp(pattern, 'g') : pattern
     wiped = wiped.replace(re, placeholder)
   })

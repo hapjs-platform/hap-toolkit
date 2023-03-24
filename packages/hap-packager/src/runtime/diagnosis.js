@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2021, the hapjs-platform Project Contributors
+ * Copyright (c) 2021-present, the hapjs-platform Project Contributors
  * SPDX-License-Identifier: Apache-2.0
  */
 
@@ -15,10 +15,10 @@ function initConsoleProxy(callback) {
   const quickappGlobal = new Function('return this')()
   const consoleMtdList = ['error', 'warn', 'info', 'log', 'debug', 'trace']
 
-  consoleMtdList.forEach(mtdName => {
+  consoleMtdList.forEach((mtdName) => {
     const _originFn = quickappGlobal.console[mtdName]
 
-    quickappGlobal.console[mtdName] = function(...args) {
+    quickappGlobal.console[mtdName] = function (...args) {
       // 原有调用
       _originFn.apply(quickappGlobal.console, args)
       // 额外输出
@@ -91,13 +91,13 @@ function pipeToFetchFactory(options) {
       type: logType,
       // 记录内容
       args: logArgs
-        .map(arg => {
+        .map((arg) => {
           if (arg && arg._id) {
             return Object.keys(arg)
           }
           return arg
         })
-        .map(arg => JSON.stringify(arg))
+        .map((arg) => JSON.stringify(arg))
     })
 
     if (!_hasNexttick && recordDataList.length > 0) {

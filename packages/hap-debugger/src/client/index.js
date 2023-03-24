@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2021, the hapjs-platform Project Contributors
+ * Copyright (c) 2021-present, the hapjs-platform Project Contributors
  * SPDX-License-Identifier: Apache-2.0
  */
 
@@ -21,7 +21,7 @@ function init() {
 function bindEvents() {
   const socket = io(location.origin) // eslint-disable-line no-undef
 
-  socket.on('appRegistered', data => {
+  socket.on('appRegistered', (data) => {
     console.info(`on receiving appRegistered message: ${JSON.stringify(data)}`)
     updateTableElement(data)
   })
@@ -49,7 +49,7 @@ function updateTableElement(data) {
     data_href_value: data.inspectorUrl,
     data_href_name: '进入调试页面'
   }
-  Object.keys(dataToFill).forEach(key => {
+  Object.keys(dataToFill).forEach((key) => {
     tplTextContent = tplTextContent.replace(`{{${key}}}`, dataToFill[key])
   })
 

@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2021, the hapjs-platform Project Contributors
+ * Copyright (c) 2021-present, the hapjs-platform Project Contributors
  * SPDX-License-Identifier: Apache-2.0
  */
 
@@ -9,7 +9,7 @@
 var Hex = {},
   decoder
 
-Hex.decode = function(a) {
+Hex.decode = function (a) {
   var i
   if (decoder === undefined) {
     var hex = '0123456789ABCDEF',

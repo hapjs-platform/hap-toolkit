@@ -1,6 +1,6 @@
 {
   "name": "@hap-toolkit/packager",
-  "version": "1.9.5",
+  "version": "1.9.11",
   "description": "@hap-toolkit/packager",
   "engines": {
     "node": ">=8.0.0"
@@ -20,7 +20,8 @@
   "files": [
     "lib/**/*.js",
     "lib/signature/pem/*",
-    "babel.config.js"
+    "babel.config.js",
+    "babel.tree.config.js"
   ],
   "dependencies": {
     "@babel/core": "^7.9.6",
@@ -29,10 +30,11 @@
     "@babel/traverse": "^7.9.6",
     "@babel/types": "^7.9.6",
     "@hap-toolkit/aaptjs": "^2.0.0",
-    "@hap-toolkit/compiler": "1.9.5",
-    "@hap-toolkit/shared-utils": "1.9.5",
+    "@hap-toolkit/compiler": "1.9.11",
+    "@hap-toolkit/shared-utils": "1.9.11",
+    "@jayfate/path": "^0.0.13",
     "babel-loader": "^8.1.0",
-    "fs-extra": "^7.0.1",
+    "fs-extra": "^10.0.0",
     "glob": "^7.1.6",
     "hash-sum": "^1.0.2",
     "hybrid-chai": "0.0.1",
@@ -41,10 +43,10 @@
     "jszip": "^3.4.0",
     "koa-bodyparser": "^4.2.1",
     "koa-router": "^7.4.0",
-    "loader-utils": "^1.4.0",
+    "loader-utils": "2.0.2",
     "moment": "^2.25.3",
     "qr-image": "^3.2.0",
-    "webpack": "5.24.0",
+    "webpack": "5.72.0",
     "webpack-bundle-analyzer": "^3.5.0"
   }
 }

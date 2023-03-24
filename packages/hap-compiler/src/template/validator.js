@@ -1,8 +1,9 @@
 /*
- * Copyright (c) 2021, the hapjs-platform Project Contributors
+ * Copyright (c) 2021-present, the hapjs-platform Project Contributors
  * SPDX-License-Identifier: Apache-2.0
  */
-import path from 'path'
+
+import path from '@jayfate/path'
 import { colorconsole } from '@hap-toolkit/shared-utils'
 import exp from './exp'
 import styler from '../style'
@@ -30,7 +31,7 @@ const REG_TAG_DATA_ATTR = /^data-\w+/
 const REG_CLASS_VALUE = /[^{}\s]+((?=\s)|$)|[^{}\s]*\{\{[^]*?\}\}[^\s]*/g
 
 // 保留标签名
-const RESERVED_TAGS = Object.keys(FRAG_TYPE).map(k => FRAG_TYPE[k])
+const RESERVED_TAGS = Object.keys(FRAG_TYPE).map((k) => FRAG_TYPE[k])
 
 // 保留指令名
 const RESERVED_DIRECTIVES = /^(model:|dir:)/
@@ -128,7 +129,8 @@ const tagNatives = {
     attrs: {
       type: {
         enum: ['text', 'html']
-      }
+      },
+      'letter-spacing': {}
     }
   },
   span: {
@@ -239,7 +241,8 @@ const tagNatives = {
     attrs: {
       type: {
         required: true
-      }
+      },
+      disallowintercept: {}
     }
   },
   block: {
@@ -304,7 +307,9 @@ const tagNatives = {
           'number',
           'password',
           'tel',
-          'eventbutton'
+          'eventbutton',
+          'hidetext',
+          'showtext'
         ]
       },
       autocomplete: {
@@ -466,9 +471,26 @@ const tagNatives = {
       },
       type: {
         def: 'native'
-      }
+      },
+      adid: {}
     },
-    events: ['load', 'error']
+    events: ['adclick', 'error']
+  },
+  'ad-clickable-area': {
+    supportCard: true,
+    textContent: true,
+    atomic: true,
+    attrs: {
+      type: {}
+    }
+  },
+  'ad-custom': {
+    attrs: {
+      adUnitId: {},
+      channel: {},
+      extendCommon: false // 不支持通用属性
+    },
+    events: ['load', 'error', 'show', 'click', 'close']
   },
   swiper: {
     attrs: {
@@ -685,9 +707,10 @@ const tagNatives = {
       type: {
         required: true,
         enum: ['html'].concat(richtextType)
-      }
+      },
+      scene: {}
     },
-    events: ['start', 'complete']
+    events: ['start', 'complete', 'pagechanged', 'splitpage']
   },
   tabs: {
     children: ['tab-bar', 'tab-content'],
@@ -935,7 +958,7 @@ const tagEventsMap = {}
 // 不能作为根节点
 const tagNotRoot = []
 ;(function initRules() {
-  tagNativeKeys.forEach(function(tagName) {
+  tagNativeKeys.forEach(function (tagName) {
     tagReserved[tagName] = true
 
     const tagInfo = tagNatives[tagName]
@@ -949,7 +972,7 @@ const tagNotRoot = []
       tagEmpty[tagName] = true
     }
     if (tagInfo.alias && tagInfo.alias.length) {
-      tagInfo.alias.forEach(function(n) {
+      tagInfo.alias.forEach(function (n) {
         tagAliasMap[n] = tagName
       })
     }
@@ -970,7 +993,7 @@ const tagNotRoot = []
     if ('extendCommon' in attrsMap) {
       delete attrsMap.extendCommon
     }
-    Object.keys(attrsMap).forEach(function(name) {
+    Object.keys(attrsMap).forEach(function (name) {
       const attr = attrsMap[name]
       if (attr.enum && attr.enum.length > 0) {
         enumAttr[name] = attr.enum
@@ -1083,19 +1106,19 @@ function checkTagName(node, output, options = {}) {
   // 标签的属性列表
   const attrlist = []
   // 转换为小写
-  attrs.forEach(function(item) {
+  attrs.forEach(function (item) {
     attrlist.push(item.name.toLowerCase())
   })
 
   // 检查根节点属性合法性
   if (node._isroot) {
     const rootExcludeAttrList = ['for', 'if', 'elif', 'else', 'show']
-    attrlist.forEach(name => {
+    attrlist.forEach((name) => {
       if (rootExcludeAttrList.indexOf(name) >= 0) {
         log.push({
           line: location.line || 1,
           column: location.col || 1,
-          reason: 'ERROR: 根节点 `' + tagName + '` 不能使用属性 `' + name + '`'
+          reason: 'WARN: 根节点 `' + tagName + '` 不能使用属性 `' + name + '`'
         })
       }
     })
@@ -1116,13 +1139,14 @@ function checkTagName(node, output, options = {}) {
   }
 
   // 如果是原子标签
-  if (tagAtomics.hasOwnProperty(tagName)) {
+  // 因为ad-clickable-area组件既可以支持文本，又可以支持子组件，所以不做检查
+  if (tagAtomics.hasOwnProperty(tagName) && tagName !== 'ad-clickable-area') {
     // 如果没有文本内容
     if (tagTextContent.hasOwnProperty(tagName)) {
       // 非文本节点
       if (childNodes.length > 0) {
         // 不处理#text子节点
-        childNodes.every(child => {
+        childNodes.every((child) => {
           if (child.nodeName !== '#text') {
             log.push({
               line: location.line || 1,
@@ -1149,7 +1173,7 @@ function checkTagName(node, output, options = {}) {
 
   // 处理缺省属性(如果值为空, 则设置为缺省值)
   if (tagDefaultAttrMap[tagName]) {
-    Object.keys(tagDefaultAttrMap[tagName]).forEach(name => {
+    Object.keys(tagDefaultAttrMap[tagName]).forEach((name) => {
       const index = attrlist.indexOf(name)
       if (index >= 0 && attrs[index].value === '') {
         attrs[index].value = tagDefaultAttrMap[tagName][name]
@@ -1171,9 +1195,9 @@ function checkTagName(node, output, options = {}) {
           value: tagDefaultAttrMap[tagName][name]
         })
         colorconsole.warn(
-          `标签${tagName}的属性 \`${name}\` 值为空, 默认设置为缺省值 \`${
+          `标签 ${tagName} 的属性 \`${name}\` 值为空, 默认设置为缺省值 \`${
             tagDefaultAttrMap[tagName][name]
-          }\` ${options.filePath}@${location.line || 1},${location.col || 1}`
+          }\` ${options.filePath} @${location.line || 1},${location.col || 1}`
         )
       }
     })
@@ -1181,7 +1205,7 @@ function checkTagName(node, output, options = {}) {
 
   // 检查必需的属性
   if (tagRequireAttrMap[tagName]) {
-    tagRequireAttrMap[tagName].forEach(name => {
+    tagRequireAttrMap[tagName].forEach((name) => {
       if (attrlist.indexOf(name) < 0) {
         log.push({
           line: location.line || 1,
@@ -1194,7 +1218,7 @@ function checkTagName(node, output, options = {}) {
 
   // 检查属性枚举值的合法性
   if (tagEnumAttrMap[tagName]) {
-    Object.keys(tagEnumAttrMap[tagName]).forEach(name => {
+    Object.keys(tagEnumAttrMap[tagName]).forEach((name) => {
       const index = attrlist.indexOf(name)
       if (index >= 0) {
         const value = attrs[index].value
@@ -1225,7 +1249,7 @@ function checkTagName(node, output, options = {}) {
 
   // 检查属性的合法性
   if (tagAttrMap[tagName] && tagName !== 'component') {
-    attrlist.forEach(item => {
+    attrlist.forEach((item) => {
       if (!item.match(/^(on|@)/)) {
         // 对vue的属性检测适配
         if (type.indexOf(extList[2]) >= -1) {
@@ -1240,14 +1264,7 @@ function checkTagName(node, output, options = {}) {
           log.push({
             line: location.line || 1,
             column: location.col || 1,
-            reason:
-              'ERROR: 组件 `' +
-              tagName +
-              '` 不支持属性 `' +
-              item +
-              '`，支持的属性有 [' +
-              Object.keys(tagAttrMap[tagName]).join(', ') +
-              ']'
+            reason: 'WARN: 组件 `' + tagName + '` 不支持属性 `' + item
           })
         }
       }
@@ -1257,7 +1274,7 @@ function checkTagName(node, output, options = {}) {
   // 检查事件合法性
   if (tagEventsMap[tagName] && tagName !== 'component') {
     const events = tagEventsMap[tagName]
-    attrlist.forEach(name => {
+    attrlist.forEach((name) => {
       if (name.match(/^(on|@)/)) {
         const eventName = name.replace(/^(on|@)/, '')
         // 对卡片不支持的事件进行判断
@@ -1298,32 +1315,33 @@ function checkTagName(node, output, options = {}) {
           while (currentNode) {
             if (currentNode.tagName === 'slot') {
               colorconsole.warn(
-                `slot标签内不应该嵌套slot ${options.filePath}@${location.line ||
-                  1},${location.col || 1}`
+                `slot标签内不应该嵌套slot ${options.filePath}@${location.line || 1},${
+                  location.col || 1
+                }`
               )
               break
             }
             currentNode = currentNode.parentNode
           }
           const attrsMap = {}
-          child.attrs.map(item => {
+          child.attrs.map((item) => {
             attrsMap[item.name] = item.value
           })
           if (!attrsMap.hasOwnProperty('name')) {
             attrsMap.name = 'default'
           } else if (/\{\{\s*[\w$]+\s*\}\}/.test(attrsMap.name)) {
             colorconsole.warn(
-              `标签${child.nodeName}的name属性暂时不支持动态绑定 ${
-                options.filePath
-              }@${location.line || 1},${location.col || 1}`
+              `标签${child.nodeName}的name属性暂时不支持动态绑定 ${options.filePath}@${
+                location.line || 1
+              },${location.col || 1}`
             )
           }
 
           if (slotSet.has(attrsMap.name)) {
             colorconsole.warn(
-              `标签${tagName}内存在name为 \`${attrsMap.name}\` 重复slot ${
-                options.filePath
-              }@${location.line || 1},${location.col || 1}`
+              `标签${tagName}内存在name为 \`${attrsMap.name}\` 重复slot ${options.filePath}@${
+                location.line || 1
+              },${location.col || 1}`
             )
           } else {
             slotSet.add(attrsMap.name)
@@ -1356,12 +1374,12 @@ function checkTagName(node, output, options = {}) {
     const keys = Object.keys(nodeNameMap)
     if (keys.length) {
       keys
-        .filter(childName => nodeNameMap[childName].duplicated)
-        .forEach(childName => {
+        .filter((childName) => nodeNameMap[childName].duplicated)
+        .forEach((childName) => {
           log.push({
             line: location.line || 1,
             column: location.col || 1,
-            reason: `'WARNING: 组件 \`${childName}\` 只允许在 \`${tagName}\` 组件中出现一次`
+            reason: `'WARN: 组件 \`${childName}\` 只允许在 \`${tagName}\` 组件中出现一次`
           })
         })
       node.childNodes = childNodes.filter(
@@ -1447,7 +1465,7 @@ function checkClass(className, output) {
     if (matched) {
       let staticString
       // 拆解 class 属性，将静态 class 和插值表达式分离
-      matched.forEach(exp => {
+      matched.forEach((exp) => {
         end = className.indexOf(exp, start)
         staticString = className.slice(start, end)
         if (staticString.length) {
@@ -1468,11 +1486,11 @@ function checkClass(className, output) {
       return list.concat(
         seg
           .split(/\s+/g)
-          .filter(s => s)
-          .map(s => `'${s}'`)
+          .filter((s) => s)
+          .map((s) => `'${s}'`)
       )
     }, [])
-    classList = classList.filter(klass => klass.trim())
+    classList = classList.filter((klass) => klass.trim())
 
     if (hasBinding) {
       const code = '(function () {return [' + classList.join(', ') + ']})'
@@ -1488,7 +1506,7 @@ function checkClass(className, output) {
     } else {
       output.result.classList = classList.map(
         // 去掉引号
-        klass => klass.slice(1, -1)
+        (klass) => klass.slice(1, -1)
       )
     }
   }
@@ -1522,7 +1540,7 @@ function checkStyle(cssText, output, locationInfo, options) {
       return
     }
     // 如果是 a: {{}}; b: {{}};, 则分解处理
-    cssText.split(';').forEach(function(declarationText) {
+    cssText.split(';').forEach(function (declarationText) {
       let k, v, vResult
       let pair = declarationText.trim().split(':')
       // 如果出现xxx:xxx:xxx的情况, 则将第一个:之后文本作为value
@@ -1538,7 +1556,7 @@ function checkStyle(cssText, output, locationInfo, options) {
         vResult = styler.validateDelaration(k, v, options)
         v = vResult.value
 
-        v.forEach(t => {
+        v.forEach((t) => {
           // 如果校验成功，则保存转换后的属性值
           if (isValidValue(t.v) || typeof t.v === 'function') {
             style[t.n] = t.v
@@ -1584,7 +1602,7 @@ function checkIs(value, output, locationInfo) {
     log.push({
       line: locationInfo.line || 1,
       column: locationInfo.col || 1,
-      reason: 'WARNING: is 属性为空'
+      reason: 'WARN: is 属性为空'
     })
   }
 }
@@ -1615,7 +1633,7 @@ function checkIf(value, output, not, locationInfo, conditionList) {
       log.push({
         line: locationInfo.line || 1,
         column: locationInfo.col || 1,
-        reason: 'WARNING: if 属性为空'
+        reason: 'WARN: if 属性为空'
       })
     }
   }
@@ -1657,7 +1675,7 @@ function checkElif(value, cond, output, locationInfo, conditionList) {
     log.push({
       line: locationInfo.line || 1,
       column: locationInfo.col || 1,
-      reason: 'WARNING: Elif 属性为空'
+      reason: 'WARN: Elif 属性为空'
     })
   }
   return newcond
@@ -1709,7 +1727,7 @@ function checkFor(value, output, locationInfo) {
     log.push({
       line: locationInfo.line || 1,
       column: locationInfo.col || 1,
-      reason: 'WARNING: for 属性为空'
+      reason: 'WARN: for 属性为空'
     })
   }
 }
@@ -1803,7 +1821,7 @@ function checkAttr(name, value, output, tagName, locationInfo, options) {
           line: locationInfo.line,
           column: locationInfo.column,
           reason:
-            'WARNING: ' + tagName + ' 属性 ' + name + ' 的值 ' + value + ' 下不存在对应的文件资源'
+            'WARN: ' + tagName + ' 属性 ' + name + ' 的值 ' + value + ' 下不存在对应的文件资源'
         })
       }
       // 转换为以项目源码为根的绝对路径
@@ -1816,7 +1834,7 @@ function checkAttr(name, value, output, tagName, locationInfo, options) {
       output.log.push({
         line: locationInfo.line,
         column: locationInfo.column,
-        reason: 'WARNING: `value` 应该写在<text>标签中'
+        reason: 'WARN: `value` 应该写在<text>标签中'
       })
     }
   }
@@ -1924,7 +1942,7 @@ function isEmptyElement(tagName) {
  */
 function buildConditionExp(list) {
   return list
-    .map(exp => {
+    .map((exp) => {
       return `!(${exp})`
     })
     .join(' && ')
@@ -1936,8 +1954,8 @@ function buildConditionExp(list) {
  */
 function hasIfOrFor(nodes) {
   let flag = false
-  nodes.find(item => {
-    const index = (item.attrs || []).findIndex(attr => {
+  nodes.find((item) => {
+    const index = (item.attrs || []).findIndex((attr) => {
       return ['for', 'if'].indexOf(attr.name) > -1
     })
     if (index > -1) {

@@ -1,9 +1,10 @@
 /*
- * Copyright (c) 2021, the hapjs-platform Project Contributors
+ * Copyright (c) 2021-present, the hapjs-platform Project Contributors
  * SPDX-License-Identifier: Apache-2.0
  */
 
 'use strict'
+const globalConfig = require('@hap-toolkit/shared-utils/config')
 
 /**
  * 添加ViewModel数据校验和处理代码。只有页面组件才需要, 子组件不需要
@@ -11,8 +12,18 @@
  * @param {object} sourceMap - 前一级 loader 处理后的 sourceMap
  */
 module.exports = function accessLoader(source, sourceMap) {
+  const isUseTreeShaking = !!globalConfig.useTreeShaking
+
+  if (isUseTreeShaking) {
+    source = source.replace(/export default |module.exports = /gm, 'const _module_exports = ')
+  }
+
   const contentAccess = `\n
-  const moduleOwn = exports.default || module.exports
+  ${
+    isUseTreeShaking
+      ? 'const moduleOwn = _module_exports'
+      : 'const moduleOwn = exports.default || module.exports'
+  }
   const accessors = ['public', 'protected', 'private']
 
   if (moduleOwn.data && accessors.some(function (acc) { return moduleOwn[acc] })) {
@@ -34,8 +45,8 @@ module.exports = function accessLoader(source, sourceMap) {
       }
     })
   }
+  ${isUseTreeShaking ? 'export default _module_exports' : ''}
 `
   source += contentAccess
-
   this.callback(null, source, sourceMap)
 }

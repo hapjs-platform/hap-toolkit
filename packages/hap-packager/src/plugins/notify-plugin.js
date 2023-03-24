@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2021, the hapjs-platform Project Contributors
+ * Copyright (c) 2021-present, the hapjs-platform Project Contributors
  * SPDX-License-Identifier: Apache-2.0
  */
 
@@ -29,12 +29,12 @@ function sendUpdateReq(client) {
     .request(options, () => {
       colorconsole.log(`### App Server ### 通知手机更新rpk文件成功: ${requrl} `)
     })
-    .on('error', err => {
+    .on('error', (err) => {
       colorconsole.log(
         `### App Server ### 通知手机更新rpk文件失败(可忽略): ${requrl} 错误信息: ${err.message}`
       )
     })
-    .on('timeout', function() {
+    .on('timeout', function () {
       colorconsole.log(`### App Server ### 通知手机更新rpk文件超时(可忽略): ${requrl}`)
       req.abort()
     })
@@ -48,13 +48,13 @@ function notify() {
     const clients = getProjectClients(recordData)
     if (clients.length > 0) {
       colorconsole.log('### App Loader ### 通知手机更新rpk文件')
-      clients.forEach(function(client) {
+      clients.forEach(function (client) {
         if (client.ip !== '127.0.0.1') {
           // 正常WIFI更新
           sendUpdateReq(client)
         } else {
           // ADB更新
-          getDeviceInfo(client, err => {
+          getDeviceInfo(client, (err) => {
             if (err) {
               // 1020以下的版本调试器无该接口，即：不支持ADB
               return
@@ -81,8 +81,8 @@ function NotifyPlugin(options) {
   }
 }
 
-NotifyPlugin.prototype.apply = function(compiler) {
-  compiler.hooks.done.tapAsync('NotifyPlugin', function(stats, callback) {
+NotifyPlugin.prototype.apply = function (compiler) {
+  compiler.hooks.done.tapAsync('NotifyPlugin', function (stats, callback) {
     if (!stats.compilation.errors.length && isFirstUpdate) {
       // 发送通知
       notify()

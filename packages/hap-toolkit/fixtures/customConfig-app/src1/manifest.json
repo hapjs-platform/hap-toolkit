@@ -5,11 +5,8 @@
   "versionCode": "1",
   "minPlatformVersion": 1070,
   "icon": "/Common/logo.png",
-  "features": [
-  ],
-  "permissions": [
-    { "origin": "*" }
-  ],
+  "features": [],
+  "permissions": [{ "origin": "*" }],
   "config": {
     "logLevel": "off"
   },

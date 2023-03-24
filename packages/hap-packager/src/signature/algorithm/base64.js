@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2021, the hapjs-platform Project Contributors
+ * Copyright (c) 2021-present, the hapjs-platform Project Contributors
  * SPDX-License-Identifier: Apache-2.0
  */
 
@@ -9,7 +9,7 @@
 var Base64 = {},
   decoder
 
-Base64.decode = function(a) {
+Base64.decode = function (a) {
   var i
   if (decoder === undefined) {
     var b64 = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/',
@@ -52,8 +52,9 @@ Base64.decode = function(a) {
   return out
 }
 
-Base64.re = /-----BEGIN [^-]+-----([A-Za-z0-9+\/=\s]+)-----END [^-]+-----|begin-base64[^\n]+\n([A-Za-z0-9+\/=\s]+)====/
-Base64.unarmor = function(a) {
+Base64.re =
+  /-----BEGIN [^-]+-----([A-Za-z0-9+\/=\s]+)-----END [^-]+-----|begin-base64[^\n]+\n([A-Za-z0-9+\/=\s]+)====/
+Base64.unarmor = function (a) {
   var m = Base64.re.exec(a)
   if (m) {
     if (m[1]) a = m[1]

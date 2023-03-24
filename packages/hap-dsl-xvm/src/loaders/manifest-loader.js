@@ -1,10 +1,10 @@
 /*
- * Copyright (c) 2021, the hapjs-platform Project Contributors
+ * Copyright (c) 2021-present, the hapjs-platform Project Contributors
  * SPDX-License-Identifier: Apache-2.0
  */
 
 'use strict'
-import path from 'path'
+import path from '@jayfate/path'
 import fs from 'fs'
 import loaderUtils from 'loader-utils'
 import { logWarn } from '@hap-toolkit/shared-utils'
@@ -16,7 +16,7 @@ const REGEXP_URL = /^['"]?([^()]+?)['"]?$/gi
 const REGEXP_NAME = /^[a-zA-Z_][a-zA-Z0-9]*$/
 
 const validator = {
-  integer: function(v) {
+  integer: function (v) {
     v = (v || '').toString()
     if (v.match(REGEXP_INT)) {
       return { value: true }
@@ -28,7 +28,7 @@ const validator = {
       }
     }
   },
-  object: function(v) {
+  object: function (v) {
     const r = isPlainObject(v)
     return {
       value: isPlainObject(v),
@@ -39,7 +39,7 @@ const validator = {
           }
     }
   },
-  url: function(v) {
+  url: function (v) {
     v = (v || '').toString().trim()
     const url = v.match(REGEXP_URL)
     if (url) {
@@ -53,7 +53,7 @@ const validator = {
       }
     }
   },
-  name: function(v) {
+  name: function (v) {
     v = (v || '').toString()
     if (v.match(REGEXP_NAME)) {
       return { value: true }
@@ -127,7 +127,7 @@ function validate(name, value) {
 // 缺省属性
 const requireAttrMap = []
 ;(function initRules() {
-  Object.keys(validatorMap).forEach(function(name) {
+  Object.keys(validatorMap).forEach(function (name) {
     const info = validatorMap[name]
     if (info.require) {
       requireAttrMap.push(name)
@@ -143,7 +143,7 @@ module.exports = function manifestLoader(source, sourceMap) {
   const logs = []
   if (manifest) {
     // 检测必填属性
-    requireAttrMap.forEach(function(name) {
+    requireAttrMap.forEach(function (name) {
       if (!manifest[name]) {
         logs.push({
           line: 1,
@@ -155,7 +155,7 @@ module.exports = function manifestLoader(source, sourceMap) {
 
     // 校验属性值
     let value, result
-    Object.keys(manifest).forEach(key => {
+    Object.keys(manifest).forEach((key) => {
       value = manifest[key]
       result = validate(key, value)
       if (result.log) {

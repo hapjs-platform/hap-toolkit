@@ -21,22 +21,13 @@
     "setInterval": false,
     "clearInterval": false
   },
-  "plugins": [
-    "hybrid"
-  ],
+  "plugins": ["hybrid"],
   "rules": {
-    "indent": [
-      "warn",
-      2
-    ],
+    "indent": ["warn", 2],
     "no-console": [
       "warn",
       {
-        "allow": [
-          "info",
-          "warn",
-          "error"
-        ]
+        "allow": ["info", "warn", "error"]
       }
     ],
     "no-unused-vars": [
@@ -53,13 +44,7 @@
         "allowTemplateLiterals": true
       }
     ],
-    "linebreak-style": [
-      "warn",
-      "unix"
-    ],
-    "semi": [
-      "warn",
-      "never"
-    ]
+    "linebreak-style": ["warn", "unix"],
+    "semi": ["warn", "never"]
   }
 }

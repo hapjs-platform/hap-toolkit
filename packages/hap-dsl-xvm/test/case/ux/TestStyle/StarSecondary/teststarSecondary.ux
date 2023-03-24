@@ -1,1 +1,6 @@
-/* * Copyright (c) 2021, the hapjs-platform Project Contributors * SPDX-License-Identifier: Apache-2.0 */<template>  <div>  </div></template><style>  .A1 {    star-secondary: url('./a.png');  }  .A2 {    star-secondary: url(./a.png)  }  .a1 {    star-secondary: url();  }  .a2 {    star-secondary: './a.png';  }  .a3 {    star-secondary: @uri;  }  .a4 {    star-secondary: url(a);  }  .a5 {    star-secondary: url(@uri);  }  .a6 {    star-secondary: uri('./a.png');  }</style><script>  export default {    data: {    }  }</script>'
+<!-- 
+  Copyright (c) 2021-present, the hapjs-platform Project Contributors
+  SPDX-License-Identifier: Apache-2.0
+-->
+
+<template>  <div>  </div></template><style>  .A1 {    star-secondary: url('./a.png');  }  .A2 {    star-secondary: url(./a.png)  }  .a1 {    star-secondary: url();  }  .a2 {    star-secondary: './a.png';  }  .a3 {    star-secondary: @uri;  }  .a4 {    star-secondary: url(a);  }  .a5 {    star-secondary: url(@uri);  }  .a6 {    star-secondary: uri('./a.png');  }</style><script>  export default {    data: {    }  }</script>'

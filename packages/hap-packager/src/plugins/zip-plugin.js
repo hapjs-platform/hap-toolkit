@@ -1,10 +1,10 @@
 /*
- * Copyright (c) 2021, the hapjs-platform Project Contributors
+ * Copyright (c) 2021-present, the hapjs-platform Project Contributors
  * SPDX-License-Identifier: Apache-2.0
  */
 
 import fs from 'fs-extra'
-import path from 'path'
+import path from '@jayfate/path'
 import { colorconsole, readJson } from '@hap-toolkit/shared-utils'
 import globalConfig from '@hap-toolkit/shared-utils/config'
 import { sortFilesBy, lsdirdeep, genPriorities } from '../common/utils'
@@ -161,6 +161,9 @@ function getDistFilename(options, distExt) {
   let distName
   if (options.buildNameFormat === compileOptionsMeta.buildNameFormat.ORIGINAL) {
     distName = `${options.name}.${flagSign}.${distExt}`
+  } else if (options.buildNameFormat && options.buildNameFormat.startsWith('CUSTOM=')) {
+    const custom = options.buildNameFormat.split('=')[1]
+    distName = `${options.name}.${flagSign}.${custom}.${options.versionName}.${distExt}`
   } else {
     distName = `${options.name}.${flagSign}.${options.versionName}.${distExt}`
   }
@@ -216,7 +219,11 @@ const buildRemotePreviewPkg = {
     manifest.name = userNameHash || _changedName
 
     fs.writeFileSync(filePath, JSON.stringify(manifest))
-    this.cachePkgNameOriginAndPath.push({ package: _changedPackage, filePath, name: _changedName })
+    this.cachePkgNameOriginAndPath.push({
+      package: _changedPackage,
+      filePath,
+      name: _changedName
+    })
   },
   // 修改build文件下的manifest.package 打包后恢复build/manifest内的包名
   changePkgName(options) {
@@ -273,7 +280,7 @@ function ZipPlugin(options) {
   this.manifestFile = path.resolve(this.options.pathSrc, 'manifest.json')
 }
 
-ZipPlugin.prototype.apply = function(compiler) {
+ZipPlugin.prototype.apply = function (compiler) {
   const options = this.options
 
   let subpackageOptions
@@ -282,6 +289,16 @@ ZipPlugin.prototype.apply = function(compiler) {
   }
 
   compiler.hooks.done.tapAsync('ZipPlugin', async (stats, callback) => {
+    // 更新 options 里的值，防止改变 manifest 文件字段导致的问题
+    if (fs.pathExistsSync(path.join(options.pathSrc, 'manifest.json'))) {
+      const file = fs.readFileSync(path.join(options.pathSrc, 'manifest.json'), 'utf8')
+      const manifest = JSON.parse(file)
+      options.name = manifest.package
+      options.versionName = manifest.versionName
+      options.versionCode = manifest.versionCode
+      this.options = options
+    }
+
     try {
       // 增加实例变量
       this.signConfig = getProjectSignConfig(options)
@@ -293,7 +310,7 @@ ZipPlugin.prototype.apply = function(compiler) {
 
     // 抽取公共JS：app-chunks.json放在app.js之前，page-chunks.json放在app.js之后,便于流式加载
     if (compileOptionsObject.splitChunksMode === compileOptionsMeta.splitChunksModeEnum.SMART) {
-      const appIndex = options.priorities.findIndex(item => {
+      const appIndex = options.priorities.findIndex((item) => {
         return item === 'app.js'
       })
       options.priorities.splice(appIndex, 0, compileOptionsMeta.splitChunksNameEnum.APP)
@@ -304,7 +321,7 @@ ZipPlugin.prototype.apply = function(compiler) {
 
     // release下 过滤掉rpk内所有.map文件
     if (options.sign === 'release') {
-      files = files.filter(file => !/\.map$/.test(file))
+      files = files.filter((file) => !/\.map$/.test(file))
     }
 
     if (files === false || !files.length) {
@@ -340,17 +357,19 @@ ZipPlugin.prototype.apply = function(compiler) {
       fullPackage,
       subPackages,
       this.signConfig,
-      options.disableStreamPack
+      options.disableStreamPack,
+      compiler.watchMode
     )
 
     fs.ensureDirSync(options.output)
 
     // 生成rpk/rpks文件
-    generateDistFile(rpkBuffer, options, compiler.watchMode, 'rpk')
+    if (rpkBuffer) {
+      generateDistFile(rpkBuffer, options, compiler.watchMode, 'rpk')
+    }
     if (rpksBuffer) {
       generateDistFile(rpksBuffer, options, compiler.watchMode, 'rpks')
     }
-
     callback()
   })
 

@@ -1,9 +1,9 @@
 /*
- * Copyright (c) 2021, the hapjs-platform Project Contributors
+ * Copyright (c) 2021-present, the hapjs-platform Project Contributors
  * SPDX-License-Identifier: Apache-2.0
  */
 
-const path = require('path')
+const path = require('@jayfate/path')
 
 const { readJson } = require('@hap-toolkit/shared-utils')
 const globalConfig = require('@hap-toolkit/shared-utils/config')
@@ -31,7 +31,7 @@ const { getSkeletonConfig } = require('./common/info')
  */
 function postHook(webpackConf, defaults, quickappConfig = {}) {
   // 项目目录
-  const cwd = globalConfig.projectPath
+  const cwd = path.resolve(globalConfig.projectPath)
   // 环境信息
   const {
     appPackageName,
@@ -45,7 +45,8 @@ function postHook(webpackConf, defaults, quickappConfig = {}) {
     pathSrc,
     subpackages,
     workers,
-    originType
+    originType,
+    useTreeShaking
   } = defaults
 
   const manifestObj = readJson(path.join(pathSrc, 'manifest.json'))
@@ -59,7 +60,7 @@ function postHook(webpackConf, defaults, quickappConfig = {}) {
     {
       loader: require.resolve('babel-loader'),
       options: {
-        configFile: getBabelConfigJsPath(cwd),
+        configFile: getBabelConfigJsPath(cwd, useTreeShaking),
         cwd,
         cacheDirectory: true
       }
@@ -127,7 +128,8 @@ function postHook(webpackConf, defaults, quickappConfig = {}) {
     new HandlerPlugin({
       pathSrc: pathSrc,
       workers: workers,
-      enableE2e: compileOptionsObject.enableE2e
+      enableE2e: compileOptionsObject.enableE2e,
+      useTreeShaking
     }),
     new DeviceTypePlugin({
       srcPath: pathSrc,

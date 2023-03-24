@@ -1,9 +1,9 @@
 /*
- * Copyright (c) 2021, the hapjs-platform Project Contributors
+ * Copyright (c) 2021-present, the hapjs-platform Project Contributors
  * SPDX-License-Identifier: Apache-2.0
  */
 
-import path from 'path'
+import path from '@jayfate/path'
 import globalConfig from '@hap-toolkit/shared-utils/config'
 import { compileOptionsObject } from '@hap-toolkit/shared-utils/compilation-config'
 import validator from '@hap-toolkit/compiler/lib/template/validator'
@@ -20,7 +20,7 @@ import {
 } from './common/utils'
 
 // 项目目录
-const cwd = globalConfig.projectPath
+const cwd = path.resolve(globalConfig.projectPath)
 
 const defaultLoaders = {
   // common
@@ -29,7 +29,7 @@ const defaultLoaders = {
   template: require.resolve('./template-loader.js'),
   style: require.resolve('./style-loader.js'),
   script: require.resolve('./script-loader.js'),
-  module: require.resolve('./module-loader.js'),
+  module: require.resolve('@hap-toolkit/packager/lib/loaders/module-loader.js'),
   babel: require.resolve('babel-loader'),
   // app
   mainfest: require.resolve('./manifest-loader.js'),
@@ -120,7 +120,7 @@ function makeLoaderString(type, config, uxType) {
   }
 
   if (type === FRAG_TYPE.SCRIPT) {
-    const configFile = getBabelConfigJsPath(cwd)
+    const configFile = getBabelConfigJsPath(cwd, !!globalConfig.useTreeShaking)
     loaders = []
 
     if (compileOptionsObject.enableIstanbul) {
@@ -171,7 +171,7 @@ function makeLoaderString(type, config, uxType) {
         query: {
           cwd,
           cacheDirectory: true,
-          plugins: [require.resolve('./babel-plugin-jsx.js')],
+          plugins: [path.resolve(require.resolve('./babel-plugin-jsx.js'))],
           comments: false,
           configFile
         }
@@ -290,7 +290,7 @@ function processTemplateFrag($loader, templates, uxType, importNames) {
     }
 
     // 解析成类似url中key[]=xxx 的形式，便于loader-utils解析
-    importNames = importNames.map(item => 'importNames[]=' + item)
+    importNames = importNames.map((item) => 'importNames[]=' + item)
     retStr = makeRequireString(
       $loader,
       makeLoaderString(FRAG_TYPE.TEMPLATE, {
@@ -355,7 +355,6 @@ function processScriptFrag($loader, scripts, uxType) {
     if (fragAttrsSrc) {
       src = fragAttrsSrc
     }
-
     code = makeRequireString(
       $loader,
       makeLoaderString(
@@ -380,7 +379,7 @@ function processScriptFrag($loader, scripts, uxType) {
  */
 function parseImportList($loader, importList) {
   return Promise.all(
-    importList.map(importItem => {
+    importList.map((importItem) => {
       return resolveImportItemSrc($loader, importItem)
     })
   )
@@ -397,8 +396,8 @@ function resolveImportItemSrc($loader, importItem) {
     importItem.isValid = false
     return Promise.resolve(importItem)
   } else {
-    return new Promise(resolve => {
-      $loader.resolve($loader.context, importItem.attrs.src, function(err, result) {
+    return new Promise((resolve) => {
+      $loader.resolve($loader.context, importItem.attrs.src, function (err, result) {
         if (err) {
           importItem.isValid = false
           importItem.err = err

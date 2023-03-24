@@ -1,8 +1,9 @@
 /*
- * Copyright (c) 2021, the hapjs-platform Project Contributors
+ * Copyright (c) 2021-present, the hapjs-platform Project Contributors
  * SPDX-License-Identifier: Apache-2.0
  */
-import path from 'path'
+
+import path from '@jayfate/path'
 import Koa from 'koa'
 import mount from 'koa-mount'
 import koaStatic from 'koa-static'

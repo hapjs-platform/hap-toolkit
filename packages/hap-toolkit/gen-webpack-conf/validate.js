@@ -1,9 +1,10 @@
 /*
- * Copyright (c) 2021, the hapjs-platform Project Contributors
+ * Copyright (c) 2021-present, the hapjs-platform Project Contributors
  * SPDX-License-Identifier: Apache-2.0
  */
+
 const fs = require('fs')
-const path = require('path')
+const path = require('@jayfate/path')
 const Ajv = require('ajv')
 const AjvErrors = require('ajv-errors')
 const manifestSchema = require('./manifest-schema')
@@ -44,13 +45,10 @@ function validateJson(jsonInfo, filePath) {
     return []
   }
 
-  const errors = ajv.errors.map(error => {
+  const errors = ajv.errors.map((error) => {
     const message =
       `校验 ${filePath} 错误 \n` +
-      error.dataPath
-        .split('/')
-        .filter(Boolean)
-        .join('.') +
+      error.dataPath.split('/').filter(Boolean).join('.') +
       error.message +
       `\n参考: ${docSrc}`
     return new Error(message)
@@ -68,7 +66,7 @@ exports.validateJson = validateJson
  */
 exports.validateManifest = function validateManifest(src, manifest, options) {
   const errors = validateJson(manifest, 'manifest.json')
-  errors.forEach(error => {
+  errors.forEach((error) => {
     colorconsole.error(error.message)
   })
   const { subpackages } = manifest
@@ -122,8 +120,9 @@ function validateManifestSubpackages(src, subpackages) {
       const _res = resList[i]
       if (resource.startsWith(_res) || _res.startsWith(resource)) {
         colorconsole.throw(
-          `第${currentIndex}分包的资源'${resource}'与第${i +
-            1}分包的资源'${_res}'有包含关系，请修改`
+          `第${currentIndex}分包的资源'${resource}'与第${
+            i + 1
+          }分包的资源'${_res}'有包含关系，请修改`
         )
         return true
       }
@@ -222,7 +221,7 @@ exports.valiedateSkeleton = function valiedateSkeleton(src, manifest) {
     const singleMap = configJson.singleMap || {}
     const anchorMaps = configJson.anchorMaps || []
 
-    Object.keys(singleMap).forEach(page => {
+    Object.keys(singleMap).forEach((page) => {
       if (!manifestPages[page]) {
         colorconsole.throw(`骨架屏singleMap配置页面 ${page} 在manifest上无定义，请检查`)
       }
@@ -245,7 +244,7 @@ exports.valiedateSkeleton = function valiedateSkeleton(src, manifest) {
           `骨架屏anchorMaps第 ${index + 1} 配置page值 ${page} 在manifest上无定义，请检查`
         )
       }
-      Object.keys(skeletonMap || {}).forEach(anchor => {
+      Object.keys(skeletonMap || {}).forEach((anchor) => {
         const file = path.join(pageDir, skeletonMap[anchor])
         if (!fs.existsSync(file)) {
           colorconsole.throw(

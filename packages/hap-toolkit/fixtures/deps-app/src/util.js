@@ -1,7 +1,8 @@
 /*
- * Copyright (c) 2021, the hapjs-platform Project Contributors
+ * Copyright (c) 2021-present, the hapjs-platform Project Contributors
  * SPDX-License-Identifier: Apache-2.0
  */
+
 /**
  * 显示菜单
  */
@@ -11,7 +12,7 @@ function showMenu() {
   const appInfo = require('@system.app').getInfo()
   prompt.showContextMenu({
     itemList: ['保存桌面', '关于', '取消'],
-    success: function(ret) {
+    success: function (ret) {
       switch (ret.index) {
         case 0:
           // 保存桌面
@@ -47,19 +48,19 @@ function createShortcut() {
   const prompt = require('@system.prompt')
   const shortcut = require('@system.shortcut')
   shortcut.hasInstalled({
-    success: function(ret) {
+    success: function (ret) {
       if (ret) {
         prompt.showToast({
           message: '已创建桌面图标'
         })
       } else {
         shortcut.install({
-          success: function() {
+          success: function () {
             prompt.showToast({
               message: '成功创建桌面图标'
             })
           },
-          fail: function(errmsg, errcode) {
+          fail: function (errmsg, errcode) {
             prompt.showToast({
               message: `${errcode}: ${errmsg}`
             })

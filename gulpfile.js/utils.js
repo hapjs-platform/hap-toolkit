@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2021, the hapjs-platform Project Contributors
+ * Copyright (c) 2021-present, the hapjs-platform Project Contributors
  * SPDX-License-Identifier: Apache-2.0
  */
 
@@ -37,10 +37,10 @@ const nameMap = {
 }
 const isWatchMode = process.argv.indexOf('watch') !== -1
 const moduleOpts = ['--modules', '-m']
-const moduleIdx = process.argv.findIndex(arg => moduleOpts.includes(arg))
+const moduleIdx = process.argv.findIndex((arg) => moduleOpts.includes(arg))
 let modules = moduleIdx === -1 ? [] : (process.argv[moduleIdx + 1] || '').split(',')
 
-modules = modules.filter(m => Boolean(m.trim()))
+modules = modules.filter((m) => Boolean(m.trim()))
 
 /**
  * Shall watch for module xxx ?
@@ -59,7 +59,7 @@ function shallWatch(moduleName, task) {
   if (!nameMap[firstChar]) {
     console.warn('! 未配置监听模块名', moduleName)
   }
-  const contained = modules.some(module => module[0] === firstChar)
+  const contained = modules.some((module) => module[0] === firstChar)
   if (isWatchMode && (modules.length === 0 || contained)) {
     console.log('> watching', moduleName)
     return task

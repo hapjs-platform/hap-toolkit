@@ -1,9 +1,10 @@
 /*
- * Copyright (c) 2021, the hapjs-platform Project Contributors
+ * Copyright (c) 2021-present, the hapjs-platform Project Contributors
  * SPDX-License-Identifier: Apache-2.0
  */
+
 import fs from 'fs'
-import path from 'path'
+import path from '@jayfate/path'
 import { colorconsole } from '@hap-toolkit/shared-utils'
 import { mergeDeep } from '../common/utils'
 
@@ -24,7 +25,7 @@ class DeviceTypePlugin {
           const manifestJson = JSON.parse(manifestJsonString.toString())
           const deviceTypeListArray = manifestJson.deviceTypeList || []
           if (deviceTypeListArray.length > 0) {
-            deviceTypeListArray.map(deviceType => {
+            deviceTypeListArray.map((deviceType) => {
               const deviceJsonPath = path.join(srcPath, `config-${deviceType}.json`)
               if (fs.existsSync(deviceJsonPath)) {
                 const deviceJsonString = fs.readFileSync(deviceJsonPath, 'utf-8')

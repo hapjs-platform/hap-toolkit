@@ -1,14 +1,15 @@
 /*
- * Copyright (c) 2021, the hapjs-platform Project Contributors
+ * Copyright (c) 2021-present, the hapjs-platform Project Contributors
  * SPDX-License-Identifier: Apache-2.0
  */
 
-import path from 'path'
+import path from '@jayfate/path'
 import Compilation from 'webpack/lib/Compilation'
-import { ConcatSource } from 'webpack-sources'
 import { getEntryFiles } from '../common/info'
 import { compileOptionsMeta } from '@hap-toolkit/shared-utils/compilation-config'
 import { isEmptyObject } from '../common/utils'
+
+let ConcatSource
 
 const SEP = path.sep
 // page-chunks.json
@@ -91,7 +92,8 @@ class SplitChunksAdaptPlugin {
   }
 
   apply(compiler) {
-    compiler.hooks.compilation.tap(pluginName, compilation => {
+    compiler.hooks.compilation.tap(pluginName, (compilation) => {
+      ConcatSource = compiler.webpack.sources.ConcatSource
       const options = this.options
       let subpackageOptions
       if (!options.disableSubpackages && options.subpackages && options.subpackages.length > 0) {
@@ -103,14 +105,14 @@ class SplitChunksAdaptPlugin {
       let chunkFileMapStr = ''
 
       // 这个钩子负责生成chunkFileMapStr，兼容release包里找不到文件路径,因为压缩后会把文件名打为数字id
-      compilation.hooks.optimizeChunkIds.tap(pluginName, chunks => {
+      compilation.hooks.optimizeChunkIds.tap(pluginName, (chunks) => {
         entryFiles = getEntryFiles(compiler.options.entry)
 
         const chunksMap = Array.from(chunks)
-          .filter(chunk => {
+          .filter((chunk) => {
             return entryFiles.indexOf(`${chunk.name}.js`) === -1
           })
-          .map(chunk => {
+          .map((chunk) => {
             return `"${chunk.id}": "${chunk.name}.js"`
           })
 
@@ -119,14 +121,14 @@ class SplitChunksAdaptPlugin {
         )}};`
 
         // 收集app.js所依赖的模块
-        chunks.forEach(chunk => {
+        chunks.forEach((chunk) => {
           // webpack/lib/chunk/entryModule
           const entryModule = Array.from(
             compilation.chunkGraph.getChunkEntryModulesIterable(chunk)
           )[0]
           if (chunk.name.match(/\bapp$/) && entryModule) {
-            chunk.groupsIterable.forEach(item => {
-              item.chunks.forEach(items => {
+            chunk.groupsIterable.forEach((item) => {
+              item.chunks.forEach((items) => {
                 app_dependency.add(`${items.name}.js`)
               })
             })
@@ -142,8 +144,8 @@ class SplitChunksAdaptPlugin {
           stage: Compilation.PROCESS_ASSETS_STAGE_OPTIMIZE
         },
         () => {
-          compilation.chunks.forEach(chunk => {
-            chunk.files.forEach(fileName => {
+          compilation.chunks.forEach((chunk) => {
+            chunk.files.forEach((fileName) => {
               // 过滤掉非js文件，只需要对公共js进行抽取
               if (!fileName.match(/\.js$/)) return
 
@@ -167,7 +169,7 @@ class SplitChunksAdaptPlugin {
               if (entryModule) {
                 content = content.replace(
                   /\/\/\s+webpackBootstrap/,
-                  $0 => `${$0}\n\n\t\t\t\t\t${quickappGlobal}\n\t\t\t\t\t${chunkFileMapStr}\n`
+                  ($0) => `${$0}\n\n\t\t\t\t\t${quickappGlobal}\n\t\t\t\t\t${chunkFileMapStr}\n`
                 )
               } else {
                 isSplitChunks = true
@@ -176,10 +178,12 @@ class SplitChunksAdaptPlugin {
               // window -> __quickappGlobal | global
               content = replaceWindowWithGlobalStr(isSplitChunks, content)
               // fulfilled = false时去加载js -> $app_evaluate$
+
               content = content.replace(
-                /(?<=(if\(installedChunks\[depId\]\s+!==\s+0\)\s+))fulfilled\s+=\s+false;/,
-                '{ fulfilled = false; $app_evaluate$(`${__quickappGlobal.chunkFileMap[depId]}`); }' // eslint-disable-line
+                /fulfilled\s+=\s+false;/,
+                'fulfilled = false; $app_evaluate$(`${__quickappGlobal.chunkFileMap[chunkIds[j]]}`);' // eslint-disable-line
               )
+
               // webpack5下面的js动态引入，用$app_evaluate$替换__webpack_require__.l的jsonp
               content = content.replace(
                 /__webpack_require__\.l\(url, loadingEnded,.+\)/g,
@@ -193,8 +197,12 @@ class SplitChunksAdaptPlugin {
               )
               // 函数本身增加形参，引入额外方法
               content = content.replace(
-                /(\(\(__unused_webpack_module,\s+(exports|__webpack_exports__)(,\s+__webpack_require__)?)/g,
-                `$1, ${_formalParamStr}`
+                /(\(\(__unused_webpack_module,\s+(exports|__webpack_exports__|__unused_webpack_exports)(,\s+__webpack_require__)?)/g,
+                (match) => {
+                  return match.includes('__webpack_require__')
+                    ? match + `, ${_formalParamStr}`
+                    : match + `, __webpack_require__, ${_formalParamStr}`
+                }
               )
 
               content = content.replace(
@@ -217,15 +225,15 @@ class SplitChunksAdaptPlugin {
         () => {
           // 获取各分包所需信息
           const chunksJsonInfo = createChunksJsonInfo(subpackageOptions)
-          const getChunksJsonInfo = chunkName => {
-            const key = Object.keys(chunksJsonInfo).find(pkgName => {
-              return chunkName.startsWith(pkgName + SEP)
+          const getChunksJsonInfo = (chunkName) => {
+            const key = Object.keys(chunksJsonInfo).find((pkgName) => {
+              return chunkName.replace(/\\/g, '/').startsWith((pkgName + SEP).replace(/\\/g, '/'))
             })
             return key ? chunksJsonInfo[key] : chunksJsonInfo[MAIN_PKG_NAME]
           }
 
-          compilation.chunks.forEach(chunk => {
-            chunk.files.forEach(fileName => {
+          compilation.chunks.forEach((chunk) => {
+            chunk.files.forEach((fileName) => {
               // 过滤掉非js文件，只需要对公共js进行整理
               if (!fileName.match(/\.js$/)) return
 
@@ -240,9 +248,9 @@ class SplitChunksAdaptPlugin {
                   // 以下为处理分包
                   if (subpackageOptions) {
                     // chunkGroups对应每个入口页面生成的chunk
-                    compilation.chunkGroups.forEach(chunkGroup => {
+                    compilation.chunkGroups.forEach((chunkGroup) => {
                       // 其chunks属性记录了该入口页面chunk所需（引用）的文件（也即是chunk）
-                      const files = chunkGroup.chunks.map(ch => ch.name + '.js')
+                      const files = chunkGroup.chunks.map((ch) => ch.name + '.js')
                       if (files.indexOf(fileName) !== -1) {
                         // 异步加载js 抽离也会存放在 chunkGroup 里，但其 name 为 null
                         // 异步加载js 不被其他 chunk 记录为所需 chunk，故会分配到 base 包下

@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2021, the hapjs-platform Project Contributors
+ * Copyright (c) 2021-present, the hapjs-platform Project Contributors
  * SPDX-License-Identifier: Apache-2.0
  */
 
@@ -37,6 +37,8 @@ const compileOptionsMeta = {
 }
 
 const compileOptionsObject = {
+  // 工具默认输出card和app的所有路由，可定制为单纯输出card或app
+  target: 'all',
   // 打包来源，ide|cmd
   originType: compileOptionsMeta.originTypeNum.CMD,
   // 签名模式 当前默认为debug签名
@@ -86,9 +88,9 @@ const compileOptionsObject = {
   enablePerformanceCheck: false,
   // 调试时是否启用server的watch模式
   enableServerWatch: false,
-  //是否处理.9图
+  // 是否处理.9图
   trimDotnine: true,
-  //自定义包名 默认为带版本号的包名
+  // 自定义包名 默认为带版本号的包名
   buildNameFormat: compileOptionsMeta.buildNameFormat.DEFAULT,
   // IDE或者命令行传入的参数，用来参与构建IDE预览包
   buildPreviewRpkOptions: null

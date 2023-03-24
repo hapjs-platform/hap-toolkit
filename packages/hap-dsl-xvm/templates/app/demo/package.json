@@ -1,22 +1,59 @@
 {
-  "name": "{{ appName }}",
-  "version": "1.0.0",
-  "description": "",
-  "engines": {
-    "node": ">=8.10"
-  },
+  "name": "quickapp-sample-template",
+  "version": "2.0.0",
+  "description": "Quickapp Sample Template",
   "scripts": {
     "start": "hap server --watch",
+    "server": "hap server",
     "build": "hap build",
     "release": "hap release",
-    "server": "hap server",
     "watch": "hap watch",
-    "lint": "eslint --format codeframe --fix --ext .ux,.js src/"
+    "debug": "hap debug",
+    "gen": "node ./scripts/gen/index.js",
+    "precommit-msg": "echo '🚧 start pre-commit checks ...' && exit 0",
+    "prettier": "node ./scripts/selfCloseInputTag.js && prettier --write \"src/**/*.{js,ux,less,scss,css}\"",
+    "prettier-watcher": "onchange '**/*.md' \"src/**/**/*.{js,ux,less,scss,css}\" -- prettier --write {{changed}}"
+  },
+  "dependencies": {
+    "apex-ui": "^1.9.2"
   },
   "devDependencies": {
-    "babel-eslint": "^10.0.1",
-    "eslint": "^6.8.0",
-    "eslint-plugin-ux": "^0.0.4",
-    "hap-toolkit":"^{{ toolkitVersion }}"
-  }
+    "@babel/runtime": "^7.12.5",
+    "@types/quickapp": "git+https://github.com/vivoquickapp/quickapp-types.git",
+    "husky": "^4.3.0",
+    "lint-staged": "^10.5.1",
+    "onchange": "^5.2.0",
+    "prettier": "^1.15.3",
+    "prettier-plugin-ux": "^0.3.0",
+    "sass": "^1.32.6",
+    "sass-loader": "^10.1.1",
+    "colors": "^1.4.0",
+    "hap-toolkit": "^{{ toolkitVersion }}"
+  },
+  "prettier": {
+    "singleQuote": true,
+    "semi": false,
+    "printWidth": 80,
+    "proseWrap": "never",
+    "tabWidth": 2
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "yarn run precommit-msg && lint-staged"
+    }
+  },
+  "lint-staged": {
+    "**/**.{ux,js,json,pcss,md}": [
+      "prettier --write",
+      "git add"
+    ]
+  },
+  "keywords": [
+    "快应用",
+    "快应用示例",
+    "快应用模版"
+  ],
+  "browserslist": [
+    "chrome 65"
+  ]
 }

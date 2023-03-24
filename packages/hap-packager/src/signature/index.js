@@ -1,8 +1,9 @@
 /*
- * Copyright (c) 2021, the hapjs-platform Project Contributors
+ * Copyright (c) 2021-present, the hapjs-platform Project Contributors
  * SPDX-License-Identifier: Apache-2.0
  */
-import path from 'path'
+
+import path from '@jayfate/path'
 
 import { calcDataDigest } from '../common/utils'
 
@@ -21,6 +22,81 @@ export const builtinSignFolder = path.join(__dirname, 'pem')
 function fileFilter(item) {
   const path = item.path
   return !path.endsWith('/') && path !== DIGEST_ZIP_PATH
+}
+
+/**
+ * 创建并签名 buffer 流
+ * @param {Object} packageInst
+ * @param {Buffer} privatekey
+ * @param {Buffer} certificate
+ * @returns
+ */
+async function createAndSignBuffer(packageInst, privatekey, certificate) {
+  // Step1: 创建 hash.json 的 buffer 流
+  const resourceList = packageInst.resourceList
+
+  const fileDigestHash = {}
+  resourceList.forEach((resourceFile) => {
+    const key = resourceFile.fileBuildPath
+    fileDigestHash[key] = resourceFile.fileContentDigest.toString('hex')
+  })
+
+  const metaFileList = [
+    {
+      path: DIGEST_HASH_JSON,
+      content: JSON.stringify({
+        algorithm: 'SHA-256',
+        digests: fileDigestHash
+      })
+    }
+  ]
+
+  const metaZipBuffer = await createZipBufferFromFileList(metaFileList)
+
+  // Step2: 收集文件列表
+  const fileList = []
+
+  const metaHash = {
+    name: DIGEST_HASH_JSON,
+    hash: calcDataDigest(metaZipBuffer)
+  }
+
+  const signedMetaBuffer = await doSign(metaZipBuffer, [metaHash], privatekey, certificate)
+
+  fileList.push({
+    path: DIGEST_ZIP_PATH,
+    content: signedMetaBuffer
+  })
+
+  resourceList.forEach((resourceFile) => {
+    fileList.push({
+      path: resourceFile.fileBuildPath,
+      content: resourceFile.fileContentBuffer
+    })
+  })
+
+  // Step3: 收集文件摘要哈希列表
+  const fileDigestHashList = []
+
+  fileDigestHashList.push({
+    name: DIGEST_HASH_JSON,
+    hash: calcDataDigest(metaZipBuffer)
+  })
+
+  fileList.filter(fileFilter).map((item) => {
+    fileDigestHashList.push({
+      name: item.path,
+      hash: calcDataDigest(item.content)
+    })
+  })
+
+  // Step4: 打成 zip 包
+  const newZipBuffer = await createZipBufferFromFileList(fileList, packageInst.comment)
+
+  // Step5: 对 ZIP 签名
+  const signedZipBuffer = await doSign(newZipBuffer, fileDigestHashList, privatekey, certificate)
+
+  return signedZipBuffer
 }
 
 /**
@@ -62,7 +138,7 @@ async function signZipBufferForPackage(zipBuffer, privatekey, certificate) {
   // Step3. 整个zip做签名
   const files = zipInstWrap.fileList
 
-  files.filter(fileFilter).map(item => {
+  files.filter(fileFilter).map((item) => {
     fileList.push(item)
     fileDigestHash.push({
       name: item.path,
@@ -79,4 +155,4 @@ async function signZipBufferForPackage(zipBuffer, privatekey, certificate) {
   return signedZipBuffer
 }
 
-export { signZipBufferForPackage }
+export { signZipBufferForPackage, createAndSignBuffer }

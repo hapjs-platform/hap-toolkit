@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2021, the hapjs-platform Project Contributors
+ * Copyright (c) 2021-present, the hapjs-platform Project Contributors
  * SPDX-License-Identifier: Apache-2.0
  */
 
@@ -20,13 +20,13 @@ global.model = null
 /**
  * 近似相等，最多2个像素差距
  */
-global.assert.approxEqual = function(arg1, arg2, message) {
+global.assert.approxEqual = function (arg1, arg2, message) {
   const gap = Math.abs(Math.abs(arg1) - Math.abs(arg2))
   global.assert.isAtMost(gap, 2, message)
 }
 
 // 获取数据
-global.loadData = function(key) {
+global.loadData = function (key) {
   let val = null
   if (typeof window === 'undefined') {
     val = global[key]
@@ -37,7 +37,7 @@ global.loadData = function(key) {
 }
 
 // 保存数据
-global.saveData = function(key, val) {
+global.saveData = function (key, val) {
   if (typeof window === 'undefined') {
     global[key] = JSON.stringify(val)
   } else {
@@ -46,14 +46,14 @@ global.saveData = function(key, val) {
   return val
 }
 
-global.pushData = function(key, item) {
+global.pushData = function (key, item) {
   const dataList = global.loadData(key) || []
   dataList.push(item)
   global.saveData(key, dataList)
 }
 
 global.window &&
-  (global.window.onerror = function() {
+  (global.window.onerror = function () {
     console.info('error: ', arguments)
   })
 
@@ -61,7 +61,7 @@ let timer = 0
 /**
  * 下次调用断言时的时间
  */
-global.nextTime = function(reset) {
+global.nextTime = function (reset) {
   reset !== undefined && (timer = reset)
   return (timer += 50)
 }
@@ -69,11 +69,11 @@ global.nextTime = function(reset) {
 /**
  * 对出错包装并传递给done
  */
-global.setTimeoutDone = function(fn, ms, done) {
+global.setTimeoutDone = function (fn, ms, done) {
   if (!done) {
     throw new Error('[ERROR] 异步的测试用例请传递Mocha的done函数！')
   }
-  global.setTimeout(function() {
+  global.setTimeout(function () {
     try {
       fn()
     } catch (err) {
@@ -85,10 +85,10 @@ global.setTimeoutDone = function(fn, ms, done) {
 /**
  * 标准化(去除px单位、合并或者展开、尺寸标准化)
  */
-global.normalize = function(map) {
+global.normalize = function (map) {
   map = map || {}
 
-  Object.keys(map).forEach(function(key) {
+  Object.keys(map).forEach(function (key) {
     // 去除px单位
     map[key] && map[key].replace && (map[key] = map[key].replace(/px/g, ''))
     let val = map[key]
@@ -126,7 +126,7 @@ global.normalize = function(map) {
  * @param ref
  * @return {*|{content}|{}}
  */
-global.nodeRect = function(ref) {
+global.nodeRect = function (ref) {
   // Node节点转换
   ref = ref.ref || ref
 
@@ -139,7 +139,7 @@ global.nodeRect = function(ref) {
  * @param ref
  * @return {*|{}}
  */
-global.nodeAttr = function(ref) {
+global.nodeAttr = function (ref) {
   // Node节点转换
   ref = ref.ref || ref
 
@@ -152,7 +152,7 @@ global.nodeAttr = function(ref) {
  * @param ref
  * @return {*|{content}|CSSStyleDeclaration|CssStyle|{}}
  */
-global.nodeStyle = function(ref) {
+global.nodeStyle = function (ref) {
   // Node节点转换
   ref = ref.ref || ref
 
@@ -165,7 +165,7 @@ global.nodeStyle = function(ref) {
  * @param ref
  * @return {*|{content}|{}}
  */
-global.nodeInfo = function(ref) {
+global.nodeInfo = function (ref) {
   // Node节点转换
   ref = ref.ref || ref
 

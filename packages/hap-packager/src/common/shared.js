@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2021, the hapjs-platform Project Contributors
+ * Copyright (c) 2021-present, the hapjs-platform Project Contributors
  * SPDX-License-Identifier: Apache-2.0
  */
 
@@ -75,7 +75,12 @@ function frameworkInit() {
     'mediaquery',
     'zip',
     'telecom',
-    'decode'
+    'decode',
+    'screenshot',
+    'nfc',
+    'uploadtask',
+    'downloadtask',
+    'requesttask'
   ]
   const serviceFeatures = [
     'account',
@@ -97,17 +102,17 @@ function frameworkInit() {
     'biometriverify',
     'texttoaudio'
   ]
-  systemFeatures.forEach(feature => {
+  systemFeatures.forEach((feature) => {
     // system
     global.framework.reservedFeatures.push(`${global.framework.module.base}.${feature}`)
   })
-  serviceFeatures.forEach(feature => {
+  serviceFeatures.forEach((feature) => {
     // service
     global.framework.reservedFeatures.push(`${global.framework.module.ext}.${feature}`)
   })
 
   const featureExclude = ['app', 'model', 'router', 'configuration']
-  featureExclude.forEach(feature => {
+  featureExclude.forEach((feature) => {
     global.framework.reservedFeatureExclude.push(`${global.framework.module.base}.${feature}`)
   })
 
@@ -128,7 +133,7 @@ function frameworkInit() {
     'app',
     'router'
   ]
-  supportInCard.forEach(feature => {
+  supportInCard.forEach((feature) => {
     global.framework.supportInCard.push(`${global.framework.module.base}.${feature}`)
   })
 }
@@ -151,7 +156,7 @@ function searchModuleImport(fileCont, options = {}) {
   )
   // 引入的native模块列表
   const modInternalNameList = fileCont.match(modInternalNamePatternFull) || []
-  modInternalNameList.forEach(modName => {
+  modInternalNameList.forEach((modName) => {
     const match = (modName.match(modInternalNamePatterHalf) || [])[1]
     if (match === `@${global.framework.module.base}`) {
       global.framework.project.module.usedBaseAll = true
@@ -167,14 +172,14 @@ function searchModuleImport(fileCont, options = {}) {
     ) {
       // 不支持的native模块
       logFeatureList.push({
-        reason: `WARN: 您引入了卡片中未识别的native模块：${match}`
+        reason: `WARN: 您引入了卡片中未识别的 native 模块：${match}`
       })
     } else if (global.framework.reservedFeatureExclude.indexOf(match) !== -1) {
       // 不包括的feature，不做警告
     } else {
       // 不识别，错误的书写
       logFeatureList.push({
-        reason: `WARN: 您引入了未识别的native模块：${match}`
+        reason: `WARN: 您引入了未识别的 native 模块：${match}`
       })
     }
   })
@@ -189,8 +194,8 @@ function searchModuleImport(fileCont, options = {}) {
  * 检测manifest里面的widget不支持的feature
  */
 function checkFeatureInCard(obj = {}) {
-  Object.keys(obj).forEach(key => {
-    obj[key].features.every(item => {
+  Object.keys(obj).forEach((key) => {
+    obj[key].features.every((item) => {
       if (global.framework.supportInCard.indexOf(item.name) === -1) {
         // 不支持的native模块
         colorconsole.error(
@@ -224,23 +229,23 @@ function updateManifest(manifest, debug) {
 
   // 在项目所有引用的模块列表中删除manifest已声明的模块
   const projectFeatureList = [].concat(global.framework.project.featureList)
-  manifest.features.forEach(feature => {
+  manifest.features.forEach((feature) => {
     const feaIndex = projectFeatureList.indexOf(feature.name)
     feaIndex !== -1 && projectFeatureList.splice(feaIndex, 1)
   })
   // 在保留模块列表中存在的模块则应该加入
   const shouldIncludeProjectFeatureList = []
-  projectFeatureList.forEach(feaName => {
+  projectFeatureList.forEach((feaName) => {
     global.framework.reservedFeatures.indexOf(feaName) !== -1 &&
       shouldIncludeProjectFeatureList.push(feaName)
   })
   if (shouldIncludeProjectFeatureList.length > 0) {
-    const mapList = shouldIncludeProjectFeatureList.map(function(feaName) {
+    const mapList = shouldIncludeProjectFeatureList.map(function (feaName) {
       return { name: feaName }
     })
     manifest.features = manifest.features.concat(mapList)
     const features = shouldIncludeProjectFeatureList.join(', ')
-    colorconsole.warn(`请在manifest.json文件里声明项目代码中用到的接口: ${features}\n`)
+    colorconsole.warn(`请在 manifest.json 文件里声明项目代码中用到的接口: ${features}\n`)
   }
 
   return manifest

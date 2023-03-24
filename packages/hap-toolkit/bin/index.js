@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 
 /*
- * Copyright (c) 2021, the hapjs-platform Project Contributors
+ * Copyright (c) 2021-present, the hapjs-platform Project Contributors
  * SPDX-License-Identifier: Apache-2.0
  */
 
@@ -78,7 +78,7 @@ program
     'custom output rpk file name',
     validateBuildNameFormat
   )
-  .action(options => {
+  .action((options) => {
     // 必备参数：当开发者不传递该参数时，要解析为默认
     const signModeTmp = options.disableSign && compileOptionsMeta.signModeEnum.NULL
     options.signMode = validateSignMode(signModeTmp, compileOptionsMeta.signModeEnum.BUILD)
@@ -91,7 +91,7 @@ program
   .command('debug', { noHelp: true })
   .description('debug the project')
   .option('--open-browser', 'open QR code page in default browser')
-  .action(options => {
+  .action((options) => {
     const { launchServer } = require('@hap-toolkit/server')
     const { openBrowser } = options
     launchServer({
@@ -117,7 +117,7 @@ program
     'custom output rpk file name',
     validateBuildNameFormat
   )
-  .action(options => {
+  .action((options) => {
     const { launchServer } = require('@hap-toolkit/server')
     const { compile } = require('../lib/commands/compile')
     const { port, watch, clearRecords, chromePath, disableAdb, openBrowser } = options
@@ -162,7 +162,7 @@ program
     'custom output rpk file name',
     validateBuildNameFormat
   )
-  .action(options => {
+  .action((options) => {
     const { compile } = require('../lib/commands/compile')
     compile('native', 'dev', true, options)
   })
@@ -204,7 +204,7 @@ program
     'custom output rpk file name',
     validateBuildNameFormat
   )
-  .action(options => {
+  .action((options) => {
     // 必备参数：当开发者不传递该参数时，要解析为默认
     const signModeTmp = options.disableSign && compileOptionsMeta.signModeEnum.NULL
     options.signMode = validateSignMode(signModeTmp, compileOptionsMeta.signModeEnum.RELEASE)
@@ -238,7 +238,7 @@ program
   .description('update tools for project')
   .option('--force', 'force update tools for project')
   .option('--update-deps', 'update dependencies directly', { noHelp: true })
-  .action(options => {
+  .action((options) => {
     const update = require('../lib/commands/update')
     colorconsole.warn('hap-toolkit>=0.1.0 不再需要运行此命令\n')
     update(options)
@@ -274,7 +274,7 @@ program
   .option('--file <dir>', 'rpk that need to be re-signed')
   .option('--origin <dir>', 'folder where unsigned rpk(s) stored', 'dist')
   .option('--dest <dir>', 'folder where re-signed rpk(s) stored', 'dest')
-  .action(options => {
+  .action((options) => {
     const { resign } = require('../lib/commands/resign')
     resign(options)
   })
@@ -286,7 +286,7 @@ program
   .option('-P, --platform <value>', 'quickapp debugger platform, default: phone')
   .option('-V, --apkVersion <value>', 'debugger version, default: v1080')
   .option('-F, --force-install', 'overwrite install original debugger')
-  .action(async options => {
+  .action(async (options) => {
     const { installdbg } = require('../lib/commands/debug')
     try {
       const successMessage = await installdbg(options)
@@ -303,7 +303,7 @@ program
   .option('-P, --platform <value>', 'quickapp engine platform, default: phone')
   .option('-V, --apkVersion <value>', 'quickapp engine version, default: v1080')
   .option('-F, --force-install', 'overwrite install quickapp engine')
-  .action(async options => {
+  .action(async (options) => {
     const { installmkp } = require('../lib/commands/debug')
     try {
       const successMessage = await installmkp(options)
@@ -319,7 +319,7 @@ program
   .description('run app on multiple devices')
   .option('-D, --debugMode', 'open chrome devtools')
   .option('-C, --cardMode', 'open cardMode')
-  .action(async options => {
+  .action(async (options) => {
     const { runapp } = require('../lib/commands/debug')
     try {
       await runapp(options)
@@ -337,7 +337,7 @@ program
   .option('-F, --force-install', 'overwrite install debugger and engine')
   .option('-D, --debugMode', 'open chrome devtools')
   .option('-C, --cardMode', 'open cardMode')
-  .action(async options => {
+  .action(async (options) => {
     const { installAndRun } = require('../lib/commands/debug')
     try {
       await installAndRun(options)
@@ -353,7 +353,7 @@ program
   .option('-P --port <value>', 'device port,eg 39517')
   .option('-S --sn <value>', 'device sn,eg 2a75794a')
   .description('get available platform(s) on selected device')
-  .action(async options => {
+  .action(async (options) => {
     const { getAvailablePlatform } = require('../lib/commands/debug')
     getAvailablePlatform(options)
   })
@@ -362,7 +362,7 @@ program
 program
   .command('getConnectedDevices')
   .description('get all connected devices')
-  .action(async options => {
+  .action(async (options) => {
     const { getAllConnectedDevices } = require('../lib/commands/debug')
     try {
       const connectedDevices = await getAllConnectedDevices(options)

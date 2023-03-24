@@ -1,10 +1,10 @@
 /*
- * Copyright (c) 2021, the hapjs-platform Project Contributors
+ * Copyright (c) 2021-present, the hapjs-platform Project Contributors
  * SPDX-License-Identifier: Apache-2.0
  */
 
 import fs from 'fs'
-import path from 'path'
+import path from '@jayfate/path'
 import { readJson } from '@hap-toolkit/shared-utils'
 
 export const name = {
@@ -34,7 +34,7 @@ export function resolveFile(scriptFilePath) {
  * @return {array}
  */
 export function getEntryFiles(entry) {
-  const entryFiles = Object.keys(entry || {}).map(file => {
+  const entryFiles = Object.keys(entry || {}).map((file) => {
     return file + '.js'
   })
   return entryFiles

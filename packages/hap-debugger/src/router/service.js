@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2021, the hapjs-platform Project Contributors
+ * Copyright (c) 2021-present, the hapjs-platform Project Contributors
  * SPDX-License-Identifier: Apache-2.0
  */
 
@@ -24,9 +24,9 @@ export const LINK_MODE = {
  * @param opt.serverPort 调试器server的所用端口号
  * @returns {string}
  */
-export function getInspectorUrl({ ws, serverPort }) {
+export function getInspectorUrl({ ws, serverPort, traceId }) {
   const host = `http://${getServerIPAndPort(serverPort)}`
-  const query = `?ws=${encodeURI(ws)}&remoteFrontend=true&dockSide=undocked`
+  const query = `?ws=${encodeURI(ws)}&remoteFrontend=true&dockSide=undocked&traceId=${traceId}`
 
   return `${host}/inspector/inspector.html${query}`
 }
@@ -56,9 +56,9 @@ function getClientFromRequest(request) {
  */
 export function getDebugInfoFromRequest(request) {
   const { sn, linkMode } = getClientFromRequest(request)
-  const { ws, application, target } = request.body
+  const { ws, application, target, traceId } = request.body
   const devicePort = ws.split(':')[1].split('/')[0]
-  return { sn, linkMode, ws, application, devicePort, target }
+  return { sn, linkMode, ws, application, devicePort, target, traceId }
 }
 
 /**
@@ -80,12 +80,12 @@ export function callDeviceWithOwnSn(client) {
     .request(options, () => {
       colorconsole.log(`### App Server ### 通知手机设备(${client.sn})下发SN成功`)
     })
-    .on('error', err => {
+    .on('error', (err) => {
       colorconsole.warn(
         `### App Server ### 通知手机设备(${client.sn})下发SN失败 错误信息: ${err.message}`
       )
     })
-    .on('timeout', function() {
+    .on('timeout', function () {
       colorconsole.warn(`### App Server ### 通知手机设备(${client.sn})下发SN失败`)
       req.abort()
     })

@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2021, the hapjs-platform Project Contributors
+ * Copyright (c) 2021-present, the hapjs-platform Project Contributors
  * SPDX-License-Identifier: Apache-2.0
  */
 
@@ -13,7 +13,7 @@ import globalConfig from '@hap-toolkit/shared-utils/config'
 
 let server = null
 export async function launch(conf, moduler) {
-  return new Promise(async resolve => {
+  return new Promise(async (resolve) => {
     try {
       const app = new Koa()
       let serverPort = globalConfig.server.port
@@ -89,7 +89,7 @@ export async function launch(conf, moduler) {
         resolve({ launchServerError: err, server })
       })
 
-      server.on('error', err => {
+      server.on('error', (err) => {
         colorconsole.error(`### App Server ### 服务器错误: ${err.message}`)
         if (err.code === 'EADDRINUSE') {
           colorconsole.error(`### App Server ### 服务器错误:端口 ${serverPort} 被占用, 请检查`)
@@ -100,17 +100,18 @@ export async function launch(conf, moduler) {
       process.on('SIGINT', () => {
         colorconsole.info(`### App Server ### SIGINT信号`)
         colorconsole.info(`### App Server ### 退出server进程 pid: ${process.pid}`)
+        app.context.adbDebugger._stop()
         process.exit()
       })
 
-      process.on('uncaughtException', err => {
+      process.on('uncaughtException', (err) => {
         colorconsole.error(`### App Server ### 未定义的异常, 出错信息: ${err.message}`)
         console.error(err)
       })
 
       process.on('unhandledRejection', (reason, p) => {
         colorconsole.error(`### App Server ### 未处理的 rejection, 出错信息: ${reason}`)
-        p.catch(err => {
+        p.catch((err) => {
           console.error(err)
         })
       })
@@ -123,13 +124,13 @@ export async function launch(conf, moduler) {
 }
 
 export function stop() {
-  return new Promise(resolve => {
+  return new Promise((resolve) => {
     if (!server) {
       resolve({ stopServerError: 'no server' })
       return
     }
     try {
-      server.close(data => {
+      server.close((data) => {
         resolve({ stopServerError: data })
       })
     } catch (err) {

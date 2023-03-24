@@ -1,11 +1,11 @@
 /*
- * Copyright (c) 2021, the hapjs-platform Project Contributors
+ * Copyright (c) 2021-present, the hapjs-platform Project Contributors
  * SPDX-License-Identifier: Apache-2.0
  */
 
 import os from 'os'
 import fs from 'fs'
-import path from 'path'
+import path from '@jayfate/path'
 import http from 'http'
 import { Console } from 'console'
 import chalk from 'chalk'
@@ -83,13 +83,13 @@ export const colorconsole = {
  */
 export function logWarn(loader, logs, suppresslog) {
   if (logs && logs.length) {
-    logs.forEach(log => {
-      const logAddr = log.line && log.column ? '\t@' + log.line + ':' + log.column : ''
+    logs.forEach((log) => {
+      const logAddr = log.line && log.column ? '@' + log.line + ':' + log.column : ''
       if (suppresslog) return
       if (log.reason.startsWith('ERROR')) {
-        colorconsole.error(loader.resourcePath, log.reason + logAddr)
+        colorconsole.error(loader.resourcePath, logAddr, log.reason)
       } else {
-        colorconsole.warn(loader.resourcePath, log.reason + logAddr)
+        colorconsole.warn(loader.resourcePath, logAddr, log.reason)
       }
     })
   }
@@ -122,7 +122,7 @@ export function getIPv4IPAddress() {
     if (Object.prototype.hasOwnProperty.call(ifaces, prop)) {
       const iface = ifaces[prop]
 
-      iface.every(eachAlias => {
+      iface.every((eachAlias) => {
         if (
           eachAlias.family === 'IPv4' &&
           !eachAlias.internal &&
@@ -240,8 +240,8 @@ export function equals(o1, o2, fn, ...args) {
   }
 
   const keyMap = {}
-  Object.keys(o1).forEach(k => (keyMap[k] = true))
-  Object.keys(o2).forEach(k => (keyMap[k] = true))
+  Object.keys(o1).forEach((k) => (keyMap[k] = true))
+  Object.keys(o2).forEach((k) => (keyMap[k] = true))
   const keyList = Object.keys(keyMap)
 
   for (let i = 0; i < keyList.length; i++) {
@@ -320,7 +320,7 @@ export function setCustomConfig(projectPath, port) {
 }
 
 const illegalExtsList = ['.css', '.less', '.scss', '.styl', '.sass', '.log', '.json', '.js'].map(
-  e => 'app' + e
+  (e) => 'app' + e
 )
 
 /**
@@ -330,7 +330,7 @@ const illegalExtsList = ['.css', '.less', '.scss', '.styl', '.sass', '.log', '.j
 export function getProjectDslName(projectPath) {
   // 根据项目中src/app的后缀名判断
   const srcFiles = fs.readdirSync(path.join(projectPath, globalConfig.sourceRoot))
-  const appFileNames = srcFiles.filter(f => /^app\..*/.test(f) && !illegalExtsList.includes(f))
+  const appFileNames = srcFiles.filter((f) => /^app\..*/.test(f) && !illegalExtsList.includes(f))
   let appFileExt
   if (appFileNames && appFileNames[0]) {
     appFileExt = path.extname(appFileNames[0]).slice(1)
@@ -355,16 +355,16 @@ export function getDeviceInfo(client, callback) {
         port: client.port,
         timeout: 3000
       },
-      res => {
-        res.on('data', data => {
+      (res) => {
+        res.on('data', (data) => {
           callback(null, JSON.parse(data))
         })
       }
     )
-    .on('error', err => {
+    .on('error', (err) => {
       callback(err)
     })
-    .on('timeout', function() {
+    .on('timeout', function () {
       // abort方法会触发error事件
       req.abort()
     })

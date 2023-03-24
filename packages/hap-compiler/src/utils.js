@@ -1,10 +1,10 @@
 /*
- * Copyright (c) 2021, the hapjs-platform Project Contributors
+ * Copyright (c) 2021-present, the hapjs-platform Project Contributors
  * SPDX-License-Identifier: Apache-2.0
  */
 
 // TODO duplicate of packager/src/common/utils.js
-import path from 'path'
+import path from '@jayfate/path'
 import fs from 'fs'
 import globalConfig from '@hap-toolkit/shared-utils/config'
 
@@ -36,7 +36,7 @@ export function extend(target, ...src) {
  */
 export function merge(target, ...src) {
   if (src.length) {
-    src.forEach(item => {
+    src.forEach((item) => {
       target = target.concat(item)
     })
   }
@@ -49,7 +49,7 @@ export function merge(target, ...src) {
  * @returns {void|string|XML|*}
  */
 export function hyphenedToCamelCase(value) {
-  return value.replace(/-([a-z])/g, function(s, m) {
+  return value.replace(/-([a-z])/g, function (s, m) {
     return m.toUpperCase()
   })
 }
@@ -60,7 +60,7 @@ export function hyphenedToCamelCase(value) {
  * @returns {void|string|XML|*}
  */
 export function camelCaseToHyphened(value) {
-  return value.replace(/([A-Z])/g, function(s, m) {
+  return value.replace(/([A-Z])/g, function (s, m) {
     return '-' + m.toLowerCase()
   })
 }
@@ -126,9 +126,7 @@ export function serialize(target, space) {
    * 先将数据做简单序列化（函数的 key 也会计入检查），用于检查占位符，
    * 确保不会出现“碰撞” （用户数据中正好包含占位符）
    */
-  let PLACEHOLDER = `__FKS_${Math.random()
-    .toString(16)
-    .slice(2, 10)}_FKE__`
+  let PLACEHOLDER = `__FKS_${Math.random().toString(16).slice(2, 10)}_FKE__`
   const origin = JSON.stringify(target, (key, value) => (typeof value === 'function' ? '' : value))
   while (origin.indexOf(PLACEHOLDER) > -1) {
     PLACEHOLDER = `_${PLACEHOLDER}_`
@@ -140,7 +138,7 @@ export function serialize(target, space) {
    */
   let code = JSON.stringify(
     target,
-    function(key, value) {
+    function (key, value) {
       if (typeof value === 'function') {
         functions.push(value)
         id++

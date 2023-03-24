@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2021, the hapjs-platform Project Contributors
+ * Copyright (c) 2021-present, the hapjs-platform Project Contributors
  * SPDX-License-Identifier: Apache-2.0
  */
 
@@ -11,7 +11,7 @@ import { parseFragmentsWithCache } from '@hap-toolkit/compiler'
 import traverse from '@babel/traverse'
 import { ENTRY_TYPE } from '../common/utils'
 
-export default function(source) {
+export default function (source) {
   const options = loaderUtils.getOptions(this) || {}
   const query = loaderUtils.parseQuery(this.resourceQuery || '?')
   const hostName =
@@ -107,7 +107,7 @@ export default function(source) {
     source = generate(astBase).code
   } else {
     // 替换原始的script文件内容为新内容
-    source = source.replace(/<script.*?>([\s\S]+)<\/script>/, function() {
+    source = source.replace(/<script.*?>([\s\S]+)<\/script>/, function () {
       return `<script>\n${generate(astBase).code}\n</script>`
     })
   }
