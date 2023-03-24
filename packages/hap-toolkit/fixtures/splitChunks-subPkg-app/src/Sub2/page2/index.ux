@@ -1,31 +1,37 @@
-/*
- * Copyright (c) 2021, the hapjs-platform Project Contributors
- * SPDX-License-Identifier: Apache-2.0
- */
+<!-- 
+  Copyright (c) 2021-present, the hapjs-platform Project Contributors
+  SPDX-License-Identifier: Apache-2.0
+-->
 
 <template>
   <div class="demo-page">
     <text>当前页面：{{title}}</text>
     <text>加载模块：{{ moduleName }}</text>
+    <text>lodash信息：{{ lodashTestData }}</text>
     <input class="btn" type="button" value="showMod2" onclick="showMod2" />
     <input class="btn" type="button" value="showModAll" onclick="showModAll" />
+    <input class="btn" type="button" value="showLodashTest" onclick="showLodashTest" />
   </div>
 </template>
 
 <script>
+import { toUpper } from "lodash-es";
 import { showMod2 } from '../../modules/modSub2'
 import { showModAll } from '../../modules/modSubAll'
-
 export default {
   private: {
     title: 'sub2 page1',
-    moduleName: ''
+    moduleName: '',
+    lodashTestData: ''
   },
   showMod2 () {
     this.moduleName = showMod2()
   },
   showModAll () {
     this.moduleName = showModAll()
+  },
+  showLodashTest() {
+    this.lodashTestData = toUpper('/root/path/to/src/Sub2/page2/index.ux')
   }
 }
 </script>

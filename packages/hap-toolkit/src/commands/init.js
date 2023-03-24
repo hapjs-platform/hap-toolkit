@@ -1,9 +1,9 @@
 /*
- * Copyright (c) 2021, the hapjs-platform Project Contributors
+ * Copyright (c) 2021-present, the hapjs-platform Project Contributors
  * SPDX-License-Identifier: Apache-2.0
  */
 
-import path from 'path'
+import path from '@jayfate/path'
 
 import fs from 'fs-extra'
 import glob from 'glob'
@@ -65,7 +65,7 @@ async function createProject(name, dirpath, options = {}) {
     const deviceTypeArray = deviceTypeList.split(',')
     let deviceSet = new Set()
     let notSupportedDeviceSet = new Set()
-    deviceTypeArray.map(deviceType => {
+    deviceTypeArray.map((deviceType) => {
       deviceType = deviceType.toLowerCase()
       const isValidDeviceTypeFlag = allSupportedDeviceArray.includes(deviceType)
       if (!isValidDeviceTypeFlag) {
@@ -88,8 +88,14 @@ async function createProject(name, dirpath, options = {}) {
   // 获取设备配置文件模板的路径
   let deviceJsonTemplatePath = null
   // 匹配路径
-  tplPath = dslXvm.app.demo
-  deviceJsonTemplatePath = dslXvm.app.deviceJsonTemplate
+  switch (dslName) {
+    case 'vue':
+      console.error(`hap-toolkit >= 1.9.0版本暂不支持 dsl = vue!`)
+      break
+    default:
+      tplPath = dslXvm.app.demo
+      deviceJsonTemplatePath = dslXvm.app.deviceJsonTemplate
+  }
 
   // 拷贝project
   const projectpath = path.resolve(__dirname, tplPath)
@@ -101,9 +107,9 @@ async function createProject(name, dirpath, options = {}) {
     toolkitVersion: require('../../package.json').version
   }
 
-  const files = ['src/manifest.json', 'package.json'].map(file => path.join(dirpath, file))
+  const files = ['src/manifest.json', 'package.json'].map((file) => path.join(dirpath, file))
   // render files
-  files.forEach(filePath => {
+  files.forEach((filePath) => {
     let content = fs.readFileSync(filePath, 'utf-8')
     content = renderString(content, renderData)
     // 加入deviceTypeList 进 manifest.json
@@ -116,7 +122,7 @@ async function createProject(name, dirpath, options = {}) {
   })
 
   // 配置文件json的创建
-  finalDeviceTypeList.map(deviceType => {
+  finalDeviceTypeList.map((deviceType) => {
     const deviceJsonName = `config-${deviceType}.json`
     const jsonTemplatePath = path.join(deviceJsonTemplatePath, deviceJsonName)
     let jsonContent = '{}'
@@ -139,8 +145,8 @@ function copyFiles(dest, src, alias) {
   const pattern = path.join(src, '**/{*,.*}')
   const files = glob.sync(pattern, { nodir: true })
 
-  const promises = files.map(file => {
-    return new Promise(resolve => {
+  const promises = files.map((file) => {
+    return new Promise((resolve) => {
       const relative = path.relative(src, file)
       const finalPath = path.join(dest, alias[relative] || relative)
       if (!fs.existsSync(finalPath)) {
@@ -151,7 +157,7 @@ function copyFiles(dest, src, alias) {
       }
     })
   })
-  return Promise.all(promises).then(messages => {
+  return Promise.all(promises).then((messages) => {
     console.log(messages.join('\n'))
   })
 }

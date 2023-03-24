@@ -1,9 +1,9 @@
 /*
- * Copyright (c) 2021, the hapjs-platform Project Contributors
+ * Copyright (c) 2021-present, the hapjs-platform Project Contributors
  * SPDX-License-Identifier: Apache-2.0
  */
 
-import path from 'path'
+import path from '@jayfate/path'
 import fs from 'fs-extra'
 import glob from 'glob'
 import chalk from 'chalk'
@@ -19,8 +19,10 @@ const packageInfo = require('../../package.json')
 
 // DSL路径预先定义
 const dslModuleXvmDir = path.dirname(require.resolve('@hap-toolkit/dsl-xvm/package.json'))
+// const dslModuleVueDir = path.dirname(require.resolve('@hap-toolkit/dsl-vue/package.json'))
 const dslModuleHash = {
   xvm: dslModuleXvmDir
+  // vue: dslModuleVueDir
 }
 
 // 名称
@@ -113,13 +115,13 @@ function cleanupDependencies(pkg, options) {
   if (!pkg.devDependencies) {
     return Promise.resolve(pkg)
   }
-  const deps = dependencies.filter(dep => pkg.devDependencies[dep])
+  const deps = dependencies.filter((dep) => pkg.devDependencies[dep])
   if (!deps.length) {
     return Promise.resolve(pkg)
   }
   let promise = Promise.resolve(dependencies)
   if (!options.updateDeps) {
-    promise = new Promise(resolve => {
+    promise = new Promise((resolve) => {
       const questions = [
         {
           type: 'confirm',
@@ -131,20 +133,20 @@ function cleanupDependencies(pkg, options) {
           type: 'checkbox',
           name: 'selectedDeps',
           message: '将移除以下选中的模块',
-          choices: deps.map(dep => ({ checked: true, name: dep })),
+          choices: deps.map((dep) => ({ checked: true, name: dep })),
           pageSize: deps.length, // show all
-          when: function(answers) {
+          when: function (answers) {
             return answers.toDelete
           }
         }
       ]
-      inquirer.prompt(questions).then(answers => {
+      inquirer.prompt(questions).then((answers) => {
         resolve(answers.toDelete ? answers.selectedDeps : [])
       })
     })
   }
-  return promise.then(selectedDeps => {
-    selectedDeps.forEach(dep => {
+  return promise.then((selectedDeps) => {
+    selectedDeps.forEach((dep) => {
       pkg.devDependencies[dep] = undefined
     })
     return pkg
@@ -174,7 +176,7 @@ function upgradePackage(options) {
     tplPkgInfo.subversion.toolkit = packageInfo.version
   }
 
-  return cleanupDependencies(curpkg, options).then(cleanedPkg => {
+  return cleanupDependencies(curpkg, options).then((cleanedPkg) => {
     for (const key in tplPkgInfo) {
       const item = tplPkgInfo[key]
       if (typeof item === 'string' && curpkg[key]) {
@@ -197,7 +199,7 @@ function copyFiles(dest, src) {
   // 遍历收集文件列表
   const pattern = path.join(src, '**/{*,.*}')
   const files = glob.sync(pattern)
-  files.forEach(file => {
+  files.forEach((file) => {
     const relative = path.relative(src, file)
     const finalPath = path.join(dest, relative)
     // 覆盖原有文件
@@ -306,6 +308,9 @@ function updateProject(options) {
 
   // 设置DSL信息
   dslName = getProjectDslName(curDir)
+  if (dslName === 'vue') {
+    console.error(`hap-toolkit >= 1.9.0版本暂不支持 dsl = vue!`)
+  }
   dslModuleDir = dslModuleHash[dslName]
 
   upgradePackage(options).then(() => {

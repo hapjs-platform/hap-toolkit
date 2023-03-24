@@ -1,7 +1,8 @@
 /*
- * Copyright (c) 2021, the hapjs-platform Project Contributors
+ * Copyright (c) 2021-present, the hapjs-platform Project Contributors
  * SPDX-License-Identifier: Apache-2.0
  */
+
 module.exports = {
   sourceRoot: './src1', // 源码根目录
   signRoot: './sign2', // 证书签名路径
@@ -14,6 +15,6 @@ class PostHookTestPlugin {
   apply(compiler) {}
 }
 
-module.exports.postHook = function(webpackConf, compileOptionsObject) {
+module.exports.postHook = function (webpackConf, compileOptionsObject) {
   webpackConf && webpackConf.plugins.push(new PostHookTestPlugin())
 }

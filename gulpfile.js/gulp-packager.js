@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2021, the hapjs-platform Project Contributors
+ * Copyright (c) 2021-present, the hapjs-platform Project Contributors
  * SPDX-License-Identifier: Apache-2.0
  */
 
@@ -59,7 +59,13 @@ function packager__copy_pem(callback) {
 // gulp use named function as task name
 function packager_test__clean() {
   return del(
-    ['test/build/', 'test/node_modules/', 'test/fixtures/*/build/', 'test/fixtures/*/dist/'],
+    [
+      'test/build/',
+      'test/node_modules/',
+      'test/fixtures/*/build/',
+      'test/fixtures/*/dist/',
+      'packages/hap-toolkit/fixtures/temp-test-app-*'
+    ].map((subpath) => path.resolve(__dirname, '../', subpath)),
     GLOB_OPTS
   )
 }

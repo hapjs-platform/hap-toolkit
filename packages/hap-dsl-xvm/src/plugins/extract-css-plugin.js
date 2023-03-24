@@ -1,14 +1,14 @@
 /*
- * Copyright (c) 2021, the hapjs-platform Project Contributors
+ * Copyright (c) 2021-present, the hapjs-platform Project Contributors
  * SPDX-License-Identifier: Apache-2.0
  */
 
 import webpack from 'webpack'
-import sources from 'webpack-sources'
 import JavascriptModulesPlugin from 'webpack/lib/javascript/JavascriptModulesPlugin'
 import NormalModule from 'webpack/lib/NormalModule'
 
-const { ConcatSource, OriginalSource } = sources
+let ConcatSource, OriginalSource
+
 const {
   util: { createHash }
 } = webpack
@@ -131,11 +131,14 @@ class ExtractCssPlugin {
   }
 
   apply(compiler) {
-    compiler.hooks.thisCompilation.tap(pluginName, compilation => {
+    ConcatSource = compiler.webpack.sources.ConcatSource
+    OriginalSource = compiler.webpack.sources.OriginalSource
+
+    compiler.hooks.thisCompilation.tap(pluginName, (compilation) => {
       NormalModule.getCompilationHooks(compilation).loader.tap(pluginName, (lc, m) => {
         const loaderContext = lc
         const module = m
-        loaderContext[MODULE_TYPE] = cssModule => {
+        loaderContext[MODULE_TYPE] = (cssModule) => {
           module.addDependency(new CssDependency(cssModule, m.context, 0))
         }
       })
@@ -147,7 +150,7 @@ class ExtractCssPlugin {
       compilation.hooks.renderManifest.tap(pluginName, (result, { chunk }) => {
         const renderedModules = Array.from(
           compilation.chunkGraph.getOrderedChunkModulesIterable(chunk)
-        ).filter(module => module.type === MODULE_TYPE)
+        ).filter((module) => module.type === MODULE_TYPE)
 
         if (renderedModules.length > 0) {
           result.push({
@@ -180,7 +183,7 @@ class ExtractCssPlugin {
         }
       )
 
-      compilation.hooks.contentHash.tap(pluginName, chunk => {
+      compilation.hooks.contentHash.tap(pluginName, (chunk) => {
         const { outputOptions } = compilation
         const { hashFunction, hashDigest, hashDigestLength } = outputOptions
         const hash = createHash(hashFunction)
@@ -205,23 +208,23 @@ class ExtractCssPlugin {
 
     if (typeof chunkGroup.getModulePostOrderIndex === 'function') {
       // Store dependencies for modules
-      const moduleDependencies = new Map(modules.map(m => [m, new Set()]))
+      const moduleDependencies = new Map(modules.map((m) => [m, new Set()]))
 
       // Get ordered list of modules per chunk group
       // This loop also gathers dependencies from the ordered lists
       // Lists are in reverse order to allow to use Array.pop()
-      const modulesByChunkGroup = Array.from(chunk.groupsIterable, cg => {
+      const modulesByChunkGroup = Array.from(chunk.groupsIterable, (cg) => {
         const sortedModules = modules
-          .map(m => {
+          .map((m) => {
             return {
               module: m,
               index: cg.getModulePostOrderIndex(m)
             }
           })
           // eslint-disable-next-line no-undefined
-          .filter(item => item.index !== undefined)
+          .filter((item) => item.index !== undefined)
           .sort((a, b) => b.index - a.index)
-          .map(item => item.module)
+          .map((item) => item.module)
 
         for (let i = 0; i < sortedModules.length; i++) {
           const set = moduleDependencies.get(sortedModules[i])
@@ -237,7 +240,7 @@ class ExtractCssPlugin {
       // set with already included modules in correct order
       usedModules = new Set()
 
-      const unusedModulesFilter = m => !usedModules.has(m)
+      const unusedModulesFilter = (m) => !usedModules.has(m)
 
       while (usedModules.size < modules.length) {
         let success = false
@@ -266,7 +269,8 @@ class ExtractCssPlugin {
 
             if (failedDeps.length === 0) {
               // use this module and remove it from list
-              usedModules.add(list.pop())
+              const mm = list.pop()
+              usedModules.add(mm)
               success = true
               break
             }
@@ -285,7 +289,7 @@ class ExtractCssPlugin {
                   'Conflicting order between:\n' +
                   ` * ${fallbackModule.readableIdentifier(requestShortener)}\n` +
                   `${bestMatchDeps
-                    .map(m => ` * ${m.readableIdentifier(requestShortener)}`)
+                    .map((m) => ` * ${m.readableIdentifier(requestShortener)}`)
                     .join('\n')}`
               )
             )

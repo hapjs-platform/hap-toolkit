@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2021, the hapjs-platform Project Contributors
+ * Copyright (c) 2021-present, the hapjs-platform Project Contributors
  * SPDX-License-Identifier: Apache-2.0
  */
 
@@ -38,20 +38,21 @@ function CopyDslPlugin(options) {
   this.packageList = Object.keys(require(`${this.options.cwd}/package.json`).devDependencies || {})
 }
 
-CopyDslPlugin.prototype.apply = function(compiler) {
+CopyDslPlugin.prototype.apply = function (compiler) {
   const thiz = this
-  compiler.hooks.emit.tapAsync('copyDslPlugin', function(compilation, callback) {
+  compiler.hooks.emit.tapAsync('copyDslPlugin', function (compilation, callback) {
     thiz.copyFile(callback)
   })
 }
 
-CopyDslPlugin.prototype.copyFile = function(callback) {
+CopyDslPlugin.prototype.copyFile = function (callback) {
   const packageName = findPackageName(this.packageList, pkgReg)
   if (!packageName) {
     callback()
     return
   }
-  const dslName = this.options?.config?.dsl?.name
+  // TODO rm dsl vue ?
+  const dslName = this.options?.config?.dsl?.name || 'vue'
   const readPath = `${this.options.cwd}/node_modules/${packageName}/dist/release/dsls/${dslName}.js`
   const writePath = `${this.options.cwd}/build/dsl.js`
   const writeStream = fs.createWriteStream(writePath)

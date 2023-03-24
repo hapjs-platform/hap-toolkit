@@ -11,7 +11,7 @@
     "server": "hap server",
     "watch": "hap watch"
   },
-  "devDependencies": {
-    "hap-toolkit":"^0.1.0"
-  }
+  "browserslist": [
+    "chrome 65"
+  ]
 }

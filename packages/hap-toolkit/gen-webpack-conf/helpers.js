@@ -1,9 +1,10 @@
 /*
- * Copyright (c) 2021, the hapjs-platform Project Contributors
+ * Copyright (c) 2021-present, the hapjs-platform Project Contributors
  * SPDX-License-Identifier: Apache-2.0
  */
+
 const fs = require('fs-extra')
-const path = require('path')
+const path = require('@jayfate/path')
 const builtinList = require('module').builtinModules
 const globalConfig = require('@hap-toolkit/shared-utils/config')
 
@@ -36,7 +37,7 @@ exports.cleanup = function cleanup(BUILD_DIR, DIST_DIR) {
   // 清空 dist 目录下的文件(仅文件)
   if (fs.existsSync(DIST_DIR)) {
     const zipfiles = fs.readdirSync(DIST_DIR)
-    zipfiles.forEach(function(file) {
+    zipfiles.forEach(function (file) {
       const curPath = DIST_DIR + '/' + file
       if (fs.statSync(curPath).isFile()) {
         fs.unlinkSync(curPath)

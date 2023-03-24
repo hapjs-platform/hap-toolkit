@@ -12,6 +12,6 @@
     "watch": "hap watch"
   },
   "devDependencies": {
-    "hap-toolkit":"^0.2.2"
+    "hap-toolkit": "^0.2.2"
   }
 }

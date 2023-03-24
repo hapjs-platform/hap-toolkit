@@ -1,6 +1,6 @@
 {
   "name": "hap-dev-utils",
-  "version": "1.9.5",
+  "version": "1.9.11",
   "private": true,
   "description": "utils of development and testing",
   "engines": {
@@ -16,7 +16,8 @@
     "*.js"
   ],
   "dependencies": {
-    "fs-extra": "^7.0.1",
+    "@jayfate/path": "^0.0.13",
+    "fs-extra": "^10.0.0",
     "glob": "^7.1.6",
     "jszip": "^3.4.0"
   }

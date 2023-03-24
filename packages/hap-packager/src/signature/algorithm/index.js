@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2021, the hapjs-platform Project Contributors
+ * Copyright (c) 2021-present, the hapjs-platform Project Contributors
  * SPDX-License-Identifier: Apache-2.0
  */
 
@@ -34,7 +34,7 @@ function unZipFiles(fileBuf, files) {
   if (chunks.tag) {
     // 解析成功, 生成签名块
     // 分别处理3个块签名
-    Object.keys(chunks.sections).forEach(item => {
+    Object.keys(chunks.sections).forEach((item) => {
       const chunk = chunks.sections[item]
       processChunk(fileBuf, chunk)
     })
@@ -399,14 +399,14 @@ function makeSignDataBuffer(block) {
 
   buffer.writeInt32LE(block.digests.size, offset)
   offset += 4
-  block.digests.data.forEach(item => {
+  block.digests.data.forEach((item) => {
     item.buffer.copy(buffer, offset)
     offset += item.len
   })
 
   buffer.writeInt32LE(block.certs.size, offset)
   offset += 4
-  block.certs.data.forEach(item => {
+  block.certs.data.forEach((item) => {
     item.buffer.copy(buffer, offset)
     offset += item.len
   })
@@ -432,7 +432,7 @@ function saveSignChunk(signchunk) {
   offset += 4
 
   // key-value
-  signchunk.data.forEach(kv => {
+  signchunk.data.forEach((kv) => {
     buffer.writeInt32LE(kv.size, offset)
     offset += 4
     buffer.writeInt32LE(0, offset)
@@ -447,7 +447,7 @@ function saveSignChunk(signchunk) {
 
     if (kv.id === 0x01000101) {
       // sign blocks
-      kv.value.data.forEach(block => {
+      kv.value.data.forEach((block) => {
         buffer.writeInt32LE(block.size, offset)
         offset += 4
 
@@ -462,7 +462,7 @@ function saveSignChunk(signchunk) {
         buffer.writeInt32LE(block.signatures.size, offset)
         offset += 4
 
-        block.signatures.data.forEach(signature => {
+        block.signatures.data.forEach((signature) => {
           buffer.writeInt32LE(signature.size, offset)
           offset += 4
 
@@ -484,7 +484,7 @@ function saveSignChunk(signchunk) {
       })
     } else if (kv.id === 0x01000201) {
       // files blocks
-      kv.value.data.forEach(block => {
+      kv.value.data.forEach((block) => {
         block.copy(buffer, offset)
         offset += block.length
       })
@@ -568,7 +568,7 @@ function signFiles(filehashs, prikey, certpem) {
   }
 
   // 生成hash块
-  filehashs.forEach(item => {
+  filehashs.forEach((item) => {
     // name hash
     const namehash = CRC32.digest(item.name)
 
@@ -608,7 +608,7 @@ function signDigestChunk(chunk, prikey, certpem) {
   buf.writeInt32LE(0x0103, offset)
   offset += 4
 
-  chunk.digests.forEach(chk => {
+  chunk.digests.forEach((chk) => {
     chk.copy(buf, offset)
     offset += chk.length
   })

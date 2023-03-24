@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2021, the hapjs-platform Project Contributors
+ * Copyright (c) 2021-present, the hapjs-platform Project Contributors
  * SPDX-License-Identifier: Apache-2.0
  */
 
@@ -33,7 +33,7 @@ class Package {
 
     // 实例化时固定，完整包名，例如：com.demo.base.srpk
     this.fileName = [this.filePrefix, this.fileSubname, this.fileSuffix]
-      .filter(i => i !== null)
+      .filter((i) => i !== null)
       .join('.')
   }
 
@@ -94,7 +94,7 @@ function createSubPackages(appPackageName, subpackages, appIcon, banner = '') {
   })
   subPackages.push(basePkg)
 
-  subpackages.forEach(subpkg => {
+  subpackages.forEach((subpkg) => {
     const partPkg = new Package({
       filePrefix: appPackageName,
       fileSubname: subpkg.name,

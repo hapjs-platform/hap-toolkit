@@ -1,6 +1,7 @@
 {
   "name": "subpackage-app",
   "version": "1.0.0",
+  "versionCode": "1",
   "subversion": {
     "toolkit": "0.0.32"
   },
@@ -12,6 +13,7 @@
     "watch": "hap watch"
   },
   "devDependencies": {
-    "hap-toolkit":"^0.1.0"
+    "hap-toolkit": "^0.1.0",
+    "lodash-es": "^4.17.21"
   }
 }

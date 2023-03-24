@@ -1,8 +1,9 @@
 /*
- * Copyright (c) 2021, the hapjs-platform Project Contributors
+ * Copyright (c) 2021-present, the hapjs-platform Project Contributors
  * SPDX-License-Identifier: Apache-2.0
  */
-const path = require('path')
+
+const path = require('@jayfate/path')
 const fs = require('fs')
 const chalk = require('chalk')
 const inquirer = require('inquirer')
@@ -23,7 +24,8 @@ const {
 const { recordClient, clearProjectRecord } = require('@hap-toolkit/shared-utils/lib/record-client')
 const { clientRecordPath } = require('@hap-toolkit/shared-utils/config')
 
-const ipRegExp = /^(?:(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.){3}(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)$/
+const ipRegExp =
+  /^(?:(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.){3}(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)$/
 
 const CLIENT_PORT = 39517
 
@@ -63,14 +65,14 @@ async function connectDevice(ip = '') {
       return Promise.resolve()
     }
     const ips = ip.trim().split(',')
-    const invalidIps = ips.filter(ip => !ipRegExp.test(ip))
+    const invalidIps = ips.filter((ip) => !ipRegExp.test(ip))
     if (invalidIps && invalidIps.length) {
-      invalidIps.map(ip => {
+      invalidIps.map((ip) => {
         colorconsole.error(`ip: ${ip} is invalid IP`)
       })
       process.exit()
     } else {
-      const newDeviceListPromiseArray = Array.from(ips, ip => {
+      const newDeviceListPromiseArray = Array.from(ips, (ip) => {
         return adbCommander.exeCommand(`adb connect ${ip}:5555`).then(({ result, err }) => {
           if (err || result.indexOf('failed') >= 0) {
             colorconsole.error(`wifi连接ip： "${ip}" 的设备失败了`)
@@ -148,11 +150,11 @@ async function downloadApk(options, isQuickappDebugger) {
     return apkPath
   } else {
     return downloadFile(url, filename)
-      .then(message => {
+      .then((message) => {
         colorconsole.info(message)
         return apkPath
       })
-      .catch(err => {
+      .catch((err) => {
         colorconsole.error('下载安装包失败', err)
         process.exit()
       })
@@ -170,7 +172,7 @@ async function downloadApk(options, isQuickappDebugger) {
 async function installApk(options, deviceList = [], apkPath, apkName, appName) {
   const { forceInstall = false } = options
   try {
-    const newDeviceListPromiseArray = Array.from(deviceList, deviceSn => {
+    const newDeviceListPromiseArray = Array.from(deviceList, (deviceSn) => {
       return adbCommander.isInstalled(deviceSn, apkName).then(async ({ isInstalled, err }) => {
         // error 非标准错误Error类，因此需要序列化输出
         if (err) {
@@ -321,7 +323,7 @@ async function queryDevice(deviceList, orderText = '') {
  */
 async function startDebugger(deviceList = [], param) {
   colorconsole.info(`正在为已连接的设备启动调试器中...`)
-  const newDeviceListPromiseArray = Array.from(deviceList, deviceSn => {
+  const newDeviceListPromiseArray = Array.from(deviceList, (deviceSn) => {
     return adbCommander
       .exeCommand(
         `adb -s ${deviceSn} shell am start -n "org.hapjs.debugger/.MainActivity" ${param}`
@@ -457,7 +459,7 @@ async function runapp(options, isShowLog = true, isConnectDevice = true) {
                   choices: availablePlatforms
                 }
               ])
-              availablePlatforms.forEach(item => {
+              availablePlatforms.forEach((item) => {
                 if (item.name === platform.name) {
                   availablePlatform = item.pkg
                 }

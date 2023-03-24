@@ -1,6 +1,6 @@
 {
   "name": "integration-tests",
-  "version": "1.9.5",
+  "version": "1.9.11",
   "description": "intergration tests",
   "engines": {
     "node": ">=8.0.0"
@@ -16,11 +16,14 @@
   "license": "ISC",
   "private": true,
   "devDependencies": {
-    "del": "^3.0.0",
+    "del": "^4.1.1",
     "glob": "^7.1.6",
-    "hap-dev-utils": "1.9.5",
-    "hap-toolkit": "1.9.5",
+    "hap-dev-utils": "1.9.11",
+    "hap-toolkit": "1.9.11",
     "jest": "^24.9.0",
     "node-fetch": "^2.3.0"
+  },
+  "dependencies": {
+    "@jayfate/path": "^0.0.13"
   }
 }

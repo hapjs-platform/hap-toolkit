@@ -10,9 +10,7 @@
     { "name": "system.router" },
     { "name": "system.shortcut" }
   ],
-  "permissions": [
-    { "origin": "*" }
-  ],
+  "permissions": [{ "origin": "*" }],
   "config": {
     "logLevel": "trace"
   },

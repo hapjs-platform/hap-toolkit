@@ -1,9 +1,9 @@
 /*
- * Copyright (c) 2021, the hapjs-platform Project Contributors
+ * Copyright (c) 2021-present, the hapjs-platform Project Contributors
  * SPDX-License-Identifier: Apache-2.0
  */
 
-import path from 'path'
+import path from '@jayfate/path'
 import loaderUtils from 'loader-utils'
 import hash from 'hash-sum'
 import { SourceMapGenerator, SourceMapConsumer } from 'source-map'
@@ -66,7 +66,7 @@ export function makeRequireString(loaderContext, loader, filepath) {
  */
 export function stringifyLoaders(loaders) {
   return loaders
-    .map(loader => {
+    .map((loader) => {
       if (typeof loader === 'string') {
         // 如果已经是字符串，则不用转换
         return loader
@@ -234,7 +234,9 @@ export function convertPath(filePath) {
   if (/^[/\\]node_modules/.test(filePath)) {
     pathBase = globalConfig.projectPath
   }
-  return path.join(pathBase, filePath)
+  return process.platform === 'win32'
+    ? path.join(pathBase, filePath).replace(/\//g, '\\')
+    : path.join(pathBase, filePath)
 }
 
 /**

@@ -1,7 +1,8 @@
 /*
- * Copyright (c) 2021, the hapjs-platform Project Contributors
+ * Copyright (c) 2021-present, the hapjs-platform Project Contributors
  * SPDX-License-Identifier: Apache-2.0
  */
+
 'use strict'
 
 // 表达式中允许的关键字
@@ -24,9 +25,11 @@ const improperKeywordsRE = new RegExp('^(' + improperKeywords.replace(/,/g, '\\b
 
 const wsRE = /\s/g
 const newlineRE = /\n/g
-const saveRE = /[{,]\s*[\w$_]+\s*:|('(?:[^'\\]|\\.)*'|"(?:[^"\\]|\\.)*"|`(?:[^`\\]|\\.)*\$\{|\}(?:[^`\\]|\\.)*`|`(?:[^`\\]|\\.)*`)|new |typeof |void /g
+const saveRE =
+  /[{,]\s*[\w$_]+\s*:|('(?:[^'\\]|\\.)*'|"(?:[^"\\]|\\.)*"|`(?:[^`\\]|\\.)*\$\{|\}(?:[^`\\]|\\.)*`|`(?:[^`\\]|\\.)*`)|new |typeof |void /g
 const restoreRE = /"(\d+)"/g
-const pathTestRE = /^[A-Za-z_$][\w$]*(?:\.[A-Za-z_$][\w$]*|\['.*?'\]|\[".*?"\]|\[\d+\]|\[[A-Za-z_$][\w$]*\])*$/
+const pathTestRE =
+  /^[A-Za-z_$][\w$]*(?:\.[A-Za-z_$][\w$]*|\['.*?'\]|\[".*?"\]|\[\d+\]|\[[A-Za-z_$][\w$]*\])*$/
 const identRE = /[^\w$.](?:[A-Za-z_$][\w$]*)/g
 const literalValueRE = /^(?:true|false|null|undefined|Infinity|NaN)$/
 
@@ -111,10 +114,7 @@ function compileGetter(exp) {
   // 重置状态
   saved.length = 0
   // 处理表达式
-  let body = exp
-    .replace(saveRE, save)
-    .replace(saveRegRe, saveReg)
-    .replace(wsRE, '') // 剔除空格/分隔符
+  let body = exp.replace(saveRE, save).replace(saveRegRe, saveReg).replace(wsRE, '') // 剔除空格/分隔符
   // 生成新表达式
   body = (' ' + body)
     .replace(identRE, rewrite)

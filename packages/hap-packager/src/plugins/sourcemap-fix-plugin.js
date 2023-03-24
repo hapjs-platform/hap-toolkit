@@ -1,10 +1,9 @@
 /*
- * Copyright (c) 2021, the hapjs-platform Project Contributors
+ * Copyright (c) 2021-present, the hapjs-platform Project Contributors
  * SPDX-License-Identifier: Apache-2.0
  */
 
 import Compilation from 'webpack/lib/Compilation'
-import { ConcatSource } from 'webpack-sources'
 
 /**
  * @param options
@@ -14,16 +13,18 @@ function SourcemapFixPlugin(options = {}) {
   this.options = options
 }
 
-SourcemapFixPlugin.prototype.apply = function(compiler) {
-  compiler.hooks.compilation.tap('SourcemapFixPlugin', function(compilation) {
+let ConcatSource
+SourcemapFixPlugin.prototype.apply = function (compiler) {
+  ConcatSource = compiler.webpack.sources.ConcatSource
+  compiler.hooks.compilation.tap('SourcemapFixPlugin', function (compilation) {
     compilation.hooks.processAssets.tap(
       {
         name: 'SourcemapFixPlugin',
         stage: Compilation.PROCESS_ASSETS_STAGE_DEV_TOOLING
       },
       () => {
-        compilation.chunks.forEach(function(chunk) {
-          chunk.files.forEach(function(fileName) {
+        compilation.chunks.forEach(function (chunk) {
+          chunk.files.forEach(function (fileName) {
             // 在首行添加空行，解决运行时在首行插入代码，导致异常的首行列信息定位到源文件错误的问题
             const sourceList = warpNewLine(fileName, compilation)
             sourceList && (compilation.assets[fileName] = sourceList)

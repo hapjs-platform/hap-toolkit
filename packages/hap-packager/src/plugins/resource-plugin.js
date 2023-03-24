@@ -1,9 +1,9 @@
 /*
- * Copyright (c) 2021, the hapjs-platform Project Contributors
+ * Copyright (c) 2021-present, the hapjs-platform Project Contributors
  * SPDX-License-Identifier: Apache-2.0
  */
 
-import path from 'path'
+import path from '@jayfate/path'
 import fs from 'fs-extra'
 import aaptjs from '@hap-toolkit/aaptjs'
 import glob from 'glob'
@@ -45,7 +45,7 @@ const FILE_EXT_NORES = FILE_EXT_LIST.concat([
   '.json',
   '.md'
 ])
-const EXT_PATTERN = FILE_EXT_NORES.map(ext => {
+const EXT_PATTERN = FILE_EXT_NORES.map((ext) => {
   return '*' + ext
 }).join('|')
 
@@ -69,7 +69,7 @@ function getSkeletonConfigFile(sourceDir) {
 
 function getSpecifiedJSONFiles(sourceDir, specifiedDirArray) {
   let filesArray = []
-  specifiedDirArray.map(specifiedDir => {
+  specifiedDirArray.map((specifiedDir) => {
     const { directoryName, onlyRoot = false } = specifiedDir
     const dir = path.join(sourceDir, directoryName)
     // onlyRoot: 是否仅遍历根目录
@@ -95,13 +95,13 @@ function minifyJson(source, target) {
 }
 
 function minifySpecifiedJSONFiles(targetDir, specifiedDirArray) {
-  specifiedDirArray.map(specifiedDir => {
+  specifiedDirArray.map((specifiedDir) => {
     const { directoryName, onlyRoot = false } = specifiedDir
     const dir = path.join(targetDir, directoryName)
     const jsonPath = onlyRoot ? '*.json' : '**/**.json'
     if (fs.existsSync(dir)) {
       const jsonFiles = getFiles(jsonPath, dir)
-      jsonFiles.forEach(filePath => {
+      jsonFiles.forEach((filePath) => {
         minifyJson(filePath, filePath)
       })
     }
@@ -136,12 +136,12 @@ function ResourcePlugin(options) {
   this.options = options
 }
 
-ResourcePlugin.prototype.apply = function(compiler) {
+ResourcePlugin.prototype.apply = function (compiler) {
   const options = this.options
   const webpackOptions = compiler.options
   // 监听时处理
-  compiler.hooks.watchRun.tapAsync('ResourcePlugin', function(watching, callback) {
-    Object.keys(webpackOptions.entry).forEach(function(key) {
+  compiler.hooks.watchRun.tapAsync('ResourcePlugin', function (watching, callback) {
+    Object.keys(webpackOptions.entry).forEach(function (key) {
       const val = webpackOptions.entry[key]
       if (val instanceof Array && !/app\.js/.test(key)) {
         // 删除webpack-dev-server注入的watch依赖
@@ -151,7 +151,7 @@ ResourcePlugin.prototype.apply = function(compiler) {
     callback()
   })
 
-  compiler.hooks.emit.tapAsync('ResourcePlugin', function(compilation, callback) {
+  compiler.hooks.emit.tapAsync('ResourcePlugin', function (compilation, callback) {
     const sourceDir = options.src
     const targetDir = options.dest
 
@@ -182,7 +182,7 @@ ResourcePlugin.prototype.apply = function(compiler) {
       iconPath = ''
       bannerPath = ''
     }
-    let pairs = files.map(file => {
+    let pairs = files.map((file) => {
       return {
         srcFile: file,
         destFile: path.resolve(targetDir, path.relative(sourceDir, file))
@@ -208,7 +208,7 @@ ResourcePlugin.prototype.apply = function(compiler) {
         })
       }
     }
-    pairs = pairs.filter(pair => {
+    pairs = pairs.filter((pair) => {
       const { srcFile } = pair
       if (options.optimizeUnusedResource) {
         return (
@@ -222,7 +222,7 @@ ResourcePlugin.prototype.apply = function(compiler) {
         return true
       }
     })
-    const promises = pairs.map(pair => {
+    const promises = pairs.map((pair) => {
       return new Promise((resolve, reject) => {
         const { srcFile, destFile } = pair
         // 确保目标目录存在
@@ -233,19 +233,19 @@ ResourcePlugin.prototype.apply = function(compiler) {
             if (compileOptionsObject.trimDotnine) {
               // 处理 .9 图片
               // 传入相对当前目录的路径，输出信息友好
-              filePromise = aaptjs.singleCrunch(srcFile, destFile).catch(err => {
+              filePromise = aaptjs.singleCrunch(srcFile, destFile).catch((err) => {
                 if (err) {
                   colorconsole.log(`复制文件 ${relateCwd(srcFile)} 失败：${err.message}`)
                 }
               })
             } else {
-              filePromise = fs.copy(srcFile, destFile).catch(err => {
+              filePromise = fs.copy(srcFile, destFile).catch((err) => {
                 colorconsole.log(`复制 ${srcFile} -> ${destFile} 失败`)
                 throw err
               })
             }
           } else {
-            filePromise = fs.copy(srcFile, destFile).catch(err => {
+            filePromise = fs.copy(srcFile, destFile).catch((err) => {
               colorconsole.log(`复制 ${srcFile} -> ${destFile} 失败`)
               throw err
             })
@@ -259,7 +259,7 @@ ResourcePlugin.prototype.apply = function(compiler) {
       () => {
         if (compilation.errors.length) {
           const msg = compilation.errors
-            .map(error => {
+            .map((error) => {
               return error.message
             })
             .join('/n')
@@ -269,7 +269,7 @@ ResourcePlugin.prototype.apply = function(compiler) {
         eventBus.emit(PACKAGER_BUILD_DONE)
         callback()
       },
-      err => {
+      (err) => {
         colorconsole.log('ERROR: 拷贝文件出现错误', err)
         throw err
       }
@@ -320,7 +320,7 @@ ResourcePlugin.prototype.apply = function(compiler) {
 
       // minify in production mode
       const updatedContent = JSON.stringify(manifest, null, configDebugInManifest ? 2 : 0)
-      fs.writeFile(pathManifestDest, updatedContent, 'utf8', err => {
+      fs.writeFile(pathManifestDest, updatedContent, 'utf8', (err) => {
         if (err) {
           colorconsole.error(
             '### App Loader ### 更新 %s 失败：%s',

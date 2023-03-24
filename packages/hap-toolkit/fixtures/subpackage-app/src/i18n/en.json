@@ -1,31 +1,31 @@
 {
-	"message": {
-		"text": "pure-text-content",
-		"empty": "",
-		"format": {"object": "type-{name}"},
-		"array": [],
-		"fallback": "fallback-value",
-		"plurals": {"double": "car|cars"}
-	},
-	"dateTimeFormat": {
-		"short": {
-			"year": "numeric",
-			"month": "2-digit",
-			"day": "2-digit",
-			"hour": "2-digit",
-			"minute": "2-digit",
-			"timeZone": "Asia/Shanghai"
-		}
-	},
-	"numberFormat": {
-		"currency": {
-			"style": "currency",
-			"currency": "USD",
-			"currencyDisplay": "symbol"
-		},
-		"decimal": {
-			"style": "decimal",
-			"useGrouping": false
-		}
-	}
+  "message": {
+    "text": "pure-text-content",
+    "empty": "",
+    "format": { "object": "type-{name}" },
+    "array": [],
+    "fallback": "fallback-value",
+    "plurals": { "double": "car|cars" }
+  },
+  "dateTimeFormat": {
+    "short": {
+      "year": "numeric",
+      "month": "2-digit",
+      "day": "2-digit",
+      "hour": "2-digit",
+      "minute": "2-digit",
+      "timeZone": "Asia/Shanghai"
+    }
+  },
+  "numberFormat": {
+    "currency": {
+      "style": "currency",
+      "currency": "USD",
+      "currencyDisplay": "symbol"
+    },
+    "decimal": {
+      "style": "decimal",
+      "useGrouping": false
+    }
+  }
 }

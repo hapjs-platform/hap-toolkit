@@ -1,10 +1,10 @@
 /*
- * Copyright (c) 2021, the hapjs-platform Project Contributors
+ * Copyright (c) 2021-present, the hapjs-platform Project Contributors
  * SPDX-License-Identifier: Apache-2.0
  */
 
 import fs from 'fs'
-import path from 'path'
+import path from '@jayfate/path'
 import { colorconsole, mkdirsSync } from './index'
 import globalConfig from '../config'
 
@@ -63,7 +63,7 @@ export function recordClient(clientRecordPath, newClient, logHook) {
     recordData = getRecords(clientRecordPath)
     let clients = getProjectClients(recordData)
     logHook && logHook(`writeClientLogFile(): before: ${JSON.stringify(recordData.records)}`)
-    clients = clients.filter(client => {
+    clients = clients.filter((client) => {
       return client.ip !== newClient.ip || client.port !== newClient.port
     })
     // 保留最后的4条记录，最多记录5条
@@ -92,7 +92,7 @@ export function getRecordClient(clientRecordPath, sn, ip) {
   if (fs.existsSync(clientRecordPath)) {
     const recordData = getRecords(clientRecordPath)
     const clients = getProjectClients(recordData)
-    return clients.find(client => {
+    return clients.find((client) => {
       return client.sn === sn && client.ip === ip && client.port
     })
   }
@@ -128,7 +128,7 @@ export function removeClientBySn(clientRecordPath, sn, logHook) {
     const records = recordData.records
     const clients = getProjectClients(recordData)
     logHook && logHook(`_removeItemFromClientLogFile(): before: ${JSON.stringify(records)}`)
-    records[projectPath] = clients.filter(it => {
+    records[projectPath] = clients.filter((it) => {
       return it.sn !== sn
     })
     writeRecords(clientRecordPath, recordData)

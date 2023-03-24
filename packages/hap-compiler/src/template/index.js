@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2021, the hapjs-platform Project Contributors
+ * Copyright (c) 2021-present, the hapjs-platform Project Contributors
  * SPDX-License-Identifier: Apache-2.0
  */
 
@@ -25,7 +25,7 @@ function calcSubTextNodesNum(tagName, childNodes) {
   let subTextNodesNum = 0
   if (validator.isSupportSpan(tagName)) {
     const tagChildren = validator.getTagChildren(tagName)
-    childNodes.forEach(function(child) {
+    childNodes.forEach(function (child) {
       if (
         (child.nodeName === '#text' && child.value.trim()) ||
         tagChildren.indexOf(child.nodeName) > -1
@@ -151,14 +151,14 @@ function traverse(node, output, previousNode, conditionList, options) {
     // 支持span的节点的有效子节点数
     const subTextNodesNum = calcSubTextNodesNum(originResult.type, childNodes)
 
-    childNodes.forEach(function(child, i) {
+    childNodes.forEach(function (child, i) {
       if (i > 0) {
         preNode = childNodes[i - 1]
         if (!preNode.nodeName.match(/^#/)) {
           previous = preNode
           if (!previous.__cond__) {
             previous.attrs &&
-              previous.attrs.forEach(function(attr) {
+              previous.attrs.forEach(function (attr) {
                 if (attr.name === 'if' || attr.name === 'elif') {
                   previous.__cond__ = attr.value
                 }
@@ -195,7 +195,7 @@ function traverse(node, output, previousNode, conditionList, options) {
             output.log.push({
               line: node.__location.line,
               column: node.__location.col,
-              reason: `WARNING: 文本和span标签并行存在,编译时将文本节点:"${child.value}" 用span包裹(关于span嵌套的使用，请参考官方文档"span嵌套")`
+              reason: `WARN: 文本和span标签并行存在,编译时将文本节点:"${child.value}" 用span包裹(关于span嵌套的使用，请参考官方文档"span嵌套")`
             })
             validator.checkAttr('value', child.value, output)
           }
@@ -250,7 +250,7 @@ function initParser(code, options, filePath) {
   const oldAppendElement = parser._appendElement
   const oldInsertElement = parser._insertElement
   // 支持自闭合标签
-  parser._insertElement = function(token) {
+  parser._insertElement = function (token) {
     const tagName = (token.tagName || '').toLowerCase()
     const selfClosing = token.selfClosing
     // Fixed 对不允许自闭合的标签进行提示
@@ -315,7 +315,7 @@ function initParser(code, options, filePath) {
     }
   }
 
-  parser._runParsingLoop = function(scriptHandler) {
+  parser._runParsingLoop = function (scriptHandler) {
     while (!this.stopped) {
       this._setupTokenizerCDATAMode()
 
@@ -382,7 +382,7 @@ function parse(source, options) {
   }
 
   // 过滤合法标签名，如果标签名以#开头，则代表节点被注释或者#text, #comment
-  const rootElements = doc.childNodes.filter(function(child) {
+  const rootElements = doc.childNodes.filter(function (child) {
     return child.nodeName.charAt(0) !== '#'
   })
 

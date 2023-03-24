@@ -1,10 +1,10 @@
 /*
- * Copyright (c) 2021, the hapjs-platform Project Contributors
+ * Copyright (c) 2021-present, the hapjs-platform Project Contributors
  * SPDX-License-Identifier: Apache-2.0
  */
 
 import fs from 'fs'
-import path from 'path'
+import path from '@jayfate/path'
 import crypto from 'crypto'
 
 import { colorconsole } from '@hap-toolkit/shared-utils'
@@ -14,12 +14,15 @@ import { colorconsole } from '@hap-toolkit/shared-utils'
  * @param {string} cwd - 项目地址
  * @returns {string} babel.config.js 地址
  */
-export function getBabelConfigJsPath(cwd) {
+export function getBabelConfigJsPath(cwd, useTreeShaking) {
   let babelconfigPath = path.join(cwd, 'babel.config.js')
   if (fs.existsSync(babelconfigPath)) {
     return babelconfigPath
   }
-  babelconfigPath = path.resolve(__dirname, '../../babel.config.js')
+  babelconfigPath = path.resolve(
+    __dirname,
+    useTreeShaking ? '../../babel.tree.config.js' : '../../babel.config.js'
+  )
   return babelconfigPath
 }
 
@@ -93,9 +96,7 @@ export function serialize(target, space) {
    * 先将数据做简单序列化（函数的 key 也会计入检查），用于检查占位符，
    * 确保不会出现“碰撞” （用户数据中正好包含占位符）
    */
-  let PLACEHOLDER = `__FKS_${Math.random()
-    .toString(16)
-    .slice(2, 10)}_FKE__`
+  let PLACEHOLDER = `__FKS_${Math.random().toString(16).slice(2, 10)}_FKE__`
   const origin = JSON.stringify(target, (key, value) => (typeof value === 'function' ? '' : value))
   while (origin.indexOf(PLACEHOLDER) > -1) {
     PLACEHOLDER = `_${PLACEHOLDER}_`
@@ -107,7 +108,7 @@ export function serialize(target, space) {
    */
   let code = JSON.stringify(
     target,
-    function(key, value) {
+    function (key, value) {
       if (typeof value === 'function') {
         functions.push(value)
         id++
@@ -177,7 +178,7 @@ export function lsdirdeep(cwd, filesys = fs) {
     let files = []
     const directory = path.posix.join(cwd, dir)
     const rawFiles = filesys.readdirSync(directory)
-    rawFiles.forEach(file => {
+    rawFiles.forEach((file) => {
       const filepath = path.posix.join(directory, file)
       const relatpath = path.posix.join(dir, file)
       const stat = filesys.statSync(filepath)
@@ -269,25 +270,25 @@ function getEntrySkeleton(skeletonConf, entry) {
   const { singleMap, anchorMaps } = skeletonConf
   let skFiles = []
   // 检查一对一情况
-  const page = Object.keys(singleMap || {}).find(page => {
+  const page = Object.keys(singleMap || {}).find((page) => {
     return page === entry
   })
   if (page) {
     skFiles.push(singleMap[page])
   }
   // 检查一对多情况，假设多个相同，也只返回第一个
-  const anchorMap = Array.from(anchorMaps || []).find(item => {
+  const anchorMap = Array.from(anchorMaps || []).find((item) => {
     return item.page === entry
   })
   if (anchorMap) {
     skFiles = skFiles.concat(
-      Object.keys(anchorMap.skeletonMap || {}).map(page => {
+      Object.keys(anchorMap.skeletonMap || {}).map((page) => {
         return anchorMap.skeletonMap[page]
       })
     )
   }
 
-  skFiles = skFiles.map(f => {
+  skFiles = skFiles.map((f) => {
     return new RegExp(`skeleton/page/${f}$`)
   })
   return skFiles

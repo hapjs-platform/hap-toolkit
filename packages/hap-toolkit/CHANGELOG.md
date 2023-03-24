@@ -1,5 +1,52 @@
 # Change Log
 
+## [1.9.11] -2022-10.28
+
+- smart 打包兼容卡片
+- 修复 js 独立打包问题
+- 增加新的 option，--target card|app|all，可选打包的应用类型（卡片或 app），默认为 all
+
+## [1.9.10] -2022-6.8
+
+- 修复 1.9.9 编译的 bug
+- 新增对#f0ff 和#ff00ff00 格式颜色的支持
+- ad-clickable-area 的 type 不加限制
+
+## [1.9.9] -2022-4.25
+
+- 增加 treeShaking 配置
+- 增加 babel.tree.config.js
+
+## [1.9.8] - 2021-12.08
+
+- 服务关闭时关闭 devicesEmitter
+- watch 模式下优化 rpk/rpks 的构建速度
+- js 独立打包的问题解决
+- 优化日志输出
+- 增加编译时 ide 传入的 DefinePlugin 参数
+- fix: 修复修改 manifest version 和 package 字段时导致的 rpk 找不到问题
+
+## [1.9.7] - 2021-10.20
+
+- fix: 解决预览打包引入的测试不过问题
+- 提供杀掉 adb 进程的方法
+- [SR-443] 扫码预览功能的命令行实现
+- 支持 ide 自定义配置 webpack
+- 修改 sentry 上报 dsn 地址
+- 新增 ad-clickable-area 和 ad-custom 组件;input 组件新增 hidetext 和 showtext 属性;修改 ad 组件
+- 1100 native 接口及组件属性的扩展
+
+## [1.9.6] - 2021-10.20
+
+- （弃用）
+- fix: 解决预览打包引入的测试不过问题
+- 提供杀掉 adb 进程的方法
+- [SR-443] 扫码预览功能的命令行实现
+- 支持 ide 自定义配置 webpack
+- 修改 sentry 上报 dsn 地址
+- 新增 ad-clickable-area 和 ad-custom 组件;input 组件新增 hidetext 和 showtext 属性;修改 ad 组件
+- 1100 native 接口及组件属性的扩展
+
 ## [1.9.5] - 2021-06.16
 
 - fix: 优化预览包编译逻辑

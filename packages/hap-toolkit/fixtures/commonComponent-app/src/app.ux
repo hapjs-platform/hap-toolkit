@@ -1,7 +1,7 @@
-/*
- * Copyright (c) 2021, the hapjs-platform Project Contributors
- * SPDX-License-Identifier: Apache-2.0
- */
+<!-- 
+  Copyright (c) 2021-present, the hapjs-platform Project Contributors
+  SPDX-License-Identifier: Apache-2.0
+-->
 
 <import src="./component/part1.ux" name="part1"></import>
 <import src="./component/part2.ux" name="part2"></import>

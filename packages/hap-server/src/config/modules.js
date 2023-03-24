@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2021, the hapjs-platform Project Contributors
+ * Copyright (c) 2021-present, the hapjs-platform Project Contributors
  * SPDX-License-Identifier: Apache-2.0
  */
 
@@ -22,11 +22,11 @@ function init(conf) {
   // 开发者指定的模块
   const modules = conf.options.moduleList
 
-  const filtered = builtinModules.filter(module => {
+  const filtered = builtinModules.filter((module) => {
     return modules.length ? modules.indexOf(module.name) >= 0 : true
   })
 
-  filtered.forEach(module => {
+  filtered.forEach((module) => {
     const moduleItem = {
       // 模块名称
       name: module.name,

@@ -1,11 +1,11 @@
 /*
- * Copyright (c) 2021, the hapjs-platform Project Contributors
+ * Copyright (c) 2021-present, the hapjs-platform Project Contributors
  * SPDX-License-Identifier: Apache-2.0
  */
 
 import jsxSyntaxPlugin from '@babel/plugin-syntax-jsx'
 
-module.exports = function(babel) {
+module.exports = function (babel) {
   const t = babel.types
   return {
     inherits: jsxSyntaxPlugin,
@@ -24,7 +24,7 @@ module.exports = function(babel) {
           if (t.isIdentifier(tagExpr)) {
             tagName = tagExpr.name
           }
-          const children = path.node.children.map(item => {
+          const children = path.node.children.map((item) => {
             // 将所有jsxText替换为<text>或<span>
             if (t.isStringLiteral(item)) {
               return buildTextElementCall(tagName === 'text' ? 'span' : 'text', item.value, file)

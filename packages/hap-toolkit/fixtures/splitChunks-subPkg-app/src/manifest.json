@@ -2,7 +2,7 @@
   "package": "com.application.demo",
   "name": "subpackages-splitChunks-demo",
   "versionName": "1.0.0",
-  "versionCode": "1",
+  "versionCode": 1,
   "minPlatformVersion": 1070,
   "icon": "/logo.png",
   "features": [
@@ -10,9 +10,7 @@
     { "name": "system.router" },
     { "name": "system.shortcut" }
   ],
-  "permissions": [
-    { "origin": "*" }
-  ],
+  "permissions": [{ "origin": "*" }],
   "config": {
     "logLevel": "debug"
   },
@@ -34,6 +32,36 @@
       "Sub3": {
         "component": "index"
       }
+    },
+    "widgets": {
+      "Card/CardDemo1": {
+        "name": "CardDemo1",
+        "decription": "CardDemo1",
+        "component": "index",
+        "path": "/Card/CardDemo1",
+        "features": [
+          {
+            "name": "system.network"
+          },
+          {
+            "name": "system.router"
+          }
+        ]
+      },
+      "Card/CardDemo2": {
+        "name": "CardDemo2",
+        "decription": "CardDemo2",
+        "component": "index",
+        "path": "/Card/CardDemo2",
+        "features": [
+          {
+            "name": "system.network"
+          },
+          {
+            "name": "system.router"
+          }
+        ]
+      }
     }
   },
   "subpackages": [
@@ -45,6 +73,10 @@
       "name": "sub3",
       "resource": "Sub3",
       "standalone": true
+    },
+    {
+      "name": "Card",
+      "resource": "Card"
     }
   ],
   "display": {

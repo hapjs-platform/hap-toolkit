@@ -1,4 +1,3 @@
 {
-  "doc": "https://doc.quickapp.cn/framework/sitemap.html",
   "rules": [{ "rule": "enable", "page": "*" }]
 }

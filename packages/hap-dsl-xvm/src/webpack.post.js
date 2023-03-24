@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2021, the hapjs-platform Project Contributors
+ * Copyright (c) 2021-present, the hapjs-platform Project Contributors
  * SPDX-License-Identifier: Apache-2.0
  */
 
@@ -10,32 +10,23 @@ const { loaderWrapper } = require('@hap-toolkit/packager/lib/common/utils')
  * @param webpackConf webpack配置
  * @param quickappConfig - quickapp.config.js或者hap.config.js的配置
  */
-module.exports.postHook = function(webpackConf, { cwd, pathSrc }, quickappConfig) {
+module.exports.postHook = function (webpackConf, { cwd, pathSrc }, quickappConfig) {
   // 用于接收定制配置
-  let customConf
+  let customConf = {
+    module: {
+      rules: []
+    }
+  }
   if (quickappConfig) {
     customConf = quickappConfig
     if (customConf.webpack) {
       customConf = customConf.webpack
     }
-  } else {
-    customConf = {
-      module: {
-        rules: [
-          {
-            test: /\.(png|jpe?g|gif|svg|bmp|webp|mp4|wmv|avi|mpg|rmvb|mov|flv|otf|ttf|ttc|woff|eot)$/i,
-            use: {
-              loader: require.resolve('url-loader')
-            }
-          }
-        ]
-      }
-    }
   }
 
   const rules = (customConf && customConf.module && customConf.module.rules) || []
 
-  rules.forEach(rule => {
+  rules.forEach((rule) => {
     // 对.ts后缀包装
     if (rule.test.exec('.ts')) {
       loaderWrapper(pathSrc, rule)
@@ -72,7 +63,7 @@ module.exports.postHook = function(webpackConf, { cwd, pathSrc }, quickappConfig
   webpackConf.plugins.push(...((customConf && customConf.plugins) || []))
 
   // 合并resolve配置
-  Object.keys(webpackConf.resolve).forEach(key => {
+  Object.keys(webpackConf.resolve).forEach((key) => {
     const item = webpackConf.resolve[key]
     if (item instanceof Array) {
       item.push(...((customConf.resolve && customConf.resolve[key]) || []))
@@ -81,7 +72,7 @@ module.exports.postHook = function(webpackConf, { cwd, pathSrc }, quickappConfig
     }
   })
 
-  Object.keys((customConf && customConf.resolve) || {}).forEach(key => {
+  Object.keys((customConf && customConf.resolve) || {}).forEach((key) => {
     if (!(key in webpackConf.resolve)) {
       webpackConf.resolve[key] = customConf.resolve[key]
     }

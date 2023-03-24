@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2021, the hapjs-platform Project Contributors
+ * Copyright (c) 2021-present, the hapjs-platform Project Contributors
  * SPDX-License-Identifier: Apache-2.0
  */
 
@@ -7,6 +7,7 @@ const webpack = require('webpack')
 const { setCustomConfig, colorconsole } = require('@hap-toolkit/shared-utils')
 const genWebpackConf = require('../../gen-webpack-conf')
 const { summaryErrors, summaryWarnings } = require('./utils')
+const adbCommander = require('adb-commander')
 
 // webpack watch 模式返回的watching实例
 let watching = null
@@ -34,6 +35,8 @@ showVersion()
  * @param {String} [options.originType] - 打包来源，ide|cmd
  * @param {Function} [options.onerror] - 错误回调函数
  * @param {String} [options.buildPreviewRpkOptions] - 预览包保存路径，由IDE传入
+ * @param {Object} [options.compileOptions] - 编译参数，由IDE传入
+ * @param {Object} [options.ideConfig] - cli，由 IDE 传入
  * @returns {Promise} - 返回成功与否的信息
  */
 module.exports.compile = function compile(platform, mode, watch, options = {}) {
@@ -99,8 +102,8 @@ module.exports.compile = function compile(platform, mode, watch, options = {}) {
  * @module stopWatch
  * @returns {Promise} - 返回成功与否的信息
  */
-module.exports.stopWatch = function() {
-  return new Promise(resolve => {
+module.exports.stopWatch = function () {
+  return new Promise((resolve) => {
     if (watching) {
       watching.close(() => {
         watching = null
@@ -109,5 +112,22 @@ module.exports.stopWatch = function() {
       return
     }
     resolve({ stopWatchError: 'no watching' })
+  })
+}
+
+/**
+ * 杀掉adb进程
+ * @returns
+ */
+module.exports.killAdb = function () {
+  return new Promise((resolve, reject) => {
+    adbCommander.exeCommand('adb kill-server').then(({ result, err }) => {
+      if (err) {
+        colorconsole.throw('adb kill-server failed')
+        reject(err)
+      } else {
+        resolve(result)
+      }
+    })
   })
 }

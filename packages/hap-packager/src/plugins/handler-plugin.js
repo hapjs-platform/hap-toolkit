@@ -1,15 +1,16 @@
 /*
- * Copyright (c) 2021, the hapjs-platform Project Contributors
+ * Copyright (c) 2021-present, the hapjs-platform Project Contributors
  * SPDX-License-Identifier: Apache-2.0
  */
 
 import Compilation from 'webpack/lib/Compilation'
-import { ConcatSource } from 'webpack-sources'
 import {
   compileOptionsMeta,
   compileOptionsObject
 } from '@hap-toolkit/shared-utils/compilation-config'
 import { getEntryFiles } from '../common/info'
+
+let ConcatSource
 
 /**
  * 对createAppHandler, createPageHandler包装，使得同一套代码适应多个平台
@@ -20,10 +21,11 @@ function HandlerPlugin(options) {
   this.options = options
 }
 
-HandlerPlugin.prototype.apply = function(compiler) {
+HandlerPlugin.prototype.apply = function (compiler) {
+  ConcatSource = compiler.webpack.sources.ConcatSource
   const workersPath = this.options.workers
   const enableE2e = this.options.enableE2e
-  compiler.hooks.compilation.tap('HandlerPlugin', function(compilation) {
+  compiler.hooks.compilation.tap('HandlerPlugin', function (compilation) {
     compilation.hooks.processAssets.tap(
       {
         name: 'HandlerPlugin',
@@ -32,9 +34,8 @@ HandlerPlugin.prototype.apply = function(compiler) {
       () => {
         // 如果进行抽取公共js则需通过入口文件来判断是不是抽取出的Chunks
         const entryFiles = getEntryFiles(compiler.options.entry)
-
-        compilation.chunks.forEach(function(chunk) {
-          chunk.files.forEach(function(fileName) {
+        compilation.chunks.forEach(function (chunk) {
+          chunk.files.forEach(function (fileName) {
             if (fileName.startsWith(workersPath)) return
             const sourceList = wrapCode(fileName, compilation, enableE2e, entryFiles)
             sourceList && (compilation.assets[fileName] = sourceList)

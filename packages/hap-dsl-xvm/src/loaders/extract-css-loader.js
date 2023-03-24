@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2021, the hapjs-platform Project Contributors
+ * Copyright (c) 2021-present, the hapjs-platform Project Contributors
  * SPDX-License-Identifier: Apache-2.0
  */
 
@@ -29,7 +29,7 @@ const exec = (loaderContext, code, filename) => {
 }
 
 // pitch触发
-module.exports.pitch = function(request) {
+module.exports.pitch = function (request) {
   const loaders = this.loaders.slice(this.loaderIndex + 1)
 
   const childFilename = '*'
@@ -48,7 +48,7 @@ module.exports.pitch = function(request) {
 
   let source
 
-  childCompiler.hooks.thisCompilation.tap(`${pluginName} loader`, compilation => {
+  childCompiler.hooks.thisCompilation.tap(`${pluginName} loader`, (compilation) => {
     NormalModule.getCompilationHooks(compilation).loader.tap(
       `${pluginName} loader`,
       (loaderContext, module) => {
@@ -56,7 +56,7 @@ module.exports.pitch = function(request) {
         loaderContext[MODULE_TYPE] = false
 
         if (module.request === request) {
-          module.loaders = loaders.map(loader => {
+          module.loaders = loaders.map((loader) => {
             return {
               loader: loader.path,
               options: loader.options,
@@ -74,8 +74,8 @@ module.exports.pitch = function(request) {
       },
       () => {
         source = compilation.assets[childFilename] && compilation.assets[childFilename].source()
-        compilation.chunks.forEach(chunk => {
-          chunk.files.forEach(file => {
+        compilation.chunks.forEach((chunk) => {
+          chunk.files.forEach((file) => {
             delete compilation.assets[file]
           })
         })
@@ -94,11 +94,11 @@ module.exports.pitch = function(request) {
       return callback(compilation.errors[0])
     }
 
-    compilation.fileDependencies.forEach(dep => {
+    compilation.fileDependencies.forEach((dep) => {
       this.addDependency(dep)
     }, this)
 
-    compilation.contextDependencies.forEach(dep => {
+    compilation.contextDependencies.forEach((dep) => {
       this.addContextDependency(dep)
     }, this)
 

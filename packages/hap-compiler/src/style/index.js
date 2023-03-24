@@ -1,10 +1,10 @@
 /*
- * Copyright (c) 2021, the hapjs-platform Project Contributors
+ * Copyright (c) 2021-present, the hapjs-platform Project Contributors
  * SPDX-License-Identifier: Apache-2.0
  */
 
 'use strict'
-import path from 'path'
+import path from '@jayfate/path'
 import css from 'css'
 import { compileOptionsObject } from '@hap-toolkit/shared-utils/compilation-config'
 import { validate as validateDelaration, mightReferlocalResource } from './validator'
@@ -43,7 +43,7 @@ function parse(source) {
   // 异常处理，打印错误
   if (ast.stylesheet.parsingErrors && ast.stylesheet.parsingErrors.length) {
     err = ast.stylesheet.parsingErrors
-    err.forEach(function(err) {
+    err.forEach(function (err) {
       log.push({
         line: err.line,
         column: err.column,
@@ -61,7 +61,7 @@ function parse(source) {
     ast.stylesheet.rules.length
   ) {
     // 遍历样式规则
-    ast.stylesheet.rules.forEach(function(rule) {
+    ast.stylesheet.rules.forEach(function (rule) {
       const type = rule.type
       const ruleResult = {}
 
@@ -79,7 +79,7 @@ function parse(source) {
       } else if (type === 'font-face') {
         if (rule.declarations && rule.declarations.length) {
           const fontFaceObj = {}
-          rule.declarations.forEach(function(declaration) {
+          rule.declarations.forEach(function (declaration) {
             /* istanbul ignore if */
             if (declaration.type !== 'declaration') {
               return
@@ -123,7 +123,7 @@ function parse(source) {
           const name = rule.name
           const frameResult = []
 
-          rule.keyframes.forEach(function(keyframe) {
+          rule.keyframes.forEach(function (keyframe) {
             let keyResult
             /* istanbul ignore if */
             if (keyframe.type !== 'keyframe') {
@@ -133,7 +133,7 @@ function parse(source) {
             // 处理关键帧内部样式
             if (keyframe.declarations && keyframe.declarations.length) {
               keyResult = {}
-              keyframe.declarations.forEach(function(declaration) {
+              keyframe.declarations.forEach(function (declaration) {
                 const subType = declaration.type
 
                 /* istanbul ignore if */
@@ -148,7 +148,7 @@ function parse(source) {
                 const subcamelCasedName = hyphenedToCamelCase(subname)
                 const subResult = validateDelaration(subcamelCasedName, subvalue, { filePath })
 
-                subResult.value.forEach(item => {
+                subResult.value.forEach((item) => {
                   // 如果校验成功，则保存转换后的属性值
                   if (isValidValue(item.v)) {
                     keyResult[item.n] = item.v
@@ -182,7 +182,7 @@ function parse(source) {
               } else {
                 // 可能包含多个
                 let percentValue
-                keyframe.values.forEach(v => {
+                keyframe.values.forEach((v) => {
                   if (v === 'from') {
                     percentValue = 0
                   } else if (v === 'to') {
@@ -197,7 +197,7 @@ function parse(source) {
             }
           })
           // 排序
-          frameResult.sort(function(a, b) {
+          frameResult.sort(function (a, b) {
             return a.time - b.time
           })
 
