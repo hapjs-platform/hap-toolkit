@@ -1,0 +1,72 @@
+<!-- 
+  Copyright (c) 2021-present, the hapjs-platform Project Contributors
+  SPDX-License-Identifier: Apache-2.0
+-->
+
+<template>
+  <!-- template里只能有一个根节点 -->
+  <div class="wrapper">
+    <text class="title">{{ title }}</text>
+    <!-- 点击跳转详情页 -->
+    <input
+      class="btn"
+      type="button"
+      value="跳转到详情页"
+      onclick="onDetailBtnClick"
+    />
+  </div>
+</template>
+
+<script>
+import router from '@system.router'
+
+export default {
+  // 页面级组件的数据模型，影响传入数据的覆盖机制：private内定义的属性不允许被覆盖
+  private: {
+    title: '欢迎体验快应用开发'
+  },
+
+  onInit() {
+    // --------------------------------- Optimize SEO Start
+    // 当 titlebar 的文案与搜索的标题不一致时，请先设置 titlebar
+    // 备注：this.$page.setMeta 需要引擎 1090 版本及以上才支持，因此这段做注释处理；
+    // this.$page.setTitleBar({ text: 'setTitlebar 设置的标题' })
+    // this.$page.setMeta({
+    //   title: '快应用示例模版',
+    //   description:
+    //     '快应用是移动互联网新型应用生态，与手机系统深度整合，为用户提供更加场景化的体验。具备传统APP完整的应用体验，但无需安装、即点即用。'
+    // })
+    // --------------------------------- Optimize SEO End
+  },
+
+  onDetailBtnClick() {
+    // 跳转到应用内的某个页面，router用法详见：文档 -> 接口 -> 页面路由
+    router.push({
+      uri: '/pages/DemoDetail'
+    })
+  }
+}
+</script>
+
+<style lang="scss">
+@import './../../assets/styles/style.scss';
+
+.wrapper {
+  @include flex-box-mixins(column, center, center);
+  .title {
+    font-size: 8 * $size-factor;
+    text-align: center;
+    color: $black;
+  }
+
+  .btn {
+    width: 90 * $size-factor;
+    height: 16 * $size-factor;
+    border-radius: 8 * $size-factor;
+    background-color: $brand;
+    color: $white;
+    font-size: 30px;
+    margin-top: 16 * $size-factor;
+  }
+}
+</style>

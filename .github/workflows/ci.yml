@@ -1,0 +1,63 @@
+name: 'CI'
+on:
+  push:
+    branches:
+      - '**'
+  pull_request:
+    branches:
+      - main
+
+permissions:
+  contents: read # to fetch code (actions/checkout)
+
+jobs:
+  unit-test:
+    runs-on: macos-latest
+    steps:
+      - uses: actions/checkout@v3
+
+      # - name: Install pnpm
+      #   uses: pnpm/action-setup@v2
+
+      - name: Set node version to 16
+        uses: actions/setup-node@v3
+        with:
+          node-version: 16
+          # cache: 'pnpm'
+
+      - run: npx envinfo --registry https://registry.npmmirror.com/
+
+      - run: yarn install --registry https://registry.npmmirror.com/
+
+      - name: Build
+        run: npm run build
+
+      - name: Prettier-check
+        run: npm run prettier-check
+
+      - name: Tests
+        run: npm run test
+
+  test-cov:
+    runs-on: macos-latest
+    steps:
+      - uses: actions/checkout@v3
+
+      # - name: Install pnpm
+      #   uses: pnpm/action-setup@v2
+
+      - name: Set node version to 16
+        uses: actions/setup-node@v3
+        with:
+          node-version: 16
+          # cache: 'pnpm'
+
+      - run: npx envinfo --registry https://registry.npmmirror.com/
+
+      - run: yarn install --registry https://registry.npmmirror.com/
+
+      - name: Build
+        run: npm run build:dev
+
+      - name: Tests:cov
+        run: npm run test:cov

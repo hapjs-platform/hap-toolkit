@@ -1,0 +1,32 @@
+<!-- 
+  Copyright (c) 2021-present, the hapjs-platform Project Contributors
+  SPDX-License-Identifier: Apache-2.0
+-->
+
+<template>
+  <div class="wrapper">
+    <text class="title">{{ title }}</text>
+  </div>
+</template>
+
+<script>
+export default {
+  private: {
+    title: '欢迎体验快应用开发'
+  },
+
+  onInit() {}
+}
+</script>
+
+<style lang="scss">
+@import './../../assets/styles/style.scss';
+.wrapper {
+  @include flex-box-mixins(column, center, center);
+  .title {
+    font-size: 8 * $size-factor;
+    text-align: center;
+    color: $black;
+  }
+}
+</style>
