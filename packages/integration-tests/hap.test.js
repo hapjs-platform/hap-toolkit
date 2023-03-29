@@ -5,7 +5,6 @@
 
 const cp = require('child_process')
 const process = require('process')
-const fs = require('fs')
 const path = require('path')
 const fse = require('fs-extra')
 const del = require('del')
@@ -17,13 +16,11 @@ describe('hap-toolkit', () => {
   const hapbin = require.resolve('hap-toolkit/bin/index.js')
   // to create unique folders
   const timestamp = Date.now()
-  // dir of toolkit source project
-  const dirRepo = process.cwd()
   // project test base directory
   const dirTestProjects = path.resolve(__dirname, '../../test/build/projects/')
 
   // Make sure dir exists
-  fse.mkdirpSync(dirTestProjects)
+  fse.ensureDirSync(dirTestProjects)
 
   it(
     'folder existed',
@@ -49,7 +46,7 @@ describe('hap-toolkit', () => {
         }
       ]
       await del([targetdirForExist, targetdirForNonExist], { force: true })
-      fs.mkdirSync(targetdirForExist)
+      fse.ensureDirSync(targetdirForExist)
       const { stderr } = await run(process.execPath, [hapbin, 'init', EXIST_NAME], dialogs, {
         cwd: dirTestProjects
       })
@@ -104,7 +101,7 @@ describe('hap-toolkit', () => {
       await run(process.execPath, [hapbin, 'init', TEST_NAME], dialogs, { cwd: dirTestProjects })
       const files = await lsfiles('**/{*,.*}', { cwd: targetdir })
       expect(files).toMatchSnapshot()
-      const writedPkg = fs.readFileSync(path.join(targetdir, `package.json`), 'utf-8')
+      const writedPkg = fse.readFileSync(path.join(targetdir, `package.json`), 'utf-8')
       const pkgInfo = JSON.parse(writedPkg)
       expect(pkgInfo.devDependencies['hap-toolkit']).toBe('^' + packageInfo.version)
       // setup env
@@ -114,7 +111,7 @@ describe('hap-toolkit', () => {
       await run('npm', ['run', 'build'], [], { cwd: targetdir })
       const rpks = await lsfiles('*.rpk', { cwd: path.resolve(targetdir, 'dist') })
       expect(rpks.length).toBe(1)
-      const pages = JSON.parse(fs.readFileSync(path.resolve(targetdir, 'src/manifest.json'))).router
+      const pages = JSON.parse(fse.readFileSync(path.resolve(targetdir, 'src/manifest.json'))).router
         .pages
       for (let i = 0, len = pages.length; i < len; i++) {
         const cssJsons = await lsfiles('index.css.json', {
