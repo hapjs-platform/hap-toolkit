@@ -95,8 +95,8 @@ const wrongJson = {
 }
 
 it('validateJson', () => {
-  // let errors = validateJson(manifestJson, 'manifest.json').map((err) => err.message)
-  // expect(errors.join('\n\n')).toMatchSnapshot()
-  // errors = validateJson(wrongJson, 'manifest.json').map((err) => err.message)
-  // expect(errors.join('\n\n')).toMatchSnapshot()
+  let errors = validateJson(manifestJson, 'manifest.json').map((err) => err.message)
+  expect(errors.join('\n\n')).toMatchSnapshot()
+  errors = validateJson(wrongJson, 'manifest.json').map((err) => err.message)
+  expect(errors.join('\n\n')).toMatchSnapshot()
 })

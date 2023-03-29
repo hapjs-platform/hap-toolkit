@@ -12,14 +12,14 @@ const { resolveEntries, compileFiles } = require('../../utils')
  */
 describe('Card 编译测试', () => {
   it('compile-card', async () => {
-    // const basedir = path.resolve(__dirname, '../../case/ux/')
-    // const entries = resolveEntries(basedir, 'TestCard')
+    const basedir = path.resolve(__dirname, '../../case/ux/')
+    const entries = resolveEntries(basedir, 'TestCard')
 
-    // const stats = await compileFiles(entries)
-    // const json = stats.toJson({source: true})
+    const stats = await compileFiles(entries)
+    const json = stats.toJson({source: true})
 
-    // json.modules.forEach(module => {
-    //   expect(wipeDynamic(module.source)).toMatchSnapshot(module.id)
-    // })
+    json.modules.forEach(module => {
+      expect(wipeDynamic(module.source)).toMatchSnapshot(module.id)
+    })
   })
 })
