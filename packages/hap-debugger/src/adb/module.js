@@ -166,8 +166,33 @@ class ADBModule {
       port: currentDevice.upForwardPortPair[0]
     })
     debuglog(`onDeviceAdded():(${sn}) end`)
+    // 增加设备连接检测
+    this.onCheckDeviceReverse(event)
   }
 
+  /**
+   * 设备连接检测，用于检查当前窗口端口是否连接手机调试器
+   */
+  onCheckDeviceReverse(event) {
+    const { sn } = event
+    try {
+      setTimeout(async () => {
+        const { result } = await this.commander._commandFactory(`adb -s ${sn} reverse --list`)
+        const reverseBoolean = result && result.indexOf(this.option.localReversePort) !== -1
+        if (reverseBoolean) {
+          colorconsole.info(
+            `### App Server ### onCheckDeviceReverse(): (${sn})建立adb reverse成功 )`
+          )
+        } else {
+          colorconsole.error(
+            `### App Server ### onCheckDeviceReverse(): (${sn})建立adb reverse失败,请重新运行命令调试 )`
+          )
+        }
+      }, 6000)
+    } catch (err) {
+      colorconsole.error(`### App Server ### onCheckDeviceReverse(): adb reverse连接检测失败`)
+    }
+  }
   /**
    * 移除设备事件
    */
