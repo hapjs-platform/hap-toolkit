@@ -31,6 +31,7 @@ program.version(require('../package').version, '-v, --version').usage('<command>
 
 program
   .command('init <app-name>')
+  .option('--dsl <name>', 'init project by specific dsl template, eg: vue')
   .option(
     '-d --deviceType <deviceTypeList>',
     'init project by specific device separated with comma "," eg: tv,car'
@@ -78,11 +79,15 @@ program
     'custom output rpk file name',
     validateBuildNameFormat
   )
+  .option(
+    '--target [target]',
+    '构建应用的类型（卡片或APP）,值只能为app、card、 all， 默认all',
+    'all'
+  )
   .action((options) => {
     // 必备参数：当开发者不传递该参数时，要解析为默认
     const signModeTmp = options.disableSign && compileOptionsMeta.signModeEnum.NULL
     options.signMode = validateSignMode(signModeTmp, compileOptionsMeta.signModeEnum.BUILD)
-
     const { compile } = require('../lib/commands/compile')
     compile('native', 'dev', false, options)
   })
@@ -204,6 +209,11 @@ program
     'custom output rpk file name',
     validateBuildNameFormat
   )
+  .option(
+    '--target [target]',
+    '构建应用的类型（卡片或APP）,值只能为app、card、 all， 默认all',
+    'all'
+  )
   .action((options) => {
     // 必备参数：当开发者不传递该参数时，要解析为默认
     const signModeTmp = options.disableSign && compileOptionsMeta.signModeEnum.NULL
@@ -213,6 +223,20 @@ program
     compile('native', 'prod', false, options)
   })
 
+program
+  .command('remote-preview')
+  .description('preview app by the qrcode')
+  .option('-o,--qr-output <path>', 'the qr-image will be output to the specified directory')
+  .option('--env <env>', "switching the environment, 'production' or 'development'")
+  .action((options) => {
+    const { compile } = require('../lib/commands/compile')
+    const signModeTmp = options.disableSign && compileOptionsMeta.signModeEnum.NULL
+    options.signMode = validateSignMode(signModeTmp, compileOptionsMeta.signModeEnum.RELEASE)
+    options.compile = compile
+
+    const { remotePreview } = require('@hap-toolkit/server')
+    remotePreview(options)
+  })
 program
   .command('preview <target>')
   .description('preview app in your browser')
@@ -430,14 +454,26 @@ function validateSplitChunksMode(value) {
  * @return {string}
  */
 function validateBuildNameFormat(value) {
-  // 转成枚举常量比较
-  value = value.toUpperCase()
+  let ret = value.toUpperCase()
+  const reg = /(^custom=)(.*)/i
+  if (!compileOptionsMeta.buildNameFormat[ret]) {
+    ret = value.replace(reg, 'CUSTOM=$2')
+  }
 
-  let ret = value
-
-  if (!compileOptionsMeta.buildNameFormat[value]) {
+  if (
+    (!compileOptionsMeta.buildNameFormat[ret] && !ret.startsWith('CUSTOM=')) ||
+    ret === 'CUSTOM='
+  ) {
+    if (ret.startsWith('CUSTOM')) {
+      colorconsole.warn(
+        `当前buildNameFormat参数不支持: ${value} ，请添加自定义custom值，改为默认值：${compileOptionsMeta.buildNameFormat.DEFAULT}`
+      )
+    } else {
+      colorconsole.warn(
+        `当前buildNameFormat参数不支持: ${value} ，改为默认值：${compileOptionsMeta.buildNameFormat.DEFAULT}`
+      )
+    }
     ret = compileOptionsMeta.buildNameFormat.DEFAULT
-    colorconsole.warn(`当前buildNameFormat参数不支持: ${value} ，改为默认值：${ret}`)
   }
   return ret
 }
