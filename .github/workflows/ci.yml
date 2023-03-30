@@ -16,14 +16,11 @@ jobs:
     steps:
       - uses: actions/checkout@v3
 
-      # - name: Install pnpm
-      #   uses: pnpm/action-setup@v2
-
       - name: Set node version to 16
         uses: actions/setup-node@v3
         with:
           node-version: 16
-          # cache: 'pnpm'
+          cache: 'yarn'
 
       - run: npx envinfo --registry https://registry.npmmirror.com/
 
@@ -43,14 +40,11 @@ jobs:
     steps:
       - uses: actions/checkout@v3
 
-      # - name: Install pnpm
-      #   uses: pnpm/action-setup@v2
-
       - name: Set node version to 16
         uses: actions/setup-node@v3
         with:
           node-version: 16
-          # cache: 'pnpm'
+          cache: 'yarn'
 
       - run: npx envinfo --registry https://registry.npmmirror.com/
 
