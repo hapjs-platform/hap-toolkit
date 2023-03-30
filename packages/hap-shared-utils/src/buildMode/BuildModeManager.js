@@ -107,6 +107,27 @@ BuildModeManager.prototype.getAllPages = function () {
 }
 
 /**
+ * 获取应用的所有卡片
+ *
+ * @returns {Array<String>}
+ */
+BuildModeManager.prototype.getAllCards = function () {
+  if (!this.root) {
+    return []
+  }
+  const manifestPath = path.join(this.root, 'src/manifest.json')
+  try {
+    const manifest = readJson(manifestPath)
+    const routerWidgets = manifest.router.widgets || {}
+    const widgets = Object.keys(routerWidgets)
+    return widgets
+  } catch (err) {
+    console.log(err.code === 'ENOENT' ? err.message : err)
+    return []
+  }
+}
+
+/**
  * 添加编译模式
  *
  * @private
@@ -167,9 +188,11 @@ BuildModeManager.prototype.addMode = function (mode) {
  */
 BuildModeManager.prototype.addModes = function (modes) {
   const config = this._read()
+  const current = config.modeOptions.current
   modes.forEach((mode) => {
     this._addMode(config, mode, true)
   })
+  config.modeOptions.current = current
   this._write(config)
   return config.modeOptions
 }
@@ -189,6 +212,31 @@ BuildModeManager.prototype.delete = function (id) {
     modeOptions.list.splice(index, 1)
     this._write(config)
   }
+  return modeOptions
+}
+
+/**
+ * 删除多个编译模式
+ */
+BuildModeManager.prototype.deleteModes = function (modes) {
+  const config = this._read()
+  const modeOptions = config.modeOptions
+  const current = modeOptions.current
+
+  const list = modeOptions.list.filter((mode) => {
+    const hasSameMode = modes.find((deleteMode) => deleteMode.id === mode.id)
+    return !hasSameMode
+  })
+
+  if (modeOptions.list.length !== list.length) {
+    const hasCurrent = list.find((mode) => mode.id === current)
+    modeOptions.list = list
+    if (!hasCurrent) {
+      modeOptions.current = -1
+    }
+    this._write(config)
+  }
+
   return modeOptions
 }
 
