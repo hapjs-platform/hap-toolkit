@@ -95,10 +95,12 @@
     </script>
     <script type="text/javascript">
       var base = '/preview'
+      var type = '{{ type }}'
       ;(function preview() {
         var routeName = '{{ routeName }}'
         Hap.init({
-          base
+          base,
+          type
         })
       })()
     </script>

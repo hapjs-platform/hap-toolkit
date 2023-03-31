@@ -107,12 +107,17 @@ export default async function createRouter(previewTarget) {
    */
   async function getRoutes(manifest) {
     let routes = {}
-    if (manifest && manifest.router && manifest.router.pages) {
-      const pages = manifest.router.pages
-      const routeNames = Object.keys(pages)
+    if (manifest && manifest.router && (manifest.router.pages || manifest.router.widgets)) {
+      const pages = manifest.router.pages || {}
+      const widgets = manifest.router.widgets || {}
+      const pageNames = Object.keys(pages)
+      const widgetNames = Object.keys(widgets)
+      const routeNames = pageNames.concat(widgetNames)
+
       routeNames.forEach((routeName) => {
         const key = trimSlash(routeName)
-        const comp = trimSlash(pages[routeName].component)
+        const route = pages[routeName] || widgets[routeName]
+        const comp = trimSlash(route.component)
         // comp 无后缀名？
         routes[key] = `${routeName}/${comp}.js`
       })
@@ -208,11 +213,14 @@ export default async function createRouter(previewTarget) {
     debug('requestRoute', requestRoute, ctx.appRoutes)
     // 已配置路由
     if (routeNames.indexOf(requestRoute) > -1) {
+      const widgets = manifest.router.widgets || {}
+      const type = requestRoute in widgets ? 'card' : 'app'
       const script = routes[requestRoute]
       const html = await renderPage(TPL_PAGE_PATH, {
         title: manifest.name,
         routeName: requestRoute,
         routes: JSON.stringify(routes),
+        type,
         script,
         scriptNotFound: !scriptExists(script),
         webJsUrl: genWebJsUrl(ctx.conf.options.webVersion)
