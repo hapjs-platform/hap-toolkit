@@ -1,6 +1,6 @@
 {
   "name": "@hap-toolkit/server",
-  "version": "1.9.12-beta",
+  "version": "1.9.12",
   "description": "hap server",
   "engines": {
     "node": ">=8.0.0"
@@ -22,9 +22,9 @@
   ],
   "dependencies": {
     "@babel/runtime": "^7.9.6",
-    "@hap-toolkit/debugger": "1.9.12-beta",
-    "@hap-toolkit/packager": "1.9.12-beta",
-    "@hap-toolkit/shared-utils": "1.9.12-beta",
+    "@hap-toolkit/debugger": "1.9.12",
+    "@hap-toolkit/packager": "1.9.12",
+    "@hap-toolkit/shared-utils": "1.9.12",
     "@jayfate/path": "^0.0.13",
     "crypto-js": "^4.1.1",
     "fs-extra": "^10.0.0",
