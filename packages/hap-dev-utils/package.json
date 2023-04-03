@@ -1,6 +1,6 @@
 {
   "name": "hap-dev-utils",
-  "version": "1.9.11",
+  "version": "1.9.12-beta",
   "private": true,
   "description": "utils of development and testing",
   "engines": {

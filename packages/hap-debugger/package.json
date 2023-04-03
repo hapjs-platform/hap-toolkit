@@ -1,6 +1,6 @@
 {
   "name": "@hap-toolkit/debugger",
-  "version": "1.9.11",
+  "version": "1.9.12-beta",
   "description": "@hap-toolkit/debugger",
   "engines": {
     "node": ">=8.0.0"
@@ -24,7 +24,7 @@
   ],
   "dependencies": {
     "@hap-toolkit/chrome-devtools-frontend": "^1.1.2",
-    "@hap-toolkit/shared-utils": "1.9.11",
+    "@hap-toolkit/shared-utils": "1.9.12-beta",
     "@jayfate/path": "^0.0.13",
     "@sentry/node": "^5.26.0",
     "adb-commander": "^0.1.9",
