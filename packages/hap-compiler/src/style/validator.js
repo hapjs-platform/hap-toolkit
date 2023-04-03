@@ -2429,15 +2429,18 @@ const backgroundValidatorMap = {
 }
 
 const transformValidatorMap = {
-  translate: makeAbbrAttrValidator('arraylength', ['translateX', 'translateY']),
+  translate: makeAbbrAttrValidator('arraylength', ['translateX', 'translateY', 'translateZ']),
   translateX: validator.length,
   translateY: validator.length,
-  scale: makeAbbrAttrValidator('arraynumber', ['scaleX', 'scaleY']),
+  translateZ: validator.length,
+  scale: makeAbbrAttrValidator('arraynumber', ['scaleX', 'scaleY', 'scaleZ']),
   scaleX: validator.number,
   scaleY: validator.number,
+  scaleZ: validator.number,
   rotate: validator.angle,
   rotateX: validator.angle,
-  rotateY: validator.angle
+  rotateY: validator.angle,
+  rotateZ: validator.angle
 }
 
 // css filter 支持的滤镜，现在只支持blur函数

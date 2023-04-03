@@ -111,8 +111,8 @@ describe('hap-toolkit', () => {
       await run('npm', ['run', 'build'], [], { cwd: targetdir })
       const rpks = await lsfiles('*.rpk', { cwd: path.resolve(targetdir, 'dist') })
       expect(rpks.length).toBe(1)
-      const pages = JSON.parse(fse.readFileSync(path.resolve(targetdir, 'src/manifest.json'))).router
-        .pages
+      const pages = JSON.parse(fse.readFileSync(path.resolve(targetdir, 'src/manifest.json')))
+        .router.pages
       for (let i = 0, len = pages.length; i < len; i++) {
         const cssJsons = await lsfiles('index.css.json', {
           cwd: path.resolve(targetdir, 'build', pages[i])
