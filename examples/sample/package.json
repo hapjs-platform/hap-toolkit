@@ -1,6 +1,6 @@
 {
   "name": "sample",
-  "version": "1.9.12-beta",
+  "version": "1.9.12",
   "subversion": {
     "toolkit": "0.3.1"
   },
@@ -23,7 +23,7 @@
     "@babel/runtime": "^7.9.6",
     "catching": "^1.0.2",
     "fkill": "^5.3.0",
-    "hap-toolkit": "1.9.12-beta",
+    "hap-toolkit": "1.9.12",
     "less": "^4.1.2",
     "less-loader": "^10.2.0",
     "node-fetch": "^2.6.0",
