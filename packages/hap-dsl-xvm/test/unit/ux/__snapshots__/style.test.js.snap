@@ -4324,11 +4324,11 @@ exports[`Style编译测试 comile style: ../../../lib/loaders/style-loader.js?in
   \\"@KEYFRAMES\\": {
     \\"box__rotate1\\": [
       {
-        \\"transform\\": \\"{\\\\\\"scaleX\\\\\\":0,\\\\\\"scaleY\\\\\\":0}\\",
+        \\"transform\\": \\"{\\\\\\"scaleX\\\\\\":0,\\\\\\"scaleY\\\\\\":0,\\\\\\"scaleZ\\\\\\":0}\\",
         \\"time\\": 0
       },
       {
-        \\"transform\\": \\"{\\\\\\"scaleX\\\\\\":1,\\\\\\"scaleY\\\\\\":1}\\",
+        \\"transform\\": \\"{\\\\\\"scaleX\\\\\\":1,\\\\\\"scaleY\\\\\\":1,\\\\\\"scaleZ\\\\\\":1}\\",
         \\"time\\": 100
       }
     ],
@@ -8147,28 +8147,30 @@ exports[`Style编译测试 comile style: ../../../lib/loaders/style-loader.js?in
 exports[`Style编译测试 comile style: ../../../lib/loaders/style-loader.js?index=0&type=style!../../../lib/loaders/fragment-loader.js?index=0&type=style!./TestStyle/Scale/testscale.ux?uxType=page 1`] = `
 "module.exports = {
   \\".A1\\": {
-    \\"transform\\": \\"{\\\\\\"scaleX\\\\\\":1,\\\\\\"scaleY\\\\\\":1}\\"
+    \\"transform\\": \\"{\\\\\\"scaleX\\\\\\":1,\\\\\\"scaleY\\\\\\":1,\\\\\\"scaleZ\\\\\\":1}\\"
   },
   \\".A2\\": {
-    \\"transform\\": \\"{\\\\\\"scaleX\\\\\\":1,\\\\\\"scaleY\\\\\\":0.5}\\"
+    \\"transform\\": \\"{\\\\\\"scaleX\\\\\\":1,\\\\\\"scaleY\\\\\\":0.5,\\\\\\"scaleZ\\\\\\":1}\\"
   },
   \\".B1\\": {
-    \\"transform\\": \\"{\\\\\\"scaleX\\\\\\":1,\\\\\\"scaleY\\\\\\":1}\\"
+    \\"transform\\": \\"{\\\\\\"scaleX\\\\\\":1,\\\\\\"scaleY\\\\\\":1,\\\\\\"scaleZ\\\\\\":1}\\"
   },
   \\".B2\\": {
-    \\"transform\\": \\"{\\\\\\"scaleX\\\\\\":0.5,\\\\\\"scaleY\\\\\\":0.5}\\"
+    \\"transform\\": \\"{\\\\\\"scaleX\\\\\\":0.5,\\\\\\"scaleY\\\\\\":0.5,\\\\\\"scaleZ\\\\\\":0.5}\\"
   },
   \\".C1\\": {
-    \\"transform\\": \\"{\\\\\\"scaleX\\\\\\":-1,\\\\\\"scaleY\\\\\\":-1}\\"
+    \\"transform\\": \\"{\\\\\\"scaleX\\\\\\":-1,\\\\\\"scaleY\\\\\\":-1,\\\\\\"scaleZ\\\\\\":-1}\\"
   },
   \\".C2\\": {
-    \\"transform\\": \\"{\\\\\\"scaleX\\\\\\":1,\\\\\\"scaleY\\\\\\":-1}\\"
+    \\"transform\\": \\"{\\\\\\"scaleX\\\\\\":1,\\\\\\"scaleY\\\\\\":-1,\\\\\\"scaleZ\\\\\\":1}\\"
   },
   \\".a1\\": {},
   \\".a2\\": {},
   \\".b1\\": {},
   \\".b2\\": {},
-  \\".c1\\": {}
+  \\".c1\\": {
+    \\"transform\\": \\"{\\\\\\"scaleX\\\\\\":1,\\\\\\"scaleY\\\\\\":2,\\\\\\"scaleZ\\\\\\":3}\\"
+  }
 }"
 `;
 
@@ -9357,7 +9359,7 @@ exports[`Style编译测试 comile style: ../../../lib/loaders/style-loader.js?in
   \\".D3\\": {},
   \\".D4\\": {},
   \\".E1\\": {
-    \\"transform\\": \\"{\\\\\\"translateX\\\\\\":\\\\\\"20dp\\\\\\",\\\\\\"translateY\\\\\\":\\\\\\"20dp\\\\\\"}\\"
+    \\"transform\\": \\"{\\\\\\"translateX\\\\\\":\\\\\\"20dp\\\\\\",\\\\\\"translateY\\\\\\":\\\\\\"20dp\\\\\\",\\\\\\"translateZ\\\\\\":\\\\\\"20dp\\\\\\"}\\"
   },
   \\".E2\\": {
     \\"transform\\": \\"{\\\\\\"translateX\\\\\\":\\\\\\"20dp\\\\\\"}\\"
@@ -9489,11 +9491,11 @@ exports[`Style编译测试 comile style: ../../../lib/loaders/style-loader.js?in
   \\"@KEYFRAMES\\": {
     \\"multiVal\\": [
       {
-        \\"transform\\": \\"{\\\\\\"scaleX\\\\\\":0,\\\\\\"scaleY\\\\\\":0,\\\\\\"translateX\\\\\\":\\\\\\"0px\\\\\\",\\\\\\"rotate\\\\\\":\\\\\\"0deg\\\\\\"}\\",
+        \\"transform\\": \\"{\\\\\\"scaleX\\\\\\":0,\\\\\\"scaleY\\\\\\":0,\\\\\\"scaleZ\\\\\\":0,\\\\\\"translateX\\\\\\":\\\\\\"0px\\\\\\",\\\\\\"rotate\\\\\\":\\\\\\"0deg\\\\\\"}\\",
         \\"time\\": 0
       },
       {
-        \\"transform\\": \\"{\\\\\\"scaleX\\\\\\":1,\\\\\\"scaleY\\\\\\":1,\\\\\\"translateX\\\\\\":\\\\\\"100px\\\\\\",\\\\\\"rotate\\\\\\":\\\\\\"150deg\\\\\\"}\\",
+        \\"transform\\": \\"{\\\\\\"scaleX\\\\\\":1,\\\\\\"scaleY\\\\\\":1,\\\\\\"scaleZ\\\\\\":1,\\\\\\"translateX\\\\\\":\\\\\\"100px\\\\\\",\\\\\\"rotate\\\\\\":\\\\\\"150deg\\\\\\"}\\",
         \\"time\\": 100
       }
     ]
@@ -9601,34 +9603,36 @@ exports[`Style编译测试 comile style: ../../../lib/loaders/style-loader.js?in
 exports[`Style编译测试 comile style: ../../../lib/loaders/style-loader.js?index=0&type=style!../../../lib/loaders/fragment-loader.js?index=0&type=style!./TestStyle/Translate/testtranslate.ux?uxType=page 1`] = `
 "module.exports = {
   \\".A1\\": {
-    \\"transform\\": \\"{\\\\\\"translateX\\\\\\":\\\\\\"100px\\\\\\",\\\\\\"translateY\\\\\\":\\\\\\"0px\\\\\\"}\\"
+    \\"transform\\": \\"{\\\\\\"translateX\\\\\\":\\\\\\"100px\\\\\\",\\\\\\"translateY\\\\\\":\\\\\\"0px\\\\\\",\\\\\\"translateZ\\\\\\":\\\\\\"100px\\\\\\"}\\"
   },
   \\".A2\\": {
-    \\"transform\\": \\"{\\\\\\"translateX\\\\\\":\\\\\\"100px\\\\\\",\\\\\\"translateY\\\\\\":\\\\\\"100px\\\\\\"}\\"
+    \\"transform\\": \\"{\\\\\\"translateX\\\\\\":\\\\\\"100px\\\\\\",\\\\\\"translateY\\\\\\":\\\\\\"100px\\\\\\",\\\\\\"translateZ\\\\\\":\\\\\\"100px\\\\\\"}\\"
   },
   \\".B1\\": {
-    \\"transform\\": \\"{\\\\\\"translateX\\\\\\":\\\\\\"100px\\\\\\",\\\\\\"translateY\\\\\\":\\\\\\"100px\\\\\\"}\\"
+    \\"transform\\": \\"{\\\\\\"translateX\\\\\\":\\\\\\"100px\\\\\\",\\\\\\"translateY\\\\\\":\\\\\\"100px\\\\\\",\\\\\\"translateZ\\\\\\":\\\\\\"100px\\\\\\"}\\"
   },
   \\".B2\\": {
-    \\"transform\\": \\"{\\\\\\"translateX\\\\\\":\\\\\\"-100px\\\\\\",\\\\\\"translateY\\\\\\":\\\\\\"100px\\\\\\"}\\"
+    \\"transform\\": \\"{\\\\\\"translateX\\\\\\":\\\\\\"-100px\\\\\\",\\\\\\"translateY\\\\\\":\\\\\\"100px\\\\\\",\\\\\\"translateZ\\\\\\":\\\\\\"-100px\\\\\\"}\\"
   },
   \\".B3\\": {
-    \\"transform\\": \\"{\\\\\\"translateX\\\\\\":\\\\\\"-100%\\\\\\",\\\\\\"translateY\\\\\\":\\\\\\"100px\\\\\\"}\\"
+    \\"transform\\": \\"{\\\\\\"translateX\\\\\\":\\\\\\"-100%\\\\\\",\\\\\\"translateY\\\\\\":\\\\\\"100px\\\\\\",\\\\\\"translateZ\\\\\\":\\\\\\"-100%\\\\\\"}\\"
   },
   \\".C1\\": {
-    \\"transform\\": \\"{\\\\\\"translateX\\\\\\":\\\\\\"-100%\\\\\\",\\\\\\"translateY\\\\\\":\\\\\\"100%\\\\\\"}\\"
+    \\"transform\\": \\"{\\\\\\"translateX\\\\\\":\\\\\\"-100%\\\\\\",\\\\\\"translateY\\\\\\":\\\\\\"100%\\\\\\",\\\\\\"translateZ\\\\\\":\\\\\\"-100%\\\\\\"}\\"
   },
   \\".a1\\": {
-    \\"transform\\": \\"{\\\\\\"translateX\\\\\\":\\\\\\"100%\\\\\\",\\\\\\"translateY\\\\\\":\\\\\\"0px\\\\\\"}\\"
+    \\"transform\\": \\"{\\\\\\"translateX\\\\\\":\\\\\\"100%\\\\\\",\\\\\\"translateY\\\\\\":\\\\\\"0px\\\\\\",\\\\\\"translateZ\\\\\\":\\\\\\"100%\\\\\\"}\\"
   },
   \\".a2\\": {
-    \\"transform\\": \\"{\\\\\\"translateX\\\\\\":\\\\\\"100px\\\\\\",\\\\\\"translateY\\\\\\":\\\\\\"100px\\\\\\"}\\"
+    \\"transform\\": \\"{\\\\\\"translateX\\\\\\":\\\\\\"100px\\\\\\",\\\\\\"translateY\\\\\\":\\\\\\"100px\\\\\\",\\\\\\"translateZ\\\\\\":\\\\\\"100px\\\\\\"}\\"
   },
   \\".b1\\": {
-    \\"transform\\": \\"{\\\\\\"translateX\\\\\\":\\\\\\"-100px\\\\\\",\\\\\\"translateY\\\\\\":\\\\\\"-100px\\\\\\"}\\"
+    \\"transform\\": \\"{\\\\\\"translateX\\\\\\":\\\\\\"-100px\\\\\\",\\\\\\"translateY\\\\\\":\\\\\\"-100px\\\\\\",\\\\\\"translateZ\\\\\\":\\\\\\"-100px\\\\\\"}\\"
   },
   \\".b2\\": {},
-  \\".c1\\": {}
+  \\".c1\\": {
+    \\"transform\\": \\"{\\\\\\"translateX\\\\\\":\\\\\\"100px\\\\\\",\\\\\\"translateY\\\\\\":\\\\\\"20px\\\\\\",\\\\\\"translateZ\\\\\\":\\\\\\"30px\\\\\\"}\\"
+  }
 }"
 `;
 
