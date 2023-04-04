@@ -3,7 +3,7 @@
 ## [1.9.12] -2023-4.3
 
 - match IDE6.3.0 card preview [#8]
-- 增加transform在Z方向上面的属性值
+- 增加 transform 在 Z 方向上面的属性值
 - fix: check devices reverse [#6]
 
 ## [1.9.11] -2022-10.28

@@ -401,12 +401,11 @@ function resolveImportItemSrc($loader, importItem) {
         if (err) {
           importItem.isValid = false
           importItem.err = err
-          return resolve(importItem)
         } else {
           importItem.isValid = true
           importItem.srcPath = result
-          return resolve(importItem)
         }
+        return resolve(importItem)
       })
     })
   }

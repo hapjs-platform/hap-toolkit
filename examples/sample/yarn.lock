@@ -930,24 +930,24 @@
   dependencies:
     sync-directory "^2.1.0"
 
-"@hap-toolkit/compiler@1.9.11":
-  version "1.9.11"
-  resolved "https://registry.npmmirror.com/@hap-toolkit/compiler/-/compiler-1.9.11.tgz#a11bae31bf37a8d40146c2db748f76e45fa151fe"
-  integrity sha512-mdeD1nI1N6Us+QUN9UHxsQIxStR/fTW/ixMA8a49+H350taBQcPfqY/bYZLIHMLb1uiX00uFtuZIQexfGs+W/g==
+"@hap-toolkit/compiler@1.9.12":
+  version "1.9.12"
+  resolved "https://registry.npmmirror.com/@hap-toolkit/compiler/-/compiler-1.9.12.tgz#fcf2b1365f093d69c572aaa08c097febc3b860f8"
+  integrity sha512-2+B018ifnOGjKvZDZJWn/zUgBMGZWnXGTEOy815+7NkszRT1T1t6JXlealUAgfSnfU6bIqg/vWi0WZFw+braWA==
   dependencies:
-    "@hap-toolkit/shared-utils" "1.9.11"
+    "@hap-toolkit/shared-utils" "1.9.12"
     "@jayfate/path" "^0.0.13"
     css "^2.2.4"
     css-what "^2.1.3"
     parse5 "^3.0.3"
 
-"@hap-toolkit/debugger@1.9.11":
-  version "1.9.11"
-  resolved "https://registry.npmmirror.com/@hap-toolkit/debugger/-/debugger-1.9.11.tgz#f39b93bc750abcb9ae86505b5651d5733e1831fd"
-  integrity sha512-4MNJANauUuiTlYDdl0c3w1BCDAeOLFkqvzSmrj4G8fzerHoLEu2Yo4uqtKl5EYCFfkusFUMeJX0uDpwOx/y2uA==
+"@hap-toolkit/debugger@1.9.12":
+  version "1.9.12"
+  resolved "https://registry.npmmirror.com/@hap-toolkit/debugger/-/debugger-1.9.12.tgz#9e7f6066f91649096a0e2f8656feb1d22f911fe5"
+  integrity sha512-n6/bJzXktXSSRZHrG/gckIRvMxoOaGi3CNHj+sflF3e0c5fI6d5JKS5/ocC6m7090jrzGrcUaZx62ubETQ4Cqw==
   dependencies:
     "@hap-toolkit/chrome-devtools-frontend" "^1.1.2"
-    "@hap-toolkit/shared-utils" "1.9.11"
+    "@hap-toolkit/shared-utils" "1.9.12"
     "@jayfate/path" "^0.0.13"
     "@sentry/node" "^5.26.0"
     adb-commander "^0.1.9"
@@ -962,14 +962,14 @@
     socket.io "^2.3.0"
     webpack "5.72.0"
 
-"@hap-toolkit/dsl-xvm@1.9.11":
-  version "1.9.11"
-  resolved "https://registry.npmmirror.com/@hap-toolkit/dsl-xvm/-/dsl-xvm-1.9.11.tgz#94830aa99a29d0516b933ec75ecd071c750b90a9"
-  integrity sha512-OTXs4bM1J2/vjfM0soU6AziiNVuPvzBvwO2fy0Bx2+98vwtbDm1npCohcc7bEKiG9iIv2LPg7r+z6hDjXZCEzA==
+"@hap-toolkit/dsl-xvm@1.9.12":
+  version "1.9.12"
+  resolved "https://registry.npmmirror.com/@hap-toolkit/dsl-xvm/-/dsl-xvm-1.9.12.tgz#bcb327ea6d9f767ad606f8251be7c6f45717a133"
+  integrity sha512-71XHrZ4TeNQW7Kif3REJKQwtJy1r8g71KIkymL7mKeWPyK7mMrdomMsILNSpAJ3O0GtnEmF5ac5YhZ4bT5F7Gg==
   dependencies:
-    "@hap-toolkit/compiler" "1.9.11"
-    "@hap-toolkit/packager" "1.9.11"
-    "@hap-toolkit/shared-utils" "1.9.11"
+    "@hap-toolkit/compiler" "1.9.12"
+    "@hap-toolkit/packager" "1.9.12"
+    "@hap-toolkit/shared-utils" "1.9.12"
     "@jayfate/path" "^0.0.13"
     babel-loader "^8.1.0"
     css-loader "^5.0.1"
@@ -977,10 +977,10 @@
     url-loader "^4.1.1"
     webpack "5.72.0"
 
-"@hap-toolkit/packager@1.9.11":
-  version "1.9.11"
-  resolved "https://registry.npmmirror.com/@hap-toolkit/packager/-/packager-1.9.11.tgz#b158e08c421a5ce507f1ad6194d9e4a2b8861117"
-  integrity sha512-U0gi3xzhiPW0Ihv0hagpYXa1W88N0OK2dPxD5PcV4u+uIrYEMXD2RiP+7uKbGUgmpf4Z+aytUrQ2EZguC9zdWg==
+"@hap-toolkit/packager@1.9.12":
+  version "1.9.12"
+  resolved "https://registry.npmmirror.com/@hap-toolkit/packager/-/packager-1.9.12.tgz#9cf24c2d8e829c8d970586f7eb76c8e17f3ae653"
+  integrity sha512-7nxnWqTp06suXLGsHZuFiCSy9Q77dKgG3t7fuSCQnkAbUqulDfoByZaFAAopuY58a69xMRYoSlMMobgO/2zMEg==
   dependencies:
     "@babel/core" "^7.9.6"
     "@babel/generator" "^7.9.6"
@@ -988,8 +988,8 @@
     "@babel/traverse" "^7.9.6"
     "@babel/types" "^7.9.6"
     "@hap-toolkit/aaptjs" "^2.0.0"
-    "@hap-toolkit/compiler" "1.9.11"
-    "@hap-toolkit/shared-utils" "1.9.11"
+    "@hap-toolkit/compiler" "1.9.12"
+    "@hap-toolkit/shared-utils" "1.9.12"
     "@jayfate/path" "^0.0.13"
     babel-loader "^8.1.0"
     fs-extra "^10.0.0"
@@ -1007,15 +1007,15 @@
     webpack "5.72.0"
     webpack-bundle-analyzer "^3.5.0"
 
-"@hap-toolkit/server@1.9.11":
-  version "1.9.11"
-  resolved "https://registry.npmmirror.com/@hap-toolkit/server/-/server-1.9.11.tgz#cdeeb35089a262cbb5358bfc807246274760d492"
-  integrity sha512-H/QoGXBgQKMvWWAo7Zu8+y/99vkuXaT1tg1lM0O0Ivwof2mKoiP3ZkoWYMVmWRfyp9Fe7Rs7EaitA9abAE3qhw==
+"@hap-toolkit/server@1.9.12":
+  version "1.9.12"
+  resolved "https://registry.npmmirror.com/@hap-toolkit/server/-/server-1.9.12.tgz#100924d046246490159411fa75afc913a8075190"
+  integrity sha512-tgjvmywWu1NtkoAWbYs+EdDRp5BPBq8rJsSdUGMG1b6OrQ2nxoYNtc+WhjZO6OCrikJWpu6UWnxKE5k+wwM3jw==
   dependencies:
     "@babel/runtime" "^7.9.6"
-    "@hap-toolkit/debugger" "1.9.11"
-    "@hap-toolkit/packager" "1.9.11"
-    "@hap-toolkit/shared-utils" "1.9.11"
+    "@hap-toolkit/debugger" "1.9.12"
+    "@hap-toolkit/packager" "1.9.12"
+    "@hap-toolkit/shared-utils" "1.9.12"
     "@jayfate/path" "^0.0.13"
     crypto-js "^4.1.1"
     fs-extra "^10.0.0"
@@ -1032,10 +1032,10 @@
     qrcode-terminal "^0.12.0"
     request "^2.88.2"
 
-"@hap-toolkit/shared-utils@1.9.11":
-  version "1.9.11"
-  resolved "https://registry.npmmirror.com/@hap-toolkit/shared-utils/-/shared-utils-1.9.11.tgz#15433a2750f4c6c4bcd257db127462779a160a2c"
-  integrity sha512-PqS50pCoxEChBc6XDXXTCtWVG8rhsNOZB7DoRvkmeqFqYtNIkGDqwLB9mBG0uezofEMGWYOjjrcJyvj4MM4kFA==
+"@hap-toolkit/shared-utils@1.9.12":
+  version "1.9.12"
+  resolved "https://registry.npmmirror.com/@hap-toolkit/shared-utils/-/shared-utils-1.9.12.tgz#f0ee74ab3a66afe6156c6ea69994dc6d27bbdec0"
+  integrity sha512-ZeUplLG4/GYf9QgUS0Uubnmvjevv3g1bOGofcPsq3v9pZjJHVXtcSLHFQSjZnChS2NhfRInSoC4Wbt9kGBSsKA==
   dependencies:
     chalk "^2.4.2"
     qrcode-terminal "^0.12.0"
@@ -2724,22 +2724,22 @@ gzip-size@^5.0.0:
     duplexer "^0.1.1"
     pify "^4.0.1"
 
-hap-toolkit@1.9.11:
-  version "1.9.11"
-  resolved "https://registry.npmmirror.com/hap-toolkit/-/hap-toolkit-1.9.11.tgz#de49398b7ad84e4870f316dc974ebe3c5e411d59"
-  integrity sha512-RcoBnkmqPYvUKjrS9BiIxSAcme22rOBsr9sTsyYfCv+BoQtGjwtH7g19OCacmr7YFfLTCIa3MVmSAbRPP/PXgQ==
+hap-toolkit@1.9.12:
+  version "1.9.12"
+  resolved "https://registry.npmmirror.com/hap-toolkit/-/hap-toolkit-1.9.12.tgz#852f7ee8b1cf99120472b46e0ec00c343ce57262"
+  integrity sha512-fioQ85kVG8gk/QDiwAMV9vOeKfQFH0MJTVC8Nmc56ZES9CqyLn3iGH2yAQc9+QqtF1+ZPup95x0Xz9C1ynAQMw==
   dependencies:
     "@babel/core" "^7.9.6"
     "@babel/plugin-syntax-jsx" "^7.8.3"
     "@babel/preset-env" "^7.9.6"
     "@babel/register" "^7.9.0"
     "@babel/runtime" "^7.9.6"
-    "@hap-toolkit/compiler" "1.9.11"
-    "@hap-toolkit/debugger" "1.9.11"
-    "@hap-toolkit/dsl-xvm" "1.9.11"
-    "@hap-toolkit/packager" "1.9.11"
-    "@hap-toolkit/server" "1.9.11"
-    "@hap-toolkit/shared-utils" "1.9.11"
+    "@hap-toolkit/compiler" "1.9.12"
+    "@hap-toolkit/debugger" "1.9.12"
+    "@hap-toolkit/dsl-xvm" "1.9.12"
+    "@hap-toolkit/packager" "1.9.12"
+    "@hap-toolkit/server" "1.9.12"
+    "@hap-toolkit/shared-utils" "1.9.12"
     "@jayfate/path" "^0.0.13"
     adb-commander "^0.1.9"
     ajv "^6.12.6"
