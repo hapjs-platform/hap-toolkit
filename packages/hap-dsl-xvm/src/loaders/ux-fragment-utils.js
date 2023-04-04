@@ -32,7 +32,7 @@ const defaultLoaders = {
   module: require.resolve('@hap-toolkit/packager/lib/loaders/module-loader.js'),
   babel: require.resolve('babel-loader'),
   // app
-  mainfest: require.resolve('./manifest-loader.js'),
+  mainfest: require.resolve('@hap-toolkit/packager/lib/loaders/manifest-loader.js'),
   // page
   access: require.resolve('./access-loader.js'),
   'extract-css': require.resolve('./extract-css-loader.js')
