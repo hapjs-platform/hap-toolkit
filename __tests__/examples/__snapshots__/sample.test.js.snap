@@ -3,7 +3,7 @@
 exports[`hap-toolkit compile native: <CWD>/packages/hap-dsl-xvm/lib/loaders/app-loader.js!<project-root>/src/app.ux?uxType=app 1`] = `
 "
 var $app_style$ = {}
-var $app_script$ = require(\\"!../../../packages/hap-dsl-xvm/lib/loaders/script-loader.js!../../../packages/hap-packager/lib/loaders/module-loader.js!../../../packages/hap-dsl-xvm/lib/loaders/manifest-loader.js?path=<project-root>/src!../../../node_modules/babel-loader/lib/index.js?cwd=<project-root>&cacheDirectory&comments=false&configFile=<project-root>/babel.config.js!../../../packages/hap-dsl-xvm/lib/loaders/fragment-loader.js?index=0&type=script!./app.ux?uxType=app\\")
+var $app_script$ = require(\\"!../../../packages/hap-dsl-xvm/lib/loaders/script-loader.js!../../../packages/hap-packager/lib/loaders/module-loader.js!../../../packages/hap-packager/lib/loaders/manifest-loader.js?path=<project-root>/src!../../../node_modules/babel-loader/lib/index.js?cwd=<project-root>&cacheDirectory&comments=false&configFile=<project-root>/babel.config.js!../../../packages/hap-dsl-xvm/lib/loaders/fragment-loader.js?index=0&type=script!./app.ux?uxType=app\\")
 
 $app_define$('@app-application/app', [], function ($app_require$, $app_exports$, $app_module$) {
   
@@ -8297,7 +8297,7 @@ var _default = {
 exports.default = _default;}"
 `;
 
-exports[`hap-toolkit compile native: <CWD>/packages/hap-dsl-xvm/lib/loaders/script-loader.js!<CWD>/packages/hap-packager/lib/loaders/module-loader.js!<CWD>/packages/hap-dsl-xvm/lib/loaders/manifest-loader.js?path=<project-root>/src!<CWD>/node_modules/babel-loader/lib/index.js?cwd=<project-root>&cacheDirectory&comments=false&configFile=<project-root>/babel.config.js!<CWD>/packages/hap-dsl-xvm/lib/loaders/fragment-loader.js?index=0&type=script!<project-root>/src/app.ux?uxType=app 1`] = `
+exports[`hap-toolkit compile native: <CWD>/packages/hap-dsl-xvm/lib/loaders/script-loader.js!<CWD>/packages/hap-packager/lib/loaders/module-loader.js!<CWD>/packages/hap-packager/lib/loaders/manifest-loader.js?path=<project-root>/src!<CWD>/node_modules/babel-loader/lib/index.js?cwd=<project-root>&cacheDirectory&comments=false&configFile=<project-root>/babel.config.js!<CWD>/packages/hap-dsl-xvm/lib/loaders/fragment-loader.js?index=0&type=script!<project-root>/src/app.ux?uxType=app 1`] = `
 "module.exports = function __scriptModule__ (module, exports, $app_require$){\\"use strict\\";
 
 Object.defineProperty(exports, \\"__esModule\\", {
