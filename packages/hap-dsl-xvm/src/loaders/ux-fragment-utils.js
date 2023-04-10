@@ -148,7 +148,7 @@ function makeLoaderString(type, config, uxType) {
           }
         },
         {
-          name: resolveSync('babel-loader'),
+          name: defaultLoaders.babel,
           query: {
             cwd,
             cacheDirectory: true,
@@ -168,7 +168,7 @@ function makeLoaderString(type, config, uxType) {
         })
     } else {
       loaders.push({
-        name: resolveSync('babel-loader'),
+        name: defaultLoaders.babel,
         query: {
           cwd,
           cacheDirectory: true,
