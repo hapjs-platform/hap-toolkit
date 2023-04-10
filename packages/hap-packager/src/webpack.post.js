@@ -3,6 +3,7 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
+import { sync as resolveSync } from 'resolve'
 const path = require('@jayfate/path')
 
 const { readJson } = require('@hap-toolkit/shared-utils')
@@ -56,9 +57,9 @@ function postHook(webpackConf, defaults, quickappConfig = {}) {
   const priorities = genPriorities(manifestObj, skeletonConf)
 
   const jsLoaderList = [
-    require.resolve('./loaders/module-loader.js'),
+    resolveSync('./loaders/module-loader.js'),
     {
-      loader: require.resolve('babel-loader'),
+      loader: resolveSync('babel-loader'),
       options: {
         configFile: getBabelConfigJsPath(cwd, useTreeShaking),
         cwd,
@@ -83,7 +84,7 @@ function postHook(webpackConf, defaults, quickappConfig = {}) {
     include: [path.join(pathSrc, 'manifest.json')],
     use: [
       {
-        loader: require.resolve('./loaders/device-type-loader.js'),
+        loader: resolveSync('./loaders/device-type-loader.js'),
         options: {
           srcPath: pathSrc
         }

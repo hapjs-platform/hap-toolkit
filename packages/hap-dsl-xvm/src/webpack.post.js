@@ -3,6 +3,7 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
+import { sync as resolveSync } from 'resolve'
 const { compileOptionsObject } = require('@hap-toolkit/shared-utils/compilation-config')
 const { loaderWrapper } = require('@hap-toolkit/packager/lib/common/utils')
 
@@ -41,14 +42,14 @@ module.exports.postHook = function (webpackConf, { cwd, pathSrc }, quickappConfi
     oneOf: [
       {
         resourceQuery: /uxType=app/,
-        use: require.resolve('./loaders/app-loader.js')
+        use: resolveSync('./loaders/app-loader.js')
       },
       {
         resourceQuery: /uxType=(page|comp|card)/,
-        use: require.resolve('./loaders/ux-loader.js')
+        use: resolveSync('./loaders/ux-loader.js')
       },
       {
-        use: require.resolve('./loaders/ux-loader.js')
+        use: resolveSync('./loaders/ux-loader.js')
       }
     ]
   })

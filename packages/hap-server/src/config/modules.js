@@ -1,3 +1,4 @@
+import { sync as resolveSync } from 'resolve'
 /*
  * Copyright (c) 2021-present, the hapjs-platform Project Contributors
  * SPDX-License-Identifier: Apache-2.0
@@ -8,15 +9,15 @@ function init(conf) {
   const builtinModules = [
     {
       name: 'debugger',
-      path: require.resolve('@hap-toolkit/debugger/lib/router')
+      path: resolveSync('@hap-toolkit/debugger/lib/router')
     },
     {
       name: 'packager',
-      path: require.resolve('@hap-toolkit/packager/lib/router')
+      path: resolveSync('@hap-toolkit/packager/lib/router')
     },
     {
       name: 'preview',
-      path: require.resolve('../preview/index.js')
+      path: resolveSync('../preview/index.js')
     }
   ]
   // 开发者指定的模块

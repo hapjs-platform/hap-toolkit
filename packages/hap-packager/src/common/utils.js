@@ -6,6 +6,7 @@
 import fs from 'fs'
 import path from '@jayfate/path'
 import crypto from 'crypto'
+import { sync as resolveSync } from 'resolve'
 
 import { colorconsole } from '@hap-toolkit/shared-utils'
 
@@ -204,11 +205,11 @@ export function loaderWrapper(pathSrc, rule) {
   }
   // 这个loader是用来解析@system或者@service等feature的
   rule.use.unshift({
-    loader: require.resolve('../loaders/module-loader')
+    loader: resolveSync('../loaders/module-loader')
   })
   // 用来判断manifest.json内是否存在上面传入的@service或者@system的feature
   rule.use.push({
-    loader: require.resolve('../loaders/manifest-loader'),
+    loader: resolveSync('../loaders/manifest-loader'),
     options: {
       path: pathSrc
     }

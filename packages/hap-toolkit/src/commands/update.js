@@ -3,6 +3,7 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
+import { sync as resolveSync } from 'resolve'
 import path from '@jayfate/path'
 import fs from 'fs-extra'
 import glob from 'glob'
@@ -18,8 +19,8 @@ const curDir = process.cwd()
 const packageInfo = require('../../package.json')
 
 // DSL路径预先定义
-const dslModuleXvmDir = path.dirname(require.resolve('@hap-toolkit/dsl-xvm/package.json'))
-// const dslModuleVueDir = path.dirname(require.resolve('@hap-toolkit/dsl-vue/package.json'))
+const dslModuleXvmDir = path.dirname(resolveSync('@hap-toolkit/dsl-xvm/package.json'))
+// const dslModuleVueDir = path.dirname(resolveSync('@hap-toolkit/dsl-vue/package.json'))
 const dslModuleHash = {
   xvm: dslModuleXvmDir
   // vue: dslModuleVueDir
