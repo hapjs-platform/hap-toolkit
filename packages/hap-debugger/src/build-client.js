@@ -3,10 +3,12 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
+const path = require('path')
 const webpack = require('webpack')
 
 function buildClient(callback) {
-  const webpackConf = require('./webpack.config.js')
+  const filepath = path.resolve(__dirname, './webpack.config.js')
+  const webpackConf = require(filepath)
   webpack(webpackConf, (err, stats) => {
     if (err) {
       console.log(err.message)

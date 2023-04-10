@@ -12,11 +12,11 @@ const configClient = {
   mode: 'production',
   context: __dirname,
   entry: {
-    index: './src/client/index.js'
+    index: './client/index.js'
   },
   output: {
     filename: '[name]-[hash:8].js',
-    path: path.resolve(__dirname, 'lib/client')
+    path: path.resolve(__dirname, '../lib/client')
   },
   devtool: 'eval-source-map',
   module: {
@@ -36,7 +36,7 @@ const configClient = {
   },
   plugins: [
     new HtmlWebpackPlugin({
-      template: path.resolve(__dirname, './src/client/index.html'),
+      template: path.resolve(__dirname, './client/index.html'),
       filename: './index.html', // 这是相对于output输出路径的根;
       inject: 'body',
       minify: {
