@@ -253,21 +253,6 @@ program
     colorconsole.warn('Deprecated command!')
   })
 
-// TODO
-// Since we properly have all dependencies included,
-// and if we make {babel, eslint}-configuration built-in,
-// we won't need this `update` command anymore.
-program
-  .command('update')
-  .description('update tools for project')
-  .option('--force', 'force update tools for project')
-  .option('--update-deps', 'update dependencies directly', { noHelp: true })
-  .action((options) => {
-    const update = require('../lib/commands/update')
-    colorconsole.warn('hap-toolkit>=0.1.0 不再需要运行此命令\n')
-    update(options)
-  })
-
 program
   .command('report', { noHelp: true })
   .description('collect system information and create report.log')
