@@ -3,7 +3,7 @@
 exports[`hap-toolkit compile native: <CWD>/packages/hap-dsl-xvm/lib/loaders/app-loader.js!<project-root>/src/app.ux?uxType=app 1`] = `
 "
 var $app_style$ = {}
-var $app_script$ = require(\\"!../../../packages/hap-dsl-xvm/lib/loaders/script-loader.js!../../../packages/hap-packager/lib/loaders/module-loader.js!../../../packages/hap-packager/lib/loaders/manifest-loader.js?path=<project-root>/src!../../../node_modules/babel-loader/lib/index.js?cwd=<project-root>&cacheDirectory&comments=false&configFile=<project-root>/babel.config.js!../../../packages/hap-dsl-xvm/lib/loaders/fragment-loader.js?index=0&type=script!./app.ux?uxType=app\\")
+var $app_script$ = require(\\"!../../../packages/hap-dsl-xvm/lib/loaders/script-loader.js!../../../node_modules/@hap-toolkit/packager/lib/loaders/module-loader.js!../../../node_modules/@hap-toolkit/packager/lib/loaders/manifest-loader.js?path=<project-root>/src!../../../node_modules/babel-loader/lib/index.js?cwd=<project-root>&cacheDirectory&comments=false&configFile=<project-root>/babel.config.js!../../../packages/hap-dsl-xvm/lib/loaders/fragment-loader.js?index=0&type=script!./app.ux?uxType=app\\")
 
 $app_define$('@app-application/app', [], function ($app_require$, $app_exports$, $app_module$) {
   
@@ -40776,7 +40776,7 @@ exports[`hap-toolkit compile native: <CWD>/packages/hap-dsl-xvm/lib/loaders/ux-l
 "
 var $app_style$ = require(\\"!../../../../../../packages/hap-dsl-xvm/lib/loaders/style-loader.js?index=0&type=style!../../../../../../packages/hap-dsl-xvm/lib/loaders/fragment-loader.js?index=0&type=style!./index.ux?uxType=page\\")
 
-var $app_script$ = require(\\"!../../../../../../packages/hap-dsl-xvm/lib/loaders/script-loader.js!../../../../../../packages/hap-packager/lib/loaders/module-loader.js!../../../../../../node_modules/babel-loader/lib/index.js?cwd=<project-root>&cacheDirectory&plugins[]=<CWD>/packages/hap-dsl-xvm/lib/loaders/babel-plugin-jsx.js&comments=false&configFile=<project-root>/babel.config.js!../../../../../../packages/hap-dsl-xvm/lib/loaders/access-loader.js!../../../../../../packages/hap-dsl-xvm/lib/loaders/fragment-loader.js?index=0&type=script!./index.ux?uxType=page\\")
+var $app_script$ = require(\\"!../../../../../../packages/hap-dsl-xvm/lib/loaders/script-loader.js!../../../../../../node_modules/@hap-toolkit/packager/lib/loaders/module-loader.js!../../../../../../node_modules/babel-loader/lib/index.js?cwd=<project-root>&cacheDirectory&plugins[]=<CWD>/packages/hap-dsl-xvm/lib/loaders/babel-plugin-jsx.js&comments=false&configFile=<project-root>/babel.config.js!../../../../../../packages/hap-dsl-xvm/lib/loaders/access-loader.js!../../../../../../packages/hap-dsl-xvm/lib/loaders/fragment-loader.js?index=0&type=script!./index.ux?uxType=page\\")
 
 $app_define$('@app-component/index', [], function($app_require$, $app_exports$, $app_module$) {
      $app_script$($app_module$, $app_exports$, $app_require$)
@@ -40794,7 +40794,7 @@ exports[`hap-toolkit compile native: <CWD>/packages/hap-dsl-xvm/lib/loaders/ux-l
 "
 var $app_style$ = require(\\"!../../../../../../packages/hap-dsl-xvm/lib/loaders/style-loader.js?index=0&type=style!../../../../../../packages/hap-dsl-xvm/lib/loaders/fragment-loader.js?index=0&type=style!./index.ux?uxType=page\\")
 
-var $app_script$ = require(\\"!../../../../../../packages/hap-dsl-xvm/lib/loaders/script-loader.js!../../../../../../packages/hap-packager/lib/loaders/module-loader.js!../../../../../../node_modules/babel-loader/lib/index.js?cwd=<project-root>&cacheDirectory&plugins[]=<CWD>/packages/hap-dsl-xvm/lib/loaders/babel-plugin-jsx.js&comments=false&configFile=<project-root>/babel.config.js!../../../../../../packages/hap-dsl-xvm/lib/loaders/access-loader.js!../../../../../../packages/hap-dsl-xvm/lib/loaders/fragment-loader.js?index=0&type=script!./index.ux?uxType=page\\")
+var $app_script$ = require(\\"!../../../../../../packages/hap-dsl-xvm/lib/loaders/script-loader.js!../../../../../../node_modules/@hap-toolkit/packager/lib/loaders/module-loader.js!../../../../../../node_modules/babel-loader/lib/index.js?cwd=<project-root>&cacheDirectory&plugins[]=<CWD>/packages/hap-dsl-xvm/lib/loaders/babel-plugin-jsx.js&comments=false&configFile=<project-root>/babel.config.js!../../../../../../packages/hap-dsl-xvm/lib/loaders/access-loader.js!../../../../../../packages/hap-dsl-xvm/lib/loaders/fragment-loader.js?index=0&type=script!./index.ux?uxType=page\\")
 
 $app_define$('@app-component/index', [], function($app_require$, $app_exports$, $app_module$) {
      $app_script$($app_module$, $app_exports$, $app_require$)
@@ -40812,7 +40812,7 @@ exports[`hap-toolkit compile native: <CWD>/packages/hap-dsl-xvm/lib/loaders/ux-l
 "
 var $app_style$ = require(\\"!../../../../../../packages/hap-dsl-xvm/lib/loaders/style-loader.js?index=0&type=style!../../../../../../packages/hap-dsl-xvm/lib/loaders/fragment-loader.js?index=0&type=style!./index.ux?uxType=page\\")
 
-var $app_script$ = require(\\"!../../../../../../packages/hap-dsl-xvm/lib/loaders/script-loader.js!../../../../../../packages/hap-packager/lib/loaders/module-loader.js!../../../../../../node_modules/babel-loader/lib/index.js?cwd=<project-root>&cacheDirectory&plugins[]=<CWD>/packages/hap-dsl-xvm/lib/loaders/babel-plugin-jsx.js&comments=false&configFile=<project-root>/babel.config.js!../../../../../../packages/hap-dsl-xvm/lib/loaders/access-loader.js!../../../../../../packages/hap-dsl-xvm/lib/loaders/fragment-loader.js?index=0&type=script!./index.ux?uxType=page\\")
+var $app_script$ = require(\\"!../../../../../../packages/hap-dsl-xvm/lib/loaders/script-loader.js!../../../../../../node_modules/@hap-toolkit/packager/lib/loaders/module-loader.js!../../../../../../node_modules/babel-loader/lib/index.js?cwd=<project-root>&cacheDirectory&plugins[]=<CWD>/packages/hap-dsl-xvm/lib/loaders/babel-plugin-jsx.js&comments=false&configFile=<project-root>/babel.config.js!../../../../../../packages/hap-dsl-xvm/lib/loaders/access-loader.js!../../../../../../packages/hap-dsl-xvm/lib/loaders/fragment-loader.js?index=0&type=script!./index.ux?uxType=page\\")
 
 $app_define$('@app-component/index', [], function($app_require$, $app_exports$, $app_module$) {
      $app_script$($app_module$, $app_exports$, $app_require$)
@@ -40830,7 +40830,7 @@ exports[`hap-toolkit compile native: <CWD>/packages/hap-dsl-xvm/lib/loaders/ux-l
 "
 var $app_style$ = require(\\"!../../../../../../packages/hap-dsl-xvm/lib/loaders/style-loader.js?index=0&type=style!../../../../../../packages/hap-dsl-xvm/lib/loaders/fragment-loader.js?index=0&type=style!./index.ux?uxType=page\\")
 
-var $app_script$ = require(\\"!../../../../../../packages/hap-dsl-xvm/lib/loaders/script-loader.js!../../../../../../packages/hap-packager/lib/loaders/module-loader.js!../../../../../../node_modules/babel-loader/lib/index.js?cwd=<project-root>&cacheDirectory&plugins[]=<CWD>/packages/hap-dsl-xvm/lib/loaders/babel-plugin-jsx.js&comments=false&configFile=<project-root>/babel.config.js!../../../../../../packages/hap-dsl-xvm/lib/loaders/access-loader.js!../../../../../../packages/hap-dsl-xvm/lib/loaders/fragment-loader.js?index=0&type=script!./index.ux?uxType=page\\")
+var $app_script$ = require(\\"!../../../../../../packages/hap-dsl-xvm/lib/loaders/script-loader.js!../../../../../../node_modules/@hap-toolkit/packager/lib/loaders/module-loader.js!../../../../../../node_modules/babel-loader/lib/index.js?cwd=<project-root>&cacheDirectory&plugins[]=<CWD>/packages/hap-dsl-xvm/lib/loaders/babel-plugin-jsx.js&comments=false&configFile=<project-root>/babel.config.js!../../../../../../packages/hap-dsl-xvm/lib/loaders/access-loader.js!../../../../../../packages/hap-dsl-xvm/lib/loaders/fragment-loader.js?index=0&type=script!./index.ux?uxType=page\\")
 
 $app_define$('@app-component/index', [], function($app_require$, $app_exports$, $app_module$) {
      $app_script$($app_module$, $app_exports$, $app_require$)
@@ -40848,7 +40848,7 @@ exports[`hap-toolkit compile native: <CWD>/packages/hap-dsl-xvm/lib/loaders/ux-l
 "
 var $app_style$ = require(\\"!../../../../../../packages/hap-dsl-xvm/lib/loaders/style-loader.js?index=0&type=style!../../../../../../packages/hap-dsl-xvm/lib/loaders/fragment-loader.js?index=0&type=style!./index.ux?uxType=page\\")
 
-var $app_script$ = require(\\"!../../../../../../packages/hap-dsl-xvm/lib/loaders/script-loader.js!../../../../../../packages/hap-packager/lib/loaders/module-loader.js!../../../../../../node_modules/babel-loader/lib/index.js?cwd=<project-root>&cacheDirectory&plugins[]=<CWD>/packages/hap-dsl-xvm/lib/loaders/babel-plugin-jsx.js&comments=false&configFile=<project-root>/babel.config.js!../../../../../../packages/hap-dsl-xvm/lib/loaders/access-loader.js!../../../../../../packages/hap-dsl-xvm/lib/loaders/fragment-loader.js?index=0&type=script!./index.ux?uxType=page\\")
+var $app_script$ = require(\\"!../../../../../../packages/hap-dsl-xvm/lib/loaders/script-loader.js!../../../../../../node_modules/@hap-toolkit/packager/lib/loaders/module-loader.js!../../../../../../node_modules/babel-loader/lib/index.js?cwd=<project-root>&cacheDirectory&plugins[]=<CWD>/packages/hap-dsl-xvm/lib/loaders/babel-plugin-jsx.js&comments=false&configFile=<project-root>/babel.config.js!../../../../../../packages/hap-dsl-xvm/lib/loaders/access-loader.js!../../../../../../packages/hap-dsl-xvm/lib/loaders/fragment-loader.js?index=0&type=script!./index.ux?uxType=page\\")
 
 $app_define$('@app-component/index', [], function($app_require$, $app_exports$, $app_module$) {
      $app_script$($app_module$, $app_exports$, $app_require$)
@@ -40866,7 +40866,7 @@ exports[`hap-toolkit compile native: <CWD>/packages/hap-dsl-xvm/lib/loaders/ux-l
 "
 var $app_style$ = require(\\"!../../../../../../packages/hap-dsl-xvm/lib/loaders/style-loader.js?index=0&type=style!../../../../../../packages/hap-dsl-xvm/lib/loaders/fragment-loader.js?index=0&type=style!./index.ux?uxType=page\\")
 
-var $app_script$ = require(\\"!../../../../../../packages/hap-dsl-xvm/lib/loaders/script-loader.js!../../../../../../packages/hap-packager/lib/loaders/module-loader.js!../../../../../../node_modules/babel-loader/lib/index.js?cwd=<project-root>&cacheDirectory&plugins[]=<CWD>/packages/hap-dsl-xvm/lib/loaders/babel-plugin-jsx.js&comments=false&configFile=<project-root>/babel.config.js!../../../../../../packages/hap-dsl-xvm/lib/loaders/access-loader.js!../../../../../../packages/hap-dsl-xvm/lib/loaders/fragment-loader.js?index=0&type=script!./index.ux?uxType=page\\")
+var $app_script$ = require(\\"!../../../../../../packages/hap-dsl-xvm/lib/loaders/script-loader.js!../../../../../../node_modules/@hap-toolkit/packager/lib/loaders/module-loader.js!../../../../../../node_modules/babel-loader/lib/index.js?cwd=<project-root>&cacheDirectory&plugins[]=<CWD>/packages/hap-dsl-xvm/lib/loaders/babel-plugin-jsx.js&comments=false&configFile=<project-root>/babel.config.js!../../../../../../packages/hap-dsl-xvm/lib/loaders/access-loader.js!../../../../../../packages/hap-dsl-xvm/lib/loaders/fragment-loader.js?index=0&type=script!./index.ux?uxType=page\\")
 
 $app_define$('@app-component/index', [], function($app_require$, $app_exports$, $app_module$) {
      $app_script$($app_module$, $app_exports$, $app_require$)
@@ -40884,7 +40884,7 @@ exports[`hap-toolkit compile native: <CWD>/packages/hap-dsl-xvm/lib/loaders/ux-l
 "
 var $app_style$ = require(\\"!../../../../../../packages/hap-dsl-xvm/lib/loaders/style-loader.js?index=0&type=style!../../../../../../packages/hap-dsl-xvm/lib/loaders/fragment-loader.js?index=0&type=style!./index.ux?uxType=page\\")
 
-var $app_script$ = require(\\"!../../../../../../packages/hap-dsl-xvm/lib/loaders/script-loader.js!../../../../../../packages/hap-packager/lib/loaders/module-loader.js!../../../../../../node_modules/babel-loader/lib/index.js?cwd=<project-root>&cacheDirectory&plugins[]=<CWD>/packages/hap-dsl-xvm/lib/loaders/babel-plugin-jsx.js&comments=false&configFile=<project-root>/babel.config.js!../../../../../../packages/hap-dsl-xvm/lib/loaders/access-loader.js!../../../../../../packages/hap-dsl-xvm/lib/loaders/fragment-loader.js?index=0&type=script!./index.ux?uxType=page\\")
+var $app_script$ = require(\\"!../../../../../../packages/hap-dsl-xvm/lib/loaders/script-loader.js!../../../../../../node_modules/@hap-toolkit/packager/lib/loaders/module-loader.js!../../../../../../node_modules/babel-loader/lib/index.js?cwd=<project-root>&cacheDirectory&plugins[]=<CWD>/packages/hap-dsl-xvm/lib/loaders/babel-plugin-jsx.js&comments=false&configFile=<project-root>/babel.config.js!../../../../../../packages/hap-dsl-xvm/lib/loaders/access-loader.js!../../../../../../packages/hap-dsl-xvm/lib/loaders/fragment-loader.js?index=0&type=script!./index.ux?uxType=page\\")
 
 $app_define$('@app-component/index', [], function($app_require$, $app_exports$, $app_module$) {
      $app_script$($app_module$, $app_exports$, $app_require$)
@@ -40902,7 +40902,7 @@ exports[`hap-toolkit compile native: <CWD>/packages/hap-dsl-xvm/lib/loaders/ux-l
 "
 var $app_style$ = require(\\"!../../../../../../packages/hap-dsl-xvm/lib/loaders/style-loader.js?index=0&type=style!../../../../../../packages/hap-dsl-xvm/lib/loaders/fragment-loader.js?index=0&type=style!./index.ux?uxType=page\\")
 
-var $app_script$ = require(\\"!../../../../../../packages/hap-dsl-xvm/lib/loaders/script-loader.js!../../../../../../packages/hap-packager/lib/loaders/module-loader.js!../../../../../../node_modules/babel-loader/lib/index.js?cwd=<project-root>&cacheDirectory&plugins[]=<CWD>/packages/hap-dsl-xvm/lib/loaders/babel-plugin-jsx.js&comments=false&configFile=<project-root>/babel.config.js!../../../../../../packages/hap-dsl-xvm/lib/loaders/access-loader.js!../../../../../../packages/hap-dsl-xvm/lib/loaders/fragment-loader.js?index=0&type=script!./index.ux?uxType=page\\")
+var $app_script$ = require(\\"!../../../../../../packages/hap-dsl-xvm/lib/loaders/script-loader.js!../../../../../../node_modules/@hap-toolkit/packager/lib/loaders/module-loader.js!../../../../../../node_modules/babel-loader/lib/index.js?cwd=<project-root>&cacheDirectory&plugins[]=<CWD>/packages/hap-dsl-xvm/lib/loaders/babel-plugin-jsx.js&comments=false&configFile=<project-root>/babel.config.js!../../../../../../packages/hap-dsl-xvm/lib/loaders/access-loader.js!../../../../../../packages/hap-dsl-xvm/lib/loaders/fragment-loader.js?index=0&type=script!./index.ux?uxType=page\\")
 
 $app_define$('@app-component/index', [], function($app_require$, $app_exports$, $app_module$) {
      $app_script$($app_module$, $app_exports$, $app_require$)
@@ -40920,7 +40920,7 @@ exports[`hap-toolkit compile native: <CWD>/packages/hap-dsl-xvm/lib/loaders/ux-l
 "
 var $app_style$ = require(\\"!../../../../../../packages/hap-dsl-xvm/lib/loaders/style-loader.js?index=0&type=style!less-loader!../../../../../../packages/hap-dsl-xvm/lib/loaders/fragment-loader.js?index=0&type=style!./index.ux?uxType=page\\")
 
-var $app_script$ = require(\\"!../../../../../../packages/hap-dsl-xvm/lib/loaders/script-loader.js!../../../../../../packages/hap-packager/lib/loaders/module-loader.js!../../../../../../node_modules/babel-loader/lib/index.js?cwd=<project-root>&cacheDirectory&plugins[]=<CWD>/packages/hap-dsl-xvm/lib/loaders/babel-plugin-jsx.js&comments=false&configFile=<project-root>/babel.config.js!../../../../../../packages/hap-dsl-xvm/lib/loaders/access-loader.js!../../../../../../packages/hap-dsl-xvm/lib/loaders/fragment-loader.js?index=0&type=script!./index.ux?uxType=page\\")
+var $app_script$ = require(\\"!../../../../../../packages/hap-dsl-xvm/lib/loaders/script-loader.js!../../../../../../node_modules/@hap-toolkit/packager/lib/loaders/module-loader.js!../../../../../../node_modules/babel-loader/lib/index.js?cwd=<project-root>&cacheDirectory&plugins[]=<CWD>/packages/hap-dsl-xvm/lib/loaders/babel-plugin-jsx.js&comments=false&configFile=<project-root>/babel.config.js!../../../../../../packages/hap-dsl-xvm/lib/loaders/access-loader.js!../../../../../../packages/hap-dsl-xvm/lib/loaders/fragment-loader.js?index=0&type=script!./index.ux?uxType=page\\")
 
 $app_define$('@app-component/index', [], function($app_require$, $app_exports$, $app_module$) {
      $app_script$($app_module$, $app_exports$, $app_require$)
@@ -40938,7 +40938,7 @@ exports[`hap-toolkit compile native: <CWD>/packages/hap-dsl-xvm/lib/loaders/ux-l
 "
 var $app_style$ = require(\\"!../../../../../../packages/hap-dsl-xvm/lib/loaders/style-loader.js?index=0&type=style!../../../../../../packages/hap-dsl-xvm/lib/loaders/fragment-loader.js?index=0&type=style!./index.ux?uxType=page\\")
 
-var $app_script$ = require(\\"!../../../../../../packages/hap-dsl-xvm/lib/loaders/script-loader.js!../../../../../../packages/hap-packager/lib/loaders/module-loader.js!../../../../../../node_modules/babel-loader/lib/index.js?cwd=<project-root>&cacheDirectory&plugins[]=<CWD>/packages/hap-dsl-xvm/lib/loaders/babel-plugin-jsx.js&comments=false&configFile=<project-root>/babel.config.js!../../../../../../packages/hap-dsl-xvm/lib/loaders/access-loader.js!../../../../../../packages/hap-dsl-xvm/lib/loaders/fragment-loader.js?index=0&type=script!./index.ux?uxType=page\\")
+var $app_script$ = require(\\"!../../../../../../packages/hap-dsl-xvm/lib/loaders/script-loader.js!../../../../../../node_modules/@hap-toolkit/packager/lib/loaders/module-loader.js!../../../../../../node_modules/babel-loader/lib/index.js?cwd=<project-root>&cacheDirectory&plugins[]=<CWD>/packages/hap-dsl-xvm/lib/loaders/babel-plugin-jsx.js&comments=false&configFile=<project-root>/babel.config.js!../../../../../../packages/hap-dsl-xvm/lib/loaders/access-loader.js!../../../../../../packages/hap-dsl-xvm/lib/loaders/fragment-loader.js?index=0&type=script!./index.ux?uxType=page\\")
 
 $app_define$('@app-component/index', [], function($app_require$, $app_exports$, $app_module$) {
      $app_script$($app_module$, $app_exports$, $app_require$)
@@ -40956,7 +40956,7 @@ exports[`hap-toolkit compile native: <CWD>/packages/hap-dsl-xvm/lib/loaders/ux-l
 "
 var $app_style$ = require(\\"!../../../../../../packages/hap-dsl-xvm/lib/loaders/style-loader.js?index=0&type=style!../../../../../../packages/hap-dsl-xvm/lib/loaders/fragment-loader.js?index=0&type=style!./index.ux?uxType=page\\")
 
-var $app_script$ = require(\\"!../../../../../../packages/hap-dsl-xvm/lib/loaders/script-loader.js!../../../../../../packages/hap-packager/lib/loaders/module-loader.js!../../../../../../node_modules/babel-loader/lib/index.js?cwd=<project-root>&cacheDirectory&plugins[]=<CWD>/packages/hap-dsl-xvm/lib/loaders/babel-plugin-jsx.js&comments=false&configFile=<project-root>/babel.config.js!../../../../../../packages/hap-dsl-xvm/lib/loaders/access-loader.js!../../../../../../packages/hap-dsl-xvm/lib/loaders/fragment-loader.js?index=0&type=script!./index.ux?uxType=page\\")
+var $app_script$ = require(\\"!../../../../../../packages/hap-dsl-xvm/lib/loaders/script-loader.js!../../../../../../node_modules/@hap-toolkit/packager/lib/loaders/module-loader.js!../../../../../../node_modules/babel-loader/lib/index.js?cwd=<project-root>&cacheDirectory&plugins[]=<CWD>/packages/hap-dsl-xvm/lib/loaders/babel-plugin-jsx.js&comments=false&configFile=<project-root>/babel.config.js!../../../../../../packages/hap-dsl-xvm/lib/loaders/access-loader.js!../../../../../../packages/hap-dsl-xvm/lib/loaders/fragment-loader.js?index=0&type=script!./index.ux?uxType=page\\")
 
 $app_define$('@app-component/index', [], function($app_require$, $app_exports$, $app_module$) {
      $app_script$($app_module$, $app_exports$, $app_require$)
@@ -40974,7 +40974,7 @@ exports[`hap-toolkit compile native: <CWD>/packages/hap-dsl-xvm/lib/loaders/ux-l
 "
 var $app_style$ = require(\\"!../../../../../../packages/hap-dsl-xvm/lib/loaders/style-loader.js?index=0&type=style!../../../../../../packages/hap-dsl-xvm/lib/loaders/fragment-loader.js?index=0&type=style!./index.ux?uxType=page\\")
 
-var $app_script$ = require(\\"!../../../../../../packages/hap-dsl-xvm/lib/loaders/script-loader.js!../../../../../../packages/hap-packager/lib/loaders/module-loader.js!../../../../../../node_modules/babel-loader/lib/index.js?cwd=<project-root>&cacheDirectory&plugins[]=<CWD>/packages/hap-dsl-xvm/lib/loaders/babel-plugin-jsx.js&comments=false&configFile=<project-root>/babel.config.js!../../../../../../packages/hap-dsl-xvm/lib/loaders/access-loader.js!../../../../../../packages/hap-dsl-xvm/lib/loaders/fragment-loader.js?index=0&type=script!./index.ux?uxType=page\\")
+var $app_script$ = require(\\"!../../../../../../packages/hap-dsl-xvm/lib/loaders/script-loader.js!../../../../../../node_modules/@hap-toolkit/packager/lib/loaders/module-loader.js!../../../../../../node_modules/babel-loader/lib/index.js?cwd=<project-root>&cacheDirectory&plugins[]=<CWD>/packages/hap-dsl-xvm/lib/loaders/babel-plugin-jsx.js&comments=false&configFile=<project-root>/babel.config.js!../../../../../../packages/hap-dsl-xvm/lib/loaders/access-loader.js!../../../../../../packages/hap-dsl-xvm/lib/loaders/fragment-loader.js?index=0&type=script!./index.ux?uxType=page\\")
 
 $app_define$('@app-component/index', [], function($app_require$, $app_exports$, $app_module$) {
      $app_script$($app_module$, $app_exports$, $app_require$)
@@ -40992,7 +40992,7 @@ exports[`hap-toolkit compile native: <CWD>/packages/hap-dsl-xvm/lib/loaders/ux-l
 "
 var $app_style$ = require(\\"!../../../../../../packages/hap-dsl-xvm/lib/loaders/style-loader.js?index=0&type=style!../../../../../../packages/hap-dsl-xvm/lib/loaders/fragment-loader.js?index=0&type=style!./index.ux?uxType=page\\")
 
-var $app_script$ = require(\\"!../../../../../../packages/hap-dsl-xvm/lib/loaders/script-loader.js!../../../../../../packages/hap-packager/lib/loaders/module-loader.js!../../../../../../node_modules/babel-loader/lib/index.js?cwd=<project-root>&cacheDirectory&plugins[]=<CWD>/packages/hap-dsl-xvm/lib/loaders/babel-plugin-jsx.js&comments=false&configFile=<project-root>/babel.config.js!../../../../../../packages/hap-dsl-xvm/lib/loaders/access-loader.js!../../../../../../packages/hap-dsl-xvm/lib/loaders/fragment-loader.js?index=0&type=script!./index.ux?uxType=page\\")
+var $app_script$ = require(\\"!../../../../../../packages/hap-dsl-xvm/lib/loaders/script-loader.js!../../../../../../node_modules/@hap-toolkit/packager/lib/loaders/module-loader.js!../../../../../../node_modules/babel-loader/lib/index.js?cwd=<project-root>&cacheDirectory&plugins[]=<CWD>/packages/hap-dsl-xvm/lib/loaders/babel-plugin-jsx.js&comments=false&configFile=<project-root>/babel.config.js!../../../../../../packages/hap-dsl-xvm/lib/loaders/access-loader.js!../../../../../../packages/hap-dsl-xvm/lib/loaders/fragment-loader.js?index=0&type=script!./index.ux?uxType=page\\")
 
 $app_define$('@app-component/index', [], function($app_require$, $app_exports$, $app_module$) {
      $app_script$($app_module$, $app_exports$, $app_require$)
@@ -41010,7 +41010,7 @@ exports[`hap-toolkit compile native: <CWD>/packages/hap-dsl-xvm/lib/loaders/ux-l
 "
 var $app_style$ = require(\\"!../../../../../../packages/hap-dsl-xvm/lib/loaders/style-loader.js?index=0&type=style!../../../../../../packages/hap-dsl-xvm/lib/loaders/fragment-loader.js?index=0&type=style!./index.ux?uxType=page\\")
 
-var $app_script$ = require(\\"!../../../../../../packages/hap-dsl-xvm/lib/loaders/script-loader.js!../../../../../../packages/hap-packager/lib/loaders/module-loader.js!../../../../../../node_modules/babel-loader/lib/index.js?cwd=<project-root>&cacheDirectory&plugins[]=<CWD>/packages/hap-dsl-xvm/lib/loaders/babel-plugin-jsx.js&comments=false&configFile=<project-root>/babel.config.js!../../../../../../packages/hap-dsl-xvm/lib/loaders/access-loader.js!../../../../../../packages/hap-dsl-xvm/lib/loaders/fragment-loader.js?index=0&type=script!./index.ux?uxType=page\\")
+var $app_script$ = require(\\"!../../../../../../packages/hap-dsl-xvm/lib/loaders/script-loader.js!../../../../../../node_modules/@hap-toolkit/packager/lib/loaders/module-loader.js!../../../../../../node_modules/babel-loader/lib/index.js?cwd=<project-root>&cacheDirectory&plugins[]=<CWD>/packages/hap-dsl-xvm/lib/loaders/babel-plugin-jsx.js&comments=false&configFile=<project-root>/babel.config.js!../../../../../../packages/hap-dsl-xvm/lib/loaders/access-loader.js!../../../../../../packages/hap-dsl-xvm/lib/loaders/fragment-loader.js?index=0&type=script!./index.ux?uxType=page\\")
 
 $app_define$('@app-component/index', [], function($app_require$, $app_exports$, $app_module$) {
      $app_script$($app_module$, $app_exports$, $app_require$)
@@ -41028,7 +41028,7 @@ exports[`hap-toolkit compile native: <CWD>/packages/hap-dsl-xvm/lib/loaders/ux-l
 "
 var $app_style$ = require(\\"!../../../../../../packages/hap-dsl-xvm/lib/loaders/style-loader.js?index=0&type=style!../../../../../../packages/hap-dsl-xvm/lib/loaders/fragment-loader.js?index=0&type=style!./index.ux?uxType=page\\")
 
-var $app_script$ = require(\\"!../../../../../../packages/hap-dsl-xvm/lib/loaders/script-loader.js!../../../../../../packages/hap-packager/lib/loaders/module-loader.js!../../../../../../node_modules/babel-loader/lib/index.js?cwd=<project-root>&cacheDirectory&plugins[]=<CWD>/packages/hap-dsl-xvm/lib/loaders/babel-plugin-jsx.js&comments=false&configFile=<project-root>/babel.config.js!../../../../../../packages/hap-dsl-xvm/lib/loaders/access-loader.js!../../../../../../packages/hap-dsl-xvm/lib/loaders/fragment-loader.js?index=0&type=script!./index.ux?uxType=page\\")
+var $app_script$ = require(\\"!../../../../../../packages/hap-dsl-xvm/lib/loaders/script-loader.js!../../../../../../node_modules/@hap-toolkit/packager/lib/loaders/module-loader.js!../../../../../../node_modules/babel-loader/lib/index.js?cwd=<project-root>&cacheDirectory&plugins[]=<CWD>/packages/hap-dsl-xvm/lib/loaders/babel-plugin-jsx.js&comments=false&configFile=<project-root>/babel.config.js!../../../../../../packages/hap-dsl-xvm/lib/loaders/access-loader.js!../../../../../../packages/hap-dsl-xvm/lib/loaders/fragment-loader.js?index=0&type=script!./index.ux?uxType=page\\")
 
 $app_define$('@app-component/index', [], function($app_require$, $app_exports$, $app_module$) {
      $app_script$($app_module$, $app_exports$, $app_require$)
@@ -41046,7 +41046,7 @@ exports[`hap-toolkit compile native: <CWD>/packages/hap-dsl-xvm/lib/loaders/ux-l
 "
 var $app_style$ = require(\\"!../../../../../../packages/hap-dsl-xvm/lib/loaders/style-loader.js?index=0&type=style!../../../../../../packages/hap-dsl-xvm/lib/loaders/fragment-loader.js?index=0&type=style!./index.ux?uxType=page\\")
 
-var $app_script$ = require(\\"!../../../../../../packages/hap-dsl-xvm/lib/loaders/script-loader.js!../../../../../../packages/hap-packager/lib/loaders/module-loader.js!../../../../../../node_modules/babel-loader/lib/index.js?cwd=<project-root>&cacheDirectory&plugins[]=<CWD>/packages/hap-dsl-xvm/lib/loaders/babel-plugin-jsx.js&comments=false&configFile=<project-root>/babel.config.js!../../../../../../packages/hap-dsl-xvm/lib/loaders/access-loader.js!../../../../../../packages/hap-dsl-xvm/lib/loaders/fragment-loader.js?index=0&type=script!./index.ux?uxType=page\\")
+var $app_script$ = require(\\"!../../../../../../packages/hap-dsl-xvm/lib/loaders/script-loader.js!../../../../../../node_modules/@hap-toolkit/packager/lib/loaders/module-loader.js!../../../../../../node_modules/babel-loader/lib/index.js?cwd=<project-root>&cacheDirectory&plugins[]=<CWD>/packages/hap-dsl-xvm/lib/loaders/babel-plugin-jsx.js&comments=false&configFile=<project-root>/babel.config.js!../../../../../../packages/hap-dsl-xvm/lib/loaders/access-loader.js!../../../../../../packages/hap-dsl-xvm/lib/loaders/fragment-loader.js?index=0&type=script!./index.ux?uxType=page\\")
 
 $app_define$('@app-component/index', [], function($app_require$, $app_exports$, $app_module$) {
      $app_script$($app_module$, $app_exports$, $app_require$)
@@ -41064,7 +41064,7 @@ exports[`hap-toolkit compile native: <CWD>/packages/hap-dsl-xvm/lib/loaders/ux-l
 "
 var $app_style$ = require(\\"!../../../../../../packages/hap-dsl-xvm/lib/loaders/style-loader.js?index=0&type=style!../../../../../../packages/hap-dsl-xvm/lib/loaders/fragment-loader.js?index=0&type=style!./index.ux?uxType=page\\")
 
-var $app_script$ = require(\\"!../../../../../../packages/hap-dsl-xvm/lib/loaders/script-loader.js!../../../../../../packages/hap-packager/lib/loaders/module-loader.js!../../../../../../node_modules/babel-loader/lib/index.js?cwd=<project-root>&cacheDirectory&plugins[]=<CWD>/packages/hap-dsl-xvm/lib/loaders/babel-plugin-jsx.js&comments=false&configFile=<project-root>/babel.config.js!../../../../../../packages/hap-dsl-xvm/lib/loaders/access-loader.js!../../../../../../packages/hap-dsl-xvm/lib/loaders/fragment-loader.js?index=0&type=script!./index.ux?uxType=page\\")
+var $app_script$ = require(\\"!../../../../../../packages/hap-dsl-xvm/lib/loaders/script-loader.js!../../../../../../node_modules/@hap-toolkit/packager/lib/loaders/module-loader.js!../../../../../../node_modules/babel-loader/lib/index.js?cwd=<project-root>&cacheDirectory&plugins[]=<CWD>/packages/hap-dsl-xvm/lib/loaders/babel-plugin-jsx.js&comments=false&configFile=<project-root>/babel.config.js!../../../../../../packages/hap-dsl-xvm/lib/loaders/access-loader.js!../../../../../../packages/hap-dsl-xvm/lib/loaders/fragment-loader.js?index=0&type=script!./index.ux?uxType=page\\")
 
 $app_define$('@app-component/index', [], function($app_require$, $app_exports$, $app_module$) {
      $app_script$($app_module$, $app_exports$, $app_require$)
@@ -41082,7 +41082,7 @@ exports[`hap-toolkit compile native: <CWD>/packages/hap-dsl-xvm/lib/loaders/ux-l
 "
 var $app_style$ = require(\\"!../../../../../../packages/hap-dsl-xvm/lib/loaders/style-loader.js?index=0&type=style!../../../../../../packages/hap-dsl-xvm/lib/loaders/fragment-loader.js?index=0&type=style!./index.ux?uxType=page\\")
 
-var $app_script$ = require(\\"!../../../../../../packages/hap-dsl-xvm/lib/loaders/script-loader.js!../../../../../../packages/hap-packager/lib/loaders/module-loader.js!../../../../../../node_modules/babel-loader/lib/index.js?cwd=<project-root>&cacheDirectory&plugins[]=<CWD>/packages/hap-dsl-xvm/lib/loaders/babel-plugin-jsx.js&comments=false&configFile=<project-root>/babel.config.js!../../../../../../packages/hap-dsl-xvm/lib/loaders/access-loader.js!../../../../../../packages/hap-dsl-xvm/lib/loaders/fragment-loader.js?index=0&type=script!./index.ux?uxType=page\\")
+var $app_script$ = require(\\"!../../../../../../packages/hap-dsl-xvm/lib/loaders/script-loader.js!../../../../../../node_modules/@hap-toolkit/packager/lib/loaders/module-loader.js!../../../../../../node_modules/babel-loader/lib/index.js?cwd=<project-root>&cacheDirectory&plugins[]=<CWD>/packages/hap-dsl-xvm/lib/loaders/babel-plugin-jsx.js&comments=false&configFile=<project-root>/babel.config.js!../../../../../../packages/hap-dsl-xvm/lib/loaders/access-loader.js!../../../../../../packages/hap-dsl-xvm/lib/loaders/fragment-loader.js?index=0&type=script!./index.ux?uxType=page\\")
 
 $app_define$('@app-component/index', [], function($app_require$, $app_exports$, $app_module$) {
      $app_script$($app_module$, $app_exports$, $app_require$)
@@ -41100,7 +41100,7 @@ exports[`hap-toolkit compile native: <CWD>/packages/hap-dsl-xvm/lib/loaders/ux-l
 "
 var $app_style$ = require(\\"!../../../../../../packages/hap-dsl-xvm/lib/loaders/style-loader.js?index=0&type=style!../../../../../../packages/hap-dsl-xvm/lib/loaders/fragment-loader.js?index=0&type=style!./index.ux?uxType=page\\")
 
-var $app_script$ = require(\\"!../../../../../../packages/hap-dsl-xvm/lib/loaders/script-loader.js!../../../../../../packages/hap-packager/lib/loaders/module-loader.js!../../../../../../node_modules/babel-loader/lib/index.js?cwd=<project-root>&cacheDirectory&plugins[]=<CWD>/packages/hap-dsl-xvm/lib/loaders/babel-plugin-jsx.js&comments=false&configFile=<project-root>/babel.config.js!../../../../../../packages/hap-dsl-xvm/lib/loaders/access-loader.js!../../../../../../packages/hap-dsl-xvm/lib/loaders/fragment-loader.js?index=0&type=script!./index.ux?uxType=page\\")
+var $app_script$ = require(\\"!../../../../../../packages/hap-dsl-xvm/lib/loaders/script-loader.js!../../../../../../node_modules/@hap-toolkit/packager/lib/loaders/module-loader.js!../../../../../../node_modules/babel-loader/lib/index.js?cwd=<project-root>&cacheDirectory&plugins[]=<CWD>/packages/hap-dsl-xvm/lib/loaders/babel-plugin-jsx.js&comments=false&configFile=<project-root>/babel.config.js!../../../../../../packages/hap-dsl-xvm/lib/loaders/access-loader.js!../../../../../../packages/hap-dsl-xvm/lib/loaders/fragment-loader.js?index=0&type=script!./index.ux?uxType=page\\")
 
 $app_define$('@app-component/index', [], function($app_require$, $app_exports$, $app_module$) {
      $app_script$($app_module$, $app_exports$, $app_require$)
@@ -41118,7 +41118,7 @@ exports[`hap-toolkit compile native: <CWD>/packages/hap-dsl-xvm/lib/loaders/ux-l
 "
 var $app_style$ = require(\\"!../../../../../../packages/hap-dsl-xvm/lib/loaders/style-loader.js?index=0&type=style!../../../../../../packages/hap-dsl-xvm/lib/loaders/fragment-loader.js?index=0&type=style!./index.ux?uxType=page\\")
 
-var $app_script$ = require(\\"!../../../../../../packages/hap-dsl-xvm/lib/loaders/script-loader.js!../../../../../../packages/hap-packager/lib/loaders/module-loader.js!../../../../../../node_modules/babel-loader/lib/index.js?cwd=<project-root>&cacheDirectory&plugins[]=<CWD>/packages/hap-dsl-xvm/lib/loaders/babel-plugin-jsx.js&comments=false&configFile=<project-root>/babel.config.js!../../../../../../packages/hap-dsl-xvm/lib/loaders/access-loader.js!../../../../../../packages/hap-dsl-xvm/lib/loaders/fragment-loader.js?index=0&type=script!./index.ux?uxType=page\\")
+var $app_script$ = require(\\"!../../../../../../packages/hap-dsl-xvm/lib/loaders/script-loader.js!../../../../../../node_modules/@hap-toolkit/packager/lib/loaders/module-loader.js!../../../../../../node_modules/babel-loader/lib/index.js?cwd=<project-root>&cacheDirectory&plugins[]=<CWD>/packages/hap-dsl-xvm/lib/loaders/babel-plugin-jsx.js&comments=false&configFile=<project-root>/babel.config.js!../../../../../../packages/hap-dsl-xvm/lib/loaders/access-loader.js!../../../../../../packages/hap-dsl-xvm/lib/loaders/fragment-loader.js?index=0&type=script!./index.ux?uxType=page\\")
 
 $app_define$('@app-component/index', [], function($app_require$, $app_exports$, $app_module$) {
      $app_script$($app_module$, $app_exports$, $app_require$)
@@ -41136,7 +41136,7 @@ exports[`hap-toolkit compile native: <CWD>/packages/hap-dsl-xvm/lib/loaders/ux-l
 "
 var $app_style$ = require(\\"!../../../../../../packages/hap-dsl-xvm/lib/loaders/style-loader.js?index=0&type=style!../../../../../../packages/hap-dsl-xvm/lib/loaders/fragment-loader.js?index=0&type=style!./index.ux?uxType=page\\")
 
-var $app_script$ = require(\\"!../../../../../../packages/hap-dsl-xvm/lib/loaders/script-loader.js!../../../../../../packages/hap-packager/lib/loaders/module-loader.js!../../../../../../node_modules/babel-loader/lib/index.js?cwd=<project-root>&cacheDirectory&plugins[]=<CWD>/packages/hap-dsl-xvm/lib/loaders/babel-plugin-jsx.js&comments=false&configFile=<project-root>/babel.config.js!../../../../../../packages/hap-dsl-xvm/lib/loaders/access-loader.js!../../../../../../packages/hap-dsl-xvm/lib/loaders/fragment-loader.js?index=0&type=script!./index.ux?uxType=page\\")
+var $app_script$ = require(\\"!../../../../../../packages/hap-dsl-xvm/lib/loaders/script-loader.js!../../../../../../node_modules/@hap-toolkit/packager/lib/loaders/module-loader.js!../../../../../../node_modules/babel-loader/lib/index.js?cwd=<project-root>&cacheDirectory&plugins[]=<CWD>/packages/hap-dsl-xvm/lib/loaders/babel-plugin-jsx.js&comments=false&configFile=<project-root>/babel.config.js!../../../../../../packages/hap-dsl-xvm/lib/loaders/access-loader.js!../../../../../../packages/hap-dsl-xvm/lib/loaders/fragment-loader.js?index=0&type=script!./index.ux?uxType=page\\")
 
 $app_define$('@app-component/index', [], function($app_require$, $app_exports$, $app_module$) {
      $app_script$($app_module$, $app_exports$, $app_require$)
@@ -41154,7 +41154,7 @@ exports[`hap-toolkit compile native: <CWD>/packages/hap-dsl-xvm/lib/loaders/ux-l
 "
 var $app_style$ = require(\\"!../../../../../../packages/hap-dsl-xvm/lib/loaders/style-loader.js?index=0&type=style!less-loader!../../../../../../packages/hap-dsl-xvm/lib/loaders/fragment-loader.js?index=0&type=style!./index.ux?uxType=page\\")
 
-var $app_script$ = require(\\"!../../../../../../packages/hap-dsl-xvm/lib/loaders/script-loader.js!../../../../../../packages/hap-packager/lib/loaders/module-loader.js!../../../../../../node_modules/babel-loader/lib/index.js?cwd=<project-root>&cacheDirectory&plugins[]=<CWD>/packages/hap-dsl-xvm/lib/loaders/babel-plugin-jsx.js&comments=false&configFile=<project-root>/babel.config.js!../../../../../../packages/hap-dsl-xvm/lib/loaders/access-loader.js!../../../../../../packages/hap-dsl-xvm/lib/loaders/fragment-loader.js?index=0&type=script!./index.ux?uxType=page\\")
+var $app_script$ = require(\\"!../../../../../../packages/hap-dsl-xvm/lib/loaders/script-loader.js!../../../../../../node_modules/@hap-toolkit/packager/lib/loaders/module-loader.js!../../../../../../node_modules/babel-loader/lib/index.js?cwd=<project-root>&cacheDirectory&plugins[]=<CWD>/packages/hap-dsl-xvm/lib/loaders/babel-plugin-jsx.js&comments=false&configFile=<project-root>/babel.config.js!../../../../../../packages/hap-dsl-xvm/lib/loaders/access-loader.js!../../../../../../packages/hap-dsl-xvm/lib/loaders/fragment-loader.js?index=0&type=script!./index.ux?uxType=page\\")
 
 $app_define$('@app-component/index', [], function($app_require$, $app_exports$, $app_module$) {
      $app_script$($app_module$, $app_exports$, $app_require$)
@@ -41172,7 +41172,7 @@ exports[`hap-toolkit compile native: <CWD>/packages/hap-dsl-xvm/lib/loaders/ux-l
 "
 var $app_style$ = require(\\"!../../../../../../packages/hap-dsl-xvm/lib/loaders/style-loader.js?index=0&type=style!../../../../../../packages/hap-dsl-xvm/lib/loaders/fragment-loader.js?index=0&type=style!./index.ux?uxType=page\\")
 
-var $app_script$ = require(\\"!../../../../../../packages/hap-dsl-xvm/lib/loaders/script-loader.js!../../../../../../packages/hap-packager/lib/loaders/module-loader.js!../../../../../../node_modules/babel-loader/lib/index.js?cwd=<project-root>&cacheDirectory&plugins[]=<CWD>/packages/hap-dsl-xvm/lib/loaders/babel-plugin-jsx.js&comments=false&configFile=<project-root>/babel.config.js!../../../../../../packages/hap-dsl-xvm/lib/loaders/access-loader.js!../../../../../../packages/hap-dsl-xvm/lib/loaders/fragment-loader.js?index=0&type=script!./index.ux?uxType=page\\")
+var $app_script$ = require(\\"!../../../../../../packages/hap-dsl-xvm/lib/loaders/script-loader.js!../../../../../../node_modules/@hap-toolkit/packager/lib/loaders/module-loader.js!../../../../../../node_modules/babel-loader/lib/index.js?cwd=<project-root>&cacheDirectory&plugins[]=<CWD>/packages/hap-dsl-xvm/lib/loaders/babel-plugin-jsx.js&comments=false&configFile=<project-root>/babel.config.js!../../../../../../packages/hap-dsl-xvm/lib/loaders/access-loader.js!../../../../../../packages/hap-dsl-xvm/lib/loaders/fragment-loader.js?index=0&type=script!./index.ux?uxType=page\\")
 
 $app_define$('@app-component/index', [], function($app_require$, $app_exports$, $app_module$) {
      $app_script$($app_module$, $app_exports$, $app_require$)
@@ -41190,7 +41190,7 @@ exports[`hap-toolkit compile native: <CWD>/packages/hap-dsl-xvm/lib/loaders/ux-l
 "
 var $app_style$ = require(\\"!../../../../../../packages/hap-dsl-xvm/lib/loaders/style-loader.js?index=0&type=style!../../../../../../packages/hap-dsl-xvm/lib/loaders/fragment-loader.js?index=0&type=style!./index.ux?uxType=page\\")
 
-var $app_script$ = require(\\"!../../../../../../packages/hap-dsl-xvm/lib/loaders/script-loader.js!../../../../../../packages/hap-packager/lib/loaders/module-loader.js!../../../../../../node_modules/babel-loader/lib/index.js?cwd=<project-root>&cacheDirectory&plugins[]=<CWD>/packages/hap-dsl-xvm/lib/loaders/babel-plugin-jsx.js&comments=false&configFile=<project-root>/babel.config.js!../../../../../../packages/hap-dsl-xvm/lib/loaders/access-loader.js!../../../../../../packages/hap-dsl-xvm/lib/loaders/fragment-loader.js?index=0&type=script!./index.ux?uxType=page\\")
+var $app_script$ = require(\\"!../../../../../../packages/hap-dsl-xvm/lib/loaders/script-loader.js!../../../../../../node_modules/@hap-toolkit/packager/lib/loaders/module-loader.js!../../../../../../node_modules/babel-loader/lib/index.js?cwd=<project-root>&cacheDirectory&plugins[]=<CWD>/packages/hap-dsl-xvm/lib/loaders/babel-plugin-jsx.js&comments=false&configFile=<project-root>/babel.config.js!../../../../../../packages/hap-dsl-xvm/lib/loaders/access-loader.js!../../../../../../packages/hap-dsl-xvm/lib/loaders/fragment-loader.js?index=0&type=script!./index.ux?uxType=page\\")
 
 $app_define$('@app-component/index', [], function($app_require$, $app_exports$, $app_module$) {
      $app_script$($app_module$, $app_exports$, $app_require$)
@@ -41209,7 +41209,7 @@ exports[`hap-toolkit compile native: <CWD>/packages/hap-dsl-xvm/lib/loaders/ux-l
 
 var $app_style$ = require(\\"!../../../../../../../packages/hap-dsl-xvm/lib/loaders/style-loader.js?index=0&type=style!../../../../../../../packages/hap-dsl-xvm/lib/loaders/fragment-loader.js?index=0&type=style!./index.ux?uxType=page\\")
 
-var $app_script$ = require(\\"!../../../../../../../packages/hap-dsl-xvm/lib/loaders/script-loader.js!../../../../../../../packages/hap-packager/lib/loaders/module-loader.js!../../../../../../../node_modules/babel-loader/lib/index.js?cwd=<project-root>&cacheDirectory&plugins[]=<CWD>/packages/hap-dsl-xvm/lib/loaders/babel-plugin-jsx.js&comments=false&configFile=<project-root>/babel.config.js!../../../../../../../packages/hap-dsl-xvm/lib/loaders/access-loader.js!../../../../../../../packages/hap-dsl-xvm/lib/loaders/fragment-loader.js?index=0&type=script!./index.ux?uxType=page\\")
+var $app_script$ = require(\\"!../../../../../../../packages/hap-dsl-xvm/lib/loaders/script-loader.js!../../../../../../../node_modules/@hap-toolkit/packager/lib/loaders/module-loader.js!../../../../../../../node_modules/babel-loader/lib/index.js?cwd=<project-root>&cacheDirectory&plugins[]=<CWD>/packages/hap-dsl-xvm/lib/loaders/babel-plugin-jsx.js&comments=false&configFile=<project-root>/babel.config.js!../../../../../../../packages/hap-dsl-xvm/lib/loaders/access-loader.js!../../../../../../../packages/hap-dsl-xvm/lib/loaders/fragment-loader.js?index=0&type=script!./index.ux?uxType=page\\")
 
 $app_define$('@app-component/index', [], function($app_require$, $app_exports$, $app_module$) {
      $app_script$($app_module$, $app_exports$, $app_require$)
@@ -41227,7 +41227,7 @@ exports[`hap-toolkit compile native: <CWD>/packages/hap-dsl-xvm/lib/loaders/ux-l
 "
 var $app_style$ = require(\\"!../../../../../../packages/hap-dsl-xvm/lib/loaders/style-loader.js?index=0&type=style!../../../../../../packages/hap-dsl-xvm/lib/loaders/fragment-loader.js?index=0&type=style!./index.ux?uxType=page\\")
 
-var $app_script$ = require(\\"!../../../../../../packages/hap-dsl-xvm/lib/loaders/script-loader.js!../../../../../../packages/hap-packager/lib/loaders/module-loader.js!../../../../../../node_modules/babel-loader/lib/index.js?cwd=<project-root>&cacheDirectory&plugins[]=<CWD>/packages/hap-dsl-xvm/lib/loaders/babel-plugin-jsx.js&comments=false&configFile=<project-root>/babel.config.js!../../../../../../packages/hap-dsl-xvm/lib/loaders/access-loader.js!../../../../../../packages/hap-dsl-xvm/lib/loaders/fragment-loader.js?index=0&type=script!./index.ux?uxType=page\\")
+var $app_script$ = require(\\"!../../../../../../packages/hap-dsl-xvm/lib/loaders/script-loader.js!../../../../../../node_modules/@hap-toolkit/packager/lib/loaders/module-loader.js!../../../../../../node_modules/babel-loader/lib/index.js?cwd=<project-root>&cacheDirectory&plugins[]=<CWD>/packages/hap-dsl-xvm/lib/loaders/babel-plugin-jsx.js&comments=false&configFile=<project-root>/babel.config.js!../../../../../../packages/hap-dsl-xvm/lib/loaders/access-loader.js!../../../../../../packages/hap-dsl-xvm/lib/loaders/fragment-loader.js?index=0&type=script!./index.ux?uxType=page\\")
 
 $app_define$('@app-component/index', [], function($app_require$, $app_exports$, $app_module$) {
      $app_script$($app_module$, $app_exports$, $app_require$)
@@ -41245,7 +41245,7 @@ exports[`hap-toolkit compile native: <CWD>/packages/hap-dsl-xvm/lib/loaders/ux-l
 "
 var $app_style$ = require(\\"!../../../../../../packages/hap-dsl-xvm/lib/loaders/style-loader.js?index=0&type=style!../../../../../../packages/hap-dsl-xvm/lib/loaders/fragment-loader.js?index=0&type=style!./index.ux?uxType=page\\")
 
-var $app_script$ = require(\\"!../../../../../../packages/hap-dsl-xvm/lib/loaders/script-loader.js!../../../../../../packages/hap-packager/lib/loaders/module-loader.js!../../../../../../node_modules/babel-loader/lib/index.js?cwd=<project-root>&cacheDirectory&plugins[]=<CWD>/packages/hap-dsl-xvm/lib/loaders/babel-plugin-jsx.js&comments=false&configFile=<project-root>/babel.config.js!../../../../../../packages/hap-dsl-xvm/lib/loaders/access-loader.js!../../../../../../packages/hap-dsl-xvm/lib/loaders/fragment-loader.js?index=0&type=script!./index.ux?uxType=page\\")
+var $app_script$ = require(\\"!../../../../../../packages/hap-dsl-xvm/lib/loaders/script-loader.js!../../../../../../node_modules/@hap-toolkit/packager/lib/loaders/module-loader.js!../../../../../../node_modules/babel-loader/lib/index.js?cwd=<project-root>&cacheDirectory&plugins[]=<CWD>/packages/hap-dsl-xvm/lib/loaders/babel-plugin-jsx.js&comments=false&configFile=<project-root>/babel.config.js!../../../../../../packages/hap-dsl-xvm/lib/loaders/access-loader.js!../../../../../../packages/hap-dsl-xvm/lib/loaders/fragment-loader.js?index=0&type=script!./index.ux?uxType=page\\")
 
 $app_define$('@app-component/index', [], function($app_require$, $app_exports$, $app_module$) {
      $app_script$($app_module$, $app_exports$, $app_require$)
@@ -41263,7 +41263,7 @@ exports[`hap-toolkit compile native: <CWD>/packages/hap-dsl-xvm/lib/loaders/ux-l
 "
 var $app_style$ = require(\\"!../../../../../../packages/hap-dsl-xvm/lib/loaders/style-loader.js?index=0&type=style!../../../../../../packages/hap-dsl-xvm/lib/loaders/fragment-loader.js?index=0&type=style!./index.ux?uxType=page\\")
 
-var $app_script$ = require(\\"!../../../../../../packages/hap-dsl-xvm/lib/loaders/script-loader.js!../../../../../../packages/hap-packager/lib/loaders/module-loader.js!../../../../../../node_modules/babel-loader/lib/index.js?cwd=<project-root>&cacheDirectory&plugins[]=<CWD>/packages/hap-dsl-xvm/lib/loaders/babel-plugin-jsx.js&comments=false&configFile=<project-root>/babel.config.js!../../../../../../packages/hap-dsl-xvm/lib/loaders/access-loader.js!../../../../../../packages/hap-dsl-xvm/lib/loaders/fragment-loader.js?index=0&type=script!./index.ux?uxType=page\\")
+var $app_script$ = require(\\"!../../../../../../packages/hap-dsl-xvm/lib/loaders/script-loader.js!../../../../../../node_modules/@hap-toolkit/packager/lib/loaders/module-loader.js!../../../../../../node_modules/babel-loader/lib/index.js?cwd=<project-root>&cacheDirectory&plugins[]=<CWD>/packages/hap-dsl-xvm/lib/loaders/babel-plugin-jsx.js&comments=false&configFile=<project-root>/babel.config.js!../../../../../../packages/hap-dsl-xvm/lib/loaders/access-loader.js!../../../../../../packages/hap-dsl-xvm/lib/loaders/fragment-loader.js?index=0&type=script!./index.ux?uxType=page\\")
 
 $app_define$('@app-component/index', [], function($app_require$, $app_exports$, $app_module$) {
      $app_script$($app_module$, $app_exports$, $app_require$)
@@ -41281,7 +41281,7 @@ exports[`hap-toolkit compile native: <CWD>/packages/hap-dsl-xvm/lib/loaders/ux-l
 "
 var $app_style$ = require(\\"!../../../../../../packages/hap-dsl-xvm/lib/loaders/style-loader.js?index=0&type=style!../../../../../../packages/hap-dsl-xvm/lib/loaders/fragment-loader.js?index=0&type=style!./index.ux?uxType=page\\")
 
-var $app_script$ = require(\\"!../../../../../../packages/hap-dsl-xvm/lib/loaders/script-loader.js!../../../../../../packages/hap-packager/lib/loaders/module-loader.js!../../../../../../node_modules/babel-loader/lib/index.js?cwd=<project-root>&cacheDirectory&plugins[]=<CWD>/packages/hap-dsl-xvm/lib/loaders/babel-plugin-jsx.js&comments=false&configFile=<project-root>/babel.config.js!../../../../../../packages/hap-dsl-xvm/lib/loaders/access-loader.js!../../../../../../packages/hap-dsl-xvm/lib/loaders/fragment-loader.js?index=0&type=script!./index.ux?uxType=page\\")
+var $app_script$ = require(\\"!../../../../../../packages/hap-dsl-xvm/lib/loaders/script-loader.js!../../../../../../node_modules/@hap-toolkit/packager/lib/loaders/module-loader.js!../../../../../../node_modules/babel-loader/lib/index.js?cwd=<project-root>&cacheDirectory&plugins[]=<CWD>/packages/hap-dsl-xvm/lib/loaders/babel-plugin-jsx.js&comments=false&configFile=<project-root>/babel.config.js!../../../../../../packages/hap-dsl-xvm/lib/loaders/access-loader.js!../../../../../../packages/hap-dsl-xvm/lib/loaders/fragment-loader.js?index=0&type=script!./index.ux?uxType=page\\")
 
 $app_define$('@app-component/index', [], function($app_require$, $app_exports$, $app_module$) {
      $app_script$($app_module$, $app_exports$, $app_require$)
@@ -41299,7 +41299,7 @@ exports[`hap-toolkit compile native: <CWD>/packages/hap-dsl-xvm/lib/loaders/ux-l
 "
 var $app_style$ = require(\\"!../../../../../../packages/hap-dsl-xvm/lib/loaders/style-loader.js?index=0&type=style!../../../../../../packages/hap-dsl-xvm/lib/loaders/fragment-loader.js?index=0&type=style!./index.ux?uxType=page\\")
 
-var $app_script$ = require(\\"!../../../../../../packages/hap-dsl-xvm/lib/loaders/script-loader.js!../../../../../../packages/hap-packager/lib/loaders/module-loader.js!../../../../../../node_modules/babel-loader/lib/index.js?cwd=<project-root>&cacheDirectory&plugins[]=<CWD>/packages/hap-dsl-xvm/lib/loaders/babel-plugin-jsx.js&comments=false&configFile=<project-root>/babel.config.js!../../../../../../packages/hap-dsl-xvm/lib/loaders/access-loader.js!../../../../../../packages/hap-dsl-xvm/lib/loaders/fragment-loader.js?index=0&type=script!./index.ux?uxType=page\\")
+var $app_script$ = require(\\"!../../../../../../packages/hap-dsl-xvm/lib/loaders/script-loader.js!../../../../../../node_modules/@hap-toolkit/packager/lib/loaders/module-loader.js!../../../../../../node_modules/babel-loader/lib/index.js?cwd=<project-root>&cacheDirectory&plugins[]=<CWD>/packages/hap-dsl-xvm/lib/loaders/babel-plugin-jsx.js&comments=false&configFile=<project-root>/babel.config.js!../../../../../../packages/hap-dsl-xvm/lib/loaders/access-loader.js!../../../../../../packages/hap-dsl-xvm/lib/loaders/fragment-loader.js?index=0&type=script!./index.ux?uxType=page\\")
 
 $app_define$('@app-component/index', [], function($app_require$, $app_exports$, $app_module$) {
      $app_script$($app_module$, $app_exports$, $app_require$)
@@ -41317,7 +41317,7 @@ exports[`hap-toolkit compile native: <CWD>/packages/hap-dsl-xvm/lib/loaders/ux-l
 "
 var $app_style$ = require(\\"!../../../../../../packages/hap-dsl-xvm/lib/loaders/style-loader.js?index=0&type=style!../../../../../../packages/hap-dsl-xvm/lib/loaders/fragment-loader.js?index=0&type=style!./index.ux?uxType=page\\")
 
-var $app_script$ = require(\\"!../../../../../../packages/hap-dsl-xvm/lib/loaders/script-loader.js!../../../../../../packages/hap-packager/lib/loaders/module-loader.js!../../../../../../node_modules/babel-loader/lib/index.js?cwd=<project-root>&cacheDirectory&plugins[]=<CWD>/packages/hap-dsl-xvm/lib/loaders/babel-plugin-jsx.js&comments=false&configFile=<project-root>/babel.config.js!../../../../../../packages/hap-dsl-xvm/lib/loaders/access-loader.js!../../../../../../packages/hap-dsl-xvm/lib/loaders/fragment-loader.js?index=0&type=script!./index.ux?uxType=page\\")
+var $app_script$ = require(\\"!../../../../../../packages/hap-dsl-xvm/lib/loaders/script-loader.js!../../../../../../node_modules/@hap-toolkit/packager/lib/loaders/module-loader.js!../../../../../../node_modules/babel-loader/lib/index.js?cwd=<project-root>&cacheDirectory&plugins[]=<CWD>/packages/hap-dsl-xvm/lib/loaders/babel-plugin-jsx.js&comments=false&configFile=<project-root>/babel.config.js!../../../../../../packages/hap-dsl-xvm/lib/loaders/access-loader.js!../../../../../../packages/hap-dsl-xvm/lib/loaders/fragment-loader.js?index=0&type=script!./index.ux?uxType=page\\")
 
 $app_define$('@app-component/index', [], function($app_require$, $app_exports$, $app_module$) {
      $app_script$($app_module$, $app_exports$, $app_require$)
@@ -41335,7 +41335,7 @@ exports[`hap-toolkit compile native: <CWD>/packages/hap-dsl-xvm/lib/loaders/ux-l
 "
 var $app_style$ = require(\\"!../../../../../../packages/hap-dsl-xvm/lib/loaders/style-loader.js?index=0&type=style!../../../../../../packages/hap-dsl-xvm/lib/loaders/fragment-loader.js?index=0&type=style!./index.ux?uxType=page\\")
 
-var $app_script$ = require(\\"!../../../../../../packages/hap-dsl-xvm/lib/loaders/script-loader.js!../../../../../../packages/hap-packager/lib/loaders/module-loader.js!../../../../../../node_modules/babel-loader/lib/index.js?cwd=<project-root>&cacheDirectory&plugins[]=<CWD>/packages/hap-dsl-xvm/lib/loaders/babel-plugin-jsx.js&comments=false&configFile=<project-root>/babel.config.js!../../../../../../packages/hap-dsl-xvm/lib/loaders/access-loader.js!../../../../../../packages/hap-dsl-xvm/lib/loaders/fragment-loader.js?index=0&type=script!./index.ux?uxType=page\\")
+var $app_script$ = require(\\"!../../../../../../packages/hap-dsl-xvm/lib/loaders/script-loader.js!../../../../../../node_modules/@hap-toolkit/packager/lib/loaders/module-loader.js!../../../../../../node_modules/babel-loader/lib/index.js?cwd=<project-root>&cacheDirectory&plugins[]=<CWD>/packages/hap-dsl-xvm/lib/loaders/babel-plugin-jsx.js&comments=false&configFile=<project-root>/babel.config.js!../../../../../../packages/hap-dsl-xvm/lib/loaders/access-loader.js!../../../../../../packages/hap-dsl-xvm/lib/loaders/fragment-loader.js?index=0&type=script!./index.ux?uxType=page\\")
 
 $app_define$('@app-component/index', [], function($app_require$, $app_exports$, $app_module$) {
      $app_script$($app_module$, $app_exports$, $app_require$)
@@ -41353,7 +41353,7 @@ exports[`hap-toolkit compile native: <CWD>/packages/hap-dsl-xvm/lib/loaders/ux-l
 "
 var $app_style$ = require(\\"!../../../../../../packages/hap-dsl-xvm/lib/loaders/style-loader.js?index=0&type=style!../../../../../../packages/hap-dsl-xvm/lib/loaders/fragment-loader.js?index=0&type=style!./index.ux?uxType=page\\")
 
-var $app_script$ = require(\\"!../../../../../../packages/hap-dsl-xvm/lib/loaders/script-loader.js!../../../../../../packages/hap-packager/lib/loaders/module-loader.js!../../../../../../node_modules/babel-loader/lib/index.js?cwd=<project-root>&cacheDirectory&plugins[]=<CWD>/packages/hap-dsl-xvm/lib/loaders/babel-plugin-jsx.js&comments=false&configFile=<project-root>/babel.config.js!../../../../../../packages/hap-dsl-xvm/lib/loaders/access-loader.js!../../../../../../packages/hap-dsl-xvm/lib/loaders/fragment-loader.js?index=0&type=script!./index.ux?uxType=page\\")
+var $app_script$ = require(\\"!../../../../../../packages/hap-dsl-xvm/lib/loaders/script-loader.js!../../../../../../node_modules/@hap-toolkit/packager/lib/loaders/module-loader.js!../../../../../../node_modules/babel-loader/lib/index.js?cwd=<project-root>&cacheDirectory&plugins[]=<CWD>/packages/hap-dsl-xvm/lib/loaders/babel-plugin-jsx.js&comments=false&configFile=<project-root>/babel.config.js!../../../../../../packages/hap-dsl-xvm/lib/loaders/access-loader.js!../../../../../../packages/hap-dsl-xvm/lib/loaders/fragment-loader.js?index=0&type=script!./index.ux?uxType=page\\")
 
 $app_define$('@app-component/index', [], function($app_require$, $app_exports$, $app_module$) {
      $app_script$($app_module$, $app_exports$, $app_require$)
@@ -41371,7 +41371,7 @@ exports[`hap-toolkit compile native: <CWD>/packages/hap-dsl-xvm/lib/loaders/ux-l
 "
 var $app_style$ = require(\\"!../../../../../packages/hap-dsl-xvm/lib/loaders/style-loader.js?index=0&type=style!../../../../../packages/hap-dsl-xvm/lib/loaders/fragment-loader.js?index=0&type=style!./index.ux?uxType=page\\")
 
-var $app_script$ = require(\\"!../../../../../packages/hap-dsl-xvm/lib/loaders/script-loader.js!../../../../../packages/hap-packager/lib/loaders/module-loader.js!../../../../../node_modules/babel-loader/lib/index.js?cwd=<project-root>&cacheDirectory&plugins[]=<CWD>/packages/hap-dsl-xvm/lib/loaders/babel-plugin-jsx.js&comments=false&configFile=<project-root>/babel.config.js!../../../../../packages/hap-dsl-xvm/lib/loaders/access-loader.js!../../../../../packages/hap-dsl-xvm/lib/loaders/fragment-loader.js?index=0&type=script!./index.ux?uxType=page\\")
+var $app_script$ = require(\\"!../../../../../packages/hap-dsl-xvm/lib/loaders/script-loader.js!../../../../../node_modules/@hap-toolkit/packager/lib/loaders/module-loader.js!../../../../../node_modules/babel-loader/lib/index.js?cwd=<project-root>&cacheDirectory&plugins[]=<CWD>/packages/hap-dsl-xvm/lib/loaders/babel-plugin-jsx.js&comments=false&configFile=<project-root>/babel.config.js!../../../../../packages/hap-dsl-xvm/lib/loaders/access-loader.js!../../../../../packages/hap-dsl-xvm/lib/loaders/fragment-loader.js?index=0&type=script!./index.ux?uxType=page\\")
 
 $app_define$('@app-component/index', [], function($app_require$, $app_exports$, $app_module$) {
      $app_script$($app_module$, $app_exports$, $app_require$)
@@ -41389,7 +41389,7 @@ exports[`hap-toolkit compile native: <CWD>/packages/hap-dsl-xvm/lib/loaders/ux-l
 "
 var $app_style$ = require(\\"!../../../../../packages/hap-dsl-xvm/lib/loaders/style-loader.js?index=0&type=style!../../../../../packages/hap-dsl-xvm/lib/loaders/fragment-loader.js?index=0&type=style!./index.ux?uxType=page\\")
 
-var $app_script$ = require(\\"!../../../../../packages/hap-dsl-xvm/lib/loaders/script-loader.js!../../../../../packages/hap-packager/lib/loaders/module-loader.js!../../../../../node_modules/babel-loader/lib/index.js?cwd=<project-root>&cacheDirectory&plugins[]=<CWD>/packages/hap-dsl-xvm/lib/loaders/babel-plugin-jsx.js&comments=false&configFile=<project-root>/babel.config.js!../../../../../packages/hap-dsl-xvm/lib/loaders/access-loader.js!../../../../../packages/hap-dsl-xvm/lib/loaders/fragment-loader.js?index=0&type=script!./index.ux?uxType=page\\")
+var $app_script$ = require(\\"!../../../../../packages/hap-dsl-xvm/lib/loaders/script-loader.js!../../../../../node_modules/@hap-toolkit/packager/lib/loaders/module-loader.js!../../../../../node_modules/babel-loader/lib/index.js?cwd=<project-root>&cacheDirectory&plugins[]=<CWD>/packages/hap-dsl-xvm/lib/loaders/babel-plugin-jsx.js&comments=false&configFile=<project-root>/babel.config.js!../../../../../packages/hap-dsl-xvm/lib/loaders/access-loader.js!../../../../../packages/hap-dsl-xvm/lib/loaders/fragment-loader.js?index=0&type=script!./index.ux?uxType=page\\")
 
 $app_define$('@app-component/index', [], function($app_require$, $app_exports$, $app_module$) {
      $app_script$($app_module$, $app_exports$, $app_require$)
@@ -41407,7 +41407,7 @@ exports[`hap-toolkit compile native: <CWD>/packages/hap-dsl-xvm/lib/loaders/ux-l
 "
 var $app_style$ = require(\\"!../../../../../../../packages/hap-dsl-xvm/lib/loaders/style-loader.js?index=0&type=style!../../../../../../../packages/hap-dsl-xvm/lib/loaders/fragment-loader.js?index=0&type=style!./index.ux?uxType=page\\")
 
-var $app_script$ = require(\\"!../../../../../../../packages/hap-dsl-xvm/lib/loaders/script-loader.js!../../../../../../../packages/hap-packager/lib/loaders/module-loader.js!../../../../../../../node_modules/babel-loader/lib/index.js?cwd=<project-root>&cacheDirectory&plugins[]=<CWD>/packages/hap-dsl-xvm/lib/loaders/babel-plugin-jsx.js&comments=false&configFile=<project-root>/babel.config.js!../../../../../../../packages/hap-dsl-xvm/lib/loaders/access-loader.js!../../../../../../../packages/hap-dsl-xvm/lib/loaders/fragment-loader.js?index=0&type=script!./index.ux?uxType=page\\")
+var $app_script$ = require(\\"!../../../../../../../packages/hap-dsl-xvm/lib/loaders/script-loader.js!../../../../../../../node_modules/@hap-toolkit/packager/lib/loaders/module-loader.js!../../../../../../../node_modules/babel-loader/lib/index.js?cwd=<project-root>&cacheDirectory&plugins[]=<CWD>/packages/hap-dsl-xvm/lib/loaders/babel-plugin-jsx.js&comments=false&configFile=<project-root>/babel.config.js!../../../../../../../packages/hap-dsl-xvm/lib/loaders/access-loader.js!../../../../../../../packages/hap-dsl-xvm/lib/loaders/fragment-loader.js?index=0&type=script!./index.ux?uxType=page\\")
 
 $app_define$('@app-component/index', [], function($app_require$, $app_exports$, $app_module$) {
      $app_script$($app_module$, $app_exports$, $app_require$)
@@ -41425,7 +41425,7 @@ exports[`hap-toolkit compile native: <CWD>/packages/hap-dsl-xvm/lib/loaders/ux-l
 "
 var $app_style$ = require(\\"!../../../../../../../packages/hap-dsl-xvm/lib/loaders/style-loader.js?index=0&type=style!../../../../../../../packages/hap-dsl-xvm/lib/loaders/fragment-loader.js?index=0&type=style!./index.ux?uxType=page\\")
 
-var $app_script$ = require(\\"!../../../../../../../packages/hap-dsl-xvm/lib/loaders/script-loader.js!../../../../../../../packages/hap-packager/lib/loaders/module-loader.js!../../../../../../../node_modules/babel-loader/lib/index.js?cwd=<project-root>&cacheDirectory&plugins[]=<CWD>/packages/hap-dsl-xvm/lib/loaders/babel-plugin-jsx.js&comments=false&configFile=<project-root>/babel.config.js!../../../../../../../packages/hap-dsl-xvm/lib/loaders/access-loader.js!../../../../../../../packages/hap-dsl-xvm/lib/loaders/fragment-loader.js?index=0&type=script!./index.ux?uxType=page\\")
+var $app_script$ = require(\\"!../../../../../../../packages/hap-dsl-xvm/lib/loaders/script-loader.js!../../../../../../../node_modules/@hap-toolkit/packager/lib/loaders/module-loader.js!../../../../../../../node_modules/babel-loader/lib/index.js?cwd=<project-root>&cacheDirectory&plugins[]=<CWD>/packages/hap-dsl-xvm/lib/loaders/babel-plugin-jsx.js&comments=false&configFile=<project-root>/babel.config.js!../../../../../../../packages/hap-dsl-xvm/lib/loaders/access-loader.js!../../../../../../../packages/hap-dsl-xvm/lib/loaders/fragment-loader.js?index=0&type=script!./index.ux?uxType=page\\")
 
 $app_define$('@app-component/index', [], function($app_require$, $app_exports$, $app_module$) {
      $app_script$($app_module$, $app_exports$, $app_require$)
@@ -41443,7 +41443,7 @@ exports[`hap-toolkit compile native: <CWD>/packages/hap-dsl-xvm/lib/loaders/ux-l
 "
 var $app_style$ = require(\\"!../../../../../../../packages/hap-dsl-xvm/lib/loaders/style-loader.js?index=0&type=style!../../../../../../../packages/hap-dsl-xvm/lib/loaders/fragment-loader.js?index=0&type=style!./index.ux?uxType=page\\")
 
-var $app_script$ = require(\\"!../../../../../../../packages/hap-dsl-xvm/lib/loaders/script-loader.js!../../../../../../../packages/hap-packager/lib/loaders/module-loader.js!../../../../../../../node_modules/babel-loader/lib/index.js?cwd=<project-root>&cacheDirectory&plugins[]=<CWD>/packages/hap-dsl-xvm/lib/loaders/babel-plugin-jsx.js&comments=false&configFile=<project-root>/babel.config.js!../../../../../../../packages/hap-dsl-xvm/lib/loaders/access-loader.js!../../../../../../../packages/hap-dsl-xvm/lib/loaders/fragment-loader.js?index=0&type=script!./index.ux?uxType=page\\")
+var $app_script$ = require(\\"!../../../../../../../packages/hap-dsl-xvm/lib/loaders/script-loader.js!../../../../../../../node_modules/@hap-toolkit/packager/lib/loaders/module-loader.js!../../../../../../../node_modules/babel-loader/lib/index.js?cwd=<project-root>&cacheDirectory&plugins[]=<CWD>/packages/hap-dsl-xvm/lib/loaders/babel-plugin-jsx.js&comments=false&configFile=<project-root>/babel.config.js!../../../../../../../packages/hap-dsl-xvm/lib/loaders/access-loader.js!../../../../../../../packages/hap-dsl-xvm/lib/loaders/fragment-loader.js?index=0&type=script!./index.ux?uxType=page\\")
 
 $app_define$('@app-component/index', [], function($app_require$, $app_exports$, $app_module$) {
      $app_script$($app_module$, $app_exports$, $app_require$)
@@ -41461,7 +41461,7 @@ exports[`hap-toolkit compile native: <CWD>/packages/hap-dsl-xvm/lib/loaders/ux-l
 "
 var $app_style$ = require(\\"!../../../../../packages/hap-dsl-xvm/lib/loaders/style-loader.js?index=0&type=style!../../../../../packages/hap-dsl-xvm/lib/loaders/fragment-loader.js?index=0&type=style!./index.ux?uxType=page\\")
 
-var $app_script$ = require(\\"!../../../../../packages/hap-dsl-xvm/lib/loaders/script-loader.js!../../../../../packages/hap-packager/lib/loaders/module-loader.js!../../../../../node_modules/babel-loader/lib/index.js?cwd=<project-root>&cacheDirectory&plugins[]=<CWD>/packages/hap-dsl-xvm/lib/loaders/babel-plugin-jsx.js&comments=false&configFile=<project-root>/babel.config.js!../../../../../packages/hap-dsl-xvm/lib/loaders/access-loader.js!../../../../../packages/hap-dsl-xvm/lib/loaders/fragment-loader.js?index=0&type=script!./index.ux?uxType=page\\")
+var $app_script$ = require(\\"!../../../../../packages/hap-dsl-xvm/lib/loaders/script-loader.js!../../../../../node_modules/@hap-toolkit/packager/lib/loaders/module-loader.js!../../../../../node_modules/babel-loader/lib/index.js?cwd=<project-root>&cacheDirectory&plugins[]=<CWD>/packages/hap-dsl-xvm/lib/loaders/babel-plugin-jsx.js&comments=false&configFile=<project-root>/babel.config.js!../../../../../packages/hap-dsl-xvm/lib/loaders/access-loader.js!../../../../../packages/hap-dsl-xvm/lib/loaders/fragment-loader.js?index=0&type=script!./index.ux?uxType=page\\")
 
 $app_define$('@app-component/index', [], function($app_require$, $app_exports$, $app_module$) {
      $app_script$($app_module$, $app_exports$, $app_require$)
@@ -41479,7 +41479,7 @@ exports[`hap-toolkit compile native: <CWD>/packages/hap-dsl-xvm/lib/loaders/ux-l
 "
 var $app_style$ = require(\\"!../../../../../packages/hap-dsl-xvm/lib/loaders/style-loader.js?index=0&type=style!../../../../../packages/hap-dsl-xvm/lib/loaders/fragment-loader.js?index=0&type=style!./index.ux?uxType=page\\")
 
-var $app_script$ = require(\\"!../../../../../packages/hap-dsl-xvm/lib/loaders/script-loader.js!../../../../../packages/hap-packager/lib/loaders/module-loader.js!../../../../../node_modules/babel-loader/lib/index.js?cwd=<project-root>&cacheDirectory&plugins[]=<CWD>/packages/hap-dsl-xvm/lib/loaders/babel-plugin-jsx.js&comments=false&configFile=<project-root>/babel.config.js!../../../../../packages/hap-dsl-xvm/lib/loaders/access-loader.js!../../../../../packages/hap-dsl-xvm/lib/loaders/fragment-loader.js?index=0&type=script!./index.ux?uxType=page\\")
+var $app_script$ = require(\\"!../../../../../packages/hap-dsl-xvm/lib/loaders/script-loader.js!../../../../../node_modules/@hap-toolkit/packager/lib/loaders/module-loader.js!../../../../../node_modules/babel-loader/lib/index.js?cwd=<project-root>&cacheDirectory&plugins[]=<CWD>/packages/hap-dsl-xvm/lib/loaders/babel-plugin-jsx.js&comments=false&configFile=<project-root>/babel.config.js!../../../../../packages/hap-dsl-xvm/lib/loaders/access-loader.js!../../../../../packages/hap-dsl-xvm/lib/loaders/fragment-loader.js?index=0&type=script!./index.ux?uxType=page\\")
 
 $app_define$('@app-component/index', [], function($app_require$, $app_exports$, $app_module$) {
      $app_script$($app_module$, $app_exports$, $app_require$)
@@ -41497,7 +41497,7 @@ exports[`hap-toolkit compile native: <CWD>/packages/hap-dsl-xvm/lib/loaders/ux-l
 "
 var $app_style$ = require(\\"!../../../../../packages/hap-dsl-xvm/lib/loaders/style-loader.js?index=0&type=style!../../../../../packages/hap-dsl-xvm/lib/loaders/fragment-loader.js?index=0&type=style!./index.ux?uxType=page\\")
 
-var $app_script$ = require(\\"!../../../../../packages/hap-dsl-xvm/lib/loaders/script-loader.js!../../../../../packages/hap-packager/lib/loaders/module-loader.js!../../../../../node_modules/babel-loader/lib/index.js?cwd=<project-root>&cacheDirectory&plugins[]=<CWD>/packages/hap-dsl-xvm/lib/loaders/babel-plugin-jsx.js&comments=false&configFile=<project-root>/babel.config.js!../../../../../packages/hap-dsl-xvm/lib/loaders/access-loader.js!../../../../../packages/hap-dsl-xvm/lib/loaders/fragment-loader.js?index=0&type=script!./index.ux?uxType=page\\")
+var $app_script$ = require(\\"!../../../../../packages/hap-dsl-xvm/lib/loaders/script-loader.js!../../../../../node_modules/@hap-toolkit/packager/lib/loaders/module-loader.js!../../../../../node_modules/babel-loader/lib/index.js?cwd=<project-root>&cacheDirectory&plugins[]=<CWD>/packages/hap-dsl-xvm/lib/loaders/babel-plugin-jsx.js&comments=false&configFile=<project-root>/babel.config.js!../../../../../packages/hap-dsl-xvm/lib/loaders/access-loader.js!../../../../../packages/hap-dsl-xvm/lib/loaders/fragment-loader.js?index=0&type=script!./index.ux?uxType=page\\")
 
 $app_define$('@app-component/index', [], function($app_require$, $app_exports$, $app_module$) {
      $app_script$($app_module$, $app_exports$, $app_require$)
@@ -41515,7 +41515,7 @@ exports[`hap-toolkit compile native: <CWD>/packages/hap-dsl-xvm/lib/loaders/ux-l
 "
 var $app_style$ = require(\\"!../../../../../packages/hap-dsl-xvm/lib/loaders/style-loader.js?index=0&type=style!../../../../../packages/hap-dsl-xvm/lib/loaders/fragment-loader.js?index=0&type=style!./index.ux?uxType=page\\")
 
-var $app_script$ = require(\\"!../../../../../packages/hap-dsl-xvm/lib/loaders/script-loader.js!../../../../../packages/hap-packager/lib/loaders/module-loader.js!../../../../../node_modules/babel-loader/lib/index.js?cwd=<project-root>&cacheDirectory&plugins[]=<CWD>/packages/hap-dsl-xvm/lib/loaders/babel-plugin-jsx.js&comments=false&configFile=<project-root>/babel.config.js!../../../../../packages/hap-dsl-xvm/lib/loaders/access-loader.js!../../../../../packages/hap-dsl-xvm/lib/loaders/fragment-loader.js?index=0&type=script!./index.ux?uxType=page\\")
+var $app_script$ = require(\\"!../../../../../packages/hap-dsl-xvm/lib/loaders/script-loader.js!../../../../../node_modules/@hap-toolkit/packager/lib/loaders/module-loader.js!../../../../../node_modules/babel-loader/lib/index.js?cwd=<project-root>&cacheDirectory&plugins[]=<CWD>/packages/hap-dsl-xvm/lib/loaders/babel-plugin-jsx.js&comments=false&configFile=<project-root>/babel.config.js!../../../../../packages/hap-dsl-xvm/lib/loaders/access-loader.js!../../../../../packages/hap-dsl-xvm/lib/loaders/fragment-loader.js?index=0&type=script!./index.ux?uxType=page\\")
 
 $app_define$('@app-component/index', [], function($app_require$, $app_exports$, $app_module$) {
      $app_script$($app_module$, $app_exports$, $app_require$)
@@ -41533,7 +41533,7 @@ exports[`hap-toolkit compile native: <CWD>/packages/hap-dsl-xvm/lib/loaders/ux-l
 "
 var $app_style$ = require(\\"!../../../../../packages/hap-dsl-xvm/lib/loaders/style-loader.js?index=0&type=style!../../../../../packages/hap-dsl-xvm/lib/loaders/fragment-loader.js?index=0&type=style!./index.ux?uxType=page\\")
 
-var $app_script$ = require(\\"!../../../../../packages/hap-dsl-xvm/lib/loaders/script-loader.js!../../../../../packages/hap-packager/lib/loaders/module-loader.js!../../../../../node_modules/babel-loader/lib/index.js?cwd=<project-root>&cacheDirectory&plugins[]=<CWD>/packages/hap-dsl-xvm/lib/loaders/babel-plugin-jsx.js&comments=false&configFile=<project-root>/babel.config.js!../../../../../packages/hap-dsl-xvm/lib/loaders/access-loader.js!../../../../../packages/hap-dsl-xvm/lib/loaders/fragment-loader.js?index=0&type=script!./index.ux?uxType=page\\")
+var $app_script$ = require(\\"!../../../../../packages/hap-dsl-xvm/lib/loaders/script-loader.js!../../../../../node_modules/@hap-toolkit/packager/lib/loaders/module-loader.js!../../../../../node_modules/babel-loader/lib/index.js?cwd=<project-root>&cacheDirectory&plugins[]=<CWD>/packages/hap-dsl-xvm/lib/loaders/babel-plugin-jsx.js&comments=false&configFile=<project-root>/babel.config.js!../../../../../packages/hap-dsl-xvm/lib/loaders/access-loader.js!../../../../../packages/hap-dsl-xvm/lib/loaders/fragment-loader.js?index=0&type=script!./index.ux?uxType=page\\")
 
 $app_define$('@app-component/index', [], function($app_require$, $app_exports$, $app_module$) {
      $app_script$($app_module$, $app_exports$, $app_require$)
@@ -41551,7 +41551,7 @@ exports[`hap-toolkit compile native: <CWD>/packages/hap-dsl-xvm/lib/loaders/ux-l
 "
 var $app_style$ = require(\\"!../../../../../packages/hap-dsl-xvm/lib/loaders/style-loader.js?index=0&type=style!../../../../../packages/hap-dsl-xvm/lib/loaders/fragment-loader.js?index=0&type=style!./index.ux?uxType=page\\")
 
-var $app_script$ = require(\\"!../../../../../packages/hap-dsl-xvm/lib/loaders/script-loader.js!../../../../../packages/hap-packager/lib/loaders/module-loader.js!../../../../../node_modules/babel-loader/lib/index.js?cwd=<project-root>&cacheDirectory&plugins[]=<CWD>/packages/hap-dsl-xvm/lib/loaders/babel-plugin-jsx.js&comments=false&configFile=<project-root>/babel.config.js!../../../../../packages/hap-dsl-xvm/lib/loaders/access-loader.js!../../../../../packages/hap-dsl-xvm/lib/loaders/fragment-loader.js?index=0&type=script!./index.ux?uxType=page\\")
+var $app_script$ = require(\\"!../../../../../packages/hap-dsl-xvm/lib/loaders/script-loader.js!../../../../../node_modules/@hap-toolkit/packager/lib/loaders/module-loader.js!../../../../../node_modules/babel-loader/lib/index.js?cwd=<project-root>&cacheDirectory&plugins[]=<CWD>/packages/hap-dsl-xvm/lib/loaders/babel-plugin-jsx.js&comments=false&configFile=<project-root>/babel.config.js!../../../../../packages/hap-dsl-xvm/lib/loaders/access-loader.js!../../../../../packages/hap-dsl-xvm/lib/loaders/fragment-loader.js?index=0&type=script!./index.ux?uxType=page\\")
 
 $app_define$('@app-component/index', [], function($app_require$, $app_exports$, $app_module$) {
      $app_script$($app_module$, $app_exports$, $app_require$)
@@ -41569,7 +41569,7 @@ exports[`hap-toolkit compile native: <CWD>/packages/hap-dsl-xvm/lib/loaders/ux-l
 "
 var $app_style$ = require(\\"!../../../../../packages/hap-dsl-xvm/lib/loaders/style-loader.js?index=0&type=style!../../../../../packages/hap-dsl-xvm/lib/loaders/fragment-loader.js?index=0&type=style!./index.ux?uxType=page\\")
 
-var $app_script$ = require(\\"!../../../../../packages/hap-dsl-xvm/lib/loaders/script-loader.js!../../../../../packages/hap-packager/lib/loaders/module-loader.js!../../../../../node_modules/babel-loader/lib/index.js?cwd=<project-root>&cacheDirectory&plugins[]=<CWD>/packages/hap-dsl-xvm/lib/loaders/babel-plugin-jsx.js&comments=false&configFile=<project-root>/babel.config.js!../../../../../packages/hap-dsl-xvm/lib/loaders/access-loader.js!../../../../../packages/hap-dsl-xvm/lib/loaders/fragment-loader.js?index=0&type=script!./index.ux?uxType=page\\")
+var $app_script$ = require(\\"!../../../../../packages/hap-dsl-xvm/lib/loaders/script-loader.js!../../../../../node_modules/@hap-toolkit/packager/lib/loaders/module-loader.js!../../../../../node_modules/babel-loader/lib/index.js?cwd=<project-root>&cacheDirectory&plugins[]=<CWD>/packages/hap-dsl-xvm/lib/loaders/babel-plugin-jsx.js&comments=false&configFile=<project-root>/babel.config.js!../../../../../packages/hap-dsl-xvm/lib/loaders/access-loader.js!../../../../../packages/hap-dsl-xvm/lib/loaders/fragment-loader.js?index=0&type=script!./index.ux?uxType=page\\")
 
 $app_define$('@app-component/index', [], function($app_require$, $app_exports$, $app_module$) {
      $app_script$($app_module$, $app_exports$, $app_require$)
@@ -41587,7 +41587,7 @@ exports[`hap-toolkit compile native: <CWD>/packages/hap-dsl-xvm/lib/loaders/ux-l
 "
 var $app_style$ = require(\\"!../../../../../packages/hap-dsl-xvm/lib/loaders/style-loader.js?index=0&type=style!less-loader!../../../../../packages/hap-dsl-xvm/lib/loaders/fragment-loader.js?index=0&type=style!./index.ux?uxType=page\\")
 
-var $app_script$ = require(\\"!../../../../../packages/hap-dsl-xvm/lib/loaders/script-loader.js!../../../../../packages/hap-packager/lib/loaders/module-loader.js!../../../../../node_modules/babel-loader/lib/index.js?cwd=<project-root>&cacheDirectory&plugins[]=<CWD>/packages/hap-dsl-xvm/lib/loaders/babel-plugin-jsx.js&comments=false&configFile=<project-root>/babel.config.js!../../../../../packages/hap-dsl-xvm/lib/loaders/access-loader.js!../../../../../packages/hap-dsl-xvm/lib/loaders/fragment-loader.js?index=0&type=script!./index.ux?uxType=page\\")
+var $app_script$ = require(\\"!../../../../../packages/hap-dsl-xvm/lib/loaders/script-loader.js!../../../../../node_modules/@hap-toolkit/packager/lib/loaders/module-loader.js!../../../../../node_modules/babel-loader/lib/index.js?cwd=<project-root>&cacheDirectory&plugins[]=<CWD>/packages/hap-dsl-xvm/lib/loaders/babel-plugin-jsx.js&comments=false&configFile=<project-root>/babel.config.js!../../../../../packages/hap-dsl-xvm/lib/loaders/access-loader.js!../../../../../packages/hap-dsl-xvm/lib/loaders/fragment-loader.js?index=0&type=script!./index.ux?uxType=page\\")
 
 $app_define$('@app-component/index', [], function($app_require$, $app_exports$, $app_module$) {
      $app_script$($app_module$, $app_exports$, $app_require$)
@@ -41605,7 +41605,7 @@ exports[`hap-toolkit compile native: <CWD>/packages/hap-dsl-xvm/lib/loaders/ux-l
 "
 var $app_style$ = require(\\"!../../../../../packages/hap-dsl-xvm/lib/loaders/style-loader.js?index=0&type=style!../../../../../packages/hap-dsl-xvm/lib/loaders/fragment-loader.js?index=0&type=style!./index.ux?uxType=page\\")
 
-var $app_script$ = require(\\"!../../../../../packages/hap-dsl-xvm/lib/loaders/script-loader.js!../../../../../packages/hap-packager/lib/loaders/module-loader.js!../../../../../node_modules/babel-loader/lib/index.js?cwd=<project-root>&cacheDirectory&plugins[]=<CWD>/packages/hap-dsl-xvm/lib/loaders/babel-plugin-jsx.js&comments=false&configFile=<project-root>/babel.config.js!../../../../../packages/hap-dsl-xvm/lib/loaders/access-loader.js!../../../../../packages/hap-dsl-xvm/lib/loaders/fragment-loader.js?index=0&type=script!./index.ux?uxType=page\\")
+var $app_script$ = require(\\"!../../../../../packages/hap-dsl-xvm/lib/loaders/script-loader.js!../../../../../node_modules/@hap-toolkit/packager/lib/loaders/module-loader.js!../../../../../node_modules/babel-loader/lib/index.js?cwd=<project-root>&cacheDirectory&plugins[]=<CWD>/packages/hap-dsl-xvm/lib/loaders/babel-plugin-jsx.js&comments=false&configFile=<project-root>/babel.config.js!../../../../../packages/hap-dsl-xvm/lib/loaders/access-loader.js!../../../../../packages/hap-dsl-xvm/lib/loaders/fragment-loader.js?index=0&type=script!./index.ux?uxType=page\\")
 
 $app_define$('@app-component/index', [], function($app_require$, $app_exports$, $app_module$) {
      $app_script$($app_module$, $app_exports$, $app_require$)
@@ -41623,7 +41623,7 @@ exports[`hap-toolkit compile native: <CWD>/packages/hap-dsl-xvm/lib/loaders/ux-l
 "
 var $app_style$ = require(\\"!../../../../../packages/hap-dsl-xvm/lib/loaders/style-loader.js?index=0&type=style!../../../../../packages/hap-dsl-xvm/lib/loaders/fragment-loader.js?index=0&type=style!./index.ux?uxType=page\\")
 
-var $app_script$ = require(\\"!../../../../../packages/hap-dsl-xvm/lib/loaders/script-loader.js!../../../../../packages/hap-packager/lib/loaders/module-loader.js!../../../../../node_modules/babel-loader/lib/index.js?cwd=<project-root>&cacheDirectory&plugins[]=<CWD>/packages/hap-dsl-xvm/lib/loaders/babel-plugin-jsx.js&comments=false&configFile=<project-root>/babel.config.js!../../../../../packages/hap-dsl-xvm/lib/loaders/access-loader.js!../../../../../packages/hap-dsl-xvm/lib/loaders/fragment-loader.js?index=0&type=script!./index.ux?uxType=page\\")
+var $app_script$ = require(\\"!../../../../../packages/hap-dsl-xvm/lib/loaders/script-loader.js!../../../../../node_modules/@hap-toolkit/packager/lib/loaders/module-loader.js!../../../../../node_modules/babel-loader/lib/index.js?cwd=<project-root>&cacheDirectory&plugins[]=<CWD>/packages/hap-dsl-xvm/lib/loaders/babel-plugin-jsx.js&comments=false&configFile=<project-root>/babel.config.js!../../../../../packages/hap-dsl-xvm/lib/loaders/access-loader.js!../../../../../packages/hap-dsl-xvm/lib/loaders/fragment-loader.js?index=0&type=script!./index.ux?uxType=page\\")
 
 $app_define$('@app-component/index', [], function($app_require$, $app_exports$, $app_module$) {
      $app_script$($app_module$, $app_exports$, $app_require$)
@@ -41641,7 +41641,7 @@ exports[`hap-toolkit compile native: <CWD>/packages/hap-dsl-xvm/lib/loaders/ux-l
 "
 var $app_style$ = require(\\"!../../../../../packages/hap-dsl-xvm/lib/loaders/style-loader.js?index=0&type=style!../../../../../packages/hap-dsl-xvm/lib/loaders/fragment-loader.js?index=0&type=style!./index.ux?uxType=page\\")
 
-var $app_script$ = require(\\"!../../../../../packages/hap-dsl-xvm/lib/loaders/script-loader.js!../../../../../packages/hap-packager/lib/loaders/module-loader.js!../../../../../node_modules/babel-loader/lib/index.js?cwd=<project-root>&cacheDirectory&plugins[]=<CWD>/packages/hap-dsl-xvm/lib/loaders/babel-plugin-jsx.js&comments=false&configFile=<project-root>/babel.config.js!../../../../../packages/hap-dsl-xvm/lib/loaders/access-loader.js!../../../../../packages/hap-dsl-xvm/lib/loaders/fragment-loader.js?index=0&type=script!./index.ux?uxType=page\\")
+var $app_script$ = require(\\"!../../../../../packages/hap-dsl-xvm/lib/loaders/script-loader.js!../../../../../node_modules/@hap-toolkit/packager/lib/loaders/module-loader.js!../../../../../node_modules/babel-loader/lib/index.js?cwd=<project-root>&cacheDirectory&plugins[]=<CWD>/packages/hap-dsl-xvm/lib/loaders/babel-plugin-jsx.js&comments=false&configFile=<project-root>/babel.config.js!../../../../../packages/hap-dsl-xvm/lib/loaders/access-loader.js!../../../../../packages/hap-dsl-xvm/lib/loaders/fragment-loader.js?index=0&type=script!./index.ux?uxType=page\\")
 
 $app_define$('@app-component/index', [], function($app_require$, $app_exports$, $app_module$) {
      $app_script$($app_module$, $app_exports$, $app_require$)
@@ -41659,7 +41659,7 @@ exports[`hap-toolkit compile native: <CWD>/packages/hap-dsl-xvm/lib/loaders/ux-l
 "
 var $app_style$ = require(\\"!../../../../../packages/hap-dsl-xvm/lib/loaders/style-loader.js?index=0&type=style!../../../../../packages/hap-dsl-xvm/lib/loaders/fragment-loader.js?index=0&type=style!./index.ux?uxType=page\\")
 
-var $app_script$ = require(\\"!../../../../../packages/hap-dsl-xvm/lib/loaders/script-loader.js!../../../../../packages/hap-packager/lib/loaders/module-loader.js!../../../../../node_modules/babel-loader/lib/index.js?cwd=<project-root>&cacheDirectory&plugins[]=<CWD>/packages/hap-dsl-xvm/lib/loaders/babel-plugin-jsx.js&comments=false&configFile=<project-root>/babel.config.js!../../../../../packages/hap-dsl-xvm/lib/loaders/access-loader.js!../../../../../packages/hap-dsl-xvm/lib/loaders/fragment-loader.js?index=0&type=script!./index.ux?uxType=page\\")
+var $app_script$ = require(\\"!../../../../../packages/hap-dsl-xvm/lib/loaders/script-loader.js!../../../../../node_modules/@hap-toolkit/packager/lib/loaders/module-loader.js!../../../../../node_modules/babel-loader/lib/index.js?cwd=<project-root>&cacheDirectory&plugins[]=<CWD>/packages/hap-dsl-xvm/lib/loaders/babel-plugin-jsx.js&comments=false&configFile=<project-root>/babel.config.js!../../../../../packages/hap-dsl-xvm/lib/loaders/access-loader.js!../../../../../packages/hap-dsl-xvm/lib/loaders/fragment-loader.js?index=0&type=script!./index.ux?uxType=page\\")
 
 $app_define$('@app-component/index', [], function($app_require$, $app_exports$, $app_module$) {
      $app_script$($app_module$, $app_exports$, $app_require$)
@@ -41677,7 +41677,7 @@ exports[`hap-toolkit compile native: <CWD>/packages/hap-dsl-xvm/lib/loaders/ux-l
 "
 var $app_style$ = require(\\"!../../../../../packages/hap-dsl-xvm/lib/loaders/style-loader.js?index=0&type=style!../../../../../packages/hap-dsl-xvm/lib/loaders/fragment-loader.js?index=0&type=style!./index.ux?uxType=page\\")
 
-var $app_script$ = require(\\"!../../../../../packages/hap-dsl-xvm/lib/loaders/script-loader.js!../../../../../packages/hap-packager/lib/loaders/module-loader.js!../../../../../node_modules/babel-loader/lib/index.js?cwd=<project-root>&cacheDirectory&plugins[]=<CWD>/packages/hap-dsl-xvm/lib/loaders/babel-plugin-jsx.js&comments=false&configFile=<project-root>/babel.config.js!../../../../../packages/hap-dsl-xvm/lib/loaders/access-loader.js!../../../../../packages/hap-dsl-xvm/lib/loaders/fragment-loader.js?index=0&type=script!./index.ux?uxType=page\\")
+var $app_script$ = require(\\"!../../../../../packages/hap-dsl-xvm/lib/loaders/script-loader.js!../../../../../node_modules/@hap-toolkit/packager/lib/loaders/module-loader.js!../../../../../node_modules/babel-loader/lib/index.js?cwd=<project-root>&cacheDirectory&plugins[]=<CWD>/packages/hap-dsl-xvm/lib/loaders/babel-plugin-jsx.js&comments=false&configFile=<project-root>/babel.config.js!../../../../../packages/hap-dsl-xvm/lib/loaders/access-loader.js!../../../../../packages/hap-dsl-xvm/lib/loaders/fragment-loader.js?index=0&type=script!./index.ux?uxType=page\\")
 
 $app_define$('@app-component/index', [], function($app_require$, $app_exports$, $app_module$) {
      $app_script$($app_module$, $app_exports$, $app_require$)
@@ -41695,7 +41695,7 @@ exports[`hap-toolkit compile native: <CWD>/packages/hap-dsl-xvm/lib/loaders/ux-l
 "
 var $app_style$ = require(\\"!../../../../../../packages/hap-dsl-xvm/lib/loaders/style-loader.js?index=0&type=style!../../../../../../packages/hap-dsl-xvm/lib/loaders/fragment-loader.js?index=0&type=style!./index.ux?uxType=page\\")
 
-var $app_script$ = require(\\"!../../../../../../packages/hap-dsl-xvm/lib/loaders/script-loader.js!../../../../../../packages/hap-packager/lib/loaders/module-loader.js!../../../../../../node_modules/babel-loader/lib/index.js?cwd=<project-root>&cacheDirectory&plugins[]=<CWD>/packages/hap-dsl-xvm/lib/loaders/babel-plugin-jsx.js&comments=false&configFile=<project-root>/babel.config.js!../../../../../../packages/hap-dsl-xvm/lib/loaders/access-loader.js!../../../../../../packages/hap-dsl-xvm/lib/loaders/fragment-loader.js?index=0&type=script!./index.ux?uxType=page\\")
+var $app_script$ = require(\\"!../../../../../../packages/hap-dsl-xvm/lib/loaders/script-loader.js!../../../../../../node_modules/@hap-toolkit/packager/lib/loaders/module-loader.js!../../../../../../node_modules/babel-loader/lib/index.js?cwd=<project-root>&cacheDirectory&plugins[]=<CWD>/packages/hap-dsl-xvm/lib/loaders/babel-plugin-jsx.js&comments=false&configFile=<project-root>/babel.config.js!../../../../../../packages/hap-dsl-xvm/lib/loaders/access-loader.js!../../../../../../packages/hap-dsl-xvm/lib/loaders/fragment-loader.js?index=0&type=script!./index.ux?uxType=page\\")
 
 $app_define$('@app-component/index', [], function($app_require$, $app_exports$, $app_module$) {
      $app_script$($app_module$, $app_exports$, $app_require$)
@@ -41714,7 +41714,7 @@ exports[`hap-toolkit compile native: <CWD>/packages/hap-dsl-xvm/lib/loaders/ux-l
 
 var $app_style$ = require(\\"!../../../../../packages/hap-dsl-xvm/lib/loaders/style-loader.js?index=0&type=style!../../../../../packages/hap-dsl-xvm/lib/loaders/fragment-loader.js?index=0&type=style!./index.ux?uxType=page\\")
 
-var $app_script$ = require(\\"!../../../../../packages/hap-dsl-xvm/lib/loaders/script-loader.js!../../../../../packages/hap-packager/lib/loaders/module-loader.js!../../../../../node_modules/babel-loader/lib/index.js?cwd=<project-root>&cacheDirectory&plugins[]=<CWD>/packages/hap-dsl-xvm/lib/loaders/babel-plugin-jsx.js&comments=false&configFile=<project-root>/babel.config.js!../../../../../packages/hap-dsl-xvm/lib/loaders/access-loader.js!../../../../../packages/hap-dsl-xvm/lib/loaders/fragment-loader.js?index=0&type=script!./index.ux?uxType=page\\")
+var $app_script$ = require(\\"!../../../../../packages/hap-dsl-xvm/lib/loaders/script-loader.js!../../../../../node_modules/@hap-toolkit/packager/lib/loaders/module-loader.js!../../../../../node_modules/babel-loader/lib/index.js?cwd=<project-root>&cacheDirectory&plugins[]=<CWD>/packages/hap-dsl-xvm/lib/loaders/babel-plugin-jsx.js&comments=false&configFile=<project-root>/babel.config.js!../../../../../packages/hap-dsl-xvm/lib/loaders/access-loader.js!../../../../../packages/hap-dsl-xvm/lib/loaders/fragment-loader.js?index=0&type=script!./index.ux?uxType=page\\")
 
 $app_define$('@app-component/index', [], function($app_require$, $app_exports$, $app_module$) {
      $app_script$($app_module$, $app_exports$, $app_require$)
@@ -41732,7 +41732,7 @@ exports[`hap-toolkit compile native: <CWD>/packages/hap-dsl-xvm/lib/loaders/ux-l
 "
 var $app_style$ = require(\\"!../../../../../packages/hap-dsl-xvm/lib/loaders/style-loader.js?index=0&type=style!../../../../../packages/hap-dsl-xvm/lib/loaders/fragment-loader.js?index=0&type=style!./index.ux?uxType=page\\")
 
-var $app_script$ = require(\\"!../../../../../packages/hap-dsl-xvm/lib/loaders/script-loader.js!../../../../../packages/hap-packager/lib/loaders/module-loader.js!../../../../../node_modules/babel-loader/lib/index.js?cwd=<project-root>&cacheDirectory&plugins[]=<CWD>/packages/hap-dsl-xvm/lib/loaders/babel-plugin-jsx.js&comments=false&configFile=<project-root>/babel.config.js!../../../../../packages/hap-dsl-xvm/lib/loaders/access-loader.js!../../../../../packages/hap-dsl-xvm/lib/loaders/fragment-loader.js?index=0&type=script!./index.ux?uxType=page\\")
+var $app_script$ = require(\\"!../../../../../packages/hap-dsl-xvm/lib/loaders/script-loader.js!../../../../../node_modules/@hap-toolkit/packager/lib/loaders/module-loader.js!../../../../../node_modules/babel-loader/lib/index.js?cwd=<project-root>&cacheDirectory&plugins[]=<CWD>/packages/hap-dsl-xvm/lib/loaders/babel-plugin-jsx.js&comments=false&configFile=<project-root>/babel.config.js!../../../../../packages/hap-dsl-xvm/lib/loaders/access-loader.js!../../../../../packages/hap-dsl-xvm/lib/loaders/fragment-loader.js?index=0&type=script!./index.ux?uxType=page\\")
 
 $app_define$('@app-component/index', [], function($app_require$, $app_exports$, $app_module$) {
      $app_script$($app_module$, $app_exports$, $app_require$)
@@ -41750,7 +41750,7 @@ exports[`hap-toolkit compile native: <CWD>/packages/hap-dsl-xvm/lib/loaders/ux-l
 "
 var $app_style$ = require(\\"!../../../../../packages/hap-dsl-xvm/lib/loaders/style-loader.js?index=0&type=style!../../../../../packages/hap-dsl-xvm/lib/loaders/fragment-loader.js?index=0&type=style!./index.ux?uxType=page\\")
 
-var $app_script$ = require(\\"!../../../../../packages/hap-dsl-xvm/lib/loaders/script-loader.js!../../../../../packages/hap-packager/lib/loaders/module-loader.js!../../../../../node_modules/babel-loader/lib/index.js?cwd=<project-root>&cacheDirectory&plugins[]=<CWD>/packages/hap-dsl-xvm/lib/loaders/babel-plugin-jsx.js&comments=false&configFile=<project-root>/babel.config.js!../../../../../packages/hap-dsl-xvm/lib/loaders/access-loader.js!../../../../../packages/hap-dsl-xvm/lib/loaders/fragment-loader.js?index=0&type=script!./index.ux?uxType=page\\")
+var $app_script$ = require(\\"!../../../../../packages/hap-dsl-xvm/lib/loaders/script-loader.js!../../../../../node_modules/@hap-toolkit/packager/lib/loaders/module-loader.js!../../../../../node_modules/babel-loader/lib/index.js?cwd=<project-root>&cacheDirectory&plugins[]=<CWD>/packages/hap-dsl-xvm/lib/loaders/babel-plugin-jsx.js&comments=false&configFile=<project-root>/babel.config.js!../../../../../packages/hap-dsl-xvm/lib/loaders/access-loader.js!../../../../../packages/hap-dsl-xvm/lib/loaders/fragment-loader.js?index=0&type=script!./index.ux?uxType=page\\")
 
 $app_define$('@app-component/index', [], function($app_require$, $app_exports$, $app_module$) {
      $app_script$($app_module$, $app_exports$, $app_require$)
@@ -41768,7 +41768,7 @@ exports[`hap-toolkit compile native: <CWD>/packages/hap-dsl-xvm/lib/loaders/ux-l
 "
 var $app_style$ = require(\\"!../../../../packages/hap-dsl-xvm/lib/loaders/style-loader.js?index=0&type=style!../../../../packages/hap-dsl-xvm/lib/loaders/fragment-loader.js?index=0&type=style!./index.ux?uxType=page\\")
 
-var $app_script$ = require(\\"!../../../../packages/hap-dsl-xvm/lib/loaders/script-loader.js!../../../../packages/hap-packager/lib/loaders/module-loader.js!../../../../node_modules/babel-loader/lib/index.js?cwd=<project-root>&cacheDirectory&plugins[]=<CWD>/packages/hap-dsl-xvm/lib/loaders/babel-plugin-jsx.js&comments=false&configFile=<project-root>/babel.config.js!../../../../packages/hap-dsl-xvm/lib/loaders/access-loader.js!../../../../packages/hap-dsl-xvm/lib/loaders/fragment-loader.js?index=0&type=script!./index.ux?uxType=page\\")
+var $app_script$ = require(\\"!../../../../packages/hap-dsl-xvm/lib/loaders/script-loader.js!../../../../node_modules/@hap-toolkit/packager/lib/loaders/module-loader.js!../../../../node_modules/babel-loader/lib/index.js?cwd=<project-root>&cacheDirectory&plugins[]=<CWD>/packages/hap-dsl-xvm/lib/loaders/babel-plugin-jsx.js&comments=false&configFile=<project-root>/babel.config.js!../../../../packages/hap-dsl-xvm/lib/loaders/access-loader.js!../../../../packages/hap-dsl-xvm/lib/loaders/fragment-loader.js?index=0&type=script!./index.ux?uxType=page\\")
 
 $app_define$('@app-component/index', [], function($app_require$, $app_exports$, $app_module$) {
      $app_script$($app_module$, $app_exports$, $app_require$)
@@ -41786,7 +41786,7 @@ exports[`hap-toolkit compile native: <CWD>/packages/hap-dsl-xvm/lib/loaders/ux-l
 "
 var $app_style$ = require(\\"!../../../../../../packages/hap-dsl-xvm/lib/loaders/style-loader.js?index=0&type=style!../../../../../../packages/hap-dsl-xvm/lib/loaders/fragment-loader.js?index=0&type=style!./index.ux?uxType=page\\")
 
-var $app_script$ = require(\\"!../../../../../../packages/hap-dsl-xvm/lib/loaders/script-loader.js!../../../../../../packages/hap-packager/lib/loaders/module-loader.js!../../../../../../node_modules/babel-loader/lib/index.js?cwd=<project-root>&cacheDirectory&plugins[]=<CWD>/packages/hap-dsl-xvm/lib/loaders/babel-plugin-jsx.js&comments=false&configFile=<project-root>/babel.config.js!../../../../../../packages/hap-dsl-xvm/lib/loaders/access-loader.js!../../../../../../packages/hap-dsl-xvm/lib/loaders/fragment-loader.js?index=0&type=script!./index.ux?uxType=page\\")
+var $app_script$ = require(\\"!../../../../../../packages/hap-dsl-xvm/lib/loaders/script-loader.js!../../../../../../node_modules/@hap-toolkit/packager/lib/loaders/module-loader.js!../../../../../../node_modules/babel-loader/lib/index.js?cwd=<project-root>&cacheDirectory&plugins[]=<CWD>/packages/hap-dsl-xvm/lib/loaders/babel-plugin-jsx.js&comments=false&configFile=<project-root>/babel.config.js!../../../../../../packages/hap-dsl-xvm/lib/loaders/access-loader.js!../../../../../../packages/hap-dsl-xvm/lib/loaders/fragment-loader.js?index=0&type=script!./index.ux?uxType=page\\")
 
 $app_define$('@app-component/index', [], function($app_require$, $app_exports$, $app_module$) {
      $app_script$($app_module$, $app_exports$, $app_require$)
@@ -41804,7 +41804,7 @@ exports[`hap-toolkit compile native: <CWD>/packages/hap-dsl-xvm/lib/loaders/ux-l
 "
 var $app_style$ = require(\\"!../../../../../../packages/hap-dsl-xvm/lib/loaders/style-loader.js?index=0&type=style!../../../../../../packages/hap-dsl-xvm/lib/loaders/fragment-loader.js?index=0&type=style!./index.ux?uxType=page\\")
 
-var $app_script$ = require(\\"!../../../../../../packages/hap-dsl-xvm/lib/loaders/script-loader.js!../../../../../../packages/hap-packager/lib/loaders/module-loader.js!../../../../../../node_modules/babel-loader/lib/index.js?cwd=<project-root>&cacheDirectory&plugins[]=<CWD>/packages/hap-dsl-xvm/lib/loaders/babel-plugin-jsx.js&comments=false&configFile=<project-root>/babel.config.js!../../../../../../packages/hap-dsl-xvm/lib/loaders/access-loader.js!../../../../../../packages/hap-dsl-xvm/lib/loaders/fragment-loader.js?index=0&type=script!./index.ux?uxType=page\\")
+var $app_script$ = require(\\"!../../../../../../packages/hap-dsl-xvm/lib/loaders/script-loader.js!../../../../../../node_modules/@hap-toolkit/packager/lib/loaders/module-loader.js!../../../../../../node_modules/babel-loader/lib/index.js?cwd=<project-root>&cacheDirectory&plugins[]=<CWD>/packages/hap-dsl-xvm/lib/loaders/babel-plugin-jsx.js&comments=false&configFile=<project-root>/babel.config.js!../../../../../../packages/hap-dsl-xvm/lib/loaders/access-loader.js!../../../../../../packages/hap-dsl-xvm/lib/loaders/fragment-loader.js?index=0&type=script!./index.ux?uxType=page\\")
 
 $app_define$('@app-component/index', [], function($app_require$, $app_exports$, $app_module$) {
      $app_script$($app_module$, $app_exports$, $app_require$)
@@ -41822,7 +41822,7 @@ exports[`hap-toolkit compile native: <CWD>/packages/hap-dsl-xvm/lib/loaders/ux-l
 "
 var $app_style$ = require(\\"!../../../../../../packages/hap-dsl-xvm/lib/loaders/style-loader.js?index=0&type=style!../../../../../../packages/hap-dsl-xvm/lib/loaders/fragment-loader.js?index=0&type=style!./index.ux?uxType=page\\")
 
-var $app_script$ = require(\\"!../../../../../../packages/hap-dsl-xvm/lib/loaders/script-loader.js!../../../../../../packages/hap-packager/lib/loaders/module-loader.js!../../../../../../node_modules/babel-loader/lib/index.js?cwd=<project-root>&cacheDirectory&plugins[]=<CWD>/packages/hap-dsl-xvm/lib/loaders/babel-plugin-jsx.js&comments=false&configFile=<project-root>/babel.config.js!../../../../../../packages/hap-dsl-xvm/lib/loaders/access-loader.js!../../../../../../packages/hap-dsl-xvm/lib/loaders/fragment-loader.js?index=0&type=script!./index.ux?uxType=page\\")
+var $app_script$ = require(\\"!../../../../../../packages/hap-dsl-xvm/lib/loaders/script-loader.js!../../../../../../node_modules/@hap-toolkit/packager/lib/loaders/module-loader.js!../../../../../../node_modules/babel-loader/lib/index.js?cwd=<project-root>&cacheDirectory&plugins[]=<CWD>/packages/hap-dsl-xvm/lib/loaders/babel-plugin-jsx.js&comments=false&configFile=<project-root>/babel.config.js!../../../../../../packages/hap-dsl-xvm/lib/loaders/access-loader.js!../../../../../../packages/hap-dsl-xvm/lib/loaders/fragment-loader.js?index=0&type=script!./index.ux?uxType=page\\")
 
 $app_define$('@app-component/index', [], function($app_require$, $app_exports$, $app_module$) {
      $app_script$($app_module$, $app_exports$, $app_require$)
@@ -41840,7 +41840,7 @@ exports[`hap-toolkit compile native: <CWD>/packages/hap-dsl-xvm/lib/loaders/ux-l
 "
 var $app_style$ = require(\\"!../../../../../../packages/hap-dsl-xvm/lib/loaders/style-loader.js?index=0&type=style!../../../../../../packages/hap-dsl-xvm/lib/loaders/fragment-loader.js?index=0&type=style!./index.ux?uxType=page\\")
 
-var $app_script$ = require(\\"!../../../../../../packages/hap-dsl-xvm/lib/loaders/script-loader.js!../../../../../../packages/hap-packager/lib/loaders/module-loader.js!../../../../../../node_modules/babel-loader/lib/index.js?cwd=<project-root>&cacheDirectory&plugins[]=<CWD>/packages/hap-dsl-xvm/lib/loaders/babel-plugin-jsx.js&comments=false&configFile=<project-root>/babel.config.js!../../../../../../packages/hap-dsl-xvm/lib/loaders/access-loader.js!../../../../../../packages/hap-dsl-xvm/lib/loaders/fragment-loader.js?index=0&type=script!./index.ux?uxType=page\\")
+var $app_script$ = require(\\"!../../../../../../packages/hap-dsl-xvm/lib/loaders/script-loader.js!../../../../../../node_modules/@hap-toolkit/packager/lib/loaders/module-loader.js!../../../../../../node_modules/babel-loader/lib/index.js?cwd=<project-root>&cacheDirectory&plugins[]=<CWD>/packages/hap-dsl-xvm/lib/loaders/babel-plugin-jsx.js&comments=false&configFile=<project-root>/babel.config.js!../../../../../../packages/hap-dsl-xvm/lib/loaders/access-loader.js!../../../../../../packages/hap-dsl-xvm/lib/loaders/fragment-loader.js?index=0&type=script!./index.ux?uxType=page\\")
 
 $app_define$('@app-component/index', [], function($app_require$, $app_exports$, $app_module$) {
      $app_script$($app_module$, $app_exports$, $app_require$)
@@ -41858,7 +41858,7 @@ exports[`hap-toolkit compile native: <CWD>/packages/hap-dsl-xvm/lib/loaders/ux-l
 "
 var $app_style$ = require(\\"!../../../../../../packages/hap-dsl-xvm/lib/loaders/style-loader.js?index=0&type=style!../../../../../../packages/hap-dsl-xvm/lib/loaders/fragment-loader.js?index=0&type=style!./index.ux?uxType=page\\")
 
-var $app_script$ = require(\\"!../../../../../../packages/hap-dsl-xvm/lib/loaders/script-loader.js!../../../../../../packages/hap-packager/lib/loaders/module-loader.js!../../../../../../node_modules/babel-loader/lib/index.js?cwd=<project-root>&cacheDirectory&plugins[]=<CWD>/packages/hap-dsl-xvm/lib/loaders/babel-plugin-jsx.js&comments=false&configFile=<project-root>/babel.config.js!../../../../../../packages/hap-dsl-xvm/lib/loaders/access-loader.js!../../../../../../packages/hap-dsl-xvm/lib/loaders/fragment-loader.js?index=0&type=script!./index.ux?uxType=page\\")
+var $app_script$ = require(\\"!../../../../../../packages/hap-dsl-xvm/lib/loaders/script-loader.js!../../../../../../node_modules/@hap-toolkit/packager/lib/loaders/module-loader.js!../../../../../../node_modules/babel-loader/lib/index.js?cwd=<project-root>&cacheDirectory&plugins[]=<CWD>/packages/hap-dsl-xvm/lib/loaders/babel-plugin-jsx.js&comments=false&configFile=<project-root>/babel.config.js!../../../../../../packages/hap-dsl-xvm/lib/loaders/access-loader.js!../../../../../../packages/hap-dsl-xvm/lib/loaders/fragment-loader.js?index=0&type=script!./index.ux?uxType=page\\")
 
 $app_define$('@app-component/index', [], function($app_require$, $app_exports$, $app_module$) {
      $app_script$($app_module$, $app_exports$, $app_require$)
@@ -41876,7 +41876,7 @@ exports[`hap-toolkit compile native: <CWD>/packages/hap-dsl-xvm/lib/loaders/ux-l
 "
 var $app_style$ = require(\\"!../../../../../../packages/hap-dsl-xvm/lib/loaders/style-loader.js?index=0&type=style!../../../../../../packages/hap-dsl-xvm/lib/loaders/fragment-loader.js?index=0&type=style!./index.ux?uxType=page\\")
 
-var $app_script$ = require(\\"!../../../../../../packages/hap-dsl-xvm/lib/loaders/script-loader.js!../../../../../../packages/hap-packager/lib/loaders/module-loader.js!../../../../../../node_modules/babel-loader/lib/index.js?cwd=<project-root>&cacheDirectory&plugins[]=<CWD>/packages/hap-dsl-xvm/lib/loaders/babel-plugin-jsx.js&comments=false&configFile=<project-root>/babel.config.js!../../../../../../packages/hap-dsl-xvm/lib/loaders/access-loader.js!../../../../../../packages/hap-dsl-xvm/lib/loaders/fragment-loader.js?index=0&type=script!./index.ux?uxType=page\\")
+var $app_script$ = require(\\"!../../../../../../packages/hap-dsl-xvm/lib/loaders/script-loader.js!../../../../../../node_modules/@hap-toolkit/packager/lib/loaders/module-loader.js!../../../../../../node_modules/babel-loader/lib/index.js?cwd=<project-root>&cacheDirectory&plugins[]=<CWD>/packages/hap-dsl-xvm/lib/loaders/babel-plugin-jsx.js&comments=false&configFile=<project-root>/babel.config.js!../../../../../../packages/hap-dsl-xvm/lib/loaders/access-loader.js!../../../../../../packages/hap-dsl-xvm/lib/loaders/fragment-loader.js?index=0&type=script!./index.ux?uxType=page\\")
 
 $app_define$('@app-component/index', [], function($app_require$, $app_exports$, $app_module$) {
      $app_script$($app_module$, $app_exports$, $app_require$)
@@ -41894,7 +41894,7 @@ exports[`hap-toolkit compile native: <CWD>/packages/hap-dsl-xvm/lib/loaders/ux-l
 "
 var $app_style$ = require(\\"!../../../../../../packages/hap-dsl-xvm/lib/loaders/style-loader.js?index=0&type=style!../../../../../../packages/hap-dsl-xvm/lib/loaders/fragment-loader.js?index=0&type=style!./index.ux?uxType=page\\")
 
-var $app_script$ = require(\\"!../../../../../../packages/hap-dsl-xvm/lib/loaders/script-loader.js!../../../../../../packages/hap-packager/lib/loaders/module-loader.js!../../../../../../node_modules/babel-loader/lib/index.js?cwd=<project-root>&cacheDirectory&plugins[]=<CWD>/packages/hap-dsl-xvm/lib/loaders/babel-plugin-jsx.js&comments=false&configFile=<project-root>/babel.config.js!../../../../../../packages/hap-dsl-xvm/lib/loaders/access-loader.js!../../../../../../packages/hap-dsl-xvm/lib/loaders/fragment-loader.js?index=0&type=script!./index.ux?uxType=page\\")
+var $app_script$ = require(\\"!../../../../../../packages/hap-dsl-xvm/lib/loaders/script-loader.js!../../../../../../node_modules/@hap-toolkit/packager/lib/loaders/module-loader.js!../../../../../../node_modules/babel-loader/lib/index.js?cwd=<project-root>&cacheDirectory&plugins[]=<CWD>/packages/hap-dsl-xvm/lib/loaders/babel-plugin-jsx.js&comments=false&configFile=<project-root>/babel.config.js!../../../../../../packages/hap-dsl-xvm/lib/loaders/access-loader.js!../../../../../../packages/hap-dsl-xvm/lib/loaders/fragment-loader.js?index=0&type=script!./index.ux?uxType=page\\")
 
 $app_define$('@app-component/index', [], function($app_require$, $app_exports$, $app_module$) {
      $app_script$($app_module$, $app_exports$, $app_require$)
@@ -41912,7 +41912,7 @@ exports[`hap-toolkit compile native: <CWD>/packages/hap-dsl-xvm/lib/loaders/ux-l
 "
 var $app_style$ = require(\\"!../../../../../../packages/hap-dsl-xvm/lib/loaders/style-loader.js?index=0&type=style!../../../../../../packages/hap-dsl-xvm/lib/loaders/fragment-loader.js?index=0&type=style!./index.ux?uxType=page\\")
 
-var $app_script$ = require(\\"!../../../../../../packages/hap-dsl-xvm/lib/loaders/script-loader.js!../../../../../../packages/hap-packager/lib/loaders/module-loader.js!../../../../../../node_modules/babel-loader/lib/index.js?cwd=<project-root>&cacheDirectory&plugins[]=<CWD>/packages/hap-dsl-xvm/lib/loaders/babel-plugin-jsx.js&comments=false&configFile=<project-root>/babel.config.js!../../../../../../packages/hap-dsl-xvm/lib/loaders/access-loader.js!../../../../../../packages/hap-dsl-xvm/lib/loaders/fragment-loader.js?index=0&type=script!./index.ux?uxType=page\\")
+var $app_script$ = require(\\"!../../../../../../packages/hap-dsl-xvm/lib/loaders/script-loader.js!../../../../../../node_modules/@hap-toolkit/packager/lib/loaders/module-loader.js!../../../../../../node_modules/babel-loader/lib/index.js?cwd=<project-root>&cacheDirectory&plugins[]=<CWD>/packages/hap-dsl-xvm/lib/loaders/babel-plugin-jsx.js&comments=false&configFile=<project-root>/babel.config.js!../../../../../../packages/hap-dsl-xvm/lib/loaders/access-loader.js!../../../../../../packages/hap-dsl-xvm/lib/loaders/fragment-loader.js?index=0&type=script!./index.ux?uxType=page\\")
 
 $app_define$('@app-component/index', [], function($app_require$, $app_exports$, $app_module$) {
      $app_script$($app_module$, $app_exports$, $app_require$)
@@ -41930,7 +41930,7 @@ exports[`hap-toolkit compile native: <CWD>/packages/hap-dsl-xvm/lib/loaders/ux-l
 "
 var $app_style$ = require(\\"!../../../../../../packages/hap-dsl-xvm/lib/loaders/style-loader.js?index=0&type=style!../../../../../../packages/hap-dsl-xvm/lib/loaders/fragment-loader.js?index=0&type=style!./index.ux?uxType=page\\")
 
-var $app_script$ = require(\\"!../../../../../../packages/hap-dsl-xvm/lib/loaders/script-loader.js!../../../../../../packages/hap-packager/lib/loaders/module-loader.js!../../../../../../node_modules/babel-loader/lib/index.js?cwd=<project-root>&cacheDirectory&plugins[]=<CWD>/packages/hap-dsl-xvm/lib/loaders/babel-plugin-jsx.js&comments=false&configFile=<project-root>/babel.config.js!../../../../../../packages/hap-dsl-xvm/lib/loaders/access-loader.js!../../../../../../packages/hap-dsl-xvm/lib/loaders/fragment-loader.js?index=0&type=script!./index.ux?uxType=page\\")
+var $app_script$ = require(\\"!../../../../../../packages/hap-dsl-xvm/lib/loaders/script-loader.js!../../../../../../node_modules/@hap-toolkit/packager/lib/loaders/module-loader.js!../../../../../../node_modules/babel-loader/lib/index.js?cwd=<project-root>&cacheDirectory&plugins[]=<CWD>/packages/hap-dsl-xvm/lib/loaders/babel-plugin-jsx.js&comments=false&configFile=<project-root>/babel.config.js!../../../../../../packages/hap-dsl-xvm/lib/loaders/access-loader.js!../../../../../../packages/hap-dsl-xvm/lib/loaders/fragment-loader.js?index=0&type=script!./index.ux?uxType=page\\")
 
 $app_define$('@app-component/index', [], function($app_require$, $app_exports$, $app_module$) {
      $app_script$($app_module$, $app_exports$, $app_require$)
@@ -41948,7 +41948,7 @@ exports[`hap-toolkit compile native: <CWD>/packages/hap-dsl-xvm/lib/loaders/ux-l
 "
 var $app_style$ = require(\\"!../../../../../../packages/hap-dsl-xvm/lib/loaders/style-loader.js?index=0&type=style!../../../../../../packages/hap-dsl-xvm/lib/loaders/fragment-loader.js?index=0&type=style!./index.ux?uxType=page\\")
 
-var $app_script$ = require(\\"!../../../../../../packages/hap-dsl-xvm/lib/loaders/script-loader.js!../../../../../../packages/hap-packager/lib/loaders/module-loader.js!../../../../../../node_modules/babel-loader/lib/index.js?cwd=<project-root>&cacheDirectory&plugins[]=<CWD>/packages/hap-dsl-xvm/lib/loaders/babel-plugin-jsx.js&comments=false&configFile=<project-root>/babel.config.js!../../../../../../packages/hap-dsl-xvm/lib/loaders/access-loader.js!../../../../../../packages/hap-dsl-xvm/lib/loaders/fragment-loader.js?index=0&type=script!./index.ux?uxType=page\\")
+var $app_script$ = require(\\"!../../../../../../packages/hap-dsl-xvm/lib/loaders/script-loader.js!../../../../../../node_modules/@hap-toolkit/packager/lib/loaders/module-loader.js!../../../../../../node_modules/babel-loader/lib/index.js?cwd=<project-root>&cacheDirectory&plugins[]=<CWD>/packages/hap-dsl-xvm/lib/loaders/babel-plugin-jsx.js&comments=false&configFile=<project-root>/babel.config.js!../../../../../../packages/hap-dsl-xvm/lib/loaders/access-loader.js!../../../../../../packages/hap-dsl-xvm/lib/loaders/fragment-loader.js?index=0&type=script!./index.ux?uxType=page\\")
 
 $app_define$('@app-component/index', [], function($app_require$, $app_exports$, $app_module$) {
      $app_script$($app_module$, $app_exports$, $app_require$)
@@ -41966,7 +41966,7 @@ exports[`hap-toolkit compile native: <CWD>/packages/hap-dsl-xvm/lib/loaders/ux-l
 "
 var $app_style$ = require(\\"!../../../../../../packages/hap-dsl-xvm/lib/loaders/style-loader.js?index=0&type=style!../../../../../../packages/hap-dsl-xvm/lib/loaders/fragment-loader.js?index=0&type=style!./index.ux?uxType=page\\")
 
-var $app_script$ = require(\\"!../../../../../../packages/hap-dsl-xvm/lib/loaders/script-loader.js!../../../../../../packages/hap-packager/lib/loaders/module-loader.js!../../../../../../node_modules/babel-loader/lib/index.js?cwd=<project-root>&cacheDirectory&plugins[]=<CWD>/packages/hap-dsl-xvm/lib/loaders/babel-plugin-jsx.js&comments=false&configFile=<project-root>/babel.config.js!../../../../../../packages/hap-dsl-xvm/lib/loaders/access-loader.js!../../../../../../packages/hap-dsl-xvm/lib/loaders/fragment-loader.js?index=0&type=script!./index.ux?uxType=page\\")
+var $app_script$ = require(\\"!../../../../../../packages/hap-dsl-xvm/lib/loaders/script-loader.js!../../../../../../node_modules/@hap-toolkit/packager/lib/loaders/module-loader.js!../../../../../../node_modules/babel-loader/lib/index.js?cwd=<project-root>&cacheDirectory&plugins[]=<CWD>/packages/hap-dsl-xvm/lib/loaders/babel-plugin-jsx.js&comments=false&configFile=<project-root>/babel.config.js!../../../../../../packages/hap-dsl-xvm/lib/loaders/access-loader.js!../../../../../../packages/hap-dsl-xvm/lib/loaders/fragment-loader.js?index=0&type=script!./index.ux?uxType=page\\")
 
 $app_define$('@app-component/index', [], function($app_require$, $app_exports$, $app_module$) {
      $app_script$($app_module$, $app_exports$, $app_require$)
@@ -41984,7 +41984,7 @@ exports[`hap-toolkit compile native: <CWD>/packages/hap-dsl-xvm/lib/loaders/ux-l
 "
 var $app_style$ = require(\\"!../../../../../../packages/hap-dsl-xvm/lib/loaders/style-loader.js?index=0&type=style!../../../../../../packages/hap-dsl-xvm/lib/loaders/fragment-loader.js?index=0&type=style!./index.ux?uxType=page\\")
 
-var $app_script$ = require(\\"!../../../../../../packages/hap-dsl-xvm/lib/loaders/script-loader.js!../../../../../../packages/hap-packager/lib/loaders/module-loader.js!../../../../../../node_modules/babel-loader/lib/index.js?cwd=<project-root>&cacheDirectory&plugins[]=<CWD>/packages/hap-dsl-xvm/lib/loaders/babel-plugin-jsx.js&comments=false&configFile=<project-root>/babel.config.js!../../../../../../packages/hap-dsl-xvm/lib/loaders/access-loader.js!../../../../../../packages/hap-dsl-xvm/lib/loaders/fragment-loader.js?index=0&type=script!./index.ux?uxType=page\\")
+var $app_script$ = require(\\"!../../../../../../packages/hap-dsl-xvm/lib/loaders/script-loader.js!../../../../../../node_modules/@hap-toolkit/packager/lib/loaders/module-loader.js!../../../../../../node_modules/babel-loader/lib/index.js?cwd=<project-root>&cacheDirectory&plugins[]=<CWD>/packages/hap-dsl-xvm/lib/loaders/babel-plugin-jsx.js&comments=false&configFile=<project-root>/babel.config.js!../../../../../../packages/hap-dsl-xvm/lib/loaders/access-loader.js!../../../../../../packages/hap-dsl-xvm/lib/loaders/fragment-loader.js?index=0&type=script!./index.ux?uxType=page\\")
 
 $app_define$('@app-component/index', [], function($app_require$, $app_exports$, $app_module$) {
      $app_script$($app_module$, $app_exports$, $app_require$)
@@ -42002,7 +42002,7 @@ exports[`hap-toolkit compile native: <CWD>/packages/hap-dsl-xvm/lib/loaders/ux-l
 "
 var $app_style$ = require(\\"!../../../../../../packages/hap-dsl-xvm/lib/loaders/style-loader.js?index=0&type=style!../../../../../../packages/hap-dsl-xvm/lib/loaders/fragment-loader.js?index=0&type=style!./index.ux?uxType=page\\")
 
-var $app_script$ = require(\\"!../../../../../../packages/hap-dsl-xvm/lib/loaders/script-loader.js!../../../../../../packages/hap-packager/lib/loaders/module-loader.js!../../../../../../node_modules/babel-loader/lib/index.js?cwd=<project-root>&cacheDirectory&plugins[]=<CWD>/packages/hap-dsl-xvm/lib/loaders/babel-plugin-jsx.js&comments=false&configFile=<project-root>/babel.config.js!../../../../../../packages/hap-dsl-xvm/lib/loaders/access-loader.js!../../../../../../packages/hap-dsl-xvm/lib/loaders/fragment-loader.js?index=0&type=script!./index.ux?uxType=page\\")
+var $app_script$ = require(\\"!../../../../../../packages/hap-dsl-xvm/lib/loaders/script-loader.js!../../../../../../node_modules/@hap-toolkit/packager/lib/loaders/module-loader.js!../../../../../../node_modules/babel-loader/lib/index.js?cwd=<project-root>&cacheDirectory&plugins[]=<CWD>/packages/hap-dsl-xvm/lib/loaders/babel-plugin-jsx.js&comments=false&configFile=<project-root>/babel.config.js!../../../../../../packages/hap-dsl-xvm/lib/loaders/access-loader.js!../../../../../../packages/hap-dsl-xvm/lib/loaders/fragment-loader.js?index=0&type=script!./index.ux?uxType=page\\")
 
 $app_define$('@app-component/index', [], function($app_require$, $app_exports$, $app_module$) {
      $app_script$($app_module$, $app_exports$, $app_require$)
@@ -42020,7 +42020,7 @@ exports[`hap-toolkit compile native: <CWD>/packages/hap-dsl-xvm/lib/loaders/ux-l
 "
 var $app_style$ = require(\\"!../../../../../../packages/hap-dsl-xvm/lib/loaders/style-loader.js?index=0&type=style!../../../../../../packages/hap-dsl-xvm/lib/loaders/fragment-loader.js?index=0&type=style!./index.ux?uxType=page\\")
 
-var $app_script$ = require(\\"!../../../../../../packages/hap-dsl-xvm/lib/loaders/script-loader.js!../../../../../../packages/hap-packager/lib/loaders/module-loader.js!../../../../../../node_modules/babel-loader/lib/index.js?cwd=<project-root>&cacheDirectory&plugins[]=<CWD>/packages/hap-dsl-xvm/lib/loaders/babel-plugin-jsx.js&comments=false&configFile=<project-root>/babel.config.js!../../../../../../packages/hap-dsl-xvm/lib/loaders/access-loader.js!../../../../../../packages/hap-dsl-xvm/lib/loaders/fragment-loader.js?index=0&type=script!./index.ux?uxType=page\\")
+var $app_script$ = require(\\"!../../../../../../packages/hap-dsl-xvm/lib/loaders/script-loader.js!../../../../../../node_modules/@hap-toolkit/packager/lib/loaders/module-loader.js!../../../../../../node_modules/babel-loader/lib/index.js?cwd=<project-root>&cacheDirectory&plugins[]=<CWD>/packages/hap-dsl-xvm/lib/loaders/babel-plugin-jsx.js&comments=false&configFile=<project-root>/babel.config.js!../../../../../../packages/hap-dsl-xvm/lib/loaders/access-loader.js!../../../../../../packages/hap-dsl-xvm/lib/loaders/fragment-loader.js?index=0&type=script!./index.ux?uxType=page\\")
 
 $app_define$('@app-component/index', [], function($app_require$, $app_exports$, $app_module$) {
      $app_script$($app_module$, $app_exports$, $app_require$)
@@ -42038,7 +42038,7 @@ exports[`hap-toolkit compile native: <CWD>/packages/hap-dsl-xvm/lib/loaders/ux-l
 "
 var $app_style$ = require(\\"!../../../../../../packages/hap-dsl-xvm/lib/loaders/style-loader.js?index=0&type=style!../../../../../../packages/hap-dsl-xvm/lib/loaders/fragment-loader.js?index=0&type=style!./index.ux?uxType=page\\")
 
-var $app_script$ = require(\\"!../../../../../../packages/hap-dsl-xvm/lib/loaders/script-loader.js!../../../../../../packages/hap-packager/lib/loaders/module-loader.js!../../../../../../node_modules/babel-loader/lib/index.js?cwd=<project-root>&cacheDirectory&plugins[]=<CWD>/packages/hap-dsl-xvm/lib/loaders/babel-plugin-jsx.js&comments=false&configFile=<project-root>/babel.config.js!../../../../../../packages/hap-dsl-xvm/lib/loaders/access-loader.js!../../../../../../packages/hap-dsl-xvm/lib/loaders/fragment-loader.js?index=0&type=script!./index.ux?uxType=page\\")
+var $app_script$ = require(\\"!../../../../../../packages/hap-dsl-xvm/lib/loaders/script-loader.js!../../../../../../node_modules/@hap-toolkit/packager/lib/loaders/module-loader.js!../../../../../../node_modules/babel-loader/lib/index.js?cwd=<project-root>&cacheDirectory&plugins[]=<CWD>/packages/hap-dsl-xvm/lib/loaders/babel-plugin-jsx.js&comments=false&configFile=<project-root>/babel.config.js!../../../../../../packages/hap-dsl-xvm/lib/loaders/access-loader.js!../../../../../../packages/hap-dsl-xvm/lib/loaders/fragment-loader.js?index=0&type=script!./index.ux?uxType=page\\")
 
 $app_define$('@app-component/index', [], function($app_require$, $app_exports$, $app_module$) {
      $app_script$($app_module$, $app_exports$, $app_require$)
@@ -42056,7 +42056,7 @@ exports[`hap-toolkit compile native: <CWD>/packages/hap-dsl-xvm/lib/loaders/ux-l
 "
 var $app_style$ = require(\\"!../../../../../../packages/hap-dsl-xvm/lib/loaders/style-loader.js?index=0&type=style!../../../../../../packages/hap-dsl-xvm/lib/loaders/fragment-loader.js?index=0&type=style!./index.ux?uxType=page\\")
 
-var $app_script$ = require(\\"!../../../../../../packages/hap-dsl-xvm/lib/loaders/script-loader.js!../../../../../../packages/hap-packager/lib/loaders/module-loader.js!../../../../../../node_modules/babel-loader/lib/index.js?cwd=<project-root>&cacheDirectory&plugins[]=<CWD>/packages/hap-dsl-xvm/lib/loaders/babel-plugin-jsx.js&comments=false&configFile=<project-root>/babel.config.js!../../../../../../packages/hap-dsl-xvm/lib/loaders/access-loader.js!../../../../../../packages/hap-dsl-xvm/lib/loaders/fragment-loader.js?index=0&type=script!./index.ux?uxType=page\\")
+var $app_script$ = require(\\"!../../../../../../packages/hap-dsl-xvm/lib/loaders/script-loader.js!../../../../../../node_modules/@hap-toolkit/packager/lib/loaders/module-loader.js!../../../../../../node_modules/babel-loader/lib/index.js?cwd=<project-root>&cacheDirectory&plugins[]=<CWD>/packages/hap-dsl-xvm/lib/loaders/babel-plugin-jsx.js&comments=false&configFile=<project-root>/babel.config.js!../../../../../../packages/hap-dsl-xvm/lib/loaders/access-loader.js!../../../../../../packages/hap-dsl-xvm/lib/loaders/fragment-loader.js?index=0&type=script!./index.ux?uxType=page\\")
 
 $app_define$('@app-component/index', [], function($app_require$, $app_exports$, $app_module$) {
      $app_script$($app_module$, $app_exports$, $app_require$)
@@ -42074,7 +42074,7 @@ exports[`hap-toolkit compile native: <CWD>/packages/hap-dsl-xvm/lib/loaders/ux-l
 "
 var $app_style$ = require(\\"!../../../../../../packages/hap-dsl-xvm/lib/loaders/style-loader.js?index=0&type=style!../../../../../../packages/hap-dsl-xvm/lib/loaders/fragment-loader.js?index=0&type=style!./index.ux?uxType=page\\")
 
-var $app_script$ = require(\\"!../../../../../../packages/hap-dsl-xvm/lib/loaders/script-loader.js!../../../../../../packages/hap-packager/lib/loaders/module-loader.js!../../../../../../node_modules/babel-loader/lib/index.js?cwd=<project-root>&cacheDirectory&plugins[]=<CWD>/packages/hap-dsl-xvm/lib/loaders/babel-plugin-jsx.js&comments=false&configFile=<project-root>/babel.config.js!../../../../../../packages/hap-dsl-xvm/lib/loaders/access-loader.js!../../../../../../packages/hap-dsl-xvm/lib/loaders/fragment-loader.js?index=0&type=script!./index.ux?uxType=page\\")
+var $app_script$ = require(\\"!../../../../../../packages/hap-dsl-xvm/lib/loaders/script-loader.js!../../../../../../node_modules/@hap-toolkit/packager/lib/loaders/module-loader.js!../../../../../../node_modules/babel-loader/lib/index.js?cwd=<project-root>&cacheDirectory&plugins[]=<CWD>/packages/hap-dsl-xvm/lib/loaders/babel-plugin-jsx.js&comments=false&configFile=<project-root>/babel.config.js!../../../../../../packages/hap-dsl-xvm/lib/loaders/access-loader.js!../../../../../../packages/hap-dsl-xvm/lib/loaders/fragment-loader.js?index=0&type=script!./index.ux?uxType=page\\")
 
 $app_define$('@app-component/index', [], function($app_require$, $app_exports$, $app_module$) {
      $app_script$($app_module$, $app_exports$, $app_require$)
@@ -42092,7 +42092,7 @@ exports[`hap-toolkit compile native: <CWD>/packages/hap-dsl-xvm/lib/loaders/ux-l
 "
 var $app_style$ = require(\\"!../../../../../../packages/hap-dsl-xvm/lib/loaders/style-loader.js?index=0&type=style!../../../../../../packages/hap-dsl-xvm/lib/loaders/fragment-loader.js?index=0&type=style!./index.ux?uxType=page\\")
 
-var $app_script$ = require(\\"!../../../../../../packages/hap-dsl-xvm/lib/loaders/script-loader.js!../../../../../../packages/hap-packager/lib/loaders/module-loader.js!../../../../../../node_modules/babel-loader/lib/index.js?cwd=<project-root>&cacheDirectory&plugins[]=<CWD>/packages/hap-dsl-xvm/lib/loaders/babel-plugin-jsx.js&comments=false&configFile=<project-root>/babel.config.js!../../../../../../packages/hap-dsl-xvm/lib/loaders/access-loader.js!../../../../../../packages/hap-dsl-xvm/lib/loaders/fragment-loader.js?index=0&type=script!./index.ux?uxType=page\\")
+var $app_script$ = require(\\"!../../../../../../packages/hap-dsl-xvm/lib/loaders/script-loader.js!../../../../../../node_modules/@hap-toolkit/packager/lib/loaders/module-loader.js!../../../../../../node_modules/babel-loader/lib/index.js?cwd=<project-root>&cacheDirectory&plugins[]=<CWD>/packages/hap-dsl-xvm/lib/loaders/babel-plugin-jsx.js&comments=false&configFile=<project-root>/babel.config.js!../../../../../../packages/hap-dsl-xvm/lib/loaders/access-loader.js!../../../../../../packages/hap-dsl-xvm/lib/loaders/fragment-loader.js?index=0&type=script!./index.ux?uxType=page\\")
 
 $app_define$('@app-component/index', [], function($app_require$, $app_exports$, $app_module$) {
      $app_script$($app_module$, $app_exports$, $app_require$)
@@ -42110,7 +42110,7 @@ exports[`hap-toolkit compile native: <CWD>/packages/hap-dsl-xvm/lib/loaders/ux-l
 "
 var $app_style$ = require(\\"!../../../../../../packages/hap-dsl-xvm/lib/loaders/style-loader.js?index=0&type=style!../../../../../../packages/hap-dsl-xvm/lib/loaders/fragment-loader.js?index=0&type=style!./index.ux?uxType=page\\")
 
-var $app_script$ = require(\\"!../../../../../../packages/hap-dsl-xvm/lib/loaders/script-loader.js!../../../../../../packages/hap-packager/lib/loaders/module-loader.js!../../../../../../node_modules/babel-loader/lib/index.js?cwd=<project-root>&cacheDirectory&plugins[]=<CWD>/packages/hap-dsl-xvm/lib/loaders/babel-plugin-jsx.js&comments=false&configFile=<project-root>/babel.config.js!../../../../../../packages/hap-dsl-xvm/lib/loaders/access-loader.js!../../../../../../packages/hap-dsl-xvm/lib/loaders/fragment-loader.js?index=0&type=script!./index.ux?uxType=page\\")
+var $app_script$ = require(\\"!../../../../../../packages/hap-dsl-xvm/lib/loaders/script-loader.js!../../../../../../node_modules/@hap-toolkit/packager/lib/loaders/module-loader.js!../../../../../../node_modules/babel-loader/lib/index.js?cwd=<project-root>&cacheDirectory&plugins[]=<CWD>/packages/hap-dsl-xvm/lib/loaders/babel-plugin-jsx.js&comments=false&configFile=<project-root>/babel.config.js!../../../../../../packages/hap-dsl-xvm/lib/loaders/access-loader.js!../../../../../../packages/hap-dsl-xvm/lib/loaders/fragment-loader.js?index=0&type=script!./index.ux?uxType=page\\")
 
 $app_define$('@app-component/index', [], function($app_require$, $app_exports$, $app_module$) {
      $app_script$($app_module$, $app_exports$, $app_require$)
@@ -42128,7 +42128,7 @@ exports[`hap-toolkit compile native: <CWD>/packages/hap-dsl-xvm/lib/loaders/ux-l
 "
 var $app_style$ = require(\\"!../../../../../../packages/hap-dsl-xvm/lib/loaders/style-loader.js?index=0&type=style!../../../../../../packages/hap-dsl-xvm/lib/loaders/fragment-loader.js?index=0&type=style!./index.ux?uxType=page\\")
 
-var $app_script$ = require(\\"!../../../../../../packages/hap-dsl-xvm/lib/loaders/script-loader.js!../../../../../../packages/hap-packager/lib/loaders/module-loader.js!../../../../../../node_modules/babel-loader/lib/index.js?cwd=<project-root>&cacheDirectory&plugins[]=<CWD>/packages/hap-dsl-xvm/lib/loaders/babel-plugin-jsx.js&comments=false&configFile=<project-root>/babel.config.js!../../../../../../packages/hap-dsl-xvm/lib/loaders/access-loader.js!../../../../../../packages/hap-dsl-xvm/lib/loaders/fragment-loader.js?index=0&type=script!./index.ux?uxType=page\\")
+var $app_script$ = require(\\"!../../../../../../packages/hap-dsl-xvm/lib/loaders/script-loader.js!../../../../../../node_modules/@hap-toolkit/packager/lib/loaders/module-loader.js!../../../../../../node_modules/babel-loader/lib/index.js?cwd=<project-root>&cacheDirectory&plugins[]=<CWD>/packages/hap-dsl-xvm/lib/loaders/babel-plugin-jsx.js&comments=false&configFile=<project-root>/babel.config.js!../../../../../../packages/hap-dsl-xvm/lib/loaders/access-loader.js!../../../../../../packages/hap-dsl-xvm/lib/loaders/fragment-loader.js?index=0&type=script!./index.ux?uxType=page\\")
 
 $app_define$('@app-component/index', [], function($app_require$, $app_exports$, $app_module$) {
      $app_script$($app_module$, $app_exports$, $app_require$)
@@ -42146,7 +42146,7 @@ exports[`hap-toolkit compile native: <CWD>/packages/hap-dsl-xvm/lib/loaders/ux-l
 "
 var $app_style$ = require(\\"!../../../../../../packages/hap-dsl-xvm/lib/loaders/style-loader.js?index=0&type=style!../../../../../../packages/hap-dsl-xvm/lib/loaders/fragment-loader.js?index=0&type=style!./index.ux?uxType=page\\")
 
-var $app_script$ = require(\\"!../../../../../../packages/hap-dsl-xvm/lib/loaders/script-loader.js!../../../../../../packages/hap-packager/lib/loaders/module-loader.js!../../../../../../node_modules/babel-loader/lib/index.js?cwd=<project-root>&cacheDirectory&plugins[]=<CWD>/packages/hap-dsl-xvm/lib/loaders/babel-plugin-jsx.js&comments=false&configFile=<project-root>/babel.config.js!../../../../../../packages/hap-dsl-xvm/lib/loaders/access-loader.js!../../../../../../packages/hap-dsl-xvm/lib/loaders/fragment-loader.js?index=0&type=script!./index.ux?uxType=page\\")
+var $app_script$ = require(\\"!../../../../../../packages/hap-dsl-xvm/lib/loaders/script-loader.js!../../../../../../node_modules/@hap-toolkit/packager/lib/loaders/module-loader.js!../../../../../../node_modules/babel-loader/lib/index.js?cwd=<project-root>&cacheDirectory&plugins[]=<CWD>/packages/hap-dsl-xvm/lib/loaders/babel-plugin-jsx.js&comments=false&configFile=<project-root>/babel.config.js!../../../../../../packages/hap-dsl-xvm/lib/loaders/access-loader.js!../../../../../../packages/hap-dsl-xvm/lib/loaders/fragment-loader.js?index=0&type=script!./index.ux?uxType=page\\")
 
 $app_define$('@app-component/index', [], function($app_require$, $app_exports$, $app_module$) {
      $app_script$($app_module$, $app_exports$, $app_require$)
@@ -42164,7 +42164,7 @@ exports[`hap-toolkit compile native: <CWD>/packages/hap-dsl-xvm/lib/loaders/ux-l
 "
 var $app_style$ = require(\\"!../../../../../../../packages/hap-dsl-xvm/lib/loaders/style-loader.js?index=0&type=style!../../../../../../../packages/hap-dsl-xvm/lib/loaders/fragment-loader.js?index=0&type=style!./index.ux?uxType=page\\")
 
-var $app_script$ = require(\\"!../../../../../../../packages/hap-dsl-xvm/lib/loaders/script-loader.js!../../../../../../../packages/hap-packager/lib/loaders/module-loader.js!../../../../../../../node_modules/babel-loader/lib/index.js?cwd=<project-root>&cacheDirectory&plugins[]=<CWD>/packages/hap-dsl-xvm/lib/loaders/babel-plugin-jsx.js&comments=false&configFile=<project-root>/babel.config.js!../../../../../../../packages/hap-dsl-xvm/lib/loaders/access-loader.js!../../../../../../../packages/hap-dsl-xvm/lib/loaders/fragment-loader.js?index=0&type=script!./index.ux?uxType=page\\")
+var $app_script$ = require(\\"!../../../../../../../packages/hap-dsl-xvm/lib/loaders/script-loader.js!../../../../../../../node_modules/@hap-toolkit/packager/lib/loaders/module-loader.js!../../../../../../../node_modules/babel-loader/lib/index.js?cwd=<project-root>&cacheDirectory&plugins[]=<CWD>/packages/hap-dsl-xvm/lib/loaders/babel-plugin-jsx.js&comments=false&configFile=<project-root>/babel.config.js!../../../../../../../packages/hap-dsl-xvm/lib/loaders/access-loader.js!../../../../../../../packages/hap-dsl-xvm/lib/loaders/fragment-loader.js?index=0&type=script!./index.ux?uxType=page\\")
 
 $app_define$('@app-component/index', [], function($app_require$, $app_exports$, $app_module$) {
      $app_script$($app_module$, $app_exports$, $app_require$)
@@ -42182,7 +42182,7 @@ exports[`hap-toolkit compile native: <CWD>/packages/hap-dsl-xvm/lib/loaders/ux-l
 "
 var $app_style$ = require(\\"!../../../../../../packages/hap-dsl-xvm/lib/loaders/style-loader.js?index=0&type=style!../../../../../../packages/hap-dsl-xvm/lib/loaders/fragment-loader.js?index=0&type=style!./index.ux?uxType=page\\")
 
-var $app_script$ = require(\\"!../../../../../../packages/hap-dsl-xvm/lib/loaders/script-loader.js!../../../../../../packages/hap-packager/lib/loaders/module-loader.js!../../../../../../node_modules/babel-loader/lib/index.js?cwd=<project-root>&cacheDirectory&plugins[]=<CWD>/packages/hap-dsl-xvm/lib/loaders/babel-plugin-jsx.js&comments=false&configFile=<project-root>/babel.config.js!../../../../../../packages/hap-dsl-xvm/lib/loaders/access-loader.js!../../../../../../packages/hap-dsl-xvm/lib/loaders/fragment-loader.js?index=0&type=script!./index.ux?uxType=page\\")
+var $app_script$ = require(\\"!../../../../../../packages/hap-dsl-xvm/lib/loaders/script-loader.js!../../../../../../node_modules/@hap-toolkit/packager/lib/loaders/module-loader.js!../../../../../../node_modules/babel-loader/lib/index.js?cwd=<project-root>&cacheDirectory&plugins[]=<CWD>/packages/hap-dsl-xvm/lib/loaders/babel-plugin-jsx.js&comments=false&configFile=<project-root>/babel.config.js!../../../../../../packages/hap-dsl-xvm/lib/loaders/access-loader.js!../../../../../../packages/hap-dsl-xvm/lib/loaders/fragment-loader.js?index=0&type=script!./index.ux?uxType=page\\")
 
 $app_define$('@app-component/index', [], function($app_require$, $app_exports$, $app_module$) {
      $app_script$($app_module$, $app_exports$, $app_require$)
@@ -42200,7 +42200,7 @@ exports[`hap-toolkit compile native: <CWD>/packages/hap-dsl-xvm/lib/loaders/ux-l
 "
 var $app_style$ = require(\\"!../../../../../../packages/hap-dsl-xvm/lib/loaders/style-loader.js?index=0&type=style!../../../../../../packages/hap-dsl-xvm/lib/loaders/fragment-loader.js?index=0&type=style!./index.ux?uxType=page\\")
 
-var $app_script$ = require(\\"!../../../../../../packages/hap-dsl-xvm/lib/loaders/script-loader.js!../../../../../../packages/hap-packager/lib/loaders/module-loader.js!../../../../../../node_modules/babel-loader/lib/index.js?cwd=<project-root>&cacheDirectory&plugins[]=<CWD>/packages/hap-dsl-xvm/lib/loaders/babel-plugin-jsx.js&comments=false&configFile=<project-root>/babel.config.js!../../../../../../packages/hap-dsl-xvm/lib/loaders/access-loader.js!../../../../../../packages/hap-dsl-xvm/lib/loaders/fragment-loader.js?index=0&type=script!./index.ux?uxType=page\\")
+var $app_script$ = require(\\"!../../../../../../packages/hap-dsl-xvm/lib/loaders/script-loader.js!../../../../../../node_modules/@hap-toolkit/packager/lib/loaders/module-loader.js!../../../../../../node_modules/babel-loader/lib/index.js?cwd=<project-root>&cacheDirectory&plugins[]=<CWD>/packages/hap-dsl-xvm/lib/loaders/babel-plugin-jsx.js&comments=false&configFile=<project-root>/babel.config.js!../../../../../../packages/hap-dsl-xvm/lib/loaders/access-loader.js!../../../../../../packages/hap-dsl-xvm/lib/loaders/fragment-loader.js?index=0&type=script!./index.ux?uxType=page\\")
 
 $app_define$('@app-component/index', [], function($app_require$, $app_exports$, $app_module$) {
      $app_script$($app_module$, $app_exports$, $app_require$)
@@ -42218,7 +42218,7 @@ exports[`hap-toolkit compile native: <CWD>/packages/hap-dsl-xvm/lib/loaders/ux-l
 "
 var $app_style$ = require(\\"!../../../../../../packages/hap-dsl-xvm/lib/loaders/style-loader.js?index=0&type=style!../../../../../../packages/hap-dsl-xvm/lib/loaders/fragment-loader.js?index=0&type=style!./index.ux?uxType=page\\")
 
-var $app_script$ = require(\\"!../../../../../../packages/hap-dsl-xvm/lib/loaders/script-loader.js!../../../../../../packages/hap-packager/lib/loaders/module-loader.js!../../../../../../node_modules/babel-loader/lib/index.js?cwd=<project-root>&cacheDirectory&plugins[]=<CWD>/packages/hap-dsl-xvm/lib/loaders/babel-plugin-jsx.js&comments=false&configFile=<project-root>/babel.config.js!../../../../../../packages/hap-dsl-xvm/lib/loaders/access-loader.js!../../../../../../packages/hap-dsl-xvm/lib/loaders/fragment-loader.js?index=0&type=script!./index.ux?uxType=page\\")
+var $app_script$ = require(\\"!../../../../../../packages/hap-dsl-xvm/lib/loaders/script-loader.js!../../../../../../node_modules/@hap-toolkit/packager/lib/loaders/module-loader.js!../../../../../../node_modules/babel-loader/lib/index.js?cwd=<project-root>&cacheDirectory&plugins[]=<CWD>/packages/hap-dsl-xvm/lib/loaders/babel-plugin-jsx.js&comments=false&configFile=<project-root>/babel.config.js!../../../../../../packages/hap-dsl-xvm/lib/loaders/access-loader.js!../../../../../../packages/hap-dsl-xvm/lib/loaders/fragment-loader.js?index=0&type=script!./index.ux?uxType=page\\")
 
 $app_define$('@app-component/index', [], function($app_require$, $app_exports$, $app_module$) {
      $app_script$($app_module$, $app_exports$, $app_require$)
@@ -42236,7 +42236,7 @@ exports[`hap-toolkit compile native: <CWD>/packages/hap-dsl-xvm/lib/loaders/ux-l
 "
 var $app_style$ = require(\\"!../../../../../../packages/hap-dsl-xvm/lib/loaders/style-loader.js?index=0&type=style!../../../../../../packages/hap-dsl-xvm/lib/loaders/fragment-loader.js?index=0&type=style!./index.ux?uxType=page\\")
 
-var $app_script$ = require(\\"!../../../../../../packages/hap-dsl-xvm/lib/loaders/script-loader.js!../../../../../../packages/hap-packager/lib/loaders/module-loader.js!../../../../../../node_modules/babel-loader/lib/index.js?cwd=<project-root>&cacheDirectory&plugins[]=<CWD>/packages/hap-dsl-xvm/lib/loaders/babel-plugin-jsx.js&comments=false&configFile=<project-root>/babel.config.js!../../../../../../packages/hap-dsl-xvm/lib/loaders/access-loader.js!../../../../../../packages/hap-dsl-xvm/lib/loaders/fragment-loader.js?index=0&type=script!./index.ux?uxType=page\\")
+var $app_script$ = require(\\"!../../../../../../packages/hap-dsl-xvm/lib/loaders/script-loader.js!../../../../../../node_modules/@hap-toolkit/packager/lib/loaders/module-loader.js!../../../../../../node_modules/babel-loader/lib/index.js?cwd=<project-root>&cacheDirectory&plugins[]=<CWD>/packages/hap-dsl-xvm/lib/loaders/babel-plugin-jsx.js&comments=false&configFile=<project-root>/babel.config.js!../../../../../../packages/hap-dsl-xvm/lib/loaders/access-loader.js!../../../../../../packages/hap-dsl-xvm/lib/loaders/fragment-loader.js?index=0&type=script!./index.ux?uxType=page\\")
 
 $app_define$('@app-component/index', [], function($app_require$, $app_exports$, $app_module$) {
      $app_script$($app_module$, $app_exports$, $app_require$)
@@ -42254,7 +42254,7 @@ exports[`hap-toolkit compile native: <CWD>/packages/hap-dsl-xvm/lib/loaders/ux-l
 "
 var $app_style$ = require(\\"!../../../../../../packages/hap-dsl-xvm/lib/loaders/style-loader.js?index=0&type=style!../../../../../../packages/hap-dsl-xvm/lib/loaders/fragment-loader.js?index=0&type=style!./index.ux?uxType=page\\")
 
-var $app_script$ = require(\\"!../../../../../../packages/hap-dsl-xvm/lib/loaders/script-loader.js!../../../../../../packages/hap-packager/lib/loaders/module-loader.js!../../../../../../node_modules/babel-loader/lib/index.js?cwd=<project-root>&cacheDirectory&plugins[]=<CWD>/packages/hap-dsl-xvm/lib/loaders/babel-plugin-jsx.js&comments=false&configFile=<project-root>/babel.config.js!../../../../../../packages/hap-dsl-xvm/lib/loaders/access-loader.js!../../../../../../packages/hap-dsl-xvm/lib/loaders/fragment-loader.js?index=0&type=script!./index.ux?uxType=page\\")
+var $app_script$ = require(\\"!../../../../../../packages/hap-dsl-xvm/lib/loaders/script-loader.js!../../../../../../node_modules/@hap-toolkit/packager/lib/loaders/module-loader.js!../../../../../../node_modules/babel-loader/lib/index.js?cwd=<project-root>&cacheDirectory&plugins[]=<CWD>/packages/hap-dsl-xvm/lib/loaders/babel-plugin-jsx.js&comments=false&configFile=<project-root>/babel.config.js!../../../../../../packages/hap-dsl-xvm/lib/loaders/access-loader.js!../../../../../../packages/hap-dsl-xvm/lib/loaders/fragment-loader.js?index=0&type=script!./index.ux?uxType=page\\")
 
 $app_define$('@app-component/index', [], function($app_require$, $app_exports$, $app_module$) {
      $app_script$($app_module$, $app_exports$, $app_require$)
@@ -42272,7 +42272,7 @@ exports[`hap-toolkit compile native: <CWD>/packages/hap-dsl-xvm/lib/loaders/ux-l
 "
 var $app_style$ = require(\\"!../../../../../../packages/hap-dsl-xvm/lib/loaders/style-loader.js?index=0&type=style!../../../../../../packages/hap-dsl-xvm/lib/loaders/fragment-loader.js?index=0&type=style!./index.ux?uxType=page\\")
 
-var $app_script$ = require(\\"!../../../../../../packages/hap-dsl-xvm/lib/loaders/script-loader.js!../../../../../../packages/hap-packager/lib/loaders/module-loader.js!../../../../../../node_modules/babel-loader/lib/index.js?cwd=<project-root>&cacheDirectory&plugins[]=<CWD>/packages/hap-dsl-xvm/lib/loaders/babel-plugin-jsx.js&comments=false&configFile=<project-root>/babel.config.js!../../../../../../packages/hap-dsl-xvm/lib/loaders/access-loader.js!../../../../../../packages/hap-dsl-xvm/lib/loaders/fragment-loader.js?index=0&type=script!./index.ux?uxType=page\\")
+var $app_script$ = require(\\"!../../../../../../packages/hap-dsl-xvm/lib/loaders/script-loader.js!../../../../../../node_modules/@hap-toolkit/packager/lib/loaders/module-loader.js!../../../../../../node_modules/babel-loader/lib/index.js?cwd=<project-root>&cacheDirectory&plugins[]=<CWD>/packages/hap-dsl-xvm/lib/loaders/babel-plugin-jsx.js&comments=false&configFile=<project-root>/babel.config.js!../../../../../../packages/hap-dsl-xvm/lib/loaders/access-loader.js!../../../../../../packages/hap-dsl-xvm/lib/loaders/fragment-loader.js?index=0&type=script!./index.ux?uxType=page\\")
 
 $app_define$('@app-component/index', [], function($app_require$, $app_exports$, $app_module$) {
      $app_script$($app_module$, $app_exports$, $app_require$)
@@ -42290,7 +42290,7 @@ exports[`hap-toolkit compile native: <CWD>/packages/hap-dsl-xvm/lib/loaders/ux-l
 "
 var $app_style$ = require(\\"!../../../../../../packages/hap-dsl-xvm/lib/loaders/style-loader.js?index=0&type=style!../../../../../../packages/hap-dsl-xvm/lib/loaders/fragment-loader.js?index=0&type=style!./index.ux?uxType=page\\")
 
-var $app_script$ = require(\\"!../../../../../../packages/hap-dsl-xvm/lib/loaders/script-loader.js!../../../../../../packages/hap-packager/lib/loaders/module-loader.js!../../../../../../node_modules/babel-loader/lib/index.js?cwd=<project-root>&cacheDirectory&plugins[]=<CWD>/packages/hap-dsl-xvm/lib/loaders/babel-plugin-jsx.js&comments=false&configFile=<project-root>/babel.config.js!../../../../../../packages/hap-dsl-xvm/lib/loaders/access-loader.js!../../../../../../packages/hap-dsl-xvm/lib/loaders/fragment-loader.js?index=0&type=script!./index.ux?uxType=page\\")
+var $app_script$ = require(\\"!../../../../../../packages/hap-dsl-xvm/lib/loaders/script-loader.js!../../../../../../node_modules/@hap-toolkit/packager/lib/loaders/module-loader.js!../../../../../../node_modules/babel-loader/lib/index.js?cwd=<project-root>&cacheDirectory&plugins[]=<CWD>/packages/hap-dsl-xvm/lib/loaders/babel-plugin-jsx.js&comments=false&configFile=<project-root>/babel.config.js!../../../../../../packages/hap-dsl-xvm/lib/loaders/access-loader.js!../../../../../../packages/hap-dsl-xvm/lib/loaders/fragment-loader.js?index=0&type=script!./index.ux?uxType=page\\")
 
 $app_define$('@app-component/index', [], function($app_require$, $app_exports$, $app_module$) {
      $app_script$($app_module$, $app_exports$, $app_require$)
@@ -42308,7 +42308,7 @@ exports[`hap-toolkit compile native: <CWD>/packages/hap-dsl-xvm/lib/loaders/ux-l
 "
 var $app_style$ = require(\\"!../../../../../../packages/hap-dsl-xvm/lib/loaders/style-loader.js?index=0&type=style!../../../../../../packages/hap-dsl-xvm/lib/loaders/fragment-loader.js?index=0&type=style!./index.ux?uxType=page\\")
 
-var $app_script$ = require(\\"!../../../../../../packages/hap-dsl-xvm/lib/loaders/script-loader.js!../../../../../../packages/hap-packager/lib/loaders/module-loader.js!../../../../../../node_modules/babel-loader/lib/index.js?cwd=<project-root>&cacheDirectory&plugins[]=<CWD>/packages/hap-dsl-xvm/lib/loaders/babel-plugin-jsx.js&comments=false&configFile=<project-root>/babel.config.js!../../../../../../packages/hap-dsl-xvm/lib/loaders/access-loader.js!../../../../../../packages/hap-dsl-xvm/lib/loaders/fragment-loader.js?index=0&type=script!./index.ux?uxType=page\\")
+var $app_script$ = require(\\"!../../../../../../packages/hap-dsl-xvm/lib/loaders/script-loader.js!../../../../../../node_modules/@hap-toolkit/packager/lib/loaders/module-loader.js!../../../../../../node_modules/babel-loader/lib/index.js?cwd=<project-root>&cacheDirectory&plugins[]=<CWD>/packages/hap-dsl-xvm/lib/loaders/babel-plugin-jsx.js&comments=false&configFile=<project-root>/babel.config.js!../../../../../../packages/hap-dsl-xvm/lib/loaders/access-loader.js!../../../../../../packages/hap-dsl-xvm/lib/loaders/fragment-loader.js?index=0&type=script!./index.ux?uxType=page\\")
 
 $app_define$('@app-component/index', [], function($app_require$, $app_exports$, $app_module$) {
      $app_script$($app_module$, $app_exports$, $app_require$)
@@ -42326,7 +42326,7 @@ exports[`hap-toolkit compile native: <CWD>/packages/hap-dsl-xvm/lib/loaders/ux-l
 "
 var $app_style$ = require(\\"!../../../../../../packages/hap-dsl-xvm/lib/loaders/style-loader.js?index=0&type=style!../../../../../../packages/hap-dsl-xvm/lib/loaders/fragment-loader.js?index=0&type=style!./index.ux?uxType=page\\")
 
-var $app_script$ = require(\\"!../../../../../../packages/hap-dsl-xvm/lib/loaders/script-loader.js!../../../../../../packages/hap-packager/lib/loaders/module-loader.js!../../../../../../node_modules/babel-loader/lib/index.js?cwd=<project-root>&cacheDirectory&plugins[]=<CWD>/packages/hap-dsl-xvm/lib/loaders/babel-plugin-jsx.js&comments=false&configFile=<project-root>/babel.config.js!../../../../../../packages/hap-dsl-xvm/lib/loaders/access-loader.js!../../../../../../packages/hap-dsl-xvm/lib/loaders/fragment-loader.js?index=0&type=script!./index.ux?uxType=page\\")
+var $app_script$ = require(\\"!../../../../../../packages/hap-dsl-xvm/lib/loaders/script-loader.js!../../../../../../node_modules/@hap-toolkit/packager/lib/loaders/module-loader.js!../../../../../../node_modules/babel-loader/lib/index.js?cwd=<project-root>&cacheDirectory&plugins[]=<CWD>/packages/hap-dsl-xvm/lib/loaders/babel-plugin-jsx.js&comments=false&configFile=<project-root>/babel.config.js!../../../../../../packages/hap-dsl-xvm/lib/loaders/access-loader.js!../../../../../../packages/hap-dsl-xvm/lib/loaders/fragment-loader.js?index=0&type=script!./index.ux?uxType=page\\")
 
 $app_define$('@app-component/index', [], function($app_require$, $app_exports$, $app_module$) {
      $app_script$($app_module$, $app_exports$, $app_require$)
@@ -42344,7 +42344,7 @@ exports[`hap-toolkit compile native: <CWD>/packages/hap-dsl-xvm/lib/loaders/ux-l
 "
 var $app_style$ = require(\\"!../../../../../../packages/hap-dsl-xvm/lib/loaders/style-loader.js?index=0&type=style!../../../../../../packages/hap-dsl-xvm/lib/loaders/fragment-loader.js?index=0&type=style!./index.ux?uxType=page\\")
 
-var $app_script$ = require(\\"!../../../../../../packages/hap-dsl-xvm/lib/loaders/script-loader.js!../../../../../../packages/hap-packager/lib/loaders/module-loader.js!../../../../../../node_modules/babel-loader/lib/index.js?cwd=<project-root>&cacheDirectory&plugins[]=<CWD>/packages/hap-dsl-xvm/lib/loaders/babel-plugin-jsx.js&comments=false&configFile=<project-root>/babel.config.js!../../../../../../packages/hap-dsl-xvm/lib/loaders/access-loader.js!../../../../../../packages/hap-dsl-xvm/lib/loaders/fragment-loader.js?index=0&type=script!./index.ux?uxType=page\\")
+var $app_script$ = require(\\"!../../../../../../packages/hap-dsl-xvm/lib/loaders/script-loader.js!../../../../../../node_modules/@hap-toolkit/packager/lib/loaders/module-loader.js!../../../../../../node_modules/babel-loader/lib/index.js?cwd=<project-root>&cacheDirectory&plugins[]=<CWD>/packages/hap-dsl-xvm/lib/loaders/babel-plugin-jsx.js&comments=false&configFile=<project-root>/babel.config.js!../../../../../../packages/hap-dsl-xvm/lib/loaders/access-loader.js!../../../../../../packages/hap-dsl-xvm/lib/loaders/fragment-loader.js?index=0&type=script!./index.ux?uxType=page\\")
 
 $app_define$('@app-component/index', [], function($app_require$, $app_exports$, $app_module$) {
      $app_script$($app_module$, $app_exports$, $app_require$)
@@ -42362,7 +42362,7 @@ exports[`hap-toolkit compile native: <CWD>/packages/hap-dsl-xvm/lib/loaders/ux-l
 "
 var $app_style$ = require(\\"!../../../../../../packages/hap-dsl-xvm/lib/loaders/style-loader.js?index=0&type=style!../../../../../../packages/hap-dsl-xvm/lib/loaders/fragment-loader.js?index=0&type=style!./index.ux?uxType=page\\")
 
-var $app_script$ = require(\\"!../../../../../../packages/hap-dsl-xvm/lib/loaders/script-loader.js!../../../../../../packages/hap-packager/lib/loaders/module-loader.js!../../../../../../node_modules/babel-loader/lib/index.js?cwd=<project-root>&cacheDirectory&plugins[]=<CWD>/packages/hap-dsl-xvm/lib/loaders/babel-plugin-jsx.js&comments=false&configFile=<project-root>/babel.config.js!../../../../../../packages/hap-dsl-xvm/lib/loaders/access-loader.js!../../../../../../packages/hap-dsl-xvm/lib/loaders/fragment-loader.js?index=0&type=script!./index.ux?uxType=page\\")
+var $app_script$ = require(\\"!../../../../../../packages/hap-dsl-xvm/lib/loaders/script-loader.js!../../../../../../node_modules/@hap-toolkit/packager/lib/loaders/module-loader.js!../../../../../../node_modules/babel-loader/lib/index.js?cwd=<project-root>&cacheDirectory&plugins[]=<CWD>/packages/hap-dsl-xvm/lib/loaders/babel-plugin-jsx.js&comments=false&configFile=<project-root>/babel.config.js!../../../../../../packages/hap-dsl-xvm/lib/loaders/access-loader.js!../../../../../../packages/hap-dsl-xvm/lib/loaders/fragment-loader.js?index=0&type=script!./index.ux?uxType=page\\")
 
 $app_define$('@app-component/index', [], function($app_require$, $app_exports$, $app_module$) {
      $app_script$($app_module$, $app_exports$, $app_require$)
@@ -42380,7 +42380,7 @@ exports[`hap-toolkit compile native: <CWD>/packages/hap-dsl-xvm/lib/loaders/ux-l
 "
 var $app_style$ = require(\\"!../../../../../../packages/hap-dsl-xvm/lib/loaders/style-loader.js?index=0&type=style!../../../../../../packages/hap-dsl-xvm/lib/loaders/fragment-loader.js?index=0&type=style!./index.ux?uxType=page\\")
 
-var $app_script$ = require(\\"!../../../../../../packages/hap-dsl-xvm/lib/loaders/script-loader.js!../../../../../../packages/hap-packager/lib/loaders/module-loader.js!../../../../../../node_modules/babel-loader/lib/index.js?cwd=<project-root>&cacheDirectory&plugins[]=<CWD>/packages/hap-dsl-xvm/lib/loaders/babel-plugin-jsx.js&comments=false&configFile=<project-root>/babel.config.js!../../../../../../packages/hap-dsl-xvm/lib/loaders/access-loader.js!../../../../../../packages/hap-dsl-xvm/lib/loaders/fragment-loader.js?index=0&type=script!./index.ux?uxType=page\\")
+var $app_script$ = require(\\"!../../../../../../packages/hap-dsl-xvm/lib/loaders/script-loader.js!../../../../../../node_modules/@hap-toolkit/packager/lib/loaders/module-loader.js!../../../../../../node_modules/babel-loader/lib/index.js?cwd=<project-root>&cacheDirectory&plugins[]=<CWD>/packages/hap-dsl-xvm/lib/loaders/babel-plugin-jsx.js&comments=false&configFile=<project-root>/babel.config.js!../../../../../../packages/hap-dsl-xvm/lib/loaders/access-loader.js!../../../../../../packages/hap-dsl-xvm/lib/loaders/fragment-loader.js?index=0&type=script!./index.ux?uxType=page\\")
 
 $app_define$('@app-component/index', [], function($app_require$, $app_exports$, $app_module$) {
      $app_script$($app_module$, $app_exports$, $app_require$)
@@ -42398,7 +42398,7 @@ exports[`hap-toolkit compile native: <CWD>/packages/hap-dsl-xvm/lib/loaders/ux-l
 "
 var $app_style$ = require(\\"!../../../../../../packages/hap-dsl-xvm/lib/loaders/style-loader.js?index=0&type=style!../../../../../../packages/hap-dsl-xvm/lib/loaders/fragment-loader.js?index=0&type=style!./index.ux?uxType=page\\")
 
-var $app_script$ = require(\\"!../../../../../../packages/hap-dsl-xvm/lib/loaders/script-loader.js!../../../../../../packages/hap-packager/lib/loaders/module-loader.js!../../../../../../node_modules/babel-loader/lib/index.js?cwd=<project-root>&cacheDirectory&plugins[]=<CWD>/packages/hap-dsl-xvm/lib/loaders/babel-plugin-jsx.js&comments=false&configFile=<project-root>/babel.config.js!../../../../../../packages/hap-dsl-xvm/lib/loaders/access-loader.js!../../../../../../packages/hap-dsl-xvm/lib/loaders/fragment-loader.js?index=0&type=script!./index.ux?uxType=page\\")
+var $app_script$ = require(\\"!../../../../../../packages/hap-dsl-xvm/lib/loaders/script-loader.js!../../../../../../node_modules/@hap-toolkit/packager/lib/loaders/module-loader.js!../../../../../../node_modules/babel-loader/lib/index.js?cwd=<project-root>&cacheDirectory&plugins[]=<CWD>/packages/hap-dsl-xvm/lib/loaders/babel-plugin-jsx.js&comments=false&configFile=<project-root>/babel.config.js!../../../../../../packages/hap-dsl-xvm/lib/loaders/access-loader.js!../../../../../../packages/hap-dsl-xvm/lib/loaders/fragment-loader.js?index=0&type=script!./index.ux?uxType=page\\")
 
 $app_define$('@app-component/index', [], function($app_require$, $app_exports$, $app_module$) {
      $app_script$($app_module$, $app_exports$, $app_require$)
@@ -42416,7 +42416,7 @@ exports[`hap-toolkit compile native: <CWD>/packages/hap-dsl-xvm/lib/loaders/ux-l
 "
 var $app_style$ = require(\\"!../../../../../../packages/hap-dsl-xvm/lib/loaders/style-loader.js?index=0&type=style!../../../../../../packages/hap-dsl-xvm/lib/loaders/fragment-loader.js?index=0&type=style!./index.ux?uxType=page\\")
 
-var $app_script$ = require(\\"!../../../../../../packages/hap-dsl-xvm/lib/loaders/script-loader.js!../../../../../../packages/hap-packager/lib/loaders/module-loader.js!../../../../../../node_modules/babel-loader/lib/index.js?cwd=<project-root>&cacheDirectory&plugins[]=<CWD>/packages/hap-dsl-xvm/lib/loaders/babel-plugin-jsx.js&comments=false&configFile=<project-root>/babel.config.js!../../../../../../packages/hap-dsl-xvm/lib/loaders/access-loader.js!../../../../../../packages/hap-dsl-xvm/lib/loaders/fragment-loader.js?index=0&type=script!./index.ux?uxType=page\\")
+var $app_script$ = require(\\"!../../../../../../packages/hap-dsl-xvm/lib/loaders/script-loader.js!../../../../../../node_modules/@hap-toolkit/packager/lib/loaders/module-loader.js!../../../../../../node_modules/babel-loader/lib/index.js?cwd=<project-root>&cacheDirectory&plugins[]=<CWD>/packages/hap-dsl-xvm/lib/loaders/babel-plugin-jsx.js&comments=false&configFile=<project-root>/babel.config.js!../../../../../../packages/hap-dsl-xvm/lib/loaders/access-loader.js!../../../../../../packages/hap-dsl-xvm/lib/loaders/fragment-loader.js?index=0&type=script!./index.ux?uxType=page\\")
 
 $app_define$('@app-component/index', [], function($app_require$, $app_exports$, $app_module$) {
      $app_script$($app_module$, $app_exports$, $app_require$)
@@ -42434,7 +42434,7 @@ exports[`hap-toolkit compile native: <CWD>/packages/hap-dsl-xvm/lib/loaders/ux-l
 "
 var $app_style$ = require(\\"!../../../../../../packages/hap-dsl-xvm/lib/loaders/style-loader.js?index=0&type=style!../../../../../../packages/hap-dsl-xvm/lib/loaders/fragment-loader.js?index=0&type=style!./index.ux?uxType=page\\")
 
-var $app_script$ = require(\\"!../../../../../../packages/hap-dsl-xvm/lib/loaders/script-loader.js!../../../../../../packages/hap-packager/lib/loaders/module-loader.js!../../../../../../node_modules/babel-loader/lib/index.js?cwd=<project-root>&cacheDirectory&plugins[]=<CWD>/packages/hap-dsl-xvm/lib/loaders/babel-plugin-jsx.js&comments=false&configFile=<project-root>/babel.config.js!../../../../../../packages/hap-dsl-xvm/lib/loaders/access-loader.js!../../../../../../packages/hap-dsl-xvm/lib/loaders/fragment-loader.js?index=0&type=script!./index.ux?uxType=page\\")
+var $app_script$ = require(\\"!../../../../../../packages/hap-dsl-xvm/lib/loaders/script-loader.js!../../../../../../node_modules/@hap-toolkit/packager/lib/loaders/module-loader.js!../../../../../../node_modules/babel-loader/lib/index.js?cwd=<project-root>&cacheDirectory&plugins[]=<CWD>/packages/hap-dsl-xvm/lib/loaders/babel-plugin-jsx.js&comments=false&configFile=<project-root>/babel.config.js!../../../../../../packages/hap-dsl-xvm/lib/loaders/access-loader.js!../../../../../../packages/hap-dsl-xvm/lib/loaders/fragment-loader.js?index=0&type=script!./index.ux?uxType=page\\")
 
 $app_define$('@app-component/index', [], function($app_require$, $app_exports$, $app_module$) {
      $app_script$($app_module$, $app_exports$, $app_require$)
@@ -42452,7 +42452,7 @@ exports[`hap-toolkit compile native: <CWD>/packages/hap-dsl-xvm/lib/loaders/ux-l
 "
 var $app_style$ = require(\\"!../../../../../../packages/hap-dsl-xvm/lib/loaders/style-loader.js?index=0&type=style!../../../../../../packages/hap-dsl-xvm/lib/loaders/fragment-loader.js?index=0&type=style!./index.ux?uxType=page\\")
 
-var $app_script$ = require(\\"!../../../../../../packages/hap-dsl-xvm/lib/loaders/script-loader.js!../../../../../../packages/hap-packager/lib/loaders/module-loader.js!../../../../../../node_modules/babel-loader/lib/index.js?cwd=<project-root>&cacheDirectory&plugins[]=<CWD>/packages/hap-dsl-xvm/lib/loaders/babel-plugin-jsx.js&comments=false&configFile=<project-root>/babel.config.js!../../../../../../packages/hap-dsl-xvm/lib/loaders/access-loader.js!../../../../../../packages/hap-dsl-xvm/lib/loaders/fragment-loader.js?index=0&type=script!./index.ux?uxType=page\\")
+var $app_script$ = require(\\"!../../../../../../packages/hap-dsl-xvm/lib/loaders/script-loader.js!../../../../../../node_modules/@hap-toolkit/packager/lib/loaders/module-loader.js!../../../../../../node_modules/babel-loader/lib/index.js?cwd=<project-root>&cacheDirectory&plugins[]=<CWD>/packages/hap-dsl-xvm/lib/loaders/babel-plugin-jsx.js&comments=false&configFile=<project-root>/babel.config.js!../../../../../../packages/hap-dsl-xvm/lib/loaders/access-loader.js!../../../../../../packages/hap-dsl-xvm/lib/loaders/fragment-loader.js?index=0&type=script!./index.ux?uxType=page\\")
 
 $app_define$('@app-component/index', [], function($app_require$, $app_exports$, $app_module$) {
      $app_script$($app_module$, $app_exports$, $app_require$)
@@ -42470,7 +42470,7 @@ exports[`hap-toolkit compile native: <CWD>/packages/hap-dsl-xvm/lib/loaders/ux-l
 "
 var $app_style$ = require(\\"!../../../../../../packages/hap-dsl-xvm/lib/loaders/style-loader.js?index=0&type=style!../../../../../../packages/hap-dsl-xvm/lib/loaders/fragment-loader.js?index=0&type=style!./index.ux?uxType=page\\")
 
-var $app_script$ = require(\\"!../../../../../../packages/hap-dsl-xvm/lib/loaders/script-loader.js!../../../../../../packages/hap-packager/lib/loaders/module-loader.js!../../../../../../node_modules/babel-loader/lib/index.js?cwd=<project-root>&cacheDirectory&plugins[]=<CWD>/packages/hap-dsl-xvm/lib/loaders/babel-plugin-jsx.js&comments=false&configFile=<project-root>/babel.config.js!../../../../../../packages/hap-dsl-xvm/lib/loaders/access-loader.js!../../../../../../packages/hap-dsl-xvm/lib/loaders/fragment-loader.js?index=0&type=script!./index.ux?uxType=page\\")
+var $app_script$ = require(\\"!../../../../../../packages/hap-dsl-xvm/lib/loaders/script-loader.js!../../../../../../node_modules/@hap-toolkit/packager/lib/loaders/module-loader.js!../../../../../../node_modules/babel-loader/lib/index.js?cwd=<project-root>&cacheDirectory&plugins[]=<CWD>/packages/hap-dsl-xvm/lib/loaders/babel-plugin-jsx.js&comments=false&configFile=<project-root>/babel.config.js!../../../../../../packages/hap-dsl-xvm/lib/loaders/access-loader.js!../../../../../../packages/hap-dsl-xvm/lib/loaders/fragment-loader.js?index=0&type=script!./index.ux?uxType=page\\")
 
 $app_define$('@app-component/index', [], function($app_require$, $app_exports$, $app_module$) {
      $app_script$($app_module$, $app_exports$, $app_require$)
@@ -42488,7 +42488,7 @@ exports[`hap-toolkit compile native: <CWD>/packages/hap-dsl-xvm/lib/loaders/ux-l
 "
 var $app_style$ = require(\\"!../../../../../../../packages/hap-dsl-xvm/lib/loaders/style-loader.js?index=0&type=style!../../../../../../../packages/hap-dsl-xvm/lib/loaders/fragment-loader.js?index=0&type=style!./titlebar.ux?uxType=comp\\")
 
-var $app_script$ = require(\\"!../../../../../../../packages/hap-dsl-xvm/lib/loaders/script-loader.js!../../../../../../../packages/hap-packager/lib/loaders/module-loader.js!../../../../../../../node_modules/babel-loader/lib/index.js?cwd=<project-root>&cacheDirectory&plugins[]=<CWD>/packages/hap-dsl-xvm/lib/loaders/babel-plugin-jsx.js&comments=false&configFile=<project-root>/babel.config.js!../../../../../../../packages/hap-dsl-xvm/lib/loaders/fragment-loader.js?index=0&type=script!./titlebar.ux?uxType=comp\\")
+var $app_script$ = require(\\"!../../../../../../../packages/hap-dsl-xvm/lib/loaders/script-loader.js!../../../../../../../node_modules/@hap-toolkit/packager/lib/loaders/module-loader.js!../../../../../../../node_modules/babel-loader/lib/index.js?cwd=<project-root>&cacheDirectory&plugins[]=<CWD>/packages/hap-dsl-xvm/lib/loaders/babel-plugin-jsx.js&comments=false&configFile=<project-root>/babel.config.js!../../../../../../../packages/hap-dsl-xvm/lib/loaders/fragment-loader.js?index=0&type=script!./titlebar.ux?uxType=comp\\")
 
 $app_define$('@app-component/titlebar', [], function($app_require$, $app_exports$, $app_module$) {
      $app_script$($app_module$, $app_exports$, $app_require$)
@@ -42505,7 +42505,7 @@ exports[`hap-toolkit compile native: <CWD>/packages/hap-dsl-xvm/lib/loaders/ux-l
 "
 var $app_style$ = require(\\"!../../../../../packages/hap-dsl-xvm/lib/loaders/style-loader.js?index=0&type=style!less-loader!../../../../../packages/hap-dsl-xvm/lib/loaders/fragment-loader.js?index=0&type=style!./ux-title-bar.ux?uxType=comp\\")
 
-var $app_script$ = require(\\"!../../../../../packages/hap-dsl-xvm/lib/loaders/script-loader.js!../../../../../packages/hap-packager/lib/loaders/module-loader.js!../../../../../node_modules/babel-loader/lib/index.js?cwd=<project-root>&cacheDirectory&plugins[]=<CWD>/packages/hap-dsl-xvm/lib/loaders/babel-plugin-jsx.js&comments=false&configFile=<project-root>/babel.config.js!../../../../../packages/hap-dsl-xvm/lib/loaders/fragment-loader.js?index=0&type=script!./ux-title-bar.ux?uxType=comp\\")
+var $app_script$ = require(\\"!../../../../../packages/hap-dsl-xvm/lib/loaders/script-loader.js!../../../../../node_modules/@hap-toolkit/packager/lib/loaders/module-loader.js!../../../../../node_modules/babel-loader/lib/index.js?cwd=<project-root>&cacheDirectory&plugins[]=<CWD>/packages/hap-dsl-xvm/lib/loaders/babel-plugin-jsx.js&comments=false&configFile=<project-root>/babel.config.js!../../../../../packages/hap-dsl-xvm/lib/loaders/fragment-loader.js?index=0&type=script!./ux-title-bar.ux?uxType=comp\\")
 
 $app_define$('@app-component/titlebar', [], function($app_require$, $app_exports$, $app_module$) {
      $app_script$($app_module$, $app_exports$, $app_require$)

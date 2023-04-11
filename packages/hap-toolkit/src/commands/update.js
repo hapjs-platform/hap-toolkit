@@ -3,6 +3,7 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
+import { sync as resolveSync } from 'resolve'
 import path from '@jayfate/path'
 import fs from 'fs-extra'
 import glob from 'glob'
@@ -17,17 +18,9 @@ import { formatDate } from './utils'
 const curDir = process.cwd()
 const packageInfo = require('../../package.json')
 
-// DSL路径预先定义
-const dslModuleXvmDir = path.dirname(require.resolve('@hap-toolkit/dsl-xvm/package.json'))
-// const dslModuleVueDir = path.dirname(require.resolve('@hap-toolkit/dsl-vue/package.json'))
-const dslModuleHash = {
-  xvm: dslModuleXvmDir
-  // vue: dslModuleVueDir
-}
-
 // 名称
 let dslName
-let dslModuleDir
+let dslModuleDir = path.dirname(resolveSync('@hap-toolkit/dsl-xvm/package.json'))
 
 // 检测工程版本
 function checkVersion() {
@@ -311,7 +304,6 @@ function updateProject(options) {
   if (dslName === 'vue') {
     console.error(`hap-toolkit >= 1.9.0版本暂不支持 dsl = vue!`)
   }
-  dslModuleDir = dslModuleHash[dslName]
 
   upgradePackage(options).then(() => {
     // 升级签名

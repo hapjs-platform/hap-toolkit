@@ -3,8 +3,9 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-const path = require('@jayfate/path')
 const fs = require('fs')
+const resolveSync = require('resolve/sync')
+const path = require('@jayfate/path')
 const webpack = require('webpack')
 const {
   readJson,
@@ -41,8 +42,8 @@ const {
 } = require('./validate')
 
 const pathMap = {
-  packager: require.resolve('@hap-toolkit/packager/lib/webpack.post.js'),
-  xvm: require.resolve(`@hap-toolkit/dsl-xvm/lib/webpack.post.js`)
+  packager: resolveSync('@hap-toolkit/packager/lib/webpack.post.js'),
+  xvm: resolveSync(`@hap-toolkit/dsl-xvm/lib/webpack.post.js`)
 }
 
 const ideConfig = require('./ide.config')

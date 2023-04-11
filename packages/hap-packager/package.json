@@ -46,6 +46,7 @@
     "loader-utils": "2.0.2",
     "moment": "^2.25.3",
     "qr-image": "^3.2.0",
+    "resolve": "^1.22.2",
     "webpack": "5.72.0",
     "webpack-bundle-analyzer": "^3.5.0"
   }

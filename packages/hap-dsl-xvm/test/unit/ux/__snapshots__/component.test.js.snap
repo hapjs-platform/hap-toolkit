@@ -5138,7 +5138,7 @@ exports[`Component 编译测试 ux components: ../../../lib/loaders/ux-loader.js
 "
 var $app_style$ = require(\\"!../../../../../lib/loaders/style-loader.js?index=0&type=style!../../../../../lib/loaders/fragment-loader.js?index=0&type=style!./baseCheckbox.ux?uxType=comp\\")
 
-var $app_script$ = require(\\"!../../../../../lib/loaders/script-loader.js!../../../../../../hap-packager/lib/loaders/module-loader.js!../../../../../../../node_modules/babel-loader/lib/index.js?cwd=<CWD>&cacheDirectory&plugins[]=<CWD>/packages/hap-dsl-xvm/lib/loaders/babel-plugin-jsx.js&comments=false&configFile=<CWD>/babel.config.js!../../../../../lib/loaders/fragment-loader.js?index=0&type=script!./baseCheckbox.ux?uxType=comp\\")
+var $app_script$ = require(\\"!../../../../../lib/loaders/script-loader.js!../../../../../../../node_modules/@hap-toolkit/packager/lib/loaders/module-loader.js!../../../../../../../node_modules/babel-loader/lib/index.js?cwd=<CWD>&cacheDirectory&plugins[]=<CWD>/packages/hap-dsl-xvm/lib/loaders/babel-plugin-jsx.js&comments=false&configFile=<CWD>/babel.config.js!../../../../../lib/loaders/fragment-loader.js?index=0&type=script!./baseCheckbox.ux?uxType=comp\\")
 
 $app_define$('@app-component/base-checkbox', [], function($app_require$, $app_exports$, $app_module$) {
      $app_script$($app_module$, $app_exports$, $app_require$)
@@ -5155,7 +5155,7 @@ exports[`Component 编译测试 ux components: ./TestComponent/A/testa.ux?uxType
 "
 var $app_style$ = require(\\"!../../../../../lib/loaders/style-loader.js?index=0&type=style!../../../../../lib/loaders/fragment-loader.js?index=0&type=style!./testa.ux?uxType=page\\")
 
-var $app_script$ = require(\\"!../../../../../lib/loaders/script-loader.js!../../../../../../hap-packager/lib/loaders/module-loader.js!../../../../../../../node_modules/babel-loader/lib/index.js?cwd=<CWD>&cacheDirectory&plugins[]=<CWD>/packages/hap-dsl-xvm/lib/loaders/babel-plugin-jsx.js&comments=false&configFile=<CWD>/babel.config.js!../../../../../lib/loaders/access-loader.js!../../../../../lib/loaders/fragment-loader.js?index=0&type=script!./testa.ux?uxType=page\\")
+var $app_script$ = require(\\"!../../../../../lib/loaders/script-loader.js!../../../../../../../node_modules/@hap-toolkit/packager/lib/loaders/module-loader.js!../../../../../../../node_modules/babel-loader/lib/index.js?cwd=<CWD>&cacheDirectory&plugins[]=<CWD>/packages/hap-dsl-xvm/lib/loaders/babel-plugin-jsx.js&comments=false&configFile=<CWD>/babel.config.js!../../../../../lib/loaders/access-loader.js!../../../../../lib/loaders/fragment-loader.js?index=0&type=script!./testa.ux?uxType=page\\")
 
 $app_define$('@app-component/testa', [], function($app_require$, $app_exports$, $app_module$) {
      $app_script$($app_module$, $app_exports$, $app_require$)
@@ -5173,7 +5173,7 @@ exports[`Component 编译测试 ux components: ./TestComponent/Ad/testad.ux?uxTy
 "
 var $app_style$ = require(\\"!../../../../../lib/loaders/style-loader.js?index=0&type=style!../../../../../lib/loaders/fragment-loader.js?index=0&type=style!./testad.ux?uxType=page\\")
 
-var $app_script$ = require(\\"!../../../../../lib/loaders/script-loader.js!../../../../../../hap-packager/lib/loaders/module-loader.js!../../../../../../../node_modules/babel-loader/lib/index.js?cwd=<CWD>&cacheDirectory&plugins[]=<CWD>/packages/hap-dsl-xvm/lib/loaders/babel-plugin-jsx.js&comments=false&configFile=<CWD>/babel.config.js!../../../../../lib/loaders/access-loader.js!../../../../../lib/loaders/fragment-loader.js?index=0&type=script!./testad.ux?uxType=page\\")
+var $app_script$ = require(\\"!../../../../../lib/loaders/script-loader.js!../../../../../../../node_modules/@hap-toolkit/packager/lib/loaders/module-loader.js!../../../../../../../node_modules/babel-loader/lib/index.js?cwd=<CWD>&cacheDirectory&plugins[]=<CWD>/packages/hap-dsl-xvm/lib/loaders/babel-plugin-jsx.js&comments=false&configFile=<CWD>/babel.config.js!../../../../../lib/loaders/access-loader.js!../../../../../lib/loaders/fragment-loader.js?index=0&type=script!./testad.ux?uxType=page\\")
 
 $app_define$('@app-component/testad', [], function($app_require$, $app_exports$, $app_module$) {
      $app_script$($app_module$, $app_exports$, $app_require$)
@@ -5191,7 +5191,7 @@ exports[`Component 编译测试 ux components: ./TestComponent/Camera/testcamera
 "
 var $app_style$ = require(\\"!../../../../../lib/loaders/style-loader.js?index=0&type=style!../../../../../lib/loaders/fragment-loader.js?index=0&type=style!./testcamera.ux?uxType=page\\")
 
-var $app_script$ = require(\\"!../../../../../lib/loaders/script-loader.js!../../../../../../hap-packager/lib/loaders/module-loader.js!../../../../../../../node_modules/babel-loader/lib/index.js?cwd=<CWD>&cacheDirectory&plugins[]=<CWD>/packages/hap-dsl-xvm/lib/loaders/babel-plugin-jsx.js&comments=false&configFile=<CWD>/babel.config.js!../../../../../lib/loaders/access-loader.js!../../../../../lib/loaders/fragment-loader.js?index=0&type=script!./testcamera.ux?uxType=page\\")
+var $app_script$ = require(\\"!../../../../../lib/loaders/script-loader.js!../../../../../../../node_modules/@hap-toolkit/packager/lib/loaders/module-loader.js!../../../../../../../node_modules/babel-loader/lib/index.js?cwd=<CWD>&cacheDirectory&plugins[]=<CWD>/packages/hap-dsl-xvm/lib/loaders/babel-plugin-jsx.js&comments=false&configFile=<CWD>/babel.config.js!../../../../../lib/loaders/access-loader.js!../../../../../lib/loaders/fragment-loader.js?index=0&type=script!./testcamera.ux?uxType=page\\")
 
 $app_define$('@app-component/testcamera', [], function($app_require$, $app_exports$, $app_module$) {
      $app_script$($app_module$, $app_exports$, $app_require$)
@@ -5231,7 +5231,7 @@ exports[`Component 编译测试 ux components: ./TestComponent/Div/testdiv.ux?ux
 "
 var $app_style$ = require(\\"!../../../../../lib/loaders/style-loader.js?index=0&type=style!../../../../../lib/loaders/fragment-loader.js?index=0&type=style!./testdiv.ux?uxType=page\\")
 
-var $app_script$ = require(\\"!../../../../../lib/loaders/script-loader.js!../../../../../../hap-packager/lib/loaders/module-loader.js!../../../../../../../node_modules/babel-loader/lib/index.js?cwd=<CWD>&cacheDirectory&plugins[]=<CWD>/packages/hap-dsl-xvm/lib/loaders/babel-plugin-jsx.js&comments=false&configFile=<CWD>/babel.config.js!../../../../../lib/loaders/access-loader.js!../../../../../lib/loaders/fragment-loader.js?index=0&type=script!./testdiv.ux?uxType=page\\")
+var $app_script$ = require(\\"!../../../../../lib/loaders/script-loader.js!../../../../../../../node_modules/@hap-toolkit/packager/lib/loaders/module-loader.js!../../../../../../../node_modules/babel-loader/lib/index.js?cwd=<CWD>&cacheDirectory&plugins[]=<CWD>/packages/hap-dsl-xvm/lib/loaders/babel-plugin-jsx.js&comments=false&configFile=<CWD>/babel.config.js!../../../../../lib/loaders/access-loader.js!../../../../../lib/loaders/fragment-loader.js?index=0&type=script!./testdiv.ux?uxType=page\\")
 
 $app_define$('@app-component/testdiv', [], function($app_require$, $app_exports$, $app_module$) {
      $app_script$($app_module$, $app_exports$, $app_require$)
@@ -5249,7 +5249,7 @@ exports[`Component 编译测试 ux components: ./TestComponent/Drawer/testdrawer
 "
 var $app_style$ = require(\\"!../../../../../lib/loaders/style-loader.js?index=0&type=style!../../../../../lib/loaders/fragment-loader.js?index=0&type=style!./testdrawer.ux?uxType=page\\")
 
-var $app_script$ = require(\\"!../../../../../lib/loaders/script-loader.js!../../../../../../hap-packager/lib/loaders/module-loader.js!../../../../../../../node_modules/babel-loader/lib/index.js?cwd=<CWD>&cacheDirectory&plugins[]=<CWD>/packages/hap-dsl-xvm/lib/loaders/babel-plugin-jsx.js&comments=false&configFile=<CWD>/babel.config.js!../../../../../lib/loaders/access-loader.js!../../../../../lib/loaders/fragment-loader.js?index=0&type=script!./testdrawer.ux?uxType=page\\")
+var $app_script$ = require(\\"!../../../../../lib/loaders/script-loader.js!../../../../../../../node_modules/@hap-toolkit/packager/lib/loaders/module-loader.js!../../../../../../../node_modules/babel-loader/lib/index.js?cwd=<CWD>&cacheDirectory&plugins[]=<CWD>/packages/hap-dsl-xvm/lib/loaders/babel-plugin-jsx.js&comments=false&configFile=<CWD>/babel.config.js!../../../../../lib/loaders/access-loader.js!../../../../../lib/loaders/fragment-loader.js?index=0&type=script!./testdrawer.ux?uxType=page\\")
 
 $app_define$('@app-component/testdrawer', [], function($app_require$, $app_exports$, $app_module$) {
      $app_script$($app_module$, $app_exports$, $app_require$)
@@ -5267,7 +5267,7 @@ exports[`Component 编译测试 ux components: ./TestComponent/Image/testimage.u
 "
 var $app_style$ = require(\\"!../../../../../lib/loaders/style-loader.js?index=0&type=style!../../../../../lib/loaders/fragment-loader.js?index=0&type=style!./testimage.ux?uxType=page\\")
 
-var $app_script$ = require(\\"!../../../../../lib/loaders/script-loader.js!../../../../../../hap-packager/lib/loaders/module-loader.js!../../../../../../../node_modules/babel-loader/lib/index.js?cwd=<CWD>&cacheDirectory&plugins[]=<CWD>/packages/hap-dsl-xvm/lib/loaders/babel-plugin-jsx.js&comments=false&configFile=<CWD>/babel.config.js!../../../../../lib/loaders/access-loader.js!../../../../../lib/loaders/fragment-loader.js?index=0&type=script!./testimage.ux?uxType=page\\")
+var $app_script$ = require(\\"!../../../../../lib/loaders/script-loader.js!../../../../../../../node_modules/@hap-toolkit/packager/lib/loaders/module-loader.js!../../../../../../../node_modules/babel-loader/lib/index.js?cwd=<CWD>&cacheDirectory&plugins[]=<CWD>/packages/hap-dsl-xvm/lib/loaders/babel-plugin-jsx.js&comments=false&configFile=<CWD>/babel.config.js!../../../../../lib/loaders/access-loader.js!../../../../../lib/loaders/fragment-loader.js?index=0&type=script!./testimage.ux?uxType=page\\")
 
 $app_define$('@app-component/testimage', [], function($app_require$, $app_exports$, $app_module$) {
      $app_script$($app_module$, $app_exports$, $app_require$)
@@ -5285,7 +5285,7 @@ exports[`Component 编译测试 ux components: ./TestComponent/Input/testinput.u
 "
 var $app_style$ = require(\\"!../../../../../lib/loaders/style-loader.js?index=0&type=style!../../../../../lib/loaders/fragment-loader.js?index=0&type=style!./testinput.ux?uxType=page\\")
 
-var $app_script$ = require(\\"!../../../../../lib/loaders/script-loader.js!../../../../../../hap-packager/lib/loaders/module-loader.js!../../../../../../../node_modules/babel-loader/lib/index.js?cwd=<CWD>&cacheDirectory&plugins[]=<CWD>/packages/hap-dsl-xvm/lib/loaders/babel-plugin-jsx.js&comments=false&configFile=<CWD>/babel.config.js!../../../../../lib/loaders/access-loader.js!../../../../../lib/loaders/fragment-loader.js?index=0&type=script!./testinput.ux?uxType=page\\")
+var $app_script$ = require(\\"!../../../../../lib/loaders/script-loader.js!../../../../../../../node_modules/@hap-toolkit/packager/lib/loaders/module-loader.js!../../../../../../../node_modules/babel-loader/lib/index.js?cwd=<CWD>&cacheDirectory&plugins[]=<CWD>/packages/hap-dsl-xvm/lib/loaders/babel-plugin-jsx.js&comments=false&configFile=<CWD>/babel.config.js!../../../../../lib/loaders/access-loader.js!../../../../../lib/loaders/fragment-loader.js?index=0&type=script!./testinput.ux?uxType=page\\")
 
 $app_define$('@app-component/testinput', [], function($app_require$, $app_exports$, $app_module$) {
      $app_script$($app_module$, $app_exports$, $app_require$)
@@ -5303,7 +5303,7 @@ exports[`Component 编译测试 ux components: ./TestComponent/Label/testlabel.u
 "
 var $app_style$ = require(\\"!../../../../../lib/loaders/style-loader.js?index=0&type=style!../../../../../lib/loaders/fragment-loader.js?index=0&type=style!./testlabel.ux?uxType=page\\")
 
-var $app_script$ = require(\\"!../../../../../lib/loaders/script-loader.js!../../../../../../hap-packager/lib/loaders/module-loader.js!../../../../../../../node_modules/babel-loader/lib/index.js?cwd=<CWD>&cacheDirectory&plugins[]=<CWD>/packages/hap-dsl-xvm/lib/loaders/babel-plugin-jsx.js&comments=false&configFile=<CWD>/babel.config.js!../../../../../lib/loaders/access-loader.js!../../../../../lib/loaders/fragment-loader.js?index=0&type=script!./testlabel.ux?uxType=page\\")
+var $app_script$ = require(\\"!../../../../../lib/loaders/script-loader.js!../../../../../../../node_modules/@hap-toolkit/packager/lib/loaders/module-loader.js!../../../../../../../node_modules/babel-loader/lib/index.js?cwd=<CWD>&cacheDirectory&plugins[]=<CWD>/packages/hap-dsl-xvm/lib/loaders/babel-plugin-jsx.js&comments=false&configFile=<CWD>/babel.config.js!../../../../../lib/loaders/access-loader.js!../../../../../lib/loaders/fragment-loader.js?index=0&type=script!./testlabel.ux?uxType=page\\")
 
 $app_define$('@app-component/testlabel', [], function($app_require$, $app_exports$, $app_module$) {
      $app_script$($app_module$, $app_exports$, $app_require$)
@@ -5321,7 +5321,7 @@ exports[`Component 编译测试 ux components: ./TestComponent/List/testlist.ux?
 "
 var $app_style$ = require(\\"!../../../../../lib/loaders/style-loader.js?index=0&type=style!../../../../../lib/loaders/fragment-loader.js?index=0&type=style!./testlist.ux?uxType=page\\")
 
-var $app_script$ = require(\\"!../../../../../lib/loaders/script-loader.js!../../../../../../hap-packager/lib/loaders/module-loader.js!../../../../../../../node_modules/babel-loader/lib/index.js?cwd=<CWD>&cacheDirectory&plugins[]=<CWD>/packages/hap-dsl-xvm/lib/loaders/babel-plugin-jsx.js&comments=false&configFile=<CWD>/babel.config.js!../../../../../lib/loaders/access-loader.js!../../../../../lib/loaders/fragment-loader.js?index=0&type=script!./testlist.ux?uxType=page\\")
+var $app_script$ = require(\\"!../../../../../lib/loaders/script-loader.js!../../../../../../../node_modules/@hap-toolkit/packager/lib/loaders/module-loader.js!../../../../../../../node_modules/babel-loader/lib/index.js?cwd=<CWD>&cacheDirectory&plugins[]=<CWD>/packages/hap-dsl-xvm/lib/loaders/babel-plugin-jsx.js&comments=false&configFile=<CWD>/babel.config.js!../../../../../lib/loaders/access-loader.js!../../../../../lib/loaders/fragment-loader.js?index=0&type=script!./testlist.ux?uxType=page\\")
 
 $app_define$('@app-component/testlist', [], function($app_require$, $app_exports$, $app_module$) {
      $app_script$($app_module$, $app_exports$, $app_require$)
@@ -5339,7 +5339,7 @@ exports[`Component 编译测试 ux components: ./TestComponent/Lottie/testlottie
 "
 var $app_style$ = require(\\"!../../../../../lib/loaders/style-loader.js?index=0&type=style!../../../../../lib/loaders/fragment-loader.js?index=0&type=style!./testlottie.ux?uxType=page\\")
 
-var $app_script$ = require(\\"!../../../../../lib/loaders/script-loader.js!../../../../../../hap-packager/lib/loaders/module-loader.js!../../../../../../../node_modules/babel-loader/lib/index.js?cwd=<CWD>&cacheDirectory&plugins[]=<CWD>/packages/hap-dsl-xvm/lib/loaders/babel-plugin-jsx.js&comments=false&configFile=<CWD>/babel.config.js!../../../../../lib/loaders/access-loader.js!../../../../../lib/loaders/fragment-loader.js?index=0&type=script!./testlottie.ux?uxType=page\\")
+var $app_script$ = require(\\"!../../../../../lib/loaders/script-loader.js!../../../../../../../node_modules/@hap-toolkit/packager/lib/loaders/module-loader.js!../../../../../../../node_modules/babel-loader/lib/index.js?cwd=<CWD>&cacheDirectory&plugins[]=<CWD>/packages/hap-dsl-xvm/lib/loaders/babel-plugin-jsx.js&comments=false&configFile=<CWD>/babel.config.js!../../../../../lib/loaders/access-loader.js!../../../../../lib/loaders/fragment-loader.js?index=0&type=script!./testlottie.ux?uxType=page\\")
 
 $app_define$('@app-component/testlottie', [], function($app_require$, $app_exports$, $app_module$) {
      $app_script$($app_module$, $app_exports$, $app_require$)
@@ -5357,7 +5357,7 @@ exports[`Component 编译测试 ux components: ./TestComponent/Map/testmap.ux?ux
 "
 var $app_style$ = require(\\"!../../../../../lib/loaders/style-loader.js?index=0&type=style!../../../../../lib/loaders/fragment-loader.js?index=0&type=style!./testmap.ux?uxType=page\\")
 
-var $app_script$ = require(\\"!../../../../../lib/loaders/script-loader.js!../../../../../../hap-packager/lib/loaders/module-loader.js!../../../../../../../node_modules/babel-loader/lib/index.js?cwd=<CWD>&cacheDirectory&plugins[]=<CWD>/packages/hap-dsl-xvm/lib/loaders/babel-plugin-jsx.js&comments=false&configFile=<CWD>/babel.config.js!../../../../../lib/loaders/access-loader.js!../../../../../lib/loaders/fragment-loader.js?index=0&type=script!./testmap.ux?uxType=page\\")
+var $app_script$ = require(\\"!../../../../../lib/loaders/script-loader.js!../../../../../../../node_modules/@hap-toolkit/packager/lib/loaders/module-loader.js!../../../../../../../node_modules/babel-loader/lib/index.js?cwd=<CWD>&cacheDirectory&plugins[]=<CWD>/packages/hap-dsl-xvm/lib/loaders/babel-plugin-jsx.js&comments=false&configFile=<CWD>/babel.config.js!../../../../../lib/loaders/access-loader.js!../../../../../lib/loaders/fragment-loader.js?index=0&type=script!./testmap.ux?uxType=page\\")
 
 $app_define$('@app-component/testmap', [], function($app_require$, $app_exports$, $app_module$) {
      $app_script$($app_module$, $app_exports$, $app_require$)
@@ -5375,7 +5375,7 @@ exports[`Component 编译测试 ux components: ./TestComponent/Picker/testpicker
 "
 var $app_style$ = require(\\"!../../../../../lib/loaders/style-loader.js?index=0&type=style!../../../../../lib/loaders/fragment-loader.js?index=0&type=style!./testpicker.ux?uxType=page\\")
 
-var $app_script$ = require(\\"!../../../../../lib/loaders/script-loader.js!../../../../../../hap-packager/lib/loaders/module-loader.js!../../../../../../../node_modules/babel-loader/lib/index.js?cwd=<CWD>&cacheDirectory&plugins[]=<CWD>/packages/hap-dsl-xvm/lib/loaders/babel-plugin-jsx.js&comments=false&configFile=<CWD>/babel.config.js!../../../../../lib/loaders/access-loader.js!../../../../../lib/loaders/fragment-loader.js?index=0&type=script!./testpicker.ux?uxType=page\\")
+var $app_script$ = require(\\"!../../../../../lib/loaders/script-loader.js!../../../../../../../node_modules/@hap-toolkit/packager/lib/loaders/module-loader.js!../../../../../../../node_modules/babel-loader/lib/index.js?cwd=<CWD>&cacheDirectory&plugins[]=<CWD>/packages/hap-dsl-xvm/lib/loaders/babel-plugin-jsx.js&comments=false&configFile=<CWD>/babel.config.js!../../../../../lib/loaders/access-loader.js!../../../../../lib/loaders/fragment-loader.js?index=0&type=script!./testpicker.ux?uxType=page\\")
 
 $app_define$('@app-component/testpicker', [], function($app_require$, $app_exports$, $app_module$) {
      $app_script$($app_module$, $app_exports$, $app_require$)
@@ -5393,7 +5393,7 @@ exports[`Component 编译测试 ux components: ./TestComponent/Popup/testpopup.u
 "
 var $app_style$ = require(\\"!../../../../../lib/loaders/style-loader.js?index=0&type=style!../../../../../lib/loaders/fragment-loader.js?index=0&type=style!./testpopup.ux?uxType=page\\")
 
-var $app_script$ = require(\\"!../../../../../lib/loaders/script-loader.js!../../../../../../hap-packager/lib/loaders/module-loader.js!../../../../../../../node_modules/babel-loader/lib/index.js?cwd=<CWD>&cacheDirectory&plugins[]=<CWD>/packages/hap-dsl-xvm/lib/loaders/babel-plugin-jsx.js&comments=false&configFile=<CWD>/babel.config.js!../../../../../lib/loaders/access-loader.js!../../../../../lib/loaders/fragment-loader.js?index=0&type=script!./testpopup.ux?uxType=page\\")
+var $app_script$ = require(\\"!../../../../../lib/loaders/script-loader.js!../../../../../../../node_modules/@hap-toolkit/packager/lib/loaders/module-loader.js!../../../../../../../node_modules/babel-loader/lib/index.js?cwd=<CWD>&cacheDirectory&plugins[]=<CWD>/packages/hap-dsl-xvm/lib/loaders/babel-plugin-jsx.js&comments=false&configFile=<CWD>/babel.config.js!../../../../../lib/loaders/access-loader.js!../../../../../lib/loaders/fragment-loader.js?index=0&type=script!./testpopup.ux?uxType=page\\")
 
 $app_define$('@app-component/testpopup', [], function($app_require$, $app_exports$, $app_module$) {
      $app_script$($app_module$, $app_exports$, $app_require$)
@@ -5411,7 +5411,7 @@ exports[`Component 编译测试 ux components: ./TestComponent/Progress/testprog
 "
 var $app_style$ = require(\\"!../../../../../lib/loaders/style-loader.js?index=0&type=style!../../../../../lib/loaders/fragment-loader.js?index=0&type=style!./testprogress.ux?uxType=page\\")
 
-var $app_script$ = require(\\"!../../../../../lib/loaders/script-loader.js!../../../../../../hap-packager/lib/loaders/module-loader.js!../../../../../../../node_modules/babel-loader/lib/index.js?cwd=<CWD>&cacheDirectory&plugins[]=<CWD>/packages/hap-dsl-xvm/lib/loaders/babel-plugin-jsx.js&comments=false&configFile=<CWD>/babel.config.js!../../../../../lib/loaders/access-loader.js!../../../../../lib/loaders/fragment-loader.js?index=0&type=script!./testprogress.ux?uxType=page\\")
+var $app_script$ = require(\\"!../../../../../lib/loaders/script-loader.js!../../../../../../../node_modules/@hap-toolkit/packager/lib/loaders/module-loader.js!../../../../../../../node_modules/babel-loader/lib/index.js?cwd=<CWD>&cacheDirectory&plugins[]=<CWD>/packages/hap-dsl-xvm/lib/loaders/babel-plugin-jsx.js&comments=false&configFile=<CWD>/babel.config.js!../../../../../lib/loaders/access-loader.js!../../../../../lib/loaders/fragment-loader.js?index=0&type=script!./testprogress.ux?uxType=page\\")
 
 $app_define$('@app-component/testprogress', [], function($app_require$, $app_exports$, $app_module$) {
      $app_script$($app_module$, $app_exports$, $app_require$)
@@ -5429,7 +5429,7 @@ exports[`Component 编译测试 ux components: ./TestComponent/Rating/testrating
 "
 var $app_style$ = require(\\"!../../../../../lib/loaders/style-loader.js?index=0&type=style!../../../../../lib/loaders/fragment-loader.js?index=0&type=style!./testrating.ux?uxType=page\\")
 
-var $app_script$ = require(\\"!../../../../../lib/loaders/script-loader.js!../../../../../../hap-packager/lib/loaders/module-loader.js!../../../../../../../node_modules/babel-loader/lib/index.js?cwd=<CWD>&cacheDirectory&plugins[]=<CWD>/packages/hap-dsl-xvm/lib/loaders/babel-plugin-jsx.js&comments=false&configFile=<CWD>/babel.config.js!../../../../../lib/loaders/access-loader.js!../../../../../lib/loaders/fragment-loader.js?index=0&type=script!./testrating.ux?uxType=page\\")
+var $app_script$ = require(\\"!../../../../../lib/loaders/script-loader.js!../../../../../../../node_modules/@hap-toolkit/packager/lib/loaders/module-loader.js!../../../../../../../node_modules/babel-loader/lib/index.js?cwd=<CWD>&cacheDirectory&plugins[]=<CWD>/packages/hap-dsl-xvm/lib/loaders/babel-plugin-jsx.js&comments=false&configFile=<CWD>/babel.config.js!../../../../../lib/loaders/access-loader.js!../../../../../lib/loaders/fragment-loader.js?index=0&type=script!./testrating.ux?uxType=page\\")
 
 $app_define$('@app-component/testrating', [], function($app_require$, $app_exports$, $app_module$) {
      $app_script$($app_module$, $app_exports$, $app_require$)
@@ -5447,7 +5447,7 @@ exports[`Component 编译测试 ux components: ./TestComponent/Refresh/testrefre
 "
 var $app_style$ = require(\\"!../../../../../lib/loaders/style-loader.js?index=0&type=style!../../../../../lib/loaders/fragment-loader.js?index=0&type=style!./testrefresh.ux?uxType=page\\")
 
-var $app_script$ = require(\\"!../../../../../lib/loaders/script-loader.js!../../../../../../hap-packager/lib/loaders/module-loader.js!../../../../../../../node_modules/babel-loader/lib/index.js?cwd=<CWD>&cacheDirectory&plugins[]=<CWD>/packages/hap-dsl-xvm/lib/loaders/babel-plugin-jsx.js&comments=false&configFile=<CWD>/babel.config.js!../../../../../lib/loaders/access-loader.js!../../../../../lib/loaders/fragment-loader.js?index=0&type=script!./testrefresh.ux?uxType=page\\")
+var $app_script$ = require(\\"!../../../../../lib/loaders/script-loader.js!../../../../../../../node_modules/@hap-toolkit/packager/lib/loaders/module-loader.js!../../../../../../../node_modules/babel-loader/lib/index.js?cwd=<CWD>&cacheDirectory&plugins[]=<CWD>/packages/hap-dsl-xvm/lib/loaders/babel-plugin-jsx.js&comments=false&configFile=<CWD>/babel.config.js!../../../../../lib/loaders/access-loader.js!../../../../../lib/loaders/fragment-loader.js?index=0&type=script!./testrefresh.ux?uxType=page\\")
 
 $app_define$('@app-component/testrefresh', [], function($app_require$, $app_exports$, $app_module$) {
      $app_script$($app_module$, $app_exports$, $app_require$)
@@ -5465,7 +5465,7 @@ exports[`Component 编译测试 ux components: ./TestComponent/Refresh2/testrefr
 "
 var $app_style$ = require(\\"!../../../../../lib/loaders/style-loader.js?index=0&type=style!../../../../../lib/loaders/fragment-loader.js?index=0&type=style!./testrefresh2.ux?uxType=page\\")
 
-var $app_script$ = require(\\"!../../../../../lib/loaders/script-loader.js!../../../../../../hap-packager/lib/loaders/module-loader.js!../../../../../../../node_modules/babel-loader/lib/index.js?cwd=<CWD>&cacheDirectory&plugins[]=<CWD>/packages/hap-dsl-xvm/lib/loaders/babel-plugin-jsx.js&comments=false&configFile=<CWD>/babel.config.js!../../../../../lib/loaders/access-loader.js!../../../../../lib/loaders/fragment-loader.js?index=0&type=script!./testrefresh2.ux?uxType=page\\")
+var $app_script$ = require(\\"!../../../../../lib/loaders/script-loader.js!../../../../../../../node_modules/@hap-toolkit/packager/lib/loaders/module-loader.js!../../../../../../../node_modules/babel-loader/lib/index.js?cwd=<CWD>&cacheDirectory&plugins[]=<CWD>/packages/hap-dsl-xvm/lib/loaders/babel-plugin-jsx.js&comments=false&configFile=<CWD>/babel.config.js!../../../../../lib/loaders/access-loader.js!../../../../../lib/loaders/fragment-loader.js?index=0&type=script!./testrefresh2.ux?uxType=page\\")
 
 $app_define$('@app-component/testrefresh2', [], function($app_require$, $app_exports$, $app_module$) {
      $app_script$($app_module$, $app_exports$, $app_require$)
@@ -5483,7 +5483,7 @@ exports[`Component 编译测试 ux components: ./TestComponent/RichText/testrich
 "
 var $app_style$ = require(\\"!../../../../../lib/loaders/style-loader.js?index=0&type=style!../../../../../lib/loaders/fragment-loader.js?index=0&type=style!./testrichtext.ux?uxType=page\\")
 
-var $app_script$ = require(\\"!../../../../../lib/loaders/script-loader.js!../../../../../../hap-packager/lib/loaders/module-loader.js!../../../../../../../node_modules/babel-loader/lib/index.js?cwd=<CWD>&cacheDirectory&plugins[]=<CWD>/packages/hap-dsl-xvm/lib/loaders/babel-plugin-jsx.js&comments=false&configFile=<CWD>/babel.config.js!../../../../../lib/loaders/access-loader.js!../../../../../lib/loaders/fragment-loader.js?index=0&type=script!./testrichtext.ux?uxType=page\\")
+var $app_script$ = require(\\"!../../../../../lib/loaders/script-loader.js!../../../../../../../node_modules/@hap-toolkit/packager/lib/loaders/module-loader.js!../../../../../../../node_modules/babel-loader/lib/index.js?cwd=<CWD>&cacheDirectory&plugins[]=<CWD>/packages/hap-dsl-xvm/lib/loaders/babel-plugin-jsx.js&comments=false&configFile=<CWD>/babel.config.js!../../../../../lib/loaders/access-loader.js!../../../../../lib/loaders/fragment-loader.js?index=0&type=script!./testrichtext.ux?uxType=page\\")
 
 $app_define$('@app-component/testrichtext', [], function($app_require$, $app_exports$, $app_module$) {
      $app_script$($app_module$, $app_exports$, $app_require$)
@@ -5501,7 +5501,7 @@ exports[`Component 编译测试 ux components: ./TestComponent/Scrollview/testsc
 "
 var $app_style$ = require(\\"!../../../../../lib/loaders/style-loader.js?index=0&type=style!../../../../../lib/loaders/fragment-loader.js?index=0&type=style!./testscrollview.ux?uxType=page\\")
 
-var $app_script$ = require(\\"!../../../../../lib/loaders/script-loader.js!../../../../../../hap-packager/lib/loaders/module-loader.js!../../../../../../../node_modules/babel-loader/lib/index.js?cwd=<CWD>&cacheDirectory&plugins[]=<CWD>/packages/hap-dsl-xvm/lib/loaders/babel-plugin-jsx.js&comments=false&configFile=<CWD>/babel.config.js!../../../../../lib/loaders/access-loader.js!../../../../../lib/loaders/fragment-loader.js?index=0&type=script!./testscrollview.ux?uxType=page\\")
+var $app_script$ = require(\\"!../../../../../lib/loaders/script-loader.js!../../../../../../../node_modules/@hap-toolkit/packager/lib/loaders/module-loader.js!../../../../../../../node_modules/babel-loader/lib/index.js?cwd=<CWD>&cacheDirectory&plugins[]=<CWD>/packages/hap-dsl-xvm/lib/loaders/babel-plugin-jsx.js&comments=false&configFile=<CWD>/babel.config.js!../../../../../lib/loaders/access-loader.js!../../../../../lib/loaders/fragment-loader.js?index=0&type=script!./testscrollview.ux?uxType=page\\")
 
 $app_define$('@app-component/testscrollview', [], function($app_require$, $app_exports$, $app_module$) {
      $app_script$($app_module$, $app_exports$, $app_require$)
@@ -5518,7 +5518,7 @@ $app_bootstrap$('@app-component/testscrollview',{ packagerVersion: QUICKAPP_TOOL
 exports[`Component 编译测试 ux components: ./TestComponent/SectionList/index.ux?uxType=page 1`] = `
 "
 var $app_style$ = {}
-var $app_script$ = require(\\"!../../../../../lib/loaders/script-loader.js!../../../../../../hap-packager/lib/loaders/module-loader.js!../../../../../../../node_modules/babel-loader/lib/index.js?cwd=<CWD>&cacheDirectory&plugins[]=<CWD>/packages/hap-dsl-xvm/lib/loaders/babel-plugin-jsx.js&comments=false&configFile=<CWD>/babel.config.js!../../../../../lib/loaders/access-loader.js!../../../../../lib/loaders/fragment-loader.js?index=0&type=script!./index.ux?uxType=page\\")
+var $app_script$ = require(\\"!../../../../../lib/loaders/script-loader.js!../../../../../../../node_modules/@hap-toolkit/packager/lib/loaders/module-loader.js!../../../../../../../node_modules/babel-loader/lib/index.js?cwd=<CWD>&cacheDirectory&plugins[]=<CWD>/packages/hap-dsl-xvm/lib/loaders/babel-plugin-jsx.js&comments=false&configFile=<CWD>/babel.config.js!../../../../../lib/loaders/access-loader.js!../../../../../lib/loaders/fragment-loader.js?index=0&type=script!./index.ux?uxType=page\\")
 
 $app_define$('@app-component/index', [], function($app_require$, $app_exports$, $app_module$) {
      $app_script$($app_module$, $app_exports$, $app_require$)
@@ -5535,7 +5535,7 @@ exports[`Component 编译测试 ux components: ./TestComponent/SelectOption/test
 "
 var $app_style$ = require(\\"!../../../../../lib/loaders/style-loader.js?index=0&type=style!../../../../../lib/loaders/fragment-loader.js?index=0&type=style!./testselectoption.ux?uxType=page\\")
 
-var $app_script$ = require(\\"!../../../../../lib/loaders/script-loader.js!../../../../../../hap-packager/lib/loaders/module-loader.js!../../../../../../../node_modules/babel-loader/lib/index.js?cwd=<CWD>&cacheDirectory&plugins[]=<CWD>/packages/hap-dsl-xvm/lib/loaders/babel-plugin-jsx.js&comments=false&configFile=<CWD>/babel.config.js!../../../../../lib/loaders/access-loader.js!../../../../../lib/loaders/fragment-loader.js?index=0&type=script!./testselectoption.ux?uxType=page\\")
+var $app_script$ = require(\\"!../../../../../lib/loaders/script-loader.js!../../../../../../../node_modules/@hap-toolkit/packager/lib/loaders/module-loader.js!../../../../../../../node_modules/babel-loader/lib/index.js?cwd=<CWD>&cacheDirectory&plugins[]=<CWD>/packages/hap-dsl-xvm/lib/loaders/babel-plugin-jsx.js&comments=false&configFile=<CWD>/babel.config.js!../../../../../lib/loaders/access-loader.js!../../../../../lib/loaders/fragment-loader.js?index=0&type=script!./testselectoption.ux?uxType=page\\")
 
 $app_define$('@app-component/testselectoption', [], function($app_require$, $app_exports$, $app_module$) {
      $app_script$($app_module$, $app_exports$, $app_require$)
@@ -5553,7 +5553,7 @@ exports[`Component 编译测试 ux components: ./TestComponent/SlideView/index.u
 "
 var $app_style$ = require(\\"!../../../../../lib/loaders/style-loader.js?index=0&type=style!../../../../../lib/loaders/fragment-loader.js?index=0&type=style!./index.ux?uxType=page\\")
 
-var $app_script$ = require(\\"!../../../../../lib/loaders/script-loader.js!../../../../../../hap-packager/lib/loaders/module-loader.js!../../../../../../../node_modules/babel-loader/lib/index.js?cwd=<CWD>&cacheDirectory&plugins[]=<CWD>/packages/hap-dsl-xvm/lib/loaders/babel-plugin-jsx.js&comments=false&configFile=<CWD>/babel.config.js!../../../../../lib/loaders/access-loader.js!../../../../../lib/loaders/fragment-loader.js?index=0&type=script!./index.ux?uxType=page\\")
+var $app_script$ = require(\\"!../../../../../lib/loaders/script-loader.js!../../../../../../../node_modules/@hap-toolkit/packager/lib/loaders/module-loader.js!../../../../../../../node_modules/babel-loader/lib/index.js?cwd=<CWD>&cacheDirectory&plugins[]=<CWD>/packages/hap-dsl-xvm/lib/loaders/babel-plugin-jsx.js&comments=false&configFile=<CWD>/babel.config.js!../../../../../lib/loaders/access-loader.js!../../../../../lib/loaders/fragment-loader.js?index=0&type=script!./index.ux?uxType=page\\")
 
 $app_define$('@app-component/index', [], function($app_require$, $app_exports$, $app_module$) {
      $app_script$($app_module$, $app_exports$, $app_require$)
@@ -5571,7 +5571,7 @@ exports[`Component 编译测试 ux components: ./TestComponent/Slider/testslider
 "
 var $app_style$ = require(\\"!../../../../../lib/loaders/style-loader.js?index=0&type=style!../../../../../lib/loaders/fragment-loader.js?index=0&type=style!./testslider.ux?uxType=page\\")
 
-var $app_script$ = require(\\"!../../../../../lib/loaders/script-loader.js!../../../../../../hap-packager/lib/loaders/module-loader.js!../../../../../../../node_modules/babel-loader/lib/index.js?cwd=<CWD>&cacheDirectory&plugins[]=<CWD>/packages/hap-dsl-xvm/lib/loaders/babel-plugin-jsx.js&comments=false&configFile=<CWD>/babel.config.js!../../../../../lib/loaders/access-loader.js!../../../../../lib/loaders/fragment-loader.js?index=0&type=script!./testslider.ux?uxType=page\\")
+var $app_script$ = require(\\"!../../../../../lib/loaders/script-loader.js!../../../../../../../node_modules/@hap-toolkit/packager/lib/loaders/module-loader.js!../../../../../../../node_modules/babel-loader/lib/index.js?cwd=<CWD>&cacheDirectory&plugins[]=<CWD>/packages/hap-dsl-xvm/lib/loaders/babel-plugin-jsx.js&comments=false&configFile=<CWD>/babel.config.js!../../../../../lib/loaders/access-loader.js!../../../../../lib/loaders/fragment-loader.js?index=0&type=script!./testslider.ux?uxType=page\\")
 
 $app_define$('@app-component/testslider', [], function($app_require$, $app_exports$, $app_module$) {
      $app_script$($app_module$, $app_exports$, $app_require$)
@@ -5589,7 +5589,7 @@ exports[`Component 编译测试 ux components: ./TestComponent/Span/testspan.ux?
 "
 var $app_style$ = require(\\"!../../../../../lib/loaders/style-loader.js?index=0&type=style!../../../../../lib/loaders/fragment-loader.js?index=0&type=style!./testspan.ux?uxType=page\\")
 
-var $app_script$ = require(\\"!../../../../../lib/loaders/script-loader.js!../../../../../../hap-packager/lib/loaders/module-loader.js!../../../../../../../node_modules/babel-loader/lib/index.js?cwd=<CWD>&cacheDirectory&plugins[]=<CWD>/packages/hap-dsl-xvm/lib/loaders/babel-plugin-jsx.js&comments=false&configFile=<CWD>/babel.config.js!../../../../../lib/loaders/access-loader.js!../../../../../lib/loaders/fragment-loader.js?index=0&type=script!./testspan.ux?uxType=page\\")
+var $app_script$ = require(\\"!../../../../../lib/loaders/script-loader.js!../../../../../../../node_modules/@hap-toolkit/packager/lib/loaders/module-loader.js!../../../../../../../node_modules/babel-loader/lib/index.js?cwd=<CWD>&cacheDirectory&plugins[]=<CWD>/packages/hap-dsl-xvm/lib/loaders/babel-plugin-jsx.js&comments=false&configFile=<CWD>/babel.config.js!../../../../../lib/loaders/access-loader.js!../../../../../lib/loaders/fragment-loader.js?index=0&type=script!./testspan.ux?uxType=page\\")
 
 $app_define$('@app-component/testspan', [], function($app_require$, $app_exports$, $app_module$) {
      $app_script$($app_module$, $app_exports$, $app_require$)
@@ -5607,7 +5607,7 @@ exports[`Component 编译测试 ux components: ./TestComponent/Stack/teststack.u
 "
 var $app_style$ = require(\\"!../../../../../lib/loaders/style-loader.js?index=0&type=style!../../../../../lib/loaders/fragment-loader.js?index=0&type=style!./teststack.ux?uxType=page\\")
 
-var $app_script$ = require(\\"!../../../../../lib/loaders/script-loader.js!../../../../../../hap-packager/lib/loaders/module-loader.js!../../../../../../../node_modules/babel-loader/lib/index.js?cwd=<CWD>&cacheDirectory&plugins[]=<CWD>/packages/hap-dsl-xvm/lib/loaders/babel-plugin-jsx.js&comments=false&configFile=<CWD>/babel.config.js!../../../../../lib/loaders/access-loader.js!../../../../../lib/loaders/fragment-loader.js?index=0&type=script!./teststack.ux?uxType=page\\")
+var $app_script$ = require(\\"!../../../../../lib/loaders/script-loader.js!../../../../../../../node_modules/@hap-toolkit/packager/lib/loaders/module-loader.js!../../../../../../../node_modules/babel-loader/lib/index.js?cwd=<CWD>&cacheDirectory&plugins[]=<CWD>/packages/hap-dsl-xvm/lib/loaders/babel-plugin-jsx.js&comments=false&configFile=<CWD>/babel.config.js!../../../../../lib/loaders/access-loader.js!../../../../../lib/loaders/fragment-loader.js?index=0&type=script!./teststack.ux?uxType=page\\")
 
 $app_define$('@app-component/teststack', [], function($app_require$, $app_exports$, $app_module$) {
      $app_script$($app_module$, $app_exports$, $app_require$)
@@ -5625,7 +5625,7 @@ exports[`Component 编译测试 ux components: ./TestComponent/StarBackground/te
 "
 var $app_style$ = require(\\"!../../../../../lib/loaders/style-loader.js?index=0&type=style!../../../../../lib/loaders/fragment-loader.js?index=0&type=style!./teststarBackground.ux?uxType=page\\")
 
-var $app_script$ = require(\\"!../../../../../lib/loaders/script-loader.js!../../../../../../hap-packager/lib/loaders/module-loader.js!../../../../../../../node_modules/babel-loader/lib/index.js?cwd=<CWD>&cacheDirectory&plugins[]=<CWD>/packages/hap-dsl-xvm/lib/loaders/babel-plugin-jsx.js&comments=false&configFile=<CWD>/babel.config.js!../../../../../lib/loaders/access-loader.js!../../../../../lib/loaders/fragment-loader.js?index=0&type=script!./teststarBackground.ux?uxType=page\\")
+var $app_script$ = require(\\"!../../../../../lib/loaders/script-loader.js!../../../../../../../node_modules/@hap-toolkit/packager/lib/loaders/module-loader.js!../../../../../../../node_modules/babel-loader/lib/index.js?cwd=<CWD>&cacheDirectory&plugins[]=<CWD>/packages/hap-dsl-xvm/lib/loaders/babel-plugin-jsx.js&comments=false&configFile=<CWD>/babel.config.js!../../../../../lib/loaders/access-loader.js!../../../../../lib/loaders/fragment-loader.js?index=0&type=script!./teststarBackground.ux?uxType=page\\")
 
 $app_define$('@app-component/teststarBackground', [], function($app_require$, $app_exports$, $app_module$) {
      $app_script$($app_module$, $app_exports$, $app_require$)
@@ -5643,7 +5643,7 @@ exports[`Component 编译测试 ux components: ./TestComponent/StarForeground/te
 "
 var $app_style$ = require(\\"!../../../../../lib/loaders/style-loader.js?index=0&type=style!../../../../../lib/loaders/fragment-loader.js?index=0&type=style!./teststarForeground.ux?uxType=page\\")
 
-var $app_script$ = require(\\"!../../../../../lib/loaders/script-loader.js!../../../../../../hap-packager/lib/loaders/module-loader.js!../../../../../../../node_modules/babel-loader/lib/index.js?cwd=<CWD>&cacheDirectory&plugins[]=<CWD>/packages/hap-dsl-xvm/lib/loaders/babel-plugin-jsx.js&comments=false&configFile=<CWD>/babel.config.js!../../../../../lib/loaders/access-loader.js!../../../../../lib/loaders/fragment-loader.js?index=0&type=script!./teststarForeground.ux?uxType=page\\")
+var $app_script$ = require(\\"!../../../../../lib/loaders/script-loader.js!../../../../../../../node_modules/@hap-toolkit/packager/lib/loaders/module-loader.js!../../../../../../../node_modules/babel-loader/lib/index.js?cwd=<CWD>&cacheDirectory&plugins[]=<CWD>/packages/hap-dsl-xvm/lib/loaders/babel-plugin-jsx.js&comments=false&configFile=<CWD>/babel.config.js!../../../../../lib/loaders/access-loader.js!../../../../../lib/loaders/fragment-loader.js?index=0&type=script!./teststarForeground.ux?uxType=page\\")
 
 $app_define$('@app-component/teststarForeground', [], function($app_require$, $app_exports$, $app_module$) {
      $app_script$($app_module$, $app_exports$, $app_require$)
@@ -5661,7 +5661,7 @@ exports[`Component 编译测试 ux components: ./TestComponent/StarSecondary/tes
 "
 var $app_style$ = require(\\"!../../../../../lib/loaders/style-loader.js?index=0&type=style!../../../../../lib/loaders/fragment-loader.js?index=0&type=style!./teststarSecondary.ux?uxType=page\\")
 
-var $app_script$ = require(\\"!../../../../../lib/loaders/script-loader.js!../../../../../../hap-packager/lib/loaders/module-loader.js!../../../../../../../node_modules/babel-loader/lib/index.js?cwd=<CWD>&cacheDirectory&plugins[]=<CWD>/packages/hap-dsl-xvm/lib/loaders/babel-plugin-jsx.js&comments=false&configFile=<CWD>/babel.config.js!../../../../../lib/loaders/access-loader.js!../../../../../lib/loaders/fragment-loader.js?index=0&type=script!./teststarSecondary.ux?uxType=page\\")
+var $app_script$ = require(\\"!../../../../../lib/loaders/script-loader.js!../../../../../../../node_modules/@hap-toolkit/packager/lib/loaders/module-loader.js!../../../../../../../node_modules/babel-loader/lib/index.js?cwd=<CWD>&cacheDirectory&plugins[]=<CWD>/packages/hap-dsl-xvm/lib/loaders/babel-plugin-jsx.js&comments=false&configFile=<CWD>/babel.config.js!../../../../../lib/loaders/access-loader.js!../../../../../lib/loaders/fragment-loader.js?index=0&type=script!./teststarSecondary.ux?uxType=page\\")
 
 $app_define$('@app-component/teststarSecondary', [], function($app_require$, $app_exports$, $app_module$) {
      $app_script$($app_module$, $app_exports$, $app_require$)
@@ -5679,7 +5679,7 @@ exports[`Component 编译测试 ux components: ./TestComponent/Swiper/testswiper
 "
 var $app_style$ = require(\\"!../../../../../lib/loaders/style-loader.js?index=0&type=style!../../../../../lib/loaders/fragment-loader.js?index=0&type=style!./testswiper.ux?uxType=page\\")
 
-var $app_script$ = require(\\"!../../../../../lib/loaders/script-loader.js!../../../../../../hap-packager/lib/loaders/module-loader.js!../../../../../../../node_modules/babel-loader/lib/index.js?cwd=<CWD>&cacheDirectory&plugins[]=<CWD>/packages/hap-dsl-xvm/lib/loaders/babel-plugin-jsx.js&comments=false&configFile=<CWD>/babel.config.js!../../../../../lib/loaders/access-loader.js!../../../../../lib/loaders/fragment-loader.js?index=0&type=script!./testswiper.ux?uxType=page\\")
+var $app_script$ = require(\\"!../../../../../lib/loaders/script-loader.js!../../../../../../../node_modules/@hap-toolkit/packager/lib/loaders/module-loader.js!../../../../../../../node_modules/babel-loader/lib/index.js?cwd=<CWD>&cacheDirectory&plugins[]=<CWD>/packages/hap-dsl-xvm/lib/loaders/babel-plugin-jsx.js&comments=false&configFile=<CWD>/babel.config.js!../../../../../lib/loaders/access-loader.js!../../../../../lib/loaders/fragment-loader.js?index=0&type=script!./testswiper.ux?uxType=page\\")
 
 $app_define$('@app-component/testswiper', [], function($app_require$, $app_exports$, $app_module$) {
      $app_script$($app_module$, $app_exports$, $app_require$)
@@ -5697,7 +5697,7 @@ exports[`Component 编译测试 ux components: ./TestComponent/Switch/testswitch
 "
 var $app_style$ = require(\\"!../../../../../lib/loaders/style-loader.js?index=0&type=style!../../../../../lib/loaders/fragment-loader.js?index=0&type=style!./testswitch.ux?uxType=page\\")
 
-var $app_script$ = require(\\"!../../../../../lib/loaders/script-loader.js!../../../../../../hap-packager/lib/loaders/module-loader.js!../../../../../../../node_modules/babel-loader/lib/index.js?cwd=<CWD>&cacheDirectory&plugins[]=<CWD>/packages/hap-dsl-xvm/lib/loaders/babel-plugin-jsx.js&comments=false&configFile=<CWD>/babel.config.js!../../../../../lib/loaders/access-loader.js!../../../../../lib/loaders/fragment-loader.js?index=0&type=script!./testswitch.ux?uxType=page\\")
+var $app_script$ = require(\\"!../../../../../lib/loaders/script-loader.js!../../../../../../../node_modules/@hap-toolkit/packager/lib/loaders/module-loader.js!../../../../../../../node_modules/babel-loader/lib/index.js?cwd=<CWD>&cacheDirectory&plugins[]=<CWD>/packages/hap-dsl-xvm/lib/loaders/babel-plugin-jsx.js&comments=false&configFile=<CWD>/babel.config.js!../../../../../lib/loaders/access-loader.js!../../../../../lib/loaders/fragment-loader.js?index=0&type=script!./testswitch.ux?uxType=page\\")
 
 $app_define$('@app-component/testswitch', [], function($app_require$, $app_exports$, $app_module$) {
      $app_script$($app_module$, $app_exports$, $app_require$)
@@ -5715,7 +5715,7 @@ exports[`Component 编译测试 ux components: ./TestComponent/Tabs/testtabs.ux?
 "
 var $app_style$ = require(\\"!../../../../../lib/loaders/style-loader.js?index=0&type=style!../../../../../lib/loaders/fragment-loader.js?index=0&type=style!./testtabs.ux?uxType=page\\")
 
-var $app_script$ = require(\\"!../../../../../lib/loaders/script-loader.js!../../../../../../hap-packager/lib/loaders/module-loader.js!../../../../../../../node_modules/babel-loader/lib/index.js?cwd=<CWD>&cacheDirectory&plugins[]=<CWD>/packages/hap-dsl-xvm/lib/loaders/babel-plugin-jsx.js&comments=false&configFile=<CWD>/babel.config.js!../../../../../lib/loaders/access-loader.js!../../../../../lib/loaders/fragment-loader.js?index=0&type=script!./testtabs.ux?uxType=page\\")
+var $app_script$ = require(\\"!../../../../../lib/loaders/script-loader.js!../../../../../../../node_modules/@hap-toolkit/packager/lib/loaders/module-loader.js!../../../../../../../node_modules/babel-loader/lib/index.js?cwd=<CWD>&cacheDirectory&plugins[]=<CWD>/packages/hap-dsl-xvm/lib/loaders/babel-plugin-jsx.js&comments=false&configFile=<CWD>/babel.config.js!../../../../../lib/loaders/access-loader.js!../../../../../lib/loaders/fragment-loader.js?index=0&type=script!./testtabs.ux?uxType=page\\")
 
 $app_define$('@app-component/testtabs', [], function($app_require$, $app_exports$, $app_module$) {
      $app_script$($app_module$, $app_exports$, $app_require$)
@@ -5733,7 +5733,7 @@ exports[`Component 编译测试 ux components: ./TestComponent/Text/testtext.ux?
 "
 var $app_style$ = require(\\"!../../../../../lib/loaders/style-loader.js?index=0&type=style!../../../../../lib/loaders/fragment-loader.js?index=0&type=style!./testtext.ux?uxType=page\\")
 
-var $app_script$ = require(\\"!../../../../../lib/loaders/script-loader.js!../../../../../../hap-packager/lib/loaders/module-loader.js!../../../../../../../node_modules/babel-loader/lib/index.js?cwd=<CWD>&cacheDirectory&plugins[]=<CWD>/packages/hap-dsl-xvm/lib/loaders/babel-plugin-jsx.js&comments=false&configFile=<CWD>/babel.config.js!../../../../../lib/loaders/access-loader.js!../../../../../lib/loaders/fragment-loader.js?index=0&type=script!./testtext.ux?uxType=page\\")
+var $app_script$ = require(\\"!../../../../../lib/loaders/script-loader.js!../../../../../../../node_modules/@hap-toolkit/packager/lib/loaders/module-loader.js!../../../../../../../node_modules/babel-loader/lib/index.js?cwd=<CWD>&cacheDirectory&plugins[]=<CWD>/packages/hap-dsl-xvm/lib/loaders/babel-plugin-jsx.js&comments=false&configFile=<CWD>/babel.config.js!../../../../../lib/loaders/access-loader.js!../../../../../lib/loaders/fragment-loader.js?index=0&type=script!./testtext.ux?uxType=page\\")
 
 $app_define$('@app-component/testtext', [], function($app_require$, $app_exports$, $app_module$) {
      $app_script$($app_module$, $app_exports$, $app_require$)
@@ -5751,7 +5751,7 @@ exports[`Component 编译测试 ux components: ./TestComponent/Textarea/testtext
 "
 var $app_style$ = require(\\"!../../../../../lib/loaders/style-loader.js?index=0&type=style!../../../../../lib/loaders/fragment-loader.js?index=0&type=style!./testtextarea.ux?uxType=page\\")
 
-var $app_script$ = require(\\"!../../../../../lib/loaders/script-loader.js!../../../../../../hap-packager/lib/loaders/module-loader.js!../../../../../../../node_modules/babel-loader/lib/index.js?cwd=<CWD>&cacheDirectory&plugins[]=<CWD>/packages/hap-dsl-xvm/lib/loaders/babel-plugin-jsx.js&comments=false&configFile=<CWD>/babel.config.js!../../../../../lib/loaders/access-loader.js!../../../../../lib/loaders/fragment-loader.js?index=0&type=script!./testtextarea.ux?uxType=page\\")
+var $app_script$ = require(\\"!../../../../../lib/loaders/script-loader.js!../../../../../../../node_modules/@hap-toolkit/packager/lib/loaders/module-loader.js!../../../../../../../node_modules/babel-loader/lib/index.js?cwd=<CWD>&cacheDirectory&plugins[]=<CWD>/packages/hap-dsl-xvm/lib/loaders/babel-plugin-jsx.js&comments=false&configFile=<CWD>/babel.config.js!../../../../../lib/loaders/access-loader.js!../../../../../lib/loaders/fragment-loader.js?index=0&type=script!./testtextarea.ux?uxType=page\\")
 
 $app_define$('@app-component/testtextarea', [], function($app_require$, $app_exports$, $app_module$) {
      $app_script$($app_module$, $app_exports$, $app_require$)
@@ -5769,7 +5769,7 @@ exports[`Component 编译测试 ux components: ./TestComponent/Video/testvideo.u
 "
 var $app_style$ = require(\\"!../../../../../lib/loaders/style-loader.js?index=0&type=style!../../../../../lib/loaders/fragment-loader.js?index=0&type=style!./testvideo.ux?uxType=page\\")
 
-var $app_script$ = require(\\"!../../../../../lib/loaders/script-loader.js!../../../../../../hap-packager/lib/loaders/module-loader.js!../../../../../../../node_modules/babel-loader/lib/index.js?cwd=<CWD>&cacheDirectory&plugins[]=<CWD>/packages/hap-dsl-xvm/lib/loaders/babel-plugin-jsx.js&comments=false&configFile=<CWD>/babel.config.js!../../../../../lib/loaders/access-loader.js!../../../../../lib/loaders/fragment-loader.js?index=0&type=script!./testvideo.ux?uxType=page\\")
+var $app_script$ = require(\\"!../../../../../lib/loaders/script-loader.js!../../../../../../../node_modules/@hap-toolkit/packager/lib/loaders/module-loader.js!../../../../../../../node_modules/babel-loader/lib/index.js?cwd=<CWD>&cacheDirectory&plugins[]=<CWD>/packages/hap-dsl-xvm/lib/loaders/babel-plugin-jsx.js&comments=false&configFile=<CWD>/babel.config.js!../../../../../lib/loaders/access-loader.js!../../../../../lib/loaders/fragment-loader.js?index=0&type=script!./testvideo.ux?uxType=page\\")
 
 $app_define$('@app-component/testvideo', [], function($app_require$, $app_exports$, $app_module$) {
      $app_script$($app_module$, $app_exports$, $app_require$)
@@ -5787,7 +5787,7 @@ exports[`Component 编译测试 ux components: ./TestComponent/Web/testweb.ux?ux
 "
 var $app_style$ = require(\\"!../../../../../lib/loaders/style-loader.js?index=0&type=style!../../../../../lib/loaders/fragment-loader.js?index=0&type=style!./testweb.ux?uxType=page\\")
 
-var $app_script$ = require(\\"!../../../../../lib/loaders/script-loader.js!../../../../../../hap-packager/lib/loaders/module-loader.js!../../../../../../../node_modules/babel-loader/lib/index.js?cwd=<CWD>&cacheDirectory&plugins[]=<CWD>/packages/hap-dsl-xvm/lib/loaders/babel-plugin-jsx.js&comments=false&configFile=<CWD>/babel.config.js!../../../../../lib/loaders/access-loader.js!../../../../../lib/loaders/fragment-loader.js?index=0&type=script!./testweb.ux?uxType=page\\")
+var $app_script$ = require(\\"!../../../../../lib/loaders/script-loader.js!../../../../../../../node_modules/@hap-toolkit/packager/lib/loaders/module-loader.js!../../../../../../../node_modules/babel-loader/lib/index.js?cwd=<CWD>&cacheDirectory&plugins[]=<CWD>/packages/hap-dsl-xvm/lib/loaders/babel-plugin-jsx.js&comments=false&configFile=<CWD>/babel.config.js!../../../../../lib/loaders/access-loader.js!../../../../../lib/loaders/fragment-loader.js?index=0&type=script!./testweb.ux?uxType=page\\")
 
 $app_define$('@app-component/testweb', [], function($app_require$, $app_exports$, $app_module$) {
      $app_script$($app_module$, $app_exports$, $app_require$)
@@ -5844,7 +5844,7 @@ exports[`Component 编译测试 ux components: ./TestComponent/model/baseCheckbo
 "
 var $app_style$ = require(\\"!../../../../../lib/loaders/style-loader.js?index=0&type=style!../../../../../lib/loaders/fragment-loader.js?index=0&type=style!./baseCheckbox.ux?uxType=page\\")
 
-var $app_script$ = require(\\"!../../../../../lib/loaders/script-loader.js!../../../../../../hap-packager/lib/loaders/module-loader.js!../../../../../../../node_modules/babel-loader/lib/index.js?cwd=<CWD>&cacheDirectory&plugins[]=<CWD>/packages/hap-dsl-xvm/lib/loaders/babel-plugin-jsx.js&comments=false&configFile=<CWD>/babel.config.js!../../../../../lib/loaders/access-loader.js!../../../../../lib/loaders/fragment-loader.js?index=0&type=script!./baseCheckbox.ux?uxType=page\\")
+var $app_script$ = require(\\"!../../../../../lib/loaders/script-loader.js!../../../../../../../node_modules/@hap-toolkit/packager/lib/loaders/module-loader.js!../../../../../../../node_modules/babel-loader/lib/index.js?cwd=<CWD>&cacheDirectory&plugins[]=<CWD>/packages/hap-dsl-xvm/lib/loaders/babel-plugin-jsx.js&comments=false&configFile=<CWD>/babel.config.js!../../../../../lib/loaders/access-loader.js!../../../../../lib/loaders/fragment-loader.js?index=0&type=script!./baseCheckbox.ux?uxType=page\\")
 
 $app_define$('@app-component/baseCheckbox', [], function($app_require$, $app_exports$, $app_module$) {
      $app_script$($app_module$, $app_exports$, $app_require$)
@@ -5863,7 +5863,7 @@ exports[`Component 编译测试 ux components: ./TestComponent/model/testmodel.u
 
 var $app_style$ = require(\\"!../../../../../lib/loaders/style-loader.js?index=0&type=style!../../../../../lib/loaders/fragment-loader.js?index=0&type=style!./testmodel.ux?uxType=page\\")
 
-var $app_script$ = require(\\"!../../../../../lib/loaders/script-loader.js!../../../../../../hap-packager/lib/loaders/module-loader.js!../../../../../../../node_modules/babel-loader/lib/index.js?cwd=<CWD>&cacheDirectory&plugins[]=<CWD>/packages/hap-dsl-xvm/lib/loaders/babel-plugin-jsx.js&comments=false&configFile=<CWD>/babel.config.js!../../../../../lib/loaders/access-loader.js!../../../../../lib/loaders/fragment-loader.js?index=0&type=script!./testmodel.ux?uxType=page\\")
+var $app_script$ = require(\\"!../../../../../lib/loaders/script-loader.js!../../../../../../../node_modules/@hap-toolkit/packager/lib/loaders/module-loader.js!../../../../../../../node_modules/babel-loader/lib/index.js?cwd=<CWD>&cacheDirectory&plugins[]=<CWD>/packages/hap-dsl-xvm/lib/loaders/babel-plugin-jsx.js&comments=false&configFile=<CWD>/babel.config.js!../../../../../lib/loaders/access-loader.js!../../../../../lib/loaders/fragment-loader.js?index=0&type=script!./testmodel.ux?uxType=page\\")
 
 $app_define$('@app-component/testmodel', [], function($app_require$, $app_exports$, $app_module$) {
      $app_script$($app_module$, $app_exports$, $app_require$)
