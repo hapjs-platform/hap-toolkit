@@ -5,7 +5,7 @@
 
 const path = require('@jayfate/path')
 const { getRecords, clearProjectRecord } = require('@hap-toolkit/shared-utils/lib/record-client')
-const globalConfig = require('@hap-toolkit/shared-utils/config')
+const globalConfig = require('@hap-toolkit/shared-utils/lib/config')
 const { launchServer } = require('../lib')
 const cwd = path.resolve(__dirname, '../fixtures/app')
 
