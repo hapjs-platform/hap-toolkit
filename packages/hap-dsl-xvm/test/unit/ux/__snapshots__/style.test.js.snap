@@ -9381,6 +9381,9 @@ exports[`Style编译测试 comile style: ../../../lib/loaders/style-loader.js?in
   \\".C\\": {
     \\"textAlign\\": \\"right\\"
   },
+  \\".D\\": {
+    \\"textAlign\\": \\"justify\\"
+  },
   \\".a1\\": {},
   \\".a2\\": {},
   \\".a3\\": {},

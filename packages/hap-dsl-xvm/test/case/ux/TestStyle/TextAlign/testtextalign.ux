@@ -21,6 +21,10 @@
     text-align: right;
   }
 
+  .D {
+    text-align: justify;
+  }
+
   .a1 {
     text-align: 'left';
   }
