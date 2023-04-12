@@ -7,8 +7,7 @@ const path = require('path')
 const webpack = require('webpack')
 
 function buildClient(callback) {
-  const filepath = path.resolve(__dirname, './webpack.config.js')
-  const webpackConf = require(filepath)
+  const webpackConf = require(path.resolve(__dirname, './webpack.config.js'))
   webpack(webpackConf, (err, stats) => {
     if (err) {
       console.log(err.message)

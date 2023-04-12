@@ -4,9 +4,9 @@
  */
 
 import loaderUtils from 'loader-utils'
-import { parseFragmentsWithCache } from '@hap-toolkit/compiler'
+import { parseFragmentsWithCache, FRAG_TYPE } from '@hap-toolkit/compiler'
 
-import { splitSourceLine, generateMap, consumeMap, FRAG_TYPE } from './common/utils'
+import { splitSourceLine, generateMap, consumeMap } from './common/utils'
 
 module.exports = function (source, inputSourceMap) {
   const callback = this.async()

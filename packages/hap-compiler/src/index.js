@@ -152,4 +152,5 @@ function parseScript(source) {
   return { parsed: parsed }
 }
 
-export { parseFragmentsWithCache, parseTemplate, parseStyle, parseScript }
+export { parseFragmentsWithCache, parseTemplate, parseStyle, parseScript, serialize }
+export { ENTRY_TYPE, FRAG_TYPE, isEmptyObject } from './utils'
