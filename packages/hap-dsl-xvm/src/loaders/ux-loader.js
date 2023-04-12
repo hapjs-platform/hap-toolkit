@@ -18,7 +18,7 @@ import {
 } from './ux-fragment-utils'
 import { getNameByPath, print, isUXRender } from './common/utils'
 
-const globalConfig = require('@hap-toolkit/shared-utils/lib/config')
+import globalConfig from '@hap-toolkit/shared-utils/lib/config'
 
 /**
  * 收集结果

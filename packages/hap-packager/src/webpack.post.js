@@ -4,10 +4,10 @@
  */
 
 import { sync as resolveSync } from 'resolve'
+import globalConfig from '@hap-toolkit/shared-utils/lib/config'
 const path = require('@jayfate/path')
 
 const { readJson } = require('@hap-toolkit/shared-utils')
-const globalConfig = require('@hap-toolkit/shared-utils/lib/config')
 const {
   compileOptionsMeta,
   compileOptionsObject
