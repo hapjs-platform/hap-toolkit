@@ -6,7 +6,7 @@
 const path = require('@jayfate/path')
 const { rowify } = require('hap-dev-utils')
 const uxLoader = require('../../lib/loaders/ux-loader')
-const { compileOptionsObject } = require('@hap-toolkit/shared-utils/compilation-config')
+const { compileOptionsObject } = require('@hap-toolkit/shared-utils/lib/compilation-config')
 
 describe('ux-loader', () => {
   const mockLoader = {

@@ -4,12 +4,11 @@
  */
 
 const process = require('process')
-const fs = require('fs')
+const fs = require('fs-extra')
 const { spawn } = require('child_process')
 const JSZip = require('jszip')
 const path = require('@jayfate/path')
 const glob = require('glob')
-const fse = require('fs-extra')
 
 /**
  * 与子进程"对话"
@@ -143,11 +142,11 @@ let uniqueId = process.env.JEST_WORKER_ID * 1000
  */
 async function copyApp(projectDir) {
   let target = path.resolve(projectDir, '../temp-test-app-' + uniqueId++)
-  while (fse.existsSync(target)) {
+  while (fs.existsSync(target)) {
     target = path.resolve(projectDir, '../temp-test-app-' + uniqueId++)
   }
   try {
-    await fse.copy(projectDir, target)
+    await fs.copy(projectDir, target)
   } catch (error) {
     console.log(error)
     console.log(`recopy`)
@@ -175,7 +174,7 @@ function readZip(zipfile) {
   })
 }
 
-const version = require('./package.json').version
+const version = require('../package.json').version
 const versionRe = new RegExp(version.replace(/\./g, '\\.'), 'g')
 const cwdRe = new RegExp(path.resolve(process.cwd()), 'g')
 const buildTimeRe = /(Build Time Cost:\s+)[0-9.]+s/gm

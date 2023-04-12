@@ -7,7 +7,6 @@ const path = require('path')
 const gulp = require('gulp')
 const babel = require('gulp-babel')
 const eslint = require('gulp-eslint')
-const webpack = require('webpack')
 const terser = require('gulp-terser')
 const pump = require('pump')
 const del = require('del')
@@ -15,7 +14,7 @@ const sourcemaps = require('gulp-sourcemaps')
 
 const { shallRun, shallWatch } = require('./utils')
 
-const buildClient = require(path.resolve(__dirname, '../packages/hap-debugger/build-client.js'))
+const buildClient = require('@hap-toolkit/debugger/src/build-client')
 
 /* eslint-disable camelcase */
 const cwd = path.resolve(__dirname, '../packages/hap-debugger')
@@ -27,7 +26,7 @@ function debugger__clean() {
 
 function debugger__lint() {
   return gulp
-    .src(['src/**/*.js', 'webpack.config.js'], {
+    .src(['src/**/*.js'], {
       cwd,
       base: cwd
     })

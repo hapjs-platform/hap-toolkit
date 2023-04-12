@@ -9,7 +9,7 @@ const program = require('commander')
 const chalk = require('chalk')
 const semver = require('semver')
 const { colorconsole } = require('@hap-toolkit/shared-utils')
-const { compileOptionsMeta } = require('@hap-toolkit/shared-utils/compilation-config')
+const { compileOptionsMeta } = require('@hap-toolkit/shared-utils/lib/compilation-config')
 
 // 最低支持的node版本
 const NODE_MINIMUM_VERSION = '10.13.0'
@@ -251,21 +251,6 @@ program
   .description('Transpiling async/await for nodejs<7.6.x, deprecated.')
   .action(() => {
     colorconsole.warn('Deprecated command!')
-  })
-
-// TODO
-// Since we properly have all dependencies included,
-// and if we make {babel, eslint}-configuration built-in,
-// we won't need this `update` command anymore.
-program
-  .command('update')
-  .description('update tools for project')
-  .option('--force', 'force update tools for project')
-  .option('--update-deps', 'update dependencies directly', { noHelp: true })
-  .action((options) => {
-    const update = require('../lib/commands/update')
-    colorconsole.warn('hap-toolkit>=0.1.0 不再需要运行此命令\n')
-    update(options)
   })
 
 program

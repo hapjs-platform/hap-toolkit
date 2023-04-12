@@ -9,7 +9,7 @@ import glob from 'glob'
 
 import { signForRpk, signForRpks } from '@hap-toolkit/packager/lib/index'
 import { relateCwd, colorconsole } from '@hap-toolkit/shared-utils'
-import { projectPath } from '@hap-toolkit/shared-utils/config'
+import { projectPath } from '@hap-toolkit/shared-utils/lib/config'
 
 /**
  * 对rpk重新签名

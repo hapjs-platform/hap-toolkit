@@ -15,7 +15,7 @@ import {
   getServerIPAndPort,
   readJson
 } from '@hap-toolkit/shared-utils'
-import globalConfig from '@hap-toolkit/shared-utils/config'
+import globalConfig from '@hap-toolkit/shared-utils/lib/config'
 
 import { startChrome, trackDebug, eventAlias } from '../utils'
 import { getDebugInfoFromRequest, getInspectorUrl, LINK_MODE, callDeviceWithOwnSn } from './service'

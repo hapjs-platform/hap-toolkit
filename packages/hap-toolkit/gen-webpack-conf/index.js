@@ -14,13 +14,13 @@ const {
   getProjectDslName,
   getDefaultServerHost
 } = require('@hap-toolkit/shared-utils')
-const globalConfig = require('@hap-toolkit/shared-utils/config')
+const globalConfig = require('@hap-toolkit/shared-utils/lib/config')
 
 const {
   compileOptionsMeta,
   compileOptionsObject,
   initCompileOptionsObject
-} = require('@hap-toolkit/shared-utils/compilation-config')
+} = require('@hap-toolkit/shared-utils/lib/compilation-config')
 const { name } = require('@hap-toolkit/packager/lib/common/info')
 
 const ManifestWatchPlugin = require('../lib/plugins/manifest-watch-plugin')
@@ -48,7 +48,7 @@ const pathMap = {
 
 const ideConfig = require('./ide.config')
 
-const eventBus = require('@hap-toolkit/shared-utils/event-bus')
+const eventBus = require('@hap-toolkit/shared-utils/lib/event-bus')
 
 const { PACKAGER_BUILD_PROGRESS } = eventBus
 

@@ -12,7 +12,7 @@ import koaSend from 'koa-send'
 import JSZip from 'jszip'
 
 import { KnownError, getLaunchPage, logger } from '@hap-toolkit/shared-utils'
-import eventBus from '@hap-toolkit/shared-utils/event-bus'
+import eventBus from '@hap-toolkit/shared-utils/lib/event-bus'
 
 import { renderPage, trimSlash, removeAnsiColor } from './shared'
 

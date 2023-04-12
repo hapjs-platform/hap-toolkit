@@ -10,7 +10,7 @@ import Parser from 'parse5/lib/parser'
 import Tokenizer from 'parse5/lib/tokenizer'
 
 import { colorconsole } from '@hap-toolkit/shared-utils'
-import { compileOptionsObject } from '@hap-toolkit/shared-utils/compilation-config'
+import { compileOptionsObject } from '@hap-toolkit/shared-utils/lib/compilation-config'
 
 import validator from './validator'
 import { compressTemplateAttr } from './compress'

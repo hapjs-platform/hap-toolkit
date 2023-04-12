@@ -10,7 +10,7 @@ import http from 'http'
 import { Console } from 'console'
 import chalk from 'chalk'
 import qrTerminal from 'qrcode-terminal'
-import globalConfig from '../config'
+import globalConfig from './config'
 
 export { getLaunchPage } from './buildMode/util'
 

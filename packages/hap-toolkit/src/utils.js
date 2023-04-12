@@ -7,7 +7,7 @@ const path = require('@jayfate/path')
 const { colorconsole } = require('@hap-toolkit/shared-utils')
 const { ENTRY_TYPE } = require('@hap-toolkit/packager/lib/common/utils')
 const { resolveFile } = require('@hap-toolkit/packager/lib/common/info')
-const { compileOptionsObject } = require('@hap-toolkit/shared-utils/compilation-config')
+const { compileOptionsObject } = require('@hap-toolkit/shared-utils/lib/compilation-config')
 
 /**
  * 提取其中的应用，页面，worker的脚本文件

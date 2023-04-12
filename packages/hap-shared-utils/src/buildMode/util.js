@@ -5,7 +5,7 @@
 
 import fs from 'fs'
 import path from '@jayfate/path'
-import globalConfig from '../../config'
+import globalConfig from '../config'
 
 export const CONFIG_FILE = '.quickapp.preview.json'
 

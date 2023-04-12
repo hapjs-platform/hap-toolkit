@@ -7,11 +7,11 @@ import { sync as resolveSync } from 'resolve'
 const path = require('@jayfate/path')
 
 const { readJson } = require('@hap-toolkit/shared-utils')
-const globalConfig = require('@hap-toolkit/shared-utils/config')
+const globalConfig = require('@hap-toolkit/shared-utils/lib/config')
 const {
   compileOptionsMeta,
   compileOptionsObject
-} = require('@hap-toolkit/shared-utils/compilation-config')
+} = require('@hap-toolkit/shared-utils/lib/compilation-config')
 
 const CopyDslPlugin = require('./plugins/copy-dsl-plugin')
 const HandlerPlugin = require('./plugins/handler-plugin')

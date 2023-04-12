@@ -5,7 +5,7 @@
 
 const path = require('@jayfate/path')
 const { colorconsole, readJson, logger } = require('@hap-toolkit/shared-utils')
-const eventBus = require('@hap-toolkit/shared-utils/event-bus')
+const eventBus = require('@hap-toolkit/shared-utils/lib/event-bus')
 const { resolveEntries } = require('../utils')
 
 const { PACKAGER_WATCH_START } = eventBus

@@ -22,7 +22,7 @@ const {
   getCardContent
 } = require('./utils')
 const { recordClient, clearProjectRecord } = require('@hap-toolkit/shared-utils/lib/record-client')
-const { clientRecordPath } = require('@hap-toolkit/shared-utils/config')
+const { clientRecordPath } = require('@hap-toolkit/shared-utils/lib/config')
 
 const ipRegExp =
   /^(?:(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.){3}(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)$/

@@ -8,7 +8,7 @@ import adbCommander from 'adb-commander'
 
 import { colorconsole } from '@hap-toolkit/shared-utils'
 import { recordClient, removeClientBySn } from '@hap-toolkit/shared-utils/lib/record-client'
-import globalConfig from '@hap-toolkit/shared-utils/config'
+import globalConfig from '@hap-toolkit/shared-utils/lib/config'
 
 import debuglog from './debuglog'
 
