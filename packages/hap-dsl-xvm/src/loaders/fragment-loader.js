@@ -5,7 +5,6 @@
 
 import loaderUtils from 'loader-utils'
 import { parseFragmentsWithCache, FRAG_TYPE } from '@hap-toolkit/compiler'
-
 import { splitSourceLine, generateMap, consumeMap } from './common/utils'
 
 module.exports = function (source, inputSourceMap) {
