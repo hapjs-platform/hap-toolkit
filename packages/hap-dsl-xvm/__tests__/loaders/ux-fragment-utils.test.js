@@ -3,7 +3,6 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-const { wipeDynamic } = require('hap-dev-utils')
 const { parseFragmentsWithCache, parseTemplate } = require('@hap-toolkit/compiler')
 const { processImportFrag } = require('../../lib/loaders/ux-fragment-utils')
 

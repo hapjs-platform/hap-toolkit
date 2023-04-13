@@ -4,7 +4,7 @@
  */
 
 import { logWarn } from '@hap-toolkit/shared-utils'
-import scripter from '@hap-toolkit/compiler/lib/script'
+import { scripter } from '@hap-toolkit/compiler'
 import { searchModuleImport } from '../common/shared'
 
 /**

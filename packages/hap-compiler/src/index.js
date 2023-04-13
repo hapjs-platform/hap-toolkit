@@ -10,6 +10,9 @@ import styler from './style'
 import scripter from './script'
 import { serialize } from './utils'
 
+export { scripter, styler, templater }
+export * from './style'
+
 /**
  * 格式化节点
  * @param source

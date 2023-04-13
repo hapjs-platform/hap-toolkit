@@ -301,9 +301,4 @@ function processPseudoClass(hash, log, rule) {
   return true
 }
 
-module.exports = {
-  processImport,
-  processSingleClass,
-  processMediaQueryCss,
-  shouldAddToDependency
-}
+export { processImport, processSingleClass, processMediaQueryCss, shouldAddToDependency }

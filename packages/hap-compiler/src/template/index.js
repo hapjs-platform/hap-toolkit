@@ -444,5 +444,6 @@ function parse(source, options) {
 }
 
 export default {
-  parse
+  parse,
+  validator
 }

@@ -7,9 +7,8 @@ import { sync as resolveSync } from 'resolve'
 import path from '@jayfate/path'
 import globalConfig from '@hap-toolkit/shared-utils/lib/config'
 import { compileOptionsObject } from '@hap-toolkit/shared-utils/lib/compilation-config'
-import validator from '@hap-toolkit/compiler/lib/template/validator'
 import { getBabelConfigJsPath } from '@hap-toolkit/packager/lib'
-import { ENTRY_TYPE, FRAG_TYPE } from '@hap-toolkit/compiler'
+import { ENTRY_TYPE, FRAG_TYPE, templater } from '@hap-toolkit/compiler'
 
 import {
   stringifyLoaders,
@@ -19,6 +18,7 @@ import {
   isUXRender
 } from './common/utils'
 
+const { validator } = templater
 // 项目目录
 const cwd = path.resolve(globalConfig.projectPath)
 

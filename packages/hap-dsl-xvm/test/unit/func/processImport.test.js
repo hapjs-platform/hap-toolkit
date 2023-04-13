@@ -6,7 +6,7 @@
 
 'use strict'
 const path = require('@jayfate/path')
-const { processImport } = require('@hap-toolkit/compiler/lib/style/process')
+const { processImport } = require('@hap-toolkit/compiler')
 const testCssDir = path.resolve(__dirname, '../../case/ux/Helloworld/Common')
 
 const code = `

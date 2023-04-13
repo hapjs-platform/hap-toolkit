@@ -229,3 +229,5 @@ export default {
   mightReferlocalResource,
   shouldAddToDependency
 }
+
+export * from "./process"

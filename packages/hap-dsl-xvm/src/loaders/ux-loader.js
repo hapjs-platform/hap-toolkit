@@ -5,8 +5,7 @@
 
 import path from '@jayfate/path'
 import loaderUtils from 'loader-utils'
-import { parseFragmentsWithCache, ENTRY_TYPE } from '@hap-toolkit/compiler'
-import validator from '@hap-toolkit/compiler/lib/template/validator'
+import { parseFragmentsWithCache, ENTRY_TYPE, templater } from '@hap-toolkit/compiler'
 import { compileOptionsObject } from '@hap-toolkit/shared-utils/lib/compilation-config'
 
 import {
@@ -19,6 +18,8 @@ import {
 import { getNameByPath, print, isUXRender } from './common/utils'
 
 import globalConfig from '@hap-toolkit/shared-utils/lib/config'
+
+const { validator } = templater
 
 /**
  * 收集结果

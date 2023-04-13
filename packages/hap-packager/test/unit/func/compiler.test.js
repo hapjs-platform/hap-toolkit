@@ -3,7 +3,7 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-const { replaceModuleImport } = require('@hap-toolkit/compiler/lib/script').default
+const { replaceModuleImport } = require('@hap-toolkit/compiler').scripter
 
 describe('compile functions', () => {
   it('replaceModuleImport', () => {
