@@ -230,4 +230,4 @@ export default {
   shouldAddToDependency
 }
 
-export * from "./process"
+export * from './process'

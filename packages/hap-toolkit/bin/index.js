@@ -242,7 +242,7 @@ program
   .description('preview app in your browser')
   .option('--port <port>', 'specified port', 8989)
   .action((target, options) => {
-    const preview = require('../lib/commands/preview')
+    const preview = require('../lib/commands/preview').default
     preview(target, options)
   })
 

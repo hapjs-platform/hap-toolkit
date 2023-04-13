@@ -4,12 +4,11 @@
  */
 
 import { setCustomConfig, colorconsole } from '@hap-toolkit/shared-utils'
-
 import config from './config'
 import moduler from './config/modules'
 import { launch, stop } from './server'
-
 import { remotePreview } from './preview/remote-preview'
+import { beforeStart, createPreview } from './preview'
 
 /**
  * 启动开发服务
@@ -35,7 +34,7 @@ import { remotePreview } from './preview/remote-preview'
  * @param {string} action - toolkit进行到的操作
  * @param {string} url - 调试页面的地址
  */
-module.exports.launchServer = function (options) {
+function launchServer(options) {
   try {
     colorconsole.attach(options.log)
 
@@ -63,11 +62,12 @@ module.exports.launchServer = function (options) {
  * @module stopServer
  * @returns {Promise} - 返回成功与否的信息
  */
-module.exports.stopServer = function () {
+function stopServer() {
   return stop()
 }
 
 /**
- * IDE扫码预览的命令行实现
+ * remotePreview IDE扫码预览的命令行实现
  */
-module.exports.remotePreview = remotePreview
+export { launchServer, remotePreview, stopServer, beforeStart, createPreview }
+export default { launchServer, remotePreview, stopServer, beforeStart, createPreview }

@@ -4,7 +4,7 @@
  */
 
 import { BuildModeManager } from '@hap-toolkit/shared-utils'
-const { launchServer, stopServer } = require('@hap-toolkit/server')
+import { launchServer, stopServer } from '@hap-toolkit/server'
 const { compile, stopWatch } = require('./commands/compile')
 
 /**
