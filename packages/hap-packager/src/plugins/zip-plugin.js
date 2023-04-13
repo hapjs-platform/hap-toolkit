@@ -5,14 +5,15 @@
 
 import fs from 'fs-extra'
 import path from '@jayfate/path'
-import { colorconsole, readJson } from '@hap-toolkit/shared-utils'
-import globalConfig from '@hap-toolkit/shared-utils/lib/config'
-import { sortFilesBy, lsdirdeep, genPriorities } from '../common/utils'
-import { getSkeletonConfig } from '../common/info'
 import {
+  colorconsole,
+  readJson,
+  globalConfig,
   compileOptionsMeta,
   compileOptionsObject
-} from '@hap-toolkit/shared-utils/lib/compilation-config'
+} from '@hap-toolkit/shared-utils'
+import { sortFilesBy, lsdirdeep, genPriorities } from '../common/utils'
+import { getSkeletonConfig } from '../common/info'
 import { DIGEST_ZIP_PATH } from '../common/constant'
 import {
   createPackagesDefinition,

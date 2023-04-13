@@ -5,9 +5,13 @@
 
 import http from 'http'
 import fs from 'fs'
-import { colorconsole, getDeviceInfo } from '@hap-toolkit/shared-utils'
-import { getRecords, getProjectClients } from '@hap-toolkit/shared-utils/lib/record-client'
-import globalConfig from '@hap-toolkit/shared-utils/lib/config'
+import {
+  colorconsole,
+  getDeviceInfo,
+  globalConfig,
+  getRecords,
+  getProjectClients
+} from '@hap-toolkit/shared-utils'
 
 let clientExists = false
 let isFirstUpdate = true

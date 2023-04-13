@@ -13,8 +13,10 @@ import qrTerminal from 'qrcode-terminal'
 import globalConfig from './config'
 import BuildModeManager from './buildMode/BuildModeManager.js'
 
-export { BuildModeManager }
+export { BuildModeManager, globalConfig }
 export { getLaunchPage } from './buildMode/util'
+export * from './compilation-config'
+export * from './record-client'
 
 const logLevelMap = {}
 function prependLevel(levelName, args) {

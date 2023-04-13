@@ -7,7 +7,7 @@ import path from '@jayfate/path'
 import loaderUtils from 'loader-utils'
 import hash from 'hash-sum'
 import { SourceMapGenerator, SourceMapConsumer } from 'source-map'
-import globalConfig from '@hap-toolkit/shared-utils/lib/config'
+import { globalConfig } from '@hap-toolkit/shared-utils'
 import { ENTRY_TYPE } from '@hap-toolkit/compiler'
 
 /**

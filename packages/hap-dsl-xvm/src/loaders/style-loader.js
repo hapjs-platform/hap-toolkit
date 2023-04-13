@@ -7,8 +7,7 @@
 
 import loaderUtils from 'loader-utils'
 import { parseStyle } from '@hap-toolkit/compiler'
-import { logWarn } from '@hap-toolkit/shared-utils'
-import { compileOptionsObject } from '@hap-toolkit/shared-utils/lib/compilation-config'
+import { logWarn, compileOptionsObject } from '@hap-toolkit/shared-utils'
 
 import { convertPath, getWebpackOptions } from './common/utils'
 

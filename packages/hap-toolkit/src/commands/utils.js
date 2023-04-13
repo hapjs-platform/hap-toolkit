@@ -7,9 +7,8 @@ import fs from 'fs-extra'
 import path from '@jayfate/path'
 import request from 'request'
 import http from 'http'
-import { getRecords, getProjectClients } from '@hap-toolkit/shared-utils/lib/record-client'
+import { getRecords, getProjectClients, colorconsole, readJson } from '@hap-toolkit/shared-utils'
 import { clientRecordPath } from '@hap-toolkit/shared-utils/lib/config'
-import { colorconsole, readJson } from '@hap-toolkit/shared-utils'
 
 /**
  * 接受用户指定的输出时间戳格式，输出时间时间戳

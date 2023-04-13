@@ -8,8 +8,13 @@ import fs from 'fs-extra'
 import aaptjs from '@hap-toolkit/aaptjs'
 import glob from 'glob'
 import eventBus from '@hap-toolkit/shared-utils/lib/event-bus'
-import { colorconsole, relateCwd, readJson, logger } from '@hap-toolkit/shared-utils'
-import { compileOptionsObject } from '@hap-toolkit/shared-utils/lib/compilation-config'
+import {
+  colorconsole,
+  relateCwd,
+  readJson,
+  logger,
+  compileOptionsObject
+} from '@hap-toolkit/shared-utils'
 
 import { name } from '../common/info'
 import { updateManifest } from '../common/shared'

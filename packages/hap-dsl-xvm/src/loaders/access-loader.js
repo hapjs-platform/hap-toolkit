@@ -4,7 +4,7 @@
  */
 
 'use strict'
-import globalConfig from '@hap-toolkit/shared-utils/lib/config'
+import { globalConfig } from '@hap-toolkit/shared-utils'
 
 /**
  * 添加ViewModel数据校验和处理代码。只有页面组件才需要, 子组件不需要

@@ -6,7 +6,7 @@
 // TODO duplicate of packager/src/common/utils.js
 import fs from 'fs'
 import path from '@jayfate/path'
-import globalConfig from '@hap-toolkit/shared-utils/lib/config'
+import { globalConfig } from '@hap-toolkit/shared-utils'
 
 /**
  * 合并数组属性

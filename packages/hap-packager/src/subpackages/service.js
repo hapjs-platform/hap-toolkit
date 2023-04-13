@@ -6,7 +6,7 @@
 import fs from 'fs'
 import path from '@jayfate/path'
 
-import { compileOptionsMeta } from '@hap-toolkit/shared-utils/lib/compilation-config'
+import { compileOptionsMeta } from '@hap-toolkit/shared-utils'
 import { calcDataDigest } from '../common/utils'
 import { createFullPackage, createSubPackages } from './package'
 import { BUILD_INFO_FILE } from '../common/constant'

@@ -4,7 +4,7 @@
  */
 
 import { sync as resolveSync } from 'resolve'
-const { compileOptionsObject } = require('@hap-toolkit/shared-utils/lib/compilation-config')
+import { compileOptionsObject } from '@hap-toolkit/shared-utils'
 const { loaderWrapper } = require('@hap-toolkit/packager/lib/common/utils')
 
 /**

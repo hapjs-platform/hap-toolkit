@@ -10,7 +10,7 @@ import serve from 'koa-static'
 import mount from 'koa-mount'
 
 import devtoolsFrontend from '@hap-toolkit/chrome-devtools-frontend'
-import globalConfig from '@hap-toolkit/shared-utils/lib/config'
+import { globalConfig } from '@hap-toolkit/shared-utils'
 
 import routes from './routes'
 import { createSocketServer } from './wsserver'

@@ -12,7 +12,7 @@ import LibraryTemplatePlugin from 'webpack/lib/LibraryTemplatePlugin'
 import SingleEntryPlugin from 'webpack/lib/SingleEntryPlugin'
 import LimitChunkCountPlugin from 'webpack/lib/optimize/LimitChunkCountPlugin'
 
-import { compileOptionsObject } from '@hap-toolkit/shared-utils/lib/compilation-config'
+import { compileOptionsObject } from '@hap-toolkit/shared-utils'
 
 const pluginName = `extract-css`
 

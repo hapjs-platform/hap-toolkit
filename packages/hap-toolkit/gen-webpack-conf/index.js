@@ -20,7 +20,7 @@ const {
   compileOptionsMeta,
   compileOptionsObject,
   initCompileOptionsObject
-} = require('@hap-toolkit/shared-utils/lib/compilation-config')
+} = require('@hap-toolkit/shared-utils')
 const { name } = require('@hap-toolkit/packager/lib/common/info')
 
 const ManifestWatchPlugin = require('../lib/plugins/manifest-watch-plugin')

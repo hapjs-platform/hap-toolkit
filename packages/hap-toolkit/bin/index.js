@@ -9,7 +9,7 @@ const program = require('commander')
 const chalk = require('chalk')
 const semver = require('semver')
 const { colorconsole } = require('@hap-toolkit/shared-utils')
-const { compileOptionsMeta } = require('@hap-toolkit/shared-utils/lib/compilation-config')
+const { compileOptionsMeta } = require('@hap-toolkit/shared-utils')
 
 // 最低支持的node版本
 const NODE_MINIMUM_VERSION = '10.13.0'

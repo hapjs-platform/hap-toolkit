@@ -5,8 +5,7 @@
 
 import { sync as resolveSync } from 'resolve'
 import path from '@jayfate/path'
-import globalConfig from '@hap-toolkit/shared-utils/lib/config'
-import { compileOptionsObject } from '@hap-toolkit/shared-utils/lib/compilation-config'
+import { globalConfig, compileOptionsObject } from '@hap-toolkit/shared-utils'
 import { getBabelConfigJsPath } from '@hap-toolkit/packager/lib'
 import { ENTRY_TYPE, FRAG_TYPE, templater } from '@hap-toolkit/compiler'
 

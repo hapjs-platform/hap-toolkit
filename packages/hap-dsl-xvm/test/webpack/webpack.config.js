@@ -18,7 +18,7 @@ const ResourcePlugin = require('@hap-toolkit/packager/lib/plugins/resource-plugi
 const HandlerPlugin = require('@hap-toolkit/packager/lib/plugins/handler-plugin')
 const ZipPlugin = require('@hap-toolkit/packager/lib/plugins/zip-plugin')
 
-const { compileOptionsMeta } = require('@hap-toolkit/shared-utils/lib/compilation-config')
+const { compileOptionsMeta } = require('@hap-toolkit/shared-utils')
 
 module.exports = {
   context: src,

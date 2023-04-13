@@ -5,7 +5,7 @@
 
 import path from '@jayfate/path'
 import mount from 'koa-mount'
-import globalConfig from '@hap-toolkit/shared-utils/lib/config'
+import { globalConfig } from '@hap-toolkit/shared-utils'
 import createPreview from './create-preview'
 
 async function beforeStart(server, app) {

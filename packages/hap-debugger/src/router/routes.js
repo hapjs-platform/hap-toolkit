@@ -8,14 +8,15 @@ import fs from 'fs'
 
 import qr from 'qr-image'
 
-import { getRecords, getProjectClients } from '@hap-toolkit/shared-utils/lib/record-client'
 import {
   getDeviceInfo,
   colorconsole,
   getServerIPAndPort,
+  globalConfig,
+  getRecords,
+  getProjectClients,
   readJson
 } from '@hap-toolkit/shared-utils'
-import globalConfig from '@hap-toolkit/shared-utils/lib/config'
 
 import { startChrome, trackDebug, eventAlias } from '../utils'
 import { getDebugInfoFromRequest, getInspectorUrl, LINK_MODE, callDeviceWithOwnSn } from './service'

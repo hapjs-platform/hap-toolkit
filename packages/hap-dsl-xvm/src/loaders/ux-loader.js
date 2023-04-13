@@ -6,7 +6,7 @@
 import path from '@jayfate/path'
 import loaderUtils from 'loader-utils'
 import { parseFragmentsWithCache, ENTRY_TYPE, templater } from '@hap-toolkit/compiler'
-import { compileOptionsObject } from '@hap-toolkit/shared-utils/lib/compilation-config'
+import { globalConfig, compileOptionsObject } from '@hap-toolkit/shared-utils'
 
 import {
   processImportFrag,
@@ -16,8 +16,6 @@ import {
   parseImportList
 } from './ux-fragment-utils'
 import { getNameByPath, print, isUXRender } from './common/utils'
-
-import globalConfig from '@hap-toolkit/shared-utils/lib/config'
 
 const { validator } = templater
 

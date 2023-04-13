@@ -6,10 +6,12 @@
 import devicesEmitter from 'adb-devices-emitter'
 import adbCommander from 'adb-commander'
 
-import { colorconsole } from '@hap-toolkit/shared-utils'
-import { recordClient, removeClientBySn } from '@hap-toolkit/shared-utils/lib/record-client'
-import globalConfig from '@hap-toolkit/shared-utils/lib/config'
-
+import {
+  colorconsole,
+  globalConfig,
+  recordClient,
+  removeClientBySn
+} from '@hap-toolkit/shared-utils'
 import debuglog from './debuglog'
 
 const REMOTE_REVERSE_PORT = 12306

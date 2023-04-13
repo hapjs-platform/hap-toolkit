@@ -21,7 +21,7 @@ const {
   checkQuickappDir,
   getCardContent
 } = require('./utils')
-const { recordClient, clearProjectRecord } = require('@hap-toolkit/shared-utils/lib/record-client')
+const { recordClient, clearProjectRecord } = require('@hap-toolkit/shared-utils')
 const { clientRecordPath } = require('@hap-toolkit/shared-utils/lib/config')
 
 const ipRegExp =

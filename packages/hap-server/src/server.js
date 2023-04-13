@@ -7,9 +7,13 @@ import http from 'http'
 import Koa from 'koa'
 import opn from 'opn'
 import portfinder from 'portfinder'
-import { outputQRCodeOnTerminal, getIPv4IPAddress, colorconsole } from '@hap-toolkit/shared-utils'
-import { clearProjectRecord } from '@hap-toolkit/shared-utils/lib/record-client'
-import globalConfig from '@hap-toolkit/shared-utils/lib/config'
+import {
+  outputQRCodeOnTerminal,
+  getIPv4IPAddress,
+  colorconsole,
+  globalConfig,
+  clearProjectRecord
+} from '@hap-toolkit/shared-utils'
 
 let server = null
 export async function launch(conf, moduler) {
