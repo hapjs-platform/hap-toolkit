@@ -5,7 +5,6 @@
 
 import { setCustomConfig, colorconsole } from '@hap-toolkit/shared-utils'
 import config from './config'
-import moduler from './config/modules'
 import { launch, stop } from './server'
 import { remotePreview } from './preview/remote-preview'
 import { beforeStart, createPreview } from './preview'
@@ -37,23 +36,15 @@ import { beforeStart, createPreview } from './preview'
 function launchServer(options) {
   try {
     colorconsole.attach(options.log)
-
-    if (options.modules && options.modules.length) {
-      Object.assign(config.options, {
-        moduleList: options.modules
-      })
-    }
-
     Object.assign(config.options, options)
     // 配置参数
     setCustomConfig(options.cwd, options.port)
     // 加载模块
-    moduler.init(config)
   } catch (err) {
     return Promise.reject(err)
   }
   // 启动服务器
-  return launch(config, moduler)
+  return launch(config)
 }
 
 /**

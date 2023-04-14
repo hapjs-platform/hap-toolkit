@@ -15,8 +15,14 @@ import {
   clearProjectRecord
 } from '@hap-toolkit/shared-utils'
 
+const moduler = [
+  require('@hap-toolkit/debugger'),
+  require('@hap-toolkit/packager/lib/router'),
+  require('./preview/index.js')
+]
+
 let server = null
-export async function launch(conf, moduler) {
+export async function launch(conf) {
   return new Promise(async (resolve) => {
     try {
       const app = new Koa()
@@ -36,21 +42,19 @@ export async function launch(conf, moduler) {
         clearProjectRecord(clientRecordPath)
       }
 
-      for (let i = 0, len = moduler.moduleList.length; i < len; i++) {
-        const moduleItem = moduler.moduleList[i]
-        if (typeof moduleItem.hash.applyRouter === 'function') {
-          app.use(moduleItem.hash.applyRouter(app).routes())
+      moduler.forEach((module) => {
+        if (module.applyRouter) {
+          app.use(module.applyRouter(app).routes())
         }
-      }
+      })
 
       server = http.Server(app.callback())
       // 绑定HTTP服务器
       app.server = server
 
-      for (let i = 0, len = moduler.moduleList.length; i < len; i++) {
-        const moduleItem = moduler.moduleList[i]
-        if (typeof moduleItem.hash.beforeStart === 'function') {
-          await moduleItem.hash.beforeStart(server, app)
+      for (const moduleItem of moduler) {
+        if (moduleItem.beforeStart) {
+          await moduleItem.beforeStart(server, app)
         }
       }
 
