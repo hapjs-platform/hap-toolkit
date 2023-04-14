@@ -14,7 +14,7 @@ const sourcemaps = require('gulp-sourcemaps')
 
 const { shallRun, shallWatch } = require('./utils')
 
-const buildClient = require('@hap-toolkit/debugger/src/build-client')
+const buildClient = require('../packages/hap-debugger/src/build-client.js')
 
 /* eslint-disable camelcase */
 const cwd = path.resolve(__dirname, '../packages/hap-debugger')

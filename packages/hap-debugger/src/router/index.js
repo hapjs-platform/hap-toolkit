@@ -47,7 +47,4 @@ async function beforeStart(server, app) {
   }
 }
 
-module.exports = {
-  applyRouter,
-  beforeStart
-}
+export { applyRouter, beforeStart }
