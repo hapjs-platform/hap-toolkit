@@ -7,13 +7,13 @@ import path from '@jayfate/path'
 import fs from 'fs-extra'
 import aaptjs from '@hap-toolkit/aaptjs'
 import glob from 'glob'
-import eventBus from '@hap-toolkit/shared-utils/lib/event-bus'
 import {
   colorconsole,
   relateCwd,
   readJson,
   logger,
-  compileOptionsObject
+  compileOptionsObject,
+  eventBus
 } from '@hap-toolkit/shared-utils'
 
 import { name } from '../common/info'

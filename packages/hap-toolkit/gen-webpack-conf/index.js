@@ -14,7 +14,7 @@ const {
   getProjectDslName,
   getDefaultServerHost
 } = require('@hap-toolkit/shared-utils')
-const globalConfig = require('@hap-toolkit/shared-utils/lib/config')
+const { globalConfig } = require('@hap-toolkit/shared-utils')
 
 const {
   compileOptionsMeta,
@@ -48,7 +48,7 @@ const pathMap = {
 
 const ideConfig = require('./ide.config')
 
-const eventBus = require('@hap-toolkit/shared-utils/lib/event-bus')
+const { eventBus } = require('@hap-toolkit/shared-utils')
 
 const { PACKAGER_BUILD_PROGRESS } = eventBus
 

@@ -3,11 +3,13 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-const path = require('@jayfate/path')
+import path from '@jayfate/path'
+import { homedir } from 'os'
+
 // 用户home目录
-const home = require('os').homedir()
+const home = homedir()
 const clientRecordPath = path.join(home, 'hap-toolkit-client-records.json')
-module.exports = {
+export default {
   projectPath: process.cwd(),
   clientRecordPath,
   sourceRoot: './src', // 源码根目录

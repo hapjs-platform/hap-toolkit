@@ -6,7 +6,7 @@
 const fs = require('fs-extra')
 const path = require('@jayfate/path')
 const builtinList = require('module').builtinModules
-const globalConfig = require('@hap-toolkit/shared-utils/lib/config')
+const { globalConfig } = require('@hap-toolkit/shared-utils')
 
 const { readJson, colorconsole } = require('@hap-toolkit/shared-utils')
 

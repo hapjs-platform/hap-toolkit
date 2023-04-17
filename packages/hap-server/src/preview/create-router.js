@@ -11,8 +11,7 @@ import KoaRouter from 'koa-router'
 import koaSend from 'koa-send'
 import JSZip from 'jszip'
 
-import { KnownError, getLaunchPage, logger } from '@hap-toolkit/shared-utils'
-import eventBus from '@hap-toolkit/shared-utils/lib/event-bus'
+import { KnownError, getLaunchPage, logger, eventBus } from '@hap-toolkit/shared-utils'
 
 import { renderPage, trimSlash, removeAnsiColor } from './shared'
 
