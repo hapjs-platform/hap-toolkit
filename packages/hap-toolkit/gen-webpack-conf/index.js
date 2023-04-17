@@ -23,7 +23,7 @@ const {
 } = require('@hap-toolkit/shared-utils')
 const { name } = require('@hap-toolkit/packager/lib/common/info')
 
-const ManifestWatchPlugin = require('../lib/plugins/manifest-watch-plugin')
+const ManifestWatchPlugin = require('../lib/plugins/manifest-watch-plugin').default
 const { resolveEntries } = require('../lib/utils')
 const getDevtool = require('./get-devtool')
 const {

@@ -6,7 +6,6 @@
 import childProcess from 'child_process'
 import os from 'os'
 import path from '@jayfate/path'
-
 import fs from 'fs-extra'
 import chalk from 'chalk'
 

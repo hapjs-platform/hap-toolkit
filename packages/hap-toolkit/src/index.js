@@ -5,7 +5,7 @@
 
 import { BuildModeManager } from '@hap-toolkit/shared-utils'
 import { launchServer, stopServer } from '@hap-toolkit/server'
-const { compile, stopWatch } = require('./commands/compile')
+import { compile, stopWatch } from './commands/compile'
 
 /**
  * 关闭开发服务及停止webpack watching

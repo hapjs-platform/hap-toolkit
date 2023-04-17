@@ -3,11 +3,11 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-const webpack = require('webpack')
-const { setCustomConfig, colorconsole } = require('@hap-toolkit/shared-utils')
-const genWebpackConf = require('../../gen-webpack-conf')
-const { summaryErrors, summaryWarnings } = require('./utils')
-const adbCommander = require('adb-commander')
+import webpack from 'webpack'
+import adbCommander from 'adb-commander'
+import { setCustomConfig, colorconsole } from '@hap-toolkit/shared-utils'
+import genWebpackConf from '../../gen-webpack-conf'
+import { summaryErrors, summaryWarnings } from './utils'
 
 // webpack watch 模式返回的watching实例
 let watching = null
@@ -39,7 +39,7 @@ showVersion()
  * @param {Object} [options.ideConfig] - cli，由 IDE 传入
  * @returns {Promise} - 返回成功与否的信息
  */
-module.exports.compile = function compile(platform, mode, watch, options = {}) {
+export function compile(platform, mode, watch, options = {}) {
   const errCb = options.onerror
 
   return new Promise((resolve, reject) => {
@@ -102,7 +102,7 @@ module.exports.compile = function compile(platform, mode, watch, options = {}) {
  * @module stopWatch
  * @returns {Promise} - 返回成功与否的信息
  */
-module.exports.stopWatch = function () {
+export function stopWatch() {
   return new Promise((resolve) => {
     if (watching) {
       watching.close(() => {
@@ -119,7 +119,7 @@ module.exports.stopWatch = function () {
  * 杀掉adb进程
  * @returns
  */
-module.exports.killAdb = function () {
+export function killAdb() {
   return new Promise((resolve, reject) => {
     adbCommander.exeCommand('adb kill-server').then(({ result, err }) => {
       if (err) {

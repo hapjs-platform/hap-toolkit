@@ -17,5 +17,6 @@ export default {
   releasePath: './dist', // 快应用包目录
   outputPath: './build', // 输出目录,
   dataCoverage: './.nyc_output', // 项目运行的代码覆盖率数据
+  command: 'build',
   server: { port: 8000 }
 }

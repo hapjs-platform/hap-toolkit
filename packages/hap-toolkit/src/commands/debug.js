@@ -3,16 +3,20 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-const path = require('@jayfate/path')
-const fs = require('fs')
-const chalk = require('chalk')
-const inquirer = require('inquirer')
-const adbCommander = require('adb-commander')
-const { launchServer } = require('@hap-toolkit/server')
-const { compile } = require('./compile')
-
-const { colorconsole } = require('@hap-toolkit/shared-utils')
-const {
+import fs from 'fs'
+import path from '@jayfate/path'
+import chalk from 'chalk'
+import inquirer from 'inquirer'
+import adbCommander from 'adb-commander'
+import { launchServer } from '@hap-toolkit/server'
+import {
+  colorconsole,
+  recordClient,
+  clearProjectRecord,
+  globalConfig
+} from '@hap-toolkit/shared-utils'
+import { compile } from './compile'
+import {
   downloadFile,
   getQuickappDebuggerUrl,
   getQuickappPreviewUrl,
@@ -20,8 +24,7 @@ const {
   getClients,
   checkQuickappDir,
   getCardContent
-} = require('./utils')
-const { recordClient, clearProjectRecord, globalConfig } = require('@hap-toolkit/shared-utils')
+} from './utils'
 
 const { clientRecordPath } = globalConfig
 
@@ -593,7 +596,7 @@ async function getAllConnectedDevices(options) {
   }
 }
 
-module.exports = {
+export {
   installAndRun,
   installdbg,
   installmkp,
