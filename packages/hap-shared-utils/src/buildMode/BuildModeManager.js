@@ -309,7 +309,7 @@ BuildModeManager.prototype.setRoot = function (root) {
   return null
 }
 
-module.exports = BuildModeManager
+export default BuildModeManager
 
 /**
  * @typedef BuildModeOptions

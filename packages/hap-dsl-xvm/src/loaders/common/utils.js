@@ -8,6 +8,7 @@ import loaderUtils from 'loader-utils'
 import hash from 'hash-sum'
 import { SourceMapGenerator, SourceMapConsumer } from 'source-map'
 import globalConfig from '@hap-toolkit/shared-utils/lib/config'
+import { ENTRY_TYPE } from '@hap-toolkit/compiler'
 
 /**
  * 从文件路径中获取最后一部分（文件名(不包含扩展名)或目录名）
@@ -237,25 +238,4 @@ export function convertPath(filePath) {
   return process.platform === 'win32'
     ? path.join(pathBase, filePath).replace(/\//g, '\\')
     : path.join(pathBase, filePath)
-}
-
-/**
- * ux文件的类型
- */
-export const ENTRY_TYPE = {
-  APP: 'app',
-  PAGE: 'page',
-  COMP: 'comp',
-  CARD: 'card',
-  JS: 'js'
-}
-
-/**
- * 片段的类型
- */
-export const FRAG_TYPE = {
-  IMPORT: 'import',
-  TEMPLATE: 'template',
-  STYLE: 'style',
-  SCRIPT: 'script'
 }

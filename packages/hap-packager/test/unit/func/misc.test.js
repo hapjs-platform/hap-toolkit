@@ -3,7 +3,8 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-const { serialize, sortFilesBy } = require('../../../lib/common/utils')
+const { serialize } = require('@hap-toolkit/compiler')
+const { sortFilesBy } = require('../../../lib/common/utils')
 
 /* eslint-disable no-unused-vars, semi */
 

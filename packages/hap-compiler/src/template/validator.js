@@ -4,7 +4,7 @@
  */
 
 import path from '@jayfate/path'
-import { colorconsole } from '@hap-toolkit/shared-utils'
+import { colorconsole, extend } from '@hap-toolkit/shared-utils'
 import exp from './exp'
 import styler from '../style'
 import checkModel from './model'
@@ -12,7 +12,6 @@ import {
   fileExists,
   resolvePath,
   hyphenedToCamelCase,
-  extend,
   merge,
   isValidValue,
   FRAG_TYPE,

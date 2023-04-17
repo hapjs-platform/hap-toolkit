@@ -3,7 +3,7 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-const BuildModeManager = require('@hap-toolkit/shared-utils/lib/buildMode/BuildModeManager')
+import { BuildModeManager } from '@hap-toolkit/shared-utils'
 const { launchServer, stopServer } = require('@hap-toolkit/server')
 const { compile, stopWatch } = require('./commands/compile')
 
@@ -58,12 +58,4 @@ function launchWithWatch(options) {
   })
 }
 
-module.exports = {
-  compile,
-  stopWatch,
-  launchServer,
-  stopServer,
-  launchWithWatch,
-  stopAll,
-  BuildModeManager
-}
+export { compile, stopWatch, launchServer, stopServer, launchWithWatch, stopAll, BuildModeManager }

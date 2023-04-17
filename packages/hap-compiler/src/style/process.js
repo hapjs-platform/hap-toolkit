@@ -9,6 +9,7 @@ import path from '@jayfate/path'
 import css from 'css'
 import cssWhat from 'css-what'
 import { compileOptionsObject } from '@hap-toolkit/shared-utils/lib/compilation-config'
+import { extend } from '@hap-toolkit/shared-utils'
 import {
   validate as validateDelaration,
   validatePseudoClass,
@@ -16,7 +17,7 @@ import {
 } from './validator'
 import { compressDescSelector } from './compress'
 import { validateMediaCondition, findMediaClassByCondition, wrapMediaCode } from './mediaquery'
-import { hyphenedToCamelCase, extend, isValidValue } from '../utils'
+import { hyphenedToCamelCase, isValidValue } from '../utils'
 
 // 有效@import的标识前后缀
 const VALID_IMPORT_FLAG = '__VALID_IMPORT__'

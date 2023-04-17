@@ -9,14 +9,13 @@ import globalConfig from '@hap-toolkit/shared-utils/lib/config'
 import { compileOptionsObject } from '@hap-toolkit/shared-utils/lib/compilation-config'
 import validator from '@hap-toolkit/compiler/lib/template/validator'
 import { getBabelConfigJsPath } from '@hap-toolkit/packager/lib'
+import { ENTRY_TYPE, FRAG_TYPE } from '@hap-toolkit/compiler'
 
 import {
   stringifyLoaders,
   makeRequireString,
   getNameByPath,
   print,
-  ENTRY_TYPE,
-  FRAG_TYPE,
   isUXRender
 } from './common/utils'
 
