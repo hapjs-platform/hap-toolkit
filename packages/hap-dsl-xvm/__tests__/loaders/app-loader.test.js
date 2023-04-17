@@ -5,7 +5,7 @@
 
 const path = require('@jayfate/path')
 const { rowify } = require('hap-dev-utils')
-const appLoader = require('../../lib/loaders/app-loader')
+const appLoader = require('../../lib/loaders/app-loader').default
 
 describe('app-loader', () => {
   const mockLoader = {

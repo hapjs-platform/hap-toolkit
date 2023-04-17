@@ -13,7 +13,7 @@ import {
 } from './ux-fragment-utils'
 import { globalConfig } from '@hap-toolkit/shared-utils'
 
-module.exports = async function appLoader(source) {
+export default async function appLoader(source) {
   const codes = []
   const frags = parseFragmentsWithCache(source, this.resourcePath)
   const isUseTreeShaking = !!globalConfig.useTreeShaking

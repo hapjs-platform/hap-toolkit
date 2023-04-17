@@ -5,7 +5,7 @@
 
 import jsxSyntaxPlugin from '@babel/plugin-syntax-jsx'
 
-module.exports = function (babel) {
+export default function babelPluginJSX(babel) {
   const t = babel.types
   return {
     inherits: jsxSyntaxPlugin,

@@ -110,7 +110,7 @@ class CssModuleFactory {
   }
 }
 
-class ExtractCssPlugin {
+export default class ExtractCssPlugin {
   constructor(options = {}) {
     this.options = Object.assign(
       {
@@ -326,5 +326,3 @@ class ExtractCssPlugin {
     return new ConcatSource(source)
   }
 }
-
-module.exports = ExtractCssPlugin

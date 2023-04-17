@@ -13,6 +13,11 @@
     "webpack-plugin",
     "quickapp"
   ],
+  "main": "lib/index.js",
+  "exports": {
+    "import": "./src/index.js",
+    "require": "./lib/index.js"
+  },
   "devDependencies": {
     "@babel/cli": "^7.8.4",
     "@babel/core": "^7.9.6",

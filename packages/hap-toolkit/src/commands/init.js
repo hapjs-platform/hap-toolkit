@@ -4,14 +4,13 @@
  */
 
 import path from '@jayfate/path'
-
 import fs from 'fs-extra'
 import glob from 'glob'
 import inquirer from 'inquirer'
 import chalk from 'chalk'
 
 import { mkdirsSync, renderString, relateCwd, colorconsole } from '@hap-toolkit/shared-utils'
-import dslXvm from '@hap-toolkit/dsl-xvm/lib/template'
+import { template } from '@hap-toolkit/dsl-xvm'
 
 const allSupportedDeviceArray = ['phone', 'tv', 'car', 'watch']
 const allSupportedDevicesString = allSupportedDeviceArray.join(',')
@@ -93,8 +92,8 @@ async function createProject(name, dirpath, options = {}) {
       console.error(`hap-toolkit >= 1.9.0版本暂不支持 dsl = vue!`)
       break
     default:
-      tplPath = dslXvm.app.demo
-      deviceJsonTemplatePath = dslXvm.app.deviceJsonTemplate
+      tplPath = template.app.demo
+      deviceJsonTemplatePath = template.app.deviceJsonTemplate
   }
 
   // 拷贝project

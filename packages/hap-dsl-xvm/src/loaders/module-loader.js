@@ -12,7 +12,7 @@ import { logWarn } from '@hap-toolkit/shared-utils'
  * @param {string} parsed - 前一级 loader 处理后的代码
  * @param {object} sourceMap - 前一级 loader 处理后的 sourceMap
  */
-module.exports = function moduleLoader(parsed, sourceMap) {
+export default function moduleLoader(parsed, sourceMap) {
   // 更新替换
   const fileRsut = searchModuleImport(parsed)
   // 内容替换

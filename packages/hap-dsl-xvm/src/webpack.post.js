@@ -5,13 +5,14 @@
 
 import { sync as resolveSync } from 'resolve'
 import { compileOptionsObject } from '@hap-toolkit/shared-utils'
+import ExtractCssPlugin from './plugins/extract-css-plugin'
 const { loaderWrapper } = require('@hap-toolkit/packager/lib/common/utils')
 
 /**
  * @param webpackConf webpack配置
  * @param quickappConfig - quickapp.config.js或者hap.config.js的配置
  */
-module.exports.postHook = function (webpackConf, { cwd, pathSrc }, quickappConfig) {
+export function postHook(webpackConf, { cwd, pathSrc }, quickappConfig) {
   // 用于接收定制配置
   let customConf = {
     module: {
@@ -56,7 +57,6 @@ module.exports.postHook = function (webpackConf, { cwd, pathSrc }, quickappConfi
 
   // 是否启用enableExtractCss插件
   if (compileOptionsObject.enableExtractCss) {
-    const ExtractCssPlugin = require('./plugins/extract-css-plugin')
     webpackConf.plugins.push(new ExtractCssPlugin())
   }
 

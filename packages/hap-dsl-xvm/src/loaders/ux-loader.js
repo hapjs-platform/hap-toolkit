@@ -143,7 +143,7 @@ function assemble($loader, frags, name, uxType) {
  * ux文件解析总入口
  * @param source
  */
-function loader(source) {
+export default function uxLoader(source) {
   const callback = this.async()
 
   const resourcePath = this.resourcePath // 当前文件绝对路径
@@ -186,5 +186,3 @@ function loader(source) {
       callback(err, '')
     })
 }
-
-module.exports = loader

@@ -3,7 +3,6 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-const fs = require('fs')
 const resolveSync = require('resolve/sync')
 const path = require('@jayfate/path')
 const webpack = require('webpack')
@@ -40,11 +39,6 @@ const {
   valiedateSitemap,
   valiedateSkeleton
 } = require('./validate')
-
-const pathMap = {
-  packager: resolveSync('@hap-toolkit/packager/lib/webpack.post.js'),
-  xvm: resolveSync(`@hap-toolkit/dsl-xvm/lib/webpack.post.js`)
-}
 
 const ideConfig = require('./ide.config')
 
@@ -392,12 +386,17 @@ module.exports = function genWebpackConf(launchOptions, mode) {
    * 尝试加载每个模块的webpack配置
    */
   function loadWebpackConfList() {
+    // TODO
     const moduleList = [
       {
         name: 'packager',
-        path: pathMap['packager']
+        path: resolveSync('@hap-toolkit/packager/lib/webpack.post.js')
+      },
+      {
+        name: 'xvm',
+        path: resolveSync(`@hap-toolkit/dsl-xvm/lib/webpack.post.js`)
       }
-    ]
+    ].map((m) => require(m.path))
 
     const dslName = getProjectDslName(cwd)
 
@@ -408,11 +407,6 @@ module.exports = function genWebpackConf(launchOptions, mode) {
       )
     }
 
-    moduleList.push({
-      name: `${dslName}-post`,
-      path: pathMap[dslName]
-    })
-
     const {
       package: appPackageName,
       icon: appIcon,
@@ -422,42 +416,34 @@ module.exports = function genWebpackConf(launchOptions, mode) {
       workers,
       banner = ''
     } = manifest
-    for (let i = 0, len = moduleList.length; i < len; i++) {
-      const fileConf = moduleList[i].path
-      if (fs.existsSync(fileConf)) {
-        try {
-          const moduleWebpackConf = require(fileConf)
-          if (moduleWebpackConf.postHook) {
-            moduleWebpackConf.postHook(
-              webpackConf,
-              {
-                appPackageName,
-                appIcon,
-                banner,
-                versionName,
-                versionCode,
-                nodeConf: env,
-                pathDist: DIST_DIR,
-                pathSrc: SRC_DIR,
-                subpackages,
-                pathBuild: BUILD_DIR,
-                pathSignFolder: SIGN_FOLDER,
-                useTreeShaking:
-                  quickappConfig && quickappConfig.useTreeShaking
-                    ? !!quickappConfig.useTreeShaking
-                    : false,
-                workers,
-                cwd,
-                originType: compileOptionsObject.originType
-              },
-              quickappConfig
-            )
-          }
-        } catch (err) {
-          console.error(`加载 webpack 配置文件[${fileConf}]出错：${err.message}`, err)
-        }
+    moduleList.forEach((m) => {
+      if (m.postHook) {
+        m.postHook(
+          webpackConf,
+          {
+            appPackageName,
+            appIcon,
+            banner,
+            versionName,
+            versionCode,
+            nodeConf: env,
+            pathDist: DIST_DIR,
+            pathSrc: SRC_DIR,
+            subpackages,
+            pathBuild: BUILD_DIR,
+            pathSignFolder: SIGN_FOLDER,
+            useTreeShaking:
+              quickappConfig && quickappConfig.useTreeShaking
+                ? !!quickappConfig.useTreeShaking
+                : false,
+            workers,
+            cwd,
+            originType: compileOptionsObject.originType
+          },
+          quickappConfig
+        )
       }
-    }
+    })
 
     // 增加项目目录的postHook机制
     if (quickappConfig && quickappConfig.postHook) {
