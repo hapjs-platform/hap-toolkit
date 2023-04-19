@@ -9,7 +9,7 @@ import qr from 'qr-image'
 import moment from 'moment'
 
 import { colorconsole, relateCwd } from '@hap-toolkit/shared-utils'
-import globalConfig from '@hap-toolkit/shared-utils/config'
+import globalConfig from '@hap-toolkit/shared-utils/lib/config'
 import { recordClient, getRecordClient } from '@hap-toolkit/shared-utils/lib/record-client'
 
 import {

@@ -4,30 +4,9 @@
  */
 
 // TODO duplicate of packager/src/common/utils.js
-import path from '@jayfate/path'
 import fs from 'fs'
-import globalConfig from '@hap-toolkit/shared-utils/config'
-
-/**
- * 扩展对象属性
- * @param dest
- * @param src
- */
-export function extend(target, ...src) {
-  if (typeof Object.assign === 'function') {
-    Object.assign(target, ...src)
-  } else {
-    const first = src.shift()
-    // 覆盖旧值
-    for (const key in first) {
-      target[key] = first[key]
-    }
-    if (src.length) {
-      extend(target, ...src)
-    }
-  }
-  return target
-}
+import path from '@jayfate/path'
+import globalConfig from '@hap-toolkit/shared-utils/lib/config'
 
 /**
  * 合并数组属性

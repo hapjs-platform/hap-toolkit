@@ -8,7 +8,7 @@ import path from '@jayfate/path'
 import request from 'request'
 import http from 'http'
 import { getRecords, getProjectClients } from '@hap-toolkit/shared-utils/lib/record-client'
-import { clientRecordPath } from '@hap-toolkit/shared-utils/config'
+import { clientRecordPath } from '@hap-toolkit/shared-utils/lib/config'
 import { colorconsole, readJson } from '@hap-toolkit/shared-utils'
 
 /**

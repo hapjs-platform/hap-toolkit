@@ -7,9 +7,8 @@ import { parse } from '@babel/parser'
 import generate from '@babel/generator'
 import * as types from '@babel/types'
 import loaderUtils from 'loader-utils'
-import { parseFragmentsWithCache } from '@hap-toolkit/compiler'
+import { parseFragmentsWithCache, ENTRY_TYPE } from '@hap-toolkit/compiler'
 import traverse from '@babel/traverse'
-import { ENTRY_TYPE } from '../common/utils'
 
 export default function (source) {
   const options = loaderUtils.getOptions(this) || {}

@@ -3,19 +3,19 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
+import { sync as resolveSync } from 'resolve'
 import path from '@jayfate/path'
-import globalConfig from '@hap-toolkit/shared-utils/config'
-import { compileOptionsObject } from '@hap-toolkit/shared-utils/compilation-config'
+import globalConfig from '@hap-toolkit/shared-utils/lib/config'
+import { compileOptionsObject } from '@hap-toolkit/shared-utils/lib/compilation-config'
 import validator from '@hap-toolkit/compiler/lib/template/validator'
 import { getBabelConfigJsPath } from '@hap-toolkit/packager/lib'
+import { ENTRY_TYPE, FRAG_TYPE } from '@hap-toolkit/compiler'
 
 import {
   stringifyLoaders,
   makeRequireString,
   getNameByPath,
   print,
-  ENTRY_TYPE,
-  FRAG_TYPE,
   isUXRender
 } from './common/utils'
 
@@ -24,18 +24,18 @@ const cwd = path.resolve(globalConfig.projectPath)
 
 const defaultLoaders = {
   // common
-  component: require.resolve('./ux-loader.js'),
-  fragment: require.resolve('./fragment-loader.js'),
-  template: require.resolve('./template-loader.js'),
-  style: require.resolve('./style-loader.js'),
-  script: require.resolve('./script-loader.js'),
-  module: require.resolve('@hap-toolkit/packager/lib/loaders/module-loader.js'),
-  babel: require.resolve('babel-loader'),
+  component: resolveSync('./ux-loader.js'),
+  fragment: resolveSync('./fragment-loader.js'),
+  template: resolveSync('./template-loader.js'),
+  style: resolveSync('./style-loader.js'),
+  script: resolveSync('./script-loader.js'),
+  module: resolveSync('@hap-toolkit/packager/lib/loaders/module-loader.js'),
+  babel: resolveSync('babel-loader'),
   // app
-  mainfest: require.resolve('./manifest-loader.js'),
+  mainfest: resolveSync('@hap-toolkit/packager/lib/loaders/manifest-loader.js'),
   // page
-  access: require.resolve('./access-loader.js'),
-  'extract-css': require.resolve('./extract-css-loader.js')
+  access: resolveSync('./access-loader.js'),
+  'extract-css': resolveSync('./extract-css-loader.js')
 }
 
 /**
@@ -147,7 +147,7 @@ function makeLoaderString(type, config, uxType) {
           }
         },
         {
-          name: require.resolve('babel-loader'),
+          name: defaultLoaders.babel,
           query: {
             cwd,
             cacheDirectory: true,
@@ -158,7 +158,7 @@ function makeLoaderString(type, config, uxType) {
       )
       compileOptionsObject.enableDiagnosis &&
         loaders.push({
-          name: require.resolve('@hap-toolkit/packager/lib/loaders/diagnosis-loader.js'),
+          name: resolveSync('@hap-toolkit/packager/lib/loaders/diagnosis-loader.js'),
           query: {
             pureScript: true,
             hookName: 'onCreate',
@@ -167,11 +167,11 @@ function makeLoaderString(type, config, uxType) {
         })
     } else {
       loaders.push({
-        name: require.resolve('babel-loader'),
+        name: defaultLoaders.babel,
         query: {
           cwd,
           cacheDirectory: true,
-          plugins: [path.resolve(require.resolve('./babel-plugin-jsx.js'))],
+          plugins: [resolveSync('./babel-plugin-jsx.js')],
           comments: false,
           configFile
         }
@@ -196,7 +196,7 @@ function makeLoaderString(type, config, uxType) {
 
     compileOptionsObject.enableE2e &&
       loaders.push({
-        name: require.resolve('@hap-toolkit/packager/lib/loaders/inject-suite-loader.js'),
+        name: resolveSync('@hap-toolkit/packager/lib/loaders/inject-suite-loader.js'),
         query: {
           hookName: 'onCreate'
         }
@@ -401,12 +401,11 @@ function resolveImportItemSrc($loader, importItem) {
         if (err) {
           importItem.isValid = false
           importItem.err = err
-          return resolve(importItem)
         } else {
           importItem.isValid = true
           importItem.srcPath = result
-          return resolve(importItem)
         }
+        return resolve(importItem)
       })
     })
   }

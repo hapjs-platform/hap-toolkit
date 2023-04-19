@@ -9,7 +9,7 @@ const Ajv = require('ajv')
 const AjvErrors = require('ajv-errors')
 const manifestSchema = require('./manifest-schema')
 const { colorconsole, KnownError } = require('@hap-toolkit/shared-utils')
-const { compileOptionsMeta } = require('@hap-toolkit/shared-utils/compilation-config')
+const { compileOptionsMeta } = require('@hap-toolkit/shared-utils/lib/compilation-config')
 const { getSkeletonConfig } = require('@hap-toolkit/packager/lib/common/info')
 
 // 主包保留名

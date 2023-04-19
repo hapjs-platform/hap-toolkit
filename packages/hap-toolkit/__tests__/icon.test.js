@@ -11,7 +11,7 @@ const path = require('@jayfate/path')
 const del = require('del')
 const webpack = require('webpack')
 const JSZip = require('jszip')
-const globalConfig = require('@hap-toolkit/shared-utils/config')
+const globalConfig = require('@hap-toolkit/shared-utils/lib/config')
 const { copyApp } = require('hap-dev-utils')
 
 const genWebpackConf = require('../gen-webpack-conf')

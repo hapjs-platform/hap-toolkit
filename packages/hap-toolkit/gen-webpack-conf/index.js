@@ -3,8 +3,9 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-const path = require('@jayfate/path')
 const fs = require('fs')
+const resolveSync = require('resolve/sync')
+const path = require('@jayfate/path')
 const webpack = require('webpack')
 const {
   readJson,
@@ -13,13 +14,13 @@ const {
   getProjectDslName,
   getDefaultServerHost
 } = require('@hap-toolkit/shared-utils')
-const globalConfig = require('@hap-toolkit/shared-utils/config')
+const globalConfig = require('@hap-toolkit/shared-utils/lib/config')
 
 const {
   compileOptionsMeta,
   compileOptionsObject,
   initCompileOptionsObject
-} = require('@hap-toolkit/shared-utils/compilation-config')
+} = require('@hap-toolkit/shared-utils/lib/compilation-config')
 const { name } = require('@hap-toolkit/packager/lib/common/info')
 
 const ManifestWatchPlugin = require('../lib/plugins/manifest-watch-plugin')
@@ -41,13 +42,13 @@ const {
 } = require('./validate')
 
 const pathMap = {
-  packager: require.resolve('@hap-toolkit/packager/lib/webpack.post.js'),
-  xvm: require.resolve(`@hap-toolkit/dsl-xvm/lib/webpack.post.js`)
+  packager: resolveSync('@hap-toolkit/packager/lib/webpack.post.js'),
+  xvm: resolveSync(`@hap-toolkit/dsl-xvm/lib/webpack.post.js`)
 }
 
 const ideConfig = require('./ide.config')
 
-const eventBus = require('@hap-toolkit/shared-utils/event-bus')
+const eventBus = require('@hap-toolkit/shared-utils/lib/event-bus')
 
 const { PACKAGER_BUILD_PROGRESS } = eventBus
 

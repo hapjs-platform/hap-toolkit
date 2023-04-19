@@ -8,7 +8,7 @@ const del = require('del')
 const glob = require('glob')
 const { copyApp } = require('hap-dev-utils')
 const { compile } = require('../lib/commands/compile')
-const { compileOptionsMeta } = require('@hap-toolkit/shared-utils/compilation-config')
+const { compileOptionsMeta } = require('@hap-toolkit/shared-utils/lib/compilation-config')
 const { resign } = require('../lib/commands/resign')
 const { setRemoteCryptoSignFunction } = require('@hap-toolkit/packager/lib/index')
 

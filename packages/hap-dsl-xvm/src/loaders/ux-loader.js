@@ -5,9 +5,9 @@
 
 import path from '@jayfate/path'
 import loaderUtils from 'loader-utils'
-import { parseFragmentsWithCache } from '@hap-toolkit/compiler'
+import { parseFragmentsWithCache, ENTRY_TYPE } from '@hap-toolkit/compiler'
 import validator from '@hap-toolkit/compiler/lib/template/validator'
-import { compileOptionsObject } from '@hap-toolkit/shared-utils/compilation-config'
+import { compileOptionsObject } from '@hap-toolkit/shared-utils/lib/compilation-config'
 
 import {
   processImportFrag,
@@ -16,9 +16,9 @@ import {
   processScriptFrag,
   parseImportList
 } from './ux-fragment-utils'
-import { getNameByPath, print, ENTRY_TYPE, isUXRender } from './common/utils'
+import { getNameByPath, print, isUXRender } from './common/utils'
 
-const globalConfig = require('@hap-toolkit/shared-utils/config')
+import globalConfig from '@hap-toolkit/shared-utils/lib/config'
 
 /**
  * 收集结果

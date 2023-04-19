@@ -4,7 +4,7 @@
  */
 
 import { colorconsole } from '@hap-toolkit/shared-utils'
-import { ENTRY_TYPE } from './utils'
+import { ENTRY_TYPE } from '@hap-toolkit/compiler'
 
 /**
  * 初始化框架信息

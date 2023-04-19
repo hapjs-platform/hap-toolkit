@@ -7,7 +7,7 @@ import fs from 'fs'
 import path from '@jayfate/path'
 import { readJson } from '../index'
 import { initProjectConfig, CONFIG_FILE } from './util'
-import eventBus from '../../event-bus'
+import eventBus from '../event-bus'
 
 const { PACKAGER_BUILD_DONE } = eventBus
 /**
@@ -309,7 +309,7 @@ BuildModeManager.prototype.setRoot = function (root) {
   return null
 }
 
-module.exports = BuildModeManager
+export default BuildModeManager
 
 /**
  * @typedef BuildModeOptions

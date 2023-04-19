@@ -6,6 +6,7 @@
 import fs from 'fs'
 import path from '@jayfate/path'
 import crypto from 'crypto'
+import { sync as resolveSync } from 'resolve'
 
 import { colorconsole } from '@hap-toolkit/shared-utils'
 
@@ -27,105 +28,12 @@ export function getBabelConfigJsPath(cwd, useTreeShaking) {
 }
 
 /**
- * 判断对象是否为空（没有任何属性）
- * @param e
- * @returns {boolean}
- */
-export function isEmptyObject(obj) {
-  if (!obj) {
-    return !0
-  }
-  /* eslint-disable no-unused-vars */
-  for (const t in obj) {
-    return !1
-  }
-  /* eslint-enable no-unused-vars */
-  return !0
-}
-
-/**
  * 转换为相对路径
  * @param filepath
  * @returns {*}
  */
 export function getFilenameByPath(filepath) {
   return path.relative('.', filepath)
-}
-
-/**
- * 可序列化包含函数的的数据
- * JSON.stringify 不能直接对函数进行序列化
- * 序列化结果的函数两侧不会带有双引号
- *
- * 如:
- * serialize({
- *  func: function foo () {
- *
- *  }
- * }, 2)
- * =>
- * // 字符串
- * {
- *   "func": function foo () {
- *
- *   }
- * }
- * 参考 [Yahoo][1] 的实现，但解决了“碰撞”问题
- *
- * [1]: https://github.com/yahoo/serialize-javascript/blob/master/index.js
- *
- * @param {*} target - 转换对象
- * @param {Number | String} [space] - JSON.stringify 的第三个参数
- * @returns {String}
- */
-export function serialize(target, space) {
-  const type = typeof target
-  if (type === 'undefined') {
-    return target
-  }
-  if (type === 'function') {
-    return target.toString()
-  }
-  // 用于保存出现的函数
-  const functions = []
-  // 函数在上面数组中的序号(index)
-  let id = -1
-
-  /*
-   * 1, 生成一个用户数据中不会出现的占位符，标记函数出现的位置
-   * 先将数据做简单序列化（函数的 key 也会计入检查），用于检查占位符，
-   * 确保不会出现“碰撞” （用户数据中正好包含占位符）
-   */
-  let PLACEHOLDER = `__FKS_${Math.random().toString(16).slice(2, 10)}_FKE__`
-  const origin = JSON.stringify(target, (key, value) => (typeof value === 'function' ? '' : value))
-  while (origin.indexOf(PLACEHOLDER) > -1) {
-    PLACEHOLDER = `_${PLACEHOLDER}_`
-  }
-
-  /*
-   * 2, 使用 JSON.stringify 做初步的序列化
-   * 保存出现的 function，并用占位符暂时替代
-   */
-  let code = JSON.stringify(
-    target,
-    function (key, value) {
-      if (typeof value === 'function') {
-        functions.push(value)
-        id++
-        return PLACEHOLDER + id // 每个函数对应的占位符
-      }
-      return value
-    },
-    space
-  )
-
-  /*
-   * 3, 将 functions 中保存的函数转成字符串，替换对应占位符（包括双引号）
-   */
-  const PLACEHOLDER_RE = new RegExp(`"${PLACEHOLDER}(\\d+)"`, 'g')
-  code = code.replace(PLACEHOLDER_RE, (_, id) => functions[id].toString())
-
-  return code
 }
 
 /**
@@ -204,11 +112,11 @@ export function loaderWrapper(pathSrc, rule) {
   }
   // 这个loader是用来解析@system或者@service等feature的
   rule.use.unshift({
-    loader: require.resolve('../loaders/module-loader')
+    loader: resolveSync('../loaders/module-loader')
   })
   // 用来判断manifest.json内是否存在上面传入的@service或者@system的feature
   rule.use.push({
-    loader: require.resolve('../loaders/manifest-loader'),
+    loader: resolveSync('../loaders/manifest-loader'),
     options: {
       path: pathSrc
     }
@@ -222,27 +130,6 @@ const toString = Object.prototype.toString
 const OBJECT_STRING = '[object Object]'
 export function isPlainObject(obj) {
   return toString.call(obj) === OBJECT_STRING
-}
-
-/**
- * ux文件的类型
- */
-export const ENTRY_TYPE = {
-  APP: 'app',
-  PAGE: 'page',
-  COMP: 'comp',
-  CARD: 'card',
-  JS: 'js'
-}
-
-/**
- * 片段的类型
- */
-export const FRAG_TYPE = {
-  IMPORT: 'import',
-  TEMPLATE: 'template',
-  STYLE: 'style',
-  SCRIPT: 'script'
 }
 
 /**

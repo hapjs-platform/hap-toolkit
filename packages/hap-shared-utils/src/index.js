@@ -10,8 +10,10 @@ import http from 'http'
 import { Console } from 'console'
 import chalk from 'chalk'
 import qrTerminal from 'qrcode-terminal'
-import globalConfig from '../config'
+import globalConfig from './config'
+import BuildModeManager from './buildMode/BuildModeManager.js'
 
+export { BuildModeManager }
 export { getLaunchPage } from './buildMode/util'
 
 const logLevelMap = {}

@@ -6,7 +6,7 @@
 'use strict'
 
 import { parseScript } from '@hap-toolkit/compiler'
-const globalConfig = require('@hap-toolkit/shared-utils/config')
+import globalConfig from '@hap-toolkit/shared-utils/lib/config'
 
 module.exports = function (source, sourcemap) {
   const { parsed } = parseScript(source)

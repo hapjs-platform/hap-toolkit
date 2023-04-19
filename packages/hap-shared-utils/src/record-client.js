@@ -6,7 +6,7 @@
 import fs from 'fs'
 import path from '@jayfate/path'
 import { colorconsole, mkdirsSync } from './index'
-import globalConfig from '../config'
+import globalConfig from './config'
 
 /**
  * 读取记录文件

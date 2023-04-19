@@ -39,6 +39,7 @@
     "portfinder": "^1.0.26",
     "qr-image": "^3.2.0",
     "qrcode-terminal": "^0.12.0",
-    "request": "^2.88.2"
+    "request": "^2.88.2",
+    "resolve": "^1.22.2"
   }
 }
