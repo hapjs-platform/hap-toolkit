@@ -2570,7 +2570,7 @@ const validatorMap = {
   fontStyle: makeEnumValidator(['normal', 'italic']),
   fontWeight: validator.fontWeight,
   textDecoration: makeEnumValidator(['none', 'underline', 'line-through']),
-  textAlign: makeEnumValidator(['left', 'center', 'right']),
+  textAlign: makeEnumValidator(['left', 'center', 'right', 'justify']),
   lineHeight: validator.length,
   textOverflow: makeEnumValidator(['clip', 'ellipsis']),
   textIndent: makeLengthValidator(['px', 'dp', 'cm', '%', 'em']),
