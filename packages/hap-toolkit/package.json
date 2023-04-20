@@ -3,7 +3,12 @@
   "version": "1.9.12",
   "description": "A command line toolkit for developing Quick Apps.",
   "engines": {
-    "node": ">=8.0.0"
+    "node": ">=14.0.0"
+  },
+  "main": "lib/index.js",
+  "exports": {
+    "import": "./src/index.js",
+    "require": "./lib/index.js"
   },
   "dependencies": {
     "@babel/core": "^7.9.6",

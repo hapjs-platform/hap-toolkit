@@ -3,10 +3,10 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-import { getIPv4IPAddress } from '@hap-toolkit/shared-utils/'
-import createPreview from '@hap-toolkit/server/lib/preview/create-preview'
+import { getIPv4IPAddress } from '@hap-toolkit/shared-utils'
+import { createPreview } from '@hap-toolkit/server'
 
-module.exports = async function preview(target, { port }) {
+export default async function preview(target, { port }) {
   const previewApp = await createPreview(target)
   previewApp.listen(port, () => {
     console.log(

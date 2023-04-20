@@ -11,7 +11,7 @@ import {
   processImportFrag,
   parseImportList
 } from './ux-fragment-utils'
-import globalConfig from '@hap-toolkit/shared-utils/lib/config'
+import { globalConfig } from '@hap-toolkit/shared-utils'
 
 module.exports = async function appLoader(source) {
   const codes = []

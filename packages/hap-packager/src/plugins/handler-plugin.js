@@ -4,10 +4,7 @@
  */
 
 import Compilation from 'webpack/lib/Compilation'
-import {
-  compileOptionsMeta,
-  compileOptionsObject
-} from '@hap-toolkit/shared-utils/lib/compilation-config'
+import { compileOptionsMeta, compileOptionsObject } from '@hap-toolkit/shared-utils'
 import { getEntryFiles } from '../common/info'
 
 let ConcatSource

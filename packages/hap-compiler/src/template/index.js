@@ -9,9 +9,7 @@ import parse5 from 'parse5'
 import Parser from 'parse5/lib/parser'
 import Tokenizer from 'parse5/lib/tokenizer'
 
-import { colorconsole } from '@hap-toolkit/shared-utils'
-import { compileOptionsObject } from '@hap-toolkit/shared-utils/lib/compilation-config'
-
+import { colorconsole, compileOptionsObject } from '@hap-toolkit/shared-utils'
 import validator from './validator'
 import { compressTemplateAttr } from './compress'
 
@@ -444,5 +442,6 @@ function parse(source, options) {
 }
 
 export default {
-  parse
+  parse,
+  validator
 }

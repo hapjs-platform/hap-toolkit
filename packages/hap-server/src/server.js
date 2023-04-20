@@ -7,14 +7,24 @@ import http from 'http'
 import Koa from 'koa'
 import opn from 'opn'
 import portfinder from 'portfinder'
-import { outputQRCodeOnTerminal, getIPv4IPAddress, colorconsole } from '@hap-toolkit/shared-utils'
-import { clearProjectRecord } from '@hap-toolkit/shared-utils/lib/record-client'
-import globalConfig from '@hap-toolkit/shared-utils/lib/config'
+import {
+  outputQRCodeOnTerminal,
+  getIPv4IPAddress,
+  colorconsole,
+  globalConfig,
+  clearProjectRecord
+} from '@hap-toolkit/shared-utils'
+
+const moduler = [require('@hap-toolkit/debugger')]
 
 let server = null
-export async function launch(conf, moduler) {
+export async function launch(conf) {
   return new Promise(async (resolve) => {
     try {
+      // 'debug' 模式只需要 debugger 模块
+      if (globalConfig.command !== 'debug') {
+        moduler.push(require('@hap-toolkit/packager/lib/router'), require('./preview/index.js'))
+      }
       const app = new Koa()
       let serverPort = globalConfig.server.port
       // 如果设置的端口被占用，则自动递增获取可用端口
@@ -32,21 +42,19 @@ export async function launch(conf, moduler) {
         clearProjectRecord(clientRecordPath)
       }
 
-      for (let i = 0, len = moduler.moduleList.length; i < len; i++) {
-        const moduleItem = moduler.moduleList[i]
-        if (typeof moduleItem.hash.applyRouter === 'function') {
-          app.use(moduleItem.hash.applyRouter(app).routes())
+      moduler.forEach((module) => {
+        if (module.applyRouter) {
+          app.use(module.applyRouter(app).routes())
         }
-      }
+      })
 
       server = http.Server(app.callback())
       // 绑定HTTP服务器
       app.server = server
 
-      for (let i = 0, len = moduler.moduleList.length; i < len; i++) {
-        const moduleItem = moduler.moduleList[i]
-        if (typeof moduleItem.hash.beforeStart === 'function') {
-          await moduleItem.hash.beforeStart(server, app)
+      for (const moduleItem of moduler) {
+        if (moduleItem.beforeStart) {
+          await moduleItem.beforeStart(server, app)
         }
       }
 

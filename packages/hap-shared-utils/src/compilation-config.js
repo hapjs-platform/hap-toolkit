@@ -105,4 +105,4 @@ function initCompileOptionsObject(argopts) {
   Object.assign(compileOptionsObject, argopts)
 }
 
-module.exports = { compileOptionsMeta, compileOptionsObject, initCompileOptionsObject }
+export { compileOptionsMeta, compileOptionsObject, initCompileOptionsObject }

@@ -5,16 +5,14 @@
 
 import path from '@jayfate/path'
 import mount from 'koa-mount'
-import globalConfig from '@hap-toolkit/shared-utils/lib/config'
-import createPrview from './create-preview'
+import { globalConfig } from '@hap-toolkit/shared-utils'
+import createPreview from './create-preview'
 
 async function beforeStart(server, app) {
   // build 目录提供静态资源
   const buildDir = path.resolve(globalConfig.projectPath, globalConfig.outputPath)
-  const previewApp = await createPrview(buildDir)
+  const previewApp = await createPreview(buildDir)
   app.use(mount('/', previewApp))
 }
 
-module.exports = {
-  beforeStart
-}
+export { beforeStart, createPreview }

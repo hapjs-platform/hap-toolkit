@@ -3,11 +3,10 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-const path = require('@jayfate/path')
-const { colorconsole } = require('@hap-toolkit/shared-utils')
-const { ENTRY_TYPE } = require('@hap-toolkit/compiler')
-const { resolveFile } = require('@hap-toolkit/packager/lib/common/info')
-const { compileOptionsObject } = require('@hap-toolkit/shared-utils/lib/compilation-config')
+import path from '@jayfate/path'
+import { colorconsole, compileOptionsObject } from '@hap-toolkit/shared-utils'
+import { ENTRY_TYPE } from '@hap-toolkit/compiler'
+import { resolveFile } from '@hap-toolkit/packager/lib/common/info'
 
 /**
  * 提取其中的应用，页面，worker的脚本文件
@@ -19,7 +18,7 @@ const { compileOptionsObject } = require('@hap-toolkit/shared-utils/lib/compilat
  * @param {String} cwd - 工作目录
  * @returns {Array<Object>}
  */
-exports.resolveEntries = function resolveEntries(manifest, basedir, cwd) {
+export function resolveEntries(manifest, basedir, cwd) {
   if (!manifest.router) {
     throw Error('manifest.json 中未配置路由！')
   }

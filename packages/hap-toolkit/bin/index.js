@@ -8,8 +8,8 @@
 const program = require('commander')
 const chalk = require('chalk')
 const semver = require('semver')
-const { colorconsole } = require('@hap-toolkit/shared-utils')
-const { compileOptionsMeta } = require('@hap-toolkit/shared-utils/lib/compilation-config')
+const { colorconsole, globalConfig } = require('@hap-toolkit/shared-utils')
+const { compileOptionsMeta } = require('@hap-toolkit/shared-utils')
 
 // 最低支持的node版本
 const NODE_MINIMUM_VERSION = '10.13.0'
@@ -99,6 +99,7 @@ program
   .action((options) => {
     const { launchServer } = require('@hap-toolkit/server')
     const { openBrowser } = options
+    globalConfig.command = 'debug'
     launchServer({
       modules: ['debugger'],
       port: 8081,
@@ -125,15 +126,7 @@ program
   .action((options) => {
     const { launchServer } = require('@hap-toolkit/server')
     const { compile } = require('../lib/commands/compile')
-    const { port, watch, clearRecords, chromePath, disableAdb, openBrowser } = options
-    launchServer({
-      port,
-      watch,
-      clearRecords,
-      chromePath,
-      disableADB: disableAdb,
-      openBrowser
-    })
+    launchServer(options)
     if (options.watch) {
       compile('native', 'dev', true, options)
     }
@@ -242,7 +235,7 @@ program
   .description('preview app in your browser')
   .option('--port <port>', 'specified port', 8989)
   .action((target, options) => {
-    const preview = require('../lib/commands/preview')
+    const preview = require('../lib/commands/preview').default
     preview(target, options)
   })
 

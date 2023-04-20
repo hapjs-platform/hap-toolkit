@@ -3,10 +3,9 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-const path = require('@jayfate/path')
-const { colorconsole, readJson, logger } = require('@hap-toolkit/shared-utils')
-const eventBus = require('@hap-toolkit/shared-utils/lib/event-bus')
-const { resolveEntries } = require('../utils')
+import path from '@jayfate/path'
+import { colorconsole, readJson, logger, eventBus } from '@hap-toolkit/shared-utils'
+import { resolveEntries } from '../utils'
 
 const { PACKAGER_WATCH_START } = eventBus
 
@@ -14,7 +13,7 @@ function sort(list) {
   return list.sort((a, b) => a.localeCompare(b))
 }
 
-module.exports = class ManifestWatchPlugin {
+export default class ManifestWatchPlugin {
   /**
    * @param {Object} options - 配置参数
    * @param {String} options.root - 应用根目录

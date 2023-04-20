@@ -6,7 +6,7 @@
 import path from '@jayfate/path'
 import Compilation from 'webpack/lib/Compilation'
 import { getEntryFiles } from '../common/info'
-import { compileOptionsMeta } from '@hap-toolkit/shared-utils/lib/compilation-config'
+import { compileOptionsMeta } from '@hap-toolkit/shared-utils'
 import { isEmptyObject } from '@hap-toolkit/compiler'
 
 let ConcatSource

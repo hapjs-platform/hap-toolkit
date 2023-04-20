@@ -8,8 +8,7 @@ import fs from 'fs'
 import path from '@jayfate/path'
 import css from 'css'
 import cssWhat from 'css-what'
-import { compileOptionsObject } from '@hap-toolkit/shared-utils/lib/compilation-config'
-import { extend } from '@hap-toolkit/shared-utils'
+import { extend, compileOptionsObject } from '@hap-toolkit/shared-utils'
 import {
   validate as validateDelaration,
   validatePseudoClass,
@@ -301,9 +300,4 @@ function processPseudoClass(hash, log, rule) {
   return true
 }
 
-module.exports = {
-  processImport,
-  processSingleClass,
-  processMediaQueryCss,
-  shouldAddToDependency
-}
+export { processImport, processSingleClass, processMediaQueryCss, shouldAddToDependency }
