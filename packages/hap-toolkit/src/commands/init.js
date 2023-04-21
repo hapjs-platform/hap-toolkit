@@ -20,7 +20,7 @@ const allSupportedDevicesString = allSupportedDeviceArray.join(',')
  * @param {String} name - 项目名
  * @param {Object} options - 参数
  */
-async function generate(name, options) {
+export default async function generate(name, options) {
   if (name === '') {
     name = 'HelloWorld'
   }
@@ -160,6 +160,3 @@ function copyFiles(dest, src, alias) {
     console.log(messages.join('\n'))
   })
 }
-
-// 创建工程目录
-module.exports = generate

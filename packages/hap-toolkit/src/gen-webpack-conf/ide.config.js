@@ -3,7 +3,7 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-module.exports.postHook = function (webpackConf, ideConfig) {
+export function postHook(webpackConf, ideConfig) {
   // 用于接收定制配置
   let customConf
   if (ideConfig) {

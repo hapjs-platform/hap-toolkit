@@ -6,7 +6,7 @@
 import webpack from 'webpack'
 import adbCommander from 'adb-commander'
 import { setCustomConfig, colorconsole } from '@hap-toolkit/shared-utils'
-import genWebpackConf from '../../gen-webpack-conf'
+import genWebpackConf from '../gen-webpack-conf'
 import { summaryErrors, summaryWarnings } from './utils'
 
 // webpack watch 模式返回的watching实例

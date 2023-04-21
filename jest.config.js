@@ -16,7 +16,6 @@ module.exports = {
     'packages/*/lib/**/*.js',
     'packages/hap-toolkit/{lib,bin}/**/*.js',
     'packages/hap-toolkit/*/lib/**/*.js',
-    'packages/hap-toolkit/gen-webpack-conf.js',
     '!packages/hap-toolkit/*.js',
     '!packages/hap-debugger/webpack.config.js',
     '!packages/hap-debugger/lib/client/**',

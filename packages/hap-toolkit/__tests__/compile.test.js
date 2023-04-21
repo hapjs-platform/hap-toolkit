@@ -40,7 +40,7 @@ describe('测试compile', () => {
   })
 
   it('generate webpack config', () => {
-    const genWebpackConf = require('../gen-webpack-conf')
+    const genWebpackConf = require('../lib/gen-webpack-conf').default
     const conf = genWebpackConf(
       {
         cwd: projectRoot

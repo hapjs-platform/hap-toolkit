@@ -3,9 +3,11 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-const path = require('@jayfate/path')
-const webpack = require('webpack')
-const {
+import { sync as resolveSync } from 'resolve'
+import path from '@jayfate/path'
+import fs from 'fs-extra'
+import webpack from 'webpack'
+import {
   readJson,
   colorconsole,
   KnownError,
@@ -14,32 +16,24 @@ const {
   compileOptionsMeta,
   compileOptionsObject,
   initCompileOptionsObject,
-  globalConfig
-} = require('@hap-toolkit/shared-utils')
-const { name, postHook: packagerPostHook } = require('@hap-toolkit/packager')
-const { postHook: xvmPostHook } = require('@hap-toolkit/dsl-xvm')
-
-const ManifestWatchPlugin = require('../lib/plugins/manifest-watch-plugin').default
-const { resolveEntries } = require('../lib/utils')
-const getDevtool = require('./get-devtool')
-const {
+  globalConfig,
+  eventBus
+} from '@hap-toolkit/shared-utils'
+import { name, postHook as packagerPostHook } from '@hap-toolkit/packager'
+import { postHook as xvmPostHook } from '@hap-toolkit/dsl-xvm'
+import ManifestWatchPlugin from '../plugins/manifest-watch-plugin'
+import { resolveEntries } from '../utils'
+import getDevtool from './get-devtool'
+import {
   getConfigPath,
   cleanup,
   checkBuiltinModules,
   setAdaptForV8Version,
   checkBabelModulesExists
-} = require('./helpers')
+} from './helpers'
 
-const {
-  validateProject,
-  validateManifest,
-  valiedateSitemap,
-  valiedateSkeleton
-} = require('./validate')
-
-const ideConfig = require('./ide.config')
-
-const { eventBus } = require('@hap-toolkit/shared-utils')
+import { validateProject, validateManifest, valiedateSitemap, valiedateSkeleton } from './validate'
+import { postHook } from './ide.config'
 
 const { PACKAGER_BUILD_PROGRESS } = eventBus
 
@@ -67,7 +61,7 @@ const SPLIT_CHUNKS_SUPPORT_VERSION_FROM = 1080
  * @param {production|development} mode - webpack mode
  * @returns {WebpackConfiguration}
  */
-module.exports = function genWebpackConf(launchOptions, mode) {
+export default function genWebpackConf(launchOptions, mode) {
   // 项目目录
   if (launchOptions.cwd) {
     globalConfig.projectPath = launchOptions.cwd
@@ -82,6 +76,7 @@ module.exports = function genWebpackConf(launchOptions, mode) {
   let cli = {}
   if (hapConfigPath) {
     try {
+      // TODO require
       quickappConfig = require(hapConfigPath)
       if (typeof quickappConfig.cli === 'object') {
         cli = quickappConfig.cli
@@ -167,7 +162,9 @@ module.exports = function genWebpackConf(launchOptions, mode) {
     ENV_PHASE_OL: env.NODE_PHASE === 'prod',
     // 服务器地址
     QUICKAPP_SERVER_HOST: JSON.stringify(getDefaultServerHost()),
-    QUICKAPP_TOOLKIT_VERSION: JSON.stringify(require('../package.json').version)
+    QUICKAPP_TOOLKIT_VERSION: JSON.stringify(
+      fs.readJSONSync(resolveSync('../../package.json')).version
+    )
   }
 
   if (launchOptions.compileOptions) {
@@ -433,7 +430,7 @@ module.exports = function genWebpackConf(launchOptions, mode) {
     if (quickappConfig && quickappConfig.postHook) {
       quickappConfig.postHook(webpackConf, compileOptionsObject)
     }
-    ideConfig.postHook(webpackConf, launchOptions.ideConfig)
+    postHook(webpackConf, launchOptions.ideConfig)
   }
   return webpackConf
 }

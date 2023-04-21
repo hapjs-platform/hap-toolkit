@@ -3,7 +3,7 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-const validateJson = require('../gen-webpack-conf/validate').validateJson
+const { validateJson } = require('../lib/gen-webpack-conf/validate')
 
 const manifestJson = {
   package: 'com.application.demo',

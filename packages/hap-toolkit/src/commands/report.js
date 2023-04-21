@@ -12,7 +12,7 @@ import chalk from 'chalk'
 /**
  * 收集用户的环境信息，生成report.log，用于反馈和重现问题
  */
-function report() {
+export default function report() {
   const nodeVersion = process.versions
   const npmVersion = childProcess.execSync(`npm -v`).toString()
   const arch = process.arch // 操作系统架构
@@ -43,5 +43,3 @@ function report() {
     }
   )
 }
-
-module.exports = report

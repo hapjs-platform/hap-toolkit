@@ -38,7 +38,7 @@ program
   )
   .description('create a new project.')
   .action((name, options) => {
-    const generate = require('../lib/commands/init')
+    const generate = require('../lib/commands/init').default
     generate(name, options)
   })
 
@@ -250,7 +250,7 @@ program
   .command('report', { noHelp: true })
   .description('collect system information and create report.log')
   .action(() => {
-    const report = require('../lib/commands/report')
+    const report = require('../lib/commands/report').default
     report()
   })
 

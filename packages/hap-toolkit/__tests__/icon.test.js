@@ -14,7 +14,7 @@ const JSZip = require('jszip')
 const { globalConfig } = require('@hap-toolkit/shared-utils')
 const { copyApp } = require('hap-dev-utils')
 
-const genWebpackConf = require('../gen-webpack-conf')
+const genWebpackConf = require('../lib/gen-webpack-conf').default
 
 /**
  * 读取 zip(rpk) 文件内容

@@ -10,7 +10,7 @@ const path = require('@jayfate/path')
 const del = require('del')
 const { copyApp } = require('hap-dev-utils')
 const { compile } = require('../lib')
-const genWebpackConf = require('../gen-webpack-conf')
+const genWebpackConf = require('../lib/gen-webpack-conf').default
 
 describe('测试自定义配置', () => {
   const platform = 'native'
