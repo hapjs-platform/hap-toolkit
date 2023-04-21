@@ -133,7 +133,7 @@ Object.keys(validatorMap).forEach(function initRule(name) {
   }
 })
 
-module.exports = function manifestLoader(source, sourceMap) {
+export default function manifestLoader(source, sourceMap) {
   const loaderQuery = loaderUtils.getOptions(this)
   // 获取query参数
   const srcPath = loaderQuery.path

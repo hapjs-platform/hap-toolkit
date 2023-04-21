@@ -668,6 +668,4 @@ function callCryptoSignFunction(buffer, prikey, certpem) {
   return signature
 }
 
-module.exports = {
-  doSign
-}
+export { doSign }

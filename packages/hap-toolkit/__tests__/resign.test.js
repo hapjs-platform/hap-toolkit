@@ -10,7 +10,7 @@ const { copyApp } = require('hap-dev-utils')
 const { compile } = require('../lib/commands/compile')
 const { compileOptionsMeta } = require('@hap-toolkit/shared-utils')
 const { resign } = require('../lib/commands/resign')
-const { setRemoteCryptoSignFunction } = require('@hap-toolkit/packager/lib/index')
+const { setRemoteCryptoSignFunction } = require('@hap-toolkit/packager')
 
 describe('resign quickapp', () => {
   it(

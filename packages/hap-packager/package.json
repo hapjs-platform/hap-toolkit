@@ -8,6 +8,7 @@
   "publishConfig": {
     "access": "public"
   },
+  "main": "./lib/index.js",
   "keywords": [
     "hap-toolkit",
     "packager",

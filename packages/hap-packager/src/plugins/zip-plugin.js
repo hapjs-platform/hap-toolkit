@@ -391,4 +391,4 @@ ZipPlugin.prototype.apply = function (compiler) {
   })
 }
 
-module.exports = ZipPlugin
+export { ZipPlugin }

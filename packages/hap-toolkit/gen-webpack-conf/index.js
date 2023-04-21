@@ -3,7 +3,6 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-const resolveSync = require('resolve/sync')
 const path = require('@jayfate/path')
 const webpack = require('webpack')
 const {
@@ -11,16 +10,14 @@ const {
   colorconsole,
   KnownError,
   getProjectDslName,
-  getDefaultServerHost
-} = require('@hap-toolkit/shared-utils')
-const { globalConfig } = require('@hap-toolkit/shared-utils')
-
-const {
+  getDefaultServerHost,
   compileOptionsMeta,
   compileOptionsObject,
-  initCompileOptionsObject
+  initCompileOptionsObject,
+  globalConfig
 } = require('@hap-toolkit/shared-utils')
-const { name } = require('@hap-toolkit/packager/lib/common/info')
+const { name, postHook: packagerPostHook } = require('@hap-toolkit/packager')
+const { postHook: xvmPostHook } = require('@hap-toolkit/dsl-xvm')
 
 const ManifestWatchPlugin = require('../lib/plugins/manifest-watch-plugin').default
 const { resolveEntries } = require('../lib/utils')
@@ -386,18 +383,7 @@ module.exports = function genWebpackConf(launchOptions, mode) {
    * 尝试加载每个模块的webpack配置
    */
   function loadWebpackConfList() {
-    // TODO
-    const moduleList = [
-      {
-        name: 'packager',
-        path: resolveSync('@hap-toolkit/packager/lib/webpack.post.js')
-      },
-      {
-        name: 'xvm',
-        path: resolveSync(`@hap-toolkit/dsl-xvm/lib/webpack.post.js`)
-      }
-    ].map((m) => require(m.path))
-
+    const postHookList = [packagerPostHook, xvmPostHook]
     const dslName = getProjectDslName(cwd)
 
     if (dslName === 'vue') {
@@ -416,33 +402,31 @@ module.exports = function genWebpackConf(launchOptions, mode) {
       workers,
       banner = ''
     } = manifest
-    moduleList.forEach((m) => {
-      if (m.postHook) {
-        m.postHook(
-          webpackConf,
-          {
-            appPackageName,
-            appIcon,
-            banner,
-            versionName,
-            versionCode,
-            nodeConf: env,
-            pathDist: DIST_DIR,
-            pathSrc: SRC_DIR,
-            subpackages,
-            pathBuild: BUILD_DIR,
-            pathSignFolder: SIGN_FOLDER,
-            useTreeShaking:
-              quickappConfig && quickappConfig.useTreeShaking
-                ? !!quickappConfig.useTreeShaking
-                : false,
-            workers,
-            cwd,
-            originType: compileOptionsObject.originType
-          },
-          quickappConfig
-        )
-      }
+    postHookList.forEach((postHook) => {
+      postHook(
+        webpackConf,
+        {
+          appPackageName,
+          appIcon,
+          banner,
+          versionName,
+          versionCode,
+          nodeConf: env,
+          pathDist: DIST_DIR,
+          pathSrc: SRC_DIR,
+          subpackages,
+          pathBuild: BUILD_DIR,
+          pathSignFolder: SIGN_FOLDER,
+          useTreeShaking:
+            quickappConfig && quickappConfig.useTreeShaking
+              ? !!quickappConfig.useTreeShaking
+              : false,
+          workers,
+          cwd,
+          originType: compileOptionsObject.originType
+        },
+        quickappConfig
+      )
     })
 
     // 增加项目目录的postHook机制

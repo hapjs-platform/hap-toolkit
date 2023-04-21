@@ -3,7 +3,7 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-import { searchModuleImport } from '@hap-toolkit/packager/lib/common/shared'
+import { searchModuleImport } from '@hap-toolkit/packager'
 import { scripter } from '@hap-toolkit/compiler'
 import { logWarn } from '@hap-toolkit/shared-utils'
 

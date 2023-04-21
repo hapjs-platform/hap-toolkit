@@ -6,7 +6,7 @@
 import path from '@jayfate/path'
 import { colorconsole, compileOptionsObject } from '@hap-toolkit/shared-utils'
 import { ENTRY_TYPE } from '@hap-toolkit/compiler'
-import { resolveFile } from '@hap-toolkit/packager/lib/common/info'
+import { resolveFile } from '@hap-toolkit/packager'
 
 /**
  * 提取其中的应用，页面，worker的脚本文件

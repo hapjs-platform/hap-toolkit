@@ -3,20 +3,26 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
+import path from '@jayfate/path'
 import { sync as resolveSync } from 'resolve'
-import { globalConfig } from '@hap-toolkit/shared-utils'
-const path = require('@jayfate/path')
+import {
+  globalConfig,
+  readJson,
+  compileOptionsMeta,
+  compileOptionsObject
+} from '@hap-toolkit/shared-utils'
 
-const { readJson, compileOptionsMeta, compileOptionsObject } = require('@hap-toolkit/shared-utils')
+import {
+  CopyDslPlugin,
+  HandlerPlugin,
+  ResourcePlugin,
+  DeviceTypePlugin,
+  ZipPlugin,
+  NotifyPlugin,
+  SourcemapFixPlugin,
+  SplitChunksAdaptPlugin
+} from './plugins'
 
-const CopyDslPlugin = require('./plugins/copy-dsl-plugin')
-const HandlerPlugin = require('./plugins/handler-plugin')
-const ResourcePlugin = require('./plugins/resource-plugin')
-const DeviceTypePlugin = require('./plugins/device-type-plugin')
-const ZipPlugin = require('./plugins/zip-plugin')
-const NotifyPlugin = require('./plugins/notify-plugin')
-const SourcemapFixPlugin = require('./plugins/sourcemap-fix-plugin')
-const SplitChunksAdaptPlugin = require('./plugins/splitchunks-adapt-plugin')
 const { genPriorities, getBabelConfigJsPath } = require('./common/utils')
 const { getSkeletonConfig } = require('./common/info')
 
@@ -184,6 +190,4 @@ function postHook(webpackConf, defaults, quickappConfig = {}) {
   }
 }
 
-module.exports = {
-  postHook
-}
+export { postHook }

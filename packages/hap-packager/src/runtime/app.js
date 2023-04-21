@@ -7,8 +7,8 @@
  * assert文档：http://chaijs.com/api/assert/
  */
 
-const chai = require('hybrid-chai/chai')
-require('hybrid-mocha/mocha.js')
+import 'hybrid-mocha/mocha.js'
+import chai from 'hybrid-chai/chai'
 
 // 注入全局
 global.assert = chai.assert

@@ -110,4 +110,4 @@ function wrapCode(fileName, compilation, enableE2e, entryFiles) {
   }
 }
 
-module.exports = HandlerPlugin
+export { HandlerPlugin }

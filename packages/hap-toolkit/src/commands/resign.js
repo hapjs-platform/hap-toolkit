@@ -7,7 +7,7 @@ import path from '@jayfate/path'
 import fs from 'fs-extra'
 import glob from 'glob'
 
-import { signForRpk, signForRpks } from '@hap-toolkit/packager/lib/index'
+import { signForRpk, signForRpks } from '@hap-toolkit/packager'
 import { relateCwd, colorconsole, globalConfig } from '@hap-toolkit/shared-utils'
 
 /**

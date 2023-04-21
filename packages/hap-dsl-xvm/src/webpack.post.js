@@ -6,7 +6,7 @@
 import { sync as resolveSync } from 'resolve'
 import { compileOptionsObject } from '@hap-toolkit/shared-utils'
 import ExtractCssPlugin from './plugins/extract-css-plugin'
-const { loaderWrapper } = require('@hap-toolkit/packager/lib/common/utils')
+import { loaderWrapper } from '@hap-toolkit/packager'
 
 /**
  * @param webpackConf webpack配置

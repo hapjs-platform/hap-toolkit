@@ -18,7 +18,7 @@ describe('分包测试', () => {
   const {
     createPackagesDefinition,
     allocateResourceToPackages
-  } = require('@hap-toolkit/packager/lib/subpackages/index')
+  } = require('@hap-toolkit/packager')
 
   const files = [
     'manifest.json',

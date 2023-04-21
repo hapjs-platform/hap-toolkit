@@ -27,6 +27,4 @@ function applyRouter(app) {
   return router
 }
 
-module.exports = {
-  applyRouter
-}
+export { applyRouter }

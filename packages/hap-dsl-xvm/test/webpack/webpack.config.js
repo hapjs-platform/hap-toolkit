@@ -3,9 +3,11 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-const path = require('@jayfate/path')
-const webpack = require('webpack')
+import { sync as resolveSync } from 'resolve'
+import path from '@jayfate/path'
+import webpack from 'webpack'
 
+console.log(`aaa`)
 const { resolveEntries, resolveLoader } = require('./common')
 
 const src = path.join(__dirname, '../case/ux')
@@ -14,9 +16,7 @@ const dist = path.join(__dirname, '../dist/ux')
 
 const entries = resolveEntries(src, '**/*.{ux,mix}')
 
-const ResourcePlugin = require('@hap-toolkit/packager/lib/plugins/resource-plugin')
-const HandlerPlugin = require('@hap-toolkit/packager/lib/plugins/handler-plugin')
-const ZipPlugin = require('@hap-toolkit/packager/lib/plugins/zip-plugin')
+const { ResourcePlugin, HandlerPlugin, ZipPlugin } = require('@hap-toolkit/packager')
 
 const { compileOptionsMeta } = require('@hap-toolkit/shared-utils')
 
@@ -46,7 +46,7 @@ module.exports = {
         exclude: /node_modules/,
         use: [
           {
-            loader: require.resolve('@hap-toolkit/packager/lib/loaders/module-loader.js')
+            loader: resolveSync('@hap-toolkit/packager/lib/loaders/module-loader.js')
           },
           {
             loader: 'babel-loader'

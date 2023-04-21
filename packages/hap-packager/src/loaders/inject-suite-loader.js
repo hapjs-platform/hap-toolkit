@@ -74,7 +74,7 @@ function generateFn(hasTestcase = false) {
   return parser.parseExpression(fn).body
 }
 
-module.exports = function (source) {
+export default function injectLoader(source) {
   const query = loaderUtils.parseQuery(this.resourceQuery || '?')
 
   const options = loaderUtils.getOptions(this)

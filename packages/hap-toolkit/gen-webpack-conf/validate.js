@@ -10,7 +10,7 @@ const AjvErrors = require('ajv-errors')
 const manifestSchema = require('./manifest-schema')
 const { colorconsole, KnownError } = require('@hap-toolkit/shared-utils')
 const { compileOptionsMeta } = require('@hap-toolkit/shared-utils')
-const { getSkeletonConfig } = require('@hap-toolkit/packager/lib/common/info')
+const { getSkeletonConfig } = require('@hap-toolkit/packager')
 
 // 主包保留名
 const MAIN_PKG_NAME = compileOptionsMeta.MAIN_PKG_NAME
