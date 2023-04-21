@@ -6,7 +6,7 @@
 
 const path = require('@jayfate/path')
 const { wipeDynamic } = require('hap-dev-utils')
-const { resolveEntries, compileFiles } = require('../../utils')
+const { resolveTestEntries, compileFiles } = require('../../utils')
 
 /**
  * Style
@@ -15,7 +15,7 @@ describe('Style编译测试', () => {
 
   it('comile style', async () => {
     const basedir = path.resolve(__dirname, '../../case/ux/')
-    const entries = resolveEntries(basedir, 'TestStyle')
+    const entries = resolveTestEntries(basedir, 'TestStyle')
 
     const stats = await compileFiles(entries)
     const json = stats.toJson({source: true})

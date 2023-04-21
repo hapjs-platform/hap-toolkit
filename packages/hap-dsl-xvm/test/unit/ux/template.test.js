@@ -6,7 +6,7 @@
 
 const path = require('@jayfate/path')
 const { wipeDynamic } = require('hap-dev-utils')
-const { resolveEntries, compileFiles } = require('../../utils')
+const { resolveTestEntries, compileFiles } = require('../../utils')
 
 /**
  * Template
@@ -14,7 +14,7 @@ const { resolveEntries, compileFiles } = require('../../utils')
 describe('Template 编译测试', () => {
   it('ux templates', async () => {
     const basedir = path.resolve(__dirname, '../../case/ux/')
-    const entries = resolveEntries(basedir, 'TestTemplate')
+    const entries = resolveTestEntries(basedir, 'TestTemplate')
     const stats = await compileFiles(entries, 'ux')
 
     const json = stats.toJson({source: true})

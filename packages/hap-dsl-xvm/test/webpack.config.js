@@ -6,21 +6,17 @@
 import { sync as resolveSync } from 'resolve'
 import path from '@jayfate/path'
 import webpack from 'webpack'
+import { ResourcePlugin, HandlerPlugin, ZipPlugin } from '@hap-toolkit/packager'
+import { compileOptionsMeta } from '@hap-toolkit/shared-utils'
+import { resolveTestEntries, resolveLoader } from './utils'
 
-console.log(`aaa`)
-const { resolveEntries, resolveLoader } = require('./common')
+const src = path.join(__dirname, './case/ux')
+const build = path.join(__dirname, './build/ux')
+const dist = path.join(__dirname, './dist/ux')
 
-const src = path.join(__dirname, '../case/ux')
-const build = path.join(__dirname, '../build/ux')
-const dist = path.join(__dirname, '../dist/ux')
+const entries = resolveTestEntries(src, '**/*.{ux,mix}')
 
-const entries = resolveEntries(src, '**/*.{ux,mix}')
-
-const { ResourcePlugin, HandlerPlugin, ZipPlugin } = require('@hap-toolkit/packager')
-
-const { compileOptionsMeta } = require('@hap-toolkit/shared-utils')
-
-module.exports = {
+export default {
   context: src,
   mode: 'development',
   node: false,
