@@ -40,7 +40,7 @@ describe('测试自定义配置', () => {
 
   it('test quickapp.config posthook', async () => {
     let checkvalue
-    const conf = genWebpackConf(
+    const conf = await genWebpackConf(
       {
         cwd: testAppDir
       },

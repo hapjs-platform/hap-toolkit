@@ -39,9 +39,9 @@ describe('测试compile', () => {
     babelConfigPath = path.join(projectRoot, 'babel.config.js')
   })
 
-  it('generate webpack config', () => {
+  it('generate webpack config', async () => {
     const genWebpackConf = require('../lib/gen-webpack-conf').default
-    const conf = genWebpackConf(
+    const conf = await genWebpackConf(
       {
         cwd: projectRoot
       },
