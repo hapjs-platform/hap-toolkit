@@ -5,6 +5,7 @@
 
 const path = require('path')
 const gulp = require('gulp')
+const webpack = require('webpack')
 const babel = require('gulp-babel')
 const eslint = require('gulp-eslint')
 const terser = require('gulp-terser')
@@ -14,10 +15,77 @@ const sourcemaps = require('gulp-sourcemaps')
 
 const { shallRun, shallWatch } = require('./utils')
 
-const buildClient = require('../packages/hap-debugger/src/build-client.js')
+const HtmlWebpackPlugin = require('html-webpack-plugin')
+const MiniCssExtractPlugin = require('mini-css-extract-plugin')
+const CssMinimizerPlugin = require('css-minimizer-webpack-plugin')
 
-/* eslint-disable camelcase */
 const cwd = path.resolve(__dirname, '../packages/hap-debugger')
+const src = path.resolve(cwd, 'src')
+
+const webpackConf = {
+  mode: 'production',
+  context: src,
+  entry: {
+    index: path.resolve(src, './client/index.js')
+  },
+  output: {
+    filename: '[name]-[hash:8].js',
+    path: path.resolve(src, '../lib/client')
+  },
+  devtool: 'eval-source-map',
+  module: {
+    rules: [
+      {
+        test: /\.js$/,
+        exclude: /node_modules/,
+        use: {
+          loader: 'babel-loader'
+        }
+      },
+      {
+        test: /\.css$/,
+        use: [MiniCssExtractPlugin.loader, 'css-loader']
+      }
+    ]
+  },
+  plugins: [
+    new HtmlWebpackPlugin({
+      template: path.resolve(src, './client/index.html'),
+      filename: './index.html', // 这是相对于output输出路径的根;
+      inject: 'body',
+      minify: {
+        minifyCSS: true,
+        removeComments: true,
+        preserveLineBreaks: false,
+        collapseWhitespace: true
+      }
+    }),
+    new MiniCssExtractPlugin({
+      filename: './index-[hash:8].css'
+    })
+  ],
+  optimization: {
+    minimizer: [new CssMinimizerPlugin({})]
+  }
+}
+
+function buildClient(callback) {
+  webpack(webpackConf, (err, stats) => {
+    if (err) {
+      console.log(err.message)
+    }
+    if (stats && stats.hasErrors()) {
+      console.log(
+        stats.toString({
+          chunks: false,
+          colors: true
+        })
+      )
+    }
+    callback && callback()
+  })
+}
+
 const GLOB_OPTS = { cwd }
 
 function debugger__clean() {
