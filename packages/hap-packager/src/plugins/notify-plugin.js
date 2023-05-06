@@ -76,8 +76,6 @@ function notify() {
   }
 }
 
-module.exports = notify
-
 function NotifyPlugin(options) {
   this.options = options
   if (options.doNotNotifyAtFirst) {
@@ -96,4 +94,4 @@ NotifyPlugin.prototype.apply = function (compiler) {
   })
 }
 
-module.exports = NotifyPlugin
+export { NotifyPlugin }

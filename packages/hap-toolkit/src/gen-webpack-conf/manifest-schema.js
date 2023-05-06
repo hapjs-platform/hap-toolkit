@@ -3,7 +3,7 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-module.exports = {
+export default {
   type: 'object',
   required: ['package', 'name', 'icon', 'versionCode', 'config', 'router'],
   properties: {

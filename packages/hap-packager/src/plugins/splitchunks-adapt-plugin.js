@@ -289,4 +289,4 @@ class SplitChunksAdaptPlugin {
   }
 }
 
-module.exports = SplitChunksAdaptPlugin
+export { SplitChunksAdaptPlugin }

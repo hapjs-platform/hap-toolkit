@@ -3,14 +3,14 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-const { colorconsole } = require('@hap-toolkit/shared-utils')
+import { colorconsole } from '@hap-toolkit/shared-utils'
 
 /**
  * 校验并返回 webpack devtool值（sourcemap）
  * @param {String} mode - webpack mode
  * @param {String} devtool - devtool参数值
  */
-module.exports = function getDevtoolValue(mode, devtool) {
+export default function getDevtoolValue(mode, devtool) {
   // TODO：https://webpack.js.org/configuration/devtool/#root eval模式在 webpack5 下运行白屏
   // 后续或虑改为：有（source-map）无（false）二元选项
   const sourcemaps = {

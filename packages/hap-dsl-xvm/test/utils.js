@@ -3,15 +3,14 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-
 'use strict'
 
-const fs = require('fs-extra')
-const path = require('@jayfate/path')
-const glob = require('glob')
-const del = require('del')
-const webpack = require('webpack')
-const webpackConf = require('./webpack/webpack.config')
+import path from '@jayfate/path'
+import fs from 'fs-extra'
+import glob from 'glob'
+import del from 'del'
+import webpack from 'webpack'
+import webpackConf from './webpack.config'
 
 /**
  * 将数据中的函数转成字符串，使其可以保留在 snapshot 中
@@ -80,7 +79,7 @@ function compileFiles(entries, type = 'ux') {
   })
 }
 
-function resolveEntries(cwd, prefix) {
+function resolveTestEntries(cwd, prefix) {
   const files = glob.sync('**/*.{ux,mix}', { cwd })
   const entries = files
     .filter(file => file.startsWith(prefix))
@@ -98,6 +97,10 @@ function resolveEntries(cwd, prefix) {
   return entries
 }
 
+export  function resolveLoader(loader) {
+  return require.resolve(`../lib/loaders/${loader}`)
+}
+
 /**
  * 复制一份项目
  * 供测试
@@ -113,10 +116,10 @@ async function copyApp(projectDir) {
   return target
 }
 
-module.exports = {
+export {
   $fun2str,
   compilePage,
-  resolveEntries,
+  resolveTestEntries,
   compileFiles,
   copyApp
 }

@@ -28,7 +28,7 @@ const componentId = (() => {
   }
 })()
 
-module.exports = function (code) {
+export default function styleLoader(code) {
   const self = this
   const loaderQuery = loaderUtils.parseQuery(this.query)
   const suppresslogs = !!getWebpackOptions(this).suppresslogs

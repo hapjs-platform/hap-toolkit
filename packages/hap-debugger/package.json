@@ -16,8 +16,7 @@
   "main": "lib/index.js",
   "exports": {
     "import": "./src/index.js",
-    "require": "./lib/index.js",
-    "src/build-client": "./src/build-client.js"
+    "require": "./lib/index.js"
   },
   "directories": {
     "lib": "lib",

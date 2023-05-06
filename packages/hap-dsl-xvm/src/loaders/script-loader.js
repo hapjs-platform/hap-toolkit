@@ -8,7 +8,7 @@
 import { parseScript } from '@hap-toolkit/compiler'
 import { globalConfig } from '@hap-toolkit/shared-utils'
 
-module.exports = function (source, sourcemap) {
+export default function scriptLoader(source, sourcemap) {
   const { parsed } = parseScript(source)
   const isUseTreeShaking = !!globalConfig.useTreeShaking
   let result = `${

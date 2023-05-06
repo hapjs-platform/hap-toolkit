@@ -4,11 +4,11 @@
  */
 
 const path = require('@jayfate/path')
-const { resolveEntries, compileFiles } = require('../../utils')
+const { resolveTestEntries, compileFiles } = require('../../utils')
 
 describe('分包测试', () => {
   const basePath = path.join(__dirname, '../../case/ux')
-  const entries = resolveEntries(basePath, 'PartPack')
+  const entries = resolveTestEntries(basePath, 'PartPack')
   const buildPath = path.join(__dirname, '../../build/ux/PartPack')
 
   beforeAll(() => {
@@ -18,7 +18,7 @@ describe('分包测试', () => {
   const {
     createPackagesDefinition,
     allocateResourceToPackages
-  } = require('@hap-toolkit/packager/lib/subpackages/index')
+  } = require('@hap-toolkit/packager')
 
   const files = [
     'manifest.json',

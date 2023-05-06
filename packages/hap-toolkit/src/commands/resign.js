@@ -7,7 +7,7 @@ import path from '@jayfate/path'
 import fs from 'fs-extra'
 import glob from 'glob'
 
-import { signForRpk, signForRpks } from '@hap-toolkit/packager/lib/index'
+import { signForRpk, signForRpks } from '@hap-toolkit/packager'
 import { relateCwd, colorconsole, globalConfig } from '@hap-toolkit/shared-utils'
 
 /**
@@ -18,7 +18,7 @@ import { relateCwd, colorconsole, globalConfig } from '@hap-toolkit/shared-utils
  * @param { String } options.dest 重新签名之后的输出文件夹名
  * @param { String } options.origin 需要重新签名的输入文件夹名，默认为dist
  */
-async function resign(options = {}) {
+export async function resign(options = {}) {
   const { projectPath } = globalConfig
   // 清除无用文件
   const destDir = path.resolve(projectPath, options.dest)
@@ -63,5 +63,3 @@ function generateDistFile(buffer, output, item) {
   const extName = path.extname(item)
   colorconsole.log(`### App Loader ### ${relateCwd(output)} 目录签名并生成${extName}文件：${item}`)
 }
-
-export { resign }

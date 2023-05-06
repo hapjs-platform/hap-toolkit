@@ -24,7 +24,7 @@ function toolkit__clean() {
 
 function toolkit__lint() {
   return gulp
-    .src(['bin/*.js', 'src/**/*.js', 'gen-webpack-conf/*.js'], GLOB_OPTS)
+    .src(['bin/*.js', 'src/**/*.js'], GLOB_OPTS)
     .pipe(eslint())
     .pipe(eslint.format())
     .pipe(eslint.failAfterError())
@@ -63,7 +63,7 @@ const build = gulp.series(gulp.parallel(clean, lint), transpile, minify)
 const watch = shallWatch(
   'toolkit',
   gulp.series(build, function toolkit__watch() {
-    return gulp.watch(['bin/index.js', 'src/**/*.js', 'gen-webpack-conf.js'], GLOB_OPTS, build)
+    return gulp.watch(['bin/index.js', 'src/**/*.js'], GLOB_OPTS, build)
   })
 )
 

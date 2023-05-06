@@ -11,7 +11,7 @@ import { globalConfig } from '@hap-toolkit/shared-utils'
  * @param {string} source - 前一级 loader 处理后的代码
  * @param {object} sourceMap - 前一级 loader 处理后的 sourceMap
  */
-module.exports = function accessLoader(source, sourceMap) {
+export default function accessLoader(source, sourceMap) {
   const isUseTreeShaking = !!globalConfig.useTreeShaking
 
   if (isUseTreeShaking) {

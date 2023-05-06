@@ -42,4 +42,4 @@ function warpNewLine(fileName, compilation) {
   return new ConcatSource('\n', compilation.assets[fileName])
 }
 
-module.exports = SourcemapFixPlugin
+export { SourcemapFixPlugin }

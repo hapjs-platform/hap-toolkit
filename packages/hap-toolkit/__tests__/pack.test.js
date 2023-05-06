@@ -12,7 +12,7 @@ const JSZip = require('jszip')
 const { globalConfig } = require('@hap-toolkit/shared-utils')
 const { copyApp } = require('hap-dev-utils')
 
-const genWebpackConf = require('../gen-webpack-conf')
+const genWebpackConf = require('../lib/gen-webpack-conf').default
 
 /**
  * 读取 zip(rpk) 文件内容
@@ -40,11 +40,11 @@ function readZip(zipfile) {
  * @returns {undefined}
  */
 function pack(projectRoot, platform = 'native', phase = 'dev', opts = {}) {
-  return new Promise((resolve, reject) => {
+  return new Promise(async (resolve, reject) => {
     process.env.NODE_PLATFORM = platform
     process.env.NODE_PHASE = phase
     globalConfig.projectPath = path.resolve(projectRoot)
-    const webpackConfig = genWebpackConf({ cwd: projectRoot, ...opts }, 'development')
+    const webpackConfig = await genWebpackConf({ cwd: projectRoot, ...opts }, 'development')
 
     webpack(webpackConfig, (err, stats) => {
       if (err) {

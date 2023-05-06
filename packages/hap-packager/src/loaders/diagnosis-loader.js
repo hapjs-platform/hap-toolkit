@@ -10,7 +10,7 @@ import loaderUtils from 'loader-utils'
 import { parseFragmentsWithCache, ENTRY_TYPE } from '@hap-toolkit/compiler'
 import traverse from '@babel/traverse'
 
-export default function (source) {
+export default function diagnosisLoader(source) {
   const options = loaderUtils.getOptions(this) || {}
   const query = loaderUtils.parseQuery(this.resourceQuery || '?')
   const hostName =

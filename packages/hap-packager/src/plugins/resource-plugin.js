@@ -342,4 +342,4 @@ ResourcePlugin.prototype.apply = function (compiler) {
   })
 }
 
-module.exports = ResourcePlugin
+export { ResourcePlugin }

@@ -5,7 +5,7 @@
 
 const path = require('@jayfate/path')
 const { wipeDynamic } = require('hap-dev-utils')
-const { resolveEntries, compileFiles } = require('../../utils')
+const { resolveTestEntries, compileFiles } = require('../../utils')
 
 /**
  * Component
@@ -13,7 +13,7 @@ const { resolveEntries, compileFiles } = require('../../utils')
 describe('Card 编译测试', () => {
   it('compile-card', async () => {
     const basedir = path.resolve(__dirname, '../../case/ux/')
-    const entries = resolveEntries(basedir, 'TestCard')
+    const entries = resolveTestEntries(basedir, 'TestCard')
 
     const stats = await compileFiles(entries)
     const json = stats.toJson({source: true})

@@ -3,52 +3,37 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-const fs = require('fs')
-const resolveSync = require('resolve/sync')
-const path = require('@jayfate/path')
-const webpack = require('webpack')
-const {
+import { sync as resolveSync } from 'resolve'
+import path from '@jayfate/path'
+import fs from 'fs-extra'
+import webpack from 'webpack'
+import {
   readJson,
   colorconsole,
   KnownError,
   getProjectDslName,
-  getDefaultServerHost
-} = require('@hap-toolkit/shared-utils')
-const { globalConfig } = require('@hap-toolkit/shared-utils')
-
-const {
+  getDefaultServerHost,
   compileOptionsMeta,
   compileOptionsObject,
-  initCompileOptionsObject
-} = require('@hap-toolkit/shared-utils')
-const { name } = require('@hap-toolkit/packager/lib/common/info')
-
-const ManifestWatchPlugin = require('../lib/plugins/manifest-watch-plugin').default
-const { resolveEntries } = require('../lib/utils')
-const getDevtool = require('./get-devtool')
-const {
+  initCompileOptionsObject,
+  globalConfig,
+  eventBus
+} from '@hap-toolkit/shared-utils'
+import { name, postHook as packagerPostHook } from '@hap-toolkit/packager'
+import { postHook as xvmPostHook } from '@hap-toolkit/dsl-xvm'
+import ManifestWatchPlugin from '../plugins/manifest-watch-plugin'
+import { resolveEntries } from '../utils'
+import getDevtool from './get-devtool'
+import {
   getConfigPath,
   cleanup,
   checkBuiltinModules,
   setAdaptForV8Version,
   checkBabelModulesExists
-} = require('./helpers')
+} from './helpers'
 
-const {
-  validateProject,
-  validateManifest,
-  valiedateSitemap,
-  valiedateSkeleton
-} = require('./validate')
-
-const pathMap = {
-  packager: resolveSync('@hap-toolkit/packager/lib/webpack.post.js'),
-  xvm: resolveSync(`@hap-toolkit/dsl-xvm/lib/webpack.post.js`)
-}
-
-const ideConfig = require('./ide.config')
-
-const { eventBus } = require('@hap-toolkit/shared-utils')
+import { validateProject, validateManifest, valiedateSitemap, valiedateSkeleton } from './validate'
+import { postHook as idePostHook } from './ide.config'
 
 const { PACKAGER_BUILD_PROGRESS } = eventBus
 
@@ -76,7 +61,7 @@ const SPLIT_CHUNKS_SUPPORT_VERSION_FROM = 1080
  * @param {production|development} mode - webpack mode
  * @returns {WebpackConfiguration}
  */
-module.exports = function genWebpackConf(launchOptions, mode) {
+export default async function genWebpackConf(launchOptions, mode) {
   // 项目目录
   if (launchOptions.cwd) {
     globalConfig.projectPath = launchOptions.cwd
@@ -91,7 +76,7 @@ module.exports = function genWebpackConf(launchOptions, mode) {
   let cli = {}
   if (hapConfigPath) {
     try {
-      quickappConfig = require(hapConfigPath)
+      quickappConfig = await import(hapConfigPath)
       if (typeof quickappConfig.cli === 'object') {
         cli = quickappConfig.cli
         launchOptions = Object.assign({}, cli, launchOptions)
@@ -176,7 +161,9 @@ module.exports = function genWebpackConf(launchOptions, mode) {
     ENV_PHASE_OL: env.NODE_PHASE === 'prod',
     // 服务器地址
     QUICKAPP_SERVER_HOST: JSON.stringify(getDefaultServerHost()),
-    QUICKAPP_TOOLKIT_VERSION: JSON.stringify(require('../package.json').version)
+    QUICKAPP_TOOLKIT_VERSION: JSON.stringify(
+      fs.readJSONSync(resolveSync('../../package.json')).version
+    )
   }
 
   if (launchOptions.compileOptions) {
@@ -382,88 +369,58 @@ module.exports = function genWebpackConf(launchOptions, mode) {
       }
     }
   }
-  // 加载配置
-  loadWebpackConfList()
+  const dslName = getProjectDslName(cwd)
+
+  if (dslName === 'vue') {
+    colorconsole.error('当前 hap-toolkit 版本暂不支持 Vue 语法的项目编译，请先使用老版本')
+    colorconsole.throw(
+      '因为升级 Webpack5 带来的 toolkit 对 Vue 语法支持的改动较大，将在下个版本支持'
+    )
+  }
+
+  // 加载其他模块的 webpack 配置
+  const postHookList = [packagerPostHook, xvmPostHook, idePostHook]
+  const {
+    package: appPackageName,
+    icon: appIcon,
+    versionName,
+    versionCode,
+    subpackages,
+    workers,
+    banner = ''
+  } = manifest
+  postHookList.forEach((postHook) => {
+    postHook(
+      webpackConf,
+      {
+        appPackageName,
+        appIcon,
+        banner,
+        versionName,
+        versionCode,
+        nodeConf: env,
+        pathDist: DIST_DIR,
+        pathSrc: SRC_DIR,
+        subpackages,
+        pathBuild: BUILD_DIR,
+        pathSignFolder: SIGN_FOLDER,
+        useTreeShaking:
+          quickappConfig && quickappConfig.useTreeShaking ? !!quickappConfig.useTreeShaking : false,
+        workers,
+        cwd,
+        originType: compileOptionsObject.originType,
+        ideConfig: launchOptions.ideConfig
+      },
+      quickappConfig
+    )
+  })
+
+  // 增加项目目录的postHook机制
+  if (quickappConfig && quickappConfig.postHook) {
+    quickappConfig.postHook(webpackConf, compileOptionsObject)
+  }
 
   // 设置 sourcemap 类型
   webpackConf.devtool = getDevtool(webpackConf.mode, compileOptionsObject.devtool)
-
-  /**
-   * 尝试加载每个模块的webpack配置
-   */
-  function loadWebpackConfList() {
-    const moduleList = [
-      {
-        name: 'packager',
-        path: pathMap['packager']
-      }
-    ]
-
-    const dslName = getProjectDslName(cwd)
-
-    if (dslName === 'vue') {
-      colorconsole.error('当前 hap-toolkit 版本暂不支持 Vue 语法的项目编译，请先使用老版本')
-      colorconsole.throw(
-        '因为升级 Webpack5 带来的 toolkit 对 Vue 语法支持的改动较大，将在下个版本支持'
-      )
-    }
-
-    moduleList.push({
-      name: `${dslName}-post`,
-      path: pathMap[dslName]
-    })
-
-    const {
-      package: appPackageName,
-      icon: appIcon,
-      versionName,
-      versionCode,
-      subpackages,
-      workers,
-      banner = ''
-    } = manifest
-    for (let i = 0, len = moduleList.length; i < len; i++) {
-      const fileConf = moduleList[i].path
-      if (fs.existsSync(fileConf)) {
-        try {
-          const moduleWebpackConf = require(fileConf)
-          if (moduleWebpackConf.postHook) {
-            moduleWebpackConf.postHook(
-              webpackConf,
-              {
-                appPackageName,
-                appIcon,
-                banner,
-                versionName,
-                versionCode,
-                nodeConf: env,
-                pathDist: DIST_DIR,
-                pathSrc: SRC_DIR,
-                subpackages,
-                pathBuild: BUILD_DIR,
-                pathSignFolder: SIGN_FOLDER,
-                useTreeShaking:
-                  quickappConfig && quickappConfig.useTreeShaking
-                    ? !!quickappConfig.useTreeShaking
-                    : false,
-                workers,
-                cwd,
-                originType: compileOptionsObject.originType
-              },
-              quickappConfig
-            )
-          }
-        } catch (err) {
-          console.error(`加载 webpack 配置文件[${fileConf}]出错：${err.message}`, err)
-        }
-      }
-    }
-
-    // 增加项目目录的postHook机制
-    if (quickappConfig && quickappConfig.postHook) {
-      quickappConfig.postHook(webpackConf, compileOptionsObject)
-    }
-    ideConfig.postHook(webpackConf, launchOptions.ideConfig)
-  }
   return webpackConf
 }

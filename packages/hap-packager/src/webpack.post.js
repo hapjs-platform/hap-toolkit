@@ -3,30 +3,35 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
+import path from '@jayfate/path'
 import { sync as resolveSync } from 'resolve'
-import { globalConfig } from '@hap-toolkit/shared-utils'
-const path = require('@jayfate/path')
+import {
+  globalConfig,
+  readJson,
+  compileOptionsMeta,
+  compileOptionsObject
+} from '@hap-toolkit/shared-utils'
 
-const { readJson, compileOptionsMeta, compileOptionsObject } = require('@hap-toolkit/shared-utils')
-
-const CopyDslPlugin = require('./plugins/copy-dsl-plugin')
-const HandlerPlugin = require('./plugins/handler-plugin')
-const ResourcePlugin = require('./plugins/resource-plugin')
-const DeviceTypePlugin = require('./plugins/device-type-plugin')
-const ZipPlugin = require('./plugins/zip-plugin')
-const NotifyPlugin = require('./plugins/notify-plugin')
-const SourcemapFixPlugin = require('./plugins/sourcemap-fix-plugin')
-const SplitChunksAdaptPlugin = require('./plugins/splitchunks-adapt-plugin')
-const { genPriorities, getBabelConfigJsPath } = require('./common/utils')
-const { getSkeletonConfig } = require('./common/info')
+import {
+  CopyDslPlugin,
+  HandlerPlugin,
+  ResourcePlugin,
+  DeviceTypePlugin,
+  ZipPlugin,
+  NotifyPlugin,
+  SourcemapFixPlugin,
+  SplitChunksAdaptPlugin
+} from './plugins'
+import { genPriorities, getBabelConfigJsPath } from './common/utils'
+import { getSkeletonConfig } from './common/info'
 
 /**
  * 配置关联
  * @param webpackConf
- * @param defaults
+ * @param defaultsOptions
  * @param quickappConfig - quickapp.config.js或者hap.config.js的配置
  */
-function postHook(webpackConf, defaults, quickappConfig = {}) {
+function postHook(webpackConf, defaultsOptions, quickappConfig = {}) {
   // 项目目录
   const cwd = path.resolve(globalConfig.projectPath)
   // 环境信息
@@ -44,7 +49,7 @@ function postHook(webpackConf, defaults, quickappConfig = {}) {
     workers,
     originType,
     useTreeShaking
-  } = defaults
+  } = defaultsOptions
 
   const manifestObj = readJson(path.join(pathSrc, 'manifest.json'))
 
@@ -184,6 +189,4 @@ function postHook(webpackConf, defaults, quickappConfig = {}) {
   }
 }
 
-module.exports = {
-  postHook
-}
+export { postHook }

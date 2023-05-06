@@ -5,7 +5,7 @@
 
 const path = require('@jayfate/path')
 const { rowify } = require('hap-dev-utils')
-const uxLoader = require('../../lib/loaders/ux-loader')
+const uxLoader = require('../../lib/loaders/ux-loader').default
 const { compileOptionsObject } = require('@hap-toolkit/shared-utils')
 
 describe('ux-loader', () => {

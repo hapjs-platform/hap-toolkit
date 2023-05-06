@@ -3,9 +3,9 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-const path = require('@jayfate/path')
+import path from '@jayfate/path'
 
-module.exports = {
+export const template = {
   app: {
     demo: path.resolve(__dirname, '../templates/app/demo'),
     deviceJsonTemplate: path.resolve(__dirname, '../device-json-template')

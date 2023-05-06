@@ -8,7 +8,7 @@
 const fs = require('fs')
 const path = require('@jayfate/path')
 const { mkdirsSync } = require('@hap-toolkit/shared-utils')
-const signer = require('@hap-toolkit/packager/lib/signature/algorithm/index')
+const { doSign } = require('@hap-toolkit/packager')
 
 /**
  * Style
@@ -25,7 +25,7 @@ describe('Zip签名', () => {
     // TODO
     // 1, 列出 zip 中的文件列表
     // 2, 检查签名
-    const fileContSign = signer.doSign(fileCont, null, privatekey, certpem)
+    const fileContSign = doSign(fileCont, null, privatekey, certpem)
     const filePathSign = path.join(builddir, name + '.signed.zip')
     fs.writeFileSync(filePathSign, fileContSign)
   }

@@ -3,14 +3,13 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-const fs = require('fs')
-const path = require('@jayfate/path')
-const Ajv = require('ajv')
-const AjvErrors = require('ajv-errors')
-const manifestSchema = require('./manifest-schema')
-const { colorconsole, KnownError } = require('@hap-toolkit/shared-utils')
-const { compileOptionsMeta } = require('@hap-toolkit/shared-utils')
-const { getSkeletonConfig } = require('@hap-toolkit/packager/lib/common/info')
+import fs from 'fs'
+import path from '@jayfate/path'
+import Ajv from 'ajv'
+import AjvErrors from 'ajv-errors'
+import manifestSchema from './manifest-schema'
+import { colorconsole, KnownError, compileOptionsMeta } from '@hap-toolkit/shared-utils'
+import { getSkeletonConfig } from '@hap-toolkit/packager'
 
 // 主包保留名
 const MAIN_PKG_NAME = compileOptionsMeta.MAIN_PKG_NAME
@@ -20,7 +19,7 @@ const RPKS_SUPPORT_VERSION_FROM = 1040
 /**
  * 验证项目配置正确
  */
-exports.validateProject = function validateProject(manifestFile, sourceRoot) {
+export function validateProject(manifestFile, sourceRoot) {
   if (!fs.existsSync(manifestFile)) {
     colorconsole.throw(
       `请确认项目%projectDir%/${sourceRoot}/下存在manifest.json文件：${manifestFile}`
@@ -37,7 +36,7 @@ const docSrc = 'https://doc.quickapp.cn/framework/manifest.html'
  * @param {AppInfo} filePath - json 文件地址
  * @return {Array<Error>}  error 数组
  */
-function validateJson(jsonInfo, filePath) {
+export function validateJson(jsonInfo, filePath) {
   const ajv = new Ajv({ allErrors: true, jsonPointers: true })
   AjvErrors(ajv)
   ajv.validate(manifestSchema, jsonInfo)
@@ -56,7 +55,6 @@ function validateJson(jsonInfo, filePath) {
 
   return errors
 }
-exports.validateJson = validateJson
 
 /**
  * 验证项目的应用全局配置
@@ -64,7 +62,7 @@ exports.validateJson = validateJson
  * @param {Object} manifest - manifest 对象
  * @param {Object} options - compileOptionsObject
  */
-exports.validateManifest = function validateManifest(src, manifest, options) {
+export function validateManifest(src, manifest, options) {
   const errors = validateJson(manifest, 'manifest.json')
   errors.forEach((error) => {
     colorconsole.error(error.message)
@@ -192,7 +190,7 @@ function validateManifestSubpackages(src, subpackages) {
  * @param {String} src - 项目src路径
  * @param {Object} manifest - manifest内容
  */
-exports.valiedateSitemap = function valiedateSitemap(src, manifest) {
+export function valiedateSitemap(src, manifest) {
   const sitemap = path.join(src, 'sitemap.json')
   if (fs.existsSync(sitemap)) {
     const rules = require(sitemap).rules
@@ -212,7 +210,7 @@ exports.valiedateSitemap = function valiedateSitemap(src, manifest) {
  * @param {String} src - 项目src路径packages/hap-toolkit/gen-webpack-conf/validate.js
  * @param {Object} manifest - manifest内容
  */
-exports.valiedateSkeleton = function valiedateSkeleton(src, manifest) {
+export function valiedateSkeleton(src, manifest) {
   const configJson = getSkeletonConfig(src)
   const manifestPages = manifest.router.pages || {}
 

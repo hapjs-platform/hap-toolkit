@@ -3,24 +3,20 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-const path = require('@jayfate/path')
-const webpack = require('webpack')
+import { sync as resolveSync } from 'resolve'
+import path from '@jayfate/path'
+import webpack from 'webpack'
+import { ResourcePlugin, HandlerPlugin, ZipPlugin } from '@hap-toolkit/packager'
+import { compileOptionsMeta } from '@hap-toolkit/shared-utils'
+import { resolveTestEntries, resolveLoader } from './utils'
 
-const { resolveEntries, resolveLoader } = require('./common')
+const src = path.join(__dirname, './case/ux')
+const build = path.join(__dirname, './build/ux')
+const dist = path.join(__dirname, './dist/ux')
 
-const src = path.join(__dirname, '../case/ux')
-const build = path.join(__dirname, '../build/ux')
-const dist = path.join(__dirname, '../dist/ux')
+const entries = resolveTestEntries(src, '**/*.{ux,mix}')
 
-const entries = resolveEntries(src, '**/*.{ux,mix}')
-
-const ResourcePlugin = require('@hap-toolkit/packager/lib/plugins/resource-plugin')
-const HandlerPlugin = require('@hap-toolkit/packager/lib/plugins/handler-plugin')
-const ZipPlugin = require('@hap-toolkit/packager/lib/plugins/zip-plugin')
-
-const { compileOptionsMeta } = require('@hap-toolkit/shared-utils')
-
-module.exports = {
+export default {
   context: src,
   mode: 'development',
   node: false,
@@ -46,7 +42,7 @@ module.exports = {
         exclude: /node_modules/,
         use: [
           {
-            loader: require.resolve('@hap-toolkit/packager/lib/loaders/module-loader.js')
+            loader: resolveSync('@hap-toolkit/packager/lib/loaders/module-loader.js')
           },
           {
             loader: 'babel-loader'

@@ -6,7 +6,7 @@
 import webpack from 'webpack'
 import adbCommander from 'adb-commander'
 import { setCustomConfig, colorconsole } from '@hap-toolkit/shared-utils'
-import genWebpackConf from '../../gen-webpack-conf'
+import genWebpackConf from '../gen-webpack-conf'
 import { summaryErrors, summaryWarnings } from './utils'
 
 // webpack watch 模式返回的watching实例
@@ -42,7 +42,7 @@ showVersion()
 export function compile(platform, mode, watch, options = {}) {
   const errCb = options.onerror
 
-  return new Promise((resolve, reject) => {
+  return new Promise(async (resolve, reject) => {
     colorconsole.attach(options.log)
     setCustomConfig(options.cwd)
     // IMPORTANT: set env variables before generating webpack config
@@ -71,7 +71,7 @@ export function compile(platform, mode, watch, options = {}) {
     const webpackMode = mode === 'prod' ? 'production' : 'development'
 
     try {
-      const webpackConfig = genWebpackConf(options, webpackMode)
+      const webpackConfig = await genWebpackConf(options, webpackMode)
 
       if (watch) {
         const compiler = webpack(webpackConfig)

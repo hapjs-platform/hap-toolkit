@@ -12,7 +12,7 @@ import { logWarn } from '@hap-toolkit/shared-utils'
 
 import { convertPath } from './common/utils'
 
-module.exports = function (source) {
+export default function templateLoader(source) {
   const options = loaderUtils.parseQuery(this.resourceQuery)
   options['filePath'] = this.resourcePath
   const { parsed, log, depFiles } = parseTemplate(source, options)

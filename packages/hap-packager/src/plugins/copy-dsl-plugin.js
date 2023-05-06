@@ -62,4 +62,4 @@ CopyDslPlugin.prototype.copyFile = function (callback) {
   writeStream.on('finish', callback)
 }
 
-module.exports = CopyDslPlugin
+export { CopyDslPlugin }

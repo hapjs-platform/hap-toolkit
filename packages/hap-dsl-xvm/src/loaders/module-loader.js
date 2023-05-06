@@ -3,7 +3,7 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-import { searchModuleImport } from '@hap-toolkit/packager/lib/common/shared'
+import { searchModuleImport } from '@hap-toolkit/packager'
 import { scripter } from '@hap-toolkit/compiler'
 import { logWarn } from '@hap-toolkit/shared-utils'
 
@@ -12,7 +12,7 @@ import { logWarn } from '@hap-toolkit/shared-utils'
  * @param {string} parsed - 前一级 loader 处理后的代码
  * @param {object} sourceMap - 前一级 loader 处理后的 sourceMap
  */
-module.exports = function moduleLoader(parsed, sourceMap) {
+export default function moduleLoader(parsed, sourceMap) {
   // 更新替换
   const fileRsut = searchModuleImport(parsed)
   // 内容替换

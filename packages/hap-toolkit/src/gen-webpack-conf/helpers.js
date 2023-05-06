@@ -3,12 +3,10 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-const fs = require('fs-extra')
-const path = require('@jayfate/path')
-const builtinList = require('module').builtinModules
-const { globalConfig } = require('@hap-toolkit/shared-utils')
-
-const { readJson, colorconsole } = require('@hap-toolkit/shared-utils')
+import path from '@jayfate/path'
+import fs from 'fs-extra'
+import { builtinModules as builtinList } from 'module'
+import { readJson, colorconsole, globalConfig } from '@hap-toolkit/shared-utils'
 
 // 兼容配置文件
 const configFileList = ['quickapp.config.js', 'hap.config.js']
@@ -17,7 +15,7 @@ const configFileList = ['quickapp.config.js', 'hap.config.js']
  * 获取配置文件路径
  * @param {String} cwd
  */
-exports.getConfigPath = function getConfigPath(cwd) {
+export function getConfigPath(cwd) {
   let configPath = ''
   let index = 0
   do {
@@ -31,7 +29,7 @@ exports.getConfigPath = function getConfigPath(cwd) {
 /**
  * 清理 BUILD_DIR DIST_DIR
  */
-exports.cleanup = function cleanup(BUILD_DIR, DIST_DIR) {
+export function cleanup(BUILD_DIR, DIST_DIR) {
   fs.emptyDirSync(BUILD_DIR)
 
   // 清空 dist 目录下的文件(仅文件)
@@ -49,7 +47,7 @@ exports.cleanup = function cleanup(BUILD_DIR, DIST_DIR) {
 /**
  * 使用 node 原生模块给予警告
  */
-exports.checkBuiltinModules = function checkBuiltinModules({ request }, callback) {
+export function checkBuiltinModules({ request }, callback) {
   const packageJson = require(path.join(globalConfig.projectPath, 'package.json'))
   // 提取 package.json 中的依赖
   let projectDependencies = []
@@ -111,7 +109,7 @@ exports.checkBuiltinModules = function checkBuiltinModules({ request }, callback
  * 设置v8版本
  * @param {boolean} disableScriptV8V65
  */
-exports.setAdaptForV8Version = function setAdaptForV8Version(disableScriptV8V65, manifest, cwd) {
+export function setAdaptForV8Version(disableScriptV8V65, manifest, cwd) {
   const packageJsonFile = path.resolve(cwd, 'package.json')
   const packageJson = readJson(packageJsonFile)
   const minPlatformVersion = parseInt(manifest.minPlatformVersion)
@@ -137,7 +135,7 @@ exports.setAdaptForV8Version = function setAdaptForV8Version(disableScriptV8V65,
  * 简单检查是否有安装 Babel 相关依赖
  * @param {String} cwd - 项目路径
  */
-exports.checkBabelModulesExists = function valiedateSitemap(cwd) {
+export function checkBabelModulesExists(cwd) {
   const babelconfigjs = path.join(cwd, 'babel.config.js')
   const babelModules = path.join(cwd, 'node_modules/@babel')
   if (fs.existsSync(babelconfigjs) && !fs.existsSync(babelModules)) {

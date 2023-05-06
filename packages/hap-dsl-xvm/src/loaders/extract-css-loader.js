@@ -29,7 +29,7 @@ const exec = (loaderContext, code, filename) => {
 }
 
 // pitch触发
-module.exports.pitch = function (request) {
+export function pitch(request) {
   const loaders = this.loaders.slice(this.loaderIndex + 1)
 
   const childFilename = '*'

@@ -51,4 +51,4 @@ class DeviceTypePlugin {
   }
 }
 
-module.exports = DeviceTypePlugin
+export { DeviceTypePlugin }

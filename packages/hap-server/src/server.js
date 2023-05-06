@@ -23,7 +23,7 @@ export async function launch(conf) {
     try {
       // 'debug' 模式只需要 debugger 模块
       if (globalConfig.command !== 'debug') {
-        moduler.push(require('@hap-toolkit/packager/lib/router'), require('./preview/index.js'))
+        moduler.push((await import('@hap-toolkit/packager')).router, require('./preview/index.js'))
       }
       const app = new Koa()
       let serverPort = globalConfig.server.port
