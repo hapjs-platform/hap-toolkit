@@ -7,7 +7,6 @@ Array [
   ".gitignore",
   ".npmrc",
   ".prettierignore",
-  "package-lock.json",
   "package.json",
   "README.md",
   "scripts",

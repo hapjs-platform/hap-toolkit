@@ -44,6 +44,12 @@ async function beforeStart(server, app) {
       pathClientLog: globalConfig.clientRecordPath,
       localReversePort: conf.defaults.serverPort
     })
+    if (process.env.JEST_WORKER_ID) {
+      // 测试阶段自动结束 adbDebugger，避免一直轮询
+      setTimeout(() => {
+        app.context.adbDebugger._stop()
+      }, 30 * 1000)
+    }
   }
 }
 

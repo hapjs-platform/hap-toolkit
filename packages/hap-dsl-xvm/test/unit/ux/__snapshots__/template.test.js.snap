@@ -293,12 +293,8 @@ Object.defineProperty(exports, \\"__esModule\\", {
 exports.default = void 0;
 var _default = {
   data: {},
-  clickDiv1: function (e) {
-  },
-
-  clickDiv2: function (e) {
-  },
-
+  clickDiv1: function (e) {},
+  clickDiv2: function (e) {},
   event: function (e) {}
 };
 exports.default = _default;
@@ -846,20 +842,11 @@ var _default = {
       }]
     }]
   },
-  scroll: function (e) {
-  },
-
-  scrollbottom: function (e) {
-  },
-
-  scrolltop: function (e) {
-  },
-
-  scrollend: function (e) {
-  },
-
-  scrolltouchup: function (e) {
-  }
+  scroll: function (e) {},
+  scrollbottom: function (e) {},
+  scrolltop: function (e) {},
+  scrollend: function (e) {},
+  scrolltouchup: function (e) {}
 };
 exports.default = _default;
 const moduleOwn = exports.default || module.exports;
@@ -941,14 +928,9 @@ var _default = {
   data: {
     swiperList: ['A', 'B', 'C', 'D', 'E', 'F']
   },
-  refresh: function (e) {
-  },
-
-  changeSwiper: function (e) {
-  },
-
-  changeTabs: function (e) {
-  }
+  refresh: function (e) {},
+  changeSwiper: function (e) {},
+  changeTabs: function (e) {}
 };
 exports.default = _default;
 const moduleOwn = exports.default || module.exports;
@@ -1188,23 +1170,12 @@ var _default = {
     }],
     swiperList: ['A', 'B', 'C', 'D', 'E', 'F']
   },
-  changeTabs: function (e) {
-  },
-
-  scroll: function (e) {
-  },
-
-  scrollbottom: function (e) {
-  },
-
-  scrolltop: function (e) {
-  },
-
-  refresh: function (e) {
-  },
-
-  changeSwiper: function (e) {
-  }
+  changeTabs: function (e) {},
+  scroll: function (e) {},
+  scrollbottom: function (e) {},
+  scrolltop: function (e) {},
+  refresh: function (e) {},
+  changeSwiper: function (e) {}
 };
 exports.default = _default;
 const moduleOwn = exports.default || module.exports;

@@ -11760,7 +11760,7 @@ $app_bootstrap$('@app-component/testmediaquery2',{ packagerVersion: QUICKAPP_TOO
 
 exports[`Style编译测试 comile style: ./TestStyle/MediaQueryLess/testmediaqueryless.ux?uxType=page 1`] = `
 "
-var $app_style$ = require(\\"!../../../../../lib/loaders/style-loader.js?index=0&type=style!less-loader!../../../../../lib/loaders/fragment-loader.js?index=0&type=style!./testmediaqueryless.ux?uxType=page\\")
+var $app_style$ = require(\\"!../../../../../lib/loaders/style-loader.js?index=0&type=style!../../../../../../../node_modules/less-loader/dist/cjs.js!../../../../../lib/loaders/fragment-loader.js?index=0&type=style!./testmediaqueryless.ux?uxType=page\\")
 
 var $app_script$ = require(\\"!../../../../../lib/loaders/script-loader.js!../../../../../../../node_modules/@hap-toolkit/packager/lib/loaders/module-loader.js!../../../../../../../node_modules/babel-loader/lib/index.js?cwd=<CWD>&cacheDirectory&plugins[]=<CWD>/packages/hap-dsl-xvm/lib/loaders/babel-plugin-jsx.js&comments=false&configFile=<CWD>/babel.config.js!../../../../../lib/loaders/access-loader.js!../../../../../lib/loaders/fragment-loader.js?index=0&type=script!./testmediaqueryless.ux?uxType=page\\")
 
@@ -12236,7 +12236,7 @@ $app_bootstrap$('@app-component/index',{ packagerVersion: QUICKAPP_TOOLKIT_VERSI
 
 exports[`Style编译测试 comile style: ./TestStyle/SelectorLess/index.ux?uxType=page 1`] = `
 "
-var $app_style$ = require(\\"!../../../../../lib/loaders/style-loader.js?index=0&type=style!less-loader!../../../../../lib/loaders/fragment-loader.js?index=0&type=style!./index.ux?uxType=page\\")
+var $app_style$ = require(\\"!../../../../../lib/loaders/style-loader.js?index=0&type=style!../../../../../../../node_modules/less-loader/dist/cjs.js!../../../../../lib/loaders/fragment-loader.js?index=0&type=style!./index.ux?uxType=page\\")
 
 var $app_script$ = require(\\"!../../../../../lib/loaders/script-loader.js!../../../../../../../node_modules/@hap-toolkit/packager/lib/loaders/module-loader.js!../../../../../../../node_modules/babel-loader/lib/index.js?cwd=<CWD>&cacheDirectory&plugins[]=<CWD>/packages/hap-dsl-xvm/lib/loaders/babel-plugin-jsx.js&comments=false&configFile=<CWD>/babel.config.js!../../../../../lib/loaders/access-loader.js!../../../../../lib/loaders/fragment-loader.js?index=0&type=script!./index.ux?uxType=page\\")
 
@@ -12254,7 +12254,7 @@ $app_bootstrap$('@app-component/index',{ packagerVersion: QUICKAPP_TOOLKIT_VERSI
 
 exports[`Style编译测试 comile style: ./TestStyle/SelectorLessFile/index.ux?uxType=page 1`] = `
 "
-var $app_style$ = require(\\"!../../../../../lib/loaders/style-loader.js?index=0&type=style!less-loader!./index.less?uxType=page\\")
+var $app_style$ = require(\\"!../../../../../lib/loaders/style-loader.js?index=0&type=style!../../../../../../../node_modules/less-loader/dist/cjs.js!./index.less?uxType=page\\")
 
 var $app_script$ = require(\\"!../../../../../lib/loaders/script-loader.js!../../../../../../../node_modules/@hap-toolkit/packager/lib/loaders/module-loader.js!../../../../../../../node_modules/babel-loader/lib/index.js?cwd=<CWD>&cacheDirectory&plugins[]=<CWD>/packages/hap-dsl-xvm/lib/loaders/babel-plugin-jsx.js&comments=false&configFile=<CWD>/babel.config.js!../../../../../lib/loaders/access-loader.js!../../../../../lib/loaders/fragment-loader.js?index=0&type=script!./index.ux?uxType=page\\")
 
