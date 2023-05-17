@@ -97,7 +97,7 @@ function resolveTestEntries(cwd, prefix) {
   return entries
 }
 
-export  function resolveLoader(loader) {
+function resolveLoader(loader) {
   return require.resolve(`../lib/loaders/${loader}`)
 }
 
@@ -121,5 +121,6 @@ export {
   compilePage,
   resolveTestEntries,
   compileFiles,
+  resolveLoader,
   copyApp
 }

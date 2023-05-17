@@ -256,29 +256,14 @@ Object.defineProperty(exports, \\"__esModule\\", {
 exports.default = void 0;
 var _default = {
   data: {},
-  clickBtn: function () {
-  },
-
-  changeText: function (e) {
-  },
-
-  enterkeyclickfn: function (e) {
-  },
-
-  changeMail: function (e) {
-  },
-
-  changeDate: function (e) {
-  },
-
-  changeTime: function (e) {
-  },
-
-  changeNumber: function (e) {
-  },
-
-  selectionchangeFn: function (e) {
-  }
+  clickBtn: function () {},
+  changeText: function (e) {},
+  enterkeyclickfn: function (e) {},
+  changeMail: function (e) {},
+  changeDate: function (e) {},
+  changeTime: function (e) {},
+  changeNumber: function (e) {},
+  selectionchangeFn: function (e) {}
 };
 exports.default = _default;
 const moduleOwn = exports.default || module.exports;
@@ -315,8 +300,7 @@ Object.defineProperty(exports, \\"__esModule\\", {
 exports.default = void 0;
 var _default = {
   data: {},
-  clicklabel: function () {
-  }
+  clicklabel: function () {}
 };
 exports.default = _default;
 const moduleOwn = exports.default || module.exports;
@@ -535,14 +519,9 @@ Object.defineProperty(exports, \\"__esModule\\", {
 exports.default = void 0;
 var _default = {
   data: {},
-  changeText: function (e) {
-  },
-
-  changeDate: function (e) {
-  },
-
-  changeTime: function (e) {
-  }
+  changeText: function (e) {},
+  changeDate: function (e) {},
+  changeTime: function (e) {}
 };
 exports.default = _default;
 const moduleOwn = exports.default || module.exports;
@@ -651,8 +630,7 @@ Object.defineProperty(exports, \\"__esModule\\", {
 exports.default = void 0;
 var _default = {
   data: {},
-  changeNum(e) {
-  }
+  changeNum(e) {}
 };
 exports.default = _default;
 const moduleOwn = exports.default || module.exports;
@@ -737,14 +715,9 @@ var _default = {
   data: {
     swiperList: ['A', 'B', 'C', 'D', 'E', 'F']
   },
-  refresh2: function (e) {
-  },
-
-  changeSwiper: function (e) {
-  },
-
-  changeTabs: function (e) {
-  }
+  refresh2: function (e) {},
+  changeSwiper: function (e) {},
+  changeTabs: function (e) {}
 };
 exports.default = _default;
 const moduleOwn = exports.default || module.exports;
@@ -977,17 +950,10 @@ Object.defineProperty(exports, \\"__esModule\\", {
 exports.default = void 0;
 var _default = {
   data: {},
-  changeText: function (e) {
-  },
-
-  changeDate: function (e) {
-  },
-
-  changeTime: function (e) {
-  },
-
-  changeSlider: function (e) {
-  }
+  changeText: function (e) {},
+  changeDate: function (e) {},
+  changeTime: function (e) {},
+  changeSlider: function (e) {}
 };
 exports.default = _default;
 const moduleOwn = exports.default || module.exports;
@@ -1240,8 +1206,7 @@ Object.defineProperty(exports, \\"__esModule\\", {
 exports.default = void 0;
 var _default = {
   data: {},
-  changeSwitch: function (e) {
-  }
+  changeSwitch: function (e) {}
 };
 exports.default = _default;
 const moduleOwn = exports.default || module.exports;
@@ -1278,8 +1243,7 @@ Object.defineProperty(exports, \\"__esModule\\", {
 exports.default = void 0;
 var _default = {
   data: {},
-  changeActive: function (e) {
-  }
+  changeActive: function (e) {}
 };
 exports.default = _default;
 const moduleOwn = exports.default || module.exports;
@@ -1352,14 +1316,9 @@ Object.defineProperty(exports, \\"__esModule\\", {
 exports.default = void 0;
 var _default = {
   data: {},
-  changeText: function (e) {
-  },
-
-  selectionchangeFn: function (e) {
-  },
-
-  linechangeFn: function (e) {
-  }
+  changeText: function (e) {},
+  selectionchangeFn: function (e) {},
+  linechangeFn: function (e) {}
 };
 exports.default = _default;
 const moduleOwn = exports.default || module.exports;
@@ -1398,20 +1357,11 @@ var _default = {
   private: {
     speed: 1
   },
-  preparedVideo: function () {
-  },
-
-  startVideo: function () {
-  },
-
-  pauseVideo: function () {
-  },
-
-  onfinish: function () {
-  },
-
-  onerror: function () {
-  }
+  preparedVideo: function () {},
+  startVideo: function () {},
+  pauseVideo: function () {},
+  onfinish: function () {},
+  onerror: function () {}
 };
 exports.default = _default;
 const moduleOwn = exports.default || module.exports;
@@ -1448,23 +1398,12 @@ Object.defineProperty(exports, \\"__esModule\\", {
 exports.default = void 0;
 var _default = {
   data: {},
-  pagestartfn: function () {
-  },
-
-  pagefinishfn: function () {
-  },
-
-  titlereceivefn: function () {
-  },
-
-  errorfn: function () {
-  },
-
-  messagefn: function () {
-  },
-
-  messagefn: function () {
-  }
+  pagestartfn: function () {},
+  pagefinishfn: function () {},
+  titlereceivefn: function () {},
+  errorfn: function () {},
+  messagefn: function () {},
+  messagefn: function () {}
 };
 exports.default = _default;
 const moduleOwn = exports.default || module.exports;

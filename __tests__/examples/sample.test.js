@@ -11,10 +11,9 @@ const stripAnsi = require('strip-ansi')
 const { run, lsfiles, readZip, wipeDynamic } = require('hap-dev-utils')
 const { compile } = require('../../packages/hap-toolkit/lib')
 
-// IMPORTANT run `lerna bootstrap` before running tests
-describe('hap-toolkit', () => {
-  const cwd = path.resolve(__dirname, '../../examples/sample')
+const cwd = path.resolve(__dirname, '../../examples/sample')
 
+describe('hap-toolkit', () => {
   it(
     'hap-build: 默认流式打包，包内存在META-INF文件',
     async () => {
@@ -121,8 +120,6 @@ describe('hap-toolkit', () => {
   it(
     'compile native',
     async () => {
-      const projectRoot = path.resolve(__dirname, '../../examples/sample')
-
       const outputs = []
       const outputStream = new Writable({
         write(chunk, encoding, next) {
@@ -133,7 +130,7 @@ describe('hap-toolkit', () => {
       // 第三个参数为是否开启watch，true为开启
       // TODO other than `native`?
       const data = await compile('native', 'dev', false, {
-        cwd: projectRoot,
+        cwd,
         log: outputStream,
         buildNameFormat: 'CUSTOM=dev'
       })
@@ -143,16 +140,21 @@ describe('hap-toolkit', () => {
       })
       const wipe = (content) =>
         wipeDynamic(content, [
-          [projectRoot, '<project-root>'],
+          [cwd, '<project-root>'],
           [/大小为 \d+ KB/g, '大小为 <SIZE> KB']
         ])
+
+      const sourceArr = []
+      const identifierArr = []
       json.modules.forEach((module) => {
         if (module.source) {
-          expect(wipe(module.source)).toMatchSnapshot(wipe(module.identifier))
+          sourceArr.push(wipe(module.source))
+          identifierArr.push(wipe(module.identifier))
         }
       })
+      expect(sourceArr.join('\n\n')).toMatchSnapshot(identifierArr.join('\n\n'))
 
-      const rpks = await lsfiles('dist/*.rpk', { cwd: projectRoot })
+      const rpks = await lsfiles('dist/*.rpk', { cwd })
       const hasCustom = rpks[0].indexOf('dev') !== -1
       expect(hasCustom).toBeTruthy()
 

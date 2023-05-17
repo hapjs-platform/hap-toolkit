@@ -23,6 +23,9 @@ const cwd = path.resolve(globalConfig.projectPath)
 
 const defaultLoaders = {
   // common
+  sass: resolveSync('sass-loader'),
+  scss: resolveSync('sass-loader'),
+  less: resolveSync('less-loader'),
   component: resolveSync('./ux-loader.js'),
   fragment: resolveSync('./fragment-loader.js'),
   template: resolveSync('./template-loader.js'),
@@ -98,10 +101,8 @@ function makeLoaderString(type, config, uxType) {
 
     let lang = config.lang
     if (lang && lang !== 'css') {
-      // scss 需要的是 sass-loader
-      lang = lang === 'scss' ? 'sass' : lang
       loaders.push({
-        name: `${lang}-loader`
+        name: defaultLoaders[lang]
       })
     }
 
