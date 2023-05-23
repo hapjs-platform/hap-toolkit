@@ -4,7 +4,7 @@
  */
 
 
-const path = require('@jayfate/path')
+const path = require('path/posix')
 const { wipeDynamic } = require('hap-dev-utils')
 const { resolveTestEntries, compileFiles } = require('../../utils')
 

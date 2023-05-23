@@ -4,7 +4,7 @@
  */
 
 import fs from 'fs'
-import path from '@jayfate/path'
+import path from 'path/posix'
 
 import { compileOptionsMeta } from '@hap-toolkit/shared-utils'
 import { calcDataDigest } from '../common/utils'

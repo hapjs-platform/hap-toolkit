@@ -3,7 +3,7 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-const path = require('@jayfate/path')
+const path = require('path/posix')
 const fs = require('fs-extra')
 const del = require('del')
 const { copyApp, wipeDynamic } = require('hap-dev-utils')

@@ -4,7 +4,7 @@
  */
 
 import { sync as resolveSync } from 'resolve'
-import path from '@jayfate/path'
+import path from 'path/posix'
 import webpack from 'webpack'
 import { ResourcePlugin, HandlerPlugin, ZipPlugin } from '@hap-toolkit/packager'
 import { compileOptionsMeta } from '@hap-toolkit/shared-utils'

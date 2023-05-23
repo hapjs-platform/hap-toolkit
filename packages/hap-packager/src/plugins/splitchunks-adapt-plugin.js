@@ -3,7 +3,7 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-import path from '@jayfate/path'
+import path from 'path/posix'
 import Compilation from 'webpack/lib/Compilation'
 import { getEntryFiles } from '../common/info'
 import { compileOptionsMeta } from '@hap-toolkit/shared-utils'

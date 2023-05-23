@@ -4,7 +4,7 @@
  */
 
 import fs from 'fs'
-import path from '@jayfate/path'
+import path from 'path/posix'
 import { colorconsole } from '@hap-toolkit/shared-utils'
 import { mergeDeep } from '../common/utils'
 

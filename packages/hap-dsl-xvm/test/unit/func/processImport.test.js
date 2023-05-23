@@ -5,7 +5,7 @@
 
 
 'use strict'
-const path = require('@jayfate/path')
+const path = require('path/posix')
 const { processImport } = require('@hap-toolkit/compiler')
 const testCssDir = path.resolve(__dirname, '../../case/ux/Helloworld/Common')
 

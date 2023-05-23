@@ -3,7 +3,7 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-import path from '@jayfate/path'
+import path from 'path/posix'
 import { colorconsole, extend } from '@hap-toolkit/shared-utils'
 import exp from './exp'
 import styler from '../style'

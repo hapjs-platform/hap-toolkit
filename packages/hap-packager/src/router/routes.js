@@ -4,7 +4,7 @@
  */
 
 import fs from 'fs-extra'
-import path from '@jayfate/path'
+import path from 'path/posix'
 import qr from 'qr-image'
 import moment from 'moment'
 

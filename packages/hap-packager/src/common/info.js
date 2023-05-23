@@ -4,7 +4,7 @@
  */
 
 import fs from 'fs'
-import path from '@jayfate/path'
+import path from 'path/posix'
 import { readJson } from '@hap-toolkit/shared-utils'
 
 export const name = {

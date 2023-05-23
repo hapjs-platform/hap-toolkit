@@ -4,7 +4,7 @@
  */
 
 import fs from 'fs'
-import path from '@jayfate/path'
+import path from 'path/posix'
 import { PassThrough } from 'stream'
 import util from 'util'
 import KoaRouter from 'koa-router'

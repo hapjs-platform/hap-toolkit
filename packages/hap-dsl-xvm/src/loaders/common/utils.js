@@ -3,7 +3,7 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-import path from '@jayfate/path'
+import path from 'path/posix'
 import loaderUtils from 'loader-utils'
 import hash from 'hash-sum'
 import { SourceMapGenerator, SourceMapConsumer } from 'source-map'

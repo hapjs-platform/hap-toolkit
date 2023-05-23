@@ -5,7 +5,7 @@
 
 const process = require('process')
 const fs = require('fs')
-const path = require('@jayfate/path')
+const path = require('path/posix')
 const del = require('del')
 const { run, lsfiles } = require('hap-dev-utils')
 
