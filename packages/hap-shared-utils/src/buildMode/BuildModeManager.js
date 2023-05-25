@@ -4,7 +4,7 @@
  */
 
 import fs from 'fs'
-import path from '@jayfate/path'
+import path from 'path'
 import { readJson } from '../index'
 import { initProjectConfig, CONFIG_FILE } from './util'
 import { eventBus } from '../event-bus'

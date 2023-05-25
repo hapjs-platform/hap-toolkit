@@ -5,7 +5,7 @@
 
 'use strict'
 
-const path = require('@jayfate/path')
+const path = require('path')
 const fse = require('fs-extra')
 const del = require('del')
 const request = require('supertest')

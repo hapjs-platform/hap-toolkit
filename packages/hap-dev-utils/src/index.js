@@ -7,7 +7,7 @@ const process = require('process')
 const fs = require('fs-extra')
 const { spawn } = require('child_process')
 const JSZip = require('jszip')
-const path = require('@jayfate/path')
+const path = require('path')
 const glob = require('glob')
 
 /**

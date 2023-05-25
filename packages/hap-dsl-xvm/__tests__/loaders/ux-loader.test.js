@@ -3,7 +3,7 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-const path = require('@jayfate/path')
+const path = require('path')
 const { rowify } = require('hap-dev-utils')
 const uxLoader = require('../../lib/loaders/ux-loader').default
 const { compileOptionsObject } = require('@hap-toolkit/shared-utils')

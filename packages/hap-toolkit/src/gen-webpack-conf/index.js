@@ -4,7 +4,7 @@
  */
 
 import { sync as resolveSync } from 'resolve'
-import path from '@jayfate/path'
+import path from 'path'
 import fs from 'fs-extra'
 import webpack from 'webpack'
 import {

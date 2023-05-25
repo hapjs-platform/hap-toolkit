@@ -4,7 +4,7 @@
  */
 
 'use strict'
-import path from '@jayfate/path'
+import path from 'path'
 import css from 'css'
 import { compileOptionsObject } from '@hap-toolkit/shared-utils'
 import { validate as validateDelaration, mightReferlocalResource } from './validator'

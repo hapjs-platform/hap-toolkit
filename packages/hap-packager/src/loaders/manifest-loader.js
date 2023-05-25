@@ -4,7 +4,7 @@
  */
 
 'use strict'
-import path from '@jayfate/path'
+import path from 'path'
 import fs from 'fs'
 import loaderUtils from 'loader-utils'
 

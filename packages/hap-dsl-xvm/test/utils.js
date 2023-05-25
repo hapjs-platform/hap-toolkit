@@ -5,7 +5,7 @@
 
 'use strict'
 
-import path from '@jayfate/path'
+import path from 'path'
 import fs from 'fs-extra'
 import glob from 'glob'
 import del from 'del'

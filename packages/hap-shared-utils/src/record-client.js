@@ -4,7 +4,7 @@
  */
 
 import fs from 'fs'
-import path from '@jayfate/path'
+import path from 'path'
 import { colorconsole, mkdirsSync } from './index'
 import globalConfig from './config'
 

@@ -4,7 +4,7 @@
  */
 
 import fs from 'fs-extra'
-import path from '@jayfate/path'
+import path from 'path'
 import {
   colorconsole,
   readJson,

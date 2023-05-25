@@ -6,7 +6,7 @@
 'use strict'
 
 const fs = require('fs')
-const path = require('@jayfate/path')
+const path = require('path')
 const { mkdirsSync } = require('@hap-toolkit/shared-utils')
 const { doSign } = require('@hap-toolkit/packager')
 

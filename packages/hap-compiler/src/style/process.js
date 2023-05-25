@@ -5,7 +5,7 @@
 
 'use strict'
 import fs from 'fs'
-import path from '@jayfate/path'
+import path from 'path'
 import css from 'css'
 import cssWhat from 'css-what'
 import { extend, compileOptionsObject } from '@hap-toolkit/shared-utils'
