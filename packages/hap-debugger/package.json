@@ -30,7 +30,7 @@
   "dependencies": {
     "@hap-toolkit/chrome-devtools-frontend": "^1.1.2",
     "@hap-toolkit/shared-utils": "1.9.12",
-    "@jayfate/path": "^0.0.13",
+    "@jayfate/path": "0.0.14-beta.3",
     "@sentry/node": "^5.26.0",
     "adb-commander": "^0.1.9",
     "adb-devices-emitter": "^0.1.9",

@@ -16,7 +16,7 @@
     "*.js"
   ],
   "dependencies": {
-    "@jayfate/path": "^0.0.13",
+    "@jayfate/path": "0.0.14-beta.3",
     "fs-extra": "^10.0.0",
     "glob": "^7.1.6",
     "jszip": "^3.4.0"

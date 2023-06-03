@@ -1152,11 +1152,13 @@
   dependencies:
     sync-directory "^2.1.0"
 
-"@jayfate/path@^0.0.13":
-  version "0.0.13"
-  resolved "https://registry.npmmirror.com/@jayfate/path/-/path-0.0.13.tgz#53893923b577a9b7d36cbfcbc45aa63ee214a94d"
-  integrity sha512-CDhKFHS/nbZOOikxfZV5xCQutRSHE0qXiUGJW0TWH3hAuEiJS4qgU9sMIsTCuFGdvRpez8UgWeKSbZxuN0UZzQ==
+"@jayfate/path@0.0.14-beta.3":
+  version "0.0.14-beta.3"
+  resolved "https://registry.npmjs.org/@jayfate/path/-/path-0.0.14-beta.3.tgz#2e6b6972fc003d8271fb43ecdd3e104a48dd50a6"
+  integrity sha512-S15CjNIl2fnHYv6x7Oat1/n2KMV6zgSElaIPOV/Sft3G+G3RwtByPU4SdbmuOFTV3dgHCzSb42RFwy5JwxqWsw==
   dependencies:
+    "@types/lodash" "^4.14.195"
+    lodash "^4.17.21"
     tslib "^2.4.0"
 
 "@jest/console@^24.7.1", "@jest/console@^24.9.0":
@@ -2395,6 +2397,11 @@
   version "0.0.29"
   resolved "https://registry.npmmirror.com/@types/json5/-/json5-0.0.29.tgz#ee28707ae94e11d2b827bcbe5270bcea7f3e71ee"
   integrity sha512-dRLjCWHYg4oaA77cxO64oO+7JwCwnIzkZPdrrC71jQmQtlhM556pwKo5bUzqvZndkVbeFLIIi+9TC40JNF5hNQ==
+
+"@types/lodash@^4.14.195":
+  version "4.14.195"
+  resolved "https://registry.npmjs.org/@types/lodash/-/lodash-4.14.195.tgz#bafc975b252eb6cea78882ce8a7b6bf22a6de632"
+  integrity sha512-Hwx9EUgdwf2GLarOjQp5ZH8ZmblzcbTBC2wtQWNKARBSxM9ezRIAUpeDTgoQRAFB0+8CNWXVA9+MaSOzOF3nPg==
 
 "@types/minimatch@*":
   version "5.1.2"
