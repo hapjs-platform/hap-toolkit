@@ -32,6 +32,8 @@
     "@babel/core": "^7.9.6",
     "@babel/generator": "^7.9.6",
     "@babel/parser": "^7.9.6",
+    "@babel/plugin-proposal-optional-chaining": "^7.21.0",
+    "@babel/plugin-transform-modules-commonjs": "^7.21.5",
     "@babel/traverse": "^7.9.6",
     "@babel/types": "^7.9.6",
     "@hap-toolkit/aaptjs": "^2.0.0",
