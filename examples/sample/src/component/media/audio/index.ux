@@ -37,7 +37,7 @@
   </div>
 </template>
 
-<style lang="less">
+<style lang="sass">
   @import '../../../common/css/common.css';
 
   .audio-content {
