@@ -274,7 +274,9 @@ export default async function genWebpackConf(launchOptions, mode) {
           chunks(chunk) {
             // 获取需要chunk的模块，卡片模块暂不支持提取公共chunk
             const widgetsConf = manifest.router.widgets || {}
-            return !Object.keys(widgetsConf).some((item) => chunk.name.indexOf(item) !== -1)
+            return !Object.keys(widgetsConf).some(
+              (item) => chunk.name.replace(/\\/g, '/').indexOf(item.replace(/\\/g, '/')) !== -1
+            )
           },
           minChunks: 2,
           name(module) {
@@ -345,7 +347,9 @@ export default async function genWebpackConf(launchOptions, mode) {
           chunks(chunk) {
             // 获取需要chunk的模块，卡片模块暂不支持提取公共chunk
             const widgetsConf = manifest.router.widgets || {}
-            return !Object.keys(widgetsConf).some((item) => chunk.name.indexOf(item) !== -1)
+            return !Object.keys(widgetsConf).some(
+              (item) => chunk.name.replace(/\\/g, '/').indexOf(item.replace(/\\/g, '/')) !== -1
+            )
           },
           minChunks: 2,
           name(module) {
