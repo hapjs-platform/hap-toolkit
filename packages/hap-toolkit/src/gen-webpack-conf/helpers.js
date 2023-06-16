@@ -38,7 +38,7 @@ export function cleanup(BUILD_DIR, DIST_DIR) {
     zipfiles.forEach(function (file) {
       const curPath = DIST_DIR + '/' + file
       if (fs.statSync(curPath).isFile()) {
-        fs.unlinkSync(curPath)
+        // fs.unlinkSync(curPath)
       }
     })
   }
