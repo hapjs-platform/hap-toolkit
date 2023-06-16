@@ -131,7 +131,10 @@ async function logger(context, next) {
 async function notify(context, next) {
   const callback = context.conf.options.callback
   if (typeof callback === 'function') {
-    const params = { action: 'runCompile' }
+    const params = {
+      action: 'runCompile',
+      defineOptions: globalConfig.launchOptions?.compileOptions?.defineOptions
+    }
     callback(params)
   }
   context.status = 200

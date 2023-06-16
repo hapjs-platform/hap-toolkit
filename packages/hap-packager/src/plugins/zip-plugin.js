@@ -160,14 +160,26 @@ function getDistFilename(options, distExt) {
       )
   }
   let distName
+
+  let { PACKAGE_NAME, PACKAGE_TYPE, NODE_ENV } =
+    globalConfig.launchOptions?.compileOptions?.defineOptions || {}
+  // eg.   packageName.release.production.customName.version.rpk
+  const distNameOption = [
+    PACKAGE_NAME || options.name,
+    PACKAGE_TYPE || flagSign,
+    NODE_ENV,
+    // customName
+    undefined,
+    options.versionName,
+    distExt
+  ]
   if (options.buildNameFormat === compileOptionsMeta.buildNameFormat.ORIGINAL) {
     distName = `${options.name}.${flagSign}.${distExt}`
   } else if (options.buildNameFormat && options.buildNameFormat.startsWith('CUSTOM=')) {
-    const custom = options.buildNameFormat.split('=')[1]
-    distName = `${options.name}.${flagSign}.${custom}.${options.versionName}.${distExt}`
-  } else {
-    distName = `${options.name}.${flagSign}.${options.versionName}.${distExt}`
+    // customName
+    distNameOption[3] = options.buildNameFormat.split('=')[1]
   }
+  distName = distName || distNameOption.filter(Boolean).join('.')
   return distName
 }
 
