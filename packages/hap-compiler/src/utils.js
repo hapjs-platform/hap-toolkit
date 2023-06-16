@@ -5,7 +5,7 @@
 
 // TODO duplicate of packager/src/common/utils.js
 import fs from 'fs'
-import path from '@jayfate/path'
+import path from 'path'
 import { globalConfig } from '@hap-toolkit/shared-utils'
 
 /**

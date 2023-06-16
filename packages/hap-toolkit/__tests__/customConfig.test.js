@@ -6,7 +6,7 @@
 'use strict'
 
 const fs = require('fs')
-const path = require('@jayfate/path')
+const path = require('path')
 const del = require('del')
 const { copyApp } = require('hap-dev-utils')
 const { compile } = require('../lib')

@@ -3,7 +3,7 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-const path = require('@jayfate/path')
+const path = require('path')
 const { resolveTestEntries, compileFiles } = require('../../utils')
 
 describe('分包测试', () => {

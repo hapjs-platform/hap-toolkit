@@ -3,7 +3,7 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-import path from '@jayfate/path'
+import path from 'path'
 import fs from 'fs-extra'
 import aaptjs from '@hap-toolkit/aaptjs'
 import glob from 'glob'

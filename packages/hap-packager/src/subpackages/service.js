@@ -4,7 +4,7 @@
  */
 
 import fs from 'fs'
-import path from '@jayfate/path'
+import path from 'path'
 
 import { compileOptionsMeta } from '@hap-toolkit/shared-utils'
 import { calcDataDigest } from '../common/utils'
@@ -77,7 +77,7 @@ function allocateResourceToPackages(files, base, fullPackage, subPackages, build
 
   files.forEach((fileBuildPath) => {
     const fileAbsPath = path.join(base, fileBuildPath)
-    const fileContentBuffer = fs.readFileSync(fileAbsPath)
+    const fileContentBuffer = fs.readFileSync(fileAbsPath.replace(/\\/g, '/'))
     const fileContentDigest = calcDataDigest(fileContentBuffer)
     // 资源基本信息
     const resourceInfo = [fileBuildPath, fileContentBuffer, fileContentDigest]
@@ -95,7 +95,7 @@ function allocateResourceToPackages(files, base, fullPackage, subPackages, build
     let belongToBasePkg = true
 
     // 将base包的page-chunks.json文件放在包根路径，其余在分包目录下
-    if (fileBuildPath === basePageChunksJson) {
+    if (fileBuildPath === basePageChunksJson.replace(/\\/g, '/')) {
       resourceInfo[0] = SPLIT_CHUNKS_PAGE_NAME
     }
 

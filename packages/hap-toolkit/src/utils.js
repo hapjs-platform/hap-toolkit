@@ -3,7 +3,7 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-import path from '@jayfate/path'
+import path from 'path'
 import { colorconsole, compileOptionsObject } from '@hap-toolkit/shared-utils'
 import { ENTRY_TYPE } from '@hap-toolkit/compiler'
 import { resolveFile } from '@hap-toolkit/packager'

@@ -3,7 +3,7 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-import path from '@jayfate/path'
+import path from 'path'
 import loaderUtils from 'loader-utils'
 import { parseFragmentsWithCache, ENTRY_TYPE, templater } from '@hap-toolkit/compiler'
 import { globalConfig, compileOptionsObject } from '@hap-toolkit/shared-utils'

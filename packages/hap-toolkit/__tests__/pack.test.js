@@ -5,7 +5,7 @@
 
 const process = require('process')
 const fs = require('fs')
-const path = require('@jayfate/path')
+const path = require('path')
 const del = require('del')
 const webpack = require('webpack')
 const JSZip = require('jszip')

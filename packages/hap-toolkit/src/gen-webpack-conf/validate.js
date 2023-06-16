@@ -4,7 +4,7 @@
  */
 
 import fs from 'fs'
-import path from '@jayfate/path'
+import path from 'path'
 import Ajv from 'ajv'
 import AjvErrors from 'ajv-errors'
 import manifestSchema from './manifest-schema'

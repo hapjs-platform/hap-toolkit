@@ -5,7 +5,7 @@
 
 import crypto from 'crypto'
 import chalk from 'chalk'
-import path from '@jayfate/path'
+import path from 'path'
 import inquirer from 'inquirer'
 import { enc, HmacSHA256, MD5 } from 'crypto-js'
 import request from 'request'

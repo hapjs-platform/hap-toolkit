@@ -6,7 +6,7 @@
 const fs = require('fs')
 const cp = require('child_process')
 const glob = require('glob')
-const path = require('@jayfate/path')
+const path = require('path')
 const del = require('del')
 const JSZip = require('jszip')
 const { copyApp } = require('hap-dev-utils')

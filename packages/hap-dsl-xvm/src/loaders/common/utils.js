@@ -3,7 +3,7 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-import path from '@jayfate/path'
+import path from 'path'
 import loaderUtils from 'loader-utils'
 import hash from 'hash-sum'
 import { SourceMapGenerator, SourceMapConsumer } from 'source-map'
@@ -235,7 +235,5 @@ export function convertPath(filePath) {
   if (/^[/\\]node_modules/.test(filePath)) {
     pathBase = globalConfig.projectPath
   }
-  return process.platform === 'win32'
-    ? path.join(pathBase, filePath).replace(/\//g, '\\')
-    : path.join(pathBase, filePath)
+  return path.join(pathBase, filePath)
 }

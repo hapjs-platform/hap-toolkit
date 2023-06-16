@@ -5,7 +5,7 @@
 
 import os from 'os'
 import fs from 'fs'
-import path from '@jayfate/path'
+import path from 'path'
 import http from 'http'
 import { Console } from 'console'
 import chalk from 'chalk'

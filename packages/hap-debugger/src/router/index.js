@@ -3,7 +3,7 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-import path from '@jayfate/path'
+import path from 'path'
 import KoaRouter from 'koa-router'
 import koaBody from 'koa-body'
 import serve from 'koa-static'

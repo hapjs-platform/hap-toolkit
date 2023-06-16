@@ -5,7 +5,7 @@
 
 'use strict'
 
-const path = require('@jayfate/path')
+const path = require('path')
 const del = require('del')
 const request = require('supertest')
 const { copyApp } = require('hap-dev-utils')
