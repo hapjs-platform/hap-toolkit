@@ -89,6 +89,7 @@ export default async function genWebpackConf(launchOptions, mode) {
   if (launchOptions.ideConfig && typeof launchOptions.ideConfig.cli === 'object') {
     launchOptions = Object.assign({}, launchOptions.ideConfig.cli, launchOptions)
   }
+  globalConfig.launchOptions = launchOptions
 
   // 源代码目录
   const SRC_DIR = path.resolve(cwd, globalConfig.sourceRoot)
