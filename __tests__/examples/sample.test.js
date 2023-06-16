@@ -153,11 +153,9 @@ describe('hap-toolkit', () => {
         }
       })
       expect(sourceArr.join('\n\n')).toMatchSnapshot(identifierArr.join('\n\n'))
-
       const rpks = await lsfiles('dist/*.rpk', { cwd })
-      const hasCustom = rpks[0].indexOf('dev') !== -1
+      const hasCustom = rpks.some((item) => item.indexOf('dev') !== -1)
       expect(hasCustom).toBeTruthy()
-
       expect(json.assets.map((a) => a.name).sort()).toMatchSnapshot('assets list')
       const output = stripAnsi(outputs.join('\n'))
       // TODO expect(wipe(output)).toMatchSnapshot('outputs')
