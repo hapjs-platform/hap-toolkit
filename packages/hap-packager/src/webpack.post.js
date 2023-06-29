@@ -116,7 +116,7 @@ function postHook(webpackConf, defaultsOptions, quickappConfig = {}) {
   }
 
   // 抽取公共js(仅smart模式开启)
-  if (compileOptionsObject.splitChunksMode === compileOptionsMeta.splitChunksModeEnum.SMART) {
+  if (globalConfig.isSmartMode) {
     webpackConf.plugins.push(
       new SplitChunksAdaptPlugin({
         subpackages,
