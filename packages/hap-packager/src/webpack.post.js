@@ -5,12 +5,7 @@
 
 import path from 'path'
 import { sync as resolveSync } from 'resolve'
-import {
-  globalConfig,
-  readJson,
-  compileOptionsMeta,
-  compileOptionsObject
-} from '@hap-toolkit/shared-utils'
+import { globalConfig, readJson, compileOptionsObject } from '@hap-toolkit/shared-utils'
 
 import {
   CopyDslPlugin,
