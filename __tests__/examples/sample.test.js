@@ -8,12 +8,16 @@ const { Writable } = require('stream')
 const fetch = require('node-fetch')
 const fkill = require('fkill')
 const stripAnsi = require('strip-ansi')
+const fs = require('fs-extra')
 const { run, lsfiles, readZip, wipeDynamic } = require('hap-dev-utils')
 const { compile } = require('../../packages/hap-toolkit/lib')
 
 const cwd = path.resolve(__dirname, '../../examples/sample')
 
 describe('hap-toolkit', () => {
+  const distDir = path.resolve(cwd, 'dist')
+  fs.removeSync(distDir)
+
   it(
     'hap-build: 默认流式打包，包内存在META-INF文件',
     async () => {

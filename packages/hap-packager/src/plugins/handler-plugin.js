@@ -4,7 +4,7 @@
  */
 
 import Compilation from 'webpack/lib/Compilation'
-import { compileOptionsMeta, compileOptionsObject } from '@hap-toolkit/shared-utils'
+import { globalConfig } from '@hap-toolkit/shared-utils'
 import { getEntryFiles } from '../common/info'
 
 let ConcatSource
@@ -49,7 +49,7 @@ function wrapCode(fileName, compilation, enableE2e, entryFiles) {
   }
 
   if (entryFiles.indexOf(fileName) === -1) {
-    if (compileOptionsObject.splitChunksMode === compileOptionsMeta.splitChunksModeEnum.SMART) {
+    if (globalConfig.isSmartMode) {
       // 抽取的JS chunk的处理，不加createPageHandler
       return new ConcatSource(compilation.assets[fileName])
     }

@@ -18,5 +18,7 @@ export default {
   outputPath: './build', // 输出目录,
   dataCoverage: './.nyc_output', // 项目运行的代码覆盖率数据
   command: 'build',
-  server: { port: 8000 }
+  server: { port: 8000 },
+  // 代码风格规则
+  isSmartMode: false
 }
