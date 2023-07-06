@@ -5,13 +5,7 @@
 
 import fs from 'fs-extra'
 import path from 'path'
-import {
-  colorconsole,
-  readJson,
-  globalConfig,
-  compileOptionsMeta,
-  compileOptionsObject
-} from '@hap-toolkit/shared-utils'
+import { colorconsole, readJson, globalConfig, compileOptionsMeta } from '@hap-toolkit/shared-utils'
 import { sortFilesBy, lsdirdeep, genPriorities } from '../common/utils'
 import { getSkeletonConfig } from '../common/info'
 import { DIGEST_ZIP_PATH } from '../common/constant'
@@ -322,7 +316,7 @@ ZipPlugin.prototype.apply = function (compiler) {
     }
 
     // 抽取公共JS：app-chunks.json放在app.js之前，page-chunks.json放在app.js之后,便于流式加载
-    if (compileOptionsObject.splitChunksMode === compileOptionsMeta.splitChunksModeEnum.SMART) {
+    if (globalConfig.isSmartMode) {
       const appIndex = options.priorities.findIndex((item) => {
         return item === 'app.js'
       })

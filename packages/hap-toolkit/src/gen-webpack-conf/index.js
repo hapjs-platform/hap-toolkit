@@ -3,9 +3,9 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-import { sync as resolveSync } from 'resolve'
 import path from 'path'
 import fs from 'fs-extra'
+import { sync as resolveSync } from 'resolve'
 import webpack from 'webpack'
 import {
   readJson,
@@ -143,13 +143,10 @@ export default async function genWebpackConf(launchOptions, mode) {
     // 平台：native
     NODE_PLATFORM: process.env.NODE_PLATFORM,
     // 阶段: dev|test|release
-    NODE_PHASE: process.env.NODE_PHASE
+    NODE_PHASE: process.env.NODE_PHASE,
+    NODE_ENV: launchOptions.compileOptions?.defineOptions.NODE_ENV
   }
-  if (launchOptions.compileOptions) {
-    Object.assign(env, {
-      NODE_ENV: launchOptions.compileOptions.defineOptions.NODE_ENV
-    })
-  }
+
   colorconsole.info(`配置环境：${JSON.stringify(env)}`)
 
   const definePluginOptions = {
@@ -163,25 +160,24 @@ export default async function genWebpackConf(launchOptions, mode) {
     // 服务器地址
     QUICKAPP_SERVER_HOST: JSON.stringify(getDefaultServerHost()),
     QUICKAPP_TOOLKIT_VERSION: JSON.stringify(
-      fs.readJSONSync(resolveSync('../../package.json')).version
+      await fs.readJSON(resolveSync('../../package.json')).version
     )
   }
 
   if (launchOptions.compileOptions) {
     const defineOptions = launchOptions.compileOptions.defineOptions
-    Object.assign(definePluginOptions, {
-      'process.env.NODE_ENV': JSON.stringify(defineOptions.NODE_ENV)
-    })
+    definePluginOptions['process.env.NODE_ENV'] = JSON.stringify(defineOptions.NODE_ENV)
     if (defineOptions.OTHER_VARIABLES) {
-      let compileObj = {}
       const options = defineOptions.OTHER_VARIABLES.split('&')
-      for (let i = 0; i < options.length; i++) {
-        const item = options[i].split('=')
-        compileObj[item[0]] = item[1]
-      }
-      Object.assign(definePluginOptions, compileObj)
+      options.forEach((str) => {
+        const [k, v] = str.split('=')
+        definePluginOptions[k] = v
+      })
     }
   }
+
+  globalConfig.isSmartMode =
+    compileOptionsObject.splitChunksMode === compileOptionsMeta.splitChunksModeEnum.SMART
 
   const webpackConf = {
     context: cwd,
@@ -257,130 +253,134 @@ export default async function genWebpackConf(launchOptions, mode) {
       version: false,
       assets: false
     },
-    optimization: {}
+    optimization: {
+      // 设置抽取公共js, 当前仅smart模式才启用
+      splitChunks: globalConfig.isSmartMode
+        ? {
+            minSize: 1,
+            cacheGroups: {
+              default: false,
+              defaultVendors: {
+                test: /[\\/]node_modules[\\/]/,
+                chunks(chunk) {
+                  // 获取需要chunk的模块，卡片模块暂不支持提取公共chunk
+                  const widgetsConf = manifest.router.widgets || {}
+                  return !Object.keys(widgetsConf).some(
+                    (item) =>
+                      chunk.name.replace(/\\/g, '/').indexOf(item.replace(/\\/g, '/')) !== -1
+                  )
+                },
+                minChunks: 2,
+                name(module) {
+                  // 处理node_modules的chunk位置为node_modules下的路径,通过name来控制,如node_modules/vue/dist/vue.runtime.esm;
+                  const index = module.resource.indexOf('node_modules')
+                  const chunkPath = module.resource
+                    .slice(index)
+                    .replace(/(.+)\.\w\??(.+)?/, ($0, $1) => $1)
+                  // 兼容windows上的路径
+                  return chunkPath.replace(/\\/g, '/').split(path.sep).join('/')
+                },
+                priority: 2,
+                reuseExistingChunk: true,
+                enforce: true
+              },
+              // 用于抽离出app.ux引入的组件或者文件
+              appPkg: {
+                test(module, { chunkGraph }) {
+                  function isAppRequire(module, chunkGraph) {
+                    let result = false
+                    chunkGraph.getModuleChunksIterable(module).forEach((chunk) => {
+                      if (chunk.name === 'app') {
+                        result = true
+                        return false
+                      }
+                    })
+                    return result
+                  }
+
+                  function isUxPath(module) {
+                    // require.context引入的是ContextModule不含有resource
+                    if (!module.resource) return false
+                    const queryStriped = module.resource.split('?').shift()
+                    return path.extname(queryStriped) === '.ux'
+                  }
+
+                  if (isAppRequire(module, chunkGraph) && isUxPath(module)) {
+                    return true
+                  }
+
+                  return false
+                },
+                chunks: 'all',
+                name(module) {
+                  // 处理正常chunk的位置为相对src下的路径，通过name来控制,如Common/a;
+                  const sourcePath = path.join(globalConfig.projectPath, globalConfig.sourceRoot)
+                  const chunkPath = module.resource
+                    .slice(sourcePath.length + 1)
+                    .replace(/(.+)\.\w\??(.+)?/, ($0, $1) => $1)
+                  // 兼容windows上的路径
+                  return chunkPath.replace(/\\/g, '/').split(path.sep).join('/')
+                },
+                // 优先级最低
+                priority: 1,
+                // 只要app.ux引入即被抽离
+                minChunks: 1,
+                reuseExistingChunk: true,
+                enforce: true
+              },
+              chunks: {
+                test(module) {
+                  // 过滤掉自定义module，比如抽取css生成*.css.json使用的CssModule
+                  if (module.constructor.name !== 'NormalModule') {
+                    return false
+                  }
+                  return true
+                },
+                chunks(chunk) {
+                  // 获取需要chunk的模块，卡片模块暂不支持提取公共chunk
+                  const widgetsConf = manifest.router.widgets || {}
+                  return !Object.keys(widgetsConf).some(
+                    (item) =>
+                      chunk.name.replace(/\\/g, '/').indexOf(item.replace(/\\/g, '/')) !== -1
+                  )
+                },
+                minChunks: 2,
+                name(module) {
+                  // 处理正常chunk的位置为相对src下的路径，通过name来控制,如Common/a;
+                  const sourcePath = path.join(globalConfig.projectPath, globalConfig.sourceRoot)
+                  const chunkPath = module.resource
+                    .slice(sourcePath.length + 1)
+                    .replace(/(.+)\.\w\??(.+)?/, ($0, $1) => $1)
+                  // 兼容windows上的路径
+                  return chunkPath.replace(/\\/g, '/').split(path.sep).join('/')
+                },
+                priority: 1,
+                reuseExistingChunk: true,
+                enforce: true
+              },
+              async: {
+                chunks: 'async',
+                name(module) {
+                  const sourcePath = path.join(globalConfig.projectPath, globalConfig.sourceRoot)
+                  const chunkPath = module.resource
+                    .slice(sourcePath.length + 1)
+                    .replace(/(.+)\.\w\??(.+)?/, ($0, $1) => $1)
+                  // 兼容windows上的路径
+                  return chunkPath.replace(/\\/g, '/').split(path.sep).join('/')
+                },
+                priority: 3,
+                enforce: true
+              }
+            }
+          }
+        : undefined
+    }
   }
 
-  // 设置抽取公共js
-  if (compileOptionsObject.splitChunksMode === compileOptionsMeta.splitChunksModeEnum.SMART) {
+  if (globalConfig.isSmartMode) {
     colorconsole.warn(
       `启用 splitChunksMode: "SMART" 模式, 请确保平台版本 >= ${SPLIT_CHUNKS_SUPPORT_VERSION_FROM}`
     )
-    // 当前仅smart模式才启用
-    webpackConf.optimization.splitChunks = {
-      minSize: 1,
-      cacheGroups: {
-        default: false,
-        defaultVendors: {
-          test: /[\\/]node_modules[\\/]/,
-          chunks(chunk) {
-            // 获取需要chunk的模块，卡片模块暂不支持提取公共chunk
-            const widgetsConf = manifest.router.widgets || {}
-            return !Object.keys(widgetsConf).some(
-              (item) => chunk.name.replace(/\\/g, '/').indexOf(item.replace(/\\/g, '/')) !== -1
-            )
-          },
-          minChunks: 2,
-          name(module) {
-            // 处理node_modules的chunk位置为node_modules下的路径,通过name来控制,如node_modules/vue/dist/vue.runtime.esm;
-            const index = module.resource.indexOf('node_modules')
-            const chunkPath = module.resource
-              .slice(index)
-              .replace(/(.+)\.\w\??(.+)?/, ($0, $1) => $1)
-            // 兼容windows上的路径
-            return chunkPath.replace(/\\/g, '/').split(path.sep).join('/')
-          },
-          priority: 2,
-          reuseExistingChunk: true,
-          enforce: true
-        },
-        // 用于抽离出app.ux引入的组件或者文件
-        appPkg: {
-          test(module, { chunkGraph }) {
-            function isAppRequire(module, chunkGraph) {
-              let result = false
-              chunkGraph.getModuleChunksIterable(module).forEach((chunk) => {
-                if (chunk.name === 'app') {
-                  result = true
-                  return false
-                }
-              })
-              return result
-            }
-
-            function isUxPath(module) {
-              // require.context引入的是ContextModule不含有resource
-              if (!module.resource) return false
-              const queryStriped = module.resource.split('?').shift()
-              return path.extname(queryStriped) === '.ux'
-            }
-
-            if (isAppRequire(module, chunkGraph) && isUxPath(module)) {
-              return true
-            }
-
-            return false
-          },
-          chunks: 'all',
-          name(module) {
-            // 处理正常chunk的位置为相对src下的路径，通过name来控制,如Common/a;
-            const sourcePath = path.join(globalConfig.projectPath, globalConfig.sourceRoot)
-            const chunkPath = module.resource
-              .slice(sourcePath.length + 1)
-              .replace(/(.+)\.\w\??(.+)?/, ($0, $1) => $1)
-            // 兼容windows上的路径
-            return chunkPath.replace(/\\/g, '/').split(path.sep).join('/')
-          },
-          // 优先级最低
-          priority: 1,
-          // 只要app.ux引入即被抽离
-          minChunks: 1,
-          reuseExistingChunk: true,
-          enforce: true
-        },
-        chunks: {
-          test(module) {
-            // 过滤掉自定义module，比如抽取css生成*.css.json使用的CssModule
-            if (module.constructor.name !== 'NormalModule') {
-              return false
-            }
-            return true
-          },
-          chunks(chunk) {
-            // 获取需要chunk的模块，卡片模块暂不支持提取公共chunk
-            const widgetsConf = manifest.router.widgets || {}
-            return !Object.keys(widgetsConf).some(
-              (item) => chunk.name.replace(/\\/g, '/').indexOf(item.replace(/\\/g, '/')) !== -1
-            )
-          },
-          minChunks: 2,
-          name(module) {
-            // 处理正常chunk的位置为相对src下的路径，通过name来控制,如Common/a;
-            const sourcePath = path.join(globalConfig.projectPath, globalConfig.sourceRoot)
-            const chunkPath = module.resource
-              .slice(sourcePath.length + 1)
-              .replace(/(.+)\.\w\??(.+)?/, ($0, $1) => $1)
-            // 兼容windows上的路径
-            return chunkPath.replace(/\\/g, '/').split(path.sep).join('/')
-          },
-          priority: 1,
-          reuseExistingChunk: true,
-          enforce: true
-        },
-        async: {
-          chunks: 'async',
-          name(module) {
-            const sourcePath = path.join(globalConfig.projectPath, globalConfig.sourceRoot)
-            const chunkPath = module.resource
-              .slice(sourcePath.length + 1)
-              .replace(/(.+)\.\w\??(.+)?/, ($0, $1) => $1)
-            // 兼容windows上的路径
-            return chunkPath.replace(/\\/g, '/').split(path.sep).join('/')
-          },
-          priority: 3,
-          enforce: true
-        }
-      }
-    }
   }
   const dslName = getProjectDslName(cwd)
 
@@ -392,7 +392,14 @@ export default async function genWebpackConf(launchOptions, mode) {
   }
 
   // 加载其他模块的 webpack 配置
-  const postHookList = [packagerPostHook, xvmPostHook, idePostHook]
+  const postHookList = [
+    packagerPostHook,
+    xvmPostHook,
+    idePostHook,
+    // 增加项目目录的postHook机制
+    quickappConfig?.postHook
+  ].filter(Boolean)
+
   const {
     package: appPackageName,
     icon: appIcon,
@@ -402,7 +409,8 @@ export default async function genWebpackConf(launchOptions, mode) {
     workers,
     banner = ''
   } = manifest
-  postHookList.forEach((postHook) => {
+
+  for (const postHook of postHookList) {
     postHook(
       webpackConf,
       {
@@ -426,11 +434,6 @@ export default async function genWebpackConf(launchOptions, mode) {
       },
       quickappConfig
     )
-  })
-
-  // 增加项目目录的postHook机制
-  if (quickappConfig && quickappConfig.postHook) {
-    quickappConfig.postHook(webpackConf, compileOptionsObject)
   }
 
   // 设置 sourcemap 类型
