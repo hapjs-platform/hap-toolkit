@@ -5,6 +5,7 @@
 
 const path = require('path')
 const { Writable } = require('stream')
+const execa = require('execa')
 const fetch = require('node-fetch')
 const fkill = require('fkill')
 const stripAnsi = require('strip-ansi')
@@ -13,8 +14,11 @@ const { run, lsfiles, readZip, wipeDynamic } = require('hap-dev-utils')
 const { compile } = require('../../packages/hap-toolkit/lib')
 
 const cwd = path.resolve(__dirname, '../../examples/sample')
+const buildBackup = path.resolve(__dirname, 'build-backup/sample')
+fs.ensureDirSync(buildBackup)
 
 describe('hap-toolkit', () => {
+  const buildDir = path.resolve(cwd, 'build')
   const distDir = path.resolve(cwd, 'dist')
   fs.removeSync(distDir)
 
@@ -148,22 +152,35 @@ describe('hap-toolkit', () => {
           [/大小为 \d+ KB/g, '大小为 <SIZE> KB']
         ])
 
-      const sourceArr = []
-      const identifierArr = []
-      json.modules.forEach((module) => {
-        if (module.source) {
-          sourceArr.push(wipe(module.source))
-          identifierArr.push(wipe(module.identifier))
-        }
-      })
-      expect(sourceArr.join('\n\n')).toMatchSnapshot(identifierArr.join('\n\n'))
       const rpks = await lsfiles('dist/*.rpk', { cwd })
       const hasCustom = rpks.some((item) => item.indexOf('dev') !== -1)
       expect(hasCustom).toBeTruthy()
-      expect(json.assets.map((a) => a.name).sort()).toMatchSnapshot('assets list')
+      expect(
+        `length: ${json.assets.length}\n` +
+          json.assets
+            .map((a) => a.name)
+            .sort()
+            .join('\n')
+      ).toMatchSnapshot('assets list')
+
       const output = stripAnsi(outputs.join('\n'))
       // TODO expect(wipe(output)).toMatchSnapshot('outputs')
       expect(wipe(output)).not.toBeNull()
+
+      const Promises = Promise.all(
+        json.assets.map((asset) => {
+          const fullpath = path.resolve(buildDir, asset.name)
+          const destpath = path.resolve(buildBackup, asset.name)
+          let content = fs.readFileSync(fullpath, { encoding: 'utf-8' })
+          content = wipe(content)
+          return fs.writeFile(destpath, content, { encoding: 'utf-8' })
+        })
+      )
+      await Promises
+
+      // git ls-files -m
+      const files = execa.sync('git', ['ls-files', '-m']).stdout
+      expect(!files.match(`build-backup`)).toBeTruthy()
     },
     6 * 60 * 1000
   )

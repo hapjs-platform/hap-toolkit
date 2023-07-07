@@ -7,6 +7,7 @@ import path from 'path'
 import fs from 'fs-extra'
 import { sync as resolveSync } from 'resolve'
 import webpack from 'webpack'
+import TerserPlugin from 'terser-webpack-plugin'
 import {
   readJson,
   colorconsole,
@@ -105,6 +106,7 @@ export default async function genWebpackConf(launchOptions, mode) {
   const manifestFile = path.resolve(SRC_DIR, 'manifest.json')
   checkBabelModulesExists(cwd)
 
+  const isJest = !!process.env.JEST_WORKER_ID
   // 合并launchOptions到全局
   initCompileOptionsObject(launchOptions)
 
@@ -135,6 +137,7 @@ export default async function genWebpackConf(launchOptions, mode) {
   // 设置合适的v8版本
   setAdaptForV8Version(compileOptionsObject.disableScriptV8V65, manifest, cwd)
 
+  const isProduction = mode === 'production'
   // 页面文件
   const entries = resolveEntries(manifest, SRC_DIR, cwd)
 
@@ -373,6 +376,23 @@ export default async function genWebpackConf(launchOptions, mode) {
               }
             }
           }
+        : undefined,
+
+      minimize: isJest,
+      minimizer: isJest
+        ? [
+            new TerserPlugin({
+              terserOptions: {
+                compress: isProduction,
+                mangle: isProduction,
+                format: {
+                  comments: false,
+                  beautify: !isProduction,
+                  keep_numbers: true
+                }
+              }
+            })
+          ]
         : undefined
     }
   }
