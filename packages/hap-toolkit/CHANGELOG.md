@@ -1,5 +1,11 @@
 # Change Log
 
+## [1.9.13] -2023-7.6
+
+- feat: add sass-loader less-loader (#30)
+- fix: add missing deps (#36)
+- refactor: rewrite @hap-toolkit/packager with ESM
+
 ## [1.9.12] -2023-4.3
 
 - match IDE6.3.0 card preview [#8]
