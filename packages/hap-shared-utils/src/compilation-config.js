@@ -37,6 +37,8 @@ const compileOptionsMeta = {
 }
 
 const compileOptionsObject = {
+  // 默认不禁用 cache
+  disableCache: false,
   // 工具默认输出card和app的所有路由，可定制为单纯输出card或app
   target: 'all',
   // 打包来源，ide|cmd
