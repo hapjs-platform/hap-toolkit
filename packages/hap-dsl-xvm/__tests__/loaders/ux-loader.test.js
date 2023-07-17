@@ -50,7 +50,8 @@ describe('ux-loader', () => {
       'page.ux',
       {
         compileOptionsObject: {
-          enablePerformanceCheck: true
+          // 删除 enablePerformanceCheck 相关，此处仅保留 compileOptionsObject 使用示例
+          // enablePerformanceCheck: true
         }
       }
     ],
@@ -77,10 +78,10 @@ describe('ux-loader', () => {
       resolver = resolve
     })
 
-    if (extopts.compileOptionsObject && extopts.compileOptionsObject.enablePerformanceCheck) {
-      compileOptionsObject.enablePerformanceCheck =
-        extopts.compileOptionsObject.enablePerformanceCheck
-    }
+    // if (extopts.compileOptionsObject && extopts.compileOptionsObject.enablePerformanceCheck) {
+    //   compileOptionsObject.enablePerformanceCheck =
+    //     extopts.compileOptionsObject.enablePerformanceCheck
+    // }
     const loader = Object.assign({}, mockLoader, {
       resourcePath: path.resolve(__dirname, fileName),
       resourceQuery: `?uxType=${type}`,
@@ -94,7 +95,7 @@ describe('ux-loader', () => {
 
     uxLoader.call(loader, source)
     const [error, result] = await promise
-    compileOptionsObject.enablePerformanceCheck = false
+    // compileOptionsObject.enablePerformanceCheck = false
 
     expect(error).toMatchSnapshot('error')
     expect(rowify([source, result])).toMatchSnapshot('source-vs-result')

@@ -43,31 +43,14 @@ exports[`ux-loader normal page, enablePerformanceCheck: source-vs-result 1`] = `
     </template>
       
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-console.record('### App Performance ### 执行自定义组件模块[PERF:RPK:defineCustomCompModule(page)]开始：' + new Date().toJSON())
-    console.time('PERF:RPK:defineCustomCompModule(page)')
-    console.time('PERF:RPK:defineCustomCompImport(page)')
 
-console.timeEnd('PERF:RPK:defineCustomCompImport(page)')
 var $app_style$ = {}
-console.time('PERF:RPK:defineCustomCompScript(page)')
 var $app_script$ = null
-console.timeEnd('PERF:RPK:defineCustomCompScript(page)')
-    onsole.record('### App Performance ### 定义自定义组件函数[PERF:RPK:appDefineCustomCompFn(page)]开始：' + new Date().toJSON())
-    console.time('PERF:RPK:appDefineCustomCompFn(page)')
 $app_define$('@app-component/page', [], function($app_require$, $app_exports$, $app_module$) {
      $app_module$.exports.template = require(\\"!../../lib/loaders/template-loader.js!../../lib/loaders/fragment-loader.js?index=0&type=template!./page.ux?uxType=page&\\")
 
 })
-
-    console.record('### App Performance ### 定义自定义组件函数[PERF:RPK:appDefineCustomCompFn(page)]结束：' + new Date().toJSON())
-    console.timeEnd('PERF:RPK:appDefineCustomCompFn(page)')
-console.record('### App Performance ### 启动页面自定义组件[PERF:RPK:appBootstrapCustomCompFn(page)]开始：' + new Date().toJSON())
-      console.time('PERF:RPK:appBootstrapCustomCompFn(page)')
-$app_bootstrap$('@app-component/page',{ packagerVersion: QUICKAPP_TOOLKIT_VERSION })
-console.record('### App Performance ### 启动页面自定义组件[PERF:RPK:appBootstrapCustomCompFn(page)]结束：' + new Date().toJSON())
-      console.timeEnd('PERF:RPK:appBootstrapCustomCompFn(page)')
-console.record('### App Performance ### 执行自定义组件模块[PERF:RPK:defineCustomCompModule(page)]结束：' + new Date().toJSON())
-    console.timeEnd('PERF:RPK:defineCustomCompModule(page)')"
+$app_bootstrap$('@app-component/page',{ packagerVersion: QUICKAPP_TOOLKIT_VERSION })"
 `;
 
 exports[`ux-loader normal page: emitted errors 1`] = `Array []`;

@@ -190,7 +190,7 @@ function validateManifestSubpackages(src, subpackages) {
  * @param {String} src - 项目src路径
  * @param {Object} manifest - manifest内容
  */
-export function valiedateSitemap(src, manifest) {
+export function validateSitemap(src, manifest) {
   const sitemap = path.join(src, 'sitemap.json')
   if (fs.existsSync(sitemap)) {
     const rules = require(sitemap).rules
@@ -210,7 +210,7 @@ export function valiedateSitemap(src, manifest) {
  * @param {String} src - 项目src路径packages/hap-toolkit/gen-webpack-conf/validate.js
  * @param {Object} manifest - manifest内容
  */
-export function valiedateSkeleton(src, manifest) {
+export function validateSkeleton(src, manifest) {
   const configJson = getSkeletonConfig(src)
   const manifestPages = manifest.router.pages || {}
 

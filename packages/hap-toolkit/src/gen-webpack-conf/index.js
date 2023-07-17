@@ -16,7 +16,7 @@ import {
   getDefaultServerHost,
   compileOptionsMeta,
   compileOptionsObject,
-  initCompileOptionsObject,
+  mergeCompileOptionsObject,
   globalConfig,
   eventBus
 } from '@hap-toolkit/shared-utils'
@@ -33,7 +33,7 @@ import {
   checkBabelModulesExists
 } from './helpers'
 
-import { validateProject, validateManifest, valiedateSitemap, valiedateSkeleton } from './validate'
+import { validateProject, validateManifest, validateSitemap, validateSkeleton } from './validate'
 import { postHook as idePostHook } from './ide.config'
 
 const { PACKAGER_BUILD_PROGRESS } = eventBus
@@ -108,7 +108,7 @@ export default async function genWebpackConf(launchOptions, mode) {
 
   const isJest = !!process.env.JEST_WORKER_ID
   // 合并launchOptions到全局
-  initCompileOptionsObject(launchOptions)
+  mergeCompileOptionsObject(launchOptions)
 
   // 校验项目工程
   validateProject(manifestFile, SRC_DIR)
@@ -130,9 +130,9 @@ export default async function genWebpackConf(launchOptions, mode) {
 
   validateManifest(SRC_DIR, manifest, compileOptionsObject)
 
-  valiedateSitemap(SRC_DIR, manifest)
+  validateSitemap(SRC_DIR, manifest)
 
-  valiedateSkeleton(SRC_DIR, manifest)
+  validateSkeleton(SRC_DIR, manifest)
 
   // 设置合适的v8版本
   setAdaptForV8Version(compileOptionsObject.disableScriptV8V65, manifest, cwd)
