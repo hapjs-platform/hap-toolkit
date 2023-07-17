@@ -29,62 +29,43 @@ const { validator } = templater
  */
 function assemble($loader, frags, name, uxType) {
   const isUseTreeShaking = !!globalConfig.useTreeShaking
-  const outputs = []
-
   // 外部导入的组件列表
   const importNames = []
-
   // 处理导入的组件
-  outputs.push(processImportFrag($loader, frags.import, importNames))
+  const importFrag = processImportFrag($loader, frags.import, importNames)
 
-  // 处理样式
-  outputs.push(`var $app_style$ = ${processStyleFrag($loader, frags.style, uxType)}`)
-
-  // 处理脚本
-  outputs.push(`var $app_script$ = ${processScriptFrag($loader, frags.script, uxType)}`)
-
-  outputs.push(
-    `$app_define$('@app-component/${name}', [], function($app_require$, $app_exports$, $app_module$) {`
-  )
   let moduleExports = `     $app_script$($app_module$, $app_exports$, $app_require$)
-         if ($app_exports$.__esModule && $app_exports$.default) {
-            $app_module$.exports = $app_exports$.default
+        if ($app_exports$.__esModule && $app_exports$.default) {
+          $app_module$.exports = $app_exports$.default
         }`
   if (isUseTreeShaking) {
     moduleExports = `
-    if($app_script$.default) {
-      $app_module$.exports = $app_script$.default
-    }`
+        if($app_script$.default) {
+          $app_module$.exports = $app_script$.default
+        }`
   }
-  if (frags.script.length > 0) {
-    outputs.push(moduleExports)
+  if (frags.script.length <= 0) {
+    moduleExports = ''
   }
-  // require('template-loader!./page.ux?uxType=page')
-  outputs.push(
-    `     $app_module$.exports.template = ${processTemplateFrag(
-      $loader,
-      frags.template,
-      uxType,
-      importNames
-    )}`
-  )
-  if (frags.style.length > 0) {
-    outputs.push(`     $app_module$.exports.style = $app_style$`)
-  }
-  outputs.push('})')
 
-  if (isUXRender(uxType)) {
-    // 页面入口文件
-    outputs.push(
-      `$app_bootstrap$('@app-component/${name}',{ packagerVersion: QUICKAPP_TOOLKIT_VERSION })`
-    )
-  }
+  // prettier-ignore
+  let content = 
+  `${importFrag}\n` +
+  `var $app_style$ = ${processStyleFrag($loader, frags.style, uxType)}\n` +
+  `var $app_script$ = ${processScriptFrag($loader, frags.script, uxType)}\n` +
+  `$app_define$('@app-component/${name}', [], function($app_require$, $app_exports$, $app_module$) {\n` +
+  `${moduleExports}\n` +
+  `    $app_module$.exports.template = ${processTemplateFrag($loader, frags.template, uxType, importNames)}\n` +
+  `${frags.style.length > 0 ? '    $app_module$.exports.style = $app_style$;': ''}\n` +
+  `});\n` +
+  `${isUXRender(uxType) ? `$app_bootstrap$('@app-component/${name}',{ packagerVersion: QUICKAPP_TOOLKIT_VERSION })` : ''};`
 
   if (uxType === ENTRY_TYPE.COMP && compileOptionsObject.enableLazyComponent) {
-    outputs.unshift(`$app_define_wrap$('@app-component/${name}', function () {`)
-    outputs.push('})')
+    content += `$app_define_wrap$('@app-component/${name}', function () {
+    })`
   }
-  return outputs.join('\n')
+  content = content.replace(/\n[ \n]*\n/gm, '\n')
+  return content
 }
 
 /**

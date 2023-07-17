@@ -20,14 +20,12 @@ exports[`ux-loader normal page with style: source-vs-result 1`] = `
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 var $app_style$ = require(\\"!../../lib/loaders/style-loader.js?index=0&type=style!../../lib/loaders/fragment-loader.js?index=0&type=style!./page.ux?uxType=page\\")
-
 var $app_script$ = null
 $app_define$('@app-component/page', [], function($app_require$, $app_exports$, $app_module$) {
-     $app_module$.exports.template = require(\\"!../../lib/loaders/template-loader.js!../../lib/loaders/fragment-loader.js?index=0&type=template!./page.ux?uxType=page&\\")
-
-     $app_module$.exports.style = $app_style$
-})
-$app_bootstrap$('@app-component/page',{ packagerVersion: QUICKAPP_TOOLKIT_VERSION })"
+    $app_module$.exports.template = require(\\"!../../lib/loaders/template-loader.js!../../lib/loaders/fragment-loader.js?index=0&type=template!./page.ux?uxType=page&\\")
+    $app_module$.exports.style = $app_style$;
+});
+$app_bootstrap$('@app-component/page',{ packagerVersion: QUICKAPP_TOOLKIT_VERSION });"
 `;
 
 exports[`ux-loader normal page, enablePerformanceCheck: emitted errors 1`] = `Array []`;
@@ -47,10 +45,9 @@ exports[`ux-loader normal page, enablePerformanceCheck: source-vs-result 1`] = `
 var $app_style$ = {}
 var $app_script$ = null
 $app_define$('@app-component/page', [], function($app_require$, $app_exports$, $app_module$) {
-     $app_module$.exports.template = require(\\"!../../lib/loaders/template-loader.js!../../lib/loaders/fragment-loader.js?index=0&type=template!./page.ux?uxType=page&\\")
-
-})
-$app_bootstrap$('@app-component/page',{ packagerVersion: QUICKAPP_TOOLKIT_VERSION })"
+    $app_module$.exports.template = require(\\"!../../lib/loaders/template-loader.js!../../lib/loaders/fragment-loader.js?index=0&type=template!./page.ux?uxType=page&\\")
+});
+$app_bootstrap$('@app-component/page',{ packagerVersion: QUICKAPP_TOOLKIT_VERSION });"
 `;
 
 exports[`ux-loader normal page: emitted errors 1`] = `Array []`;
@@ -70,10 +67,9 @@ exports[`ux-loader normal page: source-vs-result 1`] = `
 var $app_style$ = {}
 var $app_script$ = null
 $app_define$('@app-component/page', [], function($app_require$, $app_exports$, $app_module$) {
-     $app_module$.exports.template = require(\\"!../../lib/loaders/template-loader.js!../../lib/loaders/fragment-loader.js?index=0&type=template!./page.ux?uxType=page&\\")
-
-})
-$app_bootstrap$('@app-component/page',{ packagerVersion: QUICKAPP_TOOLKIT_VERSION })"
+    $app_module$.exports.template = require(\\"!../../lib/loaders/template-loader.js!../../lib/loaders/fragment-loader.js?index=0&type=template!./page.ux?uxType=page&\\")
+});
+$app_bootstrap$('@app-component/page',{ packagerVersion: QUICKAPP_TOOLKIT_VERSION });"
 `;
 
 exports[`ux-loader without <template /> tag: emitted errors 1`] = `
@@ -97,7 +93,7 @@ exports[`ux-loader without <template /> tag: source-vs-result 1`] = `
 var $app_style$ = {}
 var $app_script$ = null
 $app_define$('@app-component/page', [], function($app_require$, $app_exports$, $app_module$) {
-     $app_module$.exports.template = {}
-})
-$app_bootstrap$('@app-component/page',{ packagerVersion: QUICKAPP_TOOLKIT_VERSION })"
+    $app_module$.exports.template = {}
+});
+$app_bootstrap$('@app-component/page',{ packagerVersion: QUICKAPP_TOOLKIT_VERSION });"
 `;
