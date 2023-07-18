@@ -100,9 +100,9 @@ const compileOptionsObject = {
  * 初始化命令行中传递的配置
  * @param argopts - 命令行参数对象
  */
-function initCompileOptionsObject(argopts) {
+function mergeCompileOptionsObject(argopts) {
   // TODO release memeory, use optimize-prop only
   Object.assign(compileOptionsObject, argopts)
 }
 
-export { compileOptionsMeta, compileOptionsObject, initCompileOptionsObject }
+export { compileOptionsMeta, compileOptionsObject, mergeCompileOptionsObject }

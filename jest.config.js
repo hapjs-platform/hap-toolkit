@@ -26,6 +26,7 @@ module.exports = {
     '/node_modules/',
     '/packages/hap-toolkit/packager/test/fixtures/',
     '__tests__/helpers',
-    '__tests__/fixtures'
+    '__tests__/fixtures',
+    '__tests__/examples/build-backup'
   ]
 }

@@ -15,3 +15,4 @@ node_modules
 /packages/hap-toolkit/fixtures/temp-test-app*
 /packages/hap-dsl-xvm/test/
 /examples/sample/**
+__tests__/examples/build-backup/**

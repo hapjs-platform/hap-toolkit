@@ -29,114 +29,43 @@ const { validator } = templater
  */
 function assemble($loader, frags, name, uxType) {
   const isUseTreeShaking = !!globalConfig.useTreeShaking
-  const outputs = []
-
-  const { enablePerformanceCheck } = compileOptionsObject
   // 外部导入的组件列表
   const importNames = []
-
-  if (enablePerformanceCheck) {
-    outputs.push(`console.record('### App Performance ### 执行自定义组件模块[PERF:RPK:defineCustomCompModule(${name})]开始：' + new Date().toJSON())
-    console.time('PERF:RPK:defineCustomCompModule(${name})')
-    console.time('PERF:RPK:defineCustomCompImport(${name})')`)
-  }
-
   // 处理导入的组件
-  outputs.push(processImportFrag($loader, frags.import, importNames))
+  const importFrag = processImportFrag($loader, frags.import, importNames)
 
-  if (enablePerformanceCheck) {
-    outputs.push(`console.timeEnd('PERF:RPK:defineCustomCompImport(${name})')`)
-  }
-
-  // 处理样式
-  outputs.push(`var $app_style$ = ${processStyleFrag($loader, frags.style, uxType)}`)
-
-  if (enablePerformanceCheck) {
-    outputs.push(`console.time('PERF:RPK:defineCustomCompScript(${name})')`)
-  }
-
-  // 处理脚本
-  outputs.push(`var $app_script$ = ${processScriptFrag($loader, frags.script, uxType)}`)
-
-  if (enablePerformanceCheck) {
-    outputs.push(`console.timeEnd('PERF:RPK:defineCustomCompScript(${name})')
-    onsole.record('### App Performance ### 定义自定义组件函数[PERF:RPK:appDefineCustomCompFn(${name})]开始：' + new Date().toJSON())
-    console.time('PERF:RPK:appDefineCustomCompFn(${name})')`)
-  }
-  outputs.push(
-    `$app_define$('@app-component/${name}', [], function($app_require$, $app_exports$, $app_module$) {`
-  )
   let moduleExports = `     $app_script$($app_module$, $app_exports$, $app_require$)
-         if ($app_exports$.__esModule && $app_exports$.default) {
-            $app_module$.exports = $app_exports$.default
+        if ($app_exports$.__esModule && $app_exports$.default) {
+          $app_module$.exports = $app_exports$.default
         }`
   if (isUseTreeShaking) {
     moduleExports = `
-    if($app_script$.default) {
-      $app_module$.exports = $app_script$.default
-    }`
+        if($app_script$.default) {
+          $app_module$.exports = $app_script$.default
+        }`
   }
-  if (frags.script.length > 0) {
-    outputs.push(moduleExports)
-  }
-  // require('template-loader!./page.ux?uxType=page')
-  outputs.push(
-    `     $app_module$.exports.template = ${processTemplateFrag(
-      $loader,
-      frags.template,
-      uxType,
-      importNames
-    )}`
-  )
-  if (frags.style.length > 0) {
-    outputs.push(`     $app_module$.exports.style = $app_style$`)
-  }
-  outputs.push('})')
-
-  if (enablePerformanceCheck) {
-    outputs.push(`
-    console.record('### App Performance ### 定义自定义组件函数[PERF:RPK:appDefineCustomCompFn(${name})]结束：' + new Date().toJSON())
-    console.timeEnd('PERF:RPK:appDefineCustomCompFn(${name})')`)
+  if (frags.script.length <= 0) {
+    moduleExports = ''
   }
 
-  if (isUXRender(uxType)) {
-    if (enablePerformanceCheck) {
-      outputs.push(`console.record('### App Performance ### 启动页面自定义组件[PERF:RPK:appBootstrapCustomCompFn(${name})]开始：' + new Date().toJSON())
-      console.time('PERF:RPK:appBootstrapCustomCompFn(${name})')`)
-    }
-
-    // 页面入口文件
-    outputs.push(
-      `$app_bootstrap$('@app-component/${name}',{ packagerVersion: QUICKAPP_TOOLKIT_VERSION })`
-    )
-
-    if (enablePerformanceCheck) {
-      outputs.push(`console.record('### App Performance ### 启动页面自定义组件[PERF:RPK:appBootstrapCustomCompFn(${name})]结束：' + new Date().toJSON())
-      console.timeEnd('PERF:RPK:appBootstrapCustomCompFn(${name})')`)
-    }
-  }
+  // prettier-ignore
+  let content = 
+  `${importFrag}\n` +
+  `var $app_style$ = ${processStyleFrag($loader, frags.style, uxType)}\n` +
+  `var $app_script$ = ${processScriptFrag($loader, frags.script, uxType)}\n` +
+  `$app_define$('@app-component/${name}', [], function($app_require$, $app_exports$, $app_module$) {\n` +
+  `${moduleExports}\n` +
+  `    $app_module$.exports.template = ${processTemplateFrag($loader, frags.template, uxType, importNames)}\n` +
+  `${frags.style.length > 0 ? '    $app_module$.exports.style = $app_style$;': ''}\n` +
+  `});\n` +
+  `${isUXRender(uxType) ? `$app_bootstrap$('@app-component/${name}',{ packagerVersion: QUICKAPP_TOOLKIT_VERSION })` : ''};`
 
   if (uxType === ENTRY_TYPE.COMP && compileOptionsObject.enableLazyComponent) {
-    if (enablePerformanceCheck) {
-      outputs.push(`console.record('### App Performance ### 定义自定义组件封装[PERF:RPK:appDefineWrapCustomCompFn(${name})]开始：' + new Date().toJSON())
-      console.time('PERF:RPK:appDefineWrapCustomCompFn(${name})')`)
-    }
-
-    outputs.unshift(`$app_define_wrap$('@app-component/${name}', function () {`)
-    outputs.push('})')
-
-    if (enablePerformanceCheck) {
-      outputs.push(`
-      console.record('### App Performance ### 定义自定义组件封装[PERF:RPK:appDefineWrapCustomCompFn(${name})]结束：' + new Date().toJSON())
-      console.timeEnd('PERF:RPK:appDefineWrapCustomCompFn(${name})')`)
-    }
+    content += `$app_define_wrap$('@app-component/${name}', function () {
+    })`
   }
-
-  if (enablePerformanceCheck) {
-    outputs.push(`console.record('### App Performance ### 执行自定义组件模块[PERF:RPK:defineCustomCompModule(${name})]结束：' + new Date().toJSON())
-    console.timeEnd('PERF:RPK:defineCustomCompModule(${name})')`)
-  }
-  return outputs.join('\n')
+  content = content.replace(/\n[ \n]*\n/gm, '\n')
+  return content
 }
 
 /**
