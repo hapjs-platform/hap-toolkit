@@ -29,16 +29,21 @@ export function getConfigPath(cwd) {
 /**
  * 清理 BUILD_DIR DIST_DIR
  */
-export function cleanup(BUILD_DIR, DIST_DIR) {
+export function cleanup(BUILD_DIR, DIST_DIR, mode) {
   fs.emptyDirSync(BUILD_DIR)
 
   // 清空 dist 目录下的文件(仅文件)
   if (fs.existsSync(DIST_DIR)) {
     const zipfiles = fs.readdirSync(DIST_DIR)
     zipfiles.forEach(function (file) {
-      const curPath = DIST_DIR + '/' + file
+      const curPath = path.normalize(DIST_DIR + '/' + file)
       if (fs.statSync(curPath).isFile()) {
-        // fs.unlinkSync(curPath)
+        if (file.includes('release') && mode === 'production') {
+          fs.unlinkSync(curPath)
+        }
+        if (file.includes('debug') && mode === 'development') {
+          fs.unlinkSync(curPath)
+        }
       }
     })
   }

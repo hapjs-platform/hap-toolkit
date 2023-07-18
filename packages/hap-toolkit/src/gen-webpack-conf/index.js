@@ -112,7 +112,7 @@ export default async function genWebpackConf(launchOptions, mode) {
   validateProject(manifestFile, SRC_DIR)
 
   // 清理 BUILD_DIR DIST_DIR
-  cleanup(BUILD_DIR, DIST_DIR)
+  cleanup(BUILD_DIR, DIST_DIR, mode)
   const targetList = ['app', 'card', 'all']
   // 处理打包对象的校验，默认值之外的，只提示warning，默认为all
   if (!compileOptionsObject.target || targetList.indexOf(compileOptionsObject.target) === -1) {
