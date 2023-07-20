@@ -1,5 +1,10 @@
 # Change Log
 
+## [1.9.14] -2023-7.19
+
+- 更换less和sass的版本解决使用/运算符在括号外执行除法产生的异常
+- update sample.test.js
+
 ## [1.9.13] -2023-7.6
 
 - feat: add sass-loader less-loader (#30)
