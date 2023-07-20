@@ -148,6 +148,7 @@ ResourcePlugin.prototype.apply = function (compiler) {
   // 监听时处理
   compiler.hooks.watchRun.tapAsync('ResourcePlugin', function (watching, callback) {
     Object.keys(webpackOptions.entry).forEach(function (key) {
+      // 重置 changedJS
       globalConfig.changedJS = {}
       const val = webpackOptions.entry[key]
       if (val instanceof Array && !/app\.js/.test(key)) {
