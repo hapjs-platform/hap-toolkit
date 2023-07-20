@@ -6,7 +6,9 @@
 const path = require('path')
 const { rowify } = require('hap-dev-utils')
 const uxLoader = require('../../lib/loaders/ux-loader').default
-const { compileOptionsObject } = require('@hap-toolkit/shared-utils')
+const { globalConfig } = require('@hap-toolkit/shared-utils')
+
+globalConfig.SRC_DIR = __dirname
 
 describe('ux-loader', () => {
   const mockLoader = {

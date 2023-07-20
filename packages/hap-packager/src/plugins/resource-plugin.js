@@ -13,7 +13,8 @@ import {
   readJson,
   logger,
   compileOptionsObject,
-  eventBus
+  eventBus,
+  globalConfig
 } from '@hap-toolkit/shared-utils'
 
 import { name } from '../common/info'
@@ -147,6 +148,7 @@ ResourcePlugin.prototype.apply = function (compiler) {
   // 监听时处理
   compiler.hooks.watchRun.tapAsync('ResourcePlugin', function (watching, callback) {
     Object.keys(webpackOptions.entry).forEach(function (key) {
+      globalConfig.changedJS = {}
       const val = webpackOptions.entry[key]
       if (val instanceof Array && !/app\.js/.test(key)) {
         // 删除webpack-dev-server注入的watch依赖
@@ -156,7 +158,18 @@ ResourcePlugin.prototype.apply = function (compiler) {
     callback()
   })
 
+  let runned = false
   compiler.hooks.emit.tapAsync('ResourcePlugin', function (compilation, callback) {
+    if (runned) {
+      setTimeout(() => {
+        // 此节点即可通知预览刷新，打 rpk 错误不显示在预览界面
+        eventBus.emit(PACKAGER_BUILD_DONE)
+        // 必须在定时器中调用 callback
+        callback()
+      }, 0)
+      return
+    }
+    runned = true
     const sourceDir = options.src
     const targetDir = options.dest
 

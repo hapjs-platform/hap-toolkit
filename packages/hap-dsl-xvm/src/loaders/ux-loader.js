@@ -75,7 +75,10 @@ function assemble($loader, frags, name, uxType) {
 export default function uxLoader(source) {
   const callback = this.async()
 
+  // /root/sample/src/component/basic/image/index.ux
   const resourcePath = this.resourcePath // 当前文件绝对路径
+  const key = path.relative(globalConfig.SRC_DIR, resourcePath.replace(/\.ux$/, '.js'))
+  globalConfig.changedJS[key] = true
 
   const { ext } = path.parse(resourcePath)
 

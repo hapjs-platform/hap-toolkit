@@ -106,6 +106,8 @@ export default async function genWebpackConf(launchOptions, mode) {
   const manifestFile = path.resolve(SRC_DIR, 'manifest.json')
   checkBabelModulesExists(cwd)
 
+  Object.assign(globalConfig, { SRC_DIR, BUILD_DIR, DIST_DIR })
+
   const isJest = !!process.env.JEST_WORKER_ID
   // 合并launchOptions到全局
   mergeCompileOptionsObject(launchOptions)
@@ -152,7 +154,7 @@ export default async function genWebpackConf(launchOptions, mode) {
 
   colorconsole.info(`配置环境：${JSON.stringify(env)}`)
 
-  const TOOLKIT_VERSION = await fs.readJSON(resolveSync('../../package.json')).version
+  const TOOLKIT_VERSION = (await fs.readJSON(resolveSync('../../package.json'))).version
   const definePluginOptions = {
     // 平台：na
     ENV_PLATFORM: JSON.stringify(env.NODE_PLATFORM),
@@ -163,9 +165,7 @@ export default async function genWebpackConf(launchOptions, mode) {
     ENV_PHASE_OL: env.NODE_PHASE === 'prod',
     // 服务器地址
     QUICKAPP_SERVER_HOST: JSON.stringify(getDefaultServerHost()),
-    QUICKAPP_TOOLKIT_VERSION: JSON.stringify(
-      await fs.readJSON(resolveSync('../../package.json')).version
-    )
+    QUICKAPP_TOOLKIT_VERSION: JSON.stringify(TOOLKIT_VERSION)
   }
 
   if (launchOptions.compileOptions) {

@@ -20,5 +20,6 @@ export default {
   command: 'build',
   server: { port: 8000 },
   // 代码风格规则
-  isSmartMode: false
+  isSmartMode: false,
+  changedJS: {}
 }
