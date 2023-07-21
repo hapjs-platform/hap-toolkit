@@ -20,5 +20,7 @@ export default {
   command: 'build',
   server: { port: 8000 },
   // 代码风格规则
-  isSmartMode: false
+  isSmartMode: false,
+  // 记录 watch 模式下哪些 .ux 文件对应的 .js 文件改变了
+  changedJS: {}
 }

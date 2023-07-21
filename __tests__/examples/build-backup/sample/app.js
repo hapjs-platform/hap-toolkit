@@ -856,7 +856,7 @@
                     };
                 }));
                 $app_bootstrap$("@app-application/app", {
-                    packagerVersion: undefined
+                    packagerVersion: "<VERSION>"
                 });
             })();
         })();

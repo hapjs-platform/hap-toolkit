@@ -106,6 +106,8 @@ export default async function genWebpackConf(launchOptions, mode) {
   const manifestFile = path.resolve(SRC_DIR, 'manifest.json')
   checkBabelModulesExists(cwd)
 
+  Object.assign(globalConfig, { SRC_DIR, BUILD_DIR, DIST_DIR })
+
   const isJest = !!process.env.JEST_WORKER_ID
   // 合并launchOptions到全局
   mergeCompileOptionsObject(launchOptions)
@@ -152,6 +154,7 @@ export default async function genWebpackConf(launchOptions, mode) {
 
   colorconsole.info(`配置环境：${JSON.stringify(env)}`)
 
+  const TOOLKIT_VERSION = (await fs.readJSON(resolveSync('../../package.json'))).version
   const definePluginOptions = {
     // 平台：na
     ENV_PLATFORM: JSON.stringify(env.NODE_PLATFORM),
@@ -162,9 +165,7 @@ export default async function genWebpackConf(launchOptions, mode) {
     ENV_PHASE_OL: env.NODE_PHASE === 'prod',
     // 服务器地址
     QUICKAPP_SERVER_HOST: JSON.stringify(getDefaultServerHost()),
-    QUICKAPP_TOOLKIT_VERSION: JSON.stringify(
-      await fs.readJSON(resolveSync('../../package.json')).version
-    )
+    QUICKAPP_TOOLKIT_VERSION: JSON.stringify(TOOLKIT_VERSION)
   }
 
   if (launchOptions.compileOptions) {
@@ -182,9 +183,29 @@ export default async function genWebpackConf(launchOptions, mode) {
   globalConfig.isSmartMode =
     compileOptionsObject.splitChunksMode === compileOptionsMeta.splitChunksModeEnum.SMART
 
+  let cache =
+    isJest ||
+    isProduction ||
+    compileOptionsObject.disableCache ||
+    // 提取公共 css 时不支持使用缓存，toolkit 内部的 cssModule 不支持缓存
+    compileOptionsObject.enableExtractCss
+      ? false
+      : {
+          type: 'filesystem',
+          // 默认缓存存储位置
+          cacheDirectory: path.resolve(cwd, `node_modules/.cache/${TOOLKIT_VERSION}/webpack`),
+          // 缓存依赖，当缓存依赖修改时，缓存失效
+          buildDependencies: {
+            // 将你的配置添加依赖，更改配置时，使得缓存失效
+            config: [__filename, path.resolve(__dirname, '../../package.json')]
+          },
+          version: TOOLKIT_VERSION + ''
+        }
+
   const webpackConf = {
     context: cwd,
     mode,
+    cache,
     entry: entries,
     output: {
       globalObject: 'window',

@@ -74,6 +74,7 @@ program
     '--enable-diagnosis [value]',
     'proxy console object, send log to server, write into project/logs'
   )
+  .option('--disableCache', 'disable cache')
   .option(
     '--build-name-format <build-name-format>',
     'custom output rpk file name',

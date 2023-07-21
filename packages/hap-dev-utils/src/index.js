@@ -106,7 +106,8 @@ function run(cmd, args = [], dialogs = [], opts = {}) {
       proc.kill('SIGTERM')
     }
     process.on('SIGINT', end)
-    process.on('SIGKILL', end)
+    // SIGKILL 信号，node 18 报错 Error: uv_signal_start EINVAL
+    // process.on('SIGKILL', end)
     process.on('SIGTERM', end)
     process.on('beforeExit', end)
     process.on('exit', end)

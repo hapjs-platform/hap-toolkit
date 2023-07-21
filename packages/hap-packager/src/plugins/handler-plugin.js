@@ -34,6 +34,9 @@ HandlerPlugin.prototype.apply = function (compiler) {
         compilation.chunks.forEach(function (chunk) {
           chunk.files.forEach(function (fileName) {
             if (fileName.startsWith(workersPath)) return
+            if (compiler.modifiedFiles && !globalConfig.changedJS[fileName]) {
+              return
+            }
             const sourceList = wrapCode(fileName, compilation, enableE2e, entryFiles)
             sourceList && (compilation.assets[fileName] = sourceList)
           })

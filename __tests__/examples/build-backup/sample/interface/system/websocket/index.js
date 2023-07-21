@@ -368,7 +368,7 @@
                     $app_module$.exports.style = $app_style$;
                 }));
                 $app_bootstrap$("@app-component/index", {
-                    packagerVersion: undefined
+                    packagerVersion: "<VERSION>"
                 });
             })();
         })();

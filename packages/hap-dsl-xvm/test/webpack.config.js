@@ -7,12 +7,14 @@ import { sync as resolveSync } from 'resolve'
 import path from 'path'
 import webpack from 'webpack'
 import { ResourcePlugin, HandlerPlugin, ZipPlugin } from '@hap-toolkit/packager'
-import { compileOptionsMeta } from '@hap-toolkit/shared-utils'
+import { compileOptionsMeta, globalConfig } from '@hap-toolkit/shared-utils'
 import { resolveTestEntries, resolveLoader } from './utils'
 
 const src = path.join(__dirname, './case/ux')
 const build = path.join(__dirname, './build/ux')
 const dist = path.join(__dirname, './dist/ux')
+
+Object.assign(globalConfig, { SRC_DIR: src, BUILD_DIR: build, DIST_DIR: dist })
 
 const entries = resolveTestEntries(src, '**/*.{ux,mix}')
 
