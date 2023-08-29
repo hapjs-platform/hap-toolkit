@@ -399,7 +399,7 @@ export default async function genWebpackConf(launchOptions, mode) {
           }
         : undefined,
 
-      minimize: isJest,
+      minimize: !isJest,
       minimizer: isJest
         ? [
             new TerserPlugin({

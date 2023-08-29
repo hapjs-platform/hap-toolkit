@@ -1,519 +1,591 @@
-/*! For license information please see index.js.LICENSE.txt */
-(function() {
+(function(){
+    
     var createPageHandler = function() {
-        return (() => {
-            var __webpack_modules__ = {
-                "../../packages/hap-dsl-xvm/lib/loaders/script-loader.js!../../packages/hap-packager/lib/loaders/module-loader.js!../../node_modules/babel-loader/lib/index.js?cwd=<project-root>&cacheDirectory&plugins[]=<CWD>/packages/hap-dsl-xvm/lib/loaders/babel-plugin-jsx.js&comments=false&configFile=<project-root>/babel.config.js!../../packages/hap-dsl-xvm/lib/loaders/access-loader.js!../../packages/hap-dsl-xvm/lib/loaders/fragment-loader.js?index=0&type=script!./src/component/form/multi-picker/index.ux?uxType=page": module => {
-                    module.exports = function __scriptModule__(module, exports, $app_require$) {
-                        "use strict";
-                        Object.defineProperty(exports, "__esModule", {
-                            value: true
-                        });
-                        exports.default = void 0;
-                        var _system = _interopRequireDefault($app_require$("@app-module/system.prompt"));
-                        function _interopRequireDefault(obj) {
-                            return obj && obj.__esModule ? obj : {
-                                default: obj
-                            };
-                        }
-                        var _default = {
-                            private: {
-                                componentName: "多列选择器",
-                                range1: {
-                                    arr: [ [ "一月", "二月", "三月", "四月" ], [ "第一周", "第二周", "第三周", "第四周" ], [ "周一", "周二", "周三", "周四" ] ]
-                                },
-                                range2: {
-                                    arr: []
-                                },
-                                curDate: [ "一月", "第一周", "周一" ],
-                                curArea: [ "北京", "北京市", "东城" ],
-                                curDateTxt: "",
-                                curAreaTxt: "",
-                                lastSelected: [ 0, 0, 0 ],
-                                province: [ "北京", "上海", "广东", "内蒙古自治区", "新疆维吾尔自治区" ],
-                                city: [ [ "北京市" ], [ "上海市" ], [ "广州市", "深圳市" ], [ "呼和浩特", "鄂尔多斯" ], [ "乌鲁木齐", "克孜勒苏柯尔克孜自治州" ] ],
-                                dict: {
-                                    北京市: [ "东城区", "西城区", "宣武区", "崇文区" ],
-                                    上海市: [ "徐汇区", "静安区", "闸北区", "闵行区" ],
-                                    广州市: [ "越秀区", "天河区", "白云区", "黄埔区" ],
-                                    深圳市: [ "罗湖区", "福田区", "南山区", "盐田区" ],
-                                    呼和浩特: [ "新城区", "赛罕区", "和林格尔", "土默特左旗" ],
-                                    鄂尔多斯: [ "东胜区", "康巴什区", "鄂托克前旗", "伊金霍洛旗" ],
-                                    乌鲁木齐: [ "天山区", "沙依巴克区", "水磨沟区", "达坂城区" ],
-                                    克孜勒苏柯尔克孜自治州: [ "阿图什市", "阿克陶县", "阿合奇县", "乌恰县" ]
-                                },
-                                picker1ColNum: 3
-                            },
-                            onInit() {
-                                this.$page.setTitleBar({
-                                    text: this.componentName
-                                });
-                                this.range2.arr = [ this.province, this.city[0], this.dict[this.city[0][0]] ];
-                                this.picker1ColNum = this.range1.arr.length;
-                            },
-                            show(id) {
-                                this.$element(id).show();
-                            },
-                            getDate(obj) {
-                                this.curDate = obj.newValue;
-                                this.curDateTxt = eval("(" + obj.newValue + ")").join(",");
-                            },
-                            getArea(obj) {
-                                this.curArea = obj.newValue;
-                                this.curAreaTxt = eval("(" + obj.newValue + ")").join(",");
-                            },
-                            updatePicker(arr) {
-                                let a = Object.assign([], this.range2.arr);
-                                if (arr.column == 0) {
-                                    a[1] = Object.assign([], this.city[arr.newSelected]);
-                                    a[2] = Object.assign([], this.dict[a[1][0]]);
-                                    this.lastSelected = [ parseInt(arr.newSelected), 0, 0 ];
-                                } else if (arr.column == 1) {
-                                    a[2] = Object.assign([], this.dict[arr.newValue]);
-                                    this.lastSelected[1] = parseInt(arr.newSelected);
-                                    this.lastSelected[2] = 0;
-                                }
-                                this.range2.arr = a;
-                            },
-                            reduce() {
-                                if (this.picker1ColNum === 1) {
-                                    return;
-                                }
-                                this.picker1ColNum = this.picker1ColNum - 1;
-                                let a = Object.assign([], this.range1.arr);
-                                a.splice(this.picker1ColNum, 1);
-                                this.range1.arr = a;
-                            },
-                            increase() {
-                                this.picker1ColNum = this.picker1ColNum + 1;
-                                let a = Object.assign([], this.range1.arr);
-                                a.push([ (new Date).getTime() ]);
-                                this.range1.arr = a;
-                            },
-                            clean() {
-                                this.range1.arr = [];
-                            },
-                            invalidSelected(type) {
-                                switch (type) {
-                                  case "negative":
-                                    this.lastSelected = [ -1, -1 ];
-                                    break;
+      return /******/ (() => { // webpackBootstrap
+/******/ 	var __webpack_modules__ = ({
 
-                                  case "letter":
-                                    this.lastSelected = [ "a", "b", "c" ];
-                                    break;
+/***/ "../../packages/hap-dsl-xvm/lib/loaders/script-loader.js!../../packages/hap-packager/lib/loaders/module-loader.js!../../node_modules/babel-loader/lib/index.js?cwd=<project-root>&cacheDirectory&plugins[]=<CWD>/packages/hap-dsl-xvm/lib/loaders/babel-plugin-jsx.js&comments=false&configFile=<project-root>/babel.config.js!../../packages/hap-dsl-xvm/lib/loaders/access-loader.js!../../packages/hap-dsl-xvm/lib/loaders/fragment-loader.js?index=0&type=script!./src/component/form/multi-picker/index.ux?uxType=page":
+/*!******************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ../../packages/hap-dsl-xvm/lib/loaders/script-loader.js!../../packages/hap-packager/lib/loaders/module-loader.js!../../node_modules/babel-loader/lib/index.js?cwd=<project-root>&cacheDirectory&plugins[]=<CWD>/packages/hap-dsl-xvm/lib/loaders/babel-plugin-jsx.js&comments=false&configFile=<project-root>/babel.config.js!../../packages/hap-dsl-xvm/lib/loaders/access-loader.js!../../packages/hap-dsl-xvm/lib/loaders/fragment-loader.js?index=0&type=script!./src/component/form/multi-picker/index.ux?uxType=page ***!
+  \******************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+/***/ ((module) => {
 
-                                  case "length":
-                                    let a = [];
-                                    for (var i = 0; i < 1000; i++) {
-                                        a.push(i);
-                                    }
-                                    this.lastSelected = a;
-                                    break;
+module.exports = function __scriptModule__ (module, exports, $app_require$){"use strict";
 
-                                  default:
-                                    return;
-                                }
-                            },
-                            cancel() {
-                                _system.default.showToast({
-                                    message: "放弃选择"
-                                });
-                            },
-                            restore() {
-                                this.picker1ColNum = 3;
-                                this.lastSelected = [ 0, 0, 0 ];
-                                this.range1.arr = [ [ "一月", "二月", "三月", "四月" ], [ "第一周", "第二周", "第三周", "第四周" ], [ "周一", "周二", "周三", "周四" ] ];
-                            }
-                        };
-                        exports.default = _default;
-                        const moduleOwn = exports.default || module.exports;
-                        const accessors = [ "public", "protected", "private" ];
-                        if (moduleOwn.data && accessors.some((function(acc) {
-                            return moduleOwn[acc];
-                        }))) {
-                            throw new Error('页面VM对象中的属性data不可与"' + accessors.join(",") + '"同时存在，请使用private替换data名称');
-                        } else if (!moduleOwn.data) {
-                            moduleOwn.data = {};
-                            moduleOwn._descriptor = {};
-                            accessors.forEach((function(acc) {
-                                const accType = typeof moduleOwn[acc];
-                                if (accType === "object") {
-                                    moduleOwn.data = Object.assign(moduleOwn.data, moduleOwn[acc]);
-                                    for (const name in moduleOwn[acc]) {
-                                        moduleOwn._descriptor[name] = {
-                                            access: acc
-                                        };
-                                    }
-                                } else if (accType === "function") {
-                                    console.warn("页面VM对象中的属性" + acc + "的值不能是函数，请使用对象");
-                                }
-                            }));
-                        }
-                    };
-                },
-                "../../packages/hap-dsl-xvm/lib/loaders/style-loader.js?index=0&type=style!../../packages/hap-dsl-xvm/lib/loaders/fragment-loader.js?index=0&type=style!./src/component/form/multi-picker/index.ux?uxType=page": module => {
-                    module.exports = {
-                        ".doc-page": {
-                            flex: 1,
-                            flexDirection: "column"
-                        },
-                        ".page-title-wrap": {
-                            paddingTop: "50px",
-                            paddingBottom: "80px",
-                            justifyContent: "center"
-                        },
-                        ".page-title": {
-                            paddingTop: "30px",
-                            paddingBottom: "30px",
-                            paddingLeft: "40px",
-                            paddingRight: "40px",
-                            borderTopColor: "#bbbbbb",
-                            borderRightColor: "#bbbbbb",
-                            borderBottomColor: "#bbbbbb",
-                            borderLeftColor: "#bbbbbb",
-                            color: "#bbbbbb",
-                            borderBottomWidth: "2px"
-                        },
-                        ".btn": {
-                            height: "80px",
-                            textAlign: "center",
-                            borderRadius: "5px",
-                            marginRight: "60px",
-                            marginLeft: "60px",
-                            marginBottom: "50px",
-                            color: "#ffffff",
-                            fontSize: "30px",
-                            backgroundColor: "#0faeff"
-                        },
-                        ".text-center": {
-                            justifyContent: "center"
-                        },
-                        ".m-bottom-lg": {
-                            marginBottom: "40px"
-                        },
-                        ".m-bottom-md": {
-                            marginBottom: "20px"
-                        },
-                        ".m-bottom-sm": {
-                            marginBottom: "10px"
-                        },
-                        ".m-bottom-xs": {
-                            marginBottom: "5px"
-                        },
-                        ".vertical": {
-                            flexDirection: "column"
-                        },
-                        ".item-container": {
-                            marginTop: "20px",
-                            flexDirection: "column"
-                        },
-                        ".item-title": {
-                            paddingLeft: "30px",
-                            paddingBottom: "30px",
-                            paddingTop: "30px",
-                            borderBottomWidth: "1px",
-                            borderTopColor: "#bbbbbb",
-                            borderRightColor: "#bbbbbb",
-                            borderBottomColor: "#bbbbbb",
-                            borderLeftColor: "#bbbbbb",
-                            color: "#aaaaaa"
-                        },
-                        ".item-content": {
-                            backgroundColor: "#ffffff",
-                            borderBottomWidth: "1px",
-                            borderTopColor: "#bbbbbb",
-                            borderRightColor: "#bbbbbb",
-                            borderBottomColor: "#bbbbbb",
-                            borderLeftColor: "#bbbbbb",
-                            paddingLeft: "30px",
-                            paddingRight: "30px"
-                        },
-                        ".picker": {
-                            flex: 1
-                        },
-                        ".label": {
-                            paddingBottom: "30px",
-                            paddingTop: "30px",
-                            paddingRight: "100px",
-                            flexWrap: "wrap"
-                        }
-                    };
-                },
-                "../../packages/hap-dsl-xvm/lib/loaders/template-loader.js!../../packages/hap-dsl-xvm/lib/loaders/fragment-loader.js?index=0&type=template!./src/component/form/multi-picker/index.ux?uxType=page&": module => {
-                    module.exports = {
-                        type: "div",
-                        attr: {},
-                        classList: [ "doc-page" ],
-                        children: [ {
-                            type: "div",
-                            attr: {},
-                            classList: [ "page-title-wrap" ],
-                            children: [ {
-                                type: "text",
-                                attr: {
-                                    value: function() {
-                                        return this.componentName;
-                                    }
-                                },
-                                classList: [ "page-title" ]
-                            } ]
-                        }, {
-                            type: "div",
-                            attr: {},
-                            classList: [ "item-container" ],
-                            children: [ {
-                                type: "text",
-                                attr: {
-                                    value: "3列Picker(无联动)"
-                                },
-                                classList: [ "item-title" ]
-                            }, {
-                                type: "div",
-                                attr: {},
-                                classList: [ "item-content" ],
-                                children: [ {
-                                    type: "picker",
-                                    attr: {
-                                        type: "multi-text",
-                                        range: function() {
-                                            return this.range1.arr;
-                                        },
-                                        value: function() {
-                                            return this.curDate;
-                                        },
-                                        selected: function() {
-                                            return this.lastSelected;
-                                        },
-                                        id: "picker1"
-                                    },
-                                    classList: [ "picker" ],
-                                    events: {
-                                        change: "getDate",
-                                        cancel: "cancel"
-                                    },
-                                    id: "picker1"
-                                } ]
-                            }, {
-                                type: "div",
-                                attr: {},
-                                classList: [ "item-content" ],
-                                children: [ {
-                                    type: "text",
-                                    attr: {
-                                        value: function() {
-                                            return this.curDateTxt;
-                                        }
-                                    }
-                                } ]
-                            }, {
-                                type: "input",
-                                attr: {
-                                    type: "button",
-                                    value: "打开无联动选择器"
-                                },
-                                classList: [ "btn" ],
-                                style: {
-                                    marginTop: "50px"
-                                },
-                                events: {
-                                    click: function(evt) {
-                                        return this.show("picker1", evt);
-                                    }
-                                }
-                            }, {
-                                type: "input",
-                                attr: {
-                                    type: "button",
-                                    value: "减少列数"
-                                },
-                                classList: [ "btn" ],
-                                style: {
-                                    marginTop: "15px"
-                                },
-                                events: {
-                                    click: function(evt) {
-                                        return this.reduce("picker1", evt);
-                                    }
-                                }
-                            }, {
-                                type: "input",
-                                attr: {
-                                    type: "button",
-                                    value: "增加列数"
-                                },
-                                classList: [ "btn" ],
-                                style: {
-                                    marginTop: "15px"
-                                },
-                                events: {
-                                    click: function(evt) {
-                                        return this.increase("picker1", evt);
-                                    }
-                                }
-                            }, {
-                                type: "input",
-                                attr: {
-                                    type: "button",
-                                    value: "selected设置负索引"
-                                },
-                                classList: [ "btn" ],
-                                style: {
-                                    marginTop: "15px"
-                                },
-                                events: {
-                                    click: function(evt) {
-                                        return this.invalidSelected("negative", evt);
-                                    }
-                                }
-                            }, {
-                                type: "input",
-                                attr: {
-                                    type: "button",
-                                    value: "selected设置字母索引"
-                                },
-                                classList: [ "btn" ],
-                                style: {
-                                    marginTop: "15px"
-                                },
-                                events: {
-                                    click: function(evt) {
-                                        return this.invalidSelected("letter", evt);
-                                    }
-                                }
-                            }, {
-                                type: "input",
-                                attr: {
-                                    type: "button",
-                                    value: "selected设置非法长度"
-                                },
-                                classList: [ "btn" ],
-                                style: {
-                                    marginTop: "15px"
-                                },
-                                events: {
-                                    click: function(evt) {
-                                        return this.invalidSelected("length", evt);
-                                    }
-                                }
-                            }, {
-                                type: "input",
-                                attr: {
-                                    type: "button",
-                                    value: "重置"
-                                },
-                                classList: [ "btn" ],
-                                style: {
-                                    marginTop: "15px"
-                                },
-                                events: {
-                                    click: function(evt) {
-                                        return this.restore("picker1", evt);
-                                    }
-                                }
-                            } ]
-                        }, {
-                            type: "div",
-                            attr: {},
-                            classList: [ "item-container" ],
-                            children: [ {
-                                type: "text",
-                                attr: {
-                                    value: "3列Picker(联动)"
-                                },
-                                classList: [ "item-title" ]
-                            }, {
-                                type: "div",
-                                attr: {},
-                                classList: [ "item-content" ],
-                                children: [ {
-                                    type: "picker",
-                                    attr: {
-                                        type: "multi-text",
-                                        range: function() {
-                                            return this.range2.arr;
-                                        },
-                                        value: function() {
-                                            return this.curArea;
-                                        },
-                                        selected: function() {
-                                            return this.lastSelected;
-                                        },
-                                        id: "picker2"
-                                    },
-                                    classList: [ "picker" ],
-                                    events: {
-                                        columnchange: "updatePicker",
-                                        change: "getArea",
-                                        cancel: "cancel"
-                                    },
-                                    id: "picker2"
-                                } ]
-                            }, {
-                                type: "div",
-                                attr: {},
-                                classList: [ "item-content" ],
-                                children: [ {
-                                    type: "text",
-                                    attr: {
-                                        value: function() {
-                                            return this.curAreaTxt;
-                                        }
-                                    }
-                                } ]
-                            }, {
-                                type: "input",
-                                attr: {
-                                    type: "button",
-                                    value: "打开联动选择器"
-                                },
-                                classList: [ "btn" ],
-                                style: {
-                                    marginTop: "50px"
-                                },
-                                events: {
-                                    click: function(evt) {
-                                        return this.show("picker2", evt);
-                                    }
-                                }
-                            } ]
-                        } ]
-                    };
-                }
-            };
-            var __webpack_module_cache__ = {};
-            function __webpack_require__(moduleId) {
-                var cachedModule = __webpack_module_cache__[moduleId];
-                if (cachedModule !== undefined) {
-                    return cachedModule.exports;
-                }
-                var module = __webpack_module_cache__[moduleId] = {
-                    exports: {}
-                };
-                __webpack_modules__[moduleId](module, module.exports, __webpack_require__);
-                return module.exports;
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+var _system = _interopRequireDefault($app_require$("@app-module/system.prompt"));
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+var _default = {
+  private: {
+    componentName: '多列选择器',
+    range1: {
+      arr: [['一月', '二月', '三月', '四月'], ['第一周', '第二周', '第三周', '第四周'], ['周一', '周二', '周三', '周四']]
+    },
+    range2: {
+      arr: []
+    },
+    curDate: ['一月', '第一周', '周一'],
+    curArea: ['北京', '北京市', '东城'],
+    curDateTxt: '',
+    curAreaTxt: '',
+    lastSelected: [0, 0, 0],
+    province: ['北京', '上海', '广东', '内蒙古自治区', '新疆维吾尔自治区'],
+    city: [['北京市'], ['上海市'], ['广州市', '深圳市'], ['呼和浩特', '鄂尔多斯'], ['乌鲁木齐', '克孜勒苏柯尔克孜自治州']],
+    dict: {
+      '北京市': ['东城区', '西城区', '宣武区', '崇文区'],
+      '上海市': ['徐汇区', '静安区', '闸北区', '闵行区'],
+      '广州市': ['越秀区', '天河区', '白云区', '黄埔区'],
+      '深圳市': ['罗湖区', '福田区', '南山区', '盐田区'],
+      '呼和浩特': ['新城区', '赛罕区', '和林格尔', '土默特左旗'],
+      '鄂尔多斯': ['东胜区', '康巴什区', '鄂托克前旗', '伊金霍洛旗'],
+      '乌鲁木齐': ['天山区', '沙依巴克区', '水磨沟区', '达坂城区'],
+      '克孜勒苏柯尔克孜自治州': ['阿图什市', '阿克陶县', '阿合奇县', '乌恰县']
+    },
+    picker1ColNum: 3
+  },
+  onInit() {
+    this.$page.setTitleBar({
+      text: this.componentName
+    });
+    this.range2.arr = [this.province, this.city[0], this.dict[this.city[0][0]]];
+    this.picker1ColNum = this.range1.arr.length;
+  },
+  show(id) {
+    this.$element(id).show();
+  },
+  getDate(obj) {
+    this.curDate = obj.newValue;
+    this.curDateTxt = eval('(' + obj.newValue + ')').join(',');
+  },
+  getArea(obj) {
+    this.curArea = obj.newValue;
+    this.curAreaTxt = eval('(' + obj.newValue + ')').join(',');
+  },
+  updatePicker(arr) {
+    let a = Object.assign([], this.range2.arr);
+    if (arr.column == 0) {
+      a[1] = Object.assign([], this.city[arr.newSelected]);
+      a[2] = Object.assign([], this.dict[a[1][0]]);
+      this.lastSelected = [parseInt(arr.newSelected), 0, 0];
+    } else if (arr.column == 1) {
+      a[2] = Object.assign([], this.dict[arr.newValue]);
+      this.lastSelected[1] = parseInt(arr.newSelected);
+      this.lastSelected[2] = 0;
+    }
+    this.range2.arr = a;
+  },
+  reduce() {
+    if (this.picker1ColNum === 1) {
+      return;
+    }
+    this.picker1ColNum = this.picker1ColNum - 1;
+    let a = Object.assign([], this.range1.arr);
+    a.splice(this.picker1ColNum, 1);
+    this.range1.arr = a;
+  },
+  increase() {
+    this.picker1ColNum = this.picker1ColNum + 1;
+    let a = Object.assign([], this.range1.arr);
+    a.push([new Date().getTime()]);
+    this.range1.arr = a;
+  },
+  clean() {
+    this.range1.arr = [];
+  },
+  invalidSelected(type) {
+    switch (type) {
+      case 'negative':
+        this.lastSelected = [-1, -1];
+        break;
+      case 'letter':
+        this.lastSelected = ['a', 'b', 'c'];
+        break;
+      case 'length':
+        let a = [];
+        for (var i = 0; i < 1000; i++) {
+          a.push(i);
+        }
+        this.lastSelected = a;
+        break;
+      default:
+        return;
+    }
+  },
+  cancel() {
+    _system.default.showToast({
+      message: '放弃选择'
+    });
+  },
+  restore() {
+    this.picker1ColNum = 3;
+    this.lastSelected = [0, 0, 0];
+    this.range1.arr = [['一月', '二月', '三月', '四月'], ['第一周', '第二周', '第三周', '第四周'], ['周一', '周二', '周三', '周四']];
+  }
+};
+exports.default = _default;
+const moduleOwn = exports.default || module.exports;
+const accessors = ['public', 'protected', 'private'];
+if (moduleOwn.data && accessors.some(function (acc) {
+  return moduleOwn[acc];
+})) {
+  throw new Error('页面VM对象中的属性data不可与"' + accessors.join(',') + '"同时存在，请使用private替换data名称');
+} else if (!moduleOwn.data) {
+  moduleOwn.data = {};
+  moduleOwn._descriptor = {};
+  accessors.forEach(function (acc) {
+    const accType = typeof moduleOwn[acc];
+    if (accType === 'object') {
+      moduleOwn.data = Object.assign(moduleOwn.data, moduleOwn[acc]);
+      for (const name in moduleOwn[acc]) {
+        moduleOwn._descriptor[name] = {
+          access: acc
+        };
+      }
+    } else if (accType === 'function') {
+      console.warn('页面VM对象中的属性' + acc + '的值不能是函数，请使用对象');
+    }
+  });
+}}
+
+/***/ }),
+
+/***/ "../../packages/hap-dsl-xvm/lib/loaders/style-loader.js?index=0&type=style!../../packages/hap-dsl-xvm/lib/loaders/fragment-loader.js?index=0&type=style!./src/component/form/multi-picker/index.ux?uxType=page":
+/*!*********************************************************************************************************************************************************************************************************************!*\
+  !*** ../../packages/hap-dsl-xvm/lib/loaders/style-loader.js?index=0&type=style!../../packages/hap-dsl-xvm/lib/loaders/fragment-loader.js?index=0&type=style!./src/component/form/multi-picker/index.ux?uxType=page ***!
+  \*********************************************************************************************************************************************************************************************************************/
+/***/ ((module) => {
+
+module.exports = {
+  ".doc-page": {
+    "flex": 1,
+    "flexDirection": "column"
+  },
+  ".page-title-wrap": {
+    "paddingTop": "50px",
+    "paddingBottom": "80px",
+    "justifyContent": "center"
+  },
+  ".page-title": {
+    "paddingTop": "30px",
+    "paddingBottom": "30px",
+    "paddingLeft": "40px",
+    "paddingRight": "40px",
+    "borderTopColor": "#bbbbbb",
+    "borderRightColor": "#bbbbbb",
+    "borderBottomColor": "#bbbbbb",
+    "borderLeftColor": "#bbbbbb",
+    "color": "#bbbbbb",
+    "borderBottomWidth": "2px"
+  },
+  ".btn": {
+    "height": "80px",
+    "textAlign": "center",
+    "borderRadius": "5px",
+    "marginRight": "60px",
+    "marginLeft": "60px",
+    "marginBottom": "50px",
+    "color": "#ffffff",
+    "fontSize": "30px",
+    "backgroundColor": "#0faeff"
+  },
+  ".text-center": {
+    "justifyContent": "center"
+  },
+  ".m-bottom-lg": {
+    "marginBottom": "40px"
+  },
+  ".m-bottom-md": {
+    "marginBottom": "20px"
+  },
+  ".m-bottom-sm": {
+    "marginBottom": "10px"
+  },
+  ".m-bottom-xs": {
+    "marginBottom": "5px"
+  },
+  ".vertical": {
+    "flexDirection": "column"
+  },
+  ".item-container": {
+    "marginTop": "20px",
+    "flexDirection": "column"
+  },
+  ".item-title": {
+    "paddingLeft": "30px",
+    "paddingBottom": "30px",
+    "paddingTop": "30px",
+    "borderBottomWidth": "1px",
+    "borderTopColor": "#bbbbbb",
+    "borderRightColor": "#bbbbbb",
+    "borderBottomColor": "#bbbbbb",
+    "borderLeftColor": "#bbbbbb",
+    "color": "#aaaaaa"
+  },
+  ".item-content": {
+    "backgroundColor": "#ffffff",
+    "borderBottomWidth": "1px",
+    "borderTopColor": "#bbbbbb",
+    "borderRightColor": "#bbbbbb",
+    "borderBottomColor": "#bbbbbb",
+    "borderLeftColor": "#bbbbbb",
+    "paddingLeft": "30px",
+    "paddingRight": "30px"
+  },
+  ".picker": {
+    "flex": 1
+  },
+  ".label": {
+    "paddingBottom": "30px",
+    "paddingTop": "30px",
+    "paddingRight": "100px",
+    "flexWrap": "wrap"
+  }
+}
+
+/***/ }),
+
+/***/ "../../packages/hap-dsl-xvm/lib/loaders/template-loader.js!../../packages/hap-dsl-xvm/lib/loaders/fragment-loader.js?index=0&type=template!./src/component/form/multi-picker/index.ux?uxType=page&":
+/*!*********************************************************************************************************************************************************************************************************!*\
+  !*** ../../packages/hap-dsl-xvm/lib/loaders/template-loader.js!../../packages/hap-dsl-xvm/lib/loaders/fragment-loader.js?index=0&type=template!./src/component/form/multi-picker/index.ux?uxType=page& ***!
+  \*********************************************************************************************************************************************************************************************************/
+/***/ ((module) => {
+
+module.exports = {
+  "type": "div",
+  "attr": {},
+  "classList": [
+    "doc-page"
+  ],
+  "children": [
+    {
+      "type": "div",
+      "attr": {},
+      "classList": [
+        "page-title-wrap"
+      ],
+      "children": [
+        {
+          "type": "text",
+          "attr": {
+            "value": function () {return this.componentName}
+          },
+          "classList": [
+            "page-title"
+          ]
+        }
+      ]
+    },
+    {
+      "type": "div",
+      "attr": {},
+      "classList": [
+        "item-container"
+      ],
+      "children": [
+        {
+          "type": "text",
+          "attr": {
+            "value": "3列Picker(无联动)"
+          },
+          "classList": [
+            "item-title"
+          ]
+        },
+        {
+          "type": "div",
+          "attr": {},
+          "classList": [
+            "item-content"
+          ],
+          "children": [
+            {
+              "type": "picker",
+              "attr": {
+                "type": "multi-text",
+                "range": function () {return this.range1.arr},
+                "value": function () {return this.curDate},
+                "selected": function () {return this.lastSelected},
+                "id": "picker1"
+              },
+              "classList": [
+                "picker"
+              ],
+              "events": {
+                "change": "getDate",
+                "cancel": "cancel"
+              },
+              "id": "picker1"
             }
-            var __webpack_exports__ = {};
-            (() => {
-                var $app_style$ = __webpack_require__("../../packages/hap-dsl-xvm/lib/loaders/style-loader.js?index=0&type=style!../../packages/hap-dsl-xvm/lib/loaders/fragment-loader.js?index=0&type=style!./src/component/form/multi-picker/index.ux?uxType=page");
-                var $app_script$ = __webpack_require__("../../packages/hap-dsl-xvm/lib/loaders/script-loader.js!../../packages/hap-packager/lib/loaders/module-loader.js!../../node_modules/babel-loader/lib/index.js?cwd=<project-root>&cacheDirectory&plugins[]=<CWD>/packages/hap-dsl-xvm/lib/loaders/babel-plugin-jsx.js&comments=false&configFile=<project-root>/babel.config.js!../../packages/hap-dsl-xvm/lib/loaders/access-loader.js!../../packages/hap-dsl-xvm/lib/loaders/fragment-loader.js?index=0&type=script!./src/component/form/multi-picker/index.ux?uxType=page");
-                $app_define$("@app-component/index", [], (function($app_require$, $app_exports$, $app_module$) {
-                    $app_script$($app_module$, $app_exports$, $app_require$);
-                    if ($app_exports$.__esModule && $app_exports$.default) {
-                        $app_module$.exports = $app_exports$.default;
-                    }
-                    $app_module$.exports.template = __webpack_require__("../../packages/hap-dsl-xvm/lib/loaders/template-loader.js!../../packages/hap-dsl-xvm/lib/loaders/fragment-loader.js?index=0&type=template!./src/component/form/multi-picker/index.ux?uxType=page&");
-                    $app_module$.exports.style = $app_style$;
-                }));
-                $app_bootstrap$("@app-component/index", {
-                    packagerVersion: "<VERSION>"
-                });
-            })();
-        })();
+          ]
+        },
+        {
+          "type": "div",
+          "attr": {},
+          "classList": [
+            "item-content"
+          ],
+          "children": [
+            {
+              "type": "text",
+              "attr": {
+                "value": function () {return this.curDateTxt}
+              }
+            }
+          ]
+        },
+        {
+          "type": "input",
+          "attr": {
+            "type": "button",
+            "value": "打开无联动选择器"
+          },
+          "classList": [
+            "btn"
+          ],
+          "style": {
+            "marginTop": "50px"
+          },
+          "events": {
+            "click": function (evt) { return this.show('picker1',evt)}
+          }
+        },
+        {
+          "type": "input",
+          "attr": {
+            "type": "button",
+            "value": "减少列数"
+          },
+          "classList": [
+            "btn"
+          ],
+          "style": {
+            "marginTop": "15px"
+          },
+          "events": {
+            "click": function (evt) { return this.reduce('picker1',evt)}
+          }
+        },
+        {
+          "type": "input",
+          "attr": {
+            "type": "button",
+            "value": "增加列数"
+          },
+          "classList": [
+            "btn"
+          ],
+          "style": {
+            "marginTop": "15px"
+          },
+          "events": {
+            "click": function (evt) { return this.increase('picker1',evt)}
+          }
+        },
+        {
+          "type": "input",
+          "attr": {
+            "type": "button",
+            "value": "selected设置负索引"
+          },
+          "classList": [
+            "btn"
+          ],
+          "style": {
+            "marginTop": "15px"
+          },
+          "events": {
+            "click": function (evt) { return this.invalidSelected('negative',evt)}
+          }
+        },
+        {
+          "type": "input",
+          "attr": {
+            "type": "button",
+            "value": "selected设置字母索引"
+          },
+          "classList": [
+            "btn"
+          ],
+          "style": {
+            "marginTop": "15px"
+          },
+          "events": {
+            "click": function (evt) { return this.invalidSelected('letter',evt)}
+          }
+        },
+        {
+          "type": "input",
+          "attr": {
+            "type": "button",
+            "value": "selected设置非法长度"
+          },
+          "classList": [
+            "btn"
+          ],
+          "style": {
+            "marginTop": "15px"
+          },
+          "events": {
+            "click": function (evt) { return this.invalidSelected('length',evt)}
+          }
+        },
+        {
+          "type": "input",
+          "attr": {
+            "type": "button",
+            "value": "重置"
+          },
+          "classList": [
+            "btn"
+          ],
+          "style": {
+            "marginTop": "15px"
+          },
+          "events": {
+            "click": function (evt) { return this.restore('picker1',evt)}
+          }
+        }
+      ]
+    },
+    {
+      "type": "div",
+      "attr": {},
+      "classList": [
+        "item-container"
+      ],
+      "children": [
+        {
+          "type": "text",
+          "attr": {
+            "value": "3列Picker(联动)"
+          },
+          "classList": [
+            "item-title"
+          ]
+        },
+        {
+          "type": "div",
+          "attr": {},
+          "classList": [
+            "item-content"
+          ],
+          "children": [
+            {
+              "type": "picker",
+              "attr": {
+                "type": "multi-text",
+                "range": function () {return this.range2.arr},
+                "value": function () {return this.curArea},
+                "selected": function () {return this.lastSelected},
+                "id": "picker2"
+              },
+              "classList": [
+                "picker"
+              ],
+              "events": {
+                "columnchange": "updatePicker",
+                "change": "getArea",
+                "cancel": "cancel"
+              },
+              "id": "picker2"
+            }
+          ]
+        },
+        {
+          "type": "div",
+          "attr": {},
+          "classList": [
+            "item-content"
+          ],
+          "children": [
+            {
+              "type": "text",
+              "attr": {
+                "value": function () {return this.curAreaTxt}
+              }
+            }
+          ]
+        },
+        {
+          "type": "input",
+          "attr": {
+            "type": "button",
+            "value": "打开联动选择器"
+          },
+          "classList": [
+            "btn"
+          ],
+          "style": {
+            "marginTop": "50px"
+          },
+          "events": {
+            "click": function (evt) { return this.show('picker2',evt)}
+          }
+        }
+      ]
+    }
+  ]
+}
+
+/***/ })
+
+/******/ 	});
+/************************************************************************/
+/******/ 	// The module cache
+/******/ 	var __webpack_module_cache__ = {};
+/******/ 	
+/******/ 	// The require function
+/******/ 	function __webpack_require__(moduleId) {
+/******/ 		// Check if module is in cache
+/******/ 		var cachedModule = __webpack_module_cache__[moduleId];
+/******/ 		if (cachedModule !== undefined) {
+/******/ 			return cachedModule.exports;
+/******/ 		}
+/******/ 		// Create a new module (and put it into the cache)
+/******/ 		var module = __webpack_module_cache__[moduleId] = {
+/******/ 			// no module.id needed
+/******/ 			// no module.loaded needed
+/******/ 			exports: {}
+/******/ 		};
+/******/ 	
+/******/ 		// Execute the module function
+/******/ 		__webpack_modules__[moduleId](module, module.exports, __webpack_require__);
+/******/ 	
+/******/ 		// Return the exports of the module
+/******/ 		return module.exports;
+/******/ 	}
+/******/ 	
+/************************************************************************/
+var __webpack_exports__ = {};
+// This entry need to be wrapped in an IIFE because it need to be isolated against other modules in the chunk.
+(() => {
+/*!**************************************************************!*\
+  !*** ./src/component/form/multi-picker/index.ux?uxType=page ***!
+  \**************************************************************/
+
+var $app_style$ = __webpack_require__(/*! !../../../../../../packages/hap-dsl-xvm/lib/loaders/style-loader.js?index=0&type=style!../../../../../../packages/hap-dsl-xvm/lib/loaders/fragment-loader.js?index=0&type=style!./index.ux?uxType=page */ "../../packages/hap-dsl-xvm/lib/loaders/style-loader.js?index=0&type=style!../../packages/hap-dsl-xvm/lib/loaders/fragment-loader.js?index=0&type=style!./src/component/form/multi-picker/index.ux?uxType=page")
+var $app_script$ = __webpack_require__(/*! !../../../../../../packages/hap-dsl-xvm/lib/loaders/script-loader.js!../../../../../../node_modules/@hap-toolkit/packager/lib/loaders/module-loader.js!../../../../../../node_modules/babel-loader/lib/index.js?cwd=<project-root>&cacheDirectory&plugins[]=<CWD>/packages/hap-dsl-xvm/lib/loaders/babel-plugin-jsx.js&comments=false&configFile=<project-root>/babel.config.js!../../../../../../packages/hap-dsl-xvm/lib/loaders/access-loader.js!../../../../../../packages/hap-dsl-xvm/lib/loaders/fragment-loader.js?index=0&type=script!./index.ux?uxType=page */ "../../packages/hap-dsl-xvm/lib/loaders/script-loader.js!../../packages/hap-packager/lib/loaders/module-loader.js!../../node_modules/babel-loader/lib/index.js?cwd=<project-root>&cacheDirectory&plugins[]=<CWD>/packages/hap-dsl-xvm/lib/loaders/babel-plugin-jsx.js&comments=false&configFile=<project-root>/babel.config.js!../../packages/hap-dsl-xvm/lib/loaders/access-loader.js!../../packages/hap-dsl-xvm/lib/loaders/fragment-loader.js?index=0&type=script!./src/component/form/multi-picker/index.ux?uxType=page")
+$app_define$('@app-component/index', [], function($app_require$, $app_exports$, $app_module$) {
+     $app_script$($app_module$, $app_exports$, $app_require$)
+        if ($app_exports$.__esModule && $app_exports$.default) {
+          $app_module$.exports = $app_exports$.default
+        }
+    $app_module$.exports.template = __webpack_require__(/*! !../../../../../../packages/hap-dsl-xvm/lib/loaders/template-loader.js!../../../../../../packages/hap-dsl-xvm/lib/loaders/fragment-loader.js?index=0&type=template!./index.ux?uxType=page& */ "../../packages/hap-dsl-xvm/lib/loaders/template-loader.js!../../packages/hap-dsl-xvm/lib/loaders/fragment-loader.js?index=0&type=template!./src/component/form/multi-picker/index.ux?uxType=page&")
+    $app_module$.exports.style = $app_style$;
+});
+$app_bootstrap$('@app-component/index',{ packagerVersion: "<VERSION>" });
+})();
+
+/******/ })()
+;
     };
     if (typeof window === "undefined") {
-        return createPageHandler();
-    } else {
-        window.createPageHandler = createPageHandler;
+      return createPageHandler();
     }
-})();
+    else {
+      window.createPageHandler = createPageHandler
+    }
+  })();
