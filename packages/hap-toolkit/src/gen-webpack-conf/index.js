@@ -397,25 +397,25 @@ export default async function genWebpackConf(launchOptions, mode) {
               }
             }
           }
-        : undefined,
-
-      minimize: isJest,
-      minimizer: isJest
-        ? [
-            new TerserPlugin({
-              terserOptions: {
-                compress: isProduction,
-                mangle: isProduction,
-                format: {
-                  comments: false,
-                  beautify: !isProduction,
-                  keep_numbers: true
-                }
-              }
-            })
-          ]
         : undefined
     }
+  }
+
+  if (isJest) {
+    webpackConf.optimization.minimize = true
+    webpackConf.optimization.minimizer = [
+      new TerserPlugin({
+        terserOptions: {
+          compress: isProduction,
+          mangle: isProduction,
+          format: {
+            comments: false,
+            beautify: !isProduction,
+            keep_numbers: true
+          }
+        }
+      })
+    ]
   }
 
   if (globalConfig.isSmartMode) {
