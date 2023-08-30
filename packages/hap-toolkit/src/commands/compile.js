@@ -5,7 +5,12 @@
 
 import webpack from 'webpack'
 import adbCommander from 'adb-commander'
-import { setCustomConfig, colorconsole } from '@hap-toolkit/shared-utils'
+import {
+  setCustomConfig,
+  colorconsole,
+  globalConfig,
+  compileOptionsMeta
+} from '@hap-toolkit/shared-utils'
 import genWebpackConf from '../gen-webpack-conf'
 import { summaryErrors, summaryWarnings } from './utils'
 
@@ -69,6 +74,19 @@ export function compile(platform, mode, watch, options = {}) {
     }
 
     const webpackMode = mode === 'prod' ? 'production' : 'development'
+
+    if (options.disableSignOnline) {
+      options['signOnline'] = false
+    } else if (
+      globalConfig.signOnLineConfig &&
+      globalConfig.signOnLineConfig.signOnLine &&
+      globalConfig.signOnLineConfig.signOnLine.match(
+        /^(?:([A-Za-z]+):)?(\/{0,3})([0-9.\-A-Za-z]+)(?::(\d+))?(?:\/([^?#]*))?(?:\?([^#]*))?(?:#(.*))?$/
+      )
+    ) {
+      options['signOnline'] = true
+      options['signMode'] = compileOptionsMeta.signModeEnum.NULL
+    }
 
     try {
       const webpackConfig = await genWebpackConf(options, webpackMode)

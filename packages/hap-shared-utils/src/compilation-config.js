@@ -104,6 +104,7 @@ const compileOptionsObject = {
  */
 function mergeCompileOptionsObject(argopts) {
   // TODO release memeory, use optimize-prop only
+  compileOptionsObject.devtool = argopts.devtool ? argopts.devtool : false
   Object.assign(compileOptionsObject, argopts)
 }
 

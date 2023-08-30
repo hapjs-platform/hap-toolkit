@@ -77,7 +77,7 @@ function allocateResourceToPackages(files, base, fullPackage, subPackages, build
 
   files.forEach((fileBuildPath) => {
     const fileAbsPath = path.join(base, fileBuildPath)
-    const fileContentBuffer = fs.readFileSync(fileAbsPath.replace(/\\/g, '/'))
+    const fileContentBuffer = fs.readFileSync(fileAbsPath)
     const fileContentDigest = calcDataDigest(fileContentBuffer)
     // 资源基本信息
     const resourceInfo = [fileBuildPath, fileContentBuffer, fileContentDigest]
