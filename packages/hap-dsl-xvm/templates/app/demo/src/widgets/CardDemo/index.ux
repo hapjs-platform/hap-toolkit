@@ -1,0 +1,83 @@
+<!-- 
+  Copyright (c) 2021-present, the hapjs-platform Project Contributors
+  SPDX-License-Identifier: Apache-2.0
+-->
+
+<!-- 
+  注意：快应用和卡片混合工程在编译时会将所有资源打包到一个rpk中，在发布时会将卡片资源拆分出来独立分发，
+  需要将卡片资源放置到卡片路径下，否则卡片无法加载对应资源。
+-->
+
+<template>
+  <!-- template里只能有一个根节点 -->
+  <div class="card-wrapper">
+    <div class="title-wrapper">
+      <!-- 注意：本地图片资源需要存放到卡片路由路径下，否则发布时无法加载该图片，网络资源不受该限制 -->
+      <image class="title-logo" src="./assets/logo_card.png"></image>
+      <text class="title-txt">卡片标题</text>
+    </div>
+    <div class="content-wrapper">
+      <text class="content-txt">{{ des }}</text>
+    </div>
+  </div>
+</template>
+
+<!-- 注意：卡片运行时不会加载app.ux，请不要在app.ux中添加卡片相关逻辑 -->
+<script>
+export default {
+  private: {
+    text: '欢迎使用快应用卡片',
+    des:
+      '卡片是一种轻量级的快应用，快应用卡片使快应用能够在其他app和系统里提供可扩展的app功能'
+  },
+  onInit() {
+    console.log('card onInit >>>>')
+  },
+  onShow() {
+    console.log('card onShow >>>>')
+  }
+}
+</script>
+
+<style lang="scss">
+@import './assets/styles.scss';
+
+.card-wrapper {
+  @include flex-box-mixins(column, flex-start, center);
+  flex: 1;
+  padding: 16dp;
+
+  .content-wrapper {
+    @include flex-box-mixins(column, center, center);
+    width: 100%;
+    flex: 1;
+  
+    .content-txt {
+      width: 100%;
+      text-align: center;
+      font-size: 14 * $size-factor;
+      line-height: 20 * $size-factor;
+      color: $black;
+    }
+  }
+  
+  .title-wrapper {
+    @include flex-box-mixins(row, flex-start, center);
+    width: 100%;
+    height: 16 * $size-factor;
+  
+    .title-logo {
+      width: 16 * $size-factor;
+      height: 16 * $size-factor;
+    }
+
+    .title-txt {
+      line-height: 16 * $size-factor;
+      font-size: 16 * $size-factor;
+      margin-left: 4 * $size-factor;
+    }
+  }
+}
+
+
+</style>

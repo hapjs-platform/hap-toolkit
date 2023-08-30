@@ -19,6 +19,7 @@ import {
 } from './plugins'
 import { genPriorities, getBabelConfigJsPath } from './common/utils'
 import { getSkeletonConfig } from './common/info'
+import SignOnlinePlugin from './plugins/sign-online-plugin'
 
 /**
  * 配置关联
@@ -165,6 +166,22 @@ function postHook(webpackConf, defaultsOptions, quickappConfig = {}) {
       doNotNotifyAtFirst: compileOptionsObject.enableServerWatch
     })
   )
+
+  if (compileOptionsObject['signOnline']) {
+    // 发送接口进行线上签名
+    webpackConf.plugins.push(
+      new SignOnlinePlugin({
+        signOnlineRpks: compileOptionsObject.signOnlineRpks,
+        sign: webpackConf.mode === 'development' ? 'debug' : 'release',
+        name: appPackageName,
+        versionName,
+        output: pathDist,
+        request: globalConfig.signOnLineConfig.signOnLine,
+        headers: globalConfig.signOnLineConfig.headers,
+        formData: globalConfig.signOnLineConfig.params
+      })
+    )
+  }
 
   // 解决错误信息定位问题
   if (compileOptionsObject.matchSourcemap) {
