@@ -24,7 +24,7 @@ export default {
 .wrapper {
   @include flex-box-mixins(column, center, center);
   .title {
-    font-size: 8 * $size-factor;
+    font-size: 18 * $size-factor;
     text-align: center;
     color: $black;
   }

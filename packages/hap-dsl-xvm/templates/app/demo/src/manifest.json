@@ -24,7 +24,7 @@
 	"template/official": "demo-template",
 	"config": {
 		"logLevel": "debug",
-		"disignWidth": 1080
+		"designWidth": 1080
 	},
 	"router": {
 		"entry": "pages/Demo",

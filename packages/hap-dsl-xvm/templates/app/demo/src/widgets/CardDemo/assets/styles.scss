@@ -9,3 +9,9 @@ $yellow: #ffff00;
 // $size-factor 为 3px，对应的 designWidth 为 1080，长度使用：360的设计稿尺寸数字 * $size-factor
 // 如果 designWidth 设置为 360，可修改 $size-factor 为 1px
 $size-factor: 3px; 
+
+@mixin flex-box-mixins($direction: row, $justify: center, $align-items: center) {
+  flex-direction: $direction;
+  justify-content: $justify;
+  align-items: $align-items;
+}
