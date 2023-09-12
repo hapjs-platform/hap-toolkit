@@ -39,24 +39,25 @@ export default {
 
 .wrapper {
   @include flex-box-mixins(column, center, center);
-  margin: 0 10 * $size-factor;
+  margin: 0 16 * $size-factor;
   .title {
-    font-size: 8 * $size-factor;
+    font-size: 18 * $size-factor;
     text-align: center;
     color: $black;
   }
   .desc {
-    margin-top: 10 * $size-factor;
+    margin-top: 18 * $size-factor;
     color: $grey;
+    font-size: 16 * $size-factor;
   }
   .btn {
-    width: 90 * $size-factor;
-    height: 16 * $size-factor;
-    border-radius: 8 * $size-factor;
+    width: 150 * $size-factor;
+    height: 42 * $size-factor;
+    border-radius: 21 * $size-factor;
     background-color: $brand;
     color: $white;
-    font-size: 30px;
-    margin-top: 16 * $size-factor;
+    font-size: 16 * $size-factor;
+    margin-top: 20 * $size-factor;
   }
 }
 </style>

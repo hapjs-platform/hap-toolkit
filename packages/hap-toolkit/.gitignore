@@ -6,6 +6,7 @@ Thumbs.db
 *.iml
 .idea/
 .vscode/
+.history/
 node_modules/
 !fixtures/deps-app/node_modules/
 /lib

@@ -23,7 +23,8 @@
 	}],
 	"template/official": "demo-template",
 	"config": {
-		"logLevel": "debug"
+		"logLevel": "debug",
+		"designWidth": 1080
 	},
 	"router": {
 		"entry": "pages/Demo",
@@ -36,14 +37,17 @@
 			}
 		},
 		"widgets": {
-			"CardDemo": {
-				"name": "CardDemo",
+			"widgets/CardDemo": {
+				"name": "卡片名称4x2",
 				"description": "快应用卡片展示",
 				"component": "index",
-				"path": "/CardDemo",
+				"path": "/widgets/CardDemo",
 				"minPlatformVersion": 1032,
-				"targetManufactorys": [
-					"vivo"
+				"params": {
+					"size": "4x2"
+				},
+				"targetManufacturers": [
+					"vivo", "OPPO", "xiaomi"
 				],
 				"features": []
 			}
