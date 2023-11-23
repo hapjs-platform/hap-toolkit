@@ -99,7 +99,7 @@ function getWidgetI18nJSONFiles(sourceDir) {
     console.error(err)
   }
   let filesArray = []
-  for(let key in widgetsOption) {
+  for (let key in widgetsOption) {
     const widgetPath = widgetsOption[key].path
     const dir = path.join(sourceDir, widgetPath, 'i18n')
     // const jsonPath = onlyRoot ? '*.json' : '**/**.json'
@@ -120,7 +120,7 @@ function minifyWidgetI18nJSONFiles(targetDir) {
     console.error(err)
   }
   let arr = []
-  for(let key in widgetsOption) {
+  for (let key in widgetsOption) {
     const widgetPath = widgetsOption[key].path
     const dir = path.join(targetDir, widgetPath, 'i18n')
     if (fs.existsSync(dir)) {
