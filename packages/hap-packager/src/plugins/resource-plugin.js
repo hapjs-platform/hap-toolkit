@@ -89,6 +89,50 @@ function getSpecifiedJSONFiles(sourceDir, specifiedDirArray) {
   return filesArray
 }
 
+function getWidgetI18nJSONFiles(sourceDir) {
+  let widgetsOption = {}
+  try {
+    const manifestFile = path.join(sourceDir, 'manifest.json')
+    const manifest = readJson(manifestFile)
+    widgetsOption = manifest?.router.widgets || {}
+  } catch (err) {
+    console.error(err)
+  }
+  let filesArray = []
+  for (let key in widgetsOption) {
+    const widgetPath = widgetsOption[key].path
+    const dir = path.join(sourceDir, widgetPath, 'i18n')
+    // const jsonPath = onlyRoot ? '*.json' : '**/**.json'
+    if (fs.existsSync(dir)) {
+      filesArray = filesArray.concat(getFiles('*.json', dir))
+    }
+  }
+  return filesArray
+}
+
+function minifyWidgetI18nJSONFiles(targetDir) {
+  let widgetsOption = {}
+  try {
+    const manifestFile = path.join(targetDir, 'manifest.json')
+    const manifest = readJson(manifestFile)
+    widgetsOption = manifest?.router.widgets || {}
+  } catch (err) {
+    console.error(err)
+  }
+  let arr = []
+  for (let key in widgetsOption) {
+    const widgetPath = widgetsOption[key].path
+    const dir = path.join(targetDir, widgetPath, 'i18n')
+    if (fs.existsSync(dir)) {
+      const jsonFiles = getFiles('*.json', dir)
+      jsonFiles.forEach((filePath) => {
+        arr.push(filePath)
+        minifyJson(filePath, filePath)
+      })
+    }
+  }
+}
+
 function minifyJson(source, target) {
   try {
     const contentStr = fs.readFileSync(source, 'utf8')
@@ -181,6 +225,7 @@ ResourcePlugin.prototype.apply = function (compiler) {
     let files = getFiles(`**/+(!(${EXT_PATTERN})|manifest.json|sitemap.json)`, sourceDir)
     files = files.concat(
       getSpecifiedJSONFiles(sourceDir, JSON_DIRECTORY_NEED_PACKAGING),
+      getWidgetI18nJSONFiles(sourceDir),
       getSkeletonConfigFile(sourceDir)
     )
     let iconPath
@@ -306,6 +351,8 @@ ResourcePlugin.prototype.apply = function (compiler) {
     const fileExists = fs.existsSync(pathManifestFrom)
 
     minifySpecifiedJSONFiles(targetDir, JSON_DIRECTORY_NEED_PACKAGING)
+
+    minifyWidgetI18nJSONFiles(targetDir)
 
     minifySitemap(targetDir)
 
