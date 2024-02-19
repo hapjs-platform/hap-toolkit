@@ -31,13 +31,17 @@ SignOnlinePlugin.prototype.apply = function (compiler) {
 
     let form = null
 
+    const headers = {}
+
     const file = fs.createReadStream(noSignFilePath)
 
-    if (options.formData && options.formData(file)) {
-      form = options.formData(file)
+    const fileSizeInBytes = fs.statSync(noSignFilePath).size
+
+    if (options.formData && options.formData(file, fileSizeInBytes)) {
+      form = options.formData(file, fileSizeInBytes)
     }
 
-    form && Object.assign(options.headers(), form.getHeaders())
+    form && Object.assign(headers, options.headers(), form.getHeaders())
 
     const url = new URL(requestPath)
     const param = {
@@ -46,7 +50,7 @@ SignOnlinePlugin.prototype.apply = function (compiler) {
       path: url.pathname,
       method: 'POST',
       timeout: 10000,
-      headers: options.headers
+      headers
     }
     const req = http
       .request(param, (res) => {
