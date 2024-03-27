@@ -1,5 +1,18 @@
 # Change Log
 
+## [1.9.15] -2023-12.4
+
+- perf: enable cache
+- test: add benchmark.js
+- perf: improve HMR speed
+- test: update snapshot
+- chore: run prettier
+- fix: enable minimizer in production build (#49)
+- Update quick app demo (#52)
+- feat: 增加在线签名功能 (#51)
+- feat: support i18n for cards (rfc:0001) (#53)
+- 埋点更新 (#56)
+
 ## [1.9.14] -2023-7.19
 
 - 更换 less 和 sass 的版本解决使用/运算符在括号外执行除法产生的异常
