@@ -290,20 +290,37 @@ function ZipPlugin(options) {
 ZipPlugin.prototype.apply = function (compiler) {
   const options = this.options
 
-  let subpackageOptions
+  let subpackageOptions = []
   if (!options.disableSubpackages && options.subpackages && options.subpackages.length > 0) {
     subpackageOptions = options.subpackages
   }
 
   compiler.hooks.done.tapAsync('ZipPlugin', async (stats, callback) => {
     // 更新 options 里的值，防止改变 manifest 文件字段导致的问题
-    if (fs.pathExistsSync(path.join(options.pathSrc, 'manifest.json'))) {
-      const file = fs.readFileSync(path.join(options.pathSrc, 'manifest.json'), 'utf8')
-      const manifest = JSON.parse(file)
+    let manifestPath
+    if (fs.pathExistsSync(path.join(options.pathSrc, 'manifest-phone.json'))) {
+      // 兼容 device type 逻辑
+      manifestPath = path.join(options.pathSrc, 'manifest-phone.json')
+    } else {
+      manifestPath = path.join(options.pathSrc, 'manifest.json')
+    }
+    if (fs.pathExistsSync(manifestPath)) {
+      const manifestContent = fs.readFileSync(manifestPath, 'utf8')
+      const manifest = JSON.parse(manifestContent)
       options.name = manifest.package
       options.versionName = manifest.versionName
       options.versionCode = manifest.versionCode
       this.options = options
+
+      if (manifest?.router?.widgets) {
+        const widgets = manifest?.router?.widgets || {}
+        Object.keys(widgets).forEach((key) => {
+          subpackageOptions.push({
+            name: key.replace('/', '.'),
+            resource: key
+          })
+        })
+      }
     }
 
     try {
