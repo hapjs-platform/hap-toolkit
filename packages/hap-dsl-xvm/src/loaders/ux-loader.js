@@ -13,9 +13,12 @@ import {
   processTemplateFrag,
   processStyleFrag,
   processScriptFrag,
+  processDataFrag,
+  processActionFrag,
+  processPropsFrag,
   parseImportList
 } from './ux-fragment-utils'
-import { getNameByPath, print, isUXRender } from './common/utils'
+import { getNameByPath, print, isUXRender, FRAG_TYPE } from './common/utils'
 
 const { validator } = templater
 
@@ -25,14 +28,15 @@ const { validator } = templater
  * @param frags
  * @param name
  * @param uxType
+ * @param lite 1: 轻卡; 0: 普通卡
  * @return {String}
  */
-function assemble($loader, frags, name, uxType) {
+function assemble($loader, frags, name, uxType, lite) {
   const isUseTreeShaking = !!globalConfig.useTreeShaking
   // 外部导入的组件列表
   const importNames = []
   // 处理导入的组件
-  const importFrag = processImportFrag($loader, frags.import, importNames)
+  const importFrag = processImportFrag($loader, frags.import, importNames, lite)
 
   let moduleExports = `     $app_script$($app_module$, $app_exports$, $app_require$)
         if ($app_exports$.__esModule && $app_exports$.default) {
@@ -51,14 +55,49 @@ function assemble($loader, frags, name, uxType) {
   // prettier-ignore
   let content = 
   `${importFrag}\n` +
-  `var $app_style$ = ${processStyleFrag($loader, frags.style, uxType)}\n` +
-  `var $app_script$ = ${processScriptFrag($loader, frags.script, uxType)}\n` +
-  `$app_define$('@app-component/${name}', [], function($app_require$, $app_exports$, $app_module$) {\n` +
-  `${moduleExports}\n` +
-  `    $app_module$.exports.template = ${processTemplateFrag($loader, frags.template, uxType, importNames)}\n` +
-  `${frags.style.length > 0 ? '    $app_module$.exports.style = $app_style$;': ''}\n` +
-  `});\n` +
-  `${isUXRender(uxType) ? `$app_bootstrap$('@app-component/${name}',{ packagerVersion: QUICKAPP_TOOLKIT_VERSION })` : ''};`
+  `var $app_style$ = ${processStyleFrag($loader, frags.style, uxType, lite)}\n`
+  if (lite) {
+    // process <data> for lite card
+    content += `$app_module$.exports.uidata = ${processDataFrag(
+      $loader,
+      frags.data,
+      uxType,
+      FRAG_TYPE.DATA
+    )}\n`
+    content += `$app_module$.exports.actions = ${processActionFrag(
+      $loader,
+      frags.data,
+      uxType,
+      FRAG_TYPE.ACTIONS
+    )}\n`
+    content += `$app_module$.exports.props = ${processPropsFrag(
+      $loader,
+      frags.data,
+      uxType,
+      FRAG_TYPE.PROPS
+    )}\n`
+    content += `$app_data$($app_module$, $app_require$)\n`
+  } else {
+    // process script for normal card
+    content += `var $app_script$ = ${processScriptFrag($loader, frags.script, uxType)}\n`
+  }
+  content +=
+    `$app_define$('@app-component/${name}', [], function($app_require$, $app_exports$, $app_module$) {\n` +
+    `${moduleExports}\n` +
+    `    $app_module$.exports.template = ${processTemplateFrag(
+      $loader,
+      frags.template,
+      uxType,
+      importNames,
+      lite
+    )}\n` +
+    `${frags.style.length > 0 ? '    $app_module$.exports.style = $app_style$;' : ''}\n` +
+    `});\n` +
+    `${
+      isUXRender(uxType)
+        ? `$app_bootstrap$('@app-component/${name}',{ packagerVersion: QUICKAPP_TOOLKIT_VERSION })`
+        : ''
+    };`
 
   if (uxType === ENTRY_TYPE.COMP && compileOptionsObject.enableLazyComponent) {
     content += `$app_define_wrap$('@app-component/${name}', function () {
@@ -89,6 +128,8 @@ export default function uxLoader(source) {
   const resourceQuery = loaderUtils.parseQuery(this.resourceQuery || '?') // 在文件url中传入的参数'path?xxx'
   // 文件类型
   const uxType = resourceQuery.uxType
+  // lite card
+  const lite = resourceQuery.lite
 
   // 使用原有文件名（不包含扩展名）
   const name = resourceQuery.name || getNameByPath(resourcePath)
@@ -109,7 +150,7 @@ export default function uxLoader(source) {
 
   parseImportList(this, frags.import)
     .then(() => {
-      return assemble(this, frags, name, uxType)
+      return assemble(this, frags, name, uxType, lite)
     })
     .then((result) => {
       callback(null, result)

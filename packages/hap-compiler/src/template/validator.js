@@ -1419,7 +1419,7 @@ function checkTagName(node, output, options = {}) {
  */
 function checkId(id, output) {
   if (id) {
-    output.result.id = exp.isExpr(id) ? exp(id) : id
+    output.result.id = exp.isExpr(id) ? exp(id, true, output.isLite) : id
   }
 }
 
@@ -1476,22 +1476,25 @@ function checkClass(className, output) {
     }
     segs.push(className.slice(start)) // trailing static classes
 
+    const isLite = output.isLite
     classList = segs.reduce((list, seg) => {
       if (exp.isExpr(seg)) {
         hasBinding = true
-        list.push(exp(seg, false))
+        list.push(exp(seg, false, isLite))
         return list
       }
       return list.concat(
         seg
           .split(/\s+/g)
           .filter((s) => s)
-          .map((s) => `'${s}'`)
+          .map((s) => (isLite ? s : `'${s}'`))
       )
     }, [])
     classList = classList.filter((klass) => klass.trim())
 
-    if (hasBinding) {
+    if (isLite) {
+      output.result.classList = classList
+    } else if (hasBinding) {
       const code = '(function () {return [' + classList.join(', ') + ']})'
       try {
         /* eslint-disable no-eval */
@@ -1523,6 +1526,7 @@ function checkStyle(cssText, output, locationInfo, options) {
   let style = {}
   const log = output.log
   if (cssText) {
+    const isLite = output.isLite
     if (exp.singleExpr(cssText)) {
       // 检测是否嵌套{{}}
       const incText = exp.removeExprffix(cssText)
@@ -1533,7 +1537,7 @@ function checkStyle(cssText, output, locationInfo, options) {
           reason: 'ERROR: style 属性不能嵌套多层{{}}'
         })
       } else {
-        style = exp(cssText)
+        style = exp(cssText, true, isLite)
       }
       output.result.style = style
       return
@@ -1551,23 +1555,25 @@ function checkStyle(cssText, output, locationInfo, options) {
         k = pair[0].trim()
         k = hyphenedToCamelCase(k)
         v = pair[1].trim()
-        v = exp(v) // 处理值表达式
-        vResult = styler.validateDelaration(k, v, options)
-        v = vResult.value
-
-        v.forEach((t) => {
-          // 如果校验成功，则保存转换后的属性值
-          if (isValidValue(t.v) || typeof t.v === 'function') {
-            style[t.n] = t.v
-          }
-        })
-
-        if (vResult.log) {
-          log.push({
-            line: locationInfo.line || 1,
-            column: locationInfo.col || 1,
-            reason: vResult.log.reason
+        v = exp(v, true, isLite) // 处理值表达式
+        if (isLite) {
+          style[k] = v
+        } else {
+          vResult = styler.validateDelaration(k, v, options)
+          v = vResult.value
+          v.forEach((t) => {
+            // 如果校验成功，则保存转换后的属性值
+            if (isValidValue(t.v) || typeof t.v === 'function') {
+              style[t.n] = t.v
+            }
           })
+          if (vResult.log) {
+            log.push({
+              line: locationInfo.line || 1,
+              column: locationInfo.col || 1,
+              reason: vResult.log.reason
+            })
+          }
         }
       }
     })
@@ -1596,7 +1602,7 @@ function checkIs(value, output, locationInfo) {
     value = exp.addExprffix(value)
 
     // 将表达式转换为function
-    output.result.is = exp(value)
+    output.result.is = exp(value, true, output.isLite)
   } else {
     log.push({
       line: locationInfo.line || 1,
@@ -1617,16 +1623,18 @@ function checkIf(value, output, not, locationInfo, conditionList) {
   if (value) {
     // 如果没有，补充上{{}}
     value = exp.addExprffix(value)
-
+    const isLite = output.isLite
     if (not) {
-      value = '{{' + buildConditionExp(conditionList) + '}}'
+      value = isLite
+        ? buildLiteConditionExp(conditionList)
+        : '{{' + buildConditionExp(conditionList) + '}}'
     } else {
       // if动作前需要清除conditionList之前的结构
       conditionList.length > 0 && (conditionList.length = 0)
       conditionList.push(`${value.substr(2, value.length - 4)}`)
     }
     // 将表达式转换为function
-    output.result.shown = exp(value)
+    output.result.shown = isLite ? value : exp(value, true)
   } else {
     if (!not) {
       log.push({
@@ -1663,12 +1671,17 @@ function checkElif(value, cond, output, locationInfo, conditionList) {
     // 如果没有，补充上{{}}
     value = exp.addExprffix(value)
     cond = exp.addExprffix(cond)
-
-    newcond =
-      '{{(' + value.substr(2, value.length - 4) + ') && ' + buildConditionExp(conditionList) + '}}'
+    const isLite = output.isLite
+    newcond = isLite
+      ? '{{' + value.substr(2, value.length - 4) + '}}&&' + buildLiteConditionExp(conditionList)
+      : '{{(' +
+        value.substr(2, value.length - 4) +
+        ') && ' +
+        buildConditionExp(conditionList) +
+        '}}'
 
     // 将表达式转换为function
-    output.result.shown = exp(newcond)
+    output.result.shown = isLite ? newcond : exp(newcond)
     conditionList.push(`${value.substr(2, value.length - 4)}`)
   } else {
     log.push({
@@ -1708,12 +1721,13 @@ function checkFor(value, output, locationInfo) {
     }
     value = '{{' + value + '}}'
 
+    const isLite = output.isLite
     let repeat
     if (!key && !val) {
-      repeat = exp(value)
+      repeat = exp(value, true, isLite)
     } else {
       // 如果指定key,value
-      repeat = { exp: exp(value) }
+      repeat = { exp: exp(value, true, isLite) }
       if (key) {
         repeat.key = key
       }
@@ -1765,9 +1779,9 @@ function checkEvent(name, value, output) {
       try {
         // 将事件转换为函数对象
         /* eslint-disable no-eval */
-        value = eval(
-          '(function (evt) { return ' + exp(value, false).replace('this.evt', 'evt') + '})'
-        )
+        value = output.isLite
+          ? value
+          : eval('(function (evt) { return ' + exp(value, false).replace('this.evt', 'evt') + '})')
         /* eslint-enable no-eval */
       } catch (err) {
         err.isExpressionError = true
@@ -1798,7 +1812,7 @@ function checkCustomDirective(name, value, output, node) {
   output.result.directives = output.result.directives || []
   output.result.directives.push({
     name: dirName,
-    value: exp.isExpr(value) ? exp(value) : value
+    value: exp.isExpr(value) ? exp(value, true, output.isLite) : value
   })
 }
 
@@ -1828,7 +1842,7 @@ function checkAttr(name, value, output, tagName, locationInfo, options) {
       output.depFiles.push(value)
     }
     output.result.attr = output.result.attr || {}
-    output.result.attr[hyphenedToCamelCase(name)] = exp(value)
+    output.result.attr[hyphenedToCamelCase(name)] = exp(value, true, output.isLite)
     if (name === 'value' && tagName === 'text') {
       output.log.push({
         line: locationInfo.line,
@@ -1945,6 +1959,19 @@ function buildConditionExp(list) {
       return `!(${exp})`
     })
     .join(' && ')
+}
+
+/**
+ * 输出轻卡条件取反的字符串表示
+ * @param list
+ * @return {string}
+ */
+function buildLiteConditionExp(list) {
+  return list
+    .map((exp) => {
+      return `!{{${exp}}}`
+    })
+    .join('&&')
 }
 
 /**

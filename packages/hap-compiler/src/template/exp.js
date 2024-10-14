@@ -32,13 +32,16 @@ function trimhtml(str) {
  * 表达式转换
  * @param expContent
  * @param toFunc
+ * @param isLite is lite card
  * @returns {*}
  */
-function transExpr(expContent, toFunc) {
+function transExpr(expContent, toFunc, isLite) {
   let ret
   const trimExpContent = expContent.trim()
   if (!textParser.isExpr(trimExpContent)) {
     ret = trimhtml(expContent)
+  } else if (isLite) {
+    ret = trimExpContent // lite card template value
   } else {
     ret = []
     const tokens = textParser.parseText(trimExpContent)

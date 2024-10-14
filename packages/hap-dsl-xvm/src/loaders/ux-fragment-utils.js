@@ -7,13 +7,14 @@ import { sync as resolveSync } from 'resolve'
 import path from 'path'
 import { globalConfig, compileOptionsObject } from '@hap-toolkit/shared-utils'
 import { getBabelConfigJsPath } from '@hap-toolkit/packager'
-import { ENTRY_TYPE, FRAG_TYPE, templater } from '@hap-toolkit/compiler'
+import { ENTRY_TYPE, templater } from '@hap-toolkit/compiler'
 
 import {
   stringifyLoaders,
   makeRequireString,
   getNameByPath,
   print,
+  FRAG_TYPE,
   isUXRender
 } from './common/utils'
 
@@ -27,6 +28,9 @@ const defaultLoaders = {
   scss: resolveSync('sass-loader'),
   less: resolveSync('less-loader'),
   component: resolveSync('./ux-loader.js'),
+  data: resolveSync('./data-loader.js'),
+  action: resolveSync('./action-loader.js'),
+  props: resolveSync('./props-loader.js'),
   fragment: resolveSync('./fragment-loader.js'),
   template: resolveSync('./template-loader.js'),
   style: resolveSync('./style-loader.js'),
@@ -80,6 +84,54 @@ function makeLoaderString(type, config, uxType) {
         }
       })
     }
+    return stringifyLoaders(loaders)
+  }
+
+  if (type === FRAG_TYPE.DATA) {
+    loaders = [
+      {
+        name: defaultLoaders.data
+      },
+      {
+        name: defaultLoaders.fragment,
+        query: {
+          index: 0,
+          type: FRAG_TYPE.DATA
+        }
+      }
+    ]
+    return stringifyLoaders(loaders)
+  }
+
+  if (type === FRAG_TYPE.ACTIONS) {
+    loaders = [
+      {
+        name: defaultLoaders.action
+      },
+      {
+        name: defaultLoaders.fragment,
+        query: {
+          index: 0,
+          type: FRAG_TYPE.DATA
+        }
+      }
+    ]
+    return stringifyLoaders(loaders)
+  }
+
+  if (type === FRAG_TYPE.PROPS) {
+    loaders = [
+      {
+        name: defaultLoaders.props
+      },
+      {
+        name: defaultLoaders.fragment,
+        query: {
+          index: 0,
+          type: FRAG_TYPE.DATA
+        }
+      }
+    ]
     return stringifyLoaders(loaders)
   }
 
@@ -211,11 +263,13 @@ function makeLoaderString(type, config, uxType) {
  * @param $loader
  * @param imports - 外部导入的组件列表
  * @param importNames - 外部导入的组件名列表
+ * @param {number} lite 1:轻卡; 0:普通卡
  * @returns {string}
  */
-function processImportFrag($loader, imports, importNames) {
+function processImportFrag($loader, imports, importNames, lite) {
   let retStr = ''
   if (imports.length) {
+    const liteParam = lite ? `&lite=${lite}` : ''
     for (let i = 0; i < imports.length; i++) {
       const imp = imports[i]
       let importSrc = imp.attrs.src
@@ -249,11 +303,10 @@ function processImportFrag($loader, imports, importNames) {
         name: importName,
         src: importSrc
       })
-
       let reqStr = makeRequireString(
         $loader,
         makeLoaderString(FRAG_TYPE.IMPORT),
-        `${importSrc}?uxType=${ENTRY_TYPE.COMP}&name=${importName}`
+        `${importSrc}?uxType=${ENTRY_TYPE.COMP}&name=${importName}${liteParam}`
       )
 
       if (compileOptionsObject.stats) {
@@ -273,8 +326,9 @@ function processImportFrag($loader, imports, importNames) {
  * @param templates
  * @param uxType
  * @param importNames
+ * @param {number} lite 1:轻卡; 0:普通卡
  */
-function processTemplateFrag($loader, templates, uxType, importNames) {
+function processTemplateFrag($loader, templates, uxType, importNames, lite) {
   let retStr = '{}'
   if (!templates.length) {
     $loader.emitError(new Error('需要模板 <template> 片段'))
@@ -289,6 +343,7 @@ function processTemplateFrag($loader, templates, uxType, importNames) {
       src = fragAttrsSrc
     }
 
+    const liteParam = lite ? `&lite=${lite}` : ''
     // 解析成类似url中key[]=xxx 的形式，便于loader-utils解析
     importNames = importNames.map((item) => 'importNames[]=' + item)
     retStr = makeRequireString(
@@ -296,7 +351,7 @@ function processTemplateFrag($loader, templates, uxType, importNames) {
       makeLoaderString(FRAG_TYPE.TEMPLATE, {
         alone: !!fragAttrsSrc
       }),
-      `${src}?uxType=${uxType}&${importNames.join(',')}`
+      `${src}?uxType=${uxType}&${importNames.join(',')}${liteParam}`
     )
   }
   return retStr
@@ -307,8 +362,9 @@ function processTemplateFrag($loader, templates, uxType, importNames) {
  * @param $loader
  * @param styles
  * @param uxType
+ * @param {number} lite 1:轻卡; 0:普通卡
  */
-function processStyleFrag($loader, styles, uxType) {
+function processStyleFrag($loader, styles, uxType, lite) {
   let code = '{}'
   if (styles.length) {
     // 有且仅有一个<style>片段
@@ -324,14 +380,14 @@ function processStyleFrag($loader, styles, uxType) {
     print({
       style: src
     })
-
+    const liteParam = lite ? `&lite=${lite}` : ''
     code = makeRequireString(
       $loader,
       makeLoaderString(FRAG_TYPE.STYLE, {
         alone: !!fragAttrsSrc,
         lang: fragAttrsLang
       }),
-      `${src}?uxType=${uxType}`
+      `${src}?uxType=${uxType}${liteParam}`
     )
   }
   return code
@@ -366,6 +422,87 @@ function processScriptFrag($loader, scripts, uxType) {
         uxType
       ),
       `${src}?uxType=${uxType}`
+    )
+  }
+  return code
+}
+
+/**
+ * 处理轻卡<data>片段中data
+ * @param $loader
+ * @param scripts
+ * @param uxType
+ * @returns {string}
+ */
+function processDataFrag($loader, datas, uxType) {
+  let code = 'null'
+  if (datas.length) {
+    // 有且仅有一个<data>节点
+    const data = datas[0]
+    // 文件绝对路径
+    let src = $loader.resourcePath
+    const fragAttrsSrc = data.attrs.src
+    if (fragAttrsSrc) {
+      src = fragAttrsSrc
+    }
+    code = makeRequireString(
+      $loader,
+      makeLoaderString(FRAG_TYPE.DATA, {}, uxType),
+      `${src}?index=0&lite=1`
+    )
+  }
+  return code
+}
+
+/**
+ * 处理轻卡<data>片段中action
+ * @param $loader
+ * @param scripts
+ * @param uxType
+ * @returns {string}
+ */
+function processActionFrag($loader, datas, uxType) {
+  let code = 'null'
+  if (datas.length) {
+    // 有且仅有一个<data>节点
+    const data = datas[0]
+    // 文件绝对路径
+    let src = $loader.resourcePath
+    const fragAttrsSrc = data.attrs.src
+    if (fragAttrsSrc) {
+      src = fragAttrsSrc
+    }
+    code = makeRequireString(
+      $loader,
+      makeLoaderString(FRAG_TYPE.ACTIONS, {}, uxType),
+      `${src}?index=0&lite=1`
+    )
+  }
+  return code
+}
+
+/**
+ * 处理轻卡自定义组件<data>片段中props
+ * @param $loader
+ * @param scripts
+ * @param uxType
+ * @returns {string}
+ */
+function processPropsFrag($loader, datas, uxType) {
+  let code = 'null'
+  if (datas.length) {
+    // 有且仅有一个<data>节点
+    const data = datas[0]
+    // 文件绝对路径
+    let src = $loader.resourcePath
+    const fragAttrsSrc = data.attrs.src
+    if (fragAttrsSrc) {
+      src = fragAttrsSrc
+    }
+    code = makeRequireString(
+      $loader,
+      makeLoaderString(FRAG_TYPE.PROPS, {}, uxType),
+      `${src}?index=0&lite=1`
     )
   }
   return code
@@ -416,5 +553,8 @@ export {
   processTemplateFrag,
   processStyleFrag,
   processScriptFrag,
+  processDataFrag,
+  processActionFrag,
+  processPropsFrag,
   parseImportList
 }

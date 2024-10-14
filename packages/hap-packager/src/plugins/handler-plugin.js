@@ -4,8 +4,8 @@
  */
 
 import Compilation from 'webpack/lib/Compilation'
-import { globalConfig } from '@hap-toolkit/shared-utils'
-import { getEntryFiles } from '../common/info'
+import { globalConfig, compileOptionsObject, compileOptionsMeta } from '@hap-toolkit/shared-utils'
+import { getEntryFiles, getLiteEntryFiles } from '../common/info'
 
 let ConcatSource
 
@@ -31,8 +31,17 @@ HandlerPlugin.prototype.apply = function (compiler) {
       () => {
         // 如果进行抽取公共js则需通过入口文件来判断是不是抽取出的Chunks
         const entryFiles = getEntryFiles(compiler.options.entry)
+        const liteEntryFiles = getLiteEntryFiles(compiler.options.entry)
+        const { originType } = compileOptionsObject || {}
         compilation.chunks.forEach(function (chunk) {
           chunk.files.forEach(function (fileName) {
+            if (
+              originType !== compileOptionsMeta.originTypeNum.IDE &&
+              liteEntryFiles.indexOf(fileName) >= 0
+            ) {
+              delete compilation.assets[fileName] // delete bundle js for lite card
+              return
+            }
             if (fileName.startsWith(workersPath)) return
             if (compiler.modifiedFiles && !globalConfig.changedJS[fileName]) {
               return

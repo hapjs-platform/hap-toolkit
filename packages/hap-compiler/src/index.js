@@ -68,7 +68,8 @@ function parseFragments(source, filePath) {
     import: [], // 导入组件
     template: [], // 模板
     style: [], // 样式
-    script: [] // 脚本
+    script: [], // 脚本
+    data: [] // 数据
   }
   const fragment = parse5.parseFragment(source, {
     treeAdapter: parse5.treeAdapters.default,

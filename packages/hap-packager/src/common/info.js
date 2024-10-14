@@ -41,6 +41,27 @@ export function getEntryFiles(entry) {
 }
 
 /**
+ * 获取轻卡文件bundle.js文件
+ * @param {*} entry
+ * @returns
+ */
+export function getLiteEntryFiles(entry) {
+  const liteEntry = []
+  Object.keys(entry || {}).forEach((file) => {
+    const fileInfo = entry[file]
+    const importStr = fileInfo.import[0] || ''
+    if (importStr.indexOf('?') >= 0) {
+      const paramStr = importStr.split('?')[1]
+      const paramArr = paramStr.split('&')
+      if (paramArr.indexOf('lite=1') >= 0) {
+        liteEntry.push(file + '.js')
+      }
+    }
+  })
+  return liteEntry
+}
+
+/**
  * 获取骨架屏配置信息
  * @param {String} src - 项目src路径
  * @return {Object} json | null

@@ -27,6 +27,42 @@ const COMPRESS_OPTS = {
   }
 }
 
+const LOADER_PATH_UX = {
+  path: '/ux-loader.js',
+  type: 'ux'
+}
+
+/**
+ * loader path
+ */
+const LOADER_INFO_LIST = [
+  LOADER_PATH_UX,
+  {
+    path: '/template-loader.js',
+    type: 'template'
+  },
+  {
+    path: '/style-loader.js',
+    type: 'styles'
+  },
+  {
+    path: '/script-loader.js',
+    type: 'script'
+  },
+  {
+    path: '/data-loader.js',
+    type: 'data'
+  },
+  {
+    path: '/action-loader.js',
+    type: 'actions'
+  },
+  {
+    path: '/props-loader.js',
+    type: 'props'
+  }
+]
+
 export {
   DIGEST_ZIP_PATH,
   DIGEST_ZIP_DIR,
@@ -34,5 +70,7 @@ export {
   SINGLE_PKG_SIZE,
   FULL_PKG_SIZE,
   COMPRESS_OPTS,
-  BUILD_INFO_FILE
+  BUILD_INFO_FILE,
+  LOADER_PATH_UX,
+  LOADER_INFO_LIST
 }

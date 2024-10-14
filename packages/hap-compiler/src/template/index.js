@@ -362,7 +362,7 @@ function parse(source, options) {
     { treeAdapter: parse5.treeAdapters.default, locationInfo: true },
     options.filePath
   )
-  const output = { result: {}, log: [], depFiles: [] }
+  const output = { result: {}, log: [], depFiles: [], isLite: !!options.lite }
 
   // 模板为空或解析失败
   /* istanbul ignore if */

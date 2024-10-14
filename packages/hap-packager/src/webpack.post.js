@@ -9,6 +9,7 @@ import { globalConfig, readJson, compileOptionsObject } from '@hap-toolkit/share
 
 import {
   CopyDslPlugin,
+  LiteCardPlugin,
   HandlerPlugin,
   ResourcePlugin,
   DeviceTypePlugin,
@@ -122,6 +123,7 @@ function postHook(webpackConf, defaultsOptions, quickappConfig = {}) {
   }
 
   webpackConf.plugins.push(
+    new LiteCardPlugin({ pathSrc }),
     // 框架Handler包装
     new HandlerPlugin({
       pathSrc: pathSrc,

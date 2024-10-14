@@ -1,5 +1,6 @@
 export * from './copy-dsl-plugin'
 export * from './device-type-plugin'
+export * from './lite-card-plugin'
 export * from './handler-plugin'
 export * from './notify-plugin'
 export * from './resource-plugin'
