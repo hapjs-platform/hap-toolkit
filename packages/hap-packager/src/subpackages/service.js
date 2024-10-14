@@ -49,13 +49,17 @@ function createPackagesDefinition(
 }
 
 // 生成埋点统计文件资源
-function getBuildInfoResource(buildInfo) {
+function getBuildInfoResource(buildInfo, widgetDigestMap) {
   buildInfo = JSON.parse(buildInfo)
-  const content = Object.keys(buildInfo)
+  let content = Object.keys(buildInfo)
     .map((key) => {
       return key + '=' + buildInfo[key]
     })
     .join('\n')
+  widgetDigestMap && Object.keys(widgetDigestMap)
+  .forEach(key => {
+    content += `\n${key}=${widgetDigestMap[key]}`
+  })
   const buildPath = BUILD_INFO_FILE
   const buf = Buffer.from(content)
   const digest = calcDataDigest(buf)
@@ -70,7 +74,7 @@ function getBuildInfoResource(buildInfo) {
  * @param {Package[]} subPackages 分包列表
  * @param {String} buildInfo 打包信息
  */
-function allocateResourceToPackages(files, base, fullPackage, subPackages, buildInfo) {
+function allocateResourceToPackages(files, base, fullPackage, subPackages, buildInfo, widgetDigestMap) {
   const belongTofullPkgReg = new RegExp(`^${SPLIT_CHUNKS_PAGE_NAME}$`)
   const belongTofSubPkgReg = new RegExp(`\\/${SPLIT_CHUNKS_PAGE_NAME}$`)
   const basePageChunksJson = path.join(MAIN_PKG_NAME, SPLIT_CHUNKS_PAGE_NAME)
@@ -129,7 +133,7 @@ function allocateResourceToPackages(files, base, fullPackage, subPackages, build
   })
   // 把埋点文件添加进整包和主包
   if (buildInfo) {
-    const trackResource = getBuildInfoResource(buildInfo)
+    const trackResource = getBuildInfoResource(buildInfo, widgetDigestMap)
     fullPackage.addResource(...trackResource)
     subPackages && subPackages[0].addResource(...trackResource)
   }

@@ -351,8 +351,20 @@ ZipPlugin.prototype.apply = function (compiler) {
       options.banner
     )
 
+    const { _widgetDigestMap } = stats.compilation
+    if (_widgetDigestMap && Object.keys(_widgetDigestMap)?.length) {
+      console.log('widget fingerprint:', _widgetDigestMap)
+    }
+
     // 遍历文件分配文件资源到每个package里面, 包括digest, file hash
-    allocateResourceToPackages(files, options.pathBuild, fullPackage, subPackages, options.comment)
+    allocateResourceToPackages(
+      files,
+      options.pathBuild,
+      fullPackage,
+      subPackages,
+      options.comment,
+      _widgetDigestMap
+    )
 
     // 重置包名
     if (options.buildPreviewRpkOptions && options.buildPreviewRpkOptions.setPreviewPkgPath) {
