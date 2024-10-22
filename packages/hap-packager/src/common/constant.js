@@ -32,6 +32,11 @@ const LOADER_PATH_UX = {
   type: 'ux'
 }
 
+const LOADER_PATH_STYLE = {
+  path: '/style-loader.js',
+  type: 'styles'
+}
+
 /**
  * loader path
  */
@@ -41,10 +46,7 @@ const LOADER_INFO_LIST = [
     path: '/template-loader.js',
     type: 'template'
   },
-  {
-    path: '/style-loader.js',
-    type: 'styles'
-  },
+  LOADER_PATH_STYLE,
   {
     path: '/script-loader.js',
     type: 'script'
@@ -72,5 +74,6 @@ export {
   COMPRESS_OPTS,
   BUILD_INFO_FILE,
   LOADER_PATH_UX,
+  LOADER_PATH_STYLE,
   LOADER_INFO_LIST
 }
