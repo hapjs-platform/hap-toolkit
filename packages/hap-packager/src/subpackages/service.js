@@ -56,10 +56,10 @@ function getBuildInfoResource(buildInfo, widgetDigestMap) {
       return key + '=' + buildInfo[key]
     })
     .join('\n')
-  widgetDigestMap && Object.keys(widgetDigestMap)
-  .forEach(key => {
-    content += `\n${key}=${widgetDigestMap[key]}`
-  })
+  widgetDigestMap &&
+    Object.keys(widgetDigestMap).forEach((key) => {
+      content += `\n${key}=${widgetDigestMap[key]}`
+    })
   const buildPath = BUILD_INFO_FILE
   const buf = Buffer.from(content)
   const digest = calcDataDigest(buf)
@@ -74,7 +74,14 @@ function getBuildInfoResource(buildInfo, widgetDigestMap) {
  * @param {Package[]} subPackages 分包列表
  * @param {String} buildInfo 打包信息
  */
-function allocateResourceToPackages(files, base, fullPackage, subPackages, buildInfo, widgetDigestMap) {
+function allocateResourceToPackages(
+  files,
+  base,
+  fullPackage,
+  subPackages,
+  buildInfo,
+  widgetDigestMap
+) {
   const belongTofullPkgReg = new RegExp(`^${SPLIT_CHUNKS_PAGE_NAME}$`)
   const belongTofSubPkgReg = new RegExp(`\\/${SPLIT_CHUNKS_PAGE_NAME}$`)
   const basePageChunksJson = path.join(MAIN_PKG_NAME, SPLIT_CHUNKS_PAGE_NAME)

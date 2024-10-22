@@ -144,7 +144,8 @@ function postHook(webpackConf, defaultsOptions, quickappConfig = {}) {
       configDebugInManifest,
       optimizeUnusedResource: compileOptionsObject.optimizeUnusedResource
     }),
-    new WidgetFingerprintPlugin({ // must before ZipPlugin, calculate widget fingerprint for ZipPlugin
+    new WidgetFingerprintPlugin({
+      // must before ZipPlugin, calculate widget fingerprint for ZipPlugin
       pathSrc
     }),
     // 打包

@@ -41,12 +41,23 @@ class LiteCardPlugin {
             const { rawRequest: entryRawRequest, request } = entryModule
             // console.log('LiteCardPlugin >>> entryRawRequest:', entryRawRequest)
             if (this.isLightCard(entryRawRequest)) {
-              const { templateFileName, cssFileName, bundleFilePath } = this.getLightCardBuildPath(request, pathSrc)
+              const { templateFileName, cssFileName, bundleFilePath } = this.getLightCardBuildPath(
+                request,
+                pathSrc
+              )
               const liteCardRes = {
                 [CARD_ENTRY]: {}
               }
               const styleRes = {}
-              this.findOutgoingModules(moduleGraph, entryModule, liteCardRes, liteCardRes, styleRes, pathSrc, bundleFilePath)
+              this.findOutgoingModules(
+                moduleGraph,
+                entryModule,
+                liteCardRes,
+                liteCardRes,
+                styleRes,
+                pathSrc,
+                bundleFilePath
+              )
               compilation.assets[templateFileName] = new ConcatSource(JSON.stringify(liteCardRes))
               compilation.assets[cssFileName] = new ConcatSource(JSON.stringify(styleRes))
             }
@@ -66,7 +77,15 @@ class LiteCardPlugin {
    * @param {*} pathSrc src path for current quickapp project
    * @param {*} compPath card ux component path
    */
-  findOutgoingModules(moduleGraph, currModule, currCompRes, liteCardRes, styleRes, pathSrc, compPath) {
+  findOutgoingModules(
+    moduleGraph,
+    currModule,
+    currCompRes,
+    liteCardRes,
+    styleRes,
+    pathSrc,
+    compPath
+  ) {
     const moduleGraphConnection = moduleGraph.getOutgoingConnectionsByModule(currModule)
 
     if (moduleGraphConnection !== undefined) {
@@ -104,12 +123,14 @@ class LiteCardPlugin {
             throw new Error(`Build failed, invalid component name, path: ${reqPath}`)
           }
 
-          if (isCardRes) { // card res
+          if (isCardRes) {
+            // card res
             if (!currCompRes[CARD_ENTRY][TYPE_IMPORT]) {
               currCompRes[CARD_ENTRY][TYPE_IMPORT] = {}
             }
             currCompRes[CARD_ENTRY][TYPE_IMPORT][compName] = relativeSrcPath
-          } else { // component res
+          } else {
+            // component res
             if (!currCompRes[TYPE_IMPORT]) {
               currCompRes[TYPE_IMPORT] = {}
             }
@@ -122,16 +143,25 @@ class LiteCardPlugin {
 
           const compRes = {}
           liteCardRes[relativeSrcPath] = compRes
-          this.findOutgoingModules(moduleGraph, m, compRes, liteCardRes, styleRes, pathSrc, relativeSrcPath)
+          this.findOutgoingModules(
+            moduleGraph,
+            m,
+            compRes,
+            liteCardRes,
+            styleRes,
+            pathSrc,
+            relativeSrcPath
+          )
         } else if (typeArr.includes(type)) {
-          if (type === LOADER_PATH_STYLE.type) { // styles
+          if (type === LOADER_PATH_STYLE.type) {
+            // styles
             const styleObjId = this.genStyleObjectId(compPath, styleRes)
             styleRes[styleObjId] = obj
-            isCardRes ? currCompRes[CARD_ENTRY][STYLE_OBJECT_ID] = styleObjId 
-              : currCompRes[STYLE_OBJECT_ID] = styleObjId
+            isCardRes
+              ? (currCompRes[CARD_ENTRY][STYLE_OBJECT_ID] = styleObjId)
+              : (currCompRes[STYLE_OBJECT_ID] = styleObjId)
           } else {
-            isCardRes ? currCompRes[CARD_ENTRY][type] = obj 
-              : currCompRes[type] = obj
+            isCardRes ? (currCompRes[CARD_ENTRY][type] = obj) : (currCompRes[type] = obj)
           }
         } else {
           console.warn('Invalid module:', type, rawRequest)
@@ -145,7 +175,7 @@ class LiteCardPlugin {
     const digestStr = digest.toString('hex')
     const len = Math.min(6, digestStr.length)
     let res = compPath
-    for (let i=len; i<digestStr.length; i++) {
+    for (let i = len; i < digestStr.length; i++) {
       res = digestStr.substring(0, i)
       if (styleRes[res]) {
         continue
@@ -215,7 +245,10 @@ class LiteCardPlugin {
     if (!uxRelativePath.endsWith(SUFFIX_UX)) {
       throw new Error(`Invalid relative path for ux:\n${uxRelativePath}`)
     }
-    const bundleFilePath = `${uxRelativePath.substring(0, uxRelativePath.length - SUFFIX_UX.length)}`
+    const bundleFilePath = `${uxRelativePath.substring(
+      0,
+      uxRelativePath.length - SUFFIX_UX.length
+    )}`
     return {
       bundleFilePath,
       templateFileName: `${bundleFilePath}.template.json`,

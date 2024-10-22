@@ -10,10 +10,22 @@ import { LOADER_INFO_LIST, LOADER_PATH_UX } from '../common/constant'
 
 const MANIFEST_PATH = 'manifest.json'
 
-const EXCLUDE_FILE_EXTS = ['.ux', '.vue', '.jsx', '.tsx', '.js', '.ts', '.css', '.less', '.scss', '.sass', ''] // .gitignore .DS_Store
+const EXCLUDE_FILE_EXTS = [
+  '.ux',
+  '.vue',
+  '.jsx',
+  '.tsx',
+  '.js',
+  '.ts',
+  '.css',
+  '.less',
+  '.scss',
+  '.sass',
+  ''
+] // .gitignore .DS_Store
 
 /**
- * Generate a fingerprint string for a widget, based on the source code and config of the widget. 
+ * Generate a fingerprint string for a widget, based on the source code and config of the widget.
  * The fingerprint can be used to detect whether any changes on the widget.
  */
 class WidgetFingerprintPlugin {
@@ -26,7 +38,8 @@ class WidgetFingerprintPlugin {
       const options = this.options
       const pathSrc = options.pathSrc
       let manifestPath
-      if (fs.pathExistsSync(path.join(pathSrc, 'manifest-phone.json'))) { // compatible with device type, phone
+      if (fs.pathExistsSync(path.join(pathSrc, 'manifest-phone.json'))) {
+        // compatible with device type, phone
         manifestPath = path.join(pathSrc, 'manifest-phone.json')
       } else {
         manifestPath = path.join(pathSrc, MANIFEST_PATH)
@@ -43,7 +56,7 @@ class WidgetFingerprintPlugin {
       }
       const widgets = options.widgets || {}
       const widgetNameKeyMap = {}
-      const widgetEntries = Object.keys(widgets).map(key => {
+      const widgetEntries = Object.keys(widgets).map((key) => {
         const widget = widgets[key]
         const name = path.join(key, widget.component)
         widgetNameKeyMap[name] = key
@@ -51,7 +64,8 @@ class WidgetFingerprintPlugin {
       })
       for (const chunk of compilation.chunks) {
         const chunkName = chunk.name
-        if (widgetEntries.indexOf(chunkName) >= 0) { // widget chunk
+        if (widgetEntries.indexOf(chunkName) >= 0) {
+          // widget chunk
           const widgetKey = widgetNameKeyMap[chunkName]
           const widgetDigestMap = {}
           const arr = []
@@ -64,7 +78,7 @@ class WidgetFingerprintPlugin {
             const reqPath = request.replace(/\\/g, '/')
             const lastLoaderPath = getLastLoaderPath(reqPath)
             if (lastLoaderPath === LOADER_PATH_UX.path) {
-              // skip ux-loader.js 
+              // skip ux-loader.js
               continue
             }
             const { absPath } = this.parseABSPath(reqPath, pathSrc)
@@ -88,7 +102,7 @@ class WidgetFingerprintPlugin {
 
           const orderK = Object.keys(widgetDigestMap).sort()
           let contentStr = '' // ordered path & digest string
-          orderK.forEach(filePath => {
+          orderK.forEach((filePath) => {
             contentStr += `${filePath}:${widgetDigestMap[filePath]};`
           })
           // generate widget digest, save it in compilation
@@ -105,25 +119,25 @@ class WidgetFingerprintPlugin {
 
   /**
    * parse absolute path based by project src
-   * @param {*} reqPath 
-   * @param {*} srcPath 
+   * @param {*} reqPath
+   * @param {*} srcPath
    */
   parseABSPath(reqPath, srcPath) {
-    if(!reqPath) {
+    if (!reqPath) {
       return null
     }
     const reqArr = reqPath.split('!')
     const pathStr = reqArr[reqArr.length - 1]
-    if(pathStr) {
+    if (pathStr) {
       let type = ''
       const lastLoaderPath = getLastLoaderPath(reqPath)
       if (lastLoaderPath) {
-        const loaderItem = LOADER_INFO_LIST.find(item => item.path === lastLoaderPath)
-        type = loaderItem && loaderItem.type || ''
+        const loaderItem = LOADER_INFO_LIST.find((item) => item.path === lastLoaderPath)
+        type = (loaderItem && loaderItem.type) || ''
       }
       const pathArr = pathStr.split('?')
       const p = pathArr[0]
-      if(p.indexOf(srcPath) === 0) {
+      if (p.indexOf(srcPath) === 0) {
         const res = p.substring(srcPath.length)
         const absPath = `${res}${type && '?'}${type}`
         return { absPath, type } // add type param for ux sections
@@ -134,8 +148,8 @@ class WidgetFingerprintPlugin {
 
   /**
    * 返回与当前卡片相关的 manifest 配置摘要
-   * @param string widgetKey 
-   * @param string manifestContent 
+   * @param string widgetKey
+   * @param string manifestContent
    */
   getManifestDigest(widgetKey, manifestContent) {
     if (!widgetKey || !manifestContent) {
@@ -158,8 +172,8 @@ class WidgetFingerprintPlugin {
 
   /**
    * calculate digest of the assets files
-   * @param {string} dir 
-   * @param {string[]} allFiles 
+   * @param {string} dir
+   * @param {string[]} allFiles
    * @returns {Object} relative file path and its digest
    */
   calculateAssetsDigest(dir, basePath, assetsDigestMap = {}) {
