@@ -232,3 +232,25 @@ export function mergeDeep(target, ...sources) {
 
   return mergeDeep(target, ...sources)
 }
+
+/**
+ * get the last loader path from request path
+ * @param {*} reqPath request path in  'xxx/packages/hap-dsl-xvm/lib/loaders/script-loader.js!...!xxx/packages/hap-dsl-xvm/lib/loaders/fragment-loader.js?index=0&type=script!/projectRoot/src/card/index.ux?uxType=card'
+ * @returns '/fragment-loader.js'
+ */
+export function getLastLoaderPath(reqPath) {
+  if (!reqPath) {
+    return null
+  }
+  reqPath = reqPath.replace(/\\/g, '/')
+  const reqArr = reqPath.split('!')
+  let lastLoader = reqArr[0] // inline loader reversed by '!'
+  if (lastLoader && lastLoader.indexOf('?') > 0) {
+    // remove params if exist
+    lastLoader = lastLoader.split('?')[0]
+  }
+  if (lastLoader && lastLoader.lastIndexOf('/') !== -1) {
+    return lastLoader.substring(lastLoader.lastIndexOf('/'))
+  }
+  return null
+}

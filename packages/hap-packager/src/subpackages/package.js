@@ -29,12 +29,12 @@ class Package {
     // 打包文件列表
     this._resourceList = []
 
+    this._widget = false
+
     Object.assign(this, options)
 
-    // 实例化时固定，完整包名，例如：com.demo.base.srpk
-    this.fileName = [this.filePrefix, this.fileSubname, this.fileSuffix]
-      .filter((i) => i !== null)
-      .join('.')
+    const path = [this.fileSubname, this.fileSuffix].filter((i) => i !== null).join('.')
+    this.fileName = `${this.filePrefix}${this._widget ? '_' : '.'}${path}`
   }
 
   addResource(fileBuildPath, fileContentBuffer, fileContentDigest) {
@@ -98,7 +98,8 @@ function createSubPackages(appPackageName, subpackages, appIcon, banner = '') {
     const partPkg = new Package({
       filePrefix: appPackageName,
       fileSubname: subpkg.name,
-      fileSuffix: 'srpk',
+      _widget: subpkg._widget,
+      fileSuffix: subpkg._widget ? 'rpk' : 'srpk',
       subMatch: new RegExp(`^${subpkg.resource}/.*`, 'i'),
       standalone: subpkg.standalone || false,
       icon: subpkg.standalone ? subpkg.icon || appIcon : '',

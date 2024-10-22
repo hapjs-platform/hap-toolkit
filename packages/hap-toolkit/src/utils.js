@@ -78,6 +78,9 @@ export function resolveEntries(manifest, basedir, cwd) {
       let sourceFile = path.relative(cwd, filepath)
       sourceFile = './' + sourceFile + `?uxType=${type}`
       sourceFile = sourceFile.replace(/\\/g, '/')
+      if (type === ENTRY_TYPE.CARD && conf.type === 'lite') {
+        sourceFile += '&lite=1' // lite card
+      }
       entries[entryKey] = sourceFile
     })
   })

@@ -8,7 +8,9 @@ import { sync as resolveSync } from 'resolve'
 import { globalConfig, readJson, compileOptionsObject } from '@hap-toolkit/shared-utils'
 
 import {
+  WidgetFingerprintPlugin,
   CopyDslPlugin,
+  LiteCardPlugin,
   HandlerPlugin,
   ResourcePlugin,
   DeviceTypePlugin,
@@ -122,6 +124,7 @@ function postHook(webpackConf, defaultsOptions, quickappConfig = {}) {
   }
 
   webpackConf.plugins.push(
+    new LiteCardPlugin({ pathSrc }),
     // 框架Handler包装
     new HandlerPlugin({
       pathSrc: pathSrc,
@@ -140,6 +143,10 @@ function postHook(webpackConf, defaultsOptions, quickappConfig = {}) {
       projectRoot: globalConfig.projectPath,
       configDebugInManifest,
       optimizeUnusedResource: compileOptionsObject.optimizeUnusedResource
+    }),
+    new WidgetFingerprintPlugin({
+      // must before ZipPlugin, calculate widget fingerprint for ZipPlugin
+      pathSrc
     }),
     // 打包
     new ZipPlugin({

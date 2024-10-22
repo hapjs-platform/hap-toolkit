@@ -237,3 +237,16 @@ export function convertPath(filePath) {
   }
   return path.join(pathBase, filePath)
 }
+
+/**
+ * 片段的类型
+ */
+export const FRAG_TYPE = {
+  IMPORT: 'import',
+  TEMPLATE: 'template',
+  STYLE: 'style',
+  SCRIPT: 'script',
+  DATA: 'data',
+  ACTIONS: 'actions',
+  PROPS: 'props'
+}

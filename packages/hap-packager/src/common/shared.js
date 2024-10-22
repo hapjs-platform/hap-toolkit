@@ -195,14 +195,15 @@ function searchModuleImport(fileCont, options = {}) {
  */
 function checkFeatureInCard(obj = {}) {
   Object.keys(obj).forEach((key) => {
-    obj[key].features.every((item) => {
-      if (global.framework.supportInCard.indexOf(item.name) === -1) {
-        // 不支持的native模块
-        colorconsole.error(
-          `WARN: manifest.json文件中引入了卡片${key}未识别的features：${item.name}`
-        )
-      }
-    })
+    obj[key].features &&
+      obj[key].features.every((item) => {
+        if (global.framework.supportInCard.indexOf(item.name) === -1) {
+          // 不支持的native模块
+          colorconsole.error(
+            `WARN: manifest.json文件中引入了卡片${key}未识别的features：${item.name}`
+          )
+        }
+      })
   })
 }
 
