@@ -317,7 +317,8 @@ ZipPlugin.prototype.apply = function (compiler) {
         Object.keys(widgets).forEach((key) => {
           subpackageOptions.push({
             name: key.replace('/', '.'),
-            resource: key
+            resource: key,
+            _widget: true
           })
         })
       }
