@@ -9,7 +9,7 @@ export default function actionLoader(source) {
     const obj = JSON.parse(source)
     jsonObj = obj.actions || {}
   } catch (e) {
-    throw new Error(`Invalid <data> in action loader:: ${e}`)
+    throw new Error(`Invalid <data> in ${this.resourcePath}:: ${e}`)
   }
   return `module.exports = ${JSON.stringify(jsonObj)}`
 }

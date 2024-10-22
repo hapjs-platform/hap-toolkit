@@ -9,7 +9,7 @@ export default function dataLoader(source) {
     const obj = JSON.parse(source)
     jsonObj = obj.uiData || obj.data || {}
   } catch (e) {
-    throw new Error(`Invalid <data> in data loader:: ${e}`)
+    throw new Error(`Invalid <data> in ${this.resourcePath}:: ${e}`)
   }
   return `module.exports = ${JSON.stringify(jsonObj)}`
 }
