@@ -30,7 +30,8 @@ class LiteCardPlugin {
           stage: Compilation.PROCESS_ASSETS_STAGE_ADDITIONAL
         },
         () => {
-          const { pathSrc } = this.options
+          let { pathSrc } = this.options
+          pathSrc = pathSrc.replace(/\\/g, '/')
           const moduleGraph = compilation.moduleGraph
           for (const chunk of compilation.chunks) {
             const entryModule = chunk.entryModule
@@ -194,23 +195,27 @@ class LiteCardPlugin {
       const reqArr = reqPath.split('!')
       const lastItem = reqArr[reqArr.length - 1]
       const pathArr = lastItem.split('?')
+      const uxPath = pathArr[0]
+      const relativeSrcPath = this.getRelativeCompPath(pathSrc, uxPath)
       const paramStr = pathArr[1]
       const compUxType = 'uxType=comp'
       const namePrefix = 'name='
+      let compName = relativeSrcPath
       if (paramStr && paramStr.includes(compUxType) && paramStr.includes(namePrefix)) {
         const paramArr = paramStr.split('&')
         const nameStr = paramArr.find((item) => item.indexOf(namePrefix) === 0)
-        const compName = nameStr && nameStr.substring(namePrefix.length)
-        const uxPath = pathArr[0]
-        const relativeSrcPath = this.getRelativeCompPath(pathSrc, uxPath)
-        return { compName, relativeSrcPath }
+        if (nameStr) {
+          compName = nameStr.substring(namePrefix.length)
+        }
       }
+      return { compName, relativeSrcPath }
     }
     return {}
   }
 
   getRelativeCompPath(pathSrc, uxPath) {
-    const relativeSrcPathStr = path.relative(pathSrc, uxPath)
+    let relativeSrcPathStr = path.relative(pathSrc, uxPath)
+    relativeSrcPathStr = relativeSrcPathStr.replace(/\\/g, '/')
     if (relativeSrcPathStr && relativeSrcPathStr.endsWith('.ux')) {
       return relativeSrcPathStr.substring(0, relativeSrcPathStr.length - SUFFIX_UX.length)
     }
@@ -233,7 +238,7 @@ class LiteCardPlugin {
       throw new Error(`Invalid request path or src path:\n${requestPath}\n${pathSrc}`)
     }
     requestPath = requestPath.replace(/\\/g, '/')
-    pathSrc = pathSrc.replace(/\\/g, '/')
+    // pathSrc = pathSrc.replace(/\\/g, '/')
     // const requestPathNormal = path.normalize(requestPath)
     const reqPathArr = requestPath.split('!')
     let uxPathStr = reqPathArr[reqPathArr.length - 1]
