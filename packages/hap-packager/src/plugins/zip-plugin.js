@@ -316,7 +316,7 @@ ZipPlugin.prototype.apply = function (compiler) {
         const widgets = manifest?.router?.widgets || {}
         Object.keys(widgets).forEach((key) => {
           subpackageOptions.push({
-            name: key.replace('/', '.'),
+            name: key.replaceAll('/', '.'),
             resource: key,
             _widget: true
           })
