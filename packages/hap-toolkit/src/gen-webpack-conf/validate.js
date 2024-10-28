@@ -39,6 +39,18 @@ const docSrc = 'https://doc.quickapp.cn/framework/manifest.html'
 export function validateJson(jsonInfo, filePath) {
   const ajv = new Ajv({ allErrors: true, jsonPointers: true })
   AjvErrors(ajv)
+  ajv.addKeyword('requireError', {
+    validate: function (schema, data) {
+      if (!data || !data.widgets) {
+        const message = `快应用项目 manifest.json 中，router 字段下 ${JSON.stringify(
+          schema
+        )} 字段为必填`
+        colorconsole.error(message)
+      }
+      // 项目工程有卡片时无需校验 entry 和 pages 字段的必填性
+      return true
+    }
+  })
   ajv.validate(manifestSchema, jsonInfo)
   if (!ajv.errors) {
     return []
