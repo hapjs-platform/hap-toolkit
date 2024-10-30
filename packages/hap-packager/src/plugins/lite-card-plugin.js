@@ -7,6 +7,7 @@ import Compilation from 'webpack/lib/Compilation'
 import path from 'path'
 import { getLastLoaderPath, calcDataDigest } from '../common/utils'
 import { LOADER_INFO_LIST, LOADER_PATH_UX, LOADER_PATH_STYLE } from '../common/constant'
+import { postHandleLiteCardRes } from '../post-handler'
 
 const SUFFIX_UX = '.ux'
 const CARD_ENTRY = '#entry'
@@ -59,7 +60,8 @@ class LiteCardPlugin {
                 pathSrc,
                 bundleFilePath
               )
-              compilation.assets[templateFileName] = new ConcatSource(JSON.stringify(liteCardRes))
+              const templateJsonStr = postHandleLiteCardRes(liteCardRes)
+              compilation.assets[templateFileName] = new ConcatSource(templateJsonStr)
               compilation.assets[cssFileName] = new ConcatSource(JSON.stringify(styleRes))
             }
           }

@@ -2019,5 +2019,6 @@ export default {
   getTagChildren,
   isSupportedSelfClosing,
   isEmptyElement,
-  isNotTextContentAtomic
+  isNotTextContentAtomic,
+  isExpr: exp.isExpr
 }
