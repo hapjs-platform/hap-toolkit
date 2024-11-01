@@ -261,6 +261,7 @@ const tagNatives = {
     }
   },
   component: {
+    supportCard: true,
     excludeRoot: true,
     attrs: {
       extendCommon: false, // 不支持通用属性
