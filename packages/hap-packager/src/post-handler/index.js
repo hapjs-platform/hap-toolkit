@@ -289,9 +289,11 @@ export function postHandleLiteCardRes(liteCardRes) {
   for (let i = 0; i < uxList.length; i++) {
     const compName = uxList[i]
     const actionEvents = liteCardRes[compName][ACTIONS_KEY]
-    Object.keys(actionEvents).forEach((eventName) => {
-      postHandleActions(actionEvents[eventName])
-    })
+    if (actionEvents) {
+      Object.keys(actionEvents).forEach((eventName) => {
+        postHandleActions(actionEvents[eventName])
+      })
+    }
   }
 
   // 用于修改 template 的 key 的 stringify 的顺序
