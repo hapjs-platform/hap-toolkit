@@ -37,16 +37,18 @@ const LOADER_PATH_STYLE = {
   type: 'styles'
 }
 
+const LOADER_PATH_TEMPLATE = {
+  path: '/template-loader.js',
+  type: 'template'
+}
+
 /**
  * loader path
  */
 const LOADER_INFO_LIST = [
   LOADER_PATH_UX,
-  {
-    path: '/template-loader.js',
-    type: 'template'
-  },
   LOADER_PATH_STYLE,
+  LOADER_PATH_TEMPLATE,
   {
     path: '/script-loader.js',
     type: 'script'
@@ -75,5 +77,6 @@ export {
   BUILD_INFO_FILE,
   LOADER_PATH_UX,
   LOADER_PATH_STYLE,
+  LOADER_PATH_TEMPLATE,
   LOADER_INFO_LIST
 }

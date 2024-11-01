@@ -6,7 +6,12 @@
 import Compilation from 'webpack/lib/Compilation'
 import path from 'path'
 import { getLastLoaderPath, calcDataDigest } from '../common/utils'
-import { LOADER_INFO_LIST, LOADER_PATH_UX, LOADER_PATH_STYLE } from '../common/constant'
+import {
+  LOADER_INFO_LIST,
+  LOADER_PATH_UX,
+  LOADER_PATH_STYLE,
+  LOADER_PATH_TEMPLATE
+} from '../common/constant'
 import { postHandleLiteCardRes } from '../post-handler'
 
 const SUFFIX_UX = '.ux'
@@ -158,11 +163,18 @@ class LiteCardPlugin {
         } else if (typeArr.includes(type)) {
           if (type === LOADER_PATH_STYLE.type) {
             // styles
-            const styleObjId = this.genStyleObjectId(compPath, styleRes)
+            const styleObjId = getStyleObjectId(compPath)
             styleRes[styleObjId] = obj
-            isCardRes
-              ? (currCompRes[CARD_ENTRY][STYLE_OBJECT_ID] = styleObjId)
-              : (currCompRes[STYLE_OBJECT_ID] = styleObjId)
+          } else if (type === LOADER_PATH_TEMPLATE.type) {
+            // template
+            const styleObjId = getStyleObjectId(compPath)
+            if (isCardRes) {
+              currCompRes[CARD_ENTRY][type] = obj
+              currCompRes[CARD_ENTRY][type][STYLE_OBJECT_ID] = styleObjId
+            } else {
+              currCompRes[type] = obj
+              currCompRes[type][STYLE_OBJECT_ID] = styleObjId
+            }
           } else {
             isCardRes ? (currCompRes[CARD_ENTRY][type] = obj) : (currCompRes[type] = obj)
           }
@@ -171,21 +183,6 @@ class LiteCardPlugin {
         }
       }
     }
-  }
-
-  genStyleObjectId(compPath, styleRes) {
-    const digest = calcDataDigest(Buffer.from(compPath, 'utf-8'))
-    const digestStr = digest.toString('hex')
-    const len = Math.min(6, digestStr.length)
-    let res = compPath
-    for (let i = len; i < digestStr.length; i++) {
-      res = digestStr.substring(0, i)
-      if (styleRes[res]) {
-        continue
-      }
-      break
-    }
-    return res
   }
 
   getComponentName(reqPath, pathSrc) {
@@ -262,6 +259,32 @@ class LiteCardPlugin {
       cssFileName: `${bundleFilePath}.css.json`
     }
   }
+}
+
+const componentIdMap = new Map()
+const componentPathMap = new Map()
+function getStyleObjectId(compPath) {
+  if (!componentPathMap.get(compPath)) {
+    const compId = getHash(compPath)
+    componentIdMap.set(compId, compPath)
+    componentPathMap.set(compPath, compId)
+  }
+  return componentPathMap.get(compPath)
+}
+
+function getHash(compPath) {
+  const digest = calcDataDigest(Buffer.from(compPath, 'utf-8'))
+  const digestStr = digest.toString('hex')
+  const len = Math.min(6, digestStr.length)
+  let res = compPath
+  for (let i = len; i < digestStr.length; i++) {
+    res = digestStr.substring(0, i)
+    if (componentIdMap.has(res)) {
+      continue
+    }
+    break
+  }
+  return res
 }
 
 export { LiteCardPlugin }
