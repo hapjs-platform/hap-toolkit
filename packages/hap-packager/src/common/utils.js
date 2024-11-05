@@ -204,8 +204,6 @@ export function genPriorities(manifest, skeletonConf) {
     const entry = manifest.router.entry
     const entrySkFiles = getEntrySkeleton(skeletonConf, entry)
     priorities.splice(5, 0, ...entrySkFiles, new RegExp(`^${entry}/$`), new RegExp(`^${entry}/.+`))
-  } else {
-    colorconsole.error(`manifest.json 中未配置入口页面 router.entry`)
   }
   return priorities
 }

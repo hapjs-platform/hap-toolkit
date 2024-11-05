@@ -174,7 +174,7 @@ function traverse(node, output, previousNode, conditionList, options) {
               output.log.push({
                 line: node.__location.line,
                 column: node.__location.col,
-                reason: `Warn: 组件 ${node.tagName} 不支持文本内容作为字节点`
+                reason: `Warn: 组件 ${node.tagName} 不支持文本内容作为子节点`
               })
             }
           }

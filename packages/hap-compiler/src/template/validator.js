@@ -261,6 +261,7 @@ const tagNatives = {
     }
   },
   component: {
+    supportCard: true,
     excludeRoot: true,
     attrs: {
       extendCommon: false, // 不支持通用属性
@@ -1827,15 +1828,17 @@ function checkCustomDirective(name, value, output, node) {
 function checkAttr(name, value, output, tagName, locationInfo, options) {
   if (name && isValidValue(value)) {
     if (shouldConvertPath(name, value, tagName)) {
-      // 判断路径下资源是否存在
-      const hasFile = fileExists(value, options.filePath)
-      if (!hasFile) {
-        output.log.push({
-          line: locationInfo.line,
-          column: locationInfo.column,
-          reason:
-            'WARN: ' + tagName + ' 属性 ' + name + ' 的值 ' + value + ' 下不存在对应的文件资源'
-        })
+      if (!exp.isExpr(value)) {
+        // 若路径不包含表达式，判断路径下资源是否存在
+        const hasFile = fileExists(value, options.filePath)
+        if (!hasFile) {
+          output.log.push({
+            line: locationInfo.line,
+            column: locationInfo.column,
+            reason:
+              'WARN: ' + tagName + ' 属性 ' + name + ' 的值 ' + value + ' 下不存在对应的文件资源'
+          })
+        }
       }
       // 转换为以项目源码为根的绝对路径
       value = resolvePath(value, options.filePath)
@@ -2017,5 +2020,6 @@ export default {
   getTagChildren,
   isSupportedSelfClosing,
   isEmptyElement,
-  isNotTextContentAtomic
+  isNotTextContentAtomic,
+  isExpr: exp.isExpr
 }

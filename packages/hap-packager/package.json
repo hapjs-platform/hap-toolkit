@@ -29,6 +29,7 @@
     "babel.tree.config.js"
   ],
   "dependencies": {
+    "@aiot-toolkit/card-expression": "^1.0.8",
     "@babel/core": "^7.9.6",
     "@babel/generator": "^7.9.6",
     "@babel/parser": "^7.9.6",
@@ -41,6 +42,7 @@
     "@hap-toolkit/shared-utils": "1.9.14",
     "@jayfate/path": "^0.0.13",
     "babel-loader": "^8.1.0",
+    "flat": "^5.0.2",
     "fs-extra": "^10.0.0",
     "glob": "^7.1.6",
     "hash-sum": "^1.0.2",

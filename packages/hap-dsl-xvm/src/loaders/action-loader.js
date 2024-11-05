@@ -2,14 +2,17 @@
  * Copyright (c) 2024-present, the hapjs-platform Project Contributors
  * SPDX-License-Identifier: Apache-2.0
  */
+import { parseActions } from '@hap-toolkit/compiler'
 
 export default function actionLoader(source) {
-  let jsonObj = {}
+  let actionStr = ''
   try {
     const obj = JSON.parse(source)
-    jsonObj = obj.actions || {}
+    const jsonObj = obj.actions || {}
+    const { parsed } = parseActions(jsonObj)
+    actionStr = parsed
   } catch (e) {
-    throw new Error(`Invalid <data> in ${this.resourcePath}:: ${e}`)
+    throw new Error(`Invalid <data> in ${this.resourcePath}\n${e}`)
   }
-  return `module.exports = ${JSON.stringify(jsonObj)}`
+  return `module.exports = ${actionStr}`
 }

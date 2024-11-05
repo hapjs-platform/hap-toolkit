@@ -86,7 +86,7 @@ export default {
     router: {
       // TODO 更详细的后台运行配置信息，
       type: 'object',
-      required: ['entry', 'pages'],
+      requireError: ['entry', 'pages'],
       properties: {
         entry: {
           type: 'string',

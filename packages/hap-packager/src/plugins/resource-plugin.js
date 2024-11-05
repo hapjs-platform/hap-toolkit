@@ -3,6 +3,7 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
+import flatten from 'flat'
 import path from 'path'
 import fs from 'fs-extra'
 import aaptjs from '@hap-toolkit/aaptjs'
@@ -122,21 +123,25 @@ function minifyWidgetI18nJSONFiles(targetDir) {
   let arr = []
   for (let key in widgetsOption) {
     const widgetPath = widgetsOption[key].path
+    const isLite = widgetsOption[key].type === 'lite'
     const dir = path.join(targetDir, widgetPath, 'i18n')
     if (fs.existsSync(dir)) {
       const jsonFiles = getFiles('*.json', dir)
       jsonFiles.forEach((filePath) => {
         arr.push(filePath)
-        minifyJson(filePath, filePath)
+        minifyJson(filePath, filePath, isLite)
       })
     }
   }
 }
 
-function minifyJson(source, target) {
+function minifyJson(source, target, isLite) {
   try {
     const contentStr = fs.readFileSync(source, 'utf8')
-    const content = JSON.parse(contentStr)
+    let content = JSON.parse(contentStr)
+    if (isLite) {
+      content = flatten.flatten(content)
+    }
     const minifiedContent = JSON.stringify(content)
     fs.writeFileSync(target, minifiedContent)
   } catch (err) {

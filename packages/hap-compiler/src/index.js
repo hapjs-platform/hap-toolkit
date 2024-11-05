@@ -6,11 +6,12 @@
 'use strict'
 import parse5 from 'parse5'
 import templater from './template'
+import actioner from './actions'
 import styler from './style'
 import scripter from './script'
 import { serialize } from './utils'
 
-export { scripter, styler, templater }
+export { scripter, styler, templater, actioner }
 export * from './style'
 
 /**
@@ -156,5 +157,16 @@ function parseScript(source) {
   return { parsed: parsed }
 }
 
-export { parseFragmentsWithCache, parseTemplate, parseStyle, parseScript, serialize }
+/**
+ * 解析actions
+ * @param {String} jsonObj - actions对象
+ * @returns {Object}
+ */
+function parseActions(jsonObj) {
+  const { jsonAction } = actioner.parse(jsonObj)
+  const parsed = JSON.stringify(jsonAction)
+  return { parsed }
+}
+
+export { parseFragmentsWithCache, parseTemplate, parseStyle, parseScript, parseActions, serialize }
 export { ENTRY_TYPE, FRAG_TYPE, isEmptyObject } from './utils'
