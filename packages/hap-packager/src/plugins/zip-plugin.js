@@ -318,6 +318,7 @@ ZipPlugin.prototype.apply = function (compiler) {
           subpackageOptions.push({
             name: key.replaceAll('/', '.'),
             resource: key,
+            standalone: true,
             _widget: true
           })
         })
