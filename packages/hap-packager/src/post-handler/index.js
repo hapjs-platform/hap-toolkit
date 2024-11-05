@@ -2,7 +2,6 @@ import { templateValueToCardCode } from '@aiot-toolkit/card-expression'
 import { templater } from '@hap-toolkit/compiler'
 const { validator } = templater
 
-const literalValueRE = /^(?:true|false|null|undefined|Infinity|NaN|\d+)$/
 const CARD_ENTRY = '#entry'
 const TYPE_IMPORT = 'import'
 // 需要进行后处理的模块key
@@ -30,7 +29,7 @@ function markType(actions) {
   if (isExpr(actions.type)) {
     const prefixExpr = getPrefixExpr(actions.type)
     delete actions.type
-    actions[getExprKey('type', prefixExpr)] = prefixExpr
+    actions['$type'] = prefixExpr
   }
 }
 
@@ -39,7 +38,7 @@ function markUrl(actions) {
   if (isExpr(actions.url)) {
     const prefixExpr = getPrefixExpr(actions.url)
     delete actions.url
-    actions[getExprKey('url', prefixExpr)] = prefixExpr
+    actions['$url'] = prefixExpr
   }
 }
 function markMethod(actions) {
@@ -47,7 +46,7 @@ function markMethod(actions) {
   if (isExpr(actions.method)) {
     const prefixExpr = getPrefixExpr(actions.method)
     delete actions.method
-    actions[getExprKey('method', prefixExpr)] = prefixExpr
+    actions['$method'] = prefixExpr
   }
 }
 
@@ -60,7 +59,7 @@ function markParams(actions) {
     if (isExpr(value)) {
       const prefixExpr = getPrefixExpr(value)
       delete actions.params[key]
-      actions.params[getExprKey(key, prefixExpr)] = prefixExpr
+      actions.params['$' + key] = prefixExpr
     }
   })
 }
@@ -105,7 +104,7 @@ function markIf(template) {
   if (isExpr(template.shown)) {
     const prefixExpr = getPrefixExpr(template.shown)
     delete template.shown
-    template[getExprKey('shown', prefixExpr)] = prefixExpr
+    template['$shown'] = prefixExpr
     template.kind = markKind(template.kind, ENUM_KIND_TYPE.FRAGMENT)
   }
 }
@@ -115,7 +114,7 @@ function markIs(template) {
   if (isExpr(template.is)) {
     const prefixExpr = getPrefixExpr(template.is)
     delete template.is
-    template[getExprKey('is', prefixExpr)] = prefixExpr
+    template['$is'] = prefixExpr
     template.kind = markKind(template.kind, ENUM_KIND_TYPE.ELEMENT)
   }
 }
@@ -127,7 +126,7 @@ function markId(template) {
   if (isExpr(template.id)) {
     const prefixExpr = getPrefixExpr(template.id)
     delete template.id
-    template[getExprKey('id', prefixExpr)] = prefixExpr
+    template['$id'] = prefixExpr
   }
   // 节点有id属性，标记为kind=1
   template.kind = markKind(template.kind, ENUM_KIND_TYPE.ELEMENT)
@@ -138,30 +137,30 @@ function markFor(template) {
     /**
       <div for="{{(index, item) in ItemList}}">   ->
       "repeat": {
-        "exp": "{{ItemList}}",
+        "$exp": "{{ItemList}}",
         "key": "index",
         "value": "item"
       },
 
       <div for="{{(index, item) in [1,2,3]}}">   ->
       "repeat": {
-        "exp": "[1,2,3]",
+        "$exp": "[\"~\",1,2,3]",
         "key": "index",
         "value": "item"
       },
     */
     const prefixExpr = getPrefixExpr(template.repeat.exp)
     delete template.repeat.exp
-    template.repeat[getExprKey('exp', prefixExpr)] = prefixExpr
+    template.repeat['$exp'] = prefixExpr
     template.kind = markKind(template.kind, ENUM_KIND_TYPE.FRAGMENT)
   } else if (isExpr(template.repeat)) {
     /**
       <div for="{{ItemList}}">   ->
-      "repeat": "{{ItemList}}",
+      "$repeat": "{{ItemList}}",
     */
     const prefixExpr = getPrefixExpr(template.repeat)
     delete template.repeat
-    template[getExprKey('repeat', prefixExpr)] = prefixExpr
+    template['$repeat'] = prefixExpr
     template.kind = markKind(template.kind, ENUM_KIND_TYPE.FRAGMENT)
   }
 }
@@ -177,7 +176,7 @@ function markStyle(template) {
       if (isExpr(value)) {
         const prefixExpr = getPrefixExpr(value)
         delete template.style[key]
-        template.style[getExprKey(key, prefixExpr)] = prefixExpr
+        template.style['$' + key] = prefixExpr
         template.kind = markKind(template.kind, ENUM_KIND_TYPE.ELEMENT)
       }
     })
@@ -186,7 +185,7 @@ function markStyle(template) {
     if (isExpr(style)) {
       const prefixExpr = getPrefixExpr(style)
       delete template.style
-      template[getExprKey('style', prefixExpr)] = prefixExpr
+      template['$style'] = prefixExpr
       template.kind = markKind(template.kind, ENUM_KIND_TYPE.ELEMENT)
     }
   }
@@ -207,7 +206,7 @@ function markClassList(template) {
   if (hasBinding) {
     // 如果 classList 元素有表达式
     delete template.classList
-    template[getExprKey('classList', cList, template)] = cList
+    template['$classList'] = cList
     template.kind = markKind(template.kind, ENUM_KIND_TYPE.ELEMENT)
   }
 }
@@ -227,7 +226,7 @@ function markAttrs(template) {
       if (isExpr(attrValue)) {
         const prefixExpr = getPrefixExpr(attrValue)
         delete attrs[attrKey]
-        attrs[getExprKey(attrKey, prefixExpr)] = prefixExpr
+        attrs['$' + attrKey] = prefixExpr
         template.kind = markKind(template.kind, ENUM_KIND_TYPE.ELEMENT)
       }
     })
@@ -245,21 +244,18 @@ function isObject(obj) {
 
 function getPrefixExpr(expr) {
   const res = templateValueToCardCode(expr)
-  // 表达式是保留字面量，返回 parse 后的结果。如： {{true}} -> true
-  if (literalValueRE.test(res)) {
-    return JSON.parse(res)
+  const parsed = JSON.parse(res)
+  if (isSimpleExpr(parsed)) {
+    // 表达式是简单标识符，直接返回模板字符串。如： {{ name }} -> {{ name }}
+    return expr
+  } else {
+    // 表达式为复杂表达式，返回前缀表达式字符串。如： {{ $item.name }} -> "[\".\",[\"$\",\"$item\"],\"name\"]"
+    return res
   }
-  // 表达式非保留字面量，返回字符串。如：-> 如： {{ myVal }} -> "['$', 'myVal']"
-  return res
 }
 
-function getExprKey(key, expr) {
-  // 表达式是保留字面量或常数，key无需加$ -> 如： "value": true 或 "value": 10
-  if (literalValueRE.test(expr)) {
-    return key
-  }
-  // 表达式非保留字面量，key加$表示 -> 如： "$value": "['$', 'myVal']"
-  return `$${key}`
+function isSimpleExpr(expr) {
+  return Array.isArray(expr) && expr.length === 2 && expr[0] === '$'
 }
 
 function recordKeys(liteCardRes, templateKeys) {
@@ -296,13 +292,14 @@ export function postHandleLiteCardRes(liteCardRes) {
     }
   }
 
-  // 用于修改 template 的 key 的 stringify 的顺序
+  // 用于修改 template 的 key 的 stringify 的顺序，type放第一个，children放最后一个
   let templateKeys = []
   recordKeys(liteCardRes, templateKeys)
 
   templateKeys = [...new Set(templateKeys.sort())]
-    .filter((key) => key !== 'children')
+    .filter((key) => key !== 'children' && key !== 'type')
     .concat('children')
+    .unshift('type')
 
   return JSON.stringify(liteCardRes, templateKeys)
 }
