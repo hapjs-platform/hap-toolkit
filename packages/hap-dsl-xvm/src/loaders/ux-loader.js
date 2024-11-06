@@ -53,32 +53,9 @@ function assemble($loader, frags, name, uxType, lite) {
   }
 
   // prettier-ignore
-  let content = 
-  `${importFrag}\n` +
-  `var $app_style$ = ${processStyleFrag($loader, frags.style, uxType, lite)}\n`
-  if (lite) {
-    // process <data> for lite card
-    content += `$app_module$.exports.uidata = ${processDataFrag(
-      $loader,
-      frags.data,
-      uxType,
-      FRAG_TYPE.DATA
-    )}\n`
-    content += `$app_module$.exports.actions = ${processActionFrag(
-      $loader,
-      frags.data,
-      uxType,
-      FRAG_TYPE.ACTIONS
-    )}\n`
-    content += `$app_module$.exports.props = ${processPropsFrag(
-      $loader,
-      frags.data,
-      uxType,
-      FRAG_TYPE.PROPS
-    )}\n`
-    content += `$app_data$($app_module$, $app_require$)\n`
-  } else {
-    // process script for normal card
+  let content = `${importFrag}\n`
+  if (!lite) {
+    // process script for JS card
     content += `var $app_script$ = ${processScriptFrag($loader, frags.script, uxType)}\n`
   }
   content +=
@@ -90,8 +67,39 @@ function assemble($loader, frags, name, uxType, lite) {
       uxType,
       importNames,
       lite
-    )}\n` +
-    `${frags.style.length > 0 ? '    $app_module$.exports.style = $app_style$;' : ''}\n` +
+    )}\n`
+  // $app_define$ function content
+  if (frags.style.length > 0) {
+    content += `    $app_module$.exports.style = ${processStyleFrag(
+      $loader,
+      frags.style,
+      uxType,
+      lite
+    )}\n`
+  }
+  if (lite) {
+    // process <data> for lite card
+    content += `    $app_module$.exports.uidata = ${processDataFrag(
+      $loader,
+      frags.data,
+      uxType,
+      FRAG_TYPE.DATA
+    )}\n`
+    content += `    $app_module$.exports.actions = ${processActionFrag(
+      $loader,
+      frags.data,
+      uxType,
+      FRAG_TYPE.ACTIONS
+    )}\n`
+    content += `    $app_module$.exports.props = ${processPropsFrag(
+      $loader,
+      frags.data,
+      uxType,
+      FRAG_TYPE.PROPS
+    )}\n`
+    content += `    $app_data$($app_module$, $app_require$)\n`
+  }
+  content +=
     `});\n` +
     `${
       isUXRender(uxType)
