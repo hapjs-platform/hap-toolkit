@@ -21,7 +21,6 @@ $app_bootstrap$('@app-application/app', { packagerVersion: QUICKAPP_TOOLKIT_VERS
 
 exports[`use dynamic import in project build results include split chunks for [SMART] 2`] = `
 "
-var $app_style$ = require(\\"!../../../../../hap-dsl-xvm/lib/loaders/style-loader.js?index=0&type=style!../../../../../hap-dsl-xvm/lib/loaders/fragment-loader.js?index=0&type=style!./index.ux?uxType=page\\")
 var $app_script$ = require(\\"!../../../../../hap-dsl-xvm/lib/loaders/script-loader.js!../../../../../../node_modules/@hap-toolkit/packager/lib/loaders/module-loader.js!../../../../../../node_modules/babel-loader/lib/index.js?cwd=<project-root>&cacheDirectory&plugins[]=<CWD>/packages/hap-dsl-xvm/lib/loaders/babel-plugin-jsx.js&comments=false&configFile=<project-root>/babel.config.js!../../../../../hap-dsl-xvm/lib/loaders/access-loader.js!../../../../../hap-dsl-xvm/lib/loaders/fragment-loader.js?index=0&type=script!./index.ux?uxType=page\\")
 $app_define$('@app-component/index', [], function($app_require$, $app_exports$, $app_module$) {
      $app_script$($app_module$, $app_exports$, $app_require$)
@@ -29,14 +28,13 @@ $app_define$('@app-component/index', [], function($app_require$, $app_exports$, 
           $app_module$.exports = $app_exports$.default
         }
     $app_module$.exports.template = require(\\"!../../../../../hap-dsl-xvm/lib/loaders/template-loader.js!../../../../../hap-dsl-xvm/lib/loaders/fragment-loader.js?index=0&type=template!./index.ux?uxType=page&\\")
-    $app_module$.exports.style = $app_style$;
+    $app_module$.exports.style = require(\\"!../../../../../hap-dsl-xvm/lib/loaders/style-loader.js?index=0&type=style!../../../../../hap-dsl-xvm/lib/loaders/fragment-loader.js?index=0&type=style!./index.ux?uxType=page\\")
 });
 $app_bootstrap$('@app-component/index',{ packagerVersion: QUICKAPP_TOOLKIT_VERSION });"
 `;
 
 exports[`use dynamic import in project build results include split chunks for [SMART] 3`] = `
 "
-var $app_style$ = require(\\"!../../../../../hap-dsl-xvm/lib/loaders/style-loader.js?index=0&type=style!../../../../../hap-dsl-xvm/lib/loaders/fragment-loader.js?index=0&type=style!./index.ux?uxType=page\\")
 var $app_script$ = require(\\"!../../../../../hap-dsl-xvm/lib/loaders/script-loader.js!../../../../../../node_modules/@hap-toolkit/packager/lib/loaders/module-loader.js!../../../../../../node_modules/babel-loader/lib/index.js?cwd=<project-root>&cacheDirectory&plugins[]=<CWD>/packages/hap-dsl-xvm/lib/loaders/babel-plugin-jsx.js&comments=false&configFile=<project-root>/babel.config.js!../../../../../hap-dsl-xvm/lib/loaders/access-loader.js!../../../../../hap-dsl-xvm/lib/loaders/fragment-loader.js?index=0&type=script!./index.ux?uxType=page\\")
 $app_define$('@app-component/index', [], function($app_require$, $app_exports$, $app_module$) {
      $app_script$($app_module$, $app_exports$, $app_require$)
@@ -44,7 +42,7 @@ $app_define$('@app-component/index', [], function($app_require$, $app_exports$, 
           $app_module$.exports = $app_exports$.default
         }
     $app_module$.exports.template = require(\\"!../../../../../hap-dsl-xvm/lib/loaders/template-loader.js!../../../../../hap-dsl-xvm/lib/loaders/fragment-loader.js?index=0&type=template!./index.ux?uxType=page&\\")
-    $app_module$.exports.style = $app_style$;
+    $app_module$.exports.style = require(\\"!../../../../../hap-dsl-xvm/lib/loaders/style-loader.js?index=0&type=style!../../../../../hap-dsl-xvm/lib/loaders/fragment-loader.js?index=0&type=style!./index.ux?uxType=page\\")
 });
 $app_bootstrap$('@app-component/index',{ packagerVersion: QUICKAPP_TOOLKIT_VERSION });"
 `;
@@ -95,29 +93,6 @@ exports[`use dynamic import in project build results include split chunks for [S
 `;
 
 exports[`use dynamic import in project build results include split chunks for [SMART] 6`] = `
-"module.exports = {
-  \\".demo-page\\": {
-    \\"flexDirection\\": \\"column\\",
-    \\"justifyContent\\": \\"center\\",
-    \\"alignItems\\": \\"center\\"
-  },
-  \\".title\\": {
-    \\"fontSize\\": \\"40px\\",
-    \\"textAlign\\": \\"center\\"
-  },
-  \\".btn\\": {
-    \\"width\\": \\"550px\\",
-    \\"height\\": \\"86px\\",
-    \\"marginTop\\": \\"75px\\",
-    \\"borderRadius\\": \\"43px\\",
-    \\"backgroundColor\\": \\"#09ba07\\",
-    \\"fontSize\\": \\"30px\\",
-    \\"color\\": \\"#ffffff\\"
-  }
-}"
-`;
-
-exports[`use dynamic import in project build results include split chunks for [SMART] 7`] = `
 "module.exports = function __scriptModule__ (module, exports, $app_require$){\\"use strict\\";
 
 Object.defineProperty(exports, \\"__esModule\\", {
@@ -166,7 +141,7 @@ if (moduleOwn.data && accessors.some(function (acc) {
 }}"
 `;
 
-exports[`use dynamic import in project build results include split chunks for [SMART] 8`] = `
+exports[`use dynamic import in project build results include split chunks for [SMART] 7`] = `
 "module.exports = {
   \\"type\\": \\"div\\",
   \\"attr\\": {},
@@ -200,9 +175,30 @@ exports[`use dynamic import in project build results include split chunks for [S
 }"
 `;
 
-exports[`use dynamic import in project build results include split chunks for [SMART] 9`] = `"module.exports = {}"`;
+exports[`use dynamic import in project build results include split chunks for [SMART] 8`] = `
+"module.exports = {
+  \\".demo-page\\": {
+    \\"flexDirection\\": \\"column\\",
+    \\"justifyContent\\": \\"center\\",
+    \\"alignItems\\": \\"center\\"
+  },
+  \\".title\\": {
+    \\"fontSize\\": \\"40px\\",
+    \\"textAlign\\": \\"center\\"
+  },
+  \\".btn\\": {
+    \\"width\\": \\"550px\\",
+    \\"height\\": \\"86px\\",
+    \\"marginTop\\": \\"75px\\",
+    \\"borderRadius\\": \\"43px\\",
+    \\"backgroundColor\\": \\"#09ba07\\",
+    \\"fontSize\\": \\"30px\\",
+    \\"color\\": \\"#ffffff\\"
+  }
+}"
+`;
 
-exports[`use dynamic import in project build results include split chunks for [SMART] 10`] = `
+exports[`use dynamic import in project build results include split chunks for [SMART] 9`] = `
 "module.exports = function __scriptModule__ (module, exports, $app_require$){\\"use strict\\";
 
 Object.defineProperty(exports, \\"__esModule\\", {
@@ -238,12 +234,14 @@ if (moduleOwn.data && accessors.some(function (acc) {
 }}"
 `;
 
-exports[`use dynamic import in project build results include split chunks for [SMART] 11`] = `
+exports[`use dynamic import in project build results include split chunks for [SMART] 10`] = `
 "module.exports = {
   \\"type\\": \\"div\\",
   \\"attr\\": {}
 }"
 `;
+
+exports[`use dynamic import in project build results include split chunks for [SMART] 11`] = `"module.exports = {}"`;
 
 exports[`use dynamic import in project build results include split chunks for [SMART] 12`] = `
 "\\"use strict\\";

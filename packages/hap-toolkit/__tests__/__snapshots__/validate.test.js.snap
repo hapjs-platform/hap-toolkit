@@ -32,10 +32,6 @@ router.pages 字段必须为 object 类型
 参考: https://doc.quickapp.cn/framework/manifest.html
 
 校验 manifest.json 错误 
-router 字段必须为 object 类型
-参考: https://doc.quickapp.cn/framework/manifest.html
-
-校验 manifest.json 错误 
 display.titleBarBackgroundColor 字段必须为 string 类型
 参考: https://doc.quickapp.cn/framework/manifest.html
 

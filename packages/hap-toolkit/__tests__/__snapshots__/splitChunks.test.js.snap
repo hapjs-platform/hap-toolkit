@@ -56,7 +56,6 @@ exports[`split chunks on a project build results include split chunks for [SMART
                 },
                 \\"./src/About/index.ux?uxType=page\\": (__unused_webpack_module, __unused_webpack_exports, __webpack_require__, $app_define$, $app_bootstrap$, $app_require$, $app_define_wrap$) => {
                     __webpack_require__(\\"../../../hap-dsl-xvm/lib/loaders/ux-loader.js?cwd=<project-root>&type=import!./src/Common/compB.ux?uxType=comp&name=compb\\");
-                    var $app_style$ = {};
                     var $app_script$ = __webpack_require__(\\"../../../hap-dsl-xvm/lib/loaders/script-loader.js!../../../hap-packager/lib/loaders/module-loader.js!../../../../node_modules/babel-loader/lib/index.js?cwd=<project-root>&cacheDirectory&plugins[]=<CWD>/packages/hap-dsl-xvm/lib/loaders/babel-plugin-jsx.js&comments=false&configFile=<project-root>/babel.config.js!../../../hap-dsl-xvm/lib/loaders/access-loader.js!../../../hap-dsl-xvm/lib/loaders/fragment-loader.js?index=0&type=script!./src/About/index.ux?uxType=page\\");
                     $app_define$(\\"@app-component/index\\", [], (function($app_require$, $app_exports$, $app_module$) {
                         $app_script$($app_module$, $app_exports$, $app_require$);
@@ -217,7 +216,6 @@ exports[`split chunks on a project build results include split chunks for [SMART
                 \\"./src/Demo/index.ux?uxType=page\\": (__unused_webpack_module, __unused_webpack_exports, __webpack_require__, $app_define$, $app_bootstrap$, $app_require$, $app_define_wrap$) => {
                     __webpack_require__(\\"../../../hap-dsl-xvm/lib/loaders/ux-loader.js?cwd=<project-root>&type=import!./src/Common/compA.ux?uxType=comp&name=compa\\");
                     __webpack_require__(\\"../../../hap-dsl-xvm/lib/loaders/ux-loader.js?cwd=<project-root>&type=import!./src/Common/compB.ux?uxType=comp&name=compb\\");
-                    var $app_style$ = {};
                     var $app_script$ = __webpack_require__(\\"../../../hap-dsl-xvm/lib/loaders/script-loader.js!../../../hap-packager/lib/loaders/module-loader.js!../../../../node_modules/babel-loader/lib/index.js?cwd=<project-root>&cacheDirectory&plugins[]=<CWD>/packages/hap-dsl-xvm/lib/loaders/babel-plugin-jsx.js&comments=false&configFile=<project-root>/babel.config.js!../../../hap-dsl-xvm/lib/loaders/access-loader.js!../../../hap-dsl-xvm/lib/loaders/fragment-loader.js?index=0&type=script!./src/Demo/index.ux?uxType=page\\");
                     $app_define$(\\"@app-component/index\\", [], (function($app_require$, $app_exports$, $app_module$) {
                         $app_script$($app_module$, $app_exports$, $app_require$);
@@ -380,7 +378,6 @@ exports[`split chunks on a project build results include split chunks for [SMART
                 },
                 \\"./src/DemoDetail/index.ux?uxType=page\\": (__unused_webpack_module, __unused_webpack_exports, __webpack_require__, $app_define$, $app_bootstrap$, $app_require$, $app_define_wrap$) => {
                     __webpack_require__(\\"../../../hap-dsl-xvm/lib/loaders/ux-loader.js?cwd=<project-root>&type=import!./src/Common/compA.ux?uxType=comp&name=compa\\");
-                    var $app_style$ = {};
                     var $app_script$ = __webpack_require__(\\"../../../hap-dsl-xvm/lib/loaders/script-loader.js!../../../hap-packager/lib/loaders/module-loader.js!../../../../node_modules/babel-loader/lib/index.js?cwd=<project-root>&cacheDirectory&plugins[]=<CWD>/packages/hap-dsl-xvm/lib/loaders/babel-plugin-jsx.js&comments=false&configFile=<project-root>/babel.config.js!../../../hap-dsl-xvm/lib/loaders/access-loader.js!../../../hap-dsl-xvm/lib/loaders/fragment-loader.js?index=0&type=script!./src/DemoDetail/index.ux?uxType=page\\");
                     $app_define$(\\"@app-component/index\\", [], (function($app_require$, $app_exports$, $app_module$) {
                         $app_script$($app_module$, $app_exports$, $app_require$);

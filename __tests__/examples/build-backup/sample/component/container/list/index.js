@@ -569,7 +569,6 @@
             }
             var __webpack_exports__ = {};
             (() => {
-                var $app_style$ = __webpack_require__("../../packages/hap-dsl-xvm/lib/loaders/style-loader.js?index=0&type=style!../../packages/hap-dsl-xvm/lib/loaders/fragment-loader.js?index=0&type=style!./src/component/container/list/index.ux?uxType=page");
                 var $app_script$ = __webpack_require__("../../packages/hap-dsl-xvm/lib/loaders/script-loader.js!../../packages/hap-packager/lib/loaders/module-loader.js!../../node_modules/babel-loader/lib/index.js?cwd=<project-root>&cacheDirectory&plugins[]=<CWD>/packages/hap-dsl-xvm/lib/loaders/babel-plugin-jsx.js&comments=false&configFile=<project-root>/babel.config.js!../../packages/hap-dsl-xvm/lib/loaders/access-loader.js!../../packages/hap-dsl-xvm/lib/loaders/fragment-loader.js?index=0&type=script!./src/component/container/list/index.ux?uxType=page");
                 $app_define$("@app-component/index", [], (function($app_require$, $app_exports$, $app_module$) {
                     $app_script$($app_module$, $app_exports$, $app_require$);
@@ -577,7 +576,7 @@
                         $app_module$.exports = $app_exports$.default;
                     }
                     $app_module$.exports.template = __webpack_require__("../../packages/hap-dsl-xvm/lib/loaders/template-loader.js!../../packages/hap-dsl-xvm/lib/loaders/fragment-loader.js?index=0&type=template!./src/component/container/list/index.ux?uxType=page&");
-                    $app_module$.exports.style = $app_style$;
+                    $app_module$.exports.style = __webpack_require__("../../packages/hap-dsl-xvm/lib/loaders/style-loader.js?index=0&type=style!../../packages/hap-dsl-xvm/lib/loaders/fragment-loader.js?index=0&type=style!./src/component/container/list/index.ux?uxType=page");
                 }));
                 $app_bootstrap$("@app-component/index", {
                     packagerVersion: "<VERSION>"

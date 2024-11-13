@@ -25,7 +25,6 @@ exports[`测试全局样式 全局样式正确提取: ../../../lib/loaders/style
 
 exports[`测试全局样式 全局样式正确提取: ./Helloworld/app.ux?uxType=app 1`] = `
 "
-var $app_style$ = require(\\"!../../../../lib/loaders/style-loader.js?index=0&type=style!../../../../lib/loaders/fragment-loader.js?index=0&type=style!./app.ux?uxType=app\\")
 var $app_script$ = require(\\"!../../../../lib/loaders/script-loader.js!../../../../../../node_modules/@hap-toolkit/packager/lib/loaders/module-loader.js!../../../../../../node_modules/@hap-toolkit/packager/lib/loaders/manifest-loader.js?path=<CWD>/packages/hap-dsl-xvm/test/case/ux/Helloworld!../../../../../../node_modules/babel-loader/lib/index.js?cwd=<CWD>&cacheDirectory&comments=false&configFile=<CWD>/babel.config.js!../../../../lib/loaders/fragment-loader.js?index=0&type=script!./app.ux?uxType=app\\")
 $app_define$('@app-component/app', [], function($app_require$, $app_exports$, $app_module$) {
      $app_script$($app_module$, $app_exports$, $app_require$)
@@ -33,7 +32,7 @@ $app_define$('@app-component/app', [], function($app_require$, $app_exports$, $a
           $app_module$.exports = $app_exports$.default
         }
     $app_module$.exports.template = {}
-    $app_module$.exports.style = $app_style$;
+    $app_module$.exports.style = require(\\"!../../../../lib/loaders/style-loader.js?index=0&type=style!../../../../lib/loaders/fragment-loader.js?index=0&type=style!./app.ux?uxType=app\\")
 });
 ;"
 `;
