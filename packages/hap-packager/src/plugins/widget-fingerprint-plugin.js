@@ -69,7 +69,7 @@ class WidgetFingerprintPlugin {
           const widgetKey = widgetNameKeyMap[chunkName]
           const widgetDigestMap = {}
           const arr = []
-          for (const module of chunk.modulesIterable) {
+          for (const module of compilation.chunkGraph.getChunkModules(chunk)) {
             const { _source, rawRequest, request } = module
             arr.push(rawRequest)
             if (!request) {

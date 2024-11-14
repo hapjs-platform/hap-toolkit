@@ -40,13 +40,11 @@ class LiteCardPlugin {
           pathSrc = pathSrc.replace(/\\/g, '/')
           const moduleGraph = compilation.moduleGraph
           for (const chunk of compilation.chunks) {
-            const entryModule = chunk.entryModule
+            const entryModule = this.getEntryModule(compilation, chunk)
             if (!entryModule) {
-              // console.log('=== LiteCardPlugin no entry module:', chunk.name, entryModule)
               continue
             }
             const { rawRequest: entryRawRequest, request } = entryModule
-            // console.log('LiteCardPlugin >>> entryRawRequest:', entryRawRequest)
             if (this.isLightCard(entryRawRequest)) {
               const { templateFileName, cssFileName, bundleFilePath } = this.getLightCardBuildPath(
                 request,
@@ -258,6 +256,17 @@ class LiteCardPlugin {
       templateFileName: `${bundleFilePath}.template.json`,
       cssFileName: `${bundleFilePath}.css.json`
     }
+  }
+
+  getEntryModule(compilation, chunk) {
+    const chunkModules = compilation.chunkGraph.getChunkModules(chunk)
+    for (let i = 0; i < chunkModules.length; i++) {
+      const module = chunkModules[i]
+      if (compilation.chunkGraph.isEntryModuleInChunk(module, chunk)) {
+        return module
+      }
+    }
+    return null
   }
 }
 
