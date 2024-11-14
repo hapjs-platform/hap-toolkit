@@ -30,7 +30,6 @@ $app_bootstrap$('@app-application/app', { packagerVersion: QUICKAPP_TOOLKIT_VERS
 
 exports[`测试compile compile build devtool=false 3`] = `
 "
-var $app_style$ = require(\\"!../../../../../hap-dsl-xvm/lib/loaders/style-loader.js?index=0&type=style!../../../../../hap-dsl-xvm/lib/loaders/fragment-loader.js?index=0&type=style!./index.ux?uxType=page\\")
 var $app_script$ = require(\\"!../../../../../hap-dsl-xvm/lib/loaders/script-loader.js!../../../../../../node_modules/@hap-toolkit/packager/lib/loaders/module-loader.js!../../../../../../node_modules/babel-loader/lib/index.js?cwd=<project-root>&cacheDirectory&plugins[]=<CWD>/packages/hap-dsl-xvm/lib/loaders/babel-plugin-jsx.js&comments=false&configFile=<project-root>/babel.config.js!../../../../../hap-dsl-xvm/lib/loaders/access-loader.js!../../../../../hap-dsl-xvm/lib/loaders/fragment-loader.js?index=0&type=script!./index.ux?uxType=page\\")
 $app_define$('@app-component/index', [], function($app_require$, $app_exports$, $app_module$) {
      $app_script$($app_module$, $app_exports$, $app_require$)
@@ -38,14 +37,13 @@ $app_define$('@app-component/index', [], function($app_require$, $app_exports$, 
           $app_module$.exports = $app_exports$.default
         }
     $app_module$.exports.template = require(\\"!../../../../../hap-dsl-xvm/lib/loaders/template-loader.js!../../../../../hap-dsl-xvm/lib/loaders/fragment-loader.js?index=0&type=template!./index.ux?uxType=page&\\")
-    $app_module$.exports.style = $app_style$;
+    $app_module$.exports.style = require(\\"!../../../../../hap-dsl-xvm/lib/loaders/style-loader.js?index=0&type=style!../../../../../hap-dsl-xvm/lib/loaders/fragment-loader.js?index=0&type=style!./index.ux?uxType=page\\")
 });
 $app_bootstrap$('@app-component/index',{ packagerVersion: QUICKAPP_TOOLKIT_VERSION });"
 `;
 
 exports[`测试compile compile build devtool=false 4`] = `
 "
-var $app_style$ = require(\\"!../../../../../hap-dsl-xvm/lib/loaders/style-loader.js?index=0&type=style!../../../../../hap-dsl-xvm/lib/loaders/fragment-loader.js?index=0&type=style!./index.ux?uxType=card\\")
 var $app_script$ = require(\\"!../../../../../hap-dsl-xvm/lib/loaders/script-loader.js!../../../../../../node_modules/@hap-toolkit/packager/lib/loaders/module-loader.js!../../../../../../node_modules/babel-loader/lib/index.js?cwd=<project-root>&cacheDirectory&plugins[]=<CWD>/packages/hap-dsl-xvm/lib/loaders/babel-plugin-jsx.js&comments=false&configFile=<project-root>/babel.config.js!../../../../../hap-dsl-xvm/lib/loaders/access-loader.js!../../../../../hap-dsl-xvm/lib/loaders/fragment-loader.js?index=0&type=script!./index.ux?uxType=card\\")
 $app_define$('@app-component/index', [], function($app_require$, $app_exports$, $app_module$) {
      $app_script$($app_module$, $app_exports$, $app_require$)
@@ -53,7 +51,7 @@ $app_define$('@app-component/index', [], function($app_require$, $app_exports$, 
           $app_module$.exports = $app_exports$.default
         }
     $app_module$.exports.template = require(\\"!../../../../../hap-dsl-xvm/lib/loaders/template-loader.js!../../../../../hap-dsl-xvm/lib/loaders/fragment-loader.js?index=0&type=template!./index.ux?uxType=card&\\")
-    $app_module$.exports.style = $app_style$;
+    $app_module$.exports.style = require(\\"!../../../../../hap-dsl-xvm/lib/loaders/style-loader.js?index=0&type=style!../../../../../hap-dsl-xvm/lib/loaders/fragment-loader.js?index=0&type=style!./index.ux?uxType=card\\")
 });
 $app_bootstrap$('@app-component/index',{ packagerVersion: QUICKAPP_TOOLKIT_VERSION });"
 `;
@@ -132,29 +130,6 @@ exports[`测试compile compile build devtool=false 7`] = `
 `;
 
 exports[`测试compile compile build devtool=false 8`] = `
-"module.exports = {
-  \\".demo-page\\": {
-    \\"flexDirection\\": \\"column\\",
-    \\"justifyContent\\": \\"center\\",
-    \\"alignItems\\": \\"center\\"
-  },
-  \\".title\\": {
-    \\"fontSize\\": \\"40px\\",
-    \\"textAlign\\": \\"center\\"
-  },
-  \\".btn\\": {
-    \\"width\\": \\"550px\\",
-    \\"height\\": \\"86px\\",
-    \\"marginTop\\": \\"75px\\",
-    \\"borderRadius\\": \\"43px\\",
-    \\"backgroundColor\\": \\"#09ba07\\",
-    \\"fontSize\\": \\"30px\\",
-    \\"color\\": \\"#ffffff\\"
-  }
-}"
-`;
-
-exports[`测试compile compile build devtool=false 9`] = `
 "module.exports = function __scriptModule__ (module, exports, $app_require$){\\"use strict\\";
 
 Object.defineProperty(exports, \\"__esModule\\", {
@@ -192,7 +167,7 @@ if (moduleOwn.data && accessors.some(function (acc) {
 }}"
 `;
 
-exports[`测试compile compile build devtool=false 10`] = `
+exports[`测试compile compile build devtool=false 9`] = `
 "module.exports = {
   \\"type\\": \\"div\\",
   \\"attr\\": {},
@@ -213,17 +188,30 @@ exports[`测试compile compile build devtool=false 10`] = `
 }"
 `;
 
-exports[`测试compile compile build devtool=false 11`] = `
+exports[`测试compile compile build devtool=false 10`] = `
 "module.exports = {
   \\".demo-page\\": {
-    \\"flex\\": 1,
     \\"flexDirection\\": \\"column\\",
+    \\"justifyContent\\": \\"center\\",
     \\"alignItems\\": \\"center\\"
+  },
+  \\".title\\": {
+    \\"fontSize\\": \\"40px\\",
+    \\"textAlign\\": \\"center\\"
+  },
+  \\".btn\\": {
+    \\"width\\": \\"550px\\",
+    \\"height\\": \\"86px\\",
+    \\"marginTop\\": \\"75px\\",
+    \\"borderRadius\\": \\"43px\\",
+    \\"backgroundColor\\": \\"#09ba07\\",
+    \\"fontSize\\": \\"30px\\",
+    \\"color\\": \\"#ffffff\\"
   }
 }"
 `;
 
-exports[`测试compile compile build devtool=false 12`] = `
+exports[`测试compile compile build devtool=false 11`] = `
 "module.exports = function __scriptModule__ (module, exports, $app_require$){\\"use strict\\";
 
 Object.defineProperty(exports, \\"__esModule\\", {
@@ -262,7 +250,7 @@ if (moduleOwn.data && accessors.some(function (acc) {
 }}"
 `;
 
-exports[`测试compile compile build devtool=false 13`] = `
+exports[`测试compile compile build devtool=false 12`] = `
 "module.exports = {
   \\"type\\": \\"div\\",
   \\"attr\\": {},
@@ -283,6 +271,16 @@ exports[`测试compile compile build devtool=false 13`] = `
       }
     }
   ]
+}"
+`;
+
+exports[`测试compile compile build devtool=false 13`] = `
+"module.exports = {
+  \\".demo-page\\": {
+    \\"flex\\": 1,
+    \\"flexDirection\\": \\"column\\",
+    \\"alignItems\\": \\"center\\"
+  }
 }"
 `;
 
@@ -312,7 +310,11 @@ versionCode 字段必须为 Integer 类型
 
 [LOG] ### App Loader ### 项目构建启用了用户 debug 签名
 
-[LOG] ### App Loader ### 项目构建并生成文件：com.application.demo.__preview__.debug.1.0.0.rpk
+[LOG] ### App Loader ### 'com.application.demo.__preview__.base.srpk' 大小为 16 KB
+
+[LOG] ### App Loader ### 'com.application.demo.__preview___CardDemo.rpk' 大小为 10 KB
+
+[LOG] ### App Loader ### 项目构建并生成文件：com.application.demo.__preview__.debug.1.0.0.rpks
 
 [LOG] ### App Server ### 没有记录手机地址，不会通知手机更新rpk文件
 "

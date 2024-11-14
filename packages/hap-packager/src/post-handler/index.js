@@ -92,6 +92,8 @@ function markKind(oldKind, newKind) {
 }
 
 function markCustomComp(template, liteCardRes) {
+  if (!isObject(liteCardRes[CARD_ENTRY][TYPE_IMPORT])) return
+
   const importList = Object.keys(liteCardRes[CARD_ENTRY][TYPE_IMPORT])
 
   if (importList.includes(template.type)) {

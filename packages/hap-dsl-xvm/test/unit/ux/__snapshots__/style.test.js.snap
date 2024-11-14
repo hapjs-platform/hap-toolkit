@@ -10556,7 +10556,6 @@ exports[`Style编译测试 comile style: ../../../lib/loaders/template-loader.js
 
 exports[`Style编译测试 comile style: ./TestStyle/AlignContent/testaligncontent.ux?uxType=page 1`] = `
 "
-var $app_style$ = require(\\"!../../../../../lib/loaders/style-loader.js?index=0&type=style!../../../../../lib/loaders/fragment-loader.js?index=0&type=style!./testaligncontent.ux?uxType=page\\")
 var $app_script$ = require(\\"!../../../../../lib/loaders/script-loader.js!../../../../../../../node_modules/@hap-toolkit/packager/lib/loaders/module-loader.js!../../../../../../../node_modules/babel-loader/lib/index.js?cwd=<CWD>&cacheDirectory&plugins[]=<CWD>/packages/hap-dsl-xvm/lib/loaders/babel-plugin-jsx.js&comments=false&configFile=<CWD>/babel.config.js!../../../../../lib/loaders/access-loader.js!../../../../../lib/loaders/fragment-loader.js?index=0&type=script!./testaligncontent.ux?uxType=page\\")
 $app_define$('@app-component/testaligncontent', [], function($app_require$, $app_exports$, $app_module$) {
      $app_script$($app_module$, $app_exports$, $app_require$)
@@ -10564,14 +10563,13 @@ $app_define$('@app-component/testaligncontent', [], function($app_require$, $app
           $app_module$.exports = $app_exports$.default
         }
     $app_module$.exports.template = require(\\"!../../../../../lib/loaders/template-loader.js!../../../../../lib/loaders/fragment-loader.js?index=0&type=template!./testaligncontent.ux?uxType=page&\\")
-    $app_module$.exports.style = $app_style$;
+    $app_module$.exports.style = require(\\"!../../../../../lib/loaders/style-loader.js?index=0&type=style!../../../../../lib/loaders/fragment-loader.js?index=0&type=style!./testaligncontent.ux?uxType=page\\")
 });
 $app_bootstrap$('@app-component/testaligncontent',{ packagerVersion: QUICKAPP_TOOLKIT_VERSION });"
 `;
 
 exports[`Style编译测试 comile style: ./TestStyle/AlignItems/testalignitems.ux?uxType=page 1`] = `
 "
-var $app_style$ = require(\\"!../../../../../lib/loaders/style-loader.js?index=0&type=style!../../../../../lib/loaders/fragment-loader.js?index=0&type=style!./testalignitems.ux?uxType=page\\")
 var $app_script$ = require(\\"!../../../../../lib/loaders/script-loader.js!../../../../../../../node_modules/@hap-toolkit/packager/lib/loaders/module-loader.js!../../../../../../../node_modules/babel-loader/lib/index.js?cwd=<CWD>&cacheDirectory&plugins[]=<CWD>/packages/hap-dsl-xvm/lib/loaders/babel-plugin-jsx.js&comments=false&configFile=<CWD>/babel.config.js!../../../../../lib/loaders/access-loader.js!../../../../../lib/loaders/fragment-loader.js?index=0&type=script!./testalignitems.ux?uxType=page\\")
 $app_define$('@app-component/testalignitems', [], function($app_require$, $app_exports$, $app_module$) {
      $app_script$($app_module$, $app_exports$, $app_require$)
@@ -10579,25 +10577,23 @@ $app_define$('@app-component/testalignitems', [], function($app_require$, $app_e
           $app_module$.exports = $app_exports$.default
         }
     $app_module$.exports.template = require(\\"!../../../../../lib/loaders/template-loader.js!../../../../../lib/loaders/fragment-loader.js?index=0&type=template!./testalignitems.ux?uxType=page&\\")
-    $app_module$.exports.style = $app_style$;
+    $app_module$.exports.style = require(\\"!../../../../../lib/loaders/style-loader.js?index=0&type=style!../../../../../lib/loaders/fragment-loader.js?index=0&type=style!./testalignitems.ux?uxType=page\\")
 });
 $app_bootstrap$('@app-component/testalignitems',{ packagerVersion: QUICKAPP_TOOLKIT_VERSION });"
 `;
 
 exports[`Style编译测试 comile style: ./TestStyle/AltObjectFit/testaltobjectfit.ux?uxType=page 1`] = `
 "
-var $app_style$ = require(\\"!../../../../../lib/loaders/style-loader.js?index=0&type=style!../../../../../lib/loaders/fragment-loader.js?index=0&type=style!./testaltobjectfit.ux?uxType=page\\")
 var $app_script$ = null
 $app_define$('@app-component/testaltobjectfit', [], function($app_require$, $app_exports$, $app_module$) {
     $app_module$.exports.template = require(\\"!../../../../../lib/loaders/template-loader.js!../../../../../lib/loaders/fragment-loader.js?index=0&type=template!./testaltobjectfit.ux?uxType=page&\\")
-    $app_module$.exports.style = $app_style$;
+    $app_module$.exports.style = require(\\"!../../../../../lib/loaders/style-loader.js?index=0&type=style!../../../../../lib/loaders/fragment-loader.js?index=0&type=style!./testaltobjectfit.ux?uxType=page\\")
 });
 $app_bootstrap$('@app-component/testaltobjectfit',{ packagerVersion: QUICKAPP_TOOLKIT_VERSION });"
 `;
 
 exports[`Style编译测试 comile style: ./TestStyle/AnimationDelay/testanimationdelay.ux?uxType=page 1`] = `
 "
-var $app_style$ = require(\\"!../../../../../lib/loaders/style-loader.js?index=0&type=style!../../../../../lib/loaders/fragment-loader.js?index=0&type=style!./testanimationdelay.ux?uxType=page\\")
 var $app_script$ = require(\\"!../../../../../lib/loaders/script-loader.js!../../../../../../../node_modules/@hap-toolkit/packager/lib/loaders/module-loader.js!../../../../../../../node_modules/babel-loader/lib/index.js?cwd=<CWD>&cacheDirectory&plugins[]=<CWD>/packages/hap-dsl-xvm/lib/loaders/babel-plugin-jsx.js&comments=false&configFile=<CWD>/babel.config.js!../../../../../lib/loaders/access-loader.js!../../../../../lib/loaders/fragment-loader.js?index=0&type=script!./testanimationdelay.ux?uxType=page\\")
 $app_define$('@app-component/testanimationdelay', [], function($app_require$, $app_exports$, $app_module$) {
      $app_script$($app_module$, $app_exports$, $app_require$)
@@ -10605,14 +10601,13 @@ $app_define$('@app-component/testanimationdelay', [], function($app_require$, $a
           $app_module$.exports = $app_exports$.default
         }
     $app_module$.exports.template = require(\\"!../../../../../lib/loaders/template-loader.js!../../../../../lib/loaders/fragment-loader.js?index=0&type=template!./testanimationdelay.ux?uxType=page&\\")
-    $app_module$.exports.style = $app_style$;
+    $app_module$.exports.style = require(\\"!../../../../../lib/loaders/style-loader.js?index=0&type=style!../../../../../lib/loaders/fragment-loader.js?index=0&type=style!./testanimationdelay.ux?uxType=page\\")
 });
 $app_bootstrap$('@app-component/testanimationdelay',{ packagerVersion: QUICKAPP_TOOLKIT_VERSION });"
 `;
 
 exports[`Style编译测试 comile style: ./TestStyle/AnimationDirection/testanimationdirection.ux?uxType=page 1`] = `
 "
-var $app_style$ = require(\\"!../../../../../lib/loaders/style-loader.js?index=0&type=style!../../../../../lib/loaders/fragment-loader.js?index=0&type=style!./testanimationdirection.ux?uxType=page\\")
 var $app_script$ = require(\\"!../../../../../lib/loaders/script-loader.js!../../../../../../../node_modules/@hap-toolkit/packager/lib/loaders/module-loader.js!../../../../../../../node_modules/babel-loader/lib/index.js?cwd=<CWD>&cacheDirectory&plugins[]=<CWD>/packages/hap-dsl-xvm/lib/loaders/babel-plugin-jsx.js&comments=false&configFile=<CWD>/babel.config.js!../../../../../lib/loaders/access-loader.js!../../../../../lib/loaders/fragment-loader.js?index=0&type=script!./testanimationdirection.ux?uxType=page\\")
 $app_define$('@app-component/testanimationdirection', [], function($app_require$, $app_exports$, $app_module$) {
      $app_script$($app_module$, $app_exports$, $app_require$)
@@ -10620,14 +10615,13 @@ $app_define$('@app-component/testanimationdirection', [], function($app_require$
           $app_module$.exports = $app_exports$.default
         }
     $app_module$.exports.template = require(\\"!../../../../../lib/loaders/template-loader.js!../../../../../lib/loaders/fragment-loader.js?index=0&type=template!./testanimationdirection.ux?uxType=page&\\")
-    $app_module$.exports.style = $app_style$;
+    $app_module$.exports.style = require(\\"!../../../../../lib/loaders/style-loader.js?index=0&type=style!../../../../../lib/loaders/fragment-loader.js?index=0&type=style!./testanimationdirection.ux?uxType=page\\")
 });
 $app_bootstrap$('@app-component/testanimationdirection',{ packagerVersion: QUICKAPP_TOOLKIT_VERSION });"
 `;
 
 exports[`Style编译测试 comile style: ./TestStyle/AnimationDuration/testanimationduration.ux?uxType=page 1`] = `
 "
-var $app_style$ = require(\\"!../../../../../lib/loaders/style-loader.js?index=0&type=style!../../../../../lib/loaders/fragment-loader.js?index=0&type=style!./testanimationduration.ux?uxType=page\\")
 var $app_script$ = require(\\"!../../../../../lib/loaders/script-loader.js!../../../../../../../node_modules/@hap-toolkit/packager/lib/loaders/module-loader.js!../../../../../../../node_modules/babel-loader/lib/index.js?cwd=<CWD>&cacheDirectory&plugins[]=<CWD>/packages/hap-dsl-xvm/lib/loaders/babel-plugin-jsx.js&comments=false&configFile=<CWD>/babel.config.js!../../../../../lib/loaders/access-loader.js!../../../../../lib/loaders/fragment-loader.js?index=0&type=script!./testanimationduration.ux?uxType=page\\")
 $app_define$('@app-component/testanimationduration', [], function($app_require$, $app_exports$, $app_module$) {
      $app_script$($app_module$, $app_exports$, $app_require$)
@@ -10635,14 +10629,13 @@ $app_define$('@app-component/testanimationduration', [], function($app_require$,
           $app_module$.exports = $app_exports$.default
         }
     $app_module$.exports.template = require(\\"!../../../../../lib/loaders/template-loader.js!../../../../../lib/loaders/fragment-loader.js?index=0&type=template!./testanimationduration.ux?uxType=page&\\")
-    $app_module$.exports.style = $app_style$;
+    $app_module$.exports.style = require(\\"!../../../../../lib/loaders/style-loader.js?index=0&type=style!../../../../../lib/loaders/fragment-loader.js?index=0&type=style!./testanimationduration.ux?uxType=page\\")
 });
 $app_bootstrap$('@app-component/testanimationduration',{ packagerVersion: QUICKAPP_TOOLKIT_VERSION });"
 `;
 
 exports[`Style编译测试 comile style: ./TestStyle/AnimationFillMode/testanimationfillmode.ux?uxType=page 1`] = `
 "
-var $app_style$ = require(\\"!../../../../../lib/loaders/style-loader.js?index=0&type=style!../../../../../lib/loaders/fragment-loader.js?index=0&type=style!./testanimationfillmode.ux?uxType=page\\")
 var $app_script$ = require(\\"!../../../../../lib/loaders/script-loader.js!../../../../../../../node_modules/@hap-toolkit/packager/lib/loaders/module-loader.js!../../../../../../../node_modules/babel-loader/lib/index.js?cwd=<CWD>&cacheDirectory&plugins[]=<CWD>/packages/hap-dsl-xvm/lib/loaders/babel-plugin-jsx.js&comments=false&configFile=<CWD>/babel.config.js!../../../../../lib/loaders/access-loader.js!../../../../../lib/loaders/fragment-loader.js?index=0&type=script!./testanimationfillmode.ux?uxType=page\\")
 $app_define$('@app-component/testanimationfillmode', [], function($app_require$, $app_exports$, $app_module$) {
      $app_script$($app_module$, $app_exports$, $app_require$)
@@ -10650,14 +10643,13 @@ $app_define$('@app-component/testanimationfillmode', [], function($app_require$,
           $app_module$.exports = $app_exports$.default
         }
     $app_module$.exports.template = require(\\"!../../../../../lib/loaders/template-loader.js!../../../../../lib/loaders/fragment-loader.js?index=0&type=template!./testanimationfillmode.ux?uxType=page&\\")
-    $app_module$.exports.style = $app_style$;
+    $app_module$.exports.style = require(\\"!../../../../../lib/loaders/style-loader.js?index=0&type=style!../../../../../lib/loaders/fragment-loader.js?index=0&type=style!./testanimationfillmode.ux?uxType=page\\")
 });
 $app_bootstrap$('@app-component/testanimationfillmode',{ packagerVersion: QUICKAPP_TOOLKIT_VERSION });"
 `;
 
 exports[`Style编译测试 comile style: ./TestStyle/AnimationIterationCount/testanimationiterationcount.ux?uxType=page 1`] = `
 "
-var $app_style$ = require(\\"!../../../../../lib/loaders/style-loader.js?index=0&type=style!../../../../../lib/loaders/fragment-loader.js?index=0&type=style!./testanimationiterationcount.ux?uxType=page\\")
 var $app_script$ = require(\\"!../../../../../lib/loaders/script-loader.js!../../../../../../../node_modules/@hap-toolkit/packager/lib/loaders/module-loader.js!../../../../../../../node_modules/babel-loader/lib/index.js?cwd=<CWD>&cacheDirectory&plugins[]=<CWD>/packages/hap-dsl-xvm/lib/loaders/babel-plugin-jsx.js&comments=false&configFile=<CWD>/babel.config.js!../../../../../lib/loaders/access-loader.js!../../../../../lib/loaders/fragment-loader.js?index=0&type=script!./testanimationiterationcount.ux?uxType=page\\")
 $app_define$('@app-component/testanimationiterationcount', [], function($app_require$, $app_exports$, $app_module$) {
      $app_script$($app_module$, $app_exports$, $app_require$)
@@ -10665,14 +10657,13 @@ $app_define$('@app-component/testanimationiterationcount', [], function($app_req
           $app_module$.exports = $app_exports$.default
         }
     $app_module$.exports.template = require(\\"!../../../../../lib/loaders/template-loader.js!../../../../../lib/loaders/fragment-loader.js?index=0&type=template!./testanimationiterationcount.ux?uxType=page&\\")
-    $app_module$.exports.style = $app_style$;
+    $app_module$.exports.style = require(\\"!../../../../../lib/loaders/style-loader.js?index=0&type=style!../../../../../lib/loaders/fragment-loader.js?index=0&type=style!./testanimationiterationcount.ux?uxType=page\\")
 });
 $app_bootstrap$('@app-component/testanimationiterationcount',{ packagerVersion: QUICKAPP_TOOLKIT_VERSION });"
 `;
 
 exports[`Style编译测试 comile style: ./TestStyle/AnimationName/testanimationname.ux?uxType=page 1`] = `
 "
-var $app_style$ = require(\\"!../../../../../lib/loaders/style-loader.js?index=0&type=style!../../../../../lib/loaders/fragment-loader.js?index=0&type=style!./testanimationname.ux?uxType=page\\")
 var $app_script$ = require(\\"!../../../../../lib/loaders/script-loader.js!../../../../../../../node_modules/@hap-toolkit/packager/lib/loaders/module-loader.js!../../../../../../../node_modules/babel-loader/lib/index.js?cwd=<CWD>&cacheDirectory&plugins[]=<CWD>/packages/hap-dsl-xvm/lib/loaders/babel-plugin-jsx.js&comments=false&configFile=<CWD>/babel.config.js!../../../../../lib/loaders/access-loader.js!../../../../../lib/loaders/fragment-loader.js?index=0&type=script!./testanimationname.ux?uxType=page\\")
 $app_define$('@app-component/testanimationname', [], function($app_require$, $app_exports$, $app_module$) {
      $app_script$($app_module$, $app_exports$, $app_require$)
@@ -10680,14 +10671,13 @@ $app_define$('@app-component/testanimationname', [], function($app_require$, $ap
           $app_module$.exports = $app_exports$.default
         }
     $app_module$.exports.template = require(\\"!../../../../../lib/loaders/template-loader.js!../../../../../lib/loaders/fragment-loader.js?index=0&type=template!./testanimationname.ux?uxType=page&\\")
-    $app_module$.exports.style = $app_style$;
+    $app_module$.exports.style = require(\\"!../../../../../lib/loaders/style-loader.js?index=0&type=style!../../../../../lib/loaders/fragment-loader.js?index=0&type=style!./testanimationname.ux?uxType=page\\")
 });
 $app_bootstrap$('@app-component/testanimationname',{ packagerVersion: QUICKAPP_TOOLKIT_VERSION });"
 `;
 
 exports[`Style编译测试 comile style: ./TestStyle/AnimationTimingFunction/testanimationtimingfunction.ux?uxType=page 1`] = `
 "
-var $app_style$ = require(\\"!../../../../../lib/loaders/style-loader.js?index=0&type=style!../../../../../lib/loaders/fragment-loader.js?index=0&type=style!./testanimationtimingfunction.ux?uxType=page\\")
 var $app_script$ = require(\\"!../../../../../lib/loaders/script-loader.js!../../../../../../../node_modules/@hap-toolkit/packager/lib/loaders/module-loader.js!../../../../../../../node_modules/babel-loader/lib/index.js?cwd=<CWD>&cacheDirectory&plugins[]=<CWD>/packages/hap-dsl-xvm/lib/loaders/babel-plugin-jsx.js&comments=false&configFile=<CWD>/babel.config.js!../../../../../lib/loaders/access-loader.js!../../../../../lib/loaders/fragment-loader.js?index=0&type=script!./testanimationtimingfunction.ux?uxType=page\\")
 $app_define$('@app-component/testanimationtimingfunction', [], function($app_require$, $app_exports$, $app_module$) {
      $app_script$($app_module$, $app_exports$, $app_require$)
@@ -10695,14 +10685,13 @@ $app_define$('@app-component/testanimationtimingfunction', [], function($app_req
           $app_module$.exports = $app_exports$.default
         }
     $app_module$.exports.template = require(\\"!../../../../../lib/loaders/template-loader.js!../../../../../lib/loaders/fragment-loader.js?index=0&type=template!./testanimationtimingfunction.ux?uxType=page&\\")
-    $app_module$.exports.style = $app_style$;
+    $app_module$.exports.style = require(\\"!../../../../../lib/loaders/style-loader.js?index=0&type=style!../../../../../lib/loaders/fragment-loader.js?index=0&type=style!./testanimationtimingfunction.ux?uxType=page\\")
 });
 $app_bootstrap$('@app-component/testanimationtimingfunction',{ packagerVersion: QUICKAPP_TOOLKIT_VERSION });"
 `;
 
 exports[`Style编译测试 comile style: ./TestStyle/Background/testbackground.ux?uxType=page 1`] = `
 "
-var $app_style$ = require(\\"!../../../../../lib/loaders/style-loader.js?index=0&type=style!../../../../../lib/loaders/fragment-loader.js?index=0&type=style!./testbackground.ux?uxType=page\\")
 var $app_script$ = require(\\"!../../../../../lib/loaders/script-loader.js!../../../../../../../node_modules/@hap-toolkit/packager/lib/loaders/module-loader.js!../../../../../../../node_modules/babel-loader/lib/index.js?cwd=<CWD>&cacheDirectory&plugins[]=<CWD>/packages/hap-dsl-xvm/lib/loaders/babel-plugin-jsx.js&comments=false&configFile=<CWD>/babel.config.js!../../../../../lib/loaders/access-loader.js!../../../../../lib/loaders/fragment-loader.js?index=0&type=script!./testbackground.ux?uxType=page\\")
 $app_define$('@app-component/testbackground', [], function($app_require$, $app_exports$, $app_module$) {
      $app_script$($app_module$, $app_exports$, $app_require$)
@@ -10710,14 +10699,13 @@ $app_define$('@app-component/testbackground', [], function($app_require$, $app_e
           $app_module$.exports = $app_exports$.default
         }
     $app_module$.exports.template = require(\\"!../../../../../lib/loaders/template-loader.js!../../../../../lib/loaders/fragment-loader.js?index=0&type=template!./testbackground.ux?uxType=page&\\")
-    $app_module$.exports.style = $app_style$;
+    $app_module$.exports.style = require(\\"!../../../../../lib/loaders/style-loader.js?index=0&type=style!../../../../../lib/loaders/fragment-loader.js?index=0&type=style!./testbackground.ux?uxType=page\\")
 });
 $app_bootstrap$('@app-component/testbackground',{ packagerVersion: QUICKAPP_TOOLKIT_VERSION });"
 `;
 
 exports[`Style编译测试 comile style: ./TestStyle/BackgroundColor/testbackgroundcolor.ux?uxType=page 1`] = `
 "
-var $app_style$ = require(\\"!../../../../../lib/loaders/style-loader.js?index=0&type=style!../../../../../lib/loaders/fragment-loader.js?index=0&type=style!./testbackgroundcolor.ux?uxType=page\\")
 var $app_script$ = require(\\"!../../../../../lib/loaders/script-loader.js!../../../../../../../node_modules/@hap-toolkit/packager/lib/loaders/module-loader.js!../../../../../../../node_modules/babel-loader/lib/index.js?cwd=<CWD>&cacheDirectory&plugins[]=<CWD>/packages/hap-dsl-xvm/lib/loaders/babel-plugin-jsx.js&comments=false&configFile=<CWD>/babel.config.js!../../../../../lib/loaders/access-loader.js!../../../../../lib/loaders/fragment-loader.js?index=0&type=script!./testbackgroundcolor.ux?uxType=page\\")
 $app_define$('@app-component/testbackgroundcolor', [], function($app_require$, $app_exports$, $app_module$) {
      $app_script$($app_module$, $app_exports$, $app_require$)
@@ -10725,14 +10713,13 @@ $app_define$('@app-component/testbackgroundcolor', [], function($app_require$, $
           $app_module$.exports = $app_exports$.default
         }
     $app_module$.exports.template = require(\\"!../../../../../lib/loaders/template-loader.js!../../../../../lib/loaders/fragment-loader.js?index=0&type=template!./testbackgroundcolor.ux?uxType=page&\\")
-    $app_module$.exports.style = $app_style$;
+    $app_module$.exports.style = require(\\"!../../../../../lib/loaders/style-loader.js?index=0&type=style!../../../../../lib/loaders/fragment-loader.js?index=0&type=style!./testbackgroundcolor.ux?uxType=page\\")
 });
 $app_bootstrap$('@app-component/testbackgroundcolor',{ packagerVersion: QUICKAPP_TOOLKIT_VERSION });"
 `;
 
 exports[`Style编译测试 comile style: ./TestStyle/BackgroundImage/testbackgroundimage.ux?uxType=page 1`] = `
 "
-var $app_style$ = require(\\"!../../../../../lib/loaders/style-loader.js?index=0&type=style!../../../../../lib/loaders/fragment-loader.js?index=0&type=style!./testbackgroundimage.ux?uxType=page\\")
 var $app_script$ = require(\\"!../../../../../lib/loaders/script-loader.js!../../../../../../../node_modules/@hap-toolkit/packager/lib/loaders/module-loader.js!../../../../../../../node_modules/babel-loader/lib/index.js?cwd=<CWD>&cacheDirectory&plugins[]=<CWD>/packages/hap-dsl-xvm/lib/loaders/babel-plugin-jsx.js&comments=false&configFile=<CWD>/babel.config.js!../../../../../lib/loaders/access-loader.js!../../../../../lib/loaders/fragment-loader.js?index=0&type=script!./testbackgroundimage.ux?uxType=page\\")
 $app_define$('@app-component/testbackgroundimage', [], function($app_require$, $app_exports$, $app_module$) {
      $app_script$($app_module$, $app_exports$, $app_require$)
@@ -10740,14 +10727,13 @@ $app_define$('@app-component/testbackgroundimage', [], function($app_require$, $
           $app_module$.exports = $app_exports$.default
         }
     $app_module$.exports.template = require(\\"!../../../../../lib/loaders/template-loader.js!../../../../../lib/loaders/fragment-loader.js?index=0&type=template!./testbackgroundimage.ux?uxType=page&\\")
-    $app_module$.exports.style = $app_style$;
+    $app_module$.exports.style = require(\\"!../../../../../lib/loaders/style-loader.js?index=0&type=style!../../../../../lib/loaders/fragment-loader.js?index=0&type=style!./testbackgroundimage.ux?uxType=page\\")
 });
 $app_bootstrap$('@app-component/testbackgroundimage',{ packagerVersion: QUICKAPP_TOOLKIT_VERSION });"
 `;
 
 exports[`Style编译测试 comile style: ./TestStyle/BackgroundPosition/testbackgroundposition.ux?uxType=page 1`] = `
 "
-var $app_style$ = require(\\"!../../../../../lib/loaders/style-loader.js?index=0&type=style!../../../../../lib/loaders/fragment-loader.js?index=0&type=style!./testbackgroundposition.ux?uxType=page\\")
 var $app_script$ = require(\\"!../../../../../lib/loaders/script-loader.js!../../../../../../../node_modules/@hap-toolkit/packager/lib/loaders/module-loader.js!../../../../../../../node_modules/babel-loader/lib/index.js?cwd=<CWD>&cacheDirectory&plugins[]=<CWD>/packages/hap-dsl-xvm/lib/loaders/babel-plugin-jsx.js&comments=false&configFile=<CWD>/babel.config.js!../../../../../lib/loaders/access-loader.js!../../../../../lib/loaders/fragment-loader.js?index=0&type=script!./testbackgroundposition.ux?uxType=page\\")
 $app_define$('@app-component/testbackgroundposition', [], function($app_require$, $app_exports$, $app_module$) {
      $app_script$($app_module$, $app_exports$, $app_require$)
@@ -10755,14 +10741,13 @@ $app_define$('@app-component/testbackgroundposition', [], function($app_require$
           $app_module$.exports = $app_exports$.default
         }
     $app_module$.exports.template = require(\\"!../../../../../lib/loaders/template-loader.js!../../../../../lib/loaders/fragment-loader.js?index=0&type=template!./testbackgroundposition.ux?uxType=page&\\")
-    $app_module$.exports.style = $app_style$;
+    $app_module$.exports.style = require(\\"!../../../../../lib/loaders/style-loader.js?index=0&type=style!../../../../../lib/loaders/fragment-loader.js?index=0&type=style!./testbackgroundposition.ux?uxType=page\\")
 });
 $app_bootstrap$('@app-component/testbackgroundposition',{ packagerVersion: QUICKAPP_TOOLKIT_VERSION });"
 `;
 
 exports[`Style编译测试 comile style: ./TestStyle/BackgroundRepeat/testbackgroundrepeat.ux?uxType=page 1`] = `
 "
-var $app_style$ = require(\\"!../../../../../lib/loaders/style-loader.js?index=0&type=style!../../../../../lib/loaders/fragment-loader.js?index=0&type=style!./testbackgroundrepeat.ux?uxType=page\\")
 var $app_script$ = require(\\"!../../../../../lib/loaders/script-loader.js!../../../../../../../node_modules/@hap-toolkit/packager/lib/loaders/module-loader.js!../../../../../../../node_modules/babel-loader/lib/index.js?cwd=<CWD>&cacheDirectory&plugins[]=<CWD>/packages/hap-dsl-xvm/lib/loaders/babel-plugin-jsx.js&comments=false&configFile=<CWD>/babel.config.js!../../../../../lib/loaders/access-loader.js!../../../../../lib/loaders/fragment-loader.js?index=0&type=script!./testbackgroundrepeat.ux?uxType=page\\")
 $app_define$('@app-component/testbackgroundrepeat', [], function($app_require$, $app_exports$, $app_module$) {
      $app_script$($app_module$, $app_exports$, $app_require$)
@@ -10770,14 +10755,13 @@ $app_define$('@app-component/testbackgroundrepeat', [], function($app_require$, 
           $app_module$.exports = $app_exports$.default
         }
     $app_module$.exports.template = require(\\"!../../../../../lib/loaders/template-loader.js!../../../../../lib/loaders/fragment-loader.js?index=0&type=template!./testbackgroundrepeat.ux?uxType=page&\\")
-    $app_module$.exports.style = $app_style$;
+    $app_module$.exports.style = require(\\"!../../../../../lib/loaders/style-loader.js?index=0&type=style!../../../../../lib/loaders/fragment-loader.js?index=0&type=style!./testbackgroundrepeat.ux?uxType=page\\")
 });
 $app_bootstrap$('@app-component/testbackgroundrepeat',{ packagerVersion: QUICKAPP_TOOLKIT_VERSION });"
 `;
 
 exports[`Style编译测试 comile style: ./TestStyle/BackgroundSize/testbackgroundsize.ux?uxType=page 1`] = `
 "
-var $app_style$ = require(\\"!../../../../../lib/loaders/style-loader.js?index=0&type=style!../../../../../lib/loaders/fragment-loader.js?index=0&type=style!./testbackgroundsize.ux?uxType=page\\")
 var $app_script$ = require(\\"!../../../../../lib/loaders/script-loader.js!../../../../../../../node_modules/@hap-toolkit/packager/lib/loaders/module-loader.js!../../../../../../../node_modules/babel-loader/lib/index.js?cwd=<CWD>&cacheDirectory&plugins[]=<CWD>/packages/hap-dsl-xvm/lib/loaders/babel-plugin-jsx.js&comments=false&configFile=<CWD>/babel.config.js!../../../../../lib/loaders/access-loader.js!../../../../../lib/loaders/fragment-loader.js?index=0&type=script!./testbackgroundsize.ux?uxType=page\\")
 $app_define$('@app-component/testbackgroundsize', [], function($app_require$, $app_exports$, $app_module$) {
      $app_script$($app_module$, $app_exports$, $app_require$)
@@ -10785,14 +10769,13 @@ $app_define$('@app-component/testbackgroundsize', [], function($app_require$, $a
           $app_module$.exports = $app_exports$.default
         }
     $app_module$.exports.template = require(\\"!../../../../../lib/loaders/template-loader.js!../../../../../lib/loaders/fragment-loader.js?index=0&type=template!./testbackgroundsize.ux?uxType=page&\\")
-    $app_module$.exports.style = $app_style$;
+    $app_module$.exports.style = require(\\"!../../../../../lib/loaders/style-loader.js?index=0&type=style!../../../../../lib/loaders/fragment-loader.js?index=0&type=style!./testbackgroundsize.ux?uxType=page\\")
 });
 $app_bootstrap$('@app-component/testbackgroundsize',{ packagerVersion: QUICKAPP_TOOLKIT_VERSION });"
 `;
 
 exports[`Style编译测试 comile style: ./TestStyle/Border/testborder.ux?uxType=page 1`] = `
 "
-var $app_style$ = require(\\"!../../../../../lib/loaders/style-loader.js?index=0&type=style!../../../../../lib/loaders/fragment-loader.js?index=0&type=style!./testborder.ux?uxType=page\\")
 var $app_script$ = require(\\"!../../../../../lib/loaders/script-loader.js!../../../../../../../node_modules/@hap-toolkit/packager/lib/loaders/module-loader.js!../../../../../../../node_modules/babel-loader/lib/index.js?cwd=<CWD>&cacheDirectory&plugins[]=<CWD>/packages/hap-dsl-xvm/lib/loaders/babel-plugin-jsx.js&comments=false&configFile=<CWD>/babel.config.js!../../../../../lib/loaders/access-loader.js!../../../../../lib/loaders/fragment-loader.js?index=0&type=script!./testborder.ux?uxType=page\\")
 $app_define$('@app-component/testborder', [], function($app_require$, $app_exports$, $app_module$) {
      $app_script$($app_module$, $app_exports$, $app_require$)
@@ -10800,14 +10783,13 @@ $app_define$('@app-component/testborder', [], function($app_require$, $app_expor
           $app_module$.exports = $app_exports$.default
         }
     $app_module$.exports.template = require(\\"!../../../../../lib/loaders/template-loader.js!../../../../../lib/loaders/fragment-loader.js?index=0&type=template!./testborder.ux?uxType=page&\\")
-    $app_module$.exports.style = $app_style$;
+    $app_module$.exports.style = require(\\"!../../../../../lib/loaders/style-loader.js?index=0&type=style!../../../../../lib/loaders/fragment-loader.js?index=0&type=style!./testborder.ux?uxType=page\\")
 });
 $app_bootstrap$('@app-component/testborder',{ packagerVersion: QUICKAPP_TOOLKIT_VERSION });"
 `;
 
 exports[`Style编译测试 comile style: ./TestStyle/BorderBottomColor/testborderbottomcolor.ux?uxType=page 1`] = `
 "
-var $app_style$ = require(\\"!../../../../../lib/loaders/style-loader.js?index=0&type=style!../../../../../lib/loaders/fragment-loader.js?index=0&type=style!./testborderbottomcolor.ux?uxType=page\\")
 var $app_script$ = require(\\"!../../../../../lib/loaders/script-loader.js!../../../../../../../node_modules/@hap-toolkit/packager/lib/loaders/module-loader.js!../../../../../../../node_modules/babel-loader/lib/index.js?cwd=<CWD>&cacheDirectory&plugins[]=<CWD>/packages/hap-dsl-xvm/lib/loaders/babel-plugin-jsx.js&comments=false&configFile=<CWD>/babel.config.js!../../../../../lib/loaders/access-loader.js!../../../../../lib/loaders/fragment-loader.js?index=0&type=script!./testborderbottomcolor.ux?uxType=page\\")
 $app_define$('@app-component/testborderbottomcolor', [], function($app_require$, $app_exports$, $app_module$) {
      $app_script$($app_module$, $app_exports$, $app_require$)
@@ -10815,14 +10797,13 @@ $app_define$('@app-component/testborderbottomcolor', [], function($app_require$,
           $app_module$.exports = $app_exports$.default
         }
     $app_module$.exports.template = require(\\"!../../../../../lib/loaders/template-loader.js!../../../../../lib/loaders/fragment-loader.js?index=0&type=template!./testborderbottomcolor.ux?uxType=page&\\")
-    $app_module$.exports.style = $app_style$;
+    $app_module$.exports.style = require(\\"!../../../../../lib/loaders/style-loader.js?index=0&type=style!../../../../../lib/loaders/fragment-loader.js?index=0&type=style!./testborderbottomcolor.ux?uxType=page\\")
 });
 $app_bootstrap$('@app-component/testborderbottomcolor',{ packagerVersion: QUICKAPP_TOOLKIT_VERSION });"
 `;
 
 exports[`Style编译测试 comile style: ./TestStyle/BorderBottomLeftRadius/testborderbottomleftradius.ux?uxType=page 1`] = `
 "
-var $app_style$ = require(\\"!../../../../../lib/loaders/style-loader.js?index=0&type=style!../../../../../lib/loaders/fragment-loader.js?index=0&type=style!./testborderbottomleftradius.ux?uxType=page\\")
 var $app_script$ = require(\\"!../../../../../lib/loaders/script-loader.js!../../../../../../../node_modules/@hap-toolkit/packager/lib/loaders/module-loader.js!../../../../../../../node_modules/babel-loader/lib/index.js?cwd=<CWD>&cacheDirectory&plugins[]=<CWD>/packages/hap-dsl-xvm/lib/loaders/babel-plugin-jsx.js&comments=false&configFile=<CWD>/babel.config.js!../../../../../lib/loaders/access-loader.js!../../../../../lib/loaders/fragment-loader.js?index=0&type=script!./testborderbottomleftradius.ux?uxType=page\\")
 $app_define$('@app-component/testborderbottomleftradius', [], function($app_require$, $app_exports$, $app_module$) {
      $app_script$($app_module$, $app_exports$, $app_require$)
@@ -10830,14 +10811,13 @@ $app_define$('@app-component/testborderbottomleftradius', [], function($app_requ
           $app_module$.exports = $app_exports$.default
         }
     $app_module$.exports.template = require(\\"!../../../../../lib/loaders/template-loader.js!../../../../../lib/loaders/fragment-loader.js?index=0&type=template!./testborderbottomleftradius.ux?uxType=page&\\")
-    $app_module$.exports.style = $app_style$;
+    $app_module$.exports.style = require(\\"!../../../../../lib/loaders/style-loader.js?index=0&type=style!../../../../../lib/loaders/fragment-loader.js?index=0&type=style!./testborderbottomleftradius.ux?uxType=page\\")
 });
 $app_bootstrap$('@app-component/testborderbottomleftradius',{ packagerVersion: QUICKAPP_TOOLKIT_VERSION });"
 `;
 
 exports[`Style编译测试 comile style: ./TestStyle/BorderBottomRightRadius/testborderbottomrightradius.ux?uxType=page 1`] = `
 "
-var $app_style$ = require(\\"!../../../../../lib/loaders/style-loader.js?index=0&type=style!../../../../../lib/loaders/fragment-loader.js?index=0&type=style!./testborderbottomrightradius.ux?uxType=page\\")
 var $app_script$ = require(\\"!../../../../../lib/loaders/script-loader.js!../../../../../../../node_modules/@hap-toolkit/packager/lib/loaders/module-loader.js!../../../../../../../node_modules/babel-loader/lib/index.js?cwd=<CWD>&cacheDirectory&plugins[]=<CWD>/packages/hap-dsl-xvm/lib/loaders/babel-plugin-jsx.js&comments=false&configFile=<CWD>/babel.config.js!../../../../../lib/loaders/access-loader.js!../../../../../lib/loaders/fragment-loader.js?index=0&type=script!./testborderbottomrightradius.ux?uxType=page\\")
 $app_define$('@app-component/testborderbottomrightradius', [], function($app_require$, $app_exports$, $app_module$) {
      $app_script$($app_module$, $app_exports$, $app_require$)
@@ -10845,14 +10825,13 @@ $app_define$('@app-component/testborderbottomrightradius', [], function($app_req
           $app_module$.exports = $app_exports$.default
         }
     $app_module$.exports.template = require(\\"!../../../../../lib/loaders/template-loader.js!../../../../../lib/loaders/fragment-loader.js?index=0&type=template!./testborderbottomrightradius.ux?uxType=page&\\")
-    $app_module$.exports.style = $app_style$;
+    $app_module$.exports.style = require(\\"!../../../../../lib/loaders/style-loader.js?index=0&type=style!../../../../../lib/loaders/fragment-loader.js?index=0&type=style!./testborderbottomrightradius.ux?uxType=page\\")
 });
 $app_bootstrap$('@app-component/testborderbottomrightradius',{ packagerVersion: QUICKAPP_TOOLKIT_VERSION });"
 `;
 
 exports[`Style编译测试 comile style: ./TestStyle/BorderBottomWidth/testborderbottomwidth.ux?uxType=page 1`] = `
 "
-var $app_style$ = require(\\"!../../../../../lib/loaders/style-loader.js?index=0&type=style!../../../../../lib/loaders/fragment-loader.js?index=0&type=style!./testborderbottomwidth.ux?uxType=page\\")
 var $app_script$ = require(\\"!../../../../../lib/loaders/script-loader.js!../../../../../../../node_modules/@hap-toolkit/packager/lib/loaders/module-loader.js!../../../../../../../node_modules/babel-loader/lib/index.js?cwd=<CWD>&cacheDirectory&plugins[]=<CWD>/packages/hap-dsl-xvm/lib/loaders/babel-plugin-jsx.js&comments=false&configFile=<CWD>/babel.config.js!../../../../../lib/loaders/access-loader.js!../../../../../lib/loaders/fragment-loader.js?index=0&type=script!./testborderbottomwidth.ux?uxType=page\\")
 $app_define$('@app-component/testborderbottomwidth', [], function($app_require$, $app_exports$, $app_module$) {
      $app_script$($app_module$, $app_exports$, $app_require$)
@@ -10860,14 +10839,13 @@ $app_define$('@app-component/testborderbottomwidth', [], function($app_require$,
           $app_module$.exports = $app_exports$.default
         }
     $app_module$.exports.template = require(\\"!../../../../../lib/loaders/template-loader.js!../../../../../lib/loaders/fragment-loader.js?index=0&type=template!./testborderbottomwidth.ux?uxType=page&\\")
-    $app_module$.exports.style = $app_style$;
+    $app_module$.exports.style = require(\\"!../../../../../lib/loaders/style-loader.js?index=0&type=style!../../../../../lib/loaders/fragment-loader.js?index=0&type=style!./testborderbottomwidth.ux?uxType=page\\")
 });
 $app_bootstrap$('@app-component/testborderbottomwidth',{ packagerVersion: QUICKAPP_TOOLKIT_VERSION });"
 `;
 
 exports[`Style编译测试 comile style: ./TestStyle/BorderColor/testbordercolor.ux?uxType=page 1`] = `
 "
-var $app_style$ = require(\\"!../../../../../lib/loaders/style-loader.js?index=0&type=style!../../../../../lib/loaders/fragment-loader.js?index=0&type=style!./testbordercolor.ux?uxType=page\\")
 var $app_script$ = require(\\"!../../../../../lib/loaders/script-loader.js!../../../../../../../node_modules/@hap-toolkit/packager/lib/loaders/module-loader.js!../../../../../../../node_modules/babel-loader/lib/index.js?cwd=<CWD>&cacheDirectory&plugins[]=<CWD>/packages/hap-dsl-xvm/lib/loaders/babel-plugin-jsx.js&comments=false&configFile=<CWD>/babel.config.js!../../../../../lib/loaders/access-loader.js!../../../../../lib/loaders/fragment-loader.js?index=0&type=script!./testbordercolor.ux?uxType=page\\")
 $app_define$('@app-component/testbordercolor', [], function($app_require$, $app_exports$, $app_module$) {
      $app_script$($app_module$, $app_exports$, $app_require$)
@@ -10875,14 +10853,13 @@ $app_define$('@app-component/testbordercolor', [], function($app_require$, $app_
           $app_module$.exports = $app_exports$.default
         }
     $app_module$.exports.template = require(\\"!../../../../../lib/loaders/template-loader.js!../../../../../lib/loaders/fragment-loader.js?index=0&type=template!./testbordercolor.ux?uxType=page&\\")
-    $app_module$.exports.style = $app_style$;
+    $app_module$.exports.style = require(\\"!../../../../../lib/loaders/style-loader.js?index=0&type=style!../../../../../lib/loaders/fragment-loader.js?index=0&type=style!./testbordercolor.ux?uxType=page\\")
 });
 $app_bootstrap$('@app-component/testbordercolor',{ packagerVersion: QUICKAPP_TOOLKIT_VERSION });"
 `;
 
 exports[`Style编译测试 comile style: ./TestStyle/BorderLeftColor/testborderleftcolor.ux?uxType=page 1`] = `
 "
-var $app_style$ = require(\\"!../../../../../lib/loaders/style-loader.js?index=0&type=style!../../../../../lib/loaders/fragment-loader.js?index=0&type=style!./testborderleftcolor.ux?uxType=page\\")
 var $app_script$ = require(\\"!../../../../../lib/loaders/script-loader.js!../../../../../../../node_modules/@hap-toolkit/packager/lib/loaders/module-loader.js!../../../../../../../node_modules/babel-loader/lib/index.js?cwd=<CWD>&cacheDirectory&plugins[]=<CWD>/packages/hap-dsl-xvm/lib/loaders/babel-plugin-jsx.js&comments=false&configFile=<CWD>/babel.config.js!../../../../../lib/loaders/access-loader.js!../../../../../lib/loaders/fragment-loader.js?index=0&type=script!./testborderleftcolor.ux?uxType=page\\")
 $app_define$('@app-component/testborderleftcolor', [], function($app_require$, $app_exports$, $app_module$) {
      $app_script$($app_module$, $app_exports$, $app_require$)
@@ -10890,14 +10867,13 @@ $app_define$('@app-component/testborderleftcolor', [], function($app_require$, $
           $app_module$.exports = $app_exports$.default
         }
     $app_module$.exports.template = require(\\"!../../../../../lib/loaders/template-loader.js!../../../../../lib/loaders/fragment-loader.js?index=0&type=template!./testborderleftcolor.ux?uxType=page&\\")
-    $app_module$.exports.style = $app_style$;
+    $app_module$.exports.style = require(\\"!../../../../../lib/loaders/style-loader.js?index=0&type=style!../../../../../lib/loaders/fragment-loader.js?index=0&type=style!./testborderleftcolor.ux?uxType=page\\")
 });
 $app_bootstrap$('@app-component/testborderleftcolor',{ packagerVersion: QUICKAPP_TOOLKIT_VERSION });"
 `;
 
 exports[`Style编译测试 comile style: ./TestStyle/BorderLeftWidth/testborderleftwidth.ux?uxType=page 1`] = `
 "
-var $app_style$ = require(\\"!../../../../../lib/loaders/style-loader.js?index=0&type=style!../../../../../lib/loaders/fragment-loader.js?index=0&type=style!./testborderleftwidth.ux?uxType=page\\")
 var $app_script$ = require(\\"!../../../../../lib/loaders/script-loader.js!../../../../../../../node_modules/@hap-toolkit/packager/lib/loaders/module-loader.js!../../../../../../../node_modules/babel-loader/lib/index.js?cwd=<CWD>&cacheDirectory&plugins[]=<CWD>/packages/hap-dsl-xvm/lib/loaders/babel-plugin-jsx.js&comments=false&configFile=<CWD>/babel.config.js!../../../../../lib/loaders/access-loader.js!../../../../../lib/loaders/fragment-loader.js?index=0&type=script!./testborderleftwidth.ux?uxType=page\\")
 $app_define$('@app-component/testborderleftwidth', [], function($app_require$, $app_exports$, $app_module$) {
      $app_script$($app_module$, $app_exports$, $app_require$)
@@ -10905,14 +10881,13 @@ $app_define$('@app-component/testborderleftwidth', [], function($app_require$, $
           $app_module$.exports = $app_exports$.default
         }
     $app_module$.exports.template = require(\\"!../../../../../lib/loaders/template-loader.js!../../../../../lib/loaders/fragment-loader.js?index=0&type=template!./testborderleftwidth.ux?uxType=page&\\")
-    $app_module$.exports.style = $app_style$;
+    $app_module$.exports.style = require(\\"!../../../../../lib/loaders/style-loader.js?index=0&type=style!../../../../../lib/loaders/fragment-loader.js?index=0&type=style!./testborderleftwidth.ux?uxType=page\\")
 });
 $app_bootstrap$('@app-component/testborderleftwidth',{ packagerVersion: QUICKAPP_TOOLKIT_VERSION });"
 `;
 
 exports[`Style编译测试 comile style: ./TestStyle/BorderRadius/testborderradius.ux?uxType=page 1`] = `
 "
-var $app_style$ = require(\\"!../../../../../lib/loaders/style-loader.js?index=0&type=style!../../../../../lib/loaders/fragment-loader.js?index=0&type=style!./testborderradius.ux?uxType=page\\")
 var $app_script$ = require(\\"!../../../../../lib/loaders/script-loader.js!../../../../../../../node_modules/@hap-toolkit/packager/lib/loaders/module-loader.js!../../../../../../../node_modules/babel-loader/lib/index.js?cwd=<CWD>&cacheDirectory&plugins[]=<CWD>/packages/hap-dsl-xvm/lib/loaders/babel-plugin-jsx.js&comments=false&configFile=<CWD>/babel.config.js!../../../../../lib/loaders/access-loader.js!../../../../../lib/loaders/fragment-loader.js?index=0&type=script!./testborderradius.ux?uxType=page\\")
 $app_define$('@app-component/testborderradius', [], function($app_require$, $app_exports$, $app_module$) {
      $app_script$($app_module$, $app_exports$, $app_require$)
@@ -10920,14 +10895,13 @@ $app_define$('@app-component/testborderradius', [], function($app_require$, $app
           $app_module$.exports = $app_exports$.default
         }
     $app_module$.exports.template = require(\\"!../../../../../lib/loaders/template-loader.js!../../../../../lib/loaders/fragment-loader.js?index=0&type=template!./testborderradius.ux?uxType=page&\\")
-    $app_module$.exports.style = $app_style$;
+    $app_module$.exports.style = require(\\"!../../../../../lib/loaders/style-loader.js?index=0&type=style!../../../../../lib/loaders/fragment-loader.js?index=0&type=style!./testborderradius.ux?uxType=page\\")
 });
 $app_bootstrap$('@app-component/testborderradius',{ packagerVersion: QUICKAPP_TOOLKIT_VERSION });"
 `;
 
 exports[`Style编译测试 comile style: ./TestStyle/BorderRightColor/testborderrightcolor.ux?uxType=page 1`] = `
 "
-var $app_style$ = require(\\"!../../../../../lib/loaders/style-loader.js?index=0&type=style!../../../../../lib/loaders/fragment-loader.js?index=0&type=style!./testborderrightcolor.ux?uxType=page\\")
 var $app_script$ = require(\\"!../../../../../lib/loaders/script-loader.js!../../../../../../../node_modules/@hap-toolkit/packager/lib/loaders/module-loader.js!../../../../../../../node_modules/babel-loader/lib/index.js?cwd=<CWD>&cacheDirectory&plugins[]=<CWD>/packages/hap-dsl-xvm/lib/loaders/babel-plugin-jsx.js&comments=false&configFile=<CWD>/babel.config.js!../../../../../lib/loaders/access-loader.js!../../../../../lib/loaders/fragment-loader.js?index=0&type=script!./testborderrightcolor.ux?uxType=page\\")
 $app_define$('@app-component/testborderrightcolor', [], function($app_require$, $app_exports$, $app_module$) {
      $app_script$($app_module$, $app_exports$, $app_require$)
@@ -10935,14 +10909,13 @@ $app_define$('@app-component/testborderrightcolor', [], function($app_require$, 
           $app_module$.exports = $app_exports$.default
         }
     $app_module$.exports.template = require(\\"!../../../../../lib/loaders/template-loader.js!../../../../../lib/loaders/fragment-loader.js?index=0&type=template!./testborderrightcolor.ux?uxType=page&\\")
-    $app_module$.exports.style = $app_style$;
+    $app_module$.exports.style = require(\\"!../../../../../lib/loaders/style-loader.js?index=0&type=style!../../../../../lib/loaders/fragment-loader.js?index=0&type=style!./testborderrightcolor.ux?uxType=page\\")
 });
 $app_bootstrap$('@app-component/testborderrightcolor',{ packagerVersion: QUICKAPP_TOOLKIT_VERSION });"
 `;
 
 exports[`Style编译测试 comile style: ./TestStyle/BorderRightWidth/testborderrightwidth.ux?uxType=page 1`] = `
 "
-var $app_style$ = require(\\"!../../../../../lib/loaders/style-loader.js?index=0&type=style!../../../../../lib/loaders/fragment-loader.js?index=0&type=style!./testborderrightwidth.ux?uxType=page\\")
 var $app_script$ = require(\\"!../../../../../lib/loaders/script-loader.js!../../../../../../../node_modules/@hap-toolkit/packager/lib/loaders/module-loader.js!../../../../../../../node_modules/babel-loader/lib/index.js?cwd=<CWD>&cacheDirectory&plugins[]=<CWD>/packages/hap-dsl-xvm/lib/loaders/babel-plugin-jsx.js&comments=false&configFile=<CWD>/babel.config.js!../../../../../lib/loaders/access-loader.js!../../../../../lib/loaders/fragment-loader.js?index=0&type=script!./testborderrightwidth.ux?uxType=page\\")
 $app_define$('@app-component/testborderrightwidth', [], function($app_require$, $app_exports$, $app_module$) {
      $app_script$($app_module$, $app_exports$, $app_require$)
@@ -10950,14 +10923,13 @@ $app_define$('@app-component/testborderrightwidth', [], function($app_require$, 
           $app_module$.exports = $app_exports$.default
         }
     $app_module$.exports.template = require(\\"!../../../../../lib/loaders/template-loader.js!../../../../../lib/loaders/fragment-loader.js?index=0&type=template!./testborderrightwidth.ux?uxType=page&\\")
-    $app_module$.exports.style = $app_style$;
+    $app_module$.exports.style = require(\\"!../../../../../lib/loaders/style-loader.js?index=0&type=style!../../../../../lib/loaders/fragment-loader.js?index=0&type=style!./testborderrightwidth.ux?uxType=page\\")
 });
 $app_bootstrap$('@app-component/testborderrightwidth',{ packagerVersion: QUICKAPP_TOOLKIT_VERSION });"
 `;
 
 exports[`Style编译测试 comile style: ./TestStyle/BorderStyle/testborderstyle.ux?uxType=page 1`] = `
 "
-var $app_style$ = require(\\"!../../../../../lib/loaders/style-loader.js?index=0&type=style!../../../../../lib/loaders/fragment-loader.js?index=0&type=style!./testborderstyle.ux?uxType=page\\")
 var $app_script$ = require(\\"!../../../../../lib/loaders/script-loader.js!../../../../../../../node_modules/@hap-toolkit/packager/lib/loaders/module-loader.js!../../../../../../../node_modules/babel-loader/lib/index.js?cwd=<CWD>&cacheDirectory&plugins[]=<CWD>/packages/hap-dsl-xvm/lib/loaders/babel-plugin-jsx.js&comments=false&configFile=<CWD>/babel.config.js!../../../../../lib/loaders/access-loader.js!../../../../../lib/loaders/fragment-loader.js?index=0&type=script!./testborderstyle.ux?uxType=page\\")
 $app_define$('@app-component/testborderstyle', [], function($app_require$, $app_exports$, $app_module$) {
      $app_script$($app_module$, $app_exports$, $app_require$)
@@ -10965,14 +10937,13 @@ $app_define$('@app-component/testborderstyle', [], function($app_require$, $app_
           $app_module$.exports = $app_exports$.default
         }
     $app_module$.exports.template = require(\\"!../../../../../lib/loaders/template-loader.js!../../../../../lib/loaders/fragment-loader.js?index=0&type=template!./testborderstyle.ux?uxType=page&\\")
-    $app_module$.exports.style = $app_style$;
+    $app_module$.exports.style = require(\\"!../../../../../lib/loaders/style-loader.js?index=0&type=style!../../../../../lib/loaders/fragment-loader.js?index=0&type=style!./testborderstyle.ux?uxType=page\\")
 });
 $app_bootstrap$('@app-component/testborderstyle',{ packagerVersion: QUICKAPP_TOOLKIT_VERSION });"
 `;
 
 exports[`Style编译测试 comile style: ./TestStyle/BorderTopColor/testbordertopcolor.ux?uxType=page 1`] = `
 "
-var $app_style$ = require(\\"!../../../../../lib/loaders/style-loader.js?index=0&type=style!../../../../../lib/loaders/fragment-loader.js?index=0&type=style!./testbordertopcolor.ux?uxType=page\\")
 var $app_script$ = require(\\"!../../../../../lib/loaders/script-loader.js!../../../../../../../node_modules/@hap-toolkit/packager/lib/loaders/module-loader.js!../../../../../../../node_modules/babel-loader/lib/index.js?cwd=<CWD>&cacheDirectory&plugins[]=<CWD>/packages/hap-dsl-xvm/lib/loaders/babel-plugin-jsx.js&comments=false&configFile=<CWD>/babel.config.js!../../../../../lib/loaders/access-loader.js!../../../../../lib/loaders/fragment-loader.js?index=0&type=script!./testbordertopcolor.ux?uxType=page\\")
 $app_define$('@app-component/testbordertopcolor', [], function($app_require$, $app_exports$, $app_module$) {
      $app_script$($app_module$, $app_exports$, $app_require$)
@@ -10980,14 +10951,13 @@ $app_define$('@app-component/testbordertopcolor', [], function($app_require$, $a
           $app_module$.exports = $app_exports$.default
         }
     $app_module$.exports.template = require(\\"!../../../../../lib/loaders/template-loader.js!../../../../../lib/loaders/fragment-loader.js?index=0&type=template!./testbordertopcolor.ux?uxType=page&\\")
-    $app_module$.exports.style = $app_style$;
+    $app_module$.exports.style = require(\\"!../../../../../lib/loaders/style-loader.js?index=0&type=style!../../../../../lib/loaders/fragment-loader.js?index=0&type=style!./testbordertopcolor.ux?uxType=page\\")
 });
 $app_bootstrap$('@app-component/testbordertopcolor',{ packagerVersion: QUICKAPP_TOOLKIT_VERSION });"
 `;
 
 exports[`Style编译测试 comile style: ./TestStyle/BorderTopLeftRadius/testbordertopleftradius.ux?uxType=page 1`] = `
 "
-var $app_style$ = require(\\"!../../../../../lib/loaders/style-loader.js?index=0&type=style!../../../../../lib/loaders/fragment-loader.js?index=0&type=style!./testbordertopleftradius.ux?uxType=page\\")
 var $app_script$ = require(\\"!../../../../../lib/loaders/script-loader.js!../../../../../../../node_modules/@hap-toolkit/packager/lib/loaders/module-loader.js!../../../../../../../node_modules/babel-loader/lib/index.js?cwd=<CWD>&cacheDirectory&plugins[]=<CWD>/packages/hap-dsl-xvm/lib/loaders/babel-plugin-jsx.js&comments=false&configFile=<CWD>/babel.config.js!../../../../../lib/loaders/access-loader.js!../../../../../lib/loaders/fragment-loader.js?index=0&type=script!./testbordertopleftradius.ux?uxType=page\\")
 $app_define$('@app-component/testbordertopleftradius', [], function($app_require$, $app_exports$, $app_module$) {
      $app_script$($app_module$, $app_exports$, $app_require$)
@@ -10995,14 +10965,13 @@ $app_define$('@app-component/testbordertopleftradius', [], function($app_require
           $app_module$.exports = $app_exports$.default
         }
     $app_module$.exports.template = require(\\"!../../../../../lib/loaders/template-loader.js!../../../../../lib/loaders/fragment-loader.js?index=0&type=template!./testbordertopleftradius.ux?uxType=page&\\")
-    $app_module$.exports.style = $app_style$;
+    $app_module$.exports.style = require(\\"!../../../../../lib/loaders/style-loader.js?index=0&type=style!../../../../../lib/loaders/fragment-loader.js?index=0&type=style!./testbordertopleftradius.ux?uxType=page\\")
 });
 $app_bootstrap$('@app-component/testbordertopleftradius',{ packagerVersion: QUICKAPP_TOOLKIT_VERSION });"
 `;
 
 exports[`Style编译测试 comile style: ./TestStyle/BorderTopRightRadius/testbordertoprightradius.ux?uxType=page 1`] = `
 "
-var $app_style$ = require(\\"!../../../../../lib/loaders/style-loader.js?index=0&type=style!../../../../../lib/loaders/fragment-loader.js?index=0&type=style!./testbordertoprightradius.ux?uxType=page\\")
 var $app_script$ = require(\\"!../../../../../lib/loaders/script-loader.js!../../../../../../../node_modules/@hap-toolkit/packager/lib/loaders/module-loader.js!../../../../../../../node_modules/babel-loader/lib/index.js?cwd=<CWD>&cacheDirectory&plugins[]=<CWD>/packages/hap-dsl-xvm/lib/loaders/babel-plugin-jsx.js&comments=false&configFile=<CWD>/babel.config.js!../../../../../lib/loaders/access-loader.js!../../../../../lib/loaders/fragment-loader.js?index=0&type=script!./testbordertoprightradius.ux?uxType=page\\")
 $app_define$('@app-component/testbordertoprightradius', [], function($app_require$, $app_exports$, $app_module$) {
      $app_script$($app_module$, $app_exports$, $app_require$)
@@ -11010,14 +10979,13 @@ $app_define$('@app-component/testbordertoprightradius', [], function($app_requir
           $app_module$.exports = $app_exports$.default
         }
     $app_module$.exports.template = require(\\"!../../../../../lib/loaders/template-loader.js!../../../../../lib/loaders/fragment-loader.js?index=0&type=template!./testbordertoprightradius.ux?uxType=page&\\")
-    $app_module$.exports.style = $app_style$;
+    $app_module$.exports.style = require(\\"!../../../../../lib/loaders/style-loader.js?index=0&type=style!../../../../../lib/loaders/fragment-loader.js?index=0&type=style!./testbordertoprightradius.ux?uxType=page\\")
 });
 $app_bootstrap$('@app-component/testbordertoprightradius',{ packagerVersion: QUICKAPP_TOOLKIT_VERSION });"
 `;
 
 exports[`Style编译测试 comile style: ./TestStyle/BorderTopWidth/testbordertopwidth.ux?uxType=page 1`] = `
 "
-var $app_style$ = require(\\"!../../../../../lib/loaders/style-loader.js?index=0&type=style!../../../../../lib/loaders/fragment-loader.js?index=0&type=style!./testbordertopwidth.ux?uxType=page\\")
 var $app_script$ = require(\\"!../../../../../lib/loaders/script-loader.js!../../../../../../../node_modules/@hap-toolkit/packager/lib/loaders/module-loader.js!../../../../../../../node_modules/babel-loader/lib/index.js?cwd=<CWD>&cacheDirectory&plugins[]=<CWD>/packages/hap-dsl-xvm/lib/loaders/babel-plugin-jsx.js&comments=false&configFile=<CWD>/babel.config.js!../../../../../lib/loaders/access-loader.js!../../../../../lib/loaders/fragment-loader.js?index=0&type=script!./testbordertopwidth.ux?uxType=page\\")
 $app_define$('@app-component/testbordertopwidth', [], function($app_require$, $app_exports$, $app_module$) {
      $app_script$($app_module$, $app_exports$, $app_require$)
@@ -11025,14 +10993,13 @@ $app_define$('@app-component/testbordertopwidth', [], function($app_require$, $a
           $app_module$.exports = $app_exports$.default
         }
     $app_module$.exports.template = require(\\"!../../../../../lib/loaders/template-loader.js!../../../../../lib/loaders/fragment-loader.js?index=0&type=template!./testbordertopwidth.ux?uxType=page&\\")
-    $app_module$.exports.style = $app_style$;
+    $app_module$.exports.style = require(\\"!../../../../../lib/loaders/style-loader.js?index=0&type=style!../../../../../lib/loaders/fragment-loader.js?index=0&type=style!./testbordertopwidth.ux?uxType=page\\")
 });
 $app_bootstrap$('@app-component/testbordertopwidth',{ packagerVersion: QUICKAPP_TOOLKIT_VERSION });"
 `;
 
 exports[`Style编译测试 comile style: ./TestStyle/BorderWidth/testborderwidth.ux?uxType=page 1`] = `
 "
-var $app_style$ = require(\\"!../../../../../lib/loaders/style-loader.js?index=0&type=style!../../../../../lib/loaders/fragment-loader.js?index=0&type=style!./testborderwidth.ux?uxType=page\\")
 var $app_script$ = require(\\"!../../../../../lib/loaders/script-loader.js!../../../../../../../node_modules/@hap-toolkit/packager/lib/loaders/module-loader.js!../../../../../../../node_modules/babel-loader/lib/index.js?cwd=<CWD>&cacheDirectory&plugins[]=<CWD>/packages/hap-dsl-xvm/lib/loaders/babel-plugin-jsx.js&comments=false&configFile=<CWD>/babel.config.js!../../../../../lib/loaders/access-loader.js!../../../../../lib/loaders/fragment-loader.js?index=0&type=script!./testborderwidth.ux?uxType=page\\")
 $app_define$('@app-component/testborderwidth', [], function($app_require$, $app_exports$, $app_module$) {
      $app_script$($app_module$, $app_exports$, $app_require$)
@@ -11040,14 +11007,13 @@ $app_define$('@app-component/testborderwidth', [], function($app_require$, $app_
           $app_module$.exports = $app_exports$.default
         }
     $app_module$.exports.template = require(\\"!../../../../../lib/loaders/template-loader.js!../../../../../lib/loaders/fragment-loader.js?index=0&type=template!./testborderwidth.ux?uxType=page&\\")
-    $app_module$.exports.style = $app_style$;
+    $app_module$.exports.style = require(\\"!../../../../../lib/loaders/style-loader.js?index=0&type=style!../../../../../lib/loaders/fragment-loader.js?index=0&type=style!./testborderwidth.ux?uxType=page\\")
 });
 $app_bootstrap$('@app-component/testborderwidth',{ packagerVersion: QUICKAPP_TOOLKIT_VERSION });"
 `;
 
 exports[`Style编译测试 comile style: ./TestStyle/Bottom/testbottom.ux?uxType=page 1`] = `
 "
-var $app_style$ = require(\\"!../../../../../lib/loaders/style-loader.js?index=0&type=style!../../../../../lib/loaders/fragment-loader.js?index=0&type=style!./testbottom.ux?uxType=page\\")
 var $app_script$ = require(\\"!../../../../../lib/loaders/script-loader.js!../../../../../../../node_modules/@hap-toolkit/packager/lib/loaders/module-loader.js!../../../../../../../node_modules/babel-loader/lib/index.js?cwd=<CWD>&cacheDirectory&plugins[]=<CWD>/packages/hap-dsl-xvm/lib/loaders/babel-plugin-jsx.js&comments=false&configFile=<CWD>/babel.config.js!../../../../../lib/loaders/access-loader.js!../../../../../lib/loaders/fragment-loader.js?index=0&type=script!./testbottom.ux?uxType=page\\")
 $app_define$('@app-component/testbottom', [], function($app_require$, $app_exports$, $app_module$) {
      $app_script$($app_module$, $app_exports$, $app_require$)
@@ -11055,14 +11021,13 @@ $app_define$('@app-component/testbottom', [], function($app_require$, $app_expor
           $app_module$.exports = $app_exports$.default
         }
     $app_module$.exports.template = require(\\"!../../../../../lib/loaders/template-loader.js!../../../../../lib/loaders/fragment-loader.js?index=0&type=template!./testbottom.ux?uxType=page&\\")
-    $app_module$.exports.style = $app_style$;
+    $app_module$.exports.style = require(\\"!../../../../../lib/loaders/style-loader.js?index=0&type=style!../../../../../lib/loaders/fragment-loader.js?index=0&type=style!./testbottom.ux?uxType=page\\")
 });
 $app_bootstrap$('@app-component/testbottom',{ packagerVersion: QUICKAPP_TOOLKIT_VERSION });"
 `;
 
 exports[`Style编译测试 comile style: ./TestStyle/Color/testcolor.ux?uxType=page 1`] = `
 "
-var $app_style$ = require(\\"!../../../../../lib/loaders/style-loader.js?index=0&type=style!../../../../../lib/loaders/fragment-loader.js?index=0&type=style!./testcolor.ux?uxType=page\\")
 var $app_script$ = require(\\"!../../../../../lib/loaders/script-loader.js!../../../../../../../node_modules/@hap-toolkit/packager/lib/loaders/module-loader.js!../../../../../../../node_modules/babel-loader/lib/index.js?cwd=<CWD>&cacheDirectory&plugins[]=<CWD>/packages/hap-dsl-xvm/lib/loaders/babel-plugin-jsx.js&comments=false&configFile=<CWD>/babel.config.js!../../../../../lib/loaders/access-loader.js!../../../../../lib/loaders/fragment-loader.js?index=0&type=script!./testcolor.ux?uxType=page\\")
 $app_define$('@app-component/testcolor', [], function($app_require$, $app_exports$, $app_module$) {
      $app_script$($app_module$, $app_exports$, $app_require$)
@@ -11070,14 +11035,13 @@ $app_define$('@app-component/testcolor', [], function($app_require$, $app_export
           $app_module$.exports = $app_exports$.default
         }
     $app_module$.exports.template = require(\\"!../../../../../lib/loaders/template-loader.js!../../../../../lib/loaders/fragment-loader.js?index=0&type=template!./testcolor.ux?uxType=page&\\")
-    $app_module$.exports.style = $app_style$;
+    $app_module$.exports.style = require(\\"!../../../../../lib/loaders/style-loader.js?index=0&type=style!../../../../../lib/loaders/fragment-loader.js?index=0&type=style!./testcolor.ux?uxType=page\\")
 });
 $app_bootstrap$('@app-component/testcolor',{ packagerVersion: QUICKAPP_TOOLKIT_VERSION });"
 `;
 
 exports[`Style编译测试 comile style: ./TestStyle/Display/testdisplay.ux?uxType=page 1`] = `
 "
-var $app_style$ = require(\\"!../../../../../lib/loaders/style-loader.js?index=0&type=style!../../../../../lib/loaders/fragment-loader.js?index=0&type=style!./testdisplay.ux?uxType=page\\")
 var $app_script$ = require(\\"!../../../../../lib/loaders/script-loader.js!../../../../../../../node_modules/@hap-toolkit/packager/lib/loaders/module-loader.js!../../../../../../../node_modules/babel-loader/lib/index.js?cwd=<CWD>&cacheDirectory&plugins[]=<CWD>/packages/hap-dsl-xvm/lib/loaders/babel-plugin-jsx.js&comments=false&configFile=<CWD>/babel.config.js!../../../../../lib/loaders/access-loader.js!../../../../../lib/loaders/fragment-loader.js?index=0&type=script!./testdisplay.ux?uxType=page\\")
 $app_define$('@app-component/testdisplay', [], function($app_require$, $app_exports$, $app_module$) {
      $app_script$($app_module$, $app_exports$, $app_require$)
@@ -11085,14 +11049,13 @@ $app_define$('@app-component/testdisplay', [], function($app_require$, $app_expo
           $app_module$.exports = $app_exports$.default
         }
     $app_module$.exports.template = require(\\"!../../../../../lib/loaders/template-loader.js!../../../../../lib/loaders/fragment-loader.js?index=0&type=template!./testdisplay.ux?uxType=page&\\")
-    $app_module$.exports.style = $app_style$;
+    $app_module$.exports.style = require(\\"!../../../../../lib/loaders/style-loader.js?index=0&type=style!../../../../../lib/loaders/fragment-loader.js?index=0&type=style!./testdisplay.ux?uxType=page\\")
 });
 $app_bootstrap$('@app-component/testdisplay',{ packagerVersion: QUICKAPP_TOOLKIT_VERSION });"
 `;
 
 exports[`Style编译测试 comile style: ./TestStyle/Filter/testfilter.ux?uxType=page 1`] = `
 "
-var $app_style$ = require(\\"!../../../../../lib/loaders/style-loader.js?index=0&type=style!../../../../../lib/loaders/fragment-loader.js?index=0&type=style!./testfilter.ux?uxType=page\\")
 var $app_script$ = require(\\"!../../../../../lib/loaders/script-loader.js!../../../../../../../node_modules/@hap-toolkit/packager/lib/loaders/module-loader.js!../../../../../../../node_modules/babel-loader/lib/index.js?cwd=<CWD>&cacheDirectory&plugins[]=<CWD>/packages/hap-dsl-xvm/lib/loaders/babel-plugin-jsx.js&comments=false&configFile=<CWD>/babel.config.js!../../../../../lib/loaders/access-loader.js!../../../../../lib/loaders/fragment-loader.js?index=0&type=script!./testfilter.ux?uxType=page\\")
 $app_define$('@app-component/testfilter', [], function($app_require$, $app_exports$, $app_module$) {
      $app_script$($app_module$, $app_exports$, $app_require$)
@@ -11100,14 +11063,13 @@ $app_define$('@app-component/testfilter', [], function($app_require$, $app_expor
           $app_module$.exports = $app_exports$.default
         }
     $app_module$.exports.template = require(\\"!../../../../../lib/loaders/template-loader.js!../../../../../lib/loaders/fragment-loader.js?index=0&type=template!./testfilter.ux?uxType=page&\\")
-    $app_module$.exports.style = $app_style$;
+    $app_module$.exports.style = require(\\"!../../../../../lib/loaders/style-loader.js?index=0&type=style!../../../../../lib/loaders/fragment-loader.js?index=0&type=style!./testfilter.ux?uxType=page\\")
 });
 $app_bootstrap$('@app-component/testfilter',{ packagerVersion: QUICKAPP_TOOLKIT_VERSION });"
 `;
 
 exports[`Style编译测试 comile style: ./TestStyle/Flex/testflex.ux?uxType=page 1`] = `
 "
-var $app_style$ = require(\\"!../../../../../lib/loaders/style-loader.js?index=0&type=style!../../../../../lib/loaders/fragment-loader.js?index=0&type=style!./testflex.ux?uxType=page\\")
 var $app_script$ = require(\\"!../../../../../lib/loaders/script-loader.js!../../../../../../../node_modules/@hap-toolkit/packager/lib/loaders/module-loader.js!../../../../../../../node_modules/babel-loader/lib/index.js?cwd=<CWD>&cacheDirectory&plugins[]=<CWD>/packages/hap-dsl-xvm/lib/loaders/babel-plugin-jsx.js&comments=false&configFile=<CWD>/babel.config.js!../../../../../lib/loaders/access-loader.js!../../../../../lib/loaders/fragment-loader.js?index=0&type=script!./testflex.ux?uxType=page\\")
 $app_define$('@app-component/testflex', [], function($app_require$, $app_exports$, $app_module$) {
      $app_script$($app_module$, $app_exports$, $app_require$)
@@ -11115,14 +11077,13 @@ $app_define$('@app-component/testflex', [], function($app_require$, $app_exports
           $app_module$.exports = $app_exports$.default
         }
     $app_module$.exports.template = require(\\"!../../../../../lib/loaders/template-loader.js!../../../../../lib/loaders/fragment-loader.js?index=0&type=template!./testflex.ux?uxType=page&\\")
-    $app_module$.exports.style = $app_style$;
+    $app_module$.exports.style = require(\\"!../../../../../lib/loaders/style-loader.js?index=0&type=style!../../../../../lib/loaders/fragment-loader.js?index=0&type=style!./testflex.ux?uxType=page\\")
 });
 $app_bootstrap$('@app-component/testflex',{ packagerVersion: QUICKAPP_TOOLKIT_VERSION });"
 `;
 
 exports[`Style编译测试 comile style: ./TestStyle/FlexBasis/testflexbasis.ux?uxType=page 1`] = `
 "
-var $app_style$ = require(\\"!../../../../../lib/loaders/style-loader.js?index=0&type=style!../../../../../lib/loaders/fragment-loader.js?index=0&type=style!./testflexbasis.ux?uxType=page\\")
 var $app_script$ = require(\\"!../../../../../lib/loaders/script-loader.js!../../../../../../../node_modules/@hap-toolkit/packager/lib/loaders/module-loader.js!../../../../../../../node_modules/babel-loader/lib/index.js?cwd=<CWD>&cacheDirectory&plugins[]=<CWD>/packages/hap-dsl-xvm/lib/loaders/babel-plugin-jsx.js&comments=false&configFile=<CWD>/babel.config.js!../../../../../lib/loaders/access-loader.js!../../../../../lib/loaders/fragment-loader.js?index=0&type=script!./testflexbasis.ux?uxType=page\\")
 $app_define$('@app-component/testflexbasis', [], function($app_require$, $app_exports$, $app_module$) {
      $app_script$($app_module$, $app_exports$, $app_require$)
@@ -11130,14 +11091,13 @@ $app_define$('@app-component/testflexbasis', [], function($app_require$, $app_ex
           $app_module$.exports = $app_exports$.default
         }
     $app_module$.exports.template = require(\\"!../../../../../lib/loaders/template-loader.js!../../../../../lib/loaders/fragment-loader.js?index=0&type=template!./testflexbasis.ux?uxType=page&\\")
-    $app_module$.exports.style = $app_style$;
+    $app_module$.exports.style = require(\\"!../../../../../lib/loaders/style-loader.js?index=0&type=style!../../../../../lib/loaders/fragment-loader.js?index=0&type=style!./testflexbasis.ux?uxType=page\\")
 });
 $app_bootstrap$('@app-component/testflexbasis',{ packagerVersion: QUICKAPP_TOOLKIT_VERSION });"
 `;
 
 exports[`Style编译测试 comile style: ./TestStyle/FlexDirection/testflexdirection.ux?uxType=page 1`] = `
 "
-var $app_style$ = require(\\"!../../../../../lib/loaders/style-loader.js?index=0&type=style!../../../../../lib/loaders/fragment-loader.js?index=0&type=style!./testflexdirection.ux?uxType=page\\")
 var $app_script$ = require(\\"!../../../../../lib/loaders/script-loader.js!../../../../../../../node_modules/@hap-toolkit/packager/lib/loaders/module-loader.js!../../../../../../../node_modules/babel-loader/lib/index.js?cwd=<CWD>&cacheDirectory&plugins[]=<CWD>/packages/hap-dsl-xvm/lib/loaders/babel-plugin-jsx.js&comments=false&configFile=<CWD>/babel.config.js!../../../../../lib/loaders/access-loader.js!../../../../../lib/loaders/fragment-loader.js?index=0&type=script!./testflexdirection.ux?uxType=page\\")
 $app_define$('@app-component/testflexdirection', [], function($app_require$, $app_exports$, $app_module$) {
      $app_script$($app_module$, $app_exports$, $app_require$)
@@ -11145,14 +11105,13 @@ $app_define$('@app-component/testflexdirection', [], function($app_require$, $ap
           $app_module$.exports = $app_exports$.default
         }
     $app_module$.exports.template = require(\\"!../../../../../lib/loaders/template-loader.js!../../../../../lib/loaders/fragment-loader.js?index=0&type=template!./testflexdirection.ux?uxType=page&\\")
-    $app_module$.exports.style = $app_style$;
+    $app_module$.exports.style = require(\\"!../../../../../lib/loaders/style-loader.js?index=0&type=style!../../../../../lib/loaders/fragment-loader.js?index=0&type=style!./testflexdirection.ux?uxType=page\\")
 });
 $app_bootstrap$('@app-component/testflexdirection',{ packagerVersion: QUICKAPP_TOOLKIT_VERSION });"
 `;
 
 exports[`Style编译测试 comile style: ./TestStyle/FlexGrow/testflexgrow.ux?uxType=page 1`] = `
 "
-var $app_style$ = require(\\"!../../../../../lib/loaders/style-loader.js?index=0&type=style!../../../../../lib/loaders/fragment-loader.js?index=0&type=style!./testflexgrow.ux?uxType=page\\")
 var $app_script$ = require(\\"!../../../../../lib/loaders/script-loader.js!../../../../../../../node_modules/@hap-toolkit/packager/lib/loaders/module-loader.js!../../../../../../../node_modules/babel-loader/lib/index.js?cwd=<CWD>&cacheDirectory&plugins[]=<CWD>/packages/hap-dsl-xvm/lib/loaders/babel-plugin-jsx.js&comments=false&configFile=<CWD>/babel.config.js!../../../../../lib/loaders/access-loader.js!../../../../../lib/loaders/fragment-loader.js?index=0&type=script!./testflexgrow.ux?uxType=page\\")
 $app_define$('@app-component/testflexgrow', [], function($app_require$, $app_exports$, $app_module$) {
      $app_script$($app_module$, $app_exports$, $app_require$)
@@ -11160,14 +11119,13 @@ $app_define$('@app-component/testflexgrow', [], function($app_require$, $app_exp
           $app_module$.exports = $app_exports$.default
         }
     $app_module$.exports.template = require(\\"!../../../../../lib/loaders/template-loader.js!../../../../../lib/loaders/fragment-loader.js?index=0&type=template!./testflexgrow.ux?uxType=page&\\")
-    $app_module$.exports.style = $app_style$;
+    $app_module$.exports.style = require(\\"!../../../../../lib/loaders/style-loader.js?index=0&type=style!../../../../../lib/loaders/fragment-loader.js?index=0&type=style!./testflexgrow.ux?uxType=page\\")
 });
 $app_bootstrap$('@app-component/testflexgrow',{ packagerVersion: QUICKAPP_TOOLKIT_VERSION });"
 `;
 
 exports[`Style编译测试 comile style: ./TestStyle/FlexShrink/testflexshrink.ux?uxType=page 1`] = `
 "
-var $app_style$ = require(\\"!../../../../../lib/loaders/style-loader.js?index=0&type=style!../../../../../lib/loaders/fragment-loader.js?index=0&type=style!./testflexshrink.ux?uxType=page\\")
 var $app_script$ = require(\\"!../../../../../lib/loaders/script-loader.js!../../../../../../../node_modules/@hap-toolkit/packager/lib/loaders/module-loader.js!../../../../../../../node_modules/babel-loader/lib/index.js?cwd=<CWD>&cacheDirectory&plugins[]=<CWD>/packages/hap-dsl-xvm/lib/loaders/babel-plugin-jsx.js&comments=false&configFile=<CWD>/babel.config.js!../../../../../lib/loaders/access-loader.js!../../../../../lib/loaders/fragment-loader.js?index=0&type=script!./testflexshrink.ux?uxType=page\\")
 $app_define$('@app-component/testflexshrink', [], function($app_require$, $app_exports$, $app_module$) {
      $app_script$($app_module$, $app_exports$, $app_require$)
@@ -11175,14 +11133,13 @@ $app_define$('@app-component/testflexshrink', [], function($app_require$, $app_e
           $app_module$.exports = $app_exports$.default
         }
     $app_module$.exports.template = require(\\"!../../../../../lib/loaders/template-loader.js!../../../../../lib/loaders/fragment-loader.js?index=0&type=template!./testflexshrink.ux?uxType=page&\\")
-    $app_module$.exports.style = $app_style$;
+    $app_module$.exports.style = require(\\"!../../../../../lib/loaders/style-loader.js?index=0&type=style!../../../../../lib/loaders/fragment-loader.js?index=0&type=style!./testflexshrink.ux?uxType=page\\")
 });
 $app_bootstrap$('@app-component/testflexshrink',{ packagerVersion: QUICKAPP_TOOLKIT_VERSION });"
 `;
 
 exports[`Style编译测试 comile style: ./TestStyle/FlexWrap/testflexwrap.ux?uxType=page 1`] = `
 "
-var $app_style$ = require(\\"!../../../../../lib/loaders/style-loader.js?index=0&type=style!../../../../../lib/loaders/fragment-loader.js?index=0&type=style!./testflexwrap.ux?uxType=page\\")
 var $app_script$ = require(\\"!../../../../../lib/loaders/script-loader.js!../../../../../../../node_modules/@hap-toolkit/packager/lib/loaders/module-loader.js!../../../../../../../node_modules/babel-loader/lib/index.js?cwd=<CWD>&cacheDirectory&plugins[]=<CWD>/packages/hap-dsl-xvm/lib/loaders/babel-plugin-jsx.js&comments=false&configFile=<CWD>/babel.config.js!../../../../../lib/loaders/access-loader.js!../../../../../lib/loaders/fragment-loader.js?index=0&type=script!./testflexwrap.ux?uxType=page\\")
 $app_define$('@app-component/testflexwrap', [], function($app_require$, $app_exports$, $app_module$) {
      $app_script$($app_module$, $app_exports$, $app_require$)
@@ -11190,36 +11147,33 @@ $app_define$('@app-component/testflexwrap', [], function($app_require$, $app_exp
           $app_module$.exports = $app_exports$.default
         }
     $app_module$.exports.template = require(\\"!../../../../../lib/loaders/template-loader.js!../../../../../lib/loaders/fragment-loader.js?index=0&type=template!./testflexwrap.ux?uxType=page&\\")
-    $app_module$.exports.style = $app_style$;
+    $app_module$.exports.style = require(\\"!../../../../../lib/loaders/style-loader.js?index=0&type=style!../../../../../lib/loaders/fragment-loader.js?index=0&type=style!./testflexwrap.ux?uxType=page\\")
 });
 $app_bootstrap$('@app-component/testflexwrap',{ packagerVersion: QUICKAPP_TOOLKIT_VERSION });"
 `;
 
 exports[`Style编译测试 comile style: ./TestStyle/FontFace/testfontface.ux?uxType=page 1`] = `
 "
-var $app_style$ = require(\\"!../../../../../lib/loaders/style-loader.js?index=0&type=style!../../../../../lib/loaders/fragment-loader.js?index=0&type=style!./testfontface.ux?uxType=page\\")
 var $app_script$ = null
 $app_define$('@app-component/testfontface', [], function($app_require$, $app_exports$, $app_module$) {
     $app_module$.exports.template = require(\\"!../../../../../lib/loaders/template-loader.js!../../../../../lib/loaders/fragment-loader.js?index=0&type=template!./testfontface.ux?uxType=page&\\")
-    $app_module$.exports.style = $app_style$;
+    $app_module$.exports.style = require(\\"!../../../../../lib/loaders/style-loader.js?index=0&type=style!../../../../../lib/loaders/fragment-loader.js?index=0&type=style!./testfontface.ux?uxType=page\\")
 });
 $app_bootstrap$('@app-component/testfontface',{ packagerVersion: QUICKAPP_TOOLKIT_VERSION });"
 `;
 
 exports[`Style编译测试 comile style: ./TestStyle/FontFamily/testfontfamily.ux?uxType=page 1`] = `
 "
-var $app_style$ = require(\\"!../../../../../lib/loaders/style-loader.js?index=0&type=style!../../../../../lib/loaders/fragment-loader.js?index=0&type=style!./testfontfamily.ux?uxType=page\\")
 var $app_script$ = null
 $app_define$('@app-component/testfontfamily', [], function($app_require$, $app_exports$, $app_module$) {
     $app_module$.exports.template = require(\\"!../../../../../lib/loaders/template-loader.js!../../../../../lib/loaders/fragment-loader.js?index=0&type=template!./testfontfamily.ux?uxType=page&\\")
-    $app_module$.exports.style = $app_style$;
+    $app_module$.exports.style = require(\\"!../../../../../lib/loaders/style-loader.js?index=0&type=style!../../../../../lib/loaders/fragment-loader.js?index=0&type=style!./testfontfamily.ux?uxType=page\\")
 });
 $app_bootstrap$('@app-component/testfontfamily',{ packagerVersion: QUICKAPP_TOOLKIT_VERSION });"
 `;
 
 exports[`Style编译测试 comile style: ./TestStyle/FontSize/testfontsize.ux?uxType=page 1`] = `
 "
-var $app_style$ = require(\\"!../../../../../lib/loaders/style-loader.js?index=0&type=style!../../../../../lib/loaders/fragment-loader.js?index=0&type=style!./testfontsize.ux?uxType=page\\")
 var $app_script$ = require(\\"!../../../../../lib/loaders/script-loader.js!../../../../../../../node_modules/@hap-toolkit/packager/lib/loaders/module-loader.js!../../../../../../../node_modules/babel-loader/lib/index.js?cwd=<CWD>&cacheDirectory&plugins[]=<CWD>/packages/hap-dsl-xvm/lib/loaders/babel-plugin-jsx.js&comments=false&configFile=<CWD>/babel.config.js!../../../../../lib/loaders/access-loader.js!../../../../../lib/loaders/fragment-loader.js?index=0&type=script!./testfontsize.ux?uxType=page\\")
 $app_define$('@app-component/testfontsize', [], function($app_require$, $app_exports$, $app_module$) {
      $app_script$($app_module$, $app_exports$, $app_require$)
@@ -11227,14 +11181,13 @@ $app_define$('@app-component/testfontsize', [], function($app_require$, $app_exp
           $app_module$.exports = $app_exports$.default
         }
     $app_module$.exports.template = require(\\"!../../../../../lib/loaders/template-loader.js!../../../../../lib/loaders/fragment-loader.js?index=0&type=template!./testfontsize.ux?uxType=page&\\")
-    $app_module$.exports.style = $app_style$;
+    $app_module$.exports.style = require(\\"!../../../../../lib/loaders/style-loader.js?index=0&type=style!../../../../../lib/loaders/fragment-loader.js?index=0&type=style!./testfontsize.ux?uxType=page\\")
 });
 $app_bootstrap$('@app-component/testfontsize',{ packagerVersion: QUICKAPP_TOOLKIT_VERSION });"
 `;
 
 exports[`Style编译测试 comile style: ./TestStyle/FontStyle/testfontstyle.ux?uxType=page 1`] = `
 "
-var $app_style$ = require(\\"!../../../../../lib/loaders/style-loader.js?index=0&type=style!../../../../../lib/loaders/fragment-loader.js?index=0&type=style!./testfontstyle.ux?uxType=page\\")
 var $app_script$ = require(\\"!../../../../../lib/loaders/script-loader.js!../../../../../../../node_modules/@hap-toolkit/packager/lib/loaders/module-loader.js!../../../../../../../node_modules/babel-loader/lib/index.js?cwd=<CWD>&cacheDirectory&plugins[]=<CWD>/packages/hap-dsl-xvm/lib/loaders/babel-plugin-jsx.js&comments=false&configFile=<CWD>/babel.config.js!../../../../../lib/loaders/access-loader.js!../../../../../lib/loaders/fragment-loader.js?index=0&type=script!./testfontstyle.ux?uxType=page\\")
 $app_define$('@app-component/testfontstyle', [], function($app_require$, $app_exports$, $app_module$) {
      $app_script$($app_module$, $app_exports$, $app_require$)
@@ -11242,14 +11195,13 @@ $app_define$('@app-component/testfontstyle', [], function($app_require$, $app_ex
           $app_module$.exports = $app_exports$.default
         }
     $app_module$.exports.template = require(\\"!../../../../../lib/loaders/template-loader.js!../../../../../lib/loaders/fragment-loader.js?index=0&type=template!./testfontstyle.ux?uxType=page&\\")
-    $app_module$.exports.style = $app_style$;
+    $app_module$.exports.style = require(\\"!../../../../../lib/loaders/style-loader.js?index=0&type=style!../../../../../lib/loaders/fragment-loader.js?index=0&type=style!./testfontstyle.ux?uxType=page\\")
 });
 $app_bootstrap$('@app-component/testfontstyle',{ packagerVersion: QUICKAPP_TOOLKIT_VERSION });"
 `;
 
 exports[`Style编译测试 comile style: ./TestStyle/FontWeight/testfontweight.ux?uxType=page 1`] = `
 "
-var $app_style$ = require(\\"!../../../../../lib/loaders/style-loader.js?index=0&type=style!../../../../../lib/loaders/fragment-loader.js?index=0&type=style!./testfontweight.ux?uxType=page\\")
 var $app_script$ = require(\\"!../../../../../lib/loaders/script-loader.js!../../../../../../../node_modules/@hap-toolkit/packager/lib/loaders/module-loader.js!../../../../../../../node_modules/babel-loader/lib/index.js?cwd=<CWD>&cacheDirectory&plugins[]=<CWD>/packages/hap-dsl-xvm/lib/loaders/babel-plugin-jsx.js&comments=false&configFile=<CWD>/babel.config.js!../../../../../lib/loaders/access-loader.js!../../../../../lib/loaders/fragment-loader.js?index=0&type=script!./testfontweight.ux?uxType=page\\")
 $app_define$('@app-component/testfontweight', [], function($app_require$, $app_exports$, $app_module$) {
      $app_script$($app_module$, $app_exports$, $app_require$)
@@ -11257,14 +11209,13 @@ $app_define$('@app-component/testfontweight', [], function($app_require$, $app_e
           $app_module$.exports = $app_exports$.default
         }
     $app_module$.exports.template = require(\\"!../../../../../lib/loaders/template-loader.js!../../../../../lib/loaders/fragment-loader.js?index=0&type=template!./testfontweight.ux?uxType=page&\\")
-    $app_module$.exports.style = $app_style$;
+    $app_module$.exports.style = require(\\"!../../../../../lib/loaders/style-loader.js?index=0&type=style!../../../../../lib/loaders/fragment-loader.js?index=0&type=style!./testfontweight.ux?uxType=page\\")
 });
 $app_bootstrap$('@app-component/testfontweight',{ packagerVersion: QUICKAPP_TOOLKIT_VERSION });"
 `;
 
 exports[`Style编译测试 comile style: ./TestStyle/Height/testheight.ux?uxType=page 1`] = `
 "
-var $app_style$ = require(\\"!../../../../../lib/loaders/style-loader.js?index=0&type=style!../../../../../lib/loaders/fragment-loader.js?index=0&type=style!./testheight.ux?uxType=page\\")
 var $app_script$ = require(\\"!../../../../../lib/loaders/script-loader.js!../../../../../../../node_modules/@hap-toolkit/packager/lib/loaders/module-loader.js!../../../../../../../node_modules/babel-loader/lib/index.js?cwd=<CWD>&cacheDirectory&plugins[]=<CWD>/packages/hap-dsl-xvm/lib/loaders/babel-plugin-jsx.js&comments=false&configFile=<CWD>/babel.config.js!../../../../../lib/loaders/access-loader.js!../../../../../lib/loaders/fragment-loader.js?index=0&type=script!./testheight.ux?uxType=page\\")
 $app_define$('@app-component/testheight', [], function($app_require$, $app_exports$, $app_module$) {
      $app_script$($app_module$, $app_exports$, $app_require$)
@@ -11272,14 +11223,13 @@ $app_define$('@app-component/testheight', [], function($app_require$, $app_expor
           $app_module$.exports = $app_exports$.default
         }
     $app_module$.exports.template = require(\\"!../../../../../lib/loaders/template-loader.js!../../../../../lib/loaders/fragment-loader.js?index=0&type=template!./testheight.ux?uxType=page&\\")
-    $app_module$.exports.style = $app_style$;
+    $app_module$.exports.style = require(\\"!../../../../../lib/loaders/style-loader.js?index=0&type=style!../../../../../lib/loaders/fragment-loader.js?index=0&type=style!./testheight.ux?uxType=page\\")
 });
 $app_bootstrap$('@app-component/testheight',{ packagerVersion: QUICKAPP_TOOLKIT_VERSION });"
 `;
 
 exports[`Style编译测试 comile style: ./TestStyle/IndicatorBottom/testindicatorbottom.ux?uxType=page 1`] = `
 "
-var $app_style$ = require(\\"!../../../../../lib/loaders/style-loader.js?index=0&type=style!../../../../../lib/loaders/fragment-loader.js?index=0&type=style!./testindicatorbottom.ux?uxType=page\\")
 var $app_script$ = require(\\"!../../../../../lib/loaders/script-loader.js!../../../../../../../node_modules/@hap-toolkit/packager/lib/loaders/module-loader.js!../../../../../../../node_modules/babel-loader/lib/index.js?cwd=<CWD>&cacheDirectory&plugins[]=<CWD>/packages/hap-dsl-xvm/lib/loaders/babel-plugin-jsx.js&comments=false&configFile=<CWD>/babel.config.js!../../../../../lib/loaders/access-loader.js!../../../../../lib/loaders/fragment-loader.js?index=0&type=script!./testindicatorbottom.ux?uxType=page\\")
 $app_define$('@app-component/testindicatorbottom', [], function($app_require$, $app_exports$, $app_module$) {
      $app_script$($app_module$, $app_exports$, $app_require$)
@@ -11287,14 +11237,13 @@ $app_define$('@app-component/testindicatorbottom', [], function($app_require$, $
           $app_module$.exports = $app_exports$.default
         }
     $app_module$.exports.template = require(\\"!../../../../../lib/loaders/template-loader.js!../../../../../lib/loaders/fragment-loader.js?index=0&type=template!./testindicatorbottom.ux?uxType=page&\\")
-    $app_module$.exports.style = $app_style$;
+    $app_module$.exports.style = require(\\"!../../../../../lib/loaders/style-loader.js?index=0&type=style!../../../../../lib/loaders/fragment-loader.js?index=0&type=style!./testindicatorbottom.ux?uxType=page\\")
 });
 $app_bootstrap$('@app-component/testindicatorbottom',{ packagerVersion: QUICKAPP_TOOLKIT_VERSION });"
 `;
 
 exports[`Style编译测试 comile style: ./TestStyle/IndicatorColor/testindicatorcolor.ux?uxType=page 1`] = `
 "
-var $app_style$ = require(\\"!../../../../../lib/loaders/style-loader.js?index=0&type=style!../../../../../lib/loaders/fragment-loader.js?index=0&type=style!./testindicatorcolor.ux?uxType=page\\")
 var $app_script$ = require(\\"!../../../../../lib/loaders/script-loader.js!../../../../../../../node_modules/@hap-toolkit/packager/lib/loaders/module-loader.js!../../../../../../../node_modules/babel-loader/lib/index.js?cwd=<CWD>&cacheDirectory&plugins[]=<CWD>/packages/hap-dsl-xvm/lib/loaders/babel-plugin-jsx.js&comments=false&configFile=<CWD>/babel.config.js!../../../../../lib/loaders/access-loader.js!../../../../../lib/loaders/fragment-loader.js?index=0&type=script!./testindicatorcolor.ux?uxType=page\\")
 $app_define$('@app-component/testindicatorcolor', [], function($app_require$, $app_exports$, $app_module$) {
      $app_script$($app_module$, $app_exports$, $app_require$)
@@ -11302,14 +11251,13 @@ $app_define$('@app-component/testindicatorcolor', [], function($app_require$, $a
           $app_module$.exports = $app_exports$.default
         }
     $app_module$.exports.template = require(\\"!../../../../../lib/loaders/template-loader.js!../../../../../lib/loaders/fragment-loader.js?index=0&type=template!./testindicatorcolor.ux?uxType=page&\\")
-    $app_module$.exports.style = $app_style$;
+    $app_module$.exports.style = require(\\"!../../../../../lib/loaders/style-loader.js?index=0&type=style!../../../../../lib/loaders/fragment-loader.js?index=0&type=style!./testindicatorcolor.ux?uxType=page\\")
 });
 $app_bootstrap$('@app-component/testindicatorcolor',{ packagerVersion: QUICKAPP_TOOLKIT_VERSION });"
 `;
 
 exports[`Style编译测试 comile style: ./TestStyle/IndicatorLeft/testindicatorleft.ux?uxType=page 1`] = `
 "
-var $app_style$ = require(\\"!../../../../../lib/loaders/style-loader.js?index=0&type=style!../../../../../lib/loaders/fragment-loader.js?index=0&type=style!./testindicatorleft.ux?uxType=page\\")
 var $app_script$ = require(\\"!../../../../../lib/loaders/script-loader.js!../../../../../../../node_modules/@hap-toolkit/packager/lib/loaders/module-loader.js!../../../../../../../node_modules/babel-loader/lib/index.js?cwd=<CWD>&cacheDirectory&plugins[]=<CWD>/packages/hap-dsl-xvm/lib/loaders/babel-plugin-jsx.js&comments=false&configFile=<CWD>/babel.config.js!../../../../../lib/loaders/access-loader.js!../../../../../lib/loaders/fragment-loader.js?index=0&type=script!./testindicatorleft.ux?uxType=page\\")
 $app_define$('@app-component/testindicatorleft', [], function($app_require$, $app_exports$, $app_module$) {
      $app_script$($app_module$, $app_exports$, $app_require$)
@@ -11317,14 +11265,13 @@ $app_define$('@app-component/testindicatorleft', [], function($app_require$, $ap
           $app_module$.exports = $app_exports$.default
         }
     $app_module$.exports.template = require(\\"!../../../../../lib/loaders/template-loader.js!../../../../../lib/loaders/fragment-loader.js?index=0&type=template!./testindicatorleft.ux?uxType=page&\\")
-    $app_module$.exports.style = $app_style$;
+    $app_module$.exports.style = require(\\"!../../../../../lib/loaders/style-loader.js?index=0&type=style!../../../../../lib/loaders/fragment-loader.js?index=0&type=style!./testindicatorleft.ux?uxType=page\\")
 });
 $app_bootstrap$('@app-component/testindicatorleft',{ packagerVersion: QUICKAPP_TOOLKIT_VERSION });"
 `;
 
 exports[`Style编译测试 comile style: ./TestStyle/IndicatorRight/testindicatorright.ux?uxType=page 1`] = `
 "
-var $app_style$ = require(\\"!../../../../../lib/loaders/style-loader.js?index=0&type=style!../../../../../lib/loaders/fragment-loader.js?index=0&type=style!./testindicatorright.ux?uxType=page\\")
 var $app_script$ = require(\\"!../../../../../lib/loaders/script-loader.js!../../../../../../../node_modules/@hap-toolkit/packager/lib/loaders/module-loader.js!../../../../../../../node_modules/babel-loader/lib/index.js?cwd=<CWD>&cacheDirectory&plugins[]=<CWD>/packages/hap-dsl-xvm/lib/loaders/babel-plugin-jsx.js&comments=false&configFile=<CWD>/babel.config.js!../../../../../lib/loaders/access-loader.js!../../../../../lib/loaders/fragment-loader.js?index=0&type=script!./testindicatorright.ux?uxType=page\\")
 $app_define$('@app-component/testindicatorright', [], function($app_require$, $app_exports$, $app_module$) {
      $app_script$($app_module$, $app_exports$, $app_require$)
@@ -11332,14 +11279,13 @@ $app_define$('@app-component/testindicatorright', [], function($app_require$, $a
           $app_module$.exports = $app_exports$.default
         }
     $app_module$.exports.template = require(\\"!../../../../../lib/loaders/template-loader.js!../../../../../lib/loaders/fragment-loader.js?index=0&type=template!./testindicatorright.ux?uxType=page&\\")
-    $app_module$.exports.style = $app_style$;
+    $app_module$.exports.style = require(\\"!../../../../../lib/loaders/style-loader.js?index=0&type=style!../../../../../lib/loaders/fragment-loader.js?index=0&type=style!./testindicatorright.ux?uxType=page\\")
 });
 $app_bootstrap$('@app-component/testindicatorright',{ packagerVersion: QUICKAPP_TOOLKIT_VERSION });"
 `;
 
 exports[`Style编译测试 comile style: ./TestStyle/IndicatorSelectedColor/testindicatorselectedcolor.ux?uxType=page 1`] = `
 "
-var $app_style$ = require(\\"!../../../../../lib/loaders/style-loader.js?index=0&type=style!../../../../../lib/loaders/fragment-loader.js?index=0&type=style!./testindicatorselectedcolor.ux?uxType=page\\")
 var $app_script$ = require(\\"!../../../../../lib/loaders/script-loader.js!../../../../../../../node_modules/@hap-toolkit/packager/lib/loaders/module-loader.js!../../../../../../../node_modules/babel-loader/lib/index.js?cwd=<CWD>&cacheDirectory&plugins[]=<CWD>/packages/hap-dsl-xvm/lib/loaders/babel-plugin-jsx.js&comments=false&configFile=<CWD>/babel.config.js!../../../../../lib/loaders/access-loader.js!../../../../../lib/loaders/fragment-loader.js?index=0&type=script!./testindicatorselectedcolor.ux?uxType=page\\")
 $app_define$('@app-component/testindicatorselectedcolor', [], function($app_require$, $app_exports$, $app_module$) {
      $app_script$($app_module$, $app_exports$, $app_require$)
@@ -11347,14 +11293,13 @@ $app_define$('@app-component/testindicatorselectedcolor', [], function($app_requ
           $app_module$.exports = $app_exports$.default
         }
     $app_module$.exports.template = require(\\"!../../../../../lib/loaders/template-loader.js!../../../../../lib/loaders/fragment-loader.js?index=0&type=template!./testindicatorselectedcolor.ux?uxType=page&\\")
-    $app_module$.exports.style = $app_style$;
+    $app_module$.exports.style = require(\\"!../../../../../lib/loaders/style-loader.js?index=0&type=style!../../../../../lib/loaders/fragment-loader.js?index=0&type=style!./testindicatorselectedcolor.ux?uxType=page\\")
 });
 $app_bootstrap$('@app-component/testindicatorselectedcolor',{ packagerVersion: QUICKAPP_TOOLKIT_VERSION });"
 `;
 
 exports[`Style编译测试 comile style: ./TestStyle/IndicatorSize/testindicatorsize.ux?uxType=page 1`] = `
 "
-var $app_style$ = require(\\"!../../../../../lib/loaders/style-loader.js?index=0&type=style!../../../../../lib/loaders/fragment-loader.js?index=0&type=style!./testindicatorsize.ux?uxType=page\\")
 var $app_script$ = require(\\"!../../../../../lib/loaders/script-loader.js!../../../../../../../node_modules/@hap-toolkit/packager/lib/loaders/module-loader.js!../../../../../../../node_modules/babel-loader/lib/index.js?cwd=<CWD>&cacheDirectory&plugins[]=<CWD>/packages/hap-dsl-xvm/lib/loaders/babel-plugin-jsx.js&comments=false&configFile=<CWD>/babel.config.js!../../../../../lib/loaders/access-loader.js!../../../../../lib/loaders/fragment-loader.js?index=0&type=script!./testindicatorsize.ux?uxType=page\\")
 $app_define$('@app-component/testindicatorsize', [], function($app_require$, $app_exports$, $app_module$) {
      $app_script$($app_module$, $app_exports$, $app_require$)
@@ -11362,14 +11307,13 @@ $app_define$('@app-component/testindicatorsize', [], function($app_require$, $ap
           $app_module$.exports = $app_exports$.default
         }
     $app_module$.exports.template = require(\\"!../../../../../lib/loaders/template-loader.js!../../../../../lib/loaders/fragment-loader.js?index=0&type=template!./testindicatorsize.ux?uxType=page&\\")
-    $app_module$.exports.style = $app_style$;
+    $app_module$.exports.style = require(\\"!../../../../../lib/loaders/style-loader.js?index=0&type=style!../../../../../lib/loaders/fragment-loader.js?index=0&type=style!./testindicatorsize.ux?uxType=page\\")
 });
 $app_bootstrap$('@app-component/testindicatorsize',{ packagerVersion: QUICKAPP_TOOLKIT_VERSION });"
 `;
 
 exports[`Style编译测试 comile style: ./TestStyle/IndicatorTop/testindicatortop.ux?uxType=page 1`] = `
 "
-var $app_style$ = require(\\"!../../../../../lib/loaders/style-loader.js?index=0&type=style!../../../../../lib/loaders/fragment-loader.js?index=0&type=style!./testindicatortop.ux?uxType=page\\")
 var $app_script$ = require(\\"!../../../../../lib/loaders/script-loader.js!../../../../../../../node_modules/@hap-toolkit/packager/lib/loaders/module-loader.js!../../../../../../../node_modules/babel-loader/lib/index.js?cwd=<CWD>&cacheDirectory&plugins[]=<CWD>/packages/hap-dsl-xvm/lib/loaders/babel-plugin-jsx.js&comments=false&configFile=<CWD>/babel.config.js!../../../../../lib/loaders/access-loader.js!../../../../../lib/loaders/fragment-loader.js?index=0&type=script!./testindicatortop.ux?uxType=page\\")
 $app_define$('@app-component/testindicatortop', [], function($app_require$, $app_exports$, $app_module$) {
      $app_script$($app_module$, $app_exports$, $app_require$)
@@ -11377,14 +11321,13 @@ $app_define$('@app-component/testindicatortop', [], function($app_require$, $app
           $app_module$.exports = $app_exports$.default
         }
     $app_module$.exports.template = require(\\"!../../../../../lib/loaders/template-loader.js!../../../../../lib/loaders/fragment-loader.js?index=0&type=template!./testindicatortop.ux?uxType=page&\\")
-    $app_module$.exports.style = $app_style$;
+    $app_module$.exports.style = require(\\"!../../../../../lib/loaders/style-loader.js?index=0&type=style!../../../../../lib/loaders/fragment-loader.js?index=0&type=style!./testindicatortop.ux?uxType=page\\")
 });
 $app_bootstrap$('@app-component/testindicatortop',{ packagerVersion: QUICKAPP_TOOLKIT_VERSION });"
 `;
 
 exports[`Style编译测试 comile style: ./TestStyle/JustifyContent/testjustifycontent.ux?uxType=page 1`] = `
 "
-var $app_style$ = require(\\"!../../../../../lib/loaders/style-loader.js?index=0&type=style!../../../../../lib/loaders/fragment-loader.js?index=0&type=style!./testjustifycontent.ux?uxType=page\\")
 var $app_script$ = require(\\"!../../../../../lib/loaders/script-loader.js!../../../../../../../node_modules/@hap-toolkit/packager/lib/loaders/module-loader.js!../../../../../../../node_modules/babel-loader/lib/index.js?cwd=<CWD>&cacheDirectory&plugins[]=<CWD>/packages/hap-dsl-xvm/lib/loaders/babel-plugin-jsx.js&comments=false&configFile=<CWD>/babel.config.js!../../../../../lib/loaders/access-loader.js!../../../../../lib/loaders/fragment-loader.js?index=0&type=script!./testjustifycontent.ux?uxType=page\\")
 $app_define$('@app-component/testjustifycontent', [], function($app_require$, $app_exports$, $app_module$) {
      $app_script$($app_module$, $app_exports$, $app_require$)
@@ -11392,25 +11335,23 @@ $app_define$('@app-component/testjustifycontent', [], function($app_require$, $a
           $app_module$.exports = $app_exports$.default
         }
     $app_module$.exports.template = require(\\"!../../../../../lib/loaders/template-loader.js!../../../../../lib/loaders/fragment-loader.js?index=0&type=template!./testjustifycontent.ux?uxType=page&\\")
-    $app_module$.exports.style = $app_style$;
+    $app_module$.exports.style = require(\\"!../../../../../lib/loaders/style-loader.js?index=0&type=style!../../../../../lib/loaders/fragment-loader.js?index=0&type=style!./testjustifycontent.ux?uxType=page\\")
 });
 $app_bootstrap$('@app-component/testjustifycontent',{ packagerVersion: QUICKAPP_TOOLKIT_VERSION });"
 `;
 
 exports[`Style编译测试 comile style: ./TestStyle/LayoutType/testlayouttype.ux?uxType=page 1`] = `
 "
-var $app_style$ = require(\\"!../../../../../lib/loaders/style-loader.js?index=0&type=style!../../../../../lib/loaders/fragment-loader.js?index=0&type=style!./testlayouttype.ux?uxType=page\\")
 var $app_script$ = null
 $app_define$('@app-component/testlayouttype', [], function($app_require$, $app_exports$, $app_module$) {
     $app_module$.exports.template = require(\\"!../../../../../lib/loaders/template-loader.js!../../../../../lib/loaders/fragment-loader.js?index=0&type=template!./testlayouttype.ux?uxType=page&\\")
-    $app_module$.exports.style = $app_style$;
+    $app_module$.exports.style = require(\\"!../../../../../lib/loaders/style-loader.js?index=0&type=style!../../../../../lib/loaders/fragment-loader.js?index=0&type=style!./testlayouttype.ux?uxType=page\\")
 });
 $app_bootstrap$('@app-component/testlayouttype',{ packagerVersion: QUICKAPP_TOOLKIT_VERSION });"
 `;
 
 exports[`Style编译测试 comile style: ./TestStyle/Left/testleft.ux?uxType=page 1`] = `
 "
-var $app_style$ = require(\\"!../../../../../lib/loaders/style-loader.js?index=0&type=style!../../../../../lib/loaders/fragment-loader.js?index=0&type=style!./testleft.ux?uxType=page\\")
 var $app_script$ = require(\\"!../../../../../lib/loaders/script-loader.js!../../../../../../../node_modules/@hap-toolkit/packager/lib/loaders/module-loader.js!../../../../../../../node_modules/babel-loader/lib/index.js?cwd=<CWD>&cacheDirectory&plugins[]=<CWD>/packages/hap-dsl-xvm/lib/loaders/babel-plugin-jsx.js&comments=false&configFile=<CWD>/babel.config.js!../../../../../lib/loaders/access-loader.js!../../../../../lib/loaders/fragment-loader.js?index=0&type=script!./testleft.ux?uxType=page\\")
 $app_define$('@app-component/testleft', [], function($app_require$, $app_exports$, $app_module$) {
      $app_script$($app_module$, $app_exports$, $app_require$)
@@ -11418,14 +11359,13 @@ $app_define$('@app-component/testleft', [], function($app_require$, $app_exports
           $app_module$.exports = $app_exports$.default
         }
     $app_module$.exports.template = require(\\"!../../../../../lib/loaders/template-loader.js!../../../../../lib/loaders/fragment-loader.js?index=0&type=template!./testleft.ux?uxType=page&\\")
-    $app_module$.exports.style = $app_style$;
+    $app_module$.exports.style = require(\\"!../../../../../lib/loaders/style-loader.js?index=0&type=style!../../../../../lib/loaders/fragment-loader.js?index=0&type=style!./testleft.ux?uxType=page\\")
 });
 $app_bootstrap$('@app-component/testleft',{ packagerVersion: QUICKAPP_TOOLKIT_VERSION });"
 `;
 
 exports[`Style编译测试 comile style: ./TestStyle/LineHeight/testlineheight.ux?uxType=page 1`] = `
 "
-var $app_style$ = require(\\"!../../../../../lib/loaders/style-loader.js?index=0&type=style!../../../../../lib/loaders/fragment-loader.js?index=0&type=style!./testlineheight.ux?uxType=page\\")
 var $app_script$ = require(\\"!../../../../../lib/loaders/script-loader.js!../../../../../../../node_modules/@hap-toolkit/packager/lib/loaders/module-loader.js!../../../../../../../node_modules/babel-loader/lib/index.js?cwd=<CWD>&cacheDirectory&plugins[]=<CWD>/packages/hap-dsl-xvm/lib/loaders/babel-plugin-jsx.js&comments=false&configFile=<CWD>/babel.config.js!../../../../../lib/loaders/access-loader.js!../../../../../lib/loaders/fragment-loader.js?index=0&type=script!./testlineheight.ux?uxType=page\\")
 $app_define$('@app-component/testlineheight', [], function($app_require$, $app_exports$, $app_module$) {
      $app_script$($app_module$, $app_exports$, $app_require$)
@@ -11433,14 +11373,13 @@ $app_define$('@app-component/testlineheight', [], function($app_require$, $app_e
           $app_module$.exports = $app_exports$.default
         }
     $app_module$.exports.template = require(\\"!../../../../../lib/loaders/template-loader.js!../../../../../lib/loaders/fragment-loader.js?index=0&type=template!./testlineheight.ux?uxType=page&\\")
-    $app_module$.exports.style = $app_style$;
+    $app_module$.exports.style = require(\\"!../../../../../lib/loaders/style-loader.js?index=0&type=style!../../../../../lib/loaders/fragment-loader.js?index=0&type=style!./testlineheight.ux?uxType=page\\")
 });
 $app_bootstrap$('@app-component/testlineheight',{ packagerVersion: QUICKAPP_TOOLKIT_VERSION });"
 `;
 
 exports[`Style编译测试 comile style: ./TestStyle/Lines/testlines.ux?uxType=page 1`] = `
 "
-var $app_style$ = require(\\"!../../../../../lib/loaders/style-loader.js?index=0&type=style!../../../../../lib/loaders/fragment-loader.js?index=0&type=style!./testlines.ux?uxType=page\\")
 var $app_script$ = require(\\"!../../../../../lib/loaders/script-loader.js!../../../../../../../node_modules/@hap-toolkit/packager/lib/loaders/module-loader.js!../../../../../../../node_modules/babel-loader/lib/index.js?cwd=<CWD>&cacheDirectory&plugins[]=<CWD>/packages/hap-dsl-xvm/lib/loaders/babel-plugin-jsx.js&comments=false&configFile=<CWD>/babel.config.js!../../../../../lib/loaders/access-loader.js!../../../../../lib/loaders/fragment-loader.js?index=0&type=script!./testlines.ux?uxType=page\\")
 $app_define$('@app-component/testlines', [], function($app_require$, $app_exports$, $app_module$) {
      $app_script$($app_module$, $app_exports$, $app_require$)
@@ -11448,14 +11387,13 @@ $app_define$('@app-component/testlines', [], function($app_require$, $app_export
           $app_module$.exports = $app_exports$.default
         }
     $app_module$.exports.template = require(\\"!../../../../../lib/loaders/template-loader.js!../../../../../lib/loaders/fragment-loader.js?index=0&type=template!./testlines.ux?uxType=page&\\")
-    $app_module$.exports.style = $app_style$;
+    $app_module$.exports.style = require(\\"!../../../../../lib/loaders/style-loader.js?index=0&type=style!../../../../../lib/loaders/fragment-loader.js?index=0&type=style!./testlines.ux?uxType=page\\")
 });
 $app_bootstrap$('@app-component/testlines',{ packagerVersion: QUICKAPP_TOOLKIT_VERSION });"
 `;
 
 exports[`Style编译测试 comile style: ./TestStyle/Margin/testmargin.ux?uxType=page 1`] = `
 "
-var $app_style$ = require(\\"!../../../../../lib/loaders/style-loader.js?index=0&type=style!../../../../../lib/loaders/fragment-loader.js?index=0&type=style!./testmargin.ux?uxType=page\\")
 var $app_script$ = require(\\"!../../../../../lib/loaders/script-loader.js!../../../../../../../node_modules/@hap-toolkit/packager/lib/loaders/module-loader.js!../../../../../../../node_modules/babel-loader/lib/index.js?cwd=<CWD>&cacheDirectory&plugins[]=<CWD>/packages/hap-dsl-xvm/lib/loaders/babel-plugin-jsx.js&comments=false&configFile=<CWD>/babel.config.js!../../../../../lib/loaders/access-loader.js!../../../../../lib/loaders/fragment-loader.js?index=0&type=script!./testmargin.ux?uxType=page\\")
 $app_define$('@app-component/testmargin', [], function($app_require$, $app_exports$, $app_module$) {
      $app_script$($app_module$, $app_exports$, $app_require$)
@@ -11463,14 +11401,13 @@ $app_define$('@app-component/testmargin', [], function($app_require$, $app_expor
           $app_module$.exports = $app_exports$.default
         }
     $app_module$.exports.template = require(\\"!../../../../../lib/loaders/template-loader.js!../../../../../lib/loaders/fragment-loader.js?index=0&type=template!./testmargin.ux?uxType=page&\\")
-    $app_module$.exports.style = $app_style$;
+    $app_module$.exports.style = require(\\"!../../../../../lib/loaders/style-loader.js?index=0&type=style!../../../../../lib/loaders/fragment-loader.js?index=0&type=style!./testmargin.ux?uxType=page\\")
 });
 $app_bootstrap$('@app-component/testmargin',{ packagerVersion: QUICKAPP_TOOLKIT_VERSION });"
 `;
 
 exports[`Style编译测试 comile style: ./TestStyle/MarginBottom/testmarginbottom.ux?uxType=page 1`] = `
 "
-var $app_style$ = require(\\"!../../../../../lib/loaders/style-loader.js?index=0&type=style!../../../../../lib/loaders/fragment-loader.js?index=0&type=style!./testmarginbottom.ux?uxType=page\\")
 var $app_script$ = require(\\"!../../../../../lib/loaders/script-loader.js!../../../../../../../node_modules/@hap-toolkit/packager/lib/loaders/module-loader.js!../../../../../../../node_modules/babel-loader/lib/index.js?cwd=<CWD>&cacheDirectory&plugins[]=<CWD>/packages/hap-dsl-xvm/lib/loaders/babel-plugin-jsx.js&comments=false&configFile=<CWD>/babel.config.js!../../../../../lib/loaders/access-loader.js!../../../../../lib/loaders/fragment-loader.js?index=0&type=script!./testmarginbottom.ux?uxType=page\\")
 $app_define$('@app-component/testmarginbottom', [], function($app_require$, $app_exports$, $app_module$) {
      $app_script$($app_module$, $app_exports$, $app_require$)
@@ -11478,14 +11415,13 @@ $app_define$('@app-component/testmarginbottom', [], function($app_require$, $app
           $app_module$.exports = $app_exports$.default
         }
     $app_module$.exports.template = require(\\"!../../../../../lib/loaders/template-loader.js!../../../../../lib/loaders/fragment-loader.js?index=0&type=template!./testmarginbottom.ux?uxType=page&\\")
-    $app_module$.exports.style = $app_style$;
+    $app_module$.exports.style = require(\\"!../../../../../lib/loaders/style-loader.js?index=0&type=style!../../../../../lib/loaders/fragment-loader.js?index=0&type=style!./testmarginbottom.ux?uxType=page\\")
 });
 $app_bootstrap$('@app-component/testmarginbottom',{ packagerVersion: QUICKAPP_TOOLKIT_VERSION });"
 `;
 
 exports[`Style编译测试 comile style: ./TestStyle/MarginLeft/testmarginleft.ux?uxType=page 1`] = `
 "
-var $app_style$ = require(\\"!../../../../../lib/loaders/style-loader.js?index=0&type=style!../../../../../lib/loaders/fragment-loader.js?index=0&type=style!./testmarginleft.ux?uxType=page\\")
 var $app_script$ = require(\\"!../../../../../lib/loaders/script-loader.js!../../../../../../../node_modules/@hap-toolkit/packager/lib/loaders/module-loader.js!../../../../../../../node_modules/babel-loader/lib/index.js?cwd=<CWD>&cacheDirectory&plugins[]=<CWD>/packages/hap-dsl-xvm/lib/loaders/babel-plugin-jsx.js&comments=false&configFile=<CWD>/babel.config.js!../../../../../lib/loaders/access-loader.js!../../../../../lib/loaders/fragment-loader.js?index=0&type=script!./testmarginleft.ux?uxType=page\\")
 $app_define$('@app-component/testmarginleft', [], function($app_require$, $app_exports$, $app_module$) {
      $app_script$($app_module$, $app_exports$, $app_require$)
@@ -11493,14 +11429,13 @@ $app_define$('@app-component/testmarginleft', [], function($app_require$, $app_e
           $app_module$.exports = $app_exports$.default
         }
     $app_module$.exports.template = require(\\"!../../../../../lib/loaders/template-loader.js!../../../../../lib/loaders/fragment-loader.js?index=0&type=template!./testmarginleft.ux?uxType=page&\\")
-    $app_module$.exports.style = $app_style$;
+    $app_module$.exports.style = require(\\"!../../../../../lib/loaders/style-loader.js?index=0&type=style!../../../../../lib/loaders/fragment-loader.js?index=0&type=style!./testmarginleft.ux?uxType=page\\")
 });
 $app_bootstrap$('@app-component/testmarginleft',{ packagerVersion: QUICKAPP_TOOLKIT_VERSION });"
 `;
 
 exports[`Style编译测试 comile style: ./TestStyle/MarginRight/testmarginright.ux?uxType=page 1`] = `
 "
-var $app_style$ = require(\\"!../../../../../lib/loaders/style-loader.js?index=0&type=style!../../../../../lib/loaders/fragment-loader.js?index=0&type=style!./testmarginright.ux?uxType=page\\")
 var $app_script$ = require(\\"!../../../../../lib/loaders/script-loader.js!../../../../../../../node_modules/@hap-toolkit/packager/lib/loaders/module-loader.js!../../../../../../../node_modules/babel-loader/lib/index.js?cwd=<CWD>&cacheDirectory&plugins[]=<CWD>/packages/hap-dsl-xvm/lib/loaders/babel-plugin-jsx.js&comments=false&configFile=<CWD>/babel.config.js!../../../../../lib/loaders/access-loader.js!../../../../../lib/loaders/fragment-loader.js?index=0&type=script!./testmarginright.ux?uxType=page\\")
 $app_define$('@app-component/testmarginright', [], function($app_require$, $app_exports$, $app_module$) {
      $app_script$($app_module$, $app_exports$, $app_require$)
@@ -11508,14 +11443,13 @@ $app_define$('@app-component/testmarginright', [], function($app_require$, $app_
           $app_module$.exports = $app_exports$.default
         }
     $app_module$.exports.template = require(\\"!../../../../../lib/loaders/template-loader.js!../../../../../lib/loaders/fragment-loader.js?index=0&type=template!./testmarginright.ux?uxType=page&\\")
-    $app_module$.exports.style = $app_style$;
+    $app_module$.exports.style = require(\\"!../../../../../lib/loaders/style-loader.js?index=0&type=style!../../../../../lib/loaders/fragment-loader.js?index=0&type=style!./testmarginright.ux?uxType=page\\")
 });
 $app_bootstrap$('@app-component/testmarginright',{ packagerVersion: QUICKAPP_TOOLKIT_VERSION });"
 `;
 
 exports[`Style编译测试 comile style: ./TestStyle/MarginTop/testmargintop.ux?uxType=page 1`] = `
 "
-var $app_style$ = require(\\"!../../../../../lib/loaders/style-loader.js?index=0&type=style!../../../../../lib/loaders/fragment-loader.js?index=0&type=style!./testmargintop.ux?uxType=page\\")
 var $app_script$ = require(\\"!../../../../../lib/loaders/script-loader.js!../../../../../../../node_modules/@hap-toolkit/packager/lib/loaders/module-loader.js!../../../../../../../node_modules/babel-loader/lib/index.js?cwd=<CWD>&cacheDirectory&plugins[]=<CWD>/packages/hap-dsl-xvm/lib/loaders/babel-plugin-jsx.js&comments=false&configFile=<CWD>/babel.config.js!../../../../../lib/loaders/access-loader.js!../../../../../lib/loaders/fragment-loader.js?index=0&type=script!./testmargintop.ux?uxType=page\\")
 $app_define$('@app-component/testmargintop', [], function($app_require$, $app_exports$, $app_module$) {
      $app_script$($app_module$, $app_exports$, $app_require$)
@@ -11523,14 +11457,13 @@ $app_define$('@app-component/testmargintop', [], function($app_require$, $app_ex
           $app_module$.exports = $app_exports$.default
         }
     $app_module$.exports.template = require(\\"!../../../../../lib/loaders/template-loader.js!../../../../../lib/loaders/fragment-loader.js?index=0&type=template!./testmargintop.ux?uxType=page&\\")
-    $app_module$.exports.style = $app_style$;
+    $app_module$.exports.style = require(\\"!../../../../../lib/loaders/style-loader.js?index=0&type=style!../../../../../lib/loaders/fragment-loader.js?index=0&type=style!./testmargintop.ux?uxType=page\\")
 });
 $app_bootstrap$('@app-component/testmargintop',{ packagerVersion: QUICKAPP_TOOLKIT_VERSION });"
 `;
 
 exports[`Style编译测试 comile style: ./TestStyle/MediaQuery1/testmediaquery1.ux?uxType=page 1`] = `
 "
-var $app_style$ = require(\\"!../../../../../lib/loaders/style-loader.js?index=0&type=style!../../../../../lib/loaders/fragment-loader.js?index=0&type=style!./testmediaquery1.ux?uxType=page\\")
 var $app_script$ = require(\\"!../../../../../lib/loaders/script-loader.js!../../../../../../../node_modules/@hap-toolkit/packager/lib/loaders/module-loader.js!../../../../../../../node_modules/babel-loader/lib/index.js?cwd=<CWD>&cacheDirectory&plugins[]=<CWD>/packages/hap-dsl-xvm/lib/loaders/babel-plugin-jsx.js&comments=false&configFile=<CWD>/babel.config.js!../../../../../lib/loaders/access-loader.js!../../../../../lib/loaders/fragment-loader.js?index=0&type=script!./testmediaquery1.ux?uxType=page\\")
 $app_define$('@app-component/testmediaquery1', [], function($app_require$, $app_exports$, $app_module$) {
      $app_script$($app_module$, $app_exports$, $app_require$)
@@ -11538,14 +11471,13 @@ $app_define$('@app-component/testmediaquery1', [], function($app_require$, $app_
           $app_module$.exports = $app_exports$.default
         }
     $app_module$.exports.template = require(\\"!../../../../../lib/loaders/template-loader.js!../../../../../lib/loaders/fragment-loader.js?index=0&type=template!./testmediaquery1.ux?uxType=page&\\")
-    $app_module$.exports.style = $app_style$;
+    $app_module$.exports.style = require(\\"!../../../../../lib/loaders/style-loader.js?index=0&type=style!../../../../../lib/loaders/fragment-loader.js?index=0&type=style!./testmediaquery1.ux?uxType=page\\")
 });
 $app_bootstrap$('@app-component/testmediaquery1',{ packagerVersion: QUICKAPP_TOOLKIT_VERSION });"
 `;
 
 exports[`Style编译测试 comile style: ./TestStyle/MediaQuery2/testmediaquery2.ux?uxType=page 1`] = `
 "
-var $app_style$ = require(\\"!../../../../../lib/loaders/style-loader.js?index=0&type=style!../../../../../lib/loaders/fragment-loader.js?index=0&type=style!./testmediaquery2.ux?uxType=page\\")
 var $app_script$ = require(\\"!../../../../../lib/loaders/script-loader.js!../../../../../../../node_modules/@hap-toolkit/packager/lib/loaders/module-loader.js!../../../../../../../node_modules/babel-loader/lib/index.js?cwd=<CWD>&cacheDirectory&plugins[]=<CWD>/packages/hap-dsl-xvm/lib/loaders/babel-plugin-jsx.js&comments=false&configFile=<CWD>/babel.config.js!../../../../../lib/loaders/access-loader.js!../../../../../lib/loaders/fragment-loader.js?index=0&type=script!./testmediaquery2.ux?uxType=page\\")
 $app_define$('@app-component/testmediaquery2', [], function($app_require$, $app_exports$, $app_module$) {
      $app_script$($app_module$, $app_exports$, $app_require$)
@@ -11553,14 +11485,13 @@ $app_define$('@app-component/testmediaquery2', [], function($app_require$, $app_
           $app_module$.exports = $app_exports$.default
         }
     $app_module$.exports.template = require(\\"!../../../../../lib/loaders/template-loader.js!../../../../../lib/loaders/fragment-loader.js?index=0&type=template!./testmediaquery2.ux?uxType=page&\\")
-    $app_module$.exports.style = $app_style$;
+    $app_module$.exports.style = require(\\"!../../../../../lib/loaders/style-loader.js?index=0&type=style!../../../../../lib/loaders/fragment-loader.js?index=0&type=style!./testmediaquery2.ux?uxType=page\\")
 });
 $app_bootstrap$('@app-component/testmediaquery2',{ packagerVersion: QUICKAPP_TOOLKIT_VERSION });"
 `;
 
 exports[`Style编译测试 comile style: ./TestStyle/MediaQueryLess/testmediaqueryless.ux?uxType=page 1`] = `
 "
-var $app_style$ = require(\\"!../../../../../lib/loaders/style-loader.js?index=0&type=style!../../../../../../../node_modules/less-loader/dist/cjs.js!../../../../../lib/loaders/fragment-loader.js?index=0&type=style!./testmediaqueryless.ux?uxType=page\\")
 var $app_script$ = require(\\"!../../../../../lib/loaders/script-loader.js!../../../../../../../node_modules/@hap-toolkit/packager/lib/loaders/module-loader.js!../../../../../../../node_modules/babel-loader/lib/index.js?cwd=<CWD>&cacheDirectory&plugins[]=<CWD>/packages/hap-dsl-xvm/lib/loaders/babel-plugin-jsx.js&comments=false&configFile=<CWD>/babel.config.js!../../../../../lib/loaders/access-loader.js!../../../../../lib/loaders/fragment-loader.js?index=0&type=script!./testmediaqueryless.ux?uxType=page\\")
 $app_define$('@app-component/testmediaqueryless', [], function($app_require$, $app_exports$, $app_module$) {
      $app_script$($app_module$, $app_exports$, $app_require$)
@@ -11568,14 +11499,13 @@ $app_define$('@app-component/testmediaqueryless', [], function($app_require$, $a
           $app_module$.exports = $app_exports$.default
         }
     $app_module$.exports.template = require(\\"!../../../../../lib/loaders/template-loader.js!../../../../../lib/loaders/fragment-loader.js?index=0&type=template!./testmediaqueryless.ux?uxType=page&\\")
-    $app_module$.exports.style = $app_style$;
+    $app_module$.exports.style = require(\\"!../../../../../lib/loaders/style-loader.js?index=0&type=style!../../../../../../../node_modules/less-loader/dist/cjs.js!../../../../../lib/loaders/fragment-loader.js?index=0&type=style!./testmediaqueryless.ux?uxType=page\\")
 });
 $app_bootstrap$('@app-component/testmediaqueryless',{ packagerVersion: QUICKAPP_TOOLKIT_VERSION });"
 `;
 
 exports[`Style编译测试 comile style: ./TestStyle/Mylocation/testmylocation.ux?uxType=page 1`] = `
 "
-var $app_style$ = require(\\"!../../../../../lib/loaders/style-loader.js?index=0&type=style!../../../../../lib/loaders/fragment-loader.js?index=0&type=style!./testmylocation.ux?uxType=page\\")
 var $app_script$ = require(\\"!../../../../../lib/loaders/script-loader.js!../../../../../../../node_modules/@hap-toolkit/packager/lib/loaders/module-loader.js!../../../../../../../node_modules/babel-loader/lib/index.js?cwd=<CWD>&cacheDirectory&plugins[]=<CWD>/packages/hap-dsl-xvm/lib/loaders/babel-plugin-jsx.js&comments=false&configFile=<CWD>/babel.config.js!../../../../../lib/loaders/access-loader.js!../../../../../lib/loaders/fragment-loader.js?index=0&type=script!./testmylocation.ux?uxType=page\\")
 $app_define$('@app-component/testmylocation', [], function($app_require$, $app_exports$, $app_module$) {
      $app_script$($app_module$, $app_exports$, $app_require$)
@@ -11583,14 +11513,13 @@ $app_define$('@app-component/testmylocation', [], function($app_require$, $app_e
           $app_module$.exports = $app_exports$.default
         }
     $app_module$.exports.template = require(\\"!../../../../../lib/loaders/template-loader.js!../../../../../lib/loaders/fragment-loader.js?index=0&type=template!./testmylocation.ux?uxType=page&\\")
-    $app_module$.exports.style = $app_style$;
+    $app_module$.exports.style = require(\\"!../../../../../lib/loaders/style-loader.js?index=0&type=style!../../../../../lib/loaders/fragment-loader.js?index=0&type=style!./testmylocation.ux?uxType=page\\")
 });
 $app_bootstrap$('@app-component/testmylocation',{ packagerVersion: QUICKAPP_TOOLKIT_VERSION });"
 `;
 
 exports[`Style编译测试 comile style: ./TestStyle/MylocationFillColor/testmylocationfillcolor.ux?uxType=page 1`] = `
 "
-var $app_style$ = require(\\"!../../../../../lib/loaders/style-loader.js?index=0&type=style!../../../../../lib/loaders/fragment-loader.js?index=0&type=style!./testmylocationfillcolor.ux?uxType=page\\")
 var $app_script$ = require(\\"!../../../../../lib/loaders/script-loader.js!../../../../../../../node_modules/@hap-toolkit/packager/lib/loaders/module-loader.js!../../../../../../../node_modules/babel-loader/lib/index.js?cwd=<CWD>&cacheDirectory&plugins[]=<CWD>/packages/hap-dsl-xvm/lib/loaders/babel-plugin-jsx.js&comments=false&configFile=<CWD>/babel.config.js!../../../../../lib/loaders/access-loader.js!../../../../../lib/loaders/fragment-loader.js?index=0&type=script!./testmylocationfillcolor.ux?uxType=page\\")
 $app_define$('@app-component/testmylocationfillcolor', [], function($app_require$, $app_exports$, $app_module$) {
      $app_script$($app_module$, $app_exports$, $app_require$)
@@ -11598,14 +11527,13 @@ $app_define$('@app-component/testmylocationfillcolor', [], function($app_require
           $app_module$.exports = $app_exports$.default
         }
     $app_module$.exports.template = require(\\"!../../../../../lib/loaders/template-loader.js!../../../../../lib/loaders/fragment-loader.js?index=0&type=template!./testmylocationfillcolor.ux?uxType=page&\\")
-    $app_module$.exports.style = $app_style$;
+    $app_module$.exports.style = require(\\"!../../../../../lib/loaders/style-loader.js?index=0&type=style!../../../../../lib/loaders/fragment-loader.js?index=0&type=style!./testmylocationfillcolor.ux?uxType=page\\")
 });
 $app_bootstrap$('@app-component/testmylocationfillcolor',{ packagerVersion: QUICKAPP_TOOLKIT_VERSION });"
 `;
 
 exports[`Style编译测试 comile style: ./TestStyle/MylocationIconPath/testmylocationiconpath.ux?uxType=page 1`] = `
 "
-var $app_style$ = require(\\"!../../../../../lib/loaders/style-loader.js?index=0&type=style!../../../../../lib/loaders/fragment-loader.js?index=0&type=style!./testmylocationiconpath.ux?uxType=page\\")
 var $app_script$ = require(\\"!../../../../../lib/loaders/script-loader.js!../../../../../../../node_modules/@hap-toolkit/packager/lib/loaders/module-loader.js!../../../../../../../node_modules/babel-loader/lib/index.js?cwd=<CWD>&cacheDirectory&plugins[]=<CWD>/packages/hap-dsl-xvm/lib/loaders/babel-plugin-jsx.js&comments=false&configFile=<CWD>/babel.config.js!../../../../../lib/loaders/access-loader.js!../../../../../lib/loaders/fragment-loader.js?index=0&type=script!./testmylocationiconpath.ux?uxType=page\\")
 $app_define$('@app-component/testmylocationiconpath', [], function($app_require$, $app_exports$, $app_module$) {
      $app_script$($app_module$, $app_exports$, $app_require$)
@@ -11613,14 +11541,13 @@ $app_define$('@app-component/testmylocationiconpath', [], function($app_require$
           $app_module$.exports = $app_exports$.default
         }
     $app_module$.exports.template = require(\\"!../../../../../lib/loaders/template-loader.js!../../../../../lib/loaders/fragment-loader.js?index=0&type=template!./testmylocationiconpath.ux?uxType=page&\\")
-    $app_module$.exports.style = $app_style$;
+    $app_module$.exports.style = require(\\"!../../../../../lib/loaders/style-loader.js?index=0&type=style!../../../../../lib/loaders/fragment-loader.js?index=0&type=style!./testmylocationiconpath.ux?uxType=page\\")
 });
 $app_bootstrap$('@app-component/testmylocationiconpath',{ packagerVersion: QUICKAPP_TOOLKIT_VERSION });"
 `;
 
 exports[`Style编译测试 comile style: ./TestStyle/MylocationStrokeColor/testmylocationstrokecolor.ux?uxType=page 1`] = `
 "
-var $app_style$ = require(\\"!../../../../../lib/loaders/style-loader.js?index=0&type=style!../../../../../lib/loaders/fragment-loader.js?index=0&type=style!./testmylocationstrokecolor.ux?uxType=page\\")
 var $app_script$ = require(\\"!../../../../../lib/loaders/script-loader.js!../../../../../../../node_modules/@hap-toolkit/packager/lib/loaders/module-loader.js!../../../../../../../node_modules/babel-loader/lib/index.js?cwd=<CWD>&cacheDirectory&plugins[]=<CWD>/packages/hap-dsl-xvm/lib/loaders/babel-plugin-jsx.js&comments=false&configFile=<CWD>/babel.config.js!../../../../../lib/loaders/access-loader.js!../../../../../lib/loaders/fragment-loader.js?index=0&type=script!./testmylocationstrokecolor.ux?uxType=page\\")
 $app_define$('@app-component/testmylocationstrokecolor', [], function($app_require$, $app_exports$, $app_module$) {
      $app_script$($app_module$, $app_exports$, $app_require$)
@@ -11628,25 +11555,23 @@ $app_define$('@app-component/testmylocationstrokecolor', [], function($app_requi
           $app_module$.exports = $app_exports$.default
         }
     $app_module$.exports.template = require(\\"!../../../../../lib/loaders/template-loader.js!../../../../../lib/loaders/fragment-loader.js?index=0&type=template!./testmylocationstrokecolor.ux?uxType=page&\\")
-    $app_module$.exports.style = $app_style$;
+    $app_module$.exports.style = require(\\"!../../../../../lib/loaders/style-loader.js?index=0&type=style!../../../../../lib/loaders/fragment-loader.js?index=0&type=style!./testmylocationstrokecolor.ux?uxType=page\\")
 });
 $app_bootstrap$('@app-component/testmylocationstrokecolor',{ packagerVersion: QUICKAPP_TOOLKIT_VERSION });"
 `;
 
 exports[`Style编译测试 comile style: ./TestStyle/ObjectFit/testobjectfit.ux?uxType=page 1`] = `
 "
-var $app_style$ = require(\\"!../../../../../lib/loaders/style-loader.js?index=0&type=style!../../../../../lib/loaders/fragment-loader.js?index=0&type=style!./testobjectfit.ux?uxType=page\\")
 var $app_script$ = null
 $app_define$('@app-component/testobjectfit', [], function($app_require$, $app_exports$, $app_module$) {
     $app_module$.exports.template = require(\\"!../../../../../lib/loaders/template-loader.js!../../../../../lib/loaders/fragment-loader.js?index=0&type=template!./testobjectfit.ux?uxType=page&\\")
-    $app_module$.exports.style = $app_style$;
+    $app_module$.exports.style = require(\\"!../../../../../lib/loaders/style-loader.js?index=0&type=style!../../../../../lib/loaders/fragment-loader.js?index=0&type=style!./testobjectfit.ux?uxType=page\\")
 });
 $app_bootstrap$('@app-component/testobjectfit',{ packagerVersion: QUICKAPP_TOOLKIT_VERSION });"
 `;
 
 exports[`Style编译测试 comile style: ./TestStyle/Opacity/testopacity.ux?uxType=page 1`] = `
 "
-var $app_style$ = require(\\"!../../../../../lib/loaders/style-loader.js?index=0&type=style!../../../../../lib/loaders/fragment-loader.js?index=0&type=style!./testopacity.ux?uxType=page\\")
 var $app_script$ = require(\\"!../../../../../lib/loaders/script-loader.js!../../../../../../../node_modules/@hap-toolkit/packager/lib/loaders/module-loader.js!../../../../../../../node_modules/babel-loader/lib/index.js?cwd=<CWD>&cacheDirectory&plugins[]=<CWD>/packages/hap-dsl-xvm/lib/loaders/babel-plugin-jsx.js&comments=false&configFile=<CWD>/babel.config.js!../../../../../lib/loaders/access-loader.js!../../../../../lib/loaders/fragment-loader.js?index=0&type=script!./testopacity.ux?uxType=page\\")
 $app_define$('@app-component/testopacity', [], function($app_require$, $app_exports$, $app_module$) {
      $app_script$($app_module$, $app_exports$, $app_require$)
@@ -11654,25 +11579,23 @@ $app_define$('@app-component/testopacity', [], function($app_require$, $app_expo
           $app_module$.exports = $app_exports$.default
         }
     $app_module$.exports.template = require(\\"!../../../../../lib/loaders/template-loader.js!../../../../../lib/loaders/fragment-loader.js?index=0&type=template!./testopacity.ux?uxType=page&\\")
-    $app_module$.exports.style = $app_style$;
+    $app_module$.exports.style = require(\\"!../../../../../lib/loaders/style-loader.js?index=0&type=style!../../../../../lib/loaders/fragment-loader.js?index=0&type=style!./testopacity.ux?uxType=page\\")
 });
 $app_bootstrap$('@app-component/testopacity',{ packagerVersion: QUICKAPP_TOOLKIT_VERSION });"
 `;
 
 exports[`Style编译测试 comile style: ./TestStyle/Overflow/testoverflow.ux?uxType=page 1`] = `
 "
-var $app_style$ = require(\\"!../../../../../lib/loaders/style-loader.js?index=0&type=style!../../../../../lib/loaders/fragment-loader.js?index=0&type=style!./testoverflow.ux?uxType=page\\")
 var $app_script$ = null
 $app_define$('@app-component/testoverflow', [], function($app_require$, $app_exports$, $app_module$) {
     $app_module$.exports.template = require(\\"!../../../../../lib/loaders/template-loader.js!../../../../../lib/loaders/fragment-loader.js?index=0&type=template!./testoverflow.ux?uxType=page&\\")
-    $app_module$.exports.style = $app_style$;
+    $app_module$.exports.style = require(\\"!../../../../../lib/loaders/style-loader.js?index=0&type=style!../../../../../lib/loaders/fragment-loader.js?index=0&type=style!./testoverflow.ux?uxType=page\\")
 });
 $app_bootstrap$('@app-component/testoverflow',{ packagerVersion: QUICKAPP_TOOLKIT_VERSION });"
 `;
 
 exports[`Style编译测试 comile style: ./TestStyle/Padding/testpadding.ux?uxType=page 1`] = `
 "
-var $app_style$ = require(\\"!../../../../../lib/loaders/style-loader.js?index=0&type=style!../../../../../lib/loaders/fragment-loader.js?index=0&type=style!./testpadding.ux?uxType=page\\")
 var $app_script$ = require(\\"!../../../../../lib/loaders/script-loader.js!../../../../../../../node_modules/@hap-toolkit/packager/lib/loaders/module-loader.js!../../../../../../../node_modules/babel-loader/lib/index.js?cwd=<CWD>&cacheDirectory&plugins[]=<CWD>/packages/hap-dsl-xvm/lib/loaders/babel-plugin-jsx.js&comments=false&configFile=<CWD>/babel.config.js!../../../../../lib/loaders/access-loader.js!../../../../../lib/loaders/fragment-loader.js?index=0&type=script!./testpadding.ux?uxType=page\\")
 $app_define$('@app-component/testpadding', [], function($app_require$, $app_exports$, $app_module$) {
      $app_script$($app_module$, $app_exports$, $app_require$)
@@ -11680,14 +11603,13 @@ $app_define$('@app-component/testpadding', [], function($app_require$, $app_expo
           $app_module$.exports = $app_exports$.default
         }
     $app_module$.exports.template = require(\\"!../../../../../lib/loaders/template-loader.js!../../../../../lib/loaders/fragment-loader.js?index=0&type=template!./testpadding.ux?uxType=page&\\")
-    $app_module$.exports.style = $app_style$;
+    $app_module$.exports.style = require(\\"!../../../../../lib/loaders/style-loader.js?index=0&type=style!../../../../../lib/loaders/fragment-loader.js?index=0&type=style!./testpadding.ux?uxType=page\\")
 });
 $app_bootstrap$('@app-component/testpadding',{ packagerVersion: QUICKAPP_TOOLKIT_VERSION });"
 `;
 
 exports[`Style编译测试 comile style: ./TestStyle/PaddingBottom/testpaddingbottom.ux?uxType=page 1`] = `
 "
-var $app_style$ = require(\\"!../../../../../lib/loaders/style-loader.js?index=0&type=style!../../../../../lib/loaders/fragment-loader.js?index=0&type=style!./testpaddingbottom.ux?uxType=page\\")
 var $app_script$ = require(\\"!../../../../../lib/loaders/script-loader.js!../../../../../../../node_modules/@hap-toolkit/packager/lib/loaders/module-loader.js!../../../../../../../node_modules/babel-loader/lib/index.js?cwd=<CWD>&cacheDirectory&plugins[]=<CWD>/packages/hap-dsl-xvm/lib/loaders/babel-plugin-jsx.js&comments=false&configFile=<CWD>/babel.config.js!../../../../../lib/loaders/access-loader.js!../../../../../lib/loaders/fragment-loader.js?index=0&type=script!./testpaddingbottom.ux?uxType=page\\")
 $app_define$('@app-component/testpaddingbottom', [], function($app_require$, $app_exports$, $app_module$) {
      $app_script$($app_module$, $app_exports$, $app_require$)
@@ -11695,14 +11617,13 @@ $app_define$('@app-component/testpaddingbottom', [], function($app_require$, $ap
           $app_module$.exports = $app_exports$.default
         }
     $app_module$.exports.template = require(\\"!../../../../../lib/loaders/template-loader.js!../../../../../lib/loaders/fragment-loader.js?index=0&type=template!./testpaddingbottom.ux?uxType=page&\\")
-    $app_module$.exports.style = $app_style$;
+    $app_module$.exports.style = require(\\"!../../../../../lib/loaders/style-loader.js?index=0&type=style!../../../../../lib/loaders/fragment-loader.js?index=0&type=style!./testpaddingbottom.ux?uxType=page\\")
 });
 $app_bootstrap$('@app-component/testpaddingbottom',{ packagerVersion: QUICKAPP_TOOLKIT_VERSION });"
 `;
 
 exports[`Style编译测试 comile style: ./TestStyle/PaddingLeft/testpaddingleft.ux?uxType=page 1`] = `
 "
-var $app_style$ = require(\\"!../../../../../lib/loaders/style-loader.js?index=0&type=style!../../../../../lib/loaders/fragment-loader.js?index=0&type=style!./testpaddingleft.ux?uxType=page\\")
 var $app_script$ = require(\\"!../../../../../lib/loaders/script-loader.js!../../../../../../../node_modules/@hap-toolkit/packager/lib/loaders/module-loader.js!../../../../../../../node_modules/babel-loader/lib/index.js?cwd=<CWD>&cacheDirectory&plugins[]=<CWD>/packages/hap-dsl-xvm/lib/loaders/babel-plugin-jsx.js&comments=false&configFile=<CWD>/babel.config.js!../../../../../lib/loaders/access-loader.js!../../../../../lib/loaders/fragment-loader.js?index=0&type=script!./testpaddingleft.ux?uxType=page\\")
 $app_define$('@app-component/testpaddingleft', [], function($app_require$, $app_exports$, $app_module$) {
      $app_script$($app_module$, $app_exports$, $app_require$)
@@ -11710,14 +11631,13 @@ $app_define$('@app-component/testpaddingleft', [], function($app_require$, $app_
           $app_module$.exports = $app_exports$.default
         }
     $app_module$.exports.template = require(\\"!../../../../../lib/loaders/template-loader.js!../../../../../lib/loaders/fragment-loader.js?index=0&type=template!./testpaddingleft.ux?uxType=page&\\")
-    $app_module$.exports.style = $app_style$;
+    $app_module$.exports.style = require(\\"!../../../../../lib/loaders/style-loader.js?index=0&type=style!../../../../../lib/loaders/fragment-loader.js?index=0&type=style!./testpaddingleft.ux?uxType=page\\")
 });
 $app_bootstrap$('@app-component/testpaddingleft',{ packagerVersion: QUICKAPP_TOOLKIT_VERSION });"
 `;
 
 exports[`Style编译测试 comile style: ./TestStyle/PaddingRight/testpaddingright.ux?uxType=page 1`] = `
 "
-var $app_style$ = require(\\"!../../../../../lib/loaders/style-loader.js?index=0&type=style!../../../../../lib/loaders/fragment-loader.js?index=0&type=style!./testpaddingright.ux?uxType=page\\")
 var $app_script$ = require(\\"!../../../../../lib/loaders/script-loader.js!../../../../../../../node_modules/@hap-toolkit/packager/lib/loaders/module-loader.js!../../../../../../../node_modules/babel-loader/lib/index.js?cwd=<CWD>&cacheDirectory&plugins[]=<CWD>/packages/hap-dsl-xvm/lib/loaders/babel-plugin-jsx.js&comments=false&configFile=<CWD>/babel.config.js!../../../../../lib/loaders/access-loader.js!../../../../../lib/loaders/fragment-loader.js?index=0&type=script!./testpaddingright.ux?uxType=page\\")
 $app_define$('@app-component/testpaddingright', [], function($app_require$, $app_exports$, $app_module$) {
      $app_script$($app_module$, $app_exports$, $app_require$)
@@ -11725,14 +11645,13 @@ $app_define$('@app-component/testpaddingright', [], function($app_require$, $app
           $app_module$.exports = $app_exports$.default
         }
     $app_module$.exports.template = require(\\"!../../../../../lib/loaders/template-loader.js!../../../../../lib/loaders/fragment-loader.js?index=0&type=template!./testpaddingright.ux?uxType=page&\\")
-    $app_module$.exports.style = $app_style$;
+    $app_module$.exports.style = require(\\"!../../../../../lib/loaders/style-loader.js?index=0&type=style!../../../../../lib/loaders/fragment-loader.js?index=0&type=style!./testpaddingright.ux?uxType=page\\")
 });
 $app_bootstrap$('@app-component/testpaddingright',{ packagerVersion: QUICKAPP_TOOLKIT_VERSION });"
 `;
 
 exports[`Style编译测试 comile style: ./TestStyle/PaddingTop/testpaddingtop.ux?uxType=page 1`] = `
 "
-var $app_style$ = require(\\"!../../../../../lib/loaders/style-loader.js?index=0&type=style!../../../../../lib/loaders/fragment-loader.js?index=0&type=style!./testpaddingtop.ux?uxType=page\\")
 var $app_script$ = require(\\"!../../../../../lib/loaders/script-loader.js!../../../../../../../node_modules/@hap-toolkit/packager/lib/loaders/module-loader.js!../../../../../../../node_modules/babel-loader/lib/index.js?cwd=<CWD>&cacheDirectory&plugins[]=<CWD>/packages/hap-dsl-xvm/lib/loaders/babel-plugin-jsx.js&comments=false&configFile=<CWD>/babel.config.js!../../../../../lib/loaders/access-loader.js!../../../../../lib/loaders/fragment-loader.js?index=0&type=script!./testpaddingtop.ux?uxType=page\\")
 $app_define$('@app-component/testpaddingtop', [], function($app_require$, $app_exports$, $app_module$) {
      $app_script$($app_module$, $app_exports$, $app_require$)
@@ -11740,14 +11659,13 @@ $app_define$('@app-component/testpaddingtop', [], function($app_require$, $app_e
           $app_module$.exports = $app_exports$.default
         }
     $app_module$.exports.template = require(\\"!../../../../../lib/loaders/template-loader.js!../../../../../lib/loaders/fragment-loader.js?index=0&type=template!./testpaddingtop.ux?uxType=page&\\")
-    $app_module$.exports.style = $app_style$;
+    $app_module$.exports.style = require(\\"!../../../../../lib/loaders/style-loader.js?index=0&type=style!../../../../../lib/loaders/fragment-loader.js?index=0&type=style!./testpaddingtop.ux?uxType=page\\")
 });
 $app_bootstrap$('@app-component/testpaddingtop',{ packagerVersion: QUICKAPP_TOOLKIT_VERSION });"
 `;
 
 exports[`Style编译测试 comile style: ./TestStyle/PlaceholderColor/testplaceholdercolor.ux?uxType=page 1`] = `
 "
-var $app_style$ = require(\\"!../../../../../lib/loaders/style-loader.js?index=0&type=style!../../../../../lib/loaders/fragment-loader.js?index=0&type=style!./testplaceholdercolor.ux?uxType=page\\")
 var $app_script$ = require(\\"!../../../../../lib/loaders/script-loader.js!../../../../../../../node_modules/@hap-toolkit/packager/lib/loaders/module-loader.js!../../../../../../../node_modules/babel-loader/lib/index.js?cwd=<CWD>&cacheDirectory&plugins[]=<CWD>/packages/hap-dsl-xvm/lib/loaders/babel-plugin-jsx.js&comments=false&configFile=<CWD>/babel.config.js!../../../../../lib/loaders/access-loader.js!../../../../../lib/loaders/fragment-loader.js?index=0&type=script!./testplaceholdercolor.ux?uxType=page\\")
 $app_define$('@app-component/testplaceholdercolor', [], function($app_require$, $app_exports$, $app_module$) {
      $app_script$($app_module$, $app_exports$, $app_require$)
@@ -11755,14 +11673,13 @@ $app_define$('@app-component/testplaceholdercolor', [], function($app_require$, 
           $app_module$.exports = $app_exports$.default
         }
     $app_module$.exports.template = require(\\"!../../../../../lib/loaders/template-loader.js!../../../../../lib/loaders/fragment-loader.js?index=0&type=template!./testplaceholdercolor.ux?uxType=page&\\")
-    $app_module$.exports.style = $app_style$;
+    $app_module$.exports.style = require(\\"!../../../../../lib/loaders/style-loader.js?index=0&type=style!../../../../../lib/loaders/fragment-loader.js?index=0&type=style!./testplaceholdercolor.ux?uxType=page\\")
 });
 $app_bootstrap$('@app-component/testplaceholdercolor',{ packagerVersion: QUICKAPP_TOOLKIT_VERSION });"
 `;
 
 exports[`Style编译测试 comile style: ./TestStyle/Position/testposition.ux?uxType=page 1`] = `
 "
-var $app_style$ = require(\\"!../../../../../lib/loaders/style-loader.js?index=0&type=style!../../../../../lib/loaders/fragment-loader.js?index=0&type=style!./testposition.ux?uxType=page\\")
 var $app_script$ = require(\\"!../../../../../lib/loaders/script-loader.js!../../../../../../../node_modules/@hap-toolkit/packager/lib/loaders/module-loader.js!../../../../../../../node_modules/babel-loader/lib/index.js?cwd=<CWD>&cacheDirectory&plugins[]=<CWD>/packages/hap-dsl-xvm/lib/loaders/babel-plugin-jsx.js&comments=false&configFile=<CWD>/babel.config.js!../../../../../lib/loaders/access-loader.js!../../../../../lib/loaders/fragment-loader.js?index=0&type=script!./testposition.ux?uxType=page\\")
 $app_define$('@app-component/testposition', [], function($app_require$, $app_exports$, $app_module$) {
      $app_script$($app_module$, $app_exports$, $app_require$)
@@ -11770,14 +11687,13 @@ $app_define$('@app-component/testposition', [], function($app_require$, $app_exp
           $app_module$.exports = $app_exports$.default
         }
     $app_module$.exports.template = require(\\"!../../../../../lib/loaders/template-loader.js!../../../../../lib/loaders/fragment-loader.js?index=0&type=template!./testposition.ux?uxType=page&\\")
-    $app_module$.exports.style = $app_style$;
+    $app_module$.exports.style = require(\\"!../../../../../lib/loaders/style-loader.js?index=0&type=style!../../../../../lib/loaders/fragment-loader.js?index=0&type=style!./testposition.ux?uxType=page\\")
 });
 $app_bootstrap$('@app-component/testposition',{ packagerVersion: QUICKAPP_TOOLKIT_VERSION });"
 `;
 
 exports[`Style编译测试 comile style: ./TestStyle/ProgressColor/testprogresscolor.ux?uxType=page 1`] = `
 "
-var $app_style$ = require(\\"!../../../../../lib/loaders/style-loader.js?index=0&type=style!../../../../../lib/loaders/fragment-loader.js?index=0&type=style!./testprogresscolor.ux?uxType=page\\")
 var $app_script$ = require(\\"!../../../../../lib/loaders/script-loader.js!../../../../../../../node_modules/@hap-toolkit/packager/lib/loaders/module-loader.js!../../../../../../../node_modules/babel-loader/lib/index.js?cwd=<CWD>&cacheDirectory&plugins[]=<CWD>/packages/hap-dsl-xvm/lib/loaders/babel-plugin-jsx.js&comments=false&configFile=<CWD>/babel.config.js!../../../../../lib/loaders/access-loader.js!../../../../../lib/loaders/fragment-loader.js?index=0&type=script!./testprogresscolor.ux?uxType=page\\")
 $app_define$('@app-component/testprogresscolor', [], function($app_require$, $app_exports$, $app_module$) {
      $app_script$($app_module$, $app_exports$, $app_require$)
@@ -11785,14 +11701,13 @@ $app_define$('@app-component/testprogresscolor', [], function($app_require$, $ap
           $app_module$.exports = $app_exports$.default
         }
     $app_module$.exports.template = require(\\"!../../../../../lib/loaders/template-loader.js!../../../../../lib/loaders/fragment-loader.js?index=0&type=template!./testprogresscolor.ux?uxType=page&\\")
-    $app_module$.exports.style = $app_style$;
+    $app_module$.exports.style = require(\\"!../../../../../lib/loaders/style-loader.js?index=0&type=style!../../../../../lib/loaders/fragment-loader.js?index=0&type=style!./testprogresscolor.ux?uxType=page\\")
 });
 $app_bootstrap$('@app-component/testprogresscolor',{ packagerVersion: QUICKAPP_TOOLKIT_VERSION });"
 `;
 
 exports[`Style编译测试 comile style: ./TestStyle/Pseudo/testpseudo.ux?uxType=page 1`] = `
 "
-var $app_style$ = require(\\"!../../../../../lib/loaders/style-loader.js?index=0&type=style!../../../../../lib/loaders/fragment-loader.js?index=0&type=style!./testpseudo.ux?uxType=page\\")
 var $app_script$ = require(\\"!../../../../../lib/loaders/script-loader.js!../../../../../../../node_modules/@hap-toolkit/packager/lib/loaders/module-loader.js!../../../../../../../node_modules/babel-loader/lib/index.js?cwd=<CWD>&cacheDirectory&plugins[]=<CWD>/packages/hap-dsl-xvm/lib/loaders/babel-plugin-jsx.js&comments=false&configFile=<CWD>/babel.config.js!../../../../../lib/loaders/access-loader.js!../../../../../lib/loaders/fragment-loader.js?index=0&type=script!./testpseudo.ux?uxType=page\\")
 $app_define$('@app-component/testpseudo', [], function($app_require$, $app_exports$, $app_module$) {
      $app_script$($app_module$, $app_exports$, $app_require$)
@@ -11800,14 +11715,13 @@ $app_define$('@app-component/testpseudo', [], function($app_require$, $app_expor
           $app_module$.exports = $app_exports$.default
         }
     $app_module$.exports.template = require(\\"!../../../../../lib/loaders/template-loader.js!../../../../../lib/loaders/fragment-loader.js?index=0&type=template!./testpseudo.ux?uxType=page&\\")
-    $app_module$.exports.style = $app_style$;
+    $app_module$.exports.style = require(\\"!../../../../../lib/loaders/style-loader.js?index=0&type=style!../../../../../lib/loaders/fragment-loader.js?index=0&type=style!./testpseudo.ux?uxType=page\\")
 });
 $app_bootstrap$('@app-component/testpseudo',{ packagerVersion: QUICKAPP_TOOLKIT_VERSION });"
 `;
 
 exports[`Style编译测试 comile style: ./TestStyle/ResizeMode/testresizemode.ux?uxType=page 1`] = `
 "
-var $app_style$ = require(\\"!../../../../../lib/loaders/style-loader.js?index=0&type=style!../../../../../lib/loaders/fragment-loader.js?index=0&type=style!./testresizemode.ux?uxType=page\\")
 var $app_script$ = require(\\"!../../../../../lib/loaders/script-loader.js!../../../../../../../node_modules/@hap-toolkit/packager/lib/loaders/module-loader.js!../../../../../../../node_modules/babel-loader/lib/index.js?cwd=<CWD>&cacheDirectory&plugins[]=<CWD>/packages/hap-dsl-xvm/lib/loaders/babel-plugin-jsx.js&comments=false&configFile=<CWD>/babel.config.js!../../../../../lib/loaders/access-loader.js!../../../../../lib/loaders/fragment-loader.js?index=0&type=script!./testresizemode.ux?uxType=page\\")
 $app_define$('@app-component/testresizemode', [], function($app_require$, $app_exports$, $app_module$) {
      $app_script$($app_module$, $app_exports$, $app_require$)
@@ -11815,14 +11729,13 @@ $app_define$('@app-component/testresizemode', [], function($app_require$, $app_e
           $app_module$.exports = $app_exports$.default
         }
     $app_module$.exports.template = require(\\"!../../../../../lib/loaders/template-loader.js!../../../../../lib/loaders/fragment-loader.js?index=0&type=template!./testresizemode.ux?uxType=page&\\")
-    $app_module$.exports.style = $app_style$;
+    $app_module$.exports.style = require(\\"!../../../../../lib/loaders/style-loader.js?index=0&type=style!../../../../../lib/loaders/fragment-loader.js?index=0&type=style!./testresizemode.ux?uxType=page\\")
 });
 $app_bootstrap$('@app-component/testresizemode',{ packagerVersion: QUICKAPP_TOOLKIT_VERSION });"
 `;
 
 exports[`Style编译测试 comile style: ./TestStyle/Right/testright.ux?uxType=page 1`] = `
 "
-var $app_style$ = require(\\"!../../../../../lib/loaders/style-loader.js?index=0&type=style!../../../../../lib/loaders/fragment-loader.js?index=0&type=style!./testright.ux?uxType=page\\")
 var $app_script$ = require(\\"!../../../../../lib/loaders/script-loader.js!../../../../../../../node_modules/@hap-toolkit/packager/lib/loaders/module-loader.js!../../../../../../../node_modules/babel-loader/lib/index.js?cwd=<CWD>&cacheDirectory&plugins[]=<CWD>/packages/hap-dsl-xvm/lib/loaders/babel-plugin-jsx.js&comments=false&configFile=<CWD>/babel.config.js!../../../../../lib/loaders/access-loader.js!../../../../../lib/loaders/fragment-loader.js?index=0&type=script!./testright.ux?uxType=page\\")
 $app_define$('@app-component/testright', [], function($app_require$, $app_exports$, $app_module$) {
      $app_script$($app_module$, $app_exports$, $app_require$)
@@ -11830,14 +11743,13 @@ $app_define$('@app-component/testright', [], function($app_require$, $app_export
           $app_module$.exports = $app_exports$.default
         }
     $app_module$.exports.template = require(\\"!../../../../../lib/loaders/template-loader.js!../../../../../lib/loaders/fragment-loader.js?index=0&type=template!./testright.ux?uxType=page&\\")
-    $app_module$.exports.style = $app_style$;
+    $app_module$.exports.style = require(\\"!../../../../../lib/loaders/style-loader.js?index=0&type=style!../../../../../lib/loaders/fragment-loader.js?index=0&type=style!./testright.ux?uxType=page\\")
 });
 $app_bootstrap$('@app-component/testright',{ packagerVersion: QUICKAPP_TOOLKIT_VERSION });"
 `;
 
 exports[`Style编译测试 comile style: ./TestStyle/Rotate/testrotate.ux?uxType=page 1`] = `
 "
-var $app_style$ = require(\\"!../../../../../lib/loaders/style-loader.js?index=0&type=style!../../../../../lib/loaders/fragment-loader.js?index=0&type=style!./testrotate.ux?uxType=page\\")
 var $app_script$ = require(\\"!../../../../../lib/loaders/script-loader.js!../../../../../../../node_modules/@hap-toolkit/packager/lib/loaders/module-loader.js!../../../../../../../node_modules/babel-loader/lib/index.js?cwd=<CWD>&cacheDirectory&plugins[]=<CWD>/packages/hap-dsl-xvm/lib/loaders/babel-plugin-jsx.js&comments=false&configFile=<CWD>/babel.config.js!../../../../../lib/loaders/access-loader.js!../../../../../lib/loaders/fragment-loader.js?index=0&type=script!./testrotate.ux?uxType=page\\")
 $app_define$('@app-component/testrotate', [], function($app_require$, $app_exports$, $app_module$) {
      $app_script$($app_module$, $app_exports$, $app_require$)
@@ -11845,14 +11757,13 @@ $app_define$('@app-component/testrotate', [], function($app_require$, $app_expor
           $app_module$.exports = $app_exports$.default
         }
     $app_module$.exports.template = require(\\"!../../../../../lib/loaders/template-loader.js!../../../../../lib/loaders/fragment-loader.js?index=0&type=template!./testrotate.ux?uxType=page&\\")
-    $app_module$.exports.style = $app_style$;
+    $app_module$.exports.style = require(\\"!../../../../../lib/loaders/style-loader.js?index=0&type=style!../../../../../lib/loaders/fragment-loader.js?index=0&type=style!./testrotate.ux?uxType=page\\")
 });
 $app_bootstrap$('@app-component/testrotate',{ packagerVersion: QUICKAPP_TOOLKIT_VERSION });"
 `;
 
 exports[`Style编译测试 comile style: ./TestStyle/RotateX/testrotateX.ux?uxType=page 1`] = `
 "
-var $app_style$ = require(\\"!../../../../../lib/loaders/style-loader.js?index=0&type=style!../../../../../lib/loaders/fragment-loader.js?index=0&type=style!./testrotateX.ux?uxType=page\\")
 var $app_script$ = require(\\"!../../../../../lib/loaders/script-loader.js!../../../../../../../node_modules/@hap-toolkit/packager/lib/loaders/module-loader.js!../../../../../../../node_modules/babel-loader/lib/index.js?cwd=<CWD>&cacheDirectory&plugins[]=<CWD>/packages/hap-dsl-xvm/lib/loaders/babel-plugin-jsx.js&comments=false&configFile=<CWD>/babel.config.js!../../../../../lib/loaders/access-loader.js!../../../../../lib/loaders/fragment-loader.js?index=0&type=script!./testrotateX.ux?uxType=page\\")
 $app_define$('@app-component/testrotateX', [], function($app_require$, $app_exports$, $app_module$) {
      $app_script$($app_module$, $app_exports$, $app_require$)
@@ -11860,14 +11771,13 @@ $app_define$('@app-component/testrotateX', [], function($app_require$, $app_expo
           $app_module$.exports = $app_exports$.default
         }
     $app_module$.exports.template = require(\\"!../../../../../lib/loaders/template-loader.js!../../../../../lib/loaders/fragment-loader.js?index=0&type=template!./testrotateX.ux?uxType=page&\\")
-    $app_module$.exports.style = $app_style$;
+    $app_module$.exports.style = require(\\"!../../../../../lib/loaders/style-loader.js?index=0&type=style!../../../../../lib/loaders/fragment-loader.js?index=0&type=style!./testrotateX.ux?uxType=page\\")
 });
 $app_bootstrap$('@app-component/testrotateX',{ packagerVersion: QUICKAPP_TOOLKIT_VERSION });"
 `;
 
 exports[`Style编译测试 comile style: ./TestStyle/RotateY/testrotateY.ux?uxType=page 1`] = `
 "
-var $app_style$ = require(\\"!../../../../../lib/loaders/style-loader.js?index=0&type=style!../../../../../lib/loaders/fragment-loader.js?index=0&type=style!./testrotateY.ux?uxType=page\\")
 var $app_script$ = require(\\"!../../../../../lib/loaders/script-loader.js!../../../../../../../node_modules/@hap-toolkit/packager/lib/loaders/module-loader.js!../../../../../../../node_modules/babel-loader/lib/index.js?cwd=<CWD>&cacheDirectory&plugins[]=<CWD>/packages/hap-dsl-xvm/lib/loaders/babel-plugin-jsx.js&comments=false&configFile=<CWD>/babel.config.js!../../../../../lib/loaders/access-loader.js!../../../../../lib/loaders/fragment-loader.js?index=0&type=script!./testrotateY.ux?uxType=page\\")
 $app_define$('@app-component/testrotateY', [], function($app_require$, $app_exports$, $app_module$) {
      $app_script$($app_module$, $app_exports$, $app_require$)
@@ -11875,14 +11785,13 @@ $app_define$('@app-component/testrotateY', [], function($app_require$, $app_expo
           $app_module$.exports = $app_exports$.default
         }
     $app_module$.exports.template = require(\\"!../../../../../lib/loaders/template-loader.js!../../../../../lib/loaders/fragment-loader.js?index=0&type=template!./testrotateY.ux?uxType=page&\\")
-    $app_module$.exports.style = $app_style$;
+    $app_module$.exports.style = require(\\"!../../../../../lib/loaders/style-loader.js?index=0&type=style!../../../../../lib/loaders/fragment-loader.js?index=0&type=style!./testrotateY.ux?uxType=page\\")
 });
 $app_bootstrap$('@app-component/testrotateY',{ packagerVersion: QUICKAPP_TOOLKIT_VERSION });"
 `;
 
 exports[`Style编译测试 comile style: ./TestStyle/Scale/testscale.ux?uxType=page 1`] = `
 "
-var $app_style$ = require(\\"!../../../../../lib/loaders/style-loader.js?index=0&type=style!../../../../../lib/loaders/fragment-loader.js?index=0&type=style!./testscale.ux?uxType=page\\")
 var $app_script$ = require(\\"!../../../../../lib/loaders/script-loader.js!../../../../../../../node_modules/@hap-toolkit/packager/lib/loaders/module-loader.js!../../../../../../../node_modules/babel-loader/lib/index.js?cwd=<CWD>&cacheDirectory&plugins[]=<CWD>/packages/hap-dsl-xvm/lib/loaders/babel-plugin-jsx.js&comments=false&configFile=<CWD>/babel.config.js!../../../../../lib/loaders/access-loader.js!../../../../../lib/loaders/fragment-loader.js?index=0&type=script!./testscale.ux?uxType=page\\")
 $app_define$('@app-component/testscale', [], function($app_require$, $app_exports$, $app_module$) {
      $app_script$($app_module$, $app_exports$, $app_require$)
@@ -11890,14 +11799,13 @@ $app_define$('@app-component/testscale', [], function($app_require$, $app_export
           $app_module$.exports = $app_exports$.default
         }
     $app_module$.exports.template = require(\\"!../../../../../lib/loaders/template-loader.js!../../../../../lib/loaders/fragment-loader.js?index=0&type=template!./testscale.ux?uxType=page&\\")
-    $app_module$.exports.style = $app_style$;
+    $app_module$.exports.style = require(\\"!../../../../../lib/loaders/style-loader.js?index=0&type=style!../../../../../lib/loaders/fragment-loader.js?index=0&type=style!./testscale.ux?uxType=page\\")
 });
 $app_bootstrap$('@app-component/testscale',{ packagerVersion: QUICKAPP_TOOLKIT_VERSION });"
 `;
 
 exports[`Style编译测试 comile style: ./TestStyle/ScaleX/testscaleX.ux?uxType=page 1`] = `
 "
-var $app_style$ = require(\\"!../../../../../lib/loaders/style-loader.js?index=0&type=style!../../../../../lib/loaders/fragment-loader.js?index=0&type=style!./testscaleX.ux?uxType=page\\")
 var $app_script$ = require(\\"!../../../../../lib/loaders/script-loader.js!../../../../../../../node_modules/@hap-toolkit/packager/lib/loaders/module-loader.js!../../../../../../../node_modules/babel-loader/lib/index.js?cwd=<CWD>&cacheDirectory&plugins[]=<CWD>/packages/hap-dsl-xvm/lib/loaders/babel-plugin-jsx.js&comments=false&configFile=<CWD>/babel.config.js!../../../../../lib/loaders/access-loader.js!../../../../../lib/loaders/fragment-loader.js?index=0&type=script!./testscaleX.ux?uxType=page\\")
 $app_define$('@app-component/testscaleX', [], function($app_require$, $app_exports$, $app_module$) {
      $app_script$($app_module$, $app_exports$, $app_require$)
@@ -11905,14 +11813,13 @@ $app_define$('@app-component/testscaleX', [], function($app_require$, $app_expor
           $app_module$.exports = $app_exports$.default
         }
     $app_module$.exports.template = require(\\"!../../../../../lib/loaders/template-loader.js!../../../../../lib/loaders/fragment-loader.js?index=0&type=template!./testscaleX.ux?uxType=page&\\")
-    $app_module$.exports.style = $app_style$;
+    $app_module$.exports.style = require(\\"!../../../../../lib/loaders/style-loader.js?index=0&type=style!../../../../../lib/loaders/fragment-loader.js?index=0&type=style!./testscaleX.ux?uxType=page\\")
 });
 $app_bootstrap$('@app-component/testscaleX',{ packagerVersion: QUICKAPP_TOOLKIT_VERSION });"
 `;
 
 exports[`Style编译测试 comile style: ./TestStyle/ScaleY/testscaleY.ux?uxType=page 1`] = `
 "
-var $app_style$ = require(\\"!../../../../../lib/loaders/style-loader.js?index=0&type=style!../../../../../lib/loaders/fragment-loader.js?index=0&type=style!./testscaleY.ux?uxType=page\\")
 var $app_script$ = require(\\"!../../../../../lib/loaders/script-loader.js!../../../../../../../node_modules/@hap-toolkit/packager/lib/loaders/module-loader.js!../../../../../../../node_modules/babel-loader/lib/index.js?cwd=<CWD>&cacheDirectory&plugins[]=<CWD>/packages/hap-dsl-xvm/lib/loaders/babel-plugin-jsx.js&comments=false&configFile=<CWD>/babel.config.js!../../../../../lib/loaders/access-loader.js!../../../../../lib/loaders/fragment-loader.js?index=0&type=script!./testscaleY.ux?uxType=page\\")
 $app_define$('@app-component/testscaleY', [], function($app_require$, $app_exports$, $app_module$) {
      $app_script$($app_module$, $app_exports$, $app_require$)
@@ -11920,14 +11827,13 @@ $app_define$('@app-component/testscaleY', [], function($app_require$, $app_expor
           $app_module$.exports = $app_exports$.default
         }
     $app_module$.exports.template = require(\\"!../../../../../lib/loaders/template-loader.js!../../../../../lib/loaders/fragment-loader.js?index=0&type=template!./testscaleY.ux?uxType=page&\\")
-    $app_module$.exports.style = $app_style$;
+    $app_module$.exports.style = require(\\"!../../../../../lib/loaders/style-loader.js?index=0&type=style!../../../../../lib/loaders/fragment-loader.js?index=0&type=style!./testscaleY.ux?uxType=page\\")
 });
 $app_bootstrap$('@app-component/testscaleY',{ packagerVersion: QUICKAPP_TOOLKIT_VERSION });"
 `;
 
 exports[`Style编译测试 comile style: ./TestStyle/SelectedColor/testselectedcolor.ux?uxType=page 1`] = `
 "
-var $app_style$ = require(\\"!../../../../../lib/loaders/style-loader.js?index=0&type=style!../../../../../lib/loaders/fragment-loader.js?index=0&type=style!./testselectedcolor.ux?uxType=page\\")
 var $app_script$ = require(\\"!../../../../../lib/loaders/script-loader.js!../../../../../../../node_modules/@hap-toolkit/packager/lib/loaders/module-loader.js!../../../../../../../node_modules/babel-loader/lib/index.js?cwd=<CWD>&cacheDirectory&plugins[]=<CWD>/packages/hap-dsl-xvm/lib/loaders/babel-plugin-jsx.js&comments=false&configFile=<CWD>/babel.config.js!../../../../../lib/loaders/access-loader.js!../../../../../lib/loaders/fragment-loader.js?index=0&type=script!./testselectedcolor.ux?uxType=page\\")
 $app_define$('@app-component/testselectedcolor', [], function($app_require$, $app_exports$, $app_module$) {
      $app_script$($app_module$, $app_exports$, $app_require$)
@@ -11935,14 +11841,13 @@ $app_define$('@app-component/testselectedcolor', [], function($app_require$, $ap
           $app_module$.exports = $app_exports$.default
         }
     $app_module$.exports.template = require(\\"!../../../../../lib/loaders/template-loader.js!../../../../../lib/loaders/fragment-loader.js?index=0&type=template!./testselectedcolor.ux?uxType=page&\\")
-    $app_module$.exports.style = $app_style$;
+    $app_module$.exports.style = require(\\"!../../../../../lib/loaders/style-loader.js?index=0&type=style!../../../../../lib/loaders/fragment-loader.js?index=0&type=style!./testselectedcolor.ux?uxType=page\\")
 });
 $app_bootstrap$('@app-component/testselectedcolor',{ packagerVersion: QUICKAPP_TOOLKIT_VERSION });"
 `;
 
 exports[`Style编译测试 comile style: ./TestStyle/Selector/index.ux?uxType=page 1`] = `
 "
-var $app_style$ = require(\\"!../../../../../lib/loaders/style-loader.js?index=0&type=style!../../../../../lib/loaders/fragment-loader.js?index=0&type=style!./index.ux?uxType=page\\")
 var $app_script$ = require(\\"!../../../../../lib/loaders/script-loader.js!../../../../../../../node_modules/@hap-toolkit/packager/lib/loaders/module-loader.js!../../../../../../../node_modules/babel-loader/lib/index.js?cwd=<CWD>&cacheDirectory&plugins[]=<CWD>/packages/hap-dsl-xvm/lib/loaders/babel-plugin-jsx.js&comments=false&configFile=<CWD>/babel.config.js!../../../../../lib/loaders/access-loader.js!../../../../../lib/loaders/fragment-loader.js?index=0&type=script!./index.ux?uxType=page\\")
 $app_define$('@app-component/index', [], function($app_require$, $app_exports$, $app_module$) {
      $app_script$($app_module$, $app_exports$, $app_require$)
@@ -11950,14 +11855,13 @@ $app_define$('@app-component/index', [], function($app_require$, $app_exports$, 
           $app_module$.exports = $app_exports$.default
         }
     $app_module$.exports.template = require(\\"!../../../../../lib/loaders/template-loader.js!../../../../../lib/loaders/fragment-loader.js?index=0&type=template!./index.ux?uxType=page&\\")
-    $app_module$.exports.style = $app_style$;
+    $app_module$.exports.style = require(\\"!../../../../../lib/loaders/style-loader.js?index=0&type=style!../../../../../lib/loaders/fragment-loader.js?index=0&type=style!./index.ux?uxType=page\\")
 });
 $app_bootstrap$('@app-component/index',{ packagerVersion: QUICKAPP_TOOLKIT_VERSION });"
 `;
 
 exports[`Style编译测试 comile style: ./TestStyle/SelectorLess/index.ux?uxType=page 1`] = `
 "
-var $app_style$ = require(\\"!../../../../../lib/loaders/style-loader.js?index=0&type=style!../../../../../../../node_modules/less-loader/dist/cjs.js!../../../../../lib/loaders/fragment-loader.js?index=0&type=style!./index.ux?uxType=page\\")
 var $app_script$ = require(\\"!../../../../../lib/loaders/script-loader.js!../../../../../../../node_modules/@hap-toolkit/packager/lib/loaders/module-loader.js!../../../../../../../node_modules/babel-loader/lib/index.js?cwd=<CWD>&cacheDirectory&plugins[]=<CWD>/packages/hap-dsl-xvm/lib/loaders/babel-plugin-jsx.js&comments=false&configFile=<CWD>/babel.config.js!../../../../../lib/loaders/access-loader.js!../../../../../lib/loaders/fragment-loader.js?index=0&type=script!./index.ux?uxType=page\\")
 $app_define$('@app-component/index', [], function($app_require$, $app_exports$, $app_module$) {
      $app_script$($app_module$, $app_exports$, $app_require$)
@@ -11965,14 +11869,13 @@ $app_define$('@app-component/index', [], function($app_require$, $app_exports$, 
           $app_module$.exports = $app_exports$.default
         }
     $app_module$.exports.template = require(\\"!../../../../../lib/loaders/template-loader.js!../../../../../lib/loaders/fragment-loader.js?index=0&type=template!./index.ux?uxType=page&\\")
-    $app_module$.exports.style = $app_style$;
+    $app_module$.exports.style = require(\\"!../../../../../lib/loaders/style-loader.js?index=0&type=style!../../../../../../../node_modules/less-loader/dist/cjs.js!../../../../../lib/loaders/fragment-loader.js?index=0&type=style!./index.ux?uxType=page\\")
 });
 $app_bootstrap$('@app-component/index',{ packagerVersion: QUICKAPP_TOOLKIT_VERSION });"
 `;
 
 exports[`Style编译测试 comile style: ./TestStyle/SelectorLessFile/index.ux?uxType=page 1`] = `
 "
-var $app_style$ = require(\\"!../../../../../lib/loaders/style-loader.js?index=0&type=style!../../../../../../../node_modules/less-loader/dist/cjs.js!./index.less?uxType=page\\")
 var $app_script$ = require(\\"!../../../../../lib/loaders/script-loader.js!../../../../../../../node_modules/@hap-toolkit/packager/lib/loaders/module-loader.js!../../../../../../../node_modules/babel-loader/lib/index.js?cwd=<CWD>&cacheDirectory&plugins[]=<CWD>/packages/hap-dsl-xvm/lib/loaders/babel-plugin-jsx.js&comments=false&configFile=<CWD>/babel.config.js!../../../../../lib/loaders/access-loader.js!../../../../../lib/loaders/fragment-loader.js?index=0&type=script!./index.ux?uxType=page\\")
 $app_define$('@app-component/index', [], function($app_require$, $app_exports$, $app_module$) {
      $app_script$($app_module$, $app_exports$, $app_require$)
@@ -11980,14 +11883,13 @@ $app_define$('@app-component/index', [], function($app_require$, $app_exports$, 
           $app_module$.exports = $app_exports$.default
         }
     $app_module$.exports.template = require(\\"!../../../../../lib/loaders/template-loader.js!../../../../../lib/loaders/fragment-loader.js?index=0&type=template!./index.ux?uxType=page&\\")
-    $app_module$.exports.style = $app_style$;
+    $app_module$.exports.style = require(\\"!../../../../../lib/loaders/style-loader.js?index=0&type=style!../../../../../../../node_modules/less-loader/dist/cjs.js!./index.less?uxType=page\\")
 });
 $app_bootstrap$('@app-component/index',{ packagerVersion: QUICKAPP_TOOLKIT_VERSION });"
 `;
 
 exports[`Style编译测试 comile style: ./TestStyle/Simple/testsimple.ux?uxType=page 1`] = `
 "
-var $app_style$ = require(\\"!../../../../../lib/loaders/style-loader.js?index=0&type=style!../../../../../lib/loaders/fragment-loader.js?index=0&type=style!./testsimple.ux?uxType=page\\")
 var $app_script$ = require(\\"!../../../../../lib/loaders/script-loader.js!../../../../../../../node_modules/@hap-toolkit/packager/lib/loaders/module-loader.js!../../../../../../../node_modules/babel-loader/lib/index.js?cwd=<CWD>&cacheDirectory&plugins[]=<CWD>/packages/hap-dsl-xvm/lib/loaders/babel-plugin-jsx.js&comments=false&configFile=<CWD>/babel.config.js!../../../../../lib/loaders/access-loader.js!../../../../../lib/loaders/fragment-loader.js?index=0&type=script!./testsimple.ux?uxType=page\\")
 $app_define$('@app-component/testsimple', [], function($app_require$, $app_exports$, $app_module$) {
      $app_script$($app_module$, $app_exports$, $app_require$)
@@ -11995,14 +11897,13 @@ $app_define$('@app-component/testsimple', [], function($app_require$, $app_expor
           $app_module$.exports = $app_exports$.default
         }
     $app_module$.exports.template = require(\\"!../../../../../lib/loaders/template-loader.js!../../../../../lib/loaders/fragment-loader.js?index=0&type=template!./testsimple.ux?uxType=page&\\")
-    $app_module$.exports.style = $app_style$;
+    $app_module$.exports.style = require(\\"!../../../../../lib/loaders/style-loader.js?index=0&type=style!../../../../../lib/loaders/fragment-loader.js?index=0&type=style!./testsimple.ux?uxType=page\\")
 });
 $app_bootstrap$('@app-component/testsimple',{ packagerVersion: QUICKAPP_TOOLKIT_VERSION });"
 `;
 
 exports[`Style编译测试 comile style: ./TestStyle/StarBackground/teststarBackground.ux?uxType=page 1`] = `
 "
-var $app_style$ = require(\\"!../../../../../lib/loaders/style-loader.js?index=0&type=style!../../../../../lib/loaders/fragment-loader.js?index=0&type=style!./teststarBackground.ux?uxType=page\\")
 var $app_script$ = require(\\"!../../../../../lib/loaders/script-loader.js!../../../../../../../node_modules/@hap-toolkit/packager/lib/loaders/module-loader.js!../../../../../../../node_modules/babel-loader/lib/index.js?cwd=<CWD>&cacheDirectory&plugins[]=<CWD>/packages/hap-dsl-xvm/lib/loaders/babel-plugin-jsx.js&comments=false&configFile=<CWD>/babel.config.js!../../../../../lib/loaders/access-loader.js!../../../../../lib/loaders/fragment-loader.js?index=0&type=script!./teststarBackground.ux?uxType=page\\")
 $app_define$('@app-component/teststarBackground', [], function($app_require$, $app_exports$, $app_module$) {
      $app_script$($app_module$, $app_exports$, $app_require$)
@@ -12010,14 +11911,13 @@ $app_define$('@app-component/teststarBackground', [], function($app_require$, $a
           $app_module$.exports = $app_exports$.default
         }
     $app_module$.exports.template = require(\\"!../../../../../lib/loaders/template-loader.js!../../../../../lib/loaders/fragment-loader.js?index=0&type=template!./teststarBackground.ux?uxType=page&\\")
-    $app_module$.exports.style = $app_style$;
+    $app_module$.exports.style = require(\\"!../../../../../lib/loaders/style-loader.js?index=0&type=style!../../../../../lib/loaders/fragment-loader.js?index=0&type=style!./teststarBackground.ux?uxType=page\\")
 });
 $app_bootstrap$('@app-component/teststarBackground',{ packagerVersion: QUICKAPP_TOOLKIT_VERSION });"
 `;
 
 exports[`Style编译测试 comile style: ./TestStyle/StarForeground/teststarForeground.ux?uxType=page 1`] = `
 "
-var $app_style$ = require(\\"!../../../../../lib/loaders/style-loader.js?index=0&type=style!../../../../../lib/loaders/fragment-loader.js?index=0&type=style!./teststarForeground.ux?uxType=page\\")
 var $app_script$ = require(\\"!../../../../../lib/loaders/script-loader.js!../../../../../../../node_modules/@hap-toolkit/packager/lib/loaders/module-loader.js!../../../../../../../node_modules/babel-loader/lib/index.js?cwd=<CWD>&cacheDirectory&plugins[]=<CWD>/packages/hap-dsl-xvm/lib/loaders/babel-plugin-jsx.js&comments=false&configFile=<CWD>/babel.config.js!../../../../../lib/loaders/access-loader.js!../../../../../lib/loaders/fragment-loader.js?index=0&type=script!./teststarForeground.ux?uxType=page\\")
 $app_define$('@app-component/teststarForeground', [], function($app_require$, $app_exports$, $app_module$) {
      $app_script$($app_module$, $app_exports$, $app_require$)
@@ -12025,14 +11925,13 @@ $app_define$('@app-component/teststarForeground', [], function($app_require$, $a
           $app_module$.exports = $app_exports$.default
         }
     $app_module$.exports.template = require(\\"!../../../../../lib/loaders/template-loader.js!../../../../../lib/loaders/fragment-loader.js?index=0&type=template!./teststarForeground.ux?uxType=page&\\")
-    $app_module$.exports.style = $app_style$;
+    $app_module$.exports.style = require(\\"!../../../../../lib/loaders/style-loader.js?index=0&type=style!../../../../../lib/loaders/fragment-loader.js?index=0&type=style!./teststarForeground.ux?uxType=page\\")
 });
 $app_bootstrap$('@app-component/teststarForeground',{ packagerVersion: QUICKAPP_TOOLKIT_VERSION });"
 `;
 
 exports[`Style编译测试 comile style: ./TestStyle/StarSecondary/teststarSecondary.ux?uxType=page 1`] = `
 "
-var $app_style$ = require(\\"!../../../../../lib/loaders/style-loader.js?index=0&type=style!../../../../../lib/loaders/fragment-loader.js?index=0&type=style!./teststarSecondary.ux?uxType=page\\")
 var $app_script$ = require(\\"!../../../../../lib/loaders/script-loader.js!../../../../../../../node_modules/@hap-toolkit/packager/lib/loaders/module-loader.js!../../../../../../../node_modules/babel-loader/lib/index.js?cwd=<CWD>&cacheDirectory&plugins[]=<CWD>/packages/hap-dsl-xvm/lib/loaders/babel-plugin-jsx.js&comments=false&configFile=<CWD>/babel.config.js!../../../../../lib/loaders/access-loader.js!../../../../../lib/loaders/fragment-loader.js?index=0&type=script!./teststarSecondary.ux?uxType=page\\")
 $app_define$('@app-component/teststarSecondary', [], function($app_require$, $app_exports$, $app_module$) {
      $app_script$($app_module$, $app_exports$, $app_require$)
@@ -12040,14 +11939,13 @@ $app_define$('@app-component/teststarSecondary', [], function($app_require$, $ap
           $app_module$.exports = $app_exports$.default
         }
     $app_module$.exports.template = require(\\"!../../../../../lib/loaders/template-loader.js!../../../../../lib/loaders/fragment-loader.js?index=0&type=template!./teststarSecondary.ux?uxType=page&\\")
-    $app_module$.exports.style = $app_style$;
+    $app_module$.exports.style = require(\\"!../../../../../lib/loaders/style-loader.js?index=0&type=style!../../../../../lib/loaders/fragment-loader.js?index=0&type=style!./teststarSecondary.ux?uxType=page\\")
 });
 $app_bootstrap$('@app-component/teststarSecondary',{ packagerVersion: QUICKAPP_TOOLKIT_VERSION });"
 `;
 
 exports[`Style编译测试 comile style: ./TestStyle/StrokeWidth/teststrokewidth.ux?uxType=page 1`] = `
 "
-var $app_style$ = require(\\"!../../../../../lib/loaders/style-loader.js?index=0&type=style!../../../../../lib/loaders/fragment-loader.js?index=0&type=style!./teststrokewidth.ux?uxType=page\\")
 var $app_script$ = require(\\"!../../../../../lib/loaders/script-loader.js!../../../../../../../node_modules/@hap-toolkit/packager/lib/loaders/module-loader.js!../../../../../../../node_modules/babel-loader/lib/index.js?cwd=<CWD>&cacheDirectory&plugins[]=<CWD>/packages/hap-dsl-xvm/lib/loaders/babel-plugin-jsx.js&comments=false&configFile=<CWD>/babel.config.js!../../../../../lib/loaders/access-loader.js!../../../../../lib/loaders/fragment-loader.js?index=0&type=script!./teststrokewidth.ux?uxType=page\\")
 $app_define$('@app-component/teststrokewidth', [], function($app_require$, $app_exports$, $app_module$) {
      $app_script$($app_module$, $app_exports$, $app_require$)
@@ -12055,25 +11953,23 @@ $app_define$('@app-component/teststrokewidth', [], function($app_require$, $app_
           $app_module$.exports = $app_exports$.default
         }
     $app_module$.exports.template = require(\\"!../../../../../lib/loaders/template-loader.js!../../../../../lib/loaders/fragment-loader.js?index=0&type=template!./teststrokewidth.ux?uxType=page&\\")
-    $app_module$.exports.style = $app_style$;
+    $app_module$.exports.style = require(\\"!../../../../../lib/loaders/style-loader.js?index=0&type=style!../../../../../lib/loaders/fragment-loader.js?index=0&type=style!./teststrokewidth.ux?uxType=page\\")
 });
 $app_bootstrap$('@app-component/teststrokewidth',{ packagerVersion: QUICKAPP_TOOLKIT_VERSION });"
 `;
 
 exports[`Style编译测试 comile style: ./TestStyle/TestDp/testdp.ux?uxType=page 1`] = `
 "
-var $app_style$ = require(\\"!../../../../../lib/loaders/style-loader.js?index=0&type=style!../../../../../lib/loaders/fragment-loader.js?index=0&type=style!./testdp.ux?uxType=page\\")
 var $app_script$ = null
 $app_define$('@app-component/testdp', [], function($app_require$, $app_exports$, $app_module$) {
     $app_module$.exports.template = require(\\"!../../../../../lib/loaders/template-loader.js!../../../../../lib/loaders/fragment-loader.js?index=0&type=template!./testdp.ux?uxType=page&\\")
-    $app_module$.exports.style = $app_style$;
+    $app_module$.exports.style = require(\\"!../../../../../lib/loaders/style-loader.js?index=0&type=style!../../../../../lib/loaders/fragment-loader.js?index=0&type=style!./testdp.ux?uxType=page\\")
 });
 $app_bootstrap$('@app-component/testdp',{ packagerVersion: QUICKAPP_TOOLKIT_VERSION });"
 `;
 
 exports[`Style编译测试 comile style: ./TestStyle/TextAlign/testtextalign.ux?uxType=page 1`] = `
 "
-var $app_style$ = require(\\"!../../../../../lib/loaders/style-loader.js?index=0&type=style!../../../../../lib/loaders/fragment-loader.js?index=0&type=style!./testtextalign.ux?uxType=page\\")
 var $app_script$ = require(\\"!../../../../../lib/loaders/script-loader.js!../../../../../../../node_modules/@hap-toolkit/packager/lib/loaders/module-loader.js!../../../../../../../node_modules/babel-loader/lib/index.js?cwd=<CWD>&cacheDirectory&plugins[]=<CWD>/packages/hap-dsl-xvm/lib/loaders/babel-plugin-jsx.js&comments=false&configFile=<CWD>/babel.config.js!../../../../../lib/loaders/access-loader.js!../../../../../lib/loaders/fragment-loader.js?index=0&type=script!./testtextalign.ux?uxType=page\\")
 $app_define$('@app-component/testtextalign', [], function($app_require$, $app_exports$, $app_module$) {
      $app_script$($app_module$, $app_exports$, $app_require$)
@@ -12081,14 +11977,13 @@ $app_define$('@app-component/testtextalign', [], function($app_require$, $app_ex
           $app_module$.exports = $app_exports$.default
         }
     $app_module$.exports.template = require(\\"!../../../../../lib/loaders/template-loader.js!../../../../../lib/loaders/fragment-loader.js?index=0&type=template!./testtextalign.ux?uxType=page&\\")
-    $app_module$.exports.style = $app_style$;
+    $app_module$.exports.style = require(\\"!../../../../../lib/loaders/style-loader.js?index=0&type=style!../../../../../lib/loaders/fragment-loader.js?index=0&type=style!./testtextalign.ux?uxType=page\\")
 });
 $app_bootstrap$('@app-component/testtextalign',{ packagerVersion: QUICKAPP_TOOLKIT_VERSION });"
 `;
 
 exports[`Style编译测试 comile style: ./TestStyle/TextDecoration/testtextdecoration.ux?uxType=page 1`] = `
 "
-var $app_style$ = require(\\"!../../../../../lib/loaders/style-loader.js?index=0&type=style!../../../../../lib/loaders/fragment-loader.js?index=0&type=style!./testtextdecoration.ux?uxType=page\\")
 var $app_script$ = require(\\"!../../../../../lib/loaders/script-loader.js!../../../../../../../node_modules/@hap-toolkit/packager/lib/loaders/module-loader.js!../../../../../../../node_modules/babel-loader/lib/index.js?cwd=<CWD>&cacheDirectory&plugins[]=<CWD>/packages/hap-dsl-xvm/lib/loaders/babel-plugin-jsx.js&comments=false&configFile=<CWD>/babel.config.js!../../../../../lib/loaders/access-loader.js!../../../../../lib/loaders/fragment-loader.js?index=0&type=script!./testtextdecoration.ux?uxType=page\\")
 $app_define$('@app-component/testtextdecoration', [], function($app_require$, $app_exports$, $app_module$) {
      $app_script$($app_module$, $app_exports$, $app_require$)
@@ -12096,14 +11991,13 @@ $app_define$('@app-component/testtextdecoration', [], function($app_require$, $a
           $app_module$.exports = $app_exports$.default
         }
     $app_module$.exports.template = require(\\"!../../../../../lib/loaders/template-loader.js!../../../../../lib/loaders/fragment-loader.js?index=0&type=template!./testtextdecoration.ux?uxType=page&\\")
-    $app_module$.exports.style = $app_style$;
+    $app_module$.exports.style = require(\\"!../../../../../lib/loaders/style-loader.js?index=0&type=style!../../../../../lib/loaders/fragment-loader.js?index=0&type=style!./testtextdecoration.ux?uxType=page\\")
 });
 $app_bootstrap$('@app-component/testtextdecoration',{ packagerVersion: QUICKAPP_TOOLKIT_VERSION });"
 `;
 
 exports[`Style编译测试 comile style: ./TestStyle/TextIndent/testtextIndent.ux?uxType=page 1`] = `
 "
-var $app_style$ = require(\\"!../../../../../lib/loaders/style-loader.js?index=0&type=style!../../../../../lib/loaders/fragment-loader.js?index=0&type=style!./testtextIndent.ux?uxType=page\\")
 var $app_script$ = require(\\"!../../../../../lib/loaders/script-loader.js!../../../../../../../node_modules/@hap-toolkit/packager/lib/loaders/module-loader.js!../../../../../../../node_modules/babel-loader/lib/index.js?cwd=<CWD>&cacheDirectory&plugins[]=<CWD>/packages/hap-dsl-xvm/lib/loaders/babel-plugin-jsx.js&comments=false&configFile=<CWD>/babel.config.js!../../../../../lib/loaders/access-loader.js!../../../../../lib/loaders/fragment-loader.js?index=0&type=script!./testtextIndent.ux?uxType=page\\")
 $app_define$('@app-component/testtextIndent', [], function($app_require$, $app_exports$, $app_module$) {
      $app_script$($app_module$, $app_exports$, $app_require$)
@@ -12111,14 +12005,13 @@ $app_define$('@app-component/testtextIndent', [], function($app_require$, $app_e
           $app_module$.exports = $app_exports$.default
         }
     $app_module$.exports.template = require(\\"!../../../../../lib/loaders/template-loader.js!../../../../../lib/loaders/fragment-loader.js?index=0&type=template!./testtextIndent.ux?uxType=page&\\")
-    $app_module$.exports.style = $app_style$;
+    $app_module$.exports.style = require(\\"!../../../../../lib/loaders/style-loader.js?index=0&type=style!../../../../../lib/loaders/fragment-loader.js?index=0&type=style!./testtextIndent.ux?uxType=page\\")
 });
 $app_bootstrap$('@app-component/testtextIndent',{ packagerVersion: QUICKAPP_TOOLKIT_VERSION });"
 `;
 
 exports[`Style编译测试 comile style: ./TestStyle/TextOverflow/testtextoverflow.ux?uxType=page 1`] = `
 "
-var $app_style$ = require(\\"!../../../../../lib/loaders/style-loader.js?index=0&type=style!../../../../../lib/loaders/fragment-loader.js?index=0&type=style!./testtextoverflow.ux?uxType=page\\")
 var $app_script$ = require(\\"!../../../../../lib/loaders/script-loader.js!../../../../../../../node_modules/@hap-toolkit/packager/lib/loaders/module-loader.js!../../../../../../../node_modules/babel-loader/lib/index.js?cwd=<CWD>&cacheDirectory&plugins[]=<CWD>/packages/hap-dsl-xvm/lib/loaders/babel-plugin-jsx.js&comments=false&configFile=<CWD>/babel.config.js!../../../../../lib/loaders/access-loader.js!../../../../../lib/loaders/fragment-loader.js?index=0&type=script!./testtextoverflow.ux?uxType=page\\")
 $app_define$('@app-component/testtextoverflow', [], function($app_require$, $app_exports$, $app_module$) {
      $app_script$($app_module$, $app_exports$, $app_require$)
@@ -12126,14 +12019,13 @@ $app_define$('@app-component/testtextoverflow', [], function($app_require$, $app
           $app_module$.exports = $app_exports$.default
         }
     $app_module$.exports.template = require(\\"!../../../../../lib/loaders/template-loader.js!../../../../../lib/loaders/fragment-loader.js?index=0&type=template!./testtextoverflow.ux?uxType=page&\\")
-    $app_module$.exports.style = $app_style$;
+    $app_module$.exports.style = require(\\"!../../../../../lib/loaders/style-loader.js?index=0&type=style!../../../../../lib/loaders/fragment-loader.js?index=0&type=style!./testtextoverflow.ux?uxType=page\\")
 });
 $app_bootstrap$('@app-component/testtextoverflow',{ packagerVersion: QUICKAPP_TOOLKIT_VERSION });"
 `;
 
 exports[`Style编译测试 comile style: ./TestStyle/Top/testtop.ux?uxType=page 1`] = `
 "
-var $app_style$ = require(\\"!../../../../../lib/loaders/style-loader.js?index=0&type=style!../../../../../lib/loaders/fragment-loader.js?index=0&type=style!./testtop.ux?uxType=page\\")
 var $app_script$ = require(\\"!../../../../../lib/loaders/script-loader.js!../../../../../../../node_modules/@hap-toolkit/packager/lib/loaders/module-loader.js!../../../../../../../node_modules/babel-loader/lib/index.js?cwd=<CWD>&cacheDirectory&plugins[]=<CWD>/packages/hap-dsl-xvm/lib/loaders/babel-plugin-jsx.js&comments=false&configFile=<CWD>/babel.config.js!../../../../../lib/loaders/access-loader.js!../../../../../lib/loaders/fragment-loader.js?index=0&type=script!./testtop.ux?uxType=page\\")
 $app_define$('@app-component/testtop', [], function($app_require$, $app_exports$, $app_module$) {
      $app_script$($app_module$, $app_exports$, $app_require$)
@@ -12141,14 +12033,13 @@ $app_define$('@app-component/testtop', [], function($app_require$, $app_exports$
           $app_module$.exports = $app_exports$.default
         }
     $app_module$.exports.template = require(\\"!../../../../../lib/loaders/template-loader.js!../../../../../lib/loaders/fragment-loader.js?index=0&type=template!./testtop.ux?uxType=page&\\")
-    $app_module$.exports.style = $app_style$;
+    $app_module$.exports.style = require(\\"!../../../../../lib/loaders/style-loader.js?index=0&type=style!../../../../../lib/loaders/fragment-loader.js?index=0&type=style!./testtop.ux?uxType=page\\")
 });
 $app_bootstrap$('@app-component/testtop',{ packagerVersion: QUICKAPP_TOOLKIT_VERSION });"
 `;
 
 exports[`Style编译测试 comile style: ./TestStyle/Transform/testtransform.ux?uxType=page 1`] = `
 "
-var $app_style$ = require(\\"!../../../../../lib/loaders/style-loader.js?index=0&type=style!../../../../../lib/loaders/fragment-loader.js?index=0&type=style!./testtransform.ux?uxType=page\\")
 var $app_script$ = require(\\"!../../../../../lib/loaders/script-loader.js!../../../../../../../node_modules/@hap-toolkit/packager/lib/loaders/module-loader.js!../../../../../../../node_modules/babel-loader/lib/index.js?cwd=<CWD>&cacheDirectory&plugins[]=<CWD>/packages/hap-dsl-xvm/lib/loaders/babel-plugin-jsx.js&comments=false&configFile=<CWD>/babel.config.js!../../../../../lib/loaders/access-loader.js!../../../../../lib/loaders/fragment-loader.js?index=0&type=script!./testtransform.ux?uxType=page\\")
 $app_define$('@app-component/testtransform', [], function($app_require$, $app_exports$, $app_module$) {
      $app_script$($app_module$, $app_exports$, $app_require$)
@@ -12156,14 +12047,13 @@ $app_define$('@app-component/testtransform', [], function($app_require$, $app_ex
           $app_module$.exports = $app_exports$.default
         }
     $app_module$.exports.template = require(\\"!../../../../../lib/loaders/template-loader.js!../../../../../lib/loaders/fragment-loader.js?index=0&type=template!./testtransform.ux?uxType=page&\\")
-    $app_module$.exports.style = $app_style$;
+    $app_module$.exports.style = require(\\"!../../../../../lib/loaders/style-loader.js?index=0&type=style!../../../../../lib/loaders/fragment-loader.js?index=0&type=style!./testtransform.ux?uxType=page\\")
 });
 $app_bootstrap$('@app-component/testtransform',{ packagerVersion: QUICKAPP_TOOLKIT_VERSION });"
 `;
 
 exports[`Style编译测试 comile style: ./TestStyle/Transition/testtransition.ux?uxType=page 1`] = `
 "
-var $app_style$ = require(\\"!../../../../../lib/loaders/style-loader.js?index=0&type=style!../../../../../lib/loaders/fragment-loader.js?index=0&type=style!./testtransition.ux?uxType=page\\")
 var $app_script$ = require(\\"!../../../../../lib/loaders/script-loader.js!../../../../../../../node_modules/@hap-toolkit/packager/lib/loaders/module-loader.js!../../../../../../../node_modules/babel-loader/lib/index.js?cwd=<CWD>&cacheDirectory&plugins[]=<CWD>/packages/hap-dsl-xvm/lib/loaders/babel-plugin-jsx.js&comments=false&configFile=<CWD>/babel.config.js!../../../../../lib/loaders/access-loader.js!../../../../../lib/loaders/fragment-loader.js?index=0&type=script!./testtransition.ux?uxType=page\\")
 $app_define$('@app-component/testtransition', [], function($app_require$, $app_exports$, $app_module$) {
      $app_script$($app_module$, $app_exports$, $app_require$)
@@ -12171,14 +12061,13 @@ $app_define$('@app-component/testtransition', [], function($app_require$, $app_e
           $app_module$.exports = $app_exports$.default
         }
     $app_module$.exports.template = require(\\"!../../../../../lib/loaders/template-loader.js!../../../../../lib/loaders/fragment-loader.js?index=0&type=template!./testtransition.ux?uxType=page&\\")
-    $app_module$.exports.style = $app_style$;
+    $app_module$.exports.style = require(\\"!../../../../../lib/loaders/style-loader.js?index=0&type=style!../../../../../lib/loaders/fragment-loader.js?index=0&type=style!./testtransition.ux?uxType=page\\")
 });
 $app_bootstrap$('@app-component/testtransition',{ packagerVersion: QUICKAPP_TOOLKIT_VERSION });"
 `;
 
 exports[`Style编译测试 comile style: ./TestStyle/Translate/testtranslate.ux?uxType=page 1`] = `
 "
-var $app_style$ = require(\\"!../../../../../lib/loaders/style-loader.js?index=0&type=style!../../../../../lib/loaders/fragment-loader.js?index=0&type=style!./testtranslate.ux?uxType=page\\")
 var $app_script$ = require(\\"!../../../../../lib/loaders/script-loader.js!../../../../../../../node_modules/@hap-toolkit/packager/lib/loaders/module-loader.js!../../../../../../../node_modules/babel-loader/lib/index.js?cwd=<CWD>&cacheDirectory&plugins[]=<CWD>/packages/hap-dsl-xvm/lib/loaders/babel-plugin-jsx.js&comments=false&configFile=<CWD>/babel.config.js!../../../../../lib/loaders/access-loader.js!../../../../../lib/loaders/fragment-loader.js?index=0&type=script!./testtranslate.ux?uxType=page\\")
 $app_define$('@app-component/testtranslate', [], function($app_require$, $app_exports$, $app_module$) {
      $app_script$($app_module$, $app_exports$, $app_require$)
@@ -12186,14 +12075,13 @@ $app_define$('@app-component/testtranslate', [], function($app_require$, $app_ex
           $app_module$.exports = $app_exports$.default
         }
     $app_module$.exports.template = require(\\"!../../../../../lib/loaders/template-loader.js!../../../../../lib/loaders/fragment-loader.js?index=0&type=template!./testtranslate.ux?uxType=page&\\")
-    $app_module$.exports.style = $app_style$;
+    $app_module$.exports.style = require(\\"!../../../../../lib/loaders/style-loader.js?index=0&type=style!../../../../../lib/loaders/fragment-loader.js?index=0&type=style!./testtranslate.ux?uxType=page\\")
 });
 $app_bootstrap$('@app-component/testtranslate',{ packagerVersion: QUICKAPP_TOOLKIT_VERSION });"
 `;
 
 exports[`Style编译测试 comile style: ./TestStyle/TranslateX/testtranslateX.ux?uxType=page 1`] = `
 "
-var $app_style$ = require(\\"!../../../../../lib/loaders/style-loader.js?index=0&type=style!../../../../../lib/loaders/fragment-loader.js?index=0&type=style!./testtranslateX.ux?uxType=page\\")
 var $app_script$ = require(\\"!../../../../../lib/loaders/script-loader.js!../../../../../../../node_modules/@hap-toolkit/packager/lib/loaders/module-loader.js!../../../../../../../node_modules/babel-loader/lib/index.js?cwd=<CWD>&cacheDirectory&plugins[]=<CWD>/packages/hap-dsl-xvm/lib/loaders/babel-plugin-jsx.js&comments=false&configFile=<CWD>/babel.config.js!../../../../../lib/loaders/access-loader.js!../../../../../lib/loaders/fragment-loader.js?index=0&type=script!./testtranslateX.ux?uxType=page\\")
 $app_define$('@app-component/testtranslateX', [], function($app_require$, $app_exports$, $app_module$) {
      $app_script$($app_module$, $app_exports$, $app_require$)
@@ -12201,14 +12089,13 @@ $app_define$('@app-component/testtranslateX', [], function($app_require$, $app_e
           $app_module$.exports = $app_exports$.default
         }
     $app_module$.exports.template = require(\\"!../../../../../lib/loaders/template-loader.js!../../../../../lib/loaders/fragment-loader.js?index=0&type=template!./testtranslateX.ux?uxType=page&\\")
-    $app_module$.exports.style = $app_style$;
+    $app_module$.exports.style = require(\\"!../../../../../lib/loaders/style-loader.js?index=0&type=style!../../../../../lib/loaders/fragment-loader.js?index=0&type=style!./testtranslateX.ux?uxType=page\\")
 });
 $app_bootstrap$('@app-component/testtranslateX',{ packagerVersion: QUICKAPP_TOOLKIT_VERSION });"
 `;
 
 exports[`Style编译测试 comile style: ./TestStyle/TranslateY/testtranslateY.ux?uxType=page 1`] = `
 "
-var $app_style$ = require(\\"!../../../../../lib/loaders/style-loader.js?index=0&type=style!../../../../../lib/loaders/fragment-loader.js?index=0&type=style!./testtranslateY.ux?uxType=page\\")
 var $app_script$ = require(\\"!../../../../../lib/loaders/script-loader.js!../../../../../../../node_modules/@hap-toolkit/packager/lib/loaders/module-loader.js!../../../../../../../node_modules/babel-loader/lib/index.js?cwd=<CWD>&cacheDirectory&plugins[]=<CWD>/packages/hap-dsl-xvm/lib/loaders/babel-plugin-jsx.js&comments=false&configFile=<CWD>/babel.config.js!../../../../../lib/loaders/access-loader.js!../../../../../lib/loaders/fragment-loader.js?index=0&type=script!./testtranslateY.ux?uxType=page\\")
 $app_define$('@app-component/testtranslateY', [], function($app_require$, $app_exports$, $app_module$) {
      $app_script$($app_module$, $app_exports$, $app_require$)
@@ -12216,14 +12103,13 @@ $app_define$('@app-component/testtranslateY', [], function($app_require$, $app_e
           $app_module$.exports = $app_exports$.default
         }
     $app_module$.exports.template = require(\\"!../../../../../lib/loaders/template-loader.js!../../../../../lib/loaders/fragment-loader.js?index=0&type=template!./testtranslateY.ux?uxType=page&\\")
-    $app_module$.exports.style = $app_style$;
+    $app_module$.exports.style = require(\\"!../../../../../lib/loaders/style-loader.js?index=0&type=style!../../../../../lib/loaders/fragment-loader.js?index=0&type=style!./testtranslateY.ux?uxType=page\\")
 });
 $app_bootstrap$('@app-component/testtranslateY',{ packagerVersion: QUICKAPP_TOOLKIT_VERSION });"
 `;
 
 exports[`Style编译测试 comile style: ./TestStyle/Visibility/testvisibility.ux?uxType=page 1`] = `
 "
-var $app_style$ = require(\\"!../../../../../lib/loaders/style-loader.js?index=0&type=style!../../../../../lib/loaders/fragment-loader.js?index=0&type=style!./testvisibility.ux?uxType=page\\")
 var $app_script$ = require(\\"!../../../../../lib/loaders/script-loader.js!../../../../../../../node_modules/@hap-toolkit/packager/lib/loaders/module-loader.js!../../../../../../../node_modules/babel-loader/lib/index.js?cwd=<CWD>&cacheDirectory&plugins[]=<CWD>/packages/hap-dsl-xvm/lib/loaders/babel-plugin-jsx.js&comments=false&configFile=<CWD>/babel.config.js!../../../../../lib/loaders/access-loader.js!../../../../../lib/loaders/fragment-loader.js?index=0&type=script!./testvisibility.ux?uxType=page\\")
 $app_define$('@app-component/testvisibility', [], function($app_require$, $app_exports$, $app_module$) {
      $app_script$($app_module$, $app_exports$, $app_require$)
@@ -12231,14 +12117,13 @@ $app_define$('@app-component/testvisibility', [], function($app_require$, $app_e
           $app_module$.exports = $app_exports$.default
         }
     $app_module$.exports.template = require(\\"!../../../../../lib/loaders/template-loader.js!../../../../../lib/loaders/fragment-loader.js?index=0&type=template!./testvisibility.ux?uxType=page&\\")
-    $app_module$.exports.style = $app_style$;
+    $app_module$.exports.style = require(\\"!../../../../../lib/loaders/style-loader.js?index=0&type=style!../../../../../lib/loaders/fragment-loader.js?index=0&type=style!./testvisibility.ux?uxType=page\\")
 });
 $app_bootstrap$('@app-component/testvisibility',{ packagerVersion: QUICKAPP_TOOLKIT_VERSION });"
 `;
 
 exports[`Style编译测试 comile style: ./TestStyle/Width/testwidth.ux?uxType=page 1`] = `
 "
-var $app_style$ = require(\\"!../../../../../lib/loaders/style-loader.js?index=0&type=style!../../../../../lib/loaders/fragment-loader.js?index=0&type=style!./testwidth.ux?uxType=page\\")
 var $app_script$ = require(\\"!../../../../../lib/loaders/script-loader.js!../../../../../../../node_modules/@hap-toolkit/packager/lib/loaders/module-loader.js!../../../../../../../node_modules/babel-loader/lib/index.js?cwd=<CWD>&cacheDirectory&plugins[]=<CWD>/packages/hap-dsl-xvm/lib/loaders/babel-plugin-jsx.js&comments=false&configFile=<CWD>/babel.config.js!../../../../../lib/loaders/access-loader.js!../../../../../lib/loaders/fragment-loader.js?index=0&type=script!./testwidth.ux?uxType=page\\")
 $app_define$('@app-component/testwidth', [], function($app_require$, $app_exports$, $app_module$) {
      $app_script$($app_module$, $app_exports$, $app_require$)
@@ -12246,7 +12131,7 @@ $app_define$('@app-component/testwidth', [], function($app_require$, $app_export
           $app_module$.exports = $app_exports$.default
         }
     $app_module$.exports.template = require(\\"!../../../../../lib/loaders/template-loader.js!../../../../../lib/loaders/fragment-loader.js?index=0&type=template!./testwidth.ux?uxType=page&\\")
-    $app_module$.exports.style = $app_style$;
+    $app_module$.exports.style = require(\\"!../../../../../lib/loaders/style-loader.js?index=0&type=style!../../../../../lib/loaders/fragment-loader.js?index=0&type=style!./testwidth.ux?uxType=page\\")
 });
 $app_bootstrap$('@app-component/testwidth',{ packagerVersion: QUICKAPP_TOOLKIT_VERSION });"
 `;

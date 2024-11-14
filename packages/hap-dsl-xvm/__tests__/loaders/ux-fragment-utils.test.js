@@ -77,8 +77,8 @@ describe('ux-fragment-utils', () => {
     `
     const { log } = parseTemplate(code, { filePath: '/mock/path' })
 
-    expect(log[0].reason).toMatch('Warn: 组件 div 不支持文本内容作为字节点')
-    expect(log[1].reason).toMatch('Warn: 组件 list 不支持文本内容作为字节点')
-    expect(log[2].reason).toMatch('Warn: 组件 div 不支持文本内容作为字节点')
+    expect(log[0].reason).toMatch('Warn: 组件 div 不支持文本内容作为子节点')
+    expect(log[1].reason).toMatch('Warn: 组件 list 不支持文本内容作为子节点')
+    expect(log[2].reason).toMatch('Warn: 组件 div 不支持文本内容作为子节点')
   })
 })
