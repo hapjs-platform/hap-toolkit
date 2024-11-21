@@ -251,8 +251,8 @@ function getPrefixExpr(expr) {
     // 表达式是简单标识符，直接返回模板字符串。如： {{ name }} -> {{ name }}
     return expr
   } else {
-    // 表达式为复杂表达式，返回前缀表达式字符串。如： {{ $item.name }} -> "[\".\",[\"$\",\"$item\"],\"name\"]"
-    return res
+    // 表达式为复杂表达式，返回前缀表达式字符串。如： {{ $item.name }} -> [".",["$","$item"],"name"]
+    return parsed
   }
 }
 
