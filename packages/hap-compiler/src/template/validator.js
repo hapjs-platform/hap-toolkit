@@ -1626,9 +1626,7 @@ function checkIf(value, output, not, locationInfo, conditionList) {
     value = exp.addExprffix(value)
     const isLite = output.isLite
     if (not) {
-      value = isLite
-        ? buildLiteConditionExp(conditionList)
-        : '{{' + buildConditionExp(conditionList) + '}}'
+      value = '{{' + buildConditionExp(conditionList) + '}}'
     } else {
       // if动作前需要清除conditionList之前的结构
       conditionList.length > 0 && (conditionList.length = 0)
@@ -1673,13 +1671,8 @@ function checkElif(value, cond, output, locationInfo, conditionList) {
     value = exp.addExprffix(value)
     cond = exp.addExprffix(cond)
     const isLite = output.isLite
-    newcond = isLite
-      ? '{{' + value.substr(2, value.length - 4) + '}}&&' + buildLiteConditionExp(conditionList)
-      : '{{(' +
-        value.substr(2, value.length - 4) +
-        ') && ' +
-        buildConditionExp(conditionList) +
-        '}}'
+    newcond =
+      '{{(' + value.substr(2, value.length - 4) + ') && ' + buildConditionExp(conditionList) + '}}'
 
     // 将表达式转换为function
     output.result.shown = isLite ? newcond : exp(newcond)
@@ -1962,19 +1955,6 @@ function buildConditionExp(list) {
       return `!(${exp})`
     })
     .join(' && ')
-}
-
-/**
- * 输出轻卡条件取反的字符串表示
- * @param list
- * @return {string}
- */
-function buildLiteConditionExp(list) {
-  return list
-    .map((exp) => {
-      return `!{{${exp}}}`
-    })
-    .join('&&')
 }
 
 /**

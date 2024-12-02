@@ -101,6 +101,9 @@ function getWidgetI18nJSONFiles(sourceDir) {
   }
   let filesArray = []
   for (let key in widgetsOption) {
+    if (!widgetsOption[key].path) {
+      widgetsOption[key].path = key
+    }
     const widgetPath = widgetsOption[key].path
     const dir = path.join(sourceDir, widgetPath, 'i18n')
     // const jsonPath = onlyRoot ? '*.json' : '**/**.json'
@@ -122,24 +125,27 @@ function minifyWidgetI18nJSONFiles(targetDir) {
   }
   let arr = []
   for (let key in widgetsOption) {
+    if (!widgetsOption[key].path) {
+      widgetsOption[key].path = key
+    }
     const widgetPath = widgetsOption[key].path
-    const isLite = widgetsOption[key].type === 'lite'
+    const needFlatten = widgetsOption[key].type === 'lite'
     const dir = path.join(targetDir, widgetPath, 'i18n')
     if (fs.existsSync(dir)) {
       const jsonFiles = getFiles('*.json', dir)
       jsonFiles.forEach((filePath) => {
         arr.push(filePath)
-        minifyJson(filePath, filePath, isLite)
+        minifyJson(filePath, filePath, needFlatten)
       })
     }
   }
 }
 
-function minifyJson(source, target, isLite) {
+function minifyJson(source, target, needFlatten) {
   try {
     const contentStr = fs.readFileSync(source, 'utf8')
     let content = JSON.parse(contentStr)
-    if (isLite) {
+    if (needFlatten) {
       content = flatten.flatten(content)
     }
     const minifiedContent = JSON.stringify(content)
