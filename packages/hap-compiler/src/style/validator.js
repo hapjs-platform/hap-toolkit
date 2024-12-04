@@ -235,6 +235,29 @@ const REGEXP_CUBIC_BEZIER =
 const REGEXP_STEPS =
   /steps\(\s*(\d+)\s*(?:,\s*(jump-start|jump-end|jump-none|jump-both|start|end))?\)/
 
+const wrapperCached = new Map()
+/**
+ * 封装一个校验器，使其接受 theme. 开头的变量值
+ *
+ * @param {Function} validator - 校验器
+ * @returns {Function}
+ */
+function builtInVarsWrapper(validator) {
+  let cached = wrapperCached.get(validator)
+  if (!cached) {
+    cached = function wrappedValidator() {
+      const result = validator.apply(null, arguments)
+      if (!result.value && arguments[0].startsWith('theme.')) {
+        result.value = arguments[0]
+        result.reason = undefined
+      }
+      return result
+    }
+    wrapperCached.set(validator, cached)
+  }
+  return cached
+}
+
 function toCamelCase(str) {
   var re = /-(\w)/g
   return str.replace(re, function ($0, $1) {
@@ -2378,6 +2401,21 @@ const validator = {
 }
 
 /**
+ * 为各个 validator 加上放行 theme 开头属性校验器
+ */
+function addBuiltInVarsWrapper() {
+  for (const key in validator) {
+    const validatorFn = validator[key]
+    const noNeed = ['arraynumber', 'arraylength', 'arraycolor', 'arraycolorstop', 'enum']
+    if (typeof validatorFn === 'function' && noNeed.indexOf(key) === -1) {
+      validator[key] = builtInVarsWrapper(validatorFn)
+    }
+  }
+}
+
+addBuiltInVarsWrapper()
+
+/**
  * 生成指定单位的长度校验函数
  * @param units  单位值
  * @param defaultValueIfNotSupported 如果单位不准确，需要回退的默认值
@@ -2406,7 +2444,7 @@ function makeMultipleAttributesValidator(validatorMap) {
  * @returns {validator_enum}
  */
 function makeEnumValidator(list) {
-  return validator.enum.bind(null, list)
+  return builtInVarsWrapper(validator.enum.bind(null, list))
 }
 
 /**
@@ -2416,7 +2454,7 @@ function makeEnumValidator(list) {
  * @returns {validator_$type}
  */
 function makeAbbrAttrValidator(type, list) {
-  return validator[type].bind(null, list)
+  return builtInVarsWrapper(validator[type].bind(null, list))
 }
 
 // background属性校验表
