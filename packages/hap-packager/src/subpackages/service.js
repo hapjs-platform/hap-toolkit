@@ -6,13 +6,14 @@
 import fs from 'fs'
 import path from 'path'
 
-import { compileOptionsMeta } from '@hap-toolkit/shared-utils'
+import { compileOptionsMeta, readJson } from '@hap-toolkit/shared-utils'
 import { calcDataDigest } from '../common/utils'
 import { createFullPackage, createSubPackages } from './package'
 import { BUILD_INFO_FILE } from '../common/constant'
 
 const MAIN_PKG_NAME = compileOptionsMeta.MAIN_PKG_NAME
 const SPLIT_CHUNKS_PAGE_NAME = compileOptionsMeta.splitChunksNameEnum.PAGE
+const MANIFEST_TO_TRIM = ['features', 'display', 'subpackages', 'router.entry', 'router.pages']
 
 /**
  * 创建完整包和分包列表
@@ -66,6 +67,49 @@ function getBuildInfoResource(buildInfo, widgetDigestMap) {
   return [buildPath, buf, digest]
 }
 
+function trimSubPkgManifest(pkg, fileBuildPath, fileAbsPath) {
+  // 普通的独立分包不需要精简 manifest.json
+  if (!pkg._widget) return
+
+  const manifest = readJson(fileAbsPath)
+
+  // 删除 manifest 中卡片不需要的字段（快应用项目的字段）
+  MANIFEST_TO_TRIM.forEach((fieldPath) => {
+    let keys = fieldPath.split('.')
+    let current = manifest
+
+    // 递归遍历对象，直到达到要删除字段的前一个对象
+    for (let i = 0; i < keys.length - 1; i++) {
+      if (current[keys[i]]) {
+        current = current[keys[i]]
+      } else {
+        // 如果路径中的某个属性不存在，则跳出循环
+        return
+      }
+    }
+
+    // 删除指定的字段
+    delete current[keys[keys.length - 1]]
+  })
+
+  // 删除 router.widgets 中不属于当前分包的 widget 配置
+  const widgetsObj = manifest?.router?.widgets
+  if (widgetsObj) {
+    const trimWidgetObj = Object.keys(widgetsObj)
+      .filter((widgetKey) => pkg.subMatch.test(widgetKey + '/'))
+      .reduce((result, key) => {
+        result[key] = widgetsObj[key]
+        return result
+      }, {})
+    manifest.router.widgets = trimWidgetObj
+  }
+  const manifestString = JSON.stringify(manifest)
+  const trimBuffer = Buffer.from(manifestString)
+  const trimDigest = calcDataDigest(trimBuffer)
+
+  return [fileBuildPath, trimBuffer, trimDigest]
+}
+
 /**
  * 将各资源分派给各个要打出来的包，包括digest, hashList, 以及实际的文件内容fileContentBuffer
  * @param {String[]} files 文件列表
@@ -91,7 +135,7 @@ function allocateResourceToPackages(
     const fileContentBuffer = fs.readFileSync(fileAbsPath)
     const fileContentDigest = calcDataDigest(fileContentBuffer)
     // 资源基本信息
-    const resourceInfo = [fileBuildPath, fileContentBuffer, fileContentDigest]
+    let resourceInfo = [fileBuildPath, fileContentBuffer, fileContentDigest]
 
     // 整包需要所有文件，不包括分包的独立page-chunks.json文件
     if (!belongTofSubPkgReg.test(fileBuildPath)) {
@@ -113,6 +157,11 @@ function allocateResourceToPackages(
     // 遍历除主包整包外的分包，判断此文件是否属于某个分包的
     for (let i = 1; i < subPackages.length; i++) {
       const pkg = subPackages[i]
+      // 精简卡片的 manifest.json 文件，只保留本卡片的配置
+      if (pkg.standalone && fileBuildPath === 'manifest.json') {
+        resourceInfo = trimSubPkgManifest(pkg, fileBuildPath, fileAbsPath)
+      }
+
       // 如果此分包是个独立包，则需要加入manifest || sitemap.json || i18n || icon || banner || lottie 文件，每个包都需要
       if (
         pkg.standalone &&

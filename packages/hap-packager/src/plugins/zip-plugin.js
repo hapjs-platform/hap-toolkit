@@ -396,7 +396,8 @@ ZipPlugin.prototype.apply = function (compiler) {
       subPackages,
       this.signConfig,
       options.disableStreamPack,
-      compiler.watchMode
+      compiler.watchMode,
+      !options.disableSubpackages && options.subpackages && options.subpackages.length > 0
     )
 
     fs.ensureDirSync(options.output)

@@ -120,11 +120,18 @@ async function buildProjectAndOutput(
   subPackages,
   signConfig,
   disableStreamPack,
-  watchMode
+  watchMode,
+  isAppSubpackage
 ) {
   // 如果是watch模式，走快速编译的模式
   if (watchMode) {
     return buildDebugModeProjectAndOutput.apply(null, arguments)
+  }
+
+  // 如果不是快应用分包，则移除第一个 base 包
+  // 只有快应用分包才需要base包，卡片分包不需要
+  if (!isAppSubpackage) {
+    subPackages.shift()
   }
 
   // Step1. 生成整包rpk
@@ -158,12 +165,14 @@ async function buildProjectAndOutput(
 
   if (subPackageBuffers.length) {
     const rpksFileList = []
-
-    // 添加整包
-    rpksFileList.push({
-      path: fullPackage.fileName,
-      content: fullPackageBuffer
-    })
+    if (isAppSubpackage) {
+      // 只有快应用分包才需要保留整包（历史遗留保持现状）
+      // 卡片分包不需要保留
+      rpksFileList.push({
+        path: fullPackage.fileName,
+        content: fullPackageBuffer
+      })
+    }
 
     // 添加各个子包
     subPackageBuffers.forEach((buffer, index) => {
