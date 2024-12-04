@@ -78,6 +78,7 @@ function transExpr(expContent, toFunc, isLite) {
 }
 
 transExpr.isExpr = textParser.isExpr
+transExpr.parseText = textParser.parseText
 transExpr.singleExpr = textParser.singleExpr
 transExpr.removeExprffix = textParser.removeExprffix
 transExpr.addExprffix = textParser.addExprffix
