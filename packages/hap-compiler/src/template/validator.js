@@ -1494,6 +1494,13 @@ function checkClass(className, output) {
     classList = classList.filter((klass) => klass.trim())
 
     if (isLite) {
+      if (!isValidClassArray(segs)) {
+        const err = new Error('轻卡 class 样式不支持动态数据绑定 {{}} 和静态样式混用')
+        err.isExpressionError = true
+        err.expression = className
+        throw err
+      }
+      output.result.class = className
       output.result.classList = classList
     } else if (hasBinding) {
       const code = '(function () {return [' + classList.join(', ') + ']})'
@@ -1979,6 +1986,21 @@ function hasIfOrFor(nodes) {
   return flag
 }
 
+function isValidClassArray(arr) {
+  const filterArr = arr.filter((clazz) => clazz.length > 0)
+
+  let hasTemplateString = false
+
+  for (let i = 0; i < filterArr.length; i++) {
+    if (exp.isExpr(filterArr[i])) {
+      hasTemplateString = true
+      break
+    }
+  }
+
+  return !hasTemplateString || filterArr.length === 1 // 如果全都为常量 className 或者只有一个变量的className，则返回true
+}
+
 export default {
   checkTagName,
   checkId,
@@ -2001,5 +2023,6 @@ export default {
   isSupportedSelfClosing,
   isEmptyElement,
   isNotTextContentAtomic,
-  isExpr: exp.isExpr
+  isExpr: exp.isExpr,
+  parseText: exp.parseText
 }
