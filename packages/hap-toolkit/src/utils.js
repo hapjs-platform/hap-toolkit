@@ -8,6 +8,26 @@ import { colorconsole, compileOptionsObject } from '@hap-toolkit/shared-utils'
 import { ENTRY_TYPE } from '@hap-toolkit/compiler'
 import { resolveFile } from '@hap-toolkit/packager'
 
+const NOT_ALLOW_CHARS = [
+  '@',
+  '$',
+  '.',
+  '&',
+  '+',
+  '(',
+  ')',
+  ' ',
+  '-',
+  '\\',
+  '//',
+  '?',
+  ':',
+  '|',
+  '<',
+  '>',
+  '='
+]
+
 /**
  * 提取其中的应用，页面，worker的脚本文件
  * @return {Array}
@@ -66,6 +86,15 @@ export function resolveEntries(manifest, basedir, cwd) {
       const conf = confs[routePath]
       const entryKey = path.join(routePath, conf.component)
       const filepath = resolveFile(path.join(basedir, entryKey))
+      if (type === 'card') {
+        for (let ch of NOT_ALLOW_CHARS) {
+          if (routePath.indexOf(ch) > -1) {
+            colorconsole.throw(
+              `编译失败：manifest.json中卡片router配置的key不能包含 字母、数字、/、_ 以外的特殊字符：${entryKey}`
+            )
+          }
+        }
+      }
 
       if (!filepath) {
         colorconsole.throw(`编译失败：请确认manifest.json中配置的文件路径存在：${entryKey}`)
