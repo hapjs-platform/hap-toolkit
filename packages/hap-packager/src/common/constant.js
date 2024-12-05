@@ -27,6 +27,16 @@ const COMPRESS_OPTS = {
   }
 }
 
+const LOADER_PATH_APP = {
+  path: '/app-loader.js',
+  type: ''
+}
+
+const LOADER_PATH_DEVICETYPE = {
+  path: '/device-type-loader.js',
+  type: ''
+}
+
 const LOADER_PATH_UX = {
   path: '/ux-loader.js',
   type: 'ux'
@@ -75,6 +85,8 @@ export {
   FULL_PKG_SIZE,
   COMPRESS_OPTS,
   BUILD_INFO_FILE,
+  LOADER_PATH_DEVICETYPE,
+  LOADER_PATH_APP,
   LOADER_PATH_UX,
   LOADER_PATH_STYLE,
   LOADER_PATH_TEMPLATE,

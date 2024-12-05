@@ -372,7 +372,7 @@ ZipPlugin.prototype.apply = function (compiler) {
 
     const { _widgetDigestMap } = stats.compilation
     if (_widgetDigestMap && Object.keys(_widgetDigestMap)?.length) {
-      console.log('widget fingerprint:', _widgetDigestMap)
+      console.log('fingerprint:', _widgetDigestMap)
     }
 
     // 遍历文件分配文件资源到每个package里面, 包括digest, file hash

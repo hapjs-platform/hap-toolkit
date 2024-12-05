@@ -6,7 +6,12 @@
 import fs from 'fs-extra'
 import path from 'path'
 import { calcDataDigest, getLastLoaderPath } from '../common/utils'
-import { LOADER_INFO_LIST, LOADER_PATH_UX } from '../common/constant'
+import {
+  LOADER_INFO_LIST,
+  LOADER_PATH_UX,
+  LOADER_PATH_APP,
+  LOADER_PATH_DEVICETYPE
+} from '../common/constant'
 
 const MANIFEST_PATH = 'manifest.json'
 
@@ -23,6 +28,10 @@ const EXCLUDE_FILE_EXTS = [
   '.sass',
   ''
 ] // .gitignore .DS_Store
+
+const EXCLUDE_FILES = ['manifest.json', 'sitemap.json']
+
+const APP = 'app'
 
 /**
  * Generate a fingerprint string for a widget, based on the source code and config of the widget.
@@ -56,65 +65,106 @@ class WidgetFingerprintPlugin {
       }
       const widgets = options.widgets || {}
       const widgetNameKeyMap = {}
-      const widgetEntries = Object.keys(widgets).map((key) => {
+      const widgetKeys = Object.keys(widgets) || {}
+      const widgetEntries = widgetKeys.map((key) => {
         const widget = widgets[key]
         const name = path.join(key, widget.component)
         widgetNameKeyMap[name] = key
         return name
       })
+      const allAssetsDigestMap = this.calculateAllAssetsDigest(pathSrc, pathSrc, {}, widgetKeys)
+      const appDigestMap = {}
       for (const chunk of compilation.chunks) {
         const chunkName = chunk.name
         if (widgetEntries.indexOf(chunkName) >= 0) {
           // widget chunk
-          const widgetKey = widgetNameKeyMap[chunkName]
           const widgetDigestMap = {}
-          const arr = []
-          for (const module of compilation.chunkGraph.getChunkModules(chunk)) {
-            const { _source, rawRequest, request } = module
-            arr.push(rawRequest)
-            if (!request) {
-              continue
-            }
-            const reqPath = request.replace(/\\/g, '/')
-            const lastLoaderPath = getLastLoaderPath(reqPath)
-            if (lastLoaderPath === LOADER_PATH_UX.path) {
-              // skip ux-loader.js
-              continue
-            }
-            const { absPath } = this.parseABSPath(reqPath, pathSrc)
-            const { _valueAsString, _valueAsBuffer } = _source || {}
-            const sourceValueStr = _valueAsString || _valueAsBuffer?.toString() || ''
-            let digestStr = ''
-            if (sourceValueStr !== '') {
-              const digest = calcDataDigest(Buffer.from(sourceValueStr, 'utf-8'))
-              digestStr = digest.toString('hex')
-            }
-            // module digest
-            widgetDigestMap[absPath] = digestStr
-          }
-          // assets digests
-          const assetsDigestMap = this.calculateAssetsDigest(path.join(pathSrc, widgetKey), pathSrc)
-          Object.assign(widgetDigestMap, assetsDigestMap)
-
-          // widget manifest digest
-          const manifestDigest = this.getManifestDigest(widgetKey, manifestContent)
-          widgetDigestMap[MANIFEST_PATH] = manifestDigest
-
-          const orderK = Object.keys(widgetDigestMap).sort()
-          let contentStr = '' // ordered path & digest string
-          orderK.forEach((filePath) => {
-            contentStr += `${filePath}:${widgetDigestMap[filePath]};`
-          })
-          // generate widget digest, save it in compilation
-          const widgetDigest = calcDataDigest(Buffer.from(contentStr, 'utf-8')).toString('hex')
-          const { _widgetDigestMap = {} } = compilation
-          _widgetDigestMap[`widget:${widgetKey}`] = widgetDigest
-          if (!compilation._widgetDigestMap) {
-            compilation._widgetDigestMap = _widgetDigestMap
-          }
+          this.getModuleDigestFromChunk(compilation, chunk, widgetDigestMap, pathSrc)
+          const widgetKey = widgetNameKeyMap[chunkName]
+          this.updateDigest(
+            compilation,
+            widgetKey,
+            widgetDigestMap,
+            allAssetsDigestMap,
+            manifestContent
+          )
+        } else {
+          // appDigestMap
+          this.getModuleDigestFromChunk(compilation, chunk, appDigestMap, pathSrc)
         }
       }
+      this.updateDigest(compilation, APP, appDigestMap, allAssetsDigestMap, manifestContent)
     })
+  }
+
+  /**
+   * combine assets and manifest digests, save result on compilation
+   * @param {*} compilation
+   * @param {*} key app or widgets key
+   * @param {*} digestMap all digest for app & widgets
+   * @param {*} allAssetsDigestMap all assets digets
+   * @param {*} manifestContent manifest conentent
+   */
+  updateDigest(compilation, key, digestMap, allAssetsDigestMap, manifestContent) {
+    // assets digest
+    const assetsDigestMap = allAssetsDigestMap[key] || {}
+    Object.assign(digestMap, assetsDigestMap)
+    // manifest digest
+    digestMap[MANIFEST_PATH] = this.getManifestDigest(key, manifestContent)
+
+    const orderK = Object.keys(digestMap).sort()
+    let contentStr = '' // ordered path & digest string
+    orderK.forEach((filePath) => {
+      contentStr += `${filePath}:${digestMap[filePath]};`
+    })
+    // generate widget digest, save it in compilation
+    const digest = calcDataDigest(Buffer.from(contentStr, 'utf-8')).toString('hex')
+
+    const { _widgetDigestMap = {} } = compilation
+    if (key === APP) {
+      _widgetDigestMap[`app:${key}`] = digest
+    } else {
+      _widgetDigestMap[`widget:${key}`] = digest
+    }
+    if (!compilation._widgetDigestMap) {
+      compilation._widgetDigestMap = _widgetDigestMap
+    }
+  }
+
+  /**
+   * get all module digests in chunk
+   * @param {*} compilation
+   * @param {*} chunk
+   * @param {*} moduleDigestMap
+   * @param {*} pathSrc
+   */
+  getModuleDigestFromChunk(compilation, chunk, moduleDigestMap, pathSrc) {
+    for (const module of compilation.chunkGraph.getChunkModules(chunk)) {
+      const { _source, request } = module
+      if (!request) {
+        continue
+      }
+      const reqPath = request.replace(/\\/g, '/')
+      const lastLoaderPath = getLastLoaderPath(reqPath)
+      if (
+        lastLoaderPath === LOADER_PATH_UX.path ||
+        lastLoaderPath === LOADER_PATH_APP.path ||
+        lastLoaderPath === LOADER_PATH_DEVICETYPE.path
+      ) {
+        // skip
+        continue
+      }
+      const { absPath } = this.parseABSPath(reqPath, pathSrc)
+      const { _valueAsString, _valueAsBuffer } = _source || {}
+      const sourceValueStr = _valueAsString || _valueAsBuffer?.toString() || ''
+      let digestStr = ''
+      if (sourceValueStr !== '') {
+        const digest = calcDataDigest(Buffer.from(sourceValueStr, 'utf-8'))
+        digestStr = digest.toString('hex')
+      }
+      // module digest
+      moduleDigestMap[absPath] = digestStr
+    }
   }
 
   /**
@@ -147,24 +197,32 @@ class WidgetFingerprintPlugin {
   }
 
   /**
-   * 返回与当前卡片相关的 manifest 配置摘要
-   * @param string widgetKey
+   * 返回与当前app或widget相关的 manifest 配置摘要
+   * @param string key
    * @param string manifestContent
    */
-  getManifestDigest(widgetKey, manifestContent) {
-    if (!widgetKey || !manifestContent) {
+  getManifestDigest(key, manifestContent) {
+    if (!key || !manifestContent) {
       return new Date().getTime()
     }
     const manifestJsonNew = JSON.parse(manifestContent)
     manifestJsonNew.versionName = ''
     manifestJsonNew.versionCode = ''
-    manifestJsonNew.router.entry = ''
-    if (manifestJsonNew.router.pages) {
-      manifestJsonNew.router.pages = ''
+    manifestJsonNew['template/official'] = ''
+    if (key === APP) {
+      if (manifestJsonNew.router.widgets) {
+        manifestJsonNew.router.widgets = ''
+      }
+    } else {
+      manifestJsonNew.router.entry = ''
+      if (manifestJsonNew.router.pages) {
+        manifestJsonNew.router.pages = ''
+      }
+      manifestJsonNew.router.widgets = {
+        [key]: manifestJsonNew.router.widgets[key]
+      }
     }
-    manifestJsonNew.router.widgets = {
-      [widgetKey]: manifestJsonNew.router.widgets[widgetKey]
-    }
+
     const manifestJsonNewStr = JSON.stringify(manifestJsonNew)
     const digest = calcDataDigest(Buffer.from(manifestJsonNewStr, 'utf-8')).toString('hex')
     return digest
@@ -176,20 +234,38 @@ class WidgetFingerprintPlugin {
    * @param {string[]} allFiles
    * @returns {Object} relative file path and its digest
    */
-  calculateAssetsDigest(dir, basePath, assetsDigestMap = {}) {
+  calculateAllAssetsDigest(dir, basePath, assetsDigestMap, widgetKeys) {
     const files = fs.readdirSync(dir)
     for (let i = 0; i < files.length; i++) {
-      let name = path.join(dir, files[i])
-      if (fs.statSync(name).isDirectory()) {
-        this.calculateAssetsDigest(name, basePath, assetsDigestMap)
+      let fileName = path.join(dir, files[i])
+      if (fs.statSync(fileName).isDirectory()) {
+        // directory
+        this.calculateAllAssetsDigest(fileName, basePath, assetsDigestMap, widgetKeys)
       } else {
-        const ext = path.extname(name)
+        // file
+        const ext = path.extname(fileName)
         if (EXCLUDE_FILE_EXTS.includes(ext)) {
           continue
         }
-        const digest = calcDataDigest(fs.readFileSync(name)).toString('hex')
-        const relativePath = path.relative(basePath, name)
-        assetsDigestMap[relativePath] = digest
+        const relativePath = path.relative(basePath, fileName)
+        if (EXCLUDE_FILES.includes(relativePath)) {
+          continue
+        }
+        const digest = calcDataDigest(fs.readFileSync(fileName)).toString('hex')
+        const widgetKey = widgetKeys.find((item) => relativePath.startsWith(item + '/'))
+        if (widgetKey) {
+          // widget
+          if (!assetsDigestMap[widgetKey]) {
+            assetsDigestMap[widgetKey] = {}
+          }
+          assetsDigestMap[widgetKey][relativePath] = digest
+        } else {
+          // app
+          if (!assetsDigestMap[APP]) {
+            assetsDigestMap[APP] = {}
+          }
+          assetsDigestMap[APP][relativePath] = digest
+        }
       }
     }
     return assetsDigestMap
