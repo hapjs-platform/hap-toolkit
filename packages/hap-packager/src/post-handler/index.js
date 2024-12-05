@@ -9,13 +9,26 @@ const TEMPLATE_KEY = 'template'
 const ACTIONS_KEY = 'actions'
 const SIMPLE_EXPR_MODIFIERS = ['$', '.', '[]', '~', '{}']
 
-// 节点标记，标记优先级依次提升
+// 节点标记，同一节点可能同时符合多个kind定义，按priority高的进行标记
 const ENUM_KIND_TYPE = {
-  ELEMENT: 1, // 普通动态节点、事件节点、带id属性的节点
-  FRAGMENT: 2, // if/for 动态节点
-  COMPONENT: 3 // 自定义组件节点
+  ELEMENT: {
+    // 普通动态节点、事件节点、带id属性的节点
+    kind: 1,
+    priority: 1
+  },
+  COMPONENT: {
+    // 自定义组件节点
+    kind: 3,
+    priority: 2
+  },
+  FRAGMENT: {
+    // if/for 动态节点
+    kind: 2,
+    priority: 3
+  }
 }
 
+// 处理 actions 中的字段，增加标记和处理表达式
 function postHandleActions(actions) {
   if (!isObject(actions)) return
 
@@ -35,6 +48,8 @@ function markType(actions) {
 }
 
 function markUrl(actions) {
+  // url 可能为字符串，也可能为数组
+  // 如为数组，则遍历数组进行表达式处理
   if (typeof actions.url === 'string') {
     if (isExpr(actions.url)) {
       let { rawExpr, prefixExpr } = getPrefixExpr(actions.url)
@@ -117,8 +132,27 @@ function postHandleTemplate(template, liteCardRes) {
   }
 }
 
+// 获取kind值对应的优先级
+function getPriority(kind) {
+  let prioity = kind
+  Object.keys(ENUM_KIND_TYPE).some((key) => {
+    const item = ENUM_KIND_TYPE[key]
+    if (item.kind === kind) {
+      prioity = item.priority
+      return true
+    }
+  })
+  return prioity
+}
+
+// 根据优先级标记节点的 kind 值
 function markKind(oldKind, newKind) {
-  if (!oldKind || oldKind < newKind) return newKind
+  if (!oldKind) return newKind
+
+  const oldPriority = getPriority(oldKind)
+  const newPriority = getPriority(newKind)
+  if (oldPriority < newPriority) return newKind
+
   return oldKind
 }
 
@@ -128,7 +162,7 @@ function markCustomComp(template, liteCardRes) {
   const importList = Object.keys(liteCardRes[CARD_ENTRY][TYPE_IMPORT])
 
   if (importList.includes(template.type)) {
-    template.kind = markKind(template.kind, ENUM_KIND_TYPE.COMPONENT)
+    template.kind = markKind(template.kind, ENUM_KIND_TYPE.COMPONENT.kind)
   }
 }
 
@@ -141,7 +175,7 @@ function markIf(template) {
     template['$shown'] = rawExpr
     template['#shown'] = prefixExpr
   }
-  template.kind = markKind(template.kind, ENUM_KIND_TYPE.FRAGMENT)
+  template.kind = markKind(template.kind, ENUM_KIND_TYPE.FRAGMENT.kind)
 }
 
 function markIs(template) {
@@ -152,7 +186,7 @@ function markIs(template) {
     delete template.is
     template['$is'] = rawExpr
     template['#is'] = prefixExpr
-    template.kind = markKind(template.kind, ENUM_KIND_TYPE.ELEMENT)
+    template.kind = markKind(template.kind, ENUM_KIND_TYPE.ELEMENT.kind)
   }
 }
 
@@ -165,8 +199,8 @@ function markId(template) {
     template['$id'] = rawExpr
     template['#id'] = prefixExpr
   }
-  // 节点有id属性，标记为kind=1
-  template.kind = markKind(template.kind, ENUM_KIND_TYPE.ELEMENT)
+  // 节点有id属性，标记为kind 为 1
+  template.kind = markKind(template.kind, ENUM_KIND_TYPE.ELEMENT.kind)
 }
 
 function markFor(template) {
@@ -201,14 +235,15 @@ function markFor(template) {
   } else if (isExpr(template.repeat)) {
     /**
       <div for="{{ItemList}}">   ->
-      "$repeat": "{{ItemList}}",
+      "$repeat": "ItemList",
+      "#repeat": ["$", "ItemList"],
     */
     let { rawExpr, prefixExpr } = getPrefixExpr(template.repeat)
     delete template.repeat
     template['$repeat'] = rawExpr
     template['#repeat'] = prefixExpr
   }
-  template.kind = markKind(template.kind, ENUM_KIND_TYPE.FRAGMENT)
+  template.kind = markKind(template.kind, ENUM_KIND_TYPE.FRAGMENT.kind)
 }
 
 function markStyle(template) {
@@ -223,7 +258,7 @@ function markStyle(template) {
         delete template.style[key]
         template.style['$' + key] = rawExpr
         template.style['#' + key] = prefixExpr
-        template.kind = markKind(template.kind, ENUM_KIND_TYPE.ELEMENT)
+        template.kind = markKind(template.kind, ENUM_KIND_TYPE.ELEMENT.kind)
       }
     })
   } else {
@@ -232,7 +267,7 @@ function markStyle(template) {
       delete template.style
       template['$style'] = rawExpr
       template['#style'] = prefixExpr
-      template.kind = markKind(template.kind, ENUM_KIND_TYPE.ELEMENT)
+      template.kind = markKind(template.kind, ENUM_KIND_TYPE.ELEMENT.kind)
     }
   }
 }
@@ -245,7 +280,7 @@ function markClass(template) {
     delete template.class
     template['$class'] = rawExpr
     template['#class'] = prefixExpr
-    template.kind = markKind(template.kind, ENUM_KIND_TYPE.ELEMENT)
+    template.kind = markKind(template.kind, ENUM_KIND_TYPE.ELEMENT.kind)
   }
 }
 
@@ -272,7 +307,7 @@ function markClassList(template) {
 
 function markEvents(template) {
   if (template.events) {
-    template.kind = markKind(template.kind, ENUM_KIND_TYPE.ELEMENT)
+    template.kind = markKind(template.kind, ENUM_KIND_TYPE.ELEMENT.kind)
   }
 }
 
