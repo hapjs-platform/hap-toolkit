@@ -2250,7 +2250,7 @@ exports[`Component 编译测试 ux components: ../../../lib/loaders/template-loa
       \\"attr\\": {
         \\"dataData2\\": function () {return this.attrData},
         \\"src\\": \\"/packages/hap-dsl-xvm/test/case/ux/TestComponent/Image/Common/home.png\\",
-        \\"alt\\": \\"/packages/hap-dsl-xvm/test/case/ux/TestComponent/Image/Common/home.png\\"
+        \\"alt\\": \\"./Common/home.png\\"
       }
     },
     {
@@ -2258,7 +2258,7 @@ exports[`Component 编译测试 ux components: ../../../lib/loaders/template-loa
       \\"attr\\": {
         \\"dataData1Data2\\": \\"abc\\",
         \\"src\\": \\"/packages/hap-dsl-xvm/test/case/ux/TestComponent/Common/home.png\\",
-        \\"alt\\": \\"/packages/hap-dsl-xvm/test/case/ux/TestComponent/Common/home.png\\"
+        \\"alt\\": \\"../Common/home.png\\"
       }
     },
     {
