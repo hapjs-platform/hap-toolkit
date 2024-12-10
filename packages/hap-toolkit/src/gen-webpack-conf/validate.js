@@ -40,14 +40,16 @@ export function validateJson(jsonInfo, filePath) {
   const ajv = new Ajv({ allErrors: true, jsonPointers: true })
   AjvErrors(ajv)
   ajv.addKeyword('requireError', {
-    validate: function (schema, data) {
-      if (!data || !data.widgets) {
+    validate: function (schema, router) {
+      // 纯快应用工程：router 字段下 entry/pages 必填
+      // 快应用、卡片混合工程：无需校验 entry/pages 必填性
+      // 纯卡片工程：无需校验 entry/pages 必填性
+      if (!router.widgets && (!router.entry || !router.pages)) {
         const message = `快应用项目 manifest.json 中，router 字段下 ${JSON.stringify(
           schema
         )} 字段为必填`
         colorconsole.error(message)
       }
-      // 项目工程有卡片时无需校验 entry 和 pages 字段的必填性
       return true
     }
   })
