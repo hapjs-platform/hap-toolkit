@@ -191,7 +191,9 @@ function searchModuleImport(fileCont, options = {}) {
 }
 
 /**
- * 检测manifest里面的widget不支持的feature
+ * 检测manifest里面的widget，包括：
+ * 检测不支持的feature
+ * 增加 widget 中 path 缺失时的默认值
  */
 function checkFeatureInCard(obj = {}) {
   Object.keys(obj).forEach((key) => {
@@ -204,6 +206,22 @@ function checkFeatureInCard(obj = {}) {
           )
         }
       })
+  })
+
+  populateWidgetFields(obj)
+}
+
+/**
+ * 填充 widget.path 缺失时的默认值
+ */
+function populateWidgetFields(widgetsObj) {
+  Object.keys(widgetsObj).forEach((key) => {
+    if (!widgetsObj[key].path) {
+      widgetsObj[key].path = `/${key}`
+      colorconsole.warn(
+        `WARN: manifest.json 文件中 widgets 字段 ${key} 缺少 path 属性，默认设置为卡片名 /${key}`
+      )
+    }
   })
 }
 
