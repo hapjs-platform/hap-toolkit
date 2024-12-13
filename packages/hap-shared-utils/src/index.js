@@ -198,15 +198,6 @@ export function stripPrefixForIPV4MappedIPV6Address(ip) {
 }
 
 /**
- * 命令行输出二维码
- * @param text
- */
-export function outputQRCodeOnTerminal(text) {
-  console.info(`\n生成HTTP服务器的二维码: ${text}`)
-  qrTerminal.generate(text, { small: true })
-}
-
-/**
  * 相对工作目录的路径
  *
  * @param {String} filepath - 输入路径
