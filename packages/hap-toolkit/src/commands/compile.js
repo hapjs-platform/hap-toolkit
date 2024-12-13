@@ -52,7 +52,7 @@ export function compile(platform, mode, watch, options = {}) {
     options.cwd = cwd.charAt(0).toUpperCase() + cwd.slice(1)
   }
   return new Promise(async (resolve, reject) => {
-    // colorconsole.attach(options.log)
+    colorconsole.attach(options.log)
     setCustomConfig(options.cwd)
     // IMPORTANT: set env variables before generating webpack config
     process.env.NODE_PLATFORM = platform
@@ -92,7 +92,6 @@ export function compile(platform, mode, watch, options = {}) {
 
     try {
       const webpackConfig = await genWebpackConf(options, webpackMode)
-      console.log('生成后的配置', JSON.stringify(webpackConfig))
 
       if (watch) {
         const compiler = webpack(webpackConfig)
