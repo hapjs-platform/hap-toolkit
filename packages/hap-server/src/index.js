@@ -9,6 +9,8 @@ import { launch, stop } from './server'
 import { remotePreview } from './preview/remote-preview'
 import { beforeStart, createPreview } from './preview'
 
+let globalCWD = ''
+
 /**
  * 启动开发服务
  *
@@ -36,6 +38,7 @@ import { beforeStart, createPreview } from './preview'
 function launchServer(options) {
   try {
     colorconsole.attach(options.log)
+    globalCWD = options.cwd
     Object.assign(config.options, options)
     // 配置参数
     setCustomConfig(options.cwd, options.port)
@@ -45,6 +48,10 @@ function launchServer(options) {
   }
   // 启动服务器
   return launch(config)
+}
+
+export function getCWD() {
+  return globalCWD
 }
 
 /**

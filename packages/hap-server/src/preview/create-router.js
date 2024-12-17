@@ -15,6 +15,8 @@ import { KnownError, getLaunchPage, logger, eventBus } from '@hap-toolkit/shared
 
 import { renderPage, trimSlash, removeAnsiColor } from './shared'
 
+import { getCWD } from './../index'
+
 const { PACKAGER_BUILD_DONE, PACKAGER_WATCH_START, PACKAGER_BUILD_PROGRESS } = eventBus
 
 // 不存在也返回200文件
@@ -215,6 +217,11 @@ export default async function createRouter(previewTarget) {
       const widgets = manifest.router.widgets || {}
       const type = requestRoute in widgets ? 'card' : 'app'
       const script = routes[requestRoute]
+      const currentLanguage = JSON.parse(process.env.VSCODE_NLS_CONFIG || `{locale: 'zh-CN'}`).locale;
+      const cwd = getCWD()
+      
+      const modifiedPath = cwd.replace(':', ':\\')
+      const finalPath = modifiedPath.replace(/\\/g, '\\\\');
       const html = await renderPage(TPL_PAGE_PATH, {
         title: manifest.name,
         routeName: requestRoute,
@@ -222,7 +229,9 @@ export default async function createRouter(previewTarget) {
         type,
         script,
         scriptNotFound: !scriptExists(script),
-        webJsUrl: genWebJsUrl(ctx.conf.options.webVersion)
+        webJsUrl: genWebJsUrl(ctx.conf.options.webVersion),
+        language: currentLanguage,
+        i18nPath: finalPath
       })
       ctx.type = 'text/html'
       ctx.body = html
