@@ -222,7 +222,7 @@ export default async function genWebpackConf(launchOptions, mode) {
           return `webpack://${namespace}/${resPath.replace(resPath,'.'+src)}`
         }
         // 默认返回
-        return `webpack://${namespace}/${resPath}?${info.hash}`;;
+        return `webpack://${namespace}/${resPath}?${info.hash}`
       },
     },
     module: {
