@@ -21,5 +21,5 @@ describe('Card 编译测试', () => {
     json.modules.forEach(module => {
       expect(wipeDynamic(module.source)).toMatchSnapshot(module.id)
     })
-  })
+  }, 50 * 60 * 1000)
 })

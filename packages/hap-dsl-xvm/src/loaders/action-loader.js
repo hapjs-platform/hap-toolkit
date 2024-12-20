@@ -12,7 +12,7 @@ export default function actionLoader(source) {
     const { parsed } = parseActions(jsonObj)
     actionStr = parsed
   } catch (e) {
-    throw new Error(`Invalid <data> in ${this.resourcePath}\n${e}`)
+    throw new Error(`${this.resourcePath} 中的 <data> 解析失败，请检查是否为标准的 JSON 格式\n${e}`)
   }
   return `module.exports = ${actionStr}`
 }

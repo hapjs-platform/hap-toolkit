@@ -196,6 +196,7 @@ const cssUseLocalResource = [
   'starBackground',
   'fontSrc'
 ]
+const reservedCssWords = ['theme']
 
 const REGEXP_LENGTH = /^[-+]?[0-9]*\.?[0-9]+(.*)$/
 const REGEXP_COLOR_LONG = /^#[0-9a-fA-F]{6}$/
@@ -527,6 +528,11 @@ const validator = {
             )
           }
         }
+      }
+    } else if (valueInReservedWords(v)) {
+      // 如果样式值是
+      return {
+        value: v
       }
     }
     return {
@@ -2676,6 +2682,10 @@ function validatePseudoClass(cls) {
 function validatePseudoElement(elm) {
   elm = elm.replace(/^(:)/, '')
   return cssPseudoElements.indexOf(elm.toLowerCase()) >= 0
+}
+
+function valueInReservedWords(value) {
+  return reservedCssWords.some((word) => value.indexOf(word) > -1)
 }
 
 module.exports = {

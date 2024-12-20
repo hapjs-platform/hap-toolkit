@@ -2,10 +2,10 @@
 # yarn lockfile v1
 
 
-"@aiot-toolkit/card-expression@^1.0.12":
-  version "1.0.12"
-  resolved "https://registry.npmmirror.com/@aiot-toolkit/card-expression/-/card-expression-1.0.12.tgz#6e734d372fd8dd1fae5ff643fe590cdca9a5d97a"
-  integrity sha512-fN/2L4JuStIvW30z5joCvhN+qtcDlGfkMdXGx6o3gMl2lmqqQVKmcnJq9vbe2uL8E1AMTm6f3/YhZ5AYmOk2pA==
+"@aiot-toolkit/card-expression@^1.0.13":
+  version "1.0.13"
+  resolved "https://registry.npmmirror.com/@aiot-toolkit/card-expression/-/card-expression-1.0.13.tgz#6649204e181fc46d21e8a7afef8ab82fff1bf2ab"
+  integrity sha512-5FhFSgh598fHRFMcF4g20V0PnGh0GhEzbGeK89DOSbe/2f4PPs75N4l1TmiwIBbT2zEDXe/1oFBIgIruoFqFUQ==
   dependencies:
     "@babel/generator" "^7.25.6"
     "@babel/parser" "^7.25.6"

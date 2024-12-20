@@ -14,9 +14,9 @@ const BUILD_INFO_FILE = DIGEST_ZIP_DIR + '/build.txt'
 // 文件列表摘要的名称
 const DIGEST_HASH_JSON = 'hash.json'
 // 分包的大小上限 1MB
-const SINGLE_PKG_SIZE = 1024 * 1024
+const SINGLE_PKG_SIZE = 2048 * 1024
 // 整包的大小上限 4MB
-const FULL_PKG_SIZE = SINGLE_PKG_SIZE * 4
+const FULL_PKG_SIZE = SINGLE_PKG_SIZE * 10
 
 // 压缩参数，设置输出 buffer，以便对 buffer 进行操作
 const COMPRESS_OPTS = {
