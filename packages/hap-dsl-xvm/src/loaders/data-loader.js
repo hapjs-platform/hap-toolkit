@@ -9,7 +9,7 @@ export default function dataLoader(source) {
     const obj = JSON.parse(source)
     jsonObj = obj.uiData || obj.data || {}
   } catch (e) {
-    throw new Error(`Invalid <data> in ${this.resourcePath}:: ${e}`)
+    throw new Error(`${this.resourcePath} 中的 <data> 解析失败，请检查是否为标准的 JSON 格式\n${e}`)
   }
   return `module.exports = ${JSON.stringify(jsonObj)}`
 }
