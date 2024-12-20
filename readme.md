@@ -56,6 +56,8 @@ npm run dev                               # gulp watch --dev
 
 ### 单元测试
 
+测试工具基于[jest]，使用 `npx gulp test` 命令执行测试。运行单元测时前，先执行 `npm run build` 构建最新的产物
+
 ```sh
 npx gulp test
 ```

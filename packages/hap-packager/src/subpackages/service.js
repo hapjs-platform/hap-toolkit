@@ -158,7 +158,7 @@ function allocateResourceToPackages(
     for (let i = 1; i < subPackages.length; i++) {
       const pkg = subPackages[i]
       // 精简卡片的 manifest.json 文件，只保留本卡片的配置
-      if (pkg.standalone && fileBuildPath === 'manifest.json') {
+      if (pkg._widget && fileBuildPath === 'manifest.json') {
         resourceInfo = trimSubPkgManifest(pkg, fileBuildPath, fileAbsPath)
       }
 
