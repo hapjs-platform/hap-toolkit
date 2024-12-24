@@ -60,6 +60,6 @@ deviceTypeList.1 字段类型必须为 'string'
 参考: https://doc.quickapp.cn/framework/manifest.html
 
 校验 manifest.json 错误 
-必须包含 'package'、'name'、'versionName'、'versionCode'、'minPlatformVersion'、'icon'、'pages' 字段
+必须包含 'package'、'name'、'icon'、'versionCode'、'config'、'router' 字段
 参考: https://doc.quickapp.cn/framework/manifest.html"
 `;
