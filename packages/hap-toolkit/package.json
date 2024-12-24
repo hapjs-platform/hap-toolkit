@@ -1,6 +1,6 @@
 {
   "name": "hap-toolkit",
-  "version": "1.9.14",
+  "version": "1.9.17-alpha.6",
   "description": "A command line toolkit for developing Quick Apps.",
   "engines": {
     "node": ">=14.0.0"
@@ -16,12 +16,12 @@
     "@babel/preset-env": "^7.9.6",
     "@babel/register": "^7.9.0",
     "@babel/runtime": "^7.9.6",
-    "@hap-toolkit/compiler": "1.9.14",
-    "@hap-toolkit/debugger": "1.9.14",
-    "@hap-toolkit/dsl-xvm": "1.9.14",
-    "@hap-toolkit/packager": "1.9.14",
-    "@hap-toolkit/server": "1.9.14",
-    "@hap-toolkit/shared-utils": "1.9.14",
+    "@hap-toolkit/compiler": "1.9.17-alpha.6",
+    "@hap-toolkit/debugger": "1.9.17-alpha.6",
+    "@hap-toolkit/dsl-xvm": "1.9.17-alpha.6",
+    "@hap-toolkit/packager": "1.9.17-alpha.6",
+    "@hap-toolkit/server": "1.9.17-alpha.6",
+    "@hap-toolkit/shared-utils": "1.9.17-alpha.6",
     "@jayfate/path": "^0.0.13",
     "adb-commander": "^0.1.9",
     "ajv": "^6.12.6",

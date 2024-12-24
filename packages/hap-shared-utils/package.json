@@ -1,6 +1,6 @@
 {
   "name": "@hap-toolkit/shared-utils",
-  "version": "1.9.14",
+  "version": "1.9.17-alpha.6",
   "description": "hap shared utils",
   "engines": {
     "node": ">=14.0.0"
