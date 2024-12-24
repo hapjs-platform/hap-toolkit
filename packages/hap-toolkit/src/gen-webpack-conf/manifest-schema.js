@@ -283,7 +283,6 @@ export default {
   },
   errorMessage: {
     type: ' 类型必须为 object',
-    required:
-      "必须包含 'package'、'name'、'versionName'、'versionCode'、'minPlatformVersion'、'icon'、'pages' 字段"
+    required: "必须包含 'package'、'name'、'icon'、'versionCode'、'config'、'router' 字段"
   }
 }

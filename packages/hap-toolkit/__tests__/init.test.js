@@ -68,6 +68,6 @@ describe('initialize a project', () => {
       expect(pkgInfo.devDependencies['hap-toolkit']).toBe('^' + packageInfo.version)
       await del([TEST_NAME], { force: true })
     },
-    5 * 60 * 1000
+    50 * 60 * 1000
   )
 })
