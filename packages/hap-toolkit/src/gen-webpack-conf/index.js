@@ -33,7 +33,13 @@ import {
   checkBabelModulesExists
 } from './helpers'
 
-import { validateProject, validateManifest, validateSitemap, validateSkeleton } from './validate'
+import {
+  validateProject,
+  validateManifest,
+  validateSitemap,
+  validateSkeleton,
+  validateCardSize
+} from './validate'
 import { postHook as idePostHook } from './ide.config'
 
 const { PACKAGER_BUILD_PROGRESS } = eventBus
@@ -117,6 +123,7 @@ export default async function genWebpackConf(launchOptions, mode) {
 
   // 清理 BUILD_DIR DIST_DIR
   cleanup(BUILD_DIR, DIST_DIR, mode)
+
   const targetList = ['app', 'card', 'all']
   // 处理打包对象的校验，默认值之外的，只提示warning，默认为all
   if (!compileOptionsObject.target || targetList.indexOf(compileOptionsObject.target) === -1) {
@@ -135,6 +142,9 @@ export default async function genWebpackConf(launchOptions, mode) {
   validateSitemap(SRC_DIR, manifest)
 
   validateSkeleton(SRC_DIR, manifest)
+  
+  // 检验工程size
+  validateCardSize(SRC_DIR, manifest);
 
   // 设置合适的v8版本
   setAdaptForV8Version(compileOptionsObject.disableScriptV8V65, manifest, cwd)
