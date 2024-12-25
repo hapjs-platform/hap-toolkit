@@ -216,7 +216,7 @@ export default async function genWebpackConf(launchOptions, mode) {
         let resPath = info.resourcePath
         let namespace = info.namespace
         // ide打包分情况生成的路径不对 "E:\\work\\ide-new\\.build\\electron\\D:\\Users\\Desktop\\1_quickapp-code-21\\src\\app.ux"，需要换成'.src/app.ux'
-        if (resPath.indexOf('electron') !== -1) {
+        if (resPath.indexOf(namespace) !== -1) {
           // 拿到src及以后的并将\\换成/
           const src = resPath.split(namespace)[1].replace(/\\/g, '/')
           return `webpack://${namespace}/${resPath.replace(resPath, '.' + src)}`
