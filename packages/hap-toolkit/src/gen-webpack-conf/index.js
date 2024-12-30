@@ -142,9 +142,9 @@ export default async function genWebpackConf(launchOptions, mode) {
   validateSitemap(SRC_DIR, manifest)
 
   validateSkeleton(SRC_DIR, manifest)
-  
+
   // 检验工程size
-  validateCardSize(SRC_DIR, manifest);
+  validateCardSize(SRC_DIR, manifest)
 
   // 设置合适的v8版本
   setAdaptForV8Version(compileOptionsObject.disableScriptV8V65, manifest, cwd)
