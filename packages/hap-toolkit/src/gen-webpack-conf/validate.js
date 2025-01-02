@@ -267,3 +267,31 @@ export function validateSkeleton(src, manifest) {
     })
   }
 }
+
+/**
+ * 卡片size校验，长宽都需要在['1','2','4','8','FULL','AUTO']范围内，卡片的size格式为['1x1','FULL','AUTO'],数组里面可多个
+ * 需要解析长宽并验证都在范围内
+ * @param {String} src - 项目src
+ * @param {Object} manifest - manifest内容
+ */
+export function validateCardSize(src, manifest) {
+  // 获取卡片配置的路由
+  const widgetsConfig = manifest.router.widgets
+  if (widgetsConfig) {
+    const validateSizeRange = ['1', '2', '4', '8', 'FULL', 'AUTO']
+    const keys = Object.keys(widgetsConfig)
+    keys.forEach((widgetKey, index) => {
+      // 将size字段的x处理拆分
+      if (widgetsConfig[widgetKey]['size']) {
+        const sizeArr = widgetsConfig[widgetKey]['size'].join(',').replace(/x/g, ',').split(',')
+        sizeArr.forEach((size) => {
+          if (!validateSizeRange.includes(size)) {
+            colorconsole.throw(
+              `manifest.json配置的卡片 ${widgetKey} 的size不合规范,长宽都要在['1','2','4','8','FULL','AUTO']范围内`
+            )
+          }
+        })
+      }
+    })
+  }
+}
