@@ -1,7 +1,12 @@
 import { templateValueToCardCode } from '@aiot-toolkit/card-expression'
 import { templater } from '@hap-toolkit/compiler'
+import { getStyleObjectId } from '@hap-toolkit/shared-utils'
+import path from 'path'
+import acorn from 'acorn'
+import escodegen from 'escodegen'
 const { validator } = templater
 
+const SUFFIX_UX = '.ux'
 const CARD_ENTRY = '#entry'
 const TYPE_IMPORT = 'import'
 // 需要进行后处理的模块key
@@ -259,7 +264,7 @@ function getAllModifiers(exprList, modifierList) {
   return modifierList
 }
 
-export function postHandleJSCardRes(JsCardRes) {
+export function postHandleJSCardTemplateRes(JsCardRes) {
   const uxList = Object.keys(JsCardRes)
 
   // template
@@ -269,4 +274,155 @@ export function postHandleJSCardRes(JsCardRes) {
   }
 
   return JsCardRes
+}
+
+function isStyleOrTemplateModuleScript(str) {
+  return str.indexOf('type=template') > -1 || str.indexOf('type=style') > -1
+}
+function isTemplateModuleScript(str) {
+  return str.indexOf('type=template') > -1
+}
+
+function isStyleModuleScript(str) {
+  return str.indexOf('type=style') > -1
+}
+
+function getRelativeCompPath(pathSrc, uxPath) {
+  let relativeSrcPathStr = path.relative(pathSrc, uxPath)
+  relativeSrcPathStr = relativeSrcPathStr.replace(/\\/g, '/')
+  if (relativeSrcPathStr && relativeSrcPathStr.endsWith('.ux')) {
+    return relativeSrcPathStr.substring(0, relativeSrcPathStr.length - SUFFIX_UX.length)
+  }
+  return relativeSrcPathStr
+}
+
+function getCompPath(str, pathSrc) {
+  const reqArr = str.split('!')
+  const lastItem = reqArr[reqArr.length - 1]
+  const pathArr = lastItem.split('?')
+  const uxPath = pathArr[0]
+  const relativeSrcPath = getRelativeCompPath(pathSrc, uxPath)
+  const paramStr = pathArr[1]
+  const compUxType = 'uxType=comp'
+  const namePrefix = 'name='
+  let compPath = relativeSrcPath
+  if (paramStr && paramStr.includes(compUxType) && paramStr.includes(namePrefix)) {
+    const paramArr = paramStr.split('&')
+    const nameStr = paramArr.find((item) => item.indexOf(namePrefix) === 0)
+    if (nameStr) {
+      compPath = nameStr.substring(namePrefix.length)
+    }
+  }
+  return compPath
+}
+
+function trimTemplateAndStyleModules(nodes) {
+  if (!nodes) return
+
+  if (Object.prototype.toString.call(nodes) === '[object Array]') {
+    for (let i = nodes.length - 1; i >= 0; i--) {
+      const node = nodes[i]
+      if (isStyleOrTemplateModuleScript(node.key.value)) {
+        nodes.splice(i, 1)
+      }
+    }
+  }
+}
+function findWebpackModules(node, modules) {
+  if (!node) return
+
+  if (Object.prototype.toString.call(node) === '[object Object]') {
+    if (node.type === 'VariableDeclarator' && node.id?.name === '__webpack_modules__') {
+      modules.targetNode = node.init.properties
+      return
+    }
+    Object.keys(node).forEach((key) => {
+      if (!modules.targetNode) {
+        findWebpackModules(node[key], modules)
+      }
+    })
+  } else if (Object.prototype.toString.call(node) === '[object Array]') {
+    node.forEach((item) => {
+      if (!modules.targetNode) {
+        findWebpackModules(item, modules)
+      }
+    })
+  }
+}
+
+function replaceTemplateAndStyleFunc(node, pathSrc, cssFileName) {
+  if (!node) return
+
+  if (Object.prototype.toString.call(node) === '[object Object]') {
+    if (node.type === 'CallExpression' && node.callee?.name === '__webpack_require__') {
+      const arg = node.arguments[0]
+      const compPath = getCompPath(arg.value, pathSrc)
+      if (isTemplateModuleScript(arg.value)) {
+        node.callee.name = '$json_require$'
+        arg.value = `${compPath}.template.json`
+        arg.raw = `"${arg.value}"`
+        const optionsArg = {
+          type: 'ObjectExpression',
+          properties: []
+        }
+        node.arguments.push(optionsArg)
+      } else if (isStyleModuleScript(arg.value)) {
+        node.callee.name = '$json_require$'
+        arg.value = `${cssFileName}`
+        arg.raw = `"${arg.value}"`
+        const styleObjId = getStyleObjectId(compPath)
+        const optionsArg = {
+          type: 'ObjectExpression',
+          properties: [
+            {
+              type: 'Property',
+              key: {
+                type: 'Identifier',
+                name: 'styleObjectId'
+              },
+              value: {
+                type: 'Literal',
+                value: styleObjId
+              },
+              kind: 'init',
+              method: false,
+              shorthand: false,
+              computed: false
+            }
+          ]
+        }
+        node.arguments.push(optionsArg)
+      }
+    }
+    Object.keys(node).forEach((key) => {
+      replaceTemplateAndStyleFunc(node[key], pathSrc, cssFileName)
+    })
+  } else if (Object.prototype.toString.call(node) === '[object Array]') {
+    node.forEach((item) => {
+      replaceTemplateAndStyleFunc(item, pathSrc, cssFileName)
+    })
+  }
+}
+
+export function postHandleJSCardScriptRes(fileName, compilation, pathSrc, cssFileName) {
+  let scriptSource = compilation.assets[fileName]._source
+  if (typeof scriptSource === 'function') {
+    scriptSource = scriptSource()
+  }
+  const scriptStr = scriptSource.source()
+  try {
+    const ast = acorn.parse(scriptStr, {
+      sourceType: 'script',
+      ecmaVersion: 8
+    })
+    let modules = {}
+    findWebpackModules(ast, modules)
+    trimTemplateAndStyleModules(modules.targetNode)
+    replaceTemplateAndStyleFunc(ast, pathSrc, cssFileName)
+
+    const generatedCode = escodegen.generate(ast)
+    return generatedCode
+  } catch (error) {
+    return scriptStr
+  }
 }

@@ -1,4 +1,4 @@
-import { postHandleLiteCardRes } from './lite-card-post'
-import { postHandleJSCardRes } from './js-card-post'
+import { postHandleLiteCardTemplateRes } from './lite-card-post'
+import { postHandleJSCardScriptRes, postHandleJSCardTemplateRes } from './js-card-post'
 
-export { postHandleLiteCardRes, postHandleJSCardRes }
+export { postHandleLiteCardTemplateRes, postHandleJSCardScriptRes, postHandleJSCardTemplateRes }

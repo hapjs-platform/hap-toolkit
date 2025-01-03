@@ -10,6 +10,7 @@ import http from 'http'
 import { Console } from 'console'
 import chalk from 'chalk'
 import qrTerminal from 'qrcode-terminal'
+import crypto from 'crypto'
 import globalConfig from './config'
 import BuildModeManager from './buildMode/BuildModeManager.js'
 
@@ -396,4 +397,41 @@ export function readJson(jsonpath) {
       throw err
     }
   }
+}
+
+/**
+ * 获取 SHA256 摘要
+ * @param {Buffer} buffer - buffer
+ * @string {String<hex-string>} - hash 值
+ */
+export function calcDataDigest(buffer) {
+  const hash = crypto.createHash('SHA256')
+  hash.update(buffer)
+  return hash.digest()
+}
+
+const componentIdMap = new Map()
+const componentPathMap = new Map()
+export function getStyleObjectId(compPath) {
+  if (!componentPathMap.get(compPath)) {
+    const compId = getHash(compPath)
+    componentIdMap.set(compId, compPath)
+    componentPathMap.set(compPath, compId)
+  }
+  return componentPathMap.get(compPath)
+}
+
+function getHash(compPath) {
+  const digest = calcDataDigest(Buffer.from(compPath, 'utf-8'))
+  const digestStr = digest.toString('hex')
+  const len = Math.min(6, digestStr.length)
+  let res = compPath
+  for (let i = len; i < digestStr.length; i++) {
+    res = digestStr.substring(0, i)
+    if (componentIdMap.has(res)) {
+      continue
+    }
+    break
+  }
+  return res
 }

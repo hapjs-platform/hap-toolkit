@@ -5,14 +5,19 @@
 
 import Compilation from 'webpack/lib/Compilation'
 import path from 'path'
-import { getLastLoaderPath, calcDataDigest } from '../common/utils'
+import { getStyleObjectId } from '@hap-toolkit/shared-utils'
+import { getLastLoaderPath } from '../common/utils'
 import {
   LOADER_INFO_LIST,
   LOADER_PATH_UX,
   LOADER_PATH_STYLE,
   LOADER_PATH_TEMPLATE
 } from '../common/constant'
-import { postHandleLiteCardRes, postHandleJSCardRes } from '../post-handler'
+import {
+  postHandleJSCardScriptRes,
+  postHandleLiteCardTemplateRes,
+  postHandleJSCardTemplateRes
+} from '../post-handler'
 
 const SUFFIX_UX = '.ux'
 const CARD_ENTRY = '#entry'
@@ -50,29 +55,30 @@ class CardPlugin {
                 request,
                 pathSrc
               )
-              const cardRes = {
+              const templateRes = {
                 [CARD_ENTRY]: {}
               }
               const styleRes = {}
               this.findOutgoingModules(
                 moduleGraph,
                 entryModule,
-                cardRes,
-                cardRes,
+                templateRes,
+                templateRes,
                 styleRes,
                 pathSrc,
                 bundleFilePath
               )
-              let handledCardRes
+              // 处理 template
+              let handledCardTemplateRes
               if (this.isLiteCard(entryRawRequest)) {
-                handledCardRes = postHandleLiteCardRes(cardRes)
+                handledCardTemplateRes = postHandleLiteCardTemplateRes(templateRes)
               } else {
-                handledCardRes = postHandleJSCardRes(cardRes)
+                handledCardTemplateRes = postHandleJSCardTemplateRes(templateRes)
               }
 
               // 用于修改 template 的 key 的 stringify 的顺序，type放第一个，children放最后一个
               let templateKeys = []
-              recordKeys(handledCardRes, templateKeys)
+              recordKeys(handledCardTemplateRes, templateKeys)
 
               templateKeys = [...new Set(templateKeys.sort())]
                 .filter(
@@ -82,13 +88,32 @@ class CardPlugin {
                 .concat('children')
               templateKeys.unshift('type', 'template', 'data')
 
-              Object.keys(handledCardRes).forEach((key) => {
-                const res = handledCardRes[key]
+              Object.keys(handledCardTemplateRes).forEach((key) => {
+                const res = handledCardTemplateRes[key]
                 const fileName = key === CARD_ENTRY ? templateFileName : `${key}.template.json`
                 const templateJsonStr = JSON.stringify(res, templateKeys)
                 compilation.assets[fileName] = new ConcatSource(templateJsonStr)
               })
+              // 处理 css
               compilation.assets[cssFileName] = new ConcatSource(JSON.stringify(styleRes))
+
+              if (!this.isLiteCard(entryRawRequest)) {
+                // 处理 script
+                const reqPath = request.replace(/\\/g, '/')
+                const reqArr = reqPath.split('!')
+                const lastItem = reqArr[reqArr.length - 1]
+                const pathArr = lastItem.split('?')
+                const uxPath = pathArr[0]
+                const relativeSrcPath = this.getRelativeCompPath(pathSrc, uxPath)
+                const fileName = `${relativeSrcPath}.js`
+                const scriptStr = postHandleJSCardScriptRes(
+                  fileName,
+                  compilation,
+                  pathSrc,
+                  cssFileName
+                )
+                compilation.assets[fileName] = new ConcatSource(scriptStr)
+              }
             }
           }
         }
@@ -101,12 +126,20 @@ class CardPlugin {
    * @param {*} moduleGraph webpack moduleGraph
    * @param {*} currModule current module
    * @param {*} currCompRes JSON result for current ux component
-   * @param {*} cardRes JSON result for card
+   * @param {*} templateRes JSON result for card
    * @param {*} styleRes JSON result for style
    * @param {*} pathSrc src path for current quickapp project
    * @param {*} compPath card ux component path
    */
-  findOutgoingModules(moduleGraph, currModule, currCompRes, cardRes, styleRes, pathSrc, compPath) {
+  findOutgoingModules(
+    moduleGraph,
+    currModule,
+    currCompRes,
+    templateRes,
+    styleRes,
+    pathSrc,
+    compPath
+  ) {
     const moduleGraphConnection = moduleGraph.getOutgoingConnectionsByModule(currModule)
 
     if (moduleGraphConnection !== undefined) {
@@ -157,18 +190,18 @@ class CardPlugin {
             }
             currCompRes[TYPE_IMPORT][compName] = relativeSrcPath
           }
-          if (cardRes[relativeSrcPath]) {
+          if (templateRes[relativeSrcPath]) {
             // console.log(`'Component ${compName} already resolved, relativeSrcPath=${relativeSrcPath}, uxPath=${uxPath}`)
             continue
           }
 
           const compRes = {}
-          cardRes[relativeSrcPath] = compRes
+          templateRes[relativeSrcPath] = compRes
           this.findOutgoingModules(
             moduleGraph,
             m,
             compRes,
-            cardRes,
+            templateRes,
             styleRes,
             pathSrc,
             relativeSrcPath
@@ -306,32 +339,6 @@ class CardPlugin {
     }
     return null
   }
-}
-
-const componentIdMap = new Map()
-const componentPathMap = new Map()
-function getStyleObjectId(compPath) {
-  if (!componentPathMap.get(compPath)) {
-    const compId = getHash(compPath)
-    componentIdMap.set(compId, compPath)
-    componentPathMap.set(compPath, compId)
-  }
-  return componentPathMap.get(compPath)
-}
-
-function getHash(compPath) {
-  const digest = calcDataDigest(Buffer.from(compPath, 'utf-8'))
-  const digestStr = digest.toString('hex')
-  const len = Math.min(6, digestStr.length)
-  let res = compPath
-  for (let i = len; i < digestStr.length; i++) {
-    res = digestStr.substring(0, i)
-    if (componentIdMap.has(res)) {
-      continue
-    }
-    break
-  }
-  return res
 }
 
 function recordKeys(liteCardRes, templateKeys) {

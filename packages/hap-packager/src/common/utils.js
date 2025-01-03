@@ -5,7 +5,6 @@
 
 import fs from 'fs'
 import path from 'path'
-import crypto from 'crypto'
 import { sync as resolveSync } from 'resolve'
 
 /**
@@ -128,17 +127,6 @@ const toString = Object.prototype.toString
 const OBJECT_STRING = '[object Object]'
 export function isPlainObject(obj) {
   return toString.call(obj) === OBJECT_STRING
-}
-
-/**
- * 获取 SHA256 摘要
- * @param {Buffer} buffer - buffer
- * @string {String<hex-string>} - hash 值
- */
-export function calcDataDigest(buffer) {
-  const hash = crypto.createHash('SHA256')
-  hash.update(buffer)
-  return hash.digest()
 }
 
 /**

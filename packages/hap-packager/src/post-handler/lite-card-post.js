@@ -377,7 +377,7 @@ function getAllModifiers(exprList, modifierList) {
   return modifierList
 }
 
-export function postHandleLiteCardRes(liteCardRes) {
+export function postHandleLiteCardTemplateRes(liteCardRes) {
   const uxList = Object.keys(liteCardRes)
 
   // template

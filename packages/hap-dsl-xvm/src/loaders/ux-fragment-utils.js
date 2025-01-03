@@ -350,6 +350,9 @@ function processTemplateFrag($loader, templates, uxType, importNames, card, lite
     const liteParam = lite ? `&lite=${lite}` : ''
     // 解析成类似url中key[]=xxx 的形式，便于loader-utils解析
     importNames = importNames.map((item) => 'importNames[]=' + item)
+    const a = makeLoaderString(FRAG_TYPE.TEMPLATE, {
+      alone: !!fragAttrsSrc
+    })
     retStr = makeRequireString(
       $loader,
       makeLoaderString(FRAG_TYPE.TEMPLATE, {
