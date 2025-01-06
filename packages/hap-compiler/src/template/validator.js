@@ -1864,12 +1864,7 @@ function checkAttr(name, value, output, tagName, locationInfo, options) {
  * @returns {boolean}
  */
 function shouldConvertPath(name, value, tagName) {
-  const skip = name === 'alt' && value === 'blank'
-  if (skip) {
-    return false
-  }
-
-  if (['src', 'alt'].includes(name) && value && ['img', 'video'].indexOf(tagName) > -1) {
+  if (['src'].includes(name) && value && ['img', 'video'].indexOf(tagName) > -1) {
     if (!/^(data:|http|{{)/.test(value)) {
       return true
     }
