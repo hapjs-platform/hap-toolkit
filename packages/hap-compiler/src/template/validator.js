@@ -1563,7 +1563,7 @@ function checkStyle(cssText, output, locationInfo, options) {
         k = pair[0].trim()
         k = hyphenedToCamelCase(k)
         v = pair[1].trim()
-        v = exp(v, true, isLite) // 处理值表达式   
+        v = exp(v, true, isLite) // 处理值表达式
         vResult = styler.validateDelaration(k, v, options)
         v = vResult.value
         v.forEach((t) => {
