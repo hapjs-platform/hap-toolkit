@@ -1,5 +1,10 @@
 # Change Log
 
+## [1.9.16] -2024-3.28
+
+- fix: init quickapp demo npm registry expired error (#60)
+- 更新在线签名 (#58)
+- 
 ## [1.9.14] -2023-7.19
 
 - 更换 less 和 sass 的版本解决使用/运算符在括号外执行除法产生的异常
