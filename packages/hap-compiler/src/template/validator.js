@@ -1564,24 +1564,20 @@ function checkStyle(cssText, output, locationInfo, options) {
         k = hyphenedToCamelCase(k)
         v = pair[1].trim()
         v = exp(v, true, isLite) // 处理值表达式
-        if (isLite) {
-          style[k] = v
-        } else {
-          vResult = styler.validateDelaration(k, v, options)
-          v = vResult.value
-          v.forEach((t) => {
-            // 如果校验成功，则保存转换后的属性值
-            if (isValidValue(t.v) || typeof t.v === 'function') {
-              style[t.n] = t.v
-            }
-          })
-          if (vResult.log) {
-            log.push({
-              line: locationInfo.line || 1,
-              column: locationInfo.col || 1,
-              reason: vResult.log.reason
-            })
+        vResult = styler.validateDelaration(k, v, options)
+        v = vResult.value
+        v.forEach((t) => {
+          // 如果校验成功，则保存转换后的属性值
+          if (isValidValue(t.v) || typeof t.v === 'function') {
+            style[t.n] = t.v
           }
+        })
+        if (vResult.log) {
+          log.push({
+            line: locationInfo.line || 1,
+            column: locationInfo.col || 1,
+            reason: vResult.log.reason
+          })
         }
       }
     })
