@@ -10,7 +10,7 @@ import { globalConfig, readJson, compileOptionsObject } from '@hap-toolkit/share
 import {
   WidgetFingerprintPlugin,
   CopyDslPlugin,
-  LiteCardPlugin,
+  CardPlugin,
   HandlerPlugin,
   ResourcePlugin,
   DeviceTypePlugin,
@@ -124,7 +124,7 @@ function postHook(webpackConf, defaultsOptions, quickappConfig = {}) {
   }
 
   webpackConf.plugins.push(
-    new LiteCardPlugin({ pathSrc }),
+    new CardPlugin({ pathSrc }),
     // 框架Handler包装
     new HandlerPlugin({
       pathSrc: pathSrc,

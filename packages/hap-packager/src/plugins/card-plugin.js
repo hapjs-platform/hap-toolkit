@@ -12,7 +12,7 @@ import {
   LOADER_PATH_STYLE,
   LOADER_PATH_TEMPLATE
 } from '../common/constant'
-import { postHandleLiteCardRes } from '../post-handler'
+import { postHandleLiteCardRes, postHandleJSCardRes } from '../post-handler'
 
 const SUFFIX_UX = '.ux'
 const CARD_ENTRY = '#entry'
@@ -22,17 +22,17 @@ const STYLE_OBJECT_ID = 'styleObjectId'
 /**
  * Generate build output for light card.
  */
-class LiteCardPlugin {
+class CardPlugin {
   constructor(options = {}) {
     this.options = options || {}
   }
 
   apply(compiler) {
     let ConcatSource = compiler.webpack.sources.ConcatSource
-    compiler.hooks.compilation.tap('LiteCardPlugin', (compilation) => {
+    compiler.hooks.compilation.tap('CardPlugin', (compilation) => {
       compilation.hooks.processAssets.tap(
         {
-          name: 'LiteCardPlugin',
+          name: 'CardPlugin',
           stage: Compilation.PROCESS_ASSETS_STAGE_ADDITIONAL
         },
         () => {
@@ -45,26 +45,49 @@ class LiteCardPlugin {
               continue
             }
             const { rawRequest: entryRawRequest, request } = entryModule
-            if (this.isLightCard(entryRawRequest)) {
-              const { templateFileName, cssFileName, bundleFilePath } = this.getLightCardBuildPath(
+            if (this.isCard(entryRawRequest)) {
+              const { templateFileName, cssFileName, bundleFilePath } = this.getCardBuildPath(
                 request,
                 pathSrc
               )
-              const liteCardRes = {
+              const cardRes = {
                 [CARD_ENTRY]: {}
               }
               const styleRes = {}
               this.findOutgoingModules(
                 moduleGraph,
                 entryModule,
-                liteCardRes,
-                liteCardRes,
+                cardRes,
+                cardRes,
                 styleRes,
                 pathSrc,
                 bundleFilePath
               )
-              const templateJsonStr = postHandleLiteCardRes(liteCardRes)
-              compilation.assets[templateFileName] = new ConcatSource(templateJsonStr)
+              let handledCardRes
+              if (this.isLiteCard(entryRawRequest)) {
+                handledCardRes = postHandleLiteCardRes(cardRes)
+              } else {
+                handledCardRes = postHandleJSCardRes(cardRes)
+              }
+
+              // 用于修改 template 的 key 的 stringify 的顺序，type放第一个，children放最后一个
+              let templateKeys = []
+              recordKeys(handledCardRes, templateKeys)
+
+              templateKeys = [...new Set(templateKeys.sort())]
+                .filter(
+                  (key) =>
+                    key !== 'children' && key !== 'type' && key !== 'template' && key !== 'data'
+                )
+                .concat('children')
+              templateKeys.unshift('type', 'template', 'data')
+
+              Object.keys(handledCardRes).forEach((key) => {
+                const res = handledCardRes[key]
+                const fileName = key === CARD_ENTRY ? templateFileName : `${key}.template.json`
+                const templateJsonStr = JSON.stringify(res, templateKeys)
+                compilation.assets[fileName] = new ConcatSource(templateJsonStr)
+              })
               compilation.assets[cssFileName] = new ConcatSource(JSON.stringify(styleRes))
             }
           }
@@ -74,30 +97,22 @@ class LiteCardPlugin {
   }
 
   /**
-   * Generate bundle JSON result for lite card
+   * Generate bundle JSON result for card
    * @param {*} moduleGraph webpack moduleGraph
    * @param {*} currModule current module
    * @param {*} currCompRes JSON result for current ux component
-   * @param {*} liteCardRes JSON result for lite card
+   * @param {*} cardRes JSON result for card
    * @param {*} styleRes JSON result for style
    * @param {*} pathSrc src path for current quickapp project
    * @param {*} compPath card ux component path
    */
-  findOutgoingModules(
-    moduleGraph,
-    currModule,
-    currCompRes,
-    liteCardRes,
-    styleRes,
-    pathSrc,
-    compPath
-  ) {
+  findOutgoingModules(moduleGraph, currModule, currCompRes, cardRes, styleRes, pathSrc, compPath) {
     const moduleGraphConnection = moduleGraph.getOutgoingConnectionsByModule(currModule)
 
     if (moduleGraphConnection !== undefined) {
       for (const m of moduleGraphConnection.keys()) {
         const { rawRequest, _source, request } = m
-        if (!rawRequest) {
+        if (!this.isValidJsonModule(rawRequest)) {
           continue
         }
         const { _valueAsString, _valueAsBuffer } = _source || {}
@@ -124,7 +139,7 @@ class LiteCardPlugin {
         const isCardRes = !!currCompRes['#entry']
         if (type === LOADER_PATH_UX.type) {
           const { compName, relativeSrcPath } = this.getComponentName(reqPath, pathSrc)
-          // console.log('LiteCardPlugin >>> compName, reqPath, relativeSrcPath:', compName, reqPath, relativeSrcPath)
+          // console.log('CardPlugin >>> compName, reqPath, relativeSrcPath:', compName, reqPath, relativeSrcPath)
           if (!compName) {
             throw new Error(`Build failed, invalid component name, path: ${reqPath}`)
           }
@@ -142,18 +157,18 @@ class LiteCardPlugin {
             }
             currCompRes[TYPE_IMPORT][compName] = relativeSrcPath
           }
-          if (liteCardRes[relativeSrcPath]) {
+          if (cardRes[relativeSrcPath]) {
             // console.log(`'Component ${compName} already resolved, relativeSrcPath=${relativeSrcPath}, uxPath=${uxPath}`)
             continue
           }
 
           const compRes = {}
-          liteCardRes[relativeSrcPath] = compRes
+          cardRes[relativeSrcPath] = compRes
           this.findOutgoingModules(
             moduleGraph,
             m,
             compRes,
-            liteCardRes,
+            cardRes,
             styleRes,
             pathSrc,
             relativeSrcPath
@@ -219,18 +234,41 @@ class LiteCardPlugin {
     return relativeSrcPathStr
   }
 
-  // chunk.entryModule.rawRequest: ./src/cards/card/index.ux?uxType=card&lite=1
-  isLightCard(requestPath) {
+  // chunk.entryModule.rawRequest: ./src/cards/card/index.ux?uxType=card&card=1&lite=1
+  isCard(requestPath) {
     if (requestPath && requestPath.lastIndexOf('?') > 0) {
       const pathParamIndex = requestPath.lastIndexOf('?')
       const paramStr = requestPath.substring(pathParamIndex + 1)
       const paramArr = paramStr.split('&')
-      return paramArr && paramArr.indexOf('lite=1') >= 0 && paramArr.indexOf('uxType=card') >= 0
+      return paramArr && paramArr.indexOf('card=1') >= 0 && paramArr.indexOf('uxType=card') >= 0
     }
     return false
   }
 
-  getLightCardBuildPath(requestPath, pathSrc) {
+  // chunk.entryModule.rawRequest: ./src/cards/card/index.ux?uxType=card&card=1&lite=1
+  isLiteCard(requestPath) {
+    if (requestPath && requestPath.lastIndexOf('?') > 0) {
+      const pathParamIndex = requestPath.lastIndexOf('?')
+      const paramStr = requestPath.substring(pathParamIndex + 1)
+      const paramArr = paramStr.split('&')
+      return (
+        paramArr &&
+        paramArr.indexOf('card=1') >= 0 &&
+        paramArr.indexOf('lite=1') >= 0 &&
+        paramArr.indexOf('uxType=card') >= 0
+      )
+    }
+    return false
+  }
+
+  isValidJsonModule(request) {
+    const pathParamIndex = request.indexOf('?')
+    const paramStr = request.substring(pathParamIndex + 1)
+    const paramArr = paramStr.split('&')
+    return paramArr && !paramArr.some((ele) => ele.indexOf('type=script') >= 0)
+  }
+
+  getCardBuildPath(requestPath, pathSrc) {
     if (!requestPath || !pathSrc) {
       throw new Error(`Invalid request path or src path:\n${requestPath}\n${pathSrc}`)
     }
@@ -296,4 +334,18 @@ function getHash(compPath) {
   return res
 }
 
-export { LiteCardPlugin }
+function recordKeys(liteCardRes, templateKeys) {
+  const helper = function (obj) {
+    if (!obj || typeof obj !== 'object') return
+
+    const keys = Object.keys(obj)
+    templateKeys.push(...keys)
+    keys.forEach((key) => {
+      return helper(obj[key], templateKeys)
+    })
+  }
+
+  helper(liteCardRes, templateKeys)
+}
+
+export { CardPlugin }

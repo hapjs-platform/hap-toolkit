@@ -8,8 +8,6 @@ import path from 'path'
 import crypto from 'crypto'
 import { sync as resolveSync } from 'resolve'
 
-import { colorconsole } from '@hap-toolkit/shared-utils'
-
 /**
  * 获取要使用 babel.config.js 的路径
  * @param {string} cwd - 项目地址

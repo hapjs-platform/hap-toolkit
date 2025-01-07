@@ -2672,7 +2672,7 @@ function validate(name, value, options) {
   const validator = validatorMap[name]
 
   if (typeof validator === 'function') {
-    if (typeof value !== 'function') {
+    if (typeof value !== 'function' && value.indexOf('function') < 0) {
       if (mightReferlocalResource(name)) {
         result = validator(value, options)
       } else {
