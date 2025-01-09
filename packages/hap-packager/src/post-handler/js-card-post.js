@@ -350,7 +350,7 @@ function findWebpackModules(node, modules) {
   }
 }
 
-function replaceTemplateAndStyleFunc(node, pathSrc, cssFileName) {
+function replaceTemplateAndStyleFunc(node, pathSrc, templateFileName, cssFileName) {
   if (!node) return
 
   if (Object.prototype.toString.call(node) === '[object Object]') {
@@ -359,16 +359,37 @@ function replaceTemplateAndStyleFunc(node, pathSrc, cssFileName) {
       const compPath = getCompPath(arg.value, pathSrc)
       if (isTemplateModuleScript(arg.value)) {
         node.callee.name = '$json_require$'
-        arg.value = `${compPath}.template.json`
+        arg.value = templateFileName
         arg.raw = `"${arg.value}"`
+
+        let templatePath = compPath
+        if (templateFileName === `${compPath}.template.json`) {
+          templatePath = CARD_ENTRY
+        }
         const optionsArg = {
           type: 'ObjectExpression',
-          properties: []
+          properties: [
+            {
+              type: 'Property',
+              key: {
+                type: 'Identifier',
+                name: 'componentPath'
+              },
+              value: {
+                type: 'Literal',
+                value: templatePath
+              },
+              kind: 'init',
+              method: false,
+              shorthand: false,
+              computed: false
+            }
+          ]
         }
         node.arguments.push(optionsArg)
       } else if (isStyleModuleScript(arg.value)) {
         node.callee.name = '$json_require$'
-        arg.value = `${cssFileName}`
+        arg.value = cssFileName
         arg.raw = `"${arg.value}"`
         const styleObjId = getStyleObjectId(compPath)
         const optionsArg = {
@@ -395,16 +416,22 @@ function replaceTemplateAndStyleFunc(node, pathSrc, cssFileName) {
       }
     }
     Object.keys(node).forEach((key) => {
-      replaceTemplateAndStyleFunc(node[key], pathSrc, cssFileName)
+      replaceTemplateAndStyleFunc(node[key], pathSrc, templateFileName, cssFileName)
     })
   } else if (Object.prototype.toString.call(node) === '[object Array]') {
     node.forEach((item) => {
-      replaceTemplateAndStyleFunc(item, pathSrc, cssFileName)
+      replaceTemplateAndStyleFunc(item, pathSrc, templateFileName, cssFileName)
     })
   }
 }
 
-export function postHandleJSCardScriptRes(fileName, compilation, pathSrc, cssFileName) {
+export function postHandleJSCardScriptRes(
+  fileName,
+  compilation,
+  pathSrc,
+  templateFileName,
+  cssFileName
+) {
   let scriptSource = compilation.assets[fileName]._source
   if (typeof scriptSource === 'function') {
     scriptSource = scriptSource()
@@ -418,7 +445,7 @@ export function postHandleJSCardScriptRes(fileName, compilation, pathSrc, cssFil
     let modules = {}
     findWebpackModules(ast, modules)
     trimTemplateAndStyleModules(modules.targetNode)
-    replaceTemplateAndStyleFunc(ast, pathSrc, cssFileName)
+    replaceTemplateAndStyleFunc(ast, pathSrc, templateFileName, cssFileName)
 
     const generatedCode = escodegen.generate(ast)
     return generatedCode

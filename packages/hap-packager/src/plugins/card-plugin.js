@@ -88,12 +88,18 @@ class CardPlugin {
                 .concat('children')
               templateKeys.unshift('type', 'template', 'data')
 
-              Object.keys(handledCardTemplateRes).forEach((key) => {
-                const res = handledCardTemplateRes[key]
-                const fileName = key === CARD_ENTRY ? templateFileName : `${key}.template.json`
-                const templateJsonStr = JSON.stringify(res, templateKeys)
-                compilation.assets[fileName] = new ConcatSource(templateJsonStr)
-              })
+              // 自定义组件template不需要拆分成多个json文件
+              // Object.keys(handledCardTemplateRes).forEach((key) => {
+              //   const res = handledCardTemplateRes[key]
+              //   const fileName = key === CARD_ENTRY ? templateFileName : `${key}.template.json`
+              //   const templateJsonStr = JSON.stringify(res, templateKeys)
+              //   compilation.assets[fileName] = new ConcatSource(templateJsonStr)
+              // })
+
+              // 自定义组件template合并到同一个json文件
+              const templateJsonStr = JSON.stringify(handledCardTemplateRes, templateKeys)
+              compilation.assets[templateFileName] = new ConcatSource(templateJsonStr)
+
               // 处理 css
               compilation.assets[cssFileName] = new ConcatSource(JSON.stringify(styleRes))
 
@@ -110,8 +116,10 @@ class CardPlugin {
                   fileName,
                   compilation,
                   pathSrc,
+                  templateFileName,
                   cssFileName
                 )
+
                 compilation.assets[fileName] = new ConcatSource(scriptStr)
               }
             }
