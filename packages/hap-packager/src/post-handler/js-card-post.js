@@ -276,15 +276,12 @@ export function postHandleJSCardTemplateRes(JsCardRes) {
   return JsCardRes
 }
 
-function isStyleOrTemplateModuleScript(str) {
-  return str.indexOf('type=template') > -1 || str.indexOf('type=style') > -1
-}
-function isTemplateModuleScript(str) {
-  return str.indexOf('type=template') > -1
+function isStyleModule(str) {
+  return str.indexOf('type=style') > -1
 }
 
-function isStyleModuleScript(str) {
-  return str.indexOf('type=style') > -1
+function isTemplateModule(str) {
+  return str.indexOf('type=template') > -1
 }
 
 function getRelativeCompPath(pathSrc, uxPath) {
@@ -316,14 +313,32 @@ function getCompPath(str, pathSrc) {
   return compPath
 }
 
-function trimTemplateAndStyleModules(nodes) {
+function trimTemplateAndStyleModules(nodes, cssFileName, pathSrc) {
   if (!nodes) return
 
   if (Object.prototype.toString.call(nodes) === '[object Array]') {
     for (let i = nodes.length - 1; i >= 0; i--) {
       const node = nodes[i]
-      if (isStyleOrTemplateModuleScript(node.key.value)) {
+      if (isTemplateModule(node.key.value)) {
         nodes.splice(i, 1)
+      } else if (isStyleModule(node.key.value)) {
+        const compPath = getCompPath(node.key.value, pathSrc)
+        const styleObjId = getStyleObjectId(compPath)
+        const objExprNode = acorn.parse(
+          `
+          ((module) => {
+            module.exports = {
+              "@info": {
+                "styleObjectId": "${styleObjId}"
+              },
+              "extracted": true,
+              "jsonPath": "${cssFileName}"
+            }
+          })
+          `,
+          { ecmaVersion: 8 }
+        )
+        Object.assign(node.value, objExprNode.body[0].expression)
       }
     }
   }
@@ -357,7 +372,7 @@ function replaceTemplateAndStyleFunc(node, pathSrc, templateFileName, cssFileNam
     if (node.type === 'CallExpression' && node.callee?.name === '__webpack_require__') {
       const arg = node.arguments[0]
       const compPath = getCompPath(arg.value, pathSrc)
-      if (isTemplateModuleScript(arg.value)) {
+      if (isTemplateModule(arg.value)) {
         node.callee.name = '$json_require$'
         arg.value = templateFileName
         arg.raw = `"${arg.value}"`
@@ -378,32 +393,6 @@ function replaceTemplateAndStyleFunc(node, pathSrc, templateFileName, cssFileNam
               value: {
                 type: 'Literal',
                 value: templatePath
-              },
-              kind: 'init',
-              method: false,
-              shorthand: false,
-              computed: false
-            }
-          ]
-        }
-        node.arguments.push(optionsArg)
-      } else if (isStyleModuleScript(arg.value)) {
-        node.callee.name = '$json_require$'
-        arg.value = cssFileName
-        arg.raw = `"${arg.value}"`
-        const styleObjId = getStyleObjectId(compPath)
-        const optionsArg = {
-          type: 'ObjectExpression',
-          properties: [
-            {
-              type: 'Property',
-              key: {
-                type: 'Identifier',
-                name: 'styleObjectId'
-              },
-              value: {
-                type: 'Literal',
-                value: styleObjId
               },
               kind: 'init',
               method: false,
@@ -444,7 +433,7 @@ export function postHandleJSCardScriptRes(
     })
     let modules = {}
     findWebpackModules(ast, modules)
-    trimTemplateAndStyleModules(modules.targetNode)
+    trimTemplateAndStyleModules(modules.targetNode, cssFileName, pathSrc)
     replaceTemplateAndStyleFunc(ast, pathSrc, templateFileName, cssFileName)
 
     const generatedCode = escodegen.generate(ast)
