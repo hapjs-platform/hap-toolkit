@@ -216,7 +216,7 @@ export default async function createRouter(previewTarget) {
       const type = requestRoute in widgets ? 'card' : 'app'
       const script = routes[requestRoute]
       const currentLanguage = JSON.parse(
-        process.env.VSCODE_NLS_CONFIG || `{locale: 'zh-CN'}`
+        process.env.VSCODE_NLS_CONFIG || '{"locale":"zh-CN"}'
       ).locale
       const html = await renderPage(TPL_PAGE_PATH, {
         title: manifest.name,
