@@ -44,7 +44,10 @@ const featureValidatorMap = {
   'device-width': 'number',
   'min-device-width': 'number',
   'max-device-width': 'number',
-  'prefers-color-scheme': 'preferColorScheme'
+  'prefers-color-scheme': 'preferColorScheme',
+  scene: 'scene',
+  'widget-size': 'widgetSize',
+  'device-type': 'deviceType'
 }
 
 /**
@@ -103,6 +106,64 @@ const featureValidator = {
           '` 的值 `' +
           value +
           '` 不正确, 必须为 `portrait | landscape`'
+        )
+      }
+    }
+  },
+  scene(value) {
+    const reg =
+      /^(assistantscreen|launcher|globalsearch|calendar|lockscreen|suggestion|voiceassistant|sms|servicecenter)$/
+    if (reg.test(value)) {
+      return { value }
+    }
+    return {
+      reason: function (feature) {
+        return (
+          'WARN: 媒体特征 `' +
+          feature +
+          '` 的值 `' +
+          value +
+          '` 不正确, 必须为 `assistantscreen | launcher | globalsearch | calendar | lockscreen | suggestion | voiceassistant | sms | servicecenter`'
+        )
+      }
+    }
+  },
+  widgetSize(value) {
+    if (value) {
+      let sizeStr = value.trim()
+      if (sizeStr[0] === '"' || sizeStr[0] === "'") {
+        sizeStr = sizeStr.slice(1, sizeStr.length - 1)
+      }
+      const reg = /^(1x1|1x2|2x1|2x2|4x2|4x4|4xN)$/
+      if (reg.test(sizeStr)) {
+        return { value: sizeStr }
+      }
+    }
+    return {
+      reason: function (feature) {
+        return (
+          'WARN: 媒体特征 `' +
+          feature +
+          '` 的值 `' +
+          value +
+          '` 不正确, 必须为 `1x1 | 1x2 | 2x1 | 2x2 | 4x2 | 4x4 | 4xN`'
+        )
+      }
+    }
+  },
+  deviceType(value) {
+    const reg = /^(phone|watch|car)$/
+    if (reg.test(value)) {
+      return { value }
+    }
+    return {
+      reason: function (feature) {
+        return (
+          'WARN: 媒体特征 `' +
+          feature +
+          '` 的值 `' +
+          value +
+          '` 不正确, 必须为 `phone | watch | car`'
         )
       }
     }
