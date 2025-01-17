@@ -128,9 +128,15 @@ function traverse(node, output, previousNode, conditionList, options) {
           if (name.match(/^model:/)) {
             // 解析model指令，model指令格式：model:name="{{youName}}"
             validator.checkModel(name, value, output, node, locationInfo, options)
+            if (output.isCard) {
+              throw new Error('卡片不支持 model 指令')
+            }
           } else if (name.match(/^dir:/)) {
             // 解析自定义指令，自定义指令格式：dir:指令名称="{{data}}"
             validator.checkCustomDirective(name, value, output, node)
+            if (output.isCard) {
+              throw new Error('卡片不支持自定义指令')
+            }
           } else {
             // 其余为普通属性
             validator.checkAttr(name, value, output, node.tagName, locationInfo, options)
@@ -362,7 +368,13 @@ function parse(source, options) {
     { treeAdapter: parse5.treeAdapters.default, locationInfo: true },
     options.filePath
   )
-  const output = { result: {}, log: [], depFiles: [], isLite: !!options.lite }
+  const output = {
+    result: {},
+    log: [],
+    depFiles: [],
+    isCard: !!options.card,
+    isLite: !!options.lite
+  }
 
   // 模板为空或解析失败
   /* istanbul ignore if */

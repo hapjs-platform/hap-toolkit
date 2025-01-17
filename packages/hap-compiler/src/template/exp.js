@@ -35,7 +35,7 @@ function trimhtml(str) {
  * @param isLite is lite card
  * @returns {*}
  */
-function transExpr(expContent, toFunc, isLite) {
+function transExpr(expContent, toFunc, isLite, isCard) {
   let ret
   const trimExpContent = expContent.trim()
   if (!textParser.isExpr(trimExpContent)) {
@@ -64,8 +64,12 @@ function transExpr(expContent, toFunc, isLite) {
     ret = ret.join(' + ')
     if (toFunc !== false) {
       try {
-        /* eslint-disable no-eval */
-        ret = eval('(function () {return ' + ret + '})')
+        if (isCard) {
+          ret = 'function () {return ' + ret + '}'
+        } else {
+          /* eslint-disable no-eval */
+          ret = eval('(function () {return ' + ret + '})')
+        }
         /* eslint-enable no-eval */
       } catch (err) {
         err.isExpressionError = true

@@ -10,14 +10,16 @@ import { globalConfig, readJson, compileOptionsObject } from '@hap-toolkit/share
 import {
   WidgetFingerprintPlugin,
   CopyDslPlugin,
-  LiteCardPlugin,
+  CardPlugin,
   HandlerPlugin,
   ResourcePlugin,
   DeviceTypePlugin,
   ZipPlugin,
   NotifyPlugin,
   SourcemapFixPlugin,
-  SplitChunksAdaptPlugin
+  SplitChunksAdaptPlugin,
+  RemoveModulesPlugin,
+  CardScriptHandlePlugin
 } from './plugins'
 import { genPriorities, getBabelConfigJsPath } from './common/utils'
 import { getSkeletonConfig } from './common/info'
@@ -124,7 +126,9 @@ function postHook(webpackConf, defaultsOptions, quickappConfig = {}) {
   }
 
   webpackConf.plugins.push(
-    new LiteCardPlugin({ pathSrc }),
+    new CardScriptHandlePlugin({ pathSrc }),
+    new RemoveModulesPlugin(),
+    new CardPlugin({ pathSrc }),
     // 框架Handler包装
     new HandlerPlugin({
       pathSrc: pathSrc,

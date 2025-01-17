@@ -141,7 +141,7 @@ function processImport(csscode, dir, log, depList) {
  * @param {String} filePath - 文件路径
  * @param {Array} depFiles - 使用到的资源集合
  */
-function processSingleClass(rule, jsonStyle, ruleResult, log, filePath, depFiles) {
+function processSingleClass(rule, jsonStyle, ruleResult, log, filePath, depFiles, options) {
   rule.declarations.forEach(function (declaration) {
     const subType = declaration.type
 

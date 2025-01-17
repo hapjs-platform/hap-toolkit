@@ -129,13 +129,12 @@ function minifyWidgetI18nJSONFiles(targetDir) {
       widgetsOption[key].path = key
     }
     const widgetPath = widgetsOption[key].path
-    const needFlatten = widgetsOption[key].type === 'lite'
     const dir = path.join(targetDir, widgetPath, 'i18n')
     if (fs.existsSync(dir)) {
       const jsonFiles = getFiles('*.json', dir)
       jsonFiles.forEach((filePath) => {
         arr.push(filePath)
-        minifyJson(filePath, filePath, needFlatten)
+        minifyJson(filePath, filePath, true)
       })
     }
   }
