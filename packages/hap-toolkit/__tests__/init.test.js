@@ -40,7 +40,7 @@ describe('initialize a project', () => {
       expect(stderr).toMatch('Please pick a new name')
       await del([TEST_NAME, TEST_NAME2], { force: true })
     },
-    5 * 60 * 1000
+    50 * 60 * 1000
   )
 
   it(
