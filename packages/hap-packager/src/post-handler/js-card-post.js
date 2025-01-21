@@ -205,6 +205,13 @@ function markClass(template) {
 
 function markEvents(template) {
   if (template.events) {
+    Object.keys(template.events).forEach((eventName) => {
+      const eventStr = template.events[eventName]
+      if (isFunctionStr(eventStr)) {
+        template.events['$' + eventName] = eventStr
+        delete template.events[eventName]
+      }
+    })
     template.kind = markKind(template.kind, ENUM_KIND_TYPE.ELEMENT.kind)
   }
 }
@@ -216,12 +223,14 @@ function markAttr(template) {
   if (isObject(attr)) {
     Object.keys(attr).forEach((attrKey) => {
       const attrValueRaw = attr[attrKey + 'Raw']
-      if (isExpr(attrValueRaw)) {
-        attr['$' + attrKey] = getExprRes(attrValueRaw, attr[attrKey])
-        delete attr[attrKey]
-        template.kind = markKind(template.kind, ENUM_KIND_TYPE.ELEMENT.kind)
+      if (attrValueRaw !== undefined) {
+        if (isExpr(attrValueRaw)) {
+          attr['$' + attrKey] = getExprRes(attrValueRaw, attr[attrKey])
+          delete attr[attrKey]
+          template.kind = markKind(template.kind, ENUM_KIND_TYPE.ELEMENT.kind)
+        }
+        delete attr[attrKey + 'Raw']
       }
-      delete attr[attrKey + 'Raw']
     })
   }
 }
@@ -229,6 +238,11 @@ function markAttr(template) {
 function isExpr(val) {
   if (!val) return false
   return validator.isExpr(val)
+}
+
+function isFunctionStr(str) {
+  const pattern = /^\s*function\s*\([\w\s,$]*\)\s*\{[\s\S]*\}\s*$/
+  return pattern.test(str.trim())
 }
 
 function isObject(obj) {

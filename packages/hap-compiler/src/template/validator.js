@@ -1423,7 +1423,6 @@ function checkId(id, output) {
     const isLite = output.isLite
     const isCard = output.isCard
     output.result.id = exp.isExpr(id) ? exp(id, true, isLite, isCard) : id
-    output.result.idExpr = true
     if (isCard && !isLite) {
       output.result.idRaw = id
     }
@@ -1824,9 +1823,9 @@ function checkEvent(name, value, output) {
       value = '{{' + funcName + '(' + params.join(',') + ')}}'
       try {
         // 将事件转换为函数对象
-        if (output.isCard) {
+        if (output.isCard && !output.isLite) {
           value = 'function (evt) { return ' + exp(value, false).replace('this.evt', 'evt') + '}'
-        } else if (!output.isLite) {
+        } else {
           /* eslint-disable no-eval */
           value = eval(
             '(function (evt) { return ' + exp(value, false).replace('this.evt', 'evt') + '})'
@@ -1858,12 +1857,24 @@ function checkCustomDirective(name, value, output, node) {
     colorconsole.warn(`\`${node.tagName}\` 组件自定义指令名称不能为空`)
     return false
   }
-
+  const isCard = output.isCard
+  const isLite = output.isLite
   output.result.directives = output.result.directives || []
-  output.result.directives.push({
-    name: dirName,
-    value: exp.isExpr(value) ? exp(value, true, output.isLite, output.isCard) : value
-  })
+  if (isCard && !isLite) {
+    // 补全绑定值的双花括号，如：dir:指令名称="data"补全为dir:指令名称="{{data}}"
+    value = exp.addExprffix(value)
+
+    output.result.directives.push({
+      name: dirName,
+      value: exp.isExpr(value) ? exp(value, true, output.isLite, output.isCard) : value,
+      valueRaw: value
+    })
+  } else {
+    output.result.directives.push({
+      name: dirName,
+      value: exp.isExpr(value) ? exp(value, true, output.isLite, output.isCard) : value
+    })
+  }
 }
 
 /**
