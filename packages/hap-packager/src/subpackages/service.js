@@ -157,9 +157,10 @@ function allocateResourceToPackages(
     // 遍历除主包整包外的分包，判断此文件是否属于某个分包的
     for (let i = 1; i < subPackages.length; i++) {
       const pkg = subPackages[i]
+      let subResourceInfo = resourceInfo
       // 精简卡片的 manifest.json 文件，只保留本卡片的配置
       if (pkg._widget && fileBuildPath === 'manifest.json') {
-        resourceInfo = trimSubPkgManifest(pkg, fileBuildPath, fileAbsPath)
+        subResourceInfo = trimSubPkgManifest(pkg, fileBuildPath, fileAbsPath)
       }
 
       // 如果此分包是个独立包，则需要加入manifest || sitemap.json || i18n || icon || banner || lottie 文件，每个包都需要
@@ -172,12 +173,12 @@ function allocateResourceToPackages(
           (pkg.icon && pkg.icon.indexOf(fileBuildPath) > 0) ||
           (pkg.banner && pkg.banner.indexOf(fileBuildPath) > 0))
       ) {
-        pkg.addResource(...resourceInfo)
+        pkg.addResource(...subResourceInfo)
       }
 
       if (pkg.subMatch.test(fileBuildPath)) {
         belongToBasePkg = false
-        pkg.addResource(...resourceInfo)
+        pkg.addResource(...subResourceInfo)
         // 此资源已属于这个分包，无需循环下一轮
         break
       }

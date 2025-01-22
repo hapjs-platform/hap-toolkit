@@ -306,6 +306,8 @@ versionCode 字段必须为 Integer 类型
 
 [INFO] 获取到app文件后缀: ux
 
+[WARN] WARN: manifest.json 文件中 widgets 字段 CardDemo 缺少 type 属性，默认设置为 js
+
 [INFO] Build Time Cost: : <time-cost>
 
 [LOG] ### App Loader ### 项目构建启用了用户 debug 签名

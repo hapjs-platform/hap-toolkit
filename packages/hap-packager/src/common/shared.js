@@ -212,7 +212,7 @@ function checkFeatureInCard(obj = {}) {
 }
 
 /**
- * 填充 widget.path 缺失时的默认值
+ * 填充 widget path、type 缺失时的默认值
  */
 function populateWidgetFields(widgetsObj) {
   Object.keys(widgetsObj).forEach((key) => {
@@ -220,6 +220,12 @@ function populateWidgetFields(widgetsObj) {
       widgetsObj[key].path = `/${key}`
       colorconsole.warn(
         `WARN: manifest.json 文件中 widgets 字段 ${key} 缺少 path 属性，默认设置为卡片名 /${key}`
+      )
+    }
+    if (!widgetsObj[key].type) {
+      widgetsObj[key].type = `js`
+      colorconsole.warn(
+        `WARN: manifest.json 文件中 widgets 字段 ${key} 缺少 type 属性，默认设置为 js`
       )
     }
   })

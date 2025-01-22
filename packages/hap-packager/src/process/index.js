@@ -129,10 +129,10 @@ async function buildProjectAndOutput(
   }
 
   // 如果不是快应用分包，则移除第一个 base 包
-  // 只有快应用分包才需要base包，卡片分包不需要
-  if (!isAppSubpackage && subPackages) {
-    subPackages.shift()
-  }
+  // 只有快应用分包才需要base包，卡片分包不需要 —— update: 卡片需要保留base包，调试器处理rpks时需要读取
+  // if (!isAppSubpackage && subPackages) {
+  //   subPackages.shift()
+  // }
 
   // Step1. 生成整包rpk
   let fullPackageBuffer = await createZipBufferForPackage(fullPackage)
