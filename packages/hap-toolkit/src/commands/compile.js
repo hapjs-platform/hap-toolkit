@@ -46,11 +46,6 @@ showVersion()
  */
 export function compile(platform, mode, watch, options = {}) {
   const errCb = options.onerror
-  // window下ide传过来的cwd的盘符是小写，需要转成大写
-  if (options.cwd && options.cwd.charAt(1) === ':') {
-    const cwd = options.cwd
-    options.cwd = cwd.charAt(0).toUpperCase() + cwd.slice(1)
-  }
   return new Promise(async (resolve, reject) => {
     colorconsole.attach(options.log)
     setCustomConfig(options.cwd)
