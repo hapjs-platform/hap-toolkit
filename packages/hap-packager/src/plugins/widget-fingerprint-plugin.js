@@ -5,7 +5,8 @@
 
 import fs from 'fs-extra'
 import path from 'path'
-import { calcDataDigest, getLastLoaderPath } from '../common/utils'
+import { getLastLoaderPath } from '../common/utils'
+import { calcDataDigest } from '@hap-toolkit/shared-utils'
 import {
   LOADER_INFO_LIST,
   LOADER_PATH_UX,

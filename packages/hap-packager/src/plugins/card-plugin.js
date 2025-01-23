@@ -5,14 +5,19 @@
 
 import Compilation from 'webpack/lib/Compilation'
 import path from 'path'
-import { getLastLoaderPath, calcDataDigest } from '../common/utils'
+import { getStyleObjectId } from '@hap-toolkit/shared-utils'
+import { getLastLoaderPath } from '../common/utils'
 import {
   LOADER_INFO_LIST,
   LOADER_PATH_UX,
   LOADER_PATH_STYLE,
   LOADER_PATH_TEMPLATE
 } from '../common/constant'
-import { postHandleLiteCardRes } from '../post-handler'
+import {
+  postHandleJSCardScriptRes,
+  postHandleLiteCardTemplateRes,
+  postHandleJSCardTemplateRes
+} from '../post-handler'
 
 const SUFFIX_UX = '.ux'
 const CARD_ENTRY = '#entry'
@@ -22,17 +27,17 @@ const STYLE_OBJECT_ID = 'styleObjectId'
 /**
  * Generate build output for light card.
  */
-class LiteCardPlugin {
+class CardPlugin {
   constructor(options = {}) {
     this.options = options || {}
   }
 
   apply(compiler) {
     let ConcatSource = compiler.webpack.sources.ConcatSource
-    compiler.hooks.compilation.tap('LiteCardPlugin', (compilation) => {
+    compiler.hooks.compilation.tap('CardPlugin', (compilation) => {
       compilation.hooks.processAssets.tap(
         {
-          name: 'LiteCardPlugin',
+          name: 'CardPlugin',
           stage: Compilation.PROCESS_ASSETS_STAGE_ADDITIONAL
         },
         () => {
@@ -45,27 +50,78 @@ class LiteCardPlugin {
               continue
             }
             const { rawRequest: entryRawRequest, request } = entryModule
-            if (this.isLightCard(entryRawRequest)) {
-              const { templateFileName, cssFileName, bundleFilePath } = this.getLightCardBuildPath(
+            if (this.isCard(entryRawRequest)) {
+              const { templateFileName, cssFileName, bundleFilePath } = this.getCardBuildPath(
                 request,
                 pathSrc
               )
-              const liteCardRes = {
+              const templateRes = {
                 [CARD_ENTRY]: {}
               }
               const styleRes = {}
               this.findOutgoingModules(
                 moduleGraph,
                 entryModule,
-                liteCardRes,
-                liteCardRes,
+                templateRes,
+                templateRes,
                 styleRes,
                 pathSrc,
                 bundleFilePath
               )
-              const templateJsonStr = postHandleLiteCardRes(liteCardRes)
+              // 处理 template
+              let handledCardTemplateRes
+              if (this.isLiteCard(entryRawRequest)) {
+                handledCardTemplateRes = postHandleLiteCardTemplateRes(templateRes)
+              } else {
+                handledCardTemplateRes = postHandleJSCardTemplateRes(templateRes)
+              }
+
+              // 用于修改 template 的 key 的 stringify 的顺序，type放第一个，children放最后一个
+              let templateKeys = []
+              recordKeys(handledCardTemplateRes, templateKeys)
+
+              templateKeys = [...new Set(templateKeys.sort())]
+                .filter(
+                  (key) =>
+                    key !== 'children' && key !== 'type' && key !== 'template' && key !== 'data'
+                )
+                .concat('children')
+              templateKeys.unshift('type', 'template', 'data')
+
+              // 自定义组件template不需要拆分成多个json文件
+              // Object.keys(handledCardTemplateRes).forEach((key) => {
+              //   const res = handledCardTemplateRes[key]
+              //   const fileName = key === CARD_ENTRY ? templateFileName : `${key}.template.json`
+              //   const templateJsonStr = JSON.stringify(res, templateKeys)
+              //   compilation.assets[fileName] = new ConcatSource(templateJsonStr)
+              // })
+
+              // 自定义组件template合并到同一个json文件
+              const templateJsonStr = JSON.stringify(handledCardTemplateRes, templateKeys)
               compilation.assets[templateFileName] = new ConcatSource(templateJsonStr)
+
+              // 处理 css
               compilation.assets[cssFileName] = new ConcatSource(JSON.stringify(styleRes))
+
+              if (!this.isLiteCard(entryRawRequest)) {
+                // 处理 script
+                const reqPath = request.replace(/\\/g, '/')
+                const reqArr = reqPath.split('!')
+                const lastItem = reqArr[reqArr.length - 1]
+                const pathArr = lastItem.split('?')
+                const uxPath = pathArr[0]
+                const relativeSrcPath = this.getRelativeCompPath(pathSrc, uxPath)
+                const fileName = `${relativeSrcPath}.js`
+                const scriptStr = postHandleJSCardScriptRes(
+                  fileName,
+                  compilation,
+                  pathSrc,
+                  templateFileName,
+                  cssFileName
+                )
+
+                compilation.assets[fileName] = new ConcatSource(scriptStr)
+              }
             }
           }
         }
@@ -74,11 +130,11 @@ class LiteCardPlugin {
   }
 
   /**
-   * Generate bundle JSON result for lite card
+   * Generate bundle JSON result for card
    * @param {*} moduleGraph webpack moduleGraph
    * @param {*} currModule current module
    * @param {*} currCompRes JSON result for current ux component
-   * @param {*} liteCardRes JSON result for lite card
+   * @param {*} templateRes JSON result for card
    * @param {*} styleRes JSON result for style
    * @param {*} pathSrc src path for current quickapp project
    * @param {*} compPath card ux component path
@@ -87,7 +143,7 @@ class LiteCardPlugin {
     moduleGraph,
     currModule,
     currCompRes,
-    liteCardRes,
+    templateRes,
     styleRes,
     pathSrc,
     compPath
@@ -97,7 +153,7 @@ class LiteCardPlugin {
     if (moduleGraphConnection !== undefined) {
       for (const m of moduleGraphConnection.keys()) {
         const { rawRequest, _source, request } = m
-        if (!rawRequest) {
+        if (!this.isValidJsonModule(rawRequest)) {
           continue
         }
         const { _valueAsString, _valueAsBuffer } = _source || {}
@@ -124,7 +180,7 @@ class LiteCardPlugin {
         const isCardRes = !!currCompRes['#entry']
         if (type === LOADER_PATH_UX.type) {
           const { compName, relativeSrcPath } = this.getComponentName(reqPath, pathSrc)
-          // console.log('LiteCardPlugin >>> compName, reqPath, relativeSrcPath:', compName, reqPath, relativeSrcPath)
+          // console.log('CardPlugin >>> compName, reqPath, relativeSrcPath:', compName, reqPath, relativeSrcPath)
           if (!compName) {
             throw new Error(`Build failed, invalid component name, path: ${reqPath}`)
           }
@@ -142,18 +198,18 @@ class LiteCardPlugin {
             }
             currCompRes[TYPE_IMPORT][compName] = relativeSrcPath
           }
-          if (liteCardRes[relativeSrcPath]) {
+          if (templateRes[relativeSrcPath]) {
             // console.log(`'Component ${compName} already resolved, relativeSrcPath=${relativeSrcPath}, uxPath=${uxPath}`)
             continue
           }
 
           const compRes = {}
-          liteCardRes[relativeSrcPath] = compRes
+          templateRes[relativeSrcPath] = compRes
           this.findOutgoingModules(
             moduleGraph,
             m,
             compRes,
-            liteCardRes,
+            templateRes,
             styleRes,
             pathSrc,
             relativeSrcPath
@@ -219,18 +275,41 @@ class LiteCardPlugin {
     return relativeSrcPathStr
   }
 
-  // chunk.entryModule.rawRequest: ./src/cards/card/index.ux?uxType=card&lite=1
-  isLightCard(requestPath) {
+  // chunk.entryModule.rawRequest: ./src/cards/card/index.ux?uxType=card&card=1&lite=1
+  isCard(requestPath) {
     if (requestPath && requestPath.lastIndexOf('?') > 0) {
       const pathParamIndex = requestPath.lastIndexOf('?')
       const paramStr = requestPath.substring(pathParamIndex + 1)
       const paramArr = paramStr.split('&')
-      return paramArr && paramArr.indexOf('lite=1') >= 0 && paramArr.indexOf('uxType=card') >= 0
+      return paramArr && paramArr.indexOf('card=1') >= 0 && paramArr.indexOf('uxType=card') >= 0
     }
     return false
   }
 
-  getLightCardBuildPath(requestPath, pathSrc) {
+  // chunk.entryModule.rawRequest: ./src/cards/card/index.ux?uxType=card&card=1&lite=1
+  isLiteCard(requestPath) {
+    if (requestPath && requestPath.lastIndexOf('?') > 0) {
+      const pathParamIndex = requestPath.lastIndexOf('?')
+      const paramStr = requestPath.substring(pathParamIndex + 1)
+      const paramArr = paramStr.split('&')
+      return (
+        paramArr &&
+        paramArr.indexOf('card=1') >= 0 &&
+        paramArr.indexOf('lite=1') >= 0 &&
+        paramArr.indexOf('uxType=card') >= 0
+      )
+    }
+    return false
+  }
+
+  isValidJsonModule(request) {
+    const pathParamIndex = request.indexOf('?')
+    const paramStr = request.substring(pathParamIndex + 1)
+    const paramArr = paramStr.split('&')
+    return paramArr && !paramArr.some((ele) => ele.indexOf('type=script') >= 0)
+  }
+
+  getCardBuildPath(requestPath, pathSrc) {
     if (!requestPath || !pathSrc) {
       throw new Error(`Invalid request path or src path:\n${requestPath}\n${pathSrc}`)
     }
@@ -270,30 +349,18 @@ class LiteCardPlugin {
   }
 }
 
-const componentIdMap = new Map()
-const componentPathMap = new Map()
-function getStyleObjectId(compPath) {
-  if (!componentPathMap.get(compPath)) {
-    const compId = getHash(compPath)
-    componentIdMap.set(compId, compPath)
-    componentPathMap.set(compPath, compId)
+function recordKeys(liteCardRes, templateKeys) {
+  const helper = function (obj) {
+    if (!obj || typeof obj !== 'object') return
+
+    const keys = Object.keys(obj)
+    templateKeys.push(...keys)
+    keys.forEach((key) => {
+      return helper(obj[key], templateKeys)
+    })
   }
-  return componentPathMap.get(compPath)
+
+  helper(liteCardRes, templateKeys)
 }
 
-function getHash(compPath) {
-  const digest = calcDataDigest(Buffer.from(compPath, 'utf-8'))
-  const digestStr = digest.toString('hex')
-  const len = Math.min(6, digestStr.length)
-  let res = compPath
-  for (let i = len; i < digestStr.length; i++) {
-    res = digestStr.substring(0, i)
-    if (componentIdMap.has(res)) {
-      continue
-    }
-    break
-  }
-  return res
-}
-
-export { LiteCardPlugin }
+export { CardPlugin }
