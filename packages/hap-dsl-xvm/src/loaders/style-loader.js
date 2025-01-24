@@ -30,6 +30,7 @@ const componentId = (() => {
 
 export default function styleLoader(code) {
   const self = this
+  const options = loaderUtils.parseQuery(this.resourceQuery)
   const loaderQuery = loaderUtils.parseQuery(this.query)
   const suppresslogs = !!getWebpackOptions(this).suppresslogs
   const resourcePath = this.resourcePath // 当前文件绝对路径
@@ -40,7 +41,7 @@ export default function styleLoader(code) {
     query: loaderQuery
   })
 
-  if (compileOptionsObject.enableExtractCss) {
+  if (compileOptionsObject.enableExtractCss && !options.card) {
     componentId.add(resourcePath)
     if (jsonStyle) {
       jsonStyle[`@info`] = {

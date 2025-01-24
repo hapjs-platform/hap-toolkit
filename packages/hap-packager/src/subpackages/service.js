@@ -6,8 +6,7 @@
 import fs from 'fs'
 import path from 'path'
 
-import { compileOptionsMeta, readJson } from '@hap-toolkit/shared-utils'
-import { calcDataDigest } from '../common/utils'
+import { compileOptionsMeta, readJson, calcDataDigest } from '@hap-toolkit/shared-utils'
 import { createFullPackage, createSubPackages } from './package'
 import { BUILD_INFO_FILE } from '../common/constant'
 

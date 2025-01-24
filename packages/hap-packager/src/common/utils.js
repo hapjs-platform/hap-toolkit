@@ -5,10 +5,7 @@
 
 import fs from 'fs'
 import path from 'path'
-import crypto from 'crypto'
 import { sync as resolveSync } from 'resolve'
-
-import { colorconsole } from '@hap-toolkit/shared-utils'
 
 /**
  * 获取要使用 babel.config.js 的路径
@@ -133,17 +130,6 @@ export function isPlainObject(obj) {
 }
 
 /**
- * 获取 SHA256 摘要
- * @param {Buffer} buffer - buffer
- * @string {String<hex-string>} - hash 值
- */
-export function calcDataDigest(buffer) {
-  const hash = crypto.createHash('SHA256')
-  hash.update(buffer)
-  return hash.digest()
-}
-
-/**
  * 获取入口页面所需的骨架屏文件
  * @param {Object} skeletonConf - 骨架屏配置
  * @param {String} entry - 入口页面
@@ -242,7 +228,7 @@ export function getLastLoaderPath(reqPath) {
   }
   reqPath = reqPath.replace(/\\/g, '/')
   const reqArr = reqPath.split('!')
-  let lastLoader = reqArr[0] // inline loader reversed by '!'
+  let lastLoader = reqArr.find((str) => str !== '') // inline loader reversed by '!'
   if (lastLoader && lastLoader.indexOf('?') > 0) {
     // remove params if exist
     lastLoader = lastLoader.split('?')[0]
