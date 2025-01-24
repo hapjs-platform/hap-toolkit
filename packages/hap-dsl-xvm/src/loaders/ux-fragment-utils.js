@@ -51,7 +51,7 @@ const defaultLoaders = {
  * @param uxType
  * @returns {*}
  */
-function makeLoaderString(type, config, uxType) {
+function makeLoaderString(type, config, isCard, uxType) {
   config = config || {}
   let loaders
 
@@ -146,10 +146,11 @@ function makeLoaderString(type, config, uxType) {
       }
     ]
 
-    compileOptionsObject.enableExtractCss &&
+    if (compileOptionsObject.enableExtractCss && !isCard) {
       loaders.unshift({
         name: defaultLoaders['extract-css']
       })
+    }
 
     let lang = config.lang
     if (lang && lang !== 'css') {
@@ -307,7 +308,7 @@ function processImportFrag($loader, imports, importNames, card, lite) {
       })
       let reqStr = makeRequireString(
         $loader,
-        makeLoaderString(FRAG_TYPE.IMPORT),
+        makeLoaderString(FRAG_TYPE.IMPORT, null, card),
         `${importSrc}?uxType=${ENTRY_TYPE.COMP}&name=${importName}${cardParam}${liteParam}`
       )
 
@@ -353,9 +354,13 @@ function processTemplateFrag($loader, templates, uxType, importNames, card, lite
     importNames = importNames.map((item) => 'importNames[]=' + item)
     retStr = makeRequireString(
       $loader,
-      makeLoaderString(FRAG_TYPE.TEMPLATE, {
-        alone: !!fragAttrsSrc
-      }),
+      makeLoaderString(
+        FRAG_TYPE.TEMPLATE,
+        {
+          alone: !!fragAttrsSrc
+        },
+        card
+      ),
       `${src}?uxType=${uxType}&${importNames.join(',')}${cardParam}${liteParam}${pathParam}`
     )
   }
@@ -391,10 +396,14 @@ function processStyleFrag($loader, styles, uxType, card, lite) {
     const pathParam = card ? `&uxPath=${src}` : ''
     code = makeRequireString(
       $loader,
-      makeLoaderString(FRAG_TYPE.STYLE, {
-        alone: !!fragAttrsSrc,
-        lang: fragAttrsLang
-      }),
+      makeLoaderString(
+        FRAG_TYPE.STYLE,
+        {
+          alone: !!fragAttrsSrc,
+          lang: fragAttrsLang
+        },
+        card
+      ),
       `${src}?uxType=${uxType}${cardParam}${liteParam}${pathParam}`
     )
   }
@@ -408,7 +417,7 @@ function processStyleFrag($loader, styles, uxType, card, lite) {
  * @param uxType
  * @returns {string}
  */
-function processScriptFrag($loader, scripts, uxType) {
+function processScriptFrag($loader, scripts, uxType, card) {
   let code = 'null'
   if (scripts.length) {
     // 有且仅有一个<script>节点
@@ -427,6 +436,7 @@ function processScriptFrag($loader, scripts, uxType) {
           alone: !!fragAttrsSrc,
           path: $loader.resourcePath
         },
+        card,
         uxType
       ),
       `${src}?uxType=${uxType}`
@@ -455,7 +465,7 @@ function processDataFrag($loader, datas, uxType) {
     }
     code = makeRequireString(
       $loader,
-      makeLoaderString(FRAG_TYPE.DATA, {}, uxType),
+      makeLoaderString(FRAG_TYPE.DATA, {}, true, uxType),
       `${src}?index=0&lite=1`
     )
   }
@@ -482,7 +492,7 @@ function processActionFrag($loader, datas, uxType) {
     }
     code = makeRequireString(
       $loader,
-      makeLoaderString(FRAG_TYPE.ACTIONS, {}, uxType),
+      makeLoaderString(FRAG_TYPE.ACTIONS, {}, true, uxType),
       `${src}?index=0&lite=1`
     )
   }
@@ -509,7 +519,7 @@ function processPropsFrag($loader, datas, uxType) {
     }
     code = makeRequireString(
       $loader,
-      makeLoaderString(FRAG_TYPE.PROPS, {}, uxType),
+      makeLoaderString(FRAG_TYPE.PROPS, {}, true, uxType),
       `${src}?index=0&lite=1`
     )
   }

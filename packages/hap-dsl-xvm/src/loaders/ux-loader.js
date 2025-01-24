@@ -56,7 +56,7 @@ function assemble($loader, frags, name, uxType, card, lite) {
   let content = `${importFrag}\n`
   if (!lite) {
     // process script for JS card
-    content += `var $app_script$ = ${processScriptFrag($loader, frags.script, uxType)}\n`
+    content += `var $app_script$ = ${processScriptFrag($loader, frags.script, uxType, card)}\n`
   }
   content +=
     `$app_define$('@app-component/${name}', [], function($app_require$, $app_exports$, $app_module$) {\n` +
