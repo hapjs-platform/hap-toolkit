@@ -22,7 +22,7 @@ class RemoveModulesPlugin {
       compilation.hooks.optimizeModules.tap('RemoveModulesPlugin', (modules) => {
         modules.forEach((module) => {
           const { _source, request } = module
-          if (this.isCardAndCardcomp(request)) {
+          if (this.isJsCardAndCardcomp(request)) {
             const { _valueAsString, _valueAsBuffer } = _source || {}
             const moduleSource = _valueAsString || _valueAsBuffer?.toString() || ''
             const type = this.getRequestType(request)
@@ -44,7 +44,7 @@ class RemoveModulesPlugin {
 
           chunkModules.forEach((module) => {
             const { request } = module
-            if (this.isCardAndCardcomp(request)) {
+            if (this.isJsCardAndCardcomp(request)) {
               const type = this.getRequestType(request)
               const typeArr = LOADER_INFO_LIST.map((item) => item.type)
               if (
@@ -87,7 +87,7 @@ class RemoveModulesPlugin {
     })
   }
   // chunk.entryModule.rawRequest: ./src/cards/card/index.ux?uxType=card&card=1&lite=1
-  isCardAndCardcomp(requestPath) {
+  isJsCardAndCardcomp(requestPath) {
     if (requestPath && requestPath.lastIndexOf('?') > 0) {
       const pathParamIndex = requestPath.lastIndexOf('?')
       const paramStr = requestPath.substring(pathParamIndex + 1)
@@ -95,6 +95,7 @@ class RemoveModulesPlugin {
       return (
         paramArr &&
         paramArr.indexOf('card=1') >= 0 &&
+        paramArr.indexOf('lite=1') < 0 &&
         (paramArr.indexOf('uxType=card') >= 0 || paramArr.indexOf('uxType=comp') >= 0)
       )
     }
