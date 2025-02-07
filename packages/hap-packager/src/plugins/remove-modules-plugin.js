@@ -18,7 +18,7 @@ class RemoveModulesPlugin {
 
   apply(compiler) {
     compiler.hooks.compilation.tap('RemoveModulesPlugin', (compilation) => {
-      // 在生成资源之前，遍历所有模块，删除 jscard 的 template 和 style 模块
+      // 在生成资源之前，遍历所有模块，删除 jscard 的 template 和 style 模块，保证输出的 js 中不包含 template 和 style
       compilation.hooks.optimizeModules.tap('RemoveModulesPlugin', (modules) => {
         modules.forEach((module) => {
           const { _source, request } = module
@@ -35,7 +35,7 @@ class RemoveModulesPlugin {
           }
         })
       })
-      // 在生成资源之前，遍历所有模块，删除 jscard 的 template 和 style 模块
+      // 在生成资源之前，遍历所有模块，删除 jscard 的 template 和 style 模块，保证输出的 js 中不包含 template 和 style
       compilation.hooks.optimizeChunks.tap('RemoveModulesPlugin', (chunks) => {
         chunks.forEach((chunk) => {
           const chunkGraph = compilation.chunkGraph

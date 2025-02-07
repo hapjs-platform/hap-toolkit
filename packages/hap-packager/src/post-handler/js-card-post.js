@@ -280,9 +280,9 @@ function isSimpleArr(exp) {
   }
 
   let res = true
-  // 检查所有[]匹配项是否全部为数字
+  // 检查所有[]匹配项是否全部为数字或常量字符串
   results.forEach((content) => {
-    if (!/^\d+$/.test(content)) {
+    if (!/^\d+$/.test(content) && !/^('|")(.*)\1$/.test(content)) {
       res = false
     }
   })

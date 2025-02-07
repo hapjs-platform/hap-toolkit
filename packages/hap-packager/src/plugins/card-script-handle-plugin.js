@@ -12,6 +12,11 @@ const PLUGIN_NAME = 'CardScriptHandlePlugin'
 const SUFFIX_UX = '.ux'
 const CARD_ENTRY = '#entry'
 
+/**
+ * 修改输出的 js 的内容：
+ * 1. 增加 $json_require$方法，用于配合引擎读取 template.json 的内容
+ * 2. style 通过 @info 来标记，用于配合引擎读取 css.json 的内容
+ */
 class CardScriptHandlePlugin {
   constructor(options = {}) {
     this.options = options || {}
@@ -163,6 +168,7 @@ class CardScriptHandlePlugin {
     }
     return relativeSrcPathStr
   }
+  // 通过匹配__webpack_require__('xxxx')中的值来获取组件名
   getCompPath(str, pathSrc) {
     const regex = /__webpack_require__\("([^"]+)"\)/
     const match = str.match(regex)

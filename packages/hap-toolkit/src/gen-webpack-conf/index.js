@@ -193,8 +193,10 @@ export default async function genWebpackConf(launchOptions, mode) {
   globalConfig.isSmartMode =
     compileOptionsObject.splitChunksMode === compileOptionsMeta.splitChunksModeEnum.SMART
 
+  // JS 卡由于将js assets中template和style抽取出来，如果使用缓存会编译错误。故卡片不使用缓存。
+  const isCard = Object.values(entries).some((entry) => entry.indexOf('card=1') > -1)
   let cache =
-    isJest ||
+    (isJest ||
     isProduction ||
     compileOptionsObject.disableCache ||
     // 提取公共 css 时不支持使用缓存，toolkit 内部的 cssModule 不支持缓存
@@ -210,7 +212,7 @@ export default async function genWebpackConf(launchOptions, mode) {
             config: [__filename, path.resolve(__dirname, '../../package.json')]
           },
           version: TOOLKIT_VERSION + ''
-        }
+        }) && !isCard
 
   const webpackConf = {
     context: cwd,

@@ -108,7 +108,7 @@ export function resolveEntries(manifest, basedir, cwd) {
       sourceFile = './' + sourceFile + `?uxType=${type}`
       sourceFile = sourceFile.replace(/\\/g, '/')
       if (type === ENTRY_TYPE.CARD) {
-        sourceFile += '&card=1' // lite card
+        sourceFile += '&card=1' // card
         if (conf.type === 'lite') {
           sourceFile += '&lite=1' // lite card
         }

@@ -72,7 +72,7 @@ class CardPlugin {
                 handledTemplateCardRes = postHandleJSCardRes(templateRes)
               }
 
-              // 用于修改 template 的 key 的 stringify 的顺序，type放第一个，children放最后一个
+              // 用于修改 template 的 key 的 stringify 的顺序，type 放第一个，children 放最后一个
               let templateKeys = []
               recordKeys(handledTemplateCardRes, templateKeys)
 
