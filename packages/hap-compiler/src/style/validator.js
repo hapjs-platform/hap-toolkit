@@ -2656,7 +2656,24 @@ const validatorMap = {
   starSecondary: validator.url,
   // font
   fontSrc: validator.fontSrc,
-  fontFamily: validator.fontFamily
+  fontFamily: validator.fontFamily,
+  themeColor: makeEnumValidator([
+    'uxCardColorTheme',
+    'uxCardColorAccent',
+    'uxCardColorPrimary',
+    'uxCardColorSecondary',
+    'uxCardColorSecondaryVariant',
+    'uxCardColorTertiary',
+    'uxCardColorQuaternary',
+    'uxCardColorContainer',
+    'uxCardBackground',
+    'uxCardColorHue',
+    'uxCardColorHueSecondary',
+    'uxIconColorAccent',
+    'uxIconColorPrimary',
+    'uxIconColorSecondary',
+    'uxIconColorBackground'
+  ])
 }
 
 /**

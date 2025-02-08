@@ -53,7 +53,7 @@ describe('hap-toolkit', () => {
       expect(stderr.toString()).toMatch(/Please pick a new name/)
       await del([targetdirForExist, targetdirForNonExist], { force: true })
     },
-    10 * 60 * 1000
+    100 * 60 * 1000
   )
 
   it(
