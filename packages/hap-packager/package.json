@@ -10,8 +10,14 @@
   },
   "main": "lib/index.js",
   "exports": {
-    "import": "./src/index.js",
-    "require": "./lib/index.js"
+    ".": {
+      "import": "./lib/index.js",
+      "require": "./lib/index.js"
+    },
+    "./*":{
+      "import":"./*",
+      "require":"./*"
+    }
   },
   "keywords": [
     "hap-toolkit",
