@@ -5,8 +5,12 @@
 
 import path from 'path'
 import Compilation from 'webpack/lib/Compilation'
-import { getStyleObjectId } from '@hap-toolkit/shared-utils'
+import { getStyleObjectId, globalConfig } from '@hap-toolkit/shared-utils'
 import loaderUtils from 'loader-utils'
+import { parse } from '@babel/parser'
+import traverse from '@babel/traverse'
+import generate from '@babel/generator'
+import * as t from '@babel/types'
 
 const PLUGIN_NAME = 'CardScriptHandlePlugin'
 const SUFFIX_UX = '.ux'
@@ -42,23 +46,16 @@ class CardScriptHandlePlugin {
             if (this.isJsCard(entryRawRequest)) {
               const { templateFileName, cssFileName } = this.getCardBuildPath(request, pathSrc)
               const jsAssetesName = this.getJsAssetsName(request, pathSrc)
-              const sourceSplit = compilation.assets[jsAssetesName].source().split('\n')
-
-              let newSource = ''
-              for (let i = sourceSplit.length - 1; i >= 0; i--) {
-                const str = sourceSplit[i]
-                if (this.isStyleStr(str)) {
-                  sourceSplit.splice(i, 1, this.getStyleExportsString(str, cssFileName, pathSrc))
-                }
-                if (this.isTemplateStr(str)) {
-                  sourceSplit.splice(
-                    i,
-                    1,
-                    this.getTemplateExportsString(str, templateFileName, pathSrc)
-                  )
-                }
+              const source = compilation.assets[jsAssetesName].source()
+              let newSource = source
+              if (globalConfig.mode === 'development') {
+                // 开发模式用字符串替换的方式，可以确保sourcemap行数对应正确
+                newSource = this.getDevNewSource(source, cssFileName, templateFileName, pathSrc)
+              } else {
+                // 生产模式无需sourcemap，而字符串匹配替换方式失效，用ast分析的方式
+                newSource = this.getProdNewSource(source, cssFileName, templateFileName, pathSrc)
               }
-              newSource += sourceSplit.join('\n')
+
               compilation.assets[jsAssetesName] = new ConcatSource(newSource)
             }
           }
@@ -118,19 +115,6 @@ class CardScriptHandlePlugin {
     }
     return false
   }
-  getTemplateExportsString(str, templateFileName, pathSrc) {
-    const compPath = this.getCompPath(str, pathSrc)
-    let templatePath = compPath
-    if (templateFileName === `${compPath}.template.json`) {
-      templatePath = CARD_ENTRY
-    }
-    return `$app_module$.exports.template = $json_require$("${templateFileName}", { "componentPath": "${templatePath}" })`
-  }
-  getStyleExportsString(str, cssFileName, pathSrc) {
-    const compPath = this.getCompPath(str, pathSrc)
-    const styleObjId = getStyleObjectId(compPath)
-    return `$app_module$.exports.style = { "@info": { "styleObjectId": "${styleObjId}" }, "extracted": true, "jsonPath": "${cssFileName}" }`
-  }
   getJsAssetsName(requestPath, pathSrc) {
     if (!requestPath || !pathSrc) {
       throw new Error(`Invalid request path or src path:\n${requestPath}\n${pathSrc}`)
@@ -154,12 +138,99 @@ class CardScriptHandlePlugin {
     )}`
     return `${bundleFilePath}.js`
   }
-  isTemplateStr(str) {
-    return str.indexOf('type=template') >= 0 && str.indexOf('__webpack_require__') >= 0
+  getDevNewSource(source, cssFileName, templateFileName, pathSrc) {
+    const sourceSplit = source.split('\n')
+    let newSource = ''
+    for (let i = sourceSplit.length - 1; i >= 0; i--) {
+      const str = sourceSplit[i]
+      if (devUtils.isStyleStr(str)) {
+        sourceSplit.splice(i, 1, devUtils.getStyleExportsString(str, cssFileName, pathSrc))
+      }
+      if (devUtils.isTemplateStr(str)) {
+        sourceSplit.splice(i, 1, devUtils.getTemplateExportsString(str, templateFileName, pathSrc))
+      }
+    }
+    newSource += sourceSplit.join('\n')
+    return newSource
   }
-  isStyleStr(str) {
-    return str.indexOf('type=style') >= 0 && str.indexOf('__webpack_require__') >= 0
+  getProdNewSource(source, cssFileName, templateFileName, pathSrc) {
+    let newSource = ''
+    const ast = parse(source, {
+      sourceType: 'module'
+    })
+
+    // 用于在遍历 AST 时修改节点
+    const visitor = {
+      CallExpression(path) {
+        const firstArg = path.node.arguments[0]
+        if (prodUtils.isTemplateStr(firstArg)) {
+          prodUtils.replaceTemplateStr(path, firstArg.value, templateFileName, pathSrc)
+        } else if (prodUtils.isStyleStr(firstArg)) {
+          prodUtils.replaceStyleStr(path, firstArg.value, cssFileName, pathSrc)
+        }
+      }
+    }
+
+    // 遍历 AST 并修改 exports.template 和 exports.style
+    traverse(ast, visitor)
+
+    // 生成修改后的代码
+    newSource = generate(
+      ast,
+      {
+        compact: true // 设置紧凑模式，省略多余的空格和换行
+      },
+      source
+    ).code
+    return prodUtils.replacePlaceHolder(newSource)
   }
+}
+
+const prodUtils = {
+  isTemplateStr(firstArg) {
+    if (!firstArg) return false
+    return t.isStringLiteral(firstArg) && firstArg.value.includes('type=template')
+  },
+  isStyleStr(firstArg) {
+    if (!firstArg) return false
+    return t.isStringLiteral(firstArg) && firstArg.value.includes('type=style')
+  },
+  replaceTemplateStr(path, templateStr, templateFileName, pathSrc) {
+    const compPath = this.getCompPath(templateStr, pathSrc)
+    let templatePath = compPath
+    if (templateFileName === `${compPath}.template.json`) {
+      templatePath = CARD_ENTRY
+    }
+    const uniquePlaceHolder = `_START_PLACE_HOLDER_TEMPLATE_${templateFileName}_${templatePath}_END_`
+    path.replaceWith(t.stringLiteral(uniquePlaceHolder))
+  },
+  replaceStyleStr(path, styleStr, cssFileName, pathSrc) {
+    const compPath = this.getCompPath(styleStr, pathSrc)
+    const styleObjId = getStyleObjectId(compPath)
+    const uniquePlaceHolder = `_START_PLACE_HOLDER_CSS_${cssFileName}_${styleObjId}_END_`
+    path.replaceWith(t.stringLiteral(uniquePlaceHolder))
+  },
+  replacePlaceHolder(code) {
+    // 正则表达式匹配_idX_valY_place_holder_格式的字符串
+    const regexTemplate = /["'`]_START_PLACE_HOLDER_TEMPLATE_([^_\s]+)_([^_\s]+)_END_["'`]/g
+
+    // 替换 template 的 placeholder
+    code = code.replace(regexTemplate, function (match, templateFileName, templatePath) {
+      return `$json_require$("${templateFileName}",{"componentPath":"${templatePath}"})`
+    })
+    const regexCss = /["'`]_START_PLACE_HOLDER_CSS_([^_\s]+)_([^_\s]+)_END_["'`]/g
+
+    // 替换 css 的 placeholder
+    code = code.replace(regexCss, function (match, cssFileName, styleObjId) {
+      return JSON.stringify({
+        '@info': { styleObjectId: styleObjId },
+        extracted: true,
+        jsonPath: cssFileName
+      })
+    })
+
+    return code
+  },
   getRelativeCompPath(pathSrc, uxPath) {
     let relativeSrcPathStr = path.relative(pathSrc, uxPath)
     relativeSrcPathStr = relativeSrcPathStr.replace(/\\/g, '/')
@@ -167,9 +238,49 @@ class CardScriptHandlePlugin {
       return relativeSrcPathStr.substring(0, relativeSrcPathStr.length - SUFFIX_UX.length)
     }
     return relativeSrcPathStr
+  },
+  getCompPath(request, pathSrc) {
+    const reqArr = request.split('!')
+    const lastItem = reqArr[reqArr.length - 1]
+    const pathArr = lastItem.split('?')
+    const query = pathArr[pathArr.length - 1]
+    const resourceQuery = loaderUtils.parseQuery(query ? `?${query}` : '?')
+
+    const uxPath = resourceQuery.uxPath
+    return this.getRelativeCompPath(pathSrc, uxPath)
   }
+}
+
+const devUtils = {
+  isTemplateStr(str) {
+    return str.indexOf('type=template') >= 0 && str.indexOf('__webpack_require__') >= 0
+  },
+  isStyleStr(str) {
+    return str.indexOf('type=style') >= 0 && str.indexOf('__webpack_require__') >= 0
+  },
+  getTemplateExportsString(str, templateFileName, pathSrc) {
+    const compPath = this.getCompPath(str, pathSrc)
+    let templatePath = compPath
+    if (templateFileName === `${compPath}.template.json`) {
+      templatePath = CARD_ENTRY
+    }
+    return `$app_module$.exports.template = $json_require$("${templateFileName}", { "componentPath": "${templatePath}" })`
+  },
+  getStyleExportsString(str, cssFileName, pathSrc) {
+    const compPath = this.getCompPath(str, pathSrc)
+    const styleObjId = getStyleObjectId(compPath)
+    return `$app_module$.exports.style = { "@info": { "styleObjectId": "${styleObjId}" }, "extracted": true, "jsonPath": "${cssFileName}" }`
+  },
+  getRelativeCompPath(pathSrc, uxPath) {
+    let relativeSrcPathStr = path.relative(pathSrc, uxPath)
+    relativeSrcPathStr = relativeSrcPathStr.replace(/\\/g, '/')
+    if (relativeSrcPathStr && relativeSrcPathStr.endsWith('.ux')) {
+      return relativeSrcPathStr.substring(0, relativeSrcPathStr.length - SUFFIX_UX.length)
+    }
+    return relativeSrcPathStr
+  },
   // 通过匹配__webpack_require__('xxxx')中的值来获取组件名
-  getCompPath(str, pathSrc) {
+  getCompPath: function (str, pathSrc) {
     const regex = /__webpack_require__\("([^"]+)"\)/
     const match = str.match(regex)
 
