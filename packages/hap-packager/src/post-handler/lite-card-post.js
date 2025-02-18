@@ -4,6 +4,7 @@
  */
 
 import { templateValueToCardCode } from '@aiot-toolkit/card-expression'
+import { isExpr, isObject, isConstObjOrArray, isSimpleArr, isSimplePath } from './utils'
 import { templater } from '@hap-toolkit/compiler'
 const { validator } = templater
 
@@ -11,7 +12,6 @@ const TYPE_IMPORT = 'import'
 // 需要进行后处理的模块key
 const TEMPLATE_KEY = 'template'
 const ACTIONS_KEY = 'actions'
-const SIMPLE_EXPR_MODIFIERS = ['$', '.', '[]', '~', '{}']
 
 // 节点标记，同一节点可能同时符合多个kind定义，按priority高的进行标记
 const ENUM_KIND_TYPE = {
@@ -334,52 +334,34 @@ function markAttr(template) {
   }
 }
 
-function isExpr(val) {
-  if (!val) return false
-  return validator.isExpr(val)
-}
+function getExprRes(exprRaw) {
+  const tokens = validator.parseText(exprRaw.trim())
+  if (tokens.length > 1) {
+    return exprRaw
+  }
 
-function isObject(obj) {
-  return obj && Object.prototype.toString.call(obj) === '[object Object]' && obj !== null
-}
-
-function getPrefixExpr(expr) {
-  const res = templateValueToCardCode(expr)
-  const parsed = JSON.parse(res)
-  if (isSimpleExpr(parsed)) {
-    // 简单表达式
-    // 目前只有 {{name}}、{{title.name}}、{{title[0]}}、{{[1,2,3]}}、{{ {a: 1} }} 算作简单表达式
-    return {
-      rawExpr: validator.parseText(expr)[0].value, // {{ name }} -> name
-      prefixExpr: parsed // {{ name }} -> ['$', 'name']
-    }
+  const parsed = tokens[0].value
+  if (isConstObjOrArray(parsed)) {
+    // 简单表达式 {{ [1,2,3] }}、{{ {a: 1} }}
+    // eslint-disable-next-line no-eval
+    return eval(`(${parsed})`)
+  } else if (isSimplePath(parsed) && isSimpleArr(parsed)) {
+    // 简单表达式 {{name}}、{{title.name}}、{{title['name']}}、{{title[0]}}
+    return parsed // {{ name }} -> name
   } else {
-    // 复杂表达式
-    return {
-      rawExpr: expr, // {{ a + b }} -> {{ a + b }}
-      prefixExpr: parsed // {{ a + b }} -> ["+",["$","a"],["$","b"]]
-    }
+    // 复杂表达式，返回function形式的表达式结果
+    return exprRaw // {{a + b}} -> function () { return this.a + this.b }
   }
 }
 
-// 根据操作符来判断是否为简单表达式
-function isSimpleExpr(expr) {
-  if (!expr || !Array.isArray(expr)) return false
-
-  const modifierList = []
-  getAllModifiers(expr, modifierList)
-  return modifierList.every((modifier) => SIMPLE_EXPR_MODIFIERS.includes(modifier))
-}
-
-function getAllModifiers(exprList, modifierList) {
-  modifierList.push(exprList[0])
-  for (let i = 1; i < exprList.length; i++) {
-    if (Array.isArray(exprList[i])) {
-      // 如果当前元素是数组，递归调用，找出所有的操作符
-      getAllModifiers(exprList[i], modifierList)
-    }
+function getPrefixExpr(exprRaw) {
+  const res = templateValueToCardCode(exprRaw)
+  const parsed = JSON.parse(res)
+  const rawExpr = getExprRes(exprRaw)
+  return {
+    rawExpr: rawExpr, // {{ name }} -> name
+    prefixExpr: parsed // {{ name }} -> ['$', 'name']
   }
-  return modifierList
 }
 
 export function postHandleLiteCardRes(liteCardRes) {

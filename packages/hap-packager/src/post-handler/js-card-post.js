@@ -2,7 +2,14 @@
  * Copyright (c) 2024-present, the hapjs-platform Project Contributors
  * SPDX-License-Identifier: Apache-2.0
  */
-
+import {
+  isExpr,
+  isFunctionStr,
+  isObject,
+  isConstObjOrArray,
+  isSimpleArr,
+  isSimplePath
+} from './utils'
 import { templater } from '@hap-toolkit/compiler'
 const { validator } = templater
 
@@ -10,11 +17,6 @@ const CARD_ENTRY = '#entry'
 const TYPE_IMPORT = 'import'
 // 需要进行后处理的模块key
 const TEMPLATE_KEY = 'template'
-
-const pathTestRE =
-  /^[A-Za-z_$][\w$]*(?:\.[A-Za-z_$][\w$]*|\['.*?'\]|\[".*?"\]|\[\d+\]|\[[A-Za-z_$][\w$]*\])*$/
-
-const literalValueRE = /^(?:true|false|null|undefined|Infinity|NaN)$/
 
 // 节点标记，同一节点可能同时符合多个kind定义，按priority高的进行标记
 const ENUM_KIND_TYPE = {
@@ -235,20 +237,6 @@ function markAttr(template) {
   }
 }
 
-function isExpr(val) {
-  if (!val) return false
-  return validator.isExpr(val)
-}
-
-function isFunctionStr(str) {
-  const pattern = /^\s*function\s*\([\w\s,$]*\)\s*\{[\s\S]*\}\s*$/
-  return pattern.test(str.trim())
-}
-
-function isObject(obj) {
-  return obj && Object.prototype.toString.call(obj) === '[object Object]' && obj !== null
-}
-
 function getExprRes(exprRaw, expr) {
   const tokens = validator.parseText(exprRaw.trim())
   if (tokens.length > 1) {
@@ -256,46 +244,17 @@ function getExprRes(exprRaw, expr) {
   }
 
   const parsed = tokens[0].value
-  if (isObjOrArray(parsed) || (isSimplePath(parsed) && isSimpleArr(parsed))) {
-    // 简单表达式
-    // 目前只有 {{name}}、{{title.name}}、{{title[0]}}、{{[1,2,3]}}、{{ {a: 1} }} 算作简单表达式
+  if (isConstObjOrArray(parsed)) {
+    // 简单表达式 {{ [1,2,3] }}、{{ {a: 1} }}
+    // eslint-disable-next-line no-eval
+    return eval(`(${parsed})`)
+  } else if (isSimplePath(parsed) && isSimpleArr(parsed)) {
+    // 简单表达式 {{name}}、{{title.name}}、{{title['name']}}、{{title[0]}}
     return parsed // {{ name }} -> name
   } else {
     // 复杂表达式，返回function形式的表达式结果
     return expr // {{a + b}} -> function () { return this.a + this.b }
   }
-}
-
-function isObjOrArray(exp) {
-  return Object.prototype.toString.call(exp) === '[object Object]' || Array.isArray(exp)
-}
-function isSimpleArr(exp) {
-  // eslint-disable-next-line no-useless-escape
-  const regex = /\[([^\[\]]+)\]/g
-  let match
-  const results = []
-
-  while ((match = regex.exec(exp)) !== null) {
-    results.push(match[1])
-  }
-
-  let res = true
-  // 检查所有[]匹配项是否全部为数字或常量字符串
-  results.forEach((content) => {
-    if (!/^\d+$/.test(content) && !/^('|")(.*)\1$/.test(content)) {
-      res = false
-    }
-  })
-  return res
-}
-function isSimplePath(exp) {
-  return (
-    pathTestRE.test(exp) &&
-    // true/false/null/undefined/Infinity/NaN
-    !literalValueRE.test(exp) &&
-    // Math常量
-    exp.slice(0, 5) !== 'Math.'
-  )
 }
 
 export function postHandleJSCardRes(JsCardRes) {
