@@ -1807,6 +1807,12 @@ function checkEvent(name, value, output) {
     // 如果表达式形式为XXX(xxxx)
     const paramsMatch = value.match(/(.*)\((.*)\)/)
     if (paramsMatch) {
+      if (output.isLite) {
+        const err = new Error('轻卡不支持带参数的事件')
+        err.isExpressionError = true
+        err.expression = value
+        throw err
+      }
       const funcName = paramsMatch[1]
       let params = paramsMatch[2]
       // 解析','分隔的参数
