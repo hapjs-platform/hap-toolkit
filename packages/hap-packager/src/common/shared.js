@@ -228,6 +228,11 @@ function populateWidgetFields(widgetsObj) {
         `WARN: manifest.json 文件中 widgets 字段 ${key} 缺少 type 属性，默认设置为 js`
       )
     }
+    if (widgetsObj[key].type === 'js' && widgetsObj[key].minCardPlatformVersion) {
+      // 写了 minCardPlatformVersion 字段
+      // 赋值给 minPlatformVersion（兼容旧引擎），引导引擎升级
+      widgetsObj[key].minPlatformVersion = widgetsObj[key].minCardPlatformVersion
+    }
   })
 }
 

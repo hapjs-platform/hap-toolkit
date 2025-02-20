@@ -107,8 +107,11 @@ export function resolveEntries(manifest, basedir, cwd) {
       let sourceFile = path.relative(cwd, filepath)
       sourceFile = './' + sourceFile + `?uxType=${type}`
       sourceFile = sourceFile.replace(/\\/g, '/')
-      if (type === ENTRY_TYPE.CARD && conf.type === 'lite') {
-        sourceFile += '&lite=1' // lite card
+      if (type === ENTRY_TYPE.CARD) {
+        sourceFile += '&card=1' // card
+        if (conf.type === 'lite') {
+          sourceFile += '&lite=1' // lite card
+        }
       }
       entries[entryKey] = sourceFile
     })
@@ -122,4 +125,29 @@ export function resolveEntries(manifest, basedir, cwd) {
       })
   }
   return entries
+}
+export function resolveCardMinVersion(manifest) {
+  if (!manifest.router) {
+    throw Error('manifest.json 中未配置路由！')
+  }
+  let isCardMinVersion = false
+  // 卡片配置
+  const widgetsConf = manifest.router.widgets || {}
+
+  for (let key in widgetsConf) {
+    if (!widgetsConf[key].type || widgetsConf[key].type === 'js') {
+      // 针对 JS 卡的兼容
+      if (widgetsConf[key].minCardPlatformVersion) {
+        // 任意有一个 JS 卡写了 minCardPlatformVersion 字段
+        isCardMinVersion = true
+      } else {
+        // 没有 JS 卡写 minCardPlatformVersion 字段，说明是旧的 JS 卡片包
+        if (!widgetsConf[key].minPlatformVersion) {
+          // 同时没有写 minPlatformVersion 字段，提示补齐 minCardPlatformVersion
+          throw new Error(`manifest.json 中 widgets 必须包含 minCardPlatformVersion 字段`)
+        }
+      }
+    }
+  }
+  return isCardMinVersion
 }

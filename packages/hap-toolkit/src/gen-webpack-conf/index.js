@@ -23,7 +23,7 @@ import {
 import { name, postHook as packagerPostHook } from '@hap-toolkit/packager'
 import { postHook as xvmPostHook } from '@hap-toolkit/dsl-xvm'
 import ManifestWatchPlugin from '../plugins/manifest-watch-plugin'
-import { resolveEntries } from '../utils'
+import { resolveEntries, resolveCardMinVersion } from '../utils'
 import getDevtool from './get-devtool'
 import {
   getConfigPath,
@@ -97,6 +97,7 @@ export default async function genWebpackConf(launchOptions, mode) {
     launchOptions = Object.assign({}, launchOptions.ideConfig.cli, launchOptions)
   }
   globalConfig.launchOptions = launchOptions
+  globalConfig.mode = mode
 
   // 源代码目录
   const SRC_DIR = path.resolve(cwd, globalConfig.sourceRoot)
@@ -153,6 +154,8 @@ export default async function genWebpackConf(launchOptions, mode) {
   // 页面文件
   const entries = resolveEntries(manifest, SRC_DIR, cwd)
 
+  const isCardMinVersion = resolveCardMinVersion(manifest)
+
   // 环境变量
   const env = {
     // 平台：native
@@ -193,8 +196,10 @@ export default async function genWebpackConf(launchOptions, mode) {
   globalConfig.isSmartMode =
     compileOptionsObject.splitChunksMode === compileOptionsMeta.splitChunksModeEnum.SMART
 
+  // JS 卡由于将js assets中template和style抽取出来，如果使用缓存会编译错误。故卡片不使用缓存。
+  const isCard = Object.values(entries).some((entry) => entry.indexOf('card=1') > -1)
   let cache =
-    isJest ||
+    (isJest ||
     isProduction ||
     compileOptionsObject.disableCache ||
     // 提取公共 css 时不支持使用缓存，toolkit 内部的 cssModule 不支持缓存
@@ -210,7 +215,7 @@ export default async function genWebpackConf(launchOptions, mode) {
             config: [__filename, path.resolve(__dirname, '../../package.json')]
           },
           version: TOOLKIT_VERSION + ''
-        }
+        }) && !isCard
 
   const webpackConf = {
     context: cwd,
@@ -493,7 +498,8 @@ export default async function genWebpackConf(launchOptions, mode) {
         workers,
         cwd,
         originType: compileOptionsObject.originType,
-        ideConfig: launchOptions.ideConfig
+        ideConfig: launchOptions.ideConfig,
+        isCardMinVersion
       },
       quickappConfig
     )

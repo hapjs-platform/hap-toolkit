@@ -4951,24 +4951,24 @@ exports[`Component 编译测试 ux components: ../../../lib/loaders/template-loa
                 \\"type\\": function () {return this.dynamicType},
                 \\"value\\": \\"test dynamic type\\",
                 \\"checked\\": function() { 
-      if (this.dynamicType === 'checkbox') {
-        
+        if (this.dynamicType === 'checkbox') {
+          
     if (Array.isArray(this.dynamicValue)) {
       return this.dynamicValue.indexOf(\\"test dynamic type\\") > -1
     } else {
       return this.dynamicValue
     }
-      } else if (this.dynamicType === 'radio') {
-        return this.dynamicValue === \\"test dynamic type\\"
-      } else {
-        return false
+        } else if (this.dynamicType === 'radio') {
+          return this.dynamicValue === \\"test dynamic type\\"
+        } else {
+          return false
+        }
       }
-    }
               },
               \\"events\\": {
                 \\"change\\": function(evt) {
-      if (this.dynamicType === 'checkbox') {
-        
+        if (this.dynamicType === 'checkbox') {
+          
     const checked = evt.target.checked;
     if (Array.isArray(this.dynamicValue)) {
       const index = this.dynamicValue.indexOf(\\"test dynamic type\\")
@@ -4980,12 +4980,12 @@ exports[`Component 编译测试 ux components: ../../../lib/loaders/template-loa
     } else {
       this.dynamicValue = checked ? true : false
     }
-      } else if (this.dynamicType === 'radio') {
-        this.dynamicValue = \\"test dynamic type\\"
-      } else {
-        this.dynamicValue = evt.target.value
+        } else if (this.dynamicType === 'radio') {
+          this.dynamicValue = \\"test dynamic type\\"
+        } else {
+          this.dynamicValue = evt.target.value
+        }
       }
-    }
               }
             },
             {

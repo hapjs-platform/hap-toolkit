@@ -31,12 +31,12 @@ const { validator } = templater
  * @param lite 1: 轻卡; 0: 普通卡
  * @return {String}
  */
-function assemble($loader, frags, name, uxType, lite) {
+function assemble($loader, frags, name, uxType, card, lite) {
   const isUseTreeShaking = !!globalConfig.useTreeShaking
   // 外部导入的组件列表
   const importNames = []
   // 处理导入的组件
-  const importFrag = processImportFrag($loader, frags.import, importNames, lite)
+  const importFrag = processImportFrag($loader, frags.import, importNames, card, lite)
 
   let moduleExports = `     $app_script$($app_module$, $app_exports$, $app_require$)
         if ($app_exports$.__esModule && $app_exports$.default) {
@@ -56,7 +56,7 @@ function assemble($loader, frags, name, uxType, lite) {
   let content = `${importFrag}\n`
   if (!lite) {
     // process script for JS card
-    content += `var $app_script$ = ${processScriptFrag($loader, frags.script, uxType)}\n`
+    content += `var $app_script$ = ${processScriptFrag($loader, frags.script, uxType, card)}\n`
   }
   content +=
     `$app_define$('@app-component/${name}', [], function($app_require$, $app_exports$, $app_module$) {\n` +
@@ -66,6 +66,7 @@ function assemble($loader, frags, name, uxType, lite) {
       frags.template,
       uxType,
       importNames,
+      card,
       lite
     )}\n`
   // $app_define$ function content
@@ -74,6 +75,7 @@ function assemble($loader, frags, name, uxType, lite) {
       $loader,
       frags.style,
       uxType,
+      card,
       lite
     )}\n`
   }
@@ -137,6 +139,7 @@ export default function uxLoader(source) {
   // 文件类型
   const uxType = resourceQuery.uxType
   // lite card
+  const card = resourceQuery.card
   const lite = resourceQuery.lite
 
   // 使用原有文件名（不包含扩展名）
@@ -158,7 +161,7 @@ export default function uxLoader(source) {
 
   parseImportList(this, frags.import)
     .then(() => {
-      return assemble(this, frags, name, uxType, lite)
+      return assemble(this, frags, name, uxType, card, lite)
     })
     .then((result) => {
       callback(null, result)

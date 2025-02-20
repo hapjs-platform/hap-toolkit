@@ -2656,7 +2656,24 @@ const validatorMap = {
   starSecondary: validator.url,
   // font
   fontSrc: validator.fontSrc,
-  fontFamily: validator.fontFamily
+  fontFamily: validator.fontFamily,
+  themeColor: makeEnumValidator([
+    'uxCardColorTheme',
+    'uxCardColorAccent',
+    'uxCardColorPrimary',
+    'uxCardColorSecondary',
+    'uxCardColorSecondaryVariant',
+    'uxCardColorTertiary',
+    'uxCardColorQuaternary',
+    'uxCardColorContainer',
+    'uxCardBackground',
+    'uxCardColorHue',
+    'uxCardColorHueSecondary',
+    'uxIconColorAccent',
+    'uxIconColorPrimary',
+    'uxIconColorSecondary',
+    'uxIconColorBackground'
+  ])
 }
 
 /**
@@ -2672,7 +2689,7 @@ function validate(name, value, options) {
   const validator = validatorMap[name]
 
   if (typeof validator === 'function') {
-    if (typeof value !== 'function') {
+    if (typeof value !== 'function' && value.indexOf('function') < 0) {
       if (mightReferlocalResource(name)) {
         result = validator(value, options)
       } else {

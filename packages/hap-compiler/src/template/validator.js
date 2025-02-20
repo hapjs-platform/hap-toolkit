@@ -1420,7 +1420,12 @@ function checkTagName(node, output, options = {}) {
  */
 function checkId(id, output) {
   if (id) {
-    output.result.id = exp.isExpr(id) ? exp(id, true, output.isLite) : id
+    const isLite = output.isLite
+    const isCard = output.isCard
+    output.result.id = exp.isExpr(id) ? exp(id, true, isLite, isCard) : id
+    if (isCard && !isLite) {
+      output.result.idRaw = id
+    }
   }
 }
 
@@ -1456,7 +1461,8 @@ function checkClass(className, output) {
   let classList = []
 
   className = className.trim()
-
+  const isLite = output.isLite
+  const isCard = output.isCard
   if (className) {
     let start = 0
     let end = 0
@@ -1477,7 +1483,6 @@ function checkClass(className, output) {
     }
     segs.push(className.slice(start)) // trailing static classes
 
-    const isLite = output.isLite
     classList = segs.reduce((list, seg) => {
       if (exp.isExpr(seg)) {
         hasBinding = true
@@ -1500,14 +1505,19 @@ function checkClass(className, output) {
         err.expression = className
         throw err
       }
-      output.result.class = className
       output.result.classList = classList
     } else if (hasBinding) {
-      const code = '(function () {return [' + classList.join(', ') + ']})'
       try {
-        /* eslint-disable no-eval */
-        output.result.classList = eval(code)
-        /* eslint-enable no-eval */
+        let code = ''
+        if (isCard) {
+          code = 'function () {return [' + classList.join(', ') + ']}'
+          output.result.classList = code
+        } else {
+          code = '(function () {return [' + classList.join(', ') + ']})'
+          /* eslint-disable no-eval */
+          output.result.classList = eval(code)
+          /* eslint-enable no-eval */
+        }
       } catch (err) {
         err.isExpressionError = true
         err.expression = className
@@ -1518,6 +1528,12 @@ function checkClass(className, output) {
         // 去掉引号
         (klass) => klass.slice(1, -1)
       )
+    }
+  }
+  if (isCard) {
+    output.result.class = className
+    if (!isLite) {
+      output.result.classListRaw = className
     }
   }
 }
@@ -1532,9 +1548,11 @@ function checkClass(className, output) {
  */
 function checkStyle(cssText, output, locationInfo, options) {
   let style = {}
+  let styleRaw = {}
   const log = output.log
   if (cssText) {
     const isLite = output.isLite
+    const isCard = output.isCard
     if (exp.singleExpr(cssText)) {
       // 检测是否嵌套{{}}
       const incText = exp.removeExprffix(cssText)
@@ -1545,9 +1563,12 @@ function checkStyle(cssText, output, locationInfo, options) {
           reason: 'ERROR: style 属性不能嵌套多层{{}}'
         })
       } else {
-        style = exp(cssText, true, isLite)
+        style = exp(cssText, true, isLite, isCard)
       }
       output.result.style = style
+      if (isCard && !isLite) {
+        output.result.styleRaw = cssText
+      }
       return
     }
     // 如果是 a: {{}}; b: {{}};, 则分解处理
@@ -1563,13 +1584,18 @@ function checkStyle(cssText, output, locationInfo, options) {
         k = pair[0].trim()
         k = hyphenedToCamelCase(k)
         v = pair[1].trim()
-        v = exp(v, true, isLite) // 处理值表达式
+
+        const valueRaw = v
+        v = exp(v, true, isLite, isCard) // 处理值表达式
         vResult = styler.validateDelaration(k, v, options)
         v = vResult.value
         v.forEach((t) => {
           // 如果校验成功，则保存转换后的属性值
           if (isValidValue(t.v) || typeof t.v === 'function') {
             style[t.n] = t.v
+            if (isCard && !isLite) {
+              styleRaw[t.n] = valueRaw
+            }
           }
         })
         if (vResult.log) {
@@ -1590,6 +1616,9 @@ function checkStyle(cssText, output, locationInfo, options) {
       }
     }
     output.result.style = style
+    if (isCard && !isLite) {
+      output.result.styleRaw = styleRaw
+    }
   }
 }
 
@@ -1604,9 +1633,14 @@ function checkIs(value, output, locationInfo) {
   if (value) {
     // 如果没有，补充上{{}}
     value = exp.addExprffix(value)
+    const isLite = output.isLite
+    const isCard = output.isCard
 
     // 将表达式转换为function
-    output.result.is = exp(value, true, output.isLite)
+    output.result.is = exp(value, true, isLite, isCard)
+    if (isCard && !isLite) {
+      output.result.isRaw = value
+    }
   } else {
     log.push({
       line: locationInfo.line || 1,
@@ -1628,6 +1662,7 @@ function checkIf(value, output, not, locationInfo, conditionList) {
     // 如果没有，补充上{{}}
     value = exp.addExprffix(value)
     const isLite = output.isLite
+    const isCard = output.isCard
     if (not) {
       value = '{{' + buildConditionExp(conditionList) + '}}'
     } else {
@@ -1636,7 +1671,10 @@ function checkIf(value, output, not, locationInfo, conditionList) {
       conditionList.push(`${value.substr(2, value.length - 4)}`)
     }
     // 将表达式转换为function
-    output.result.shown = isLite ? value : exp(value, true)
+    output.result.shown = isLite ? value : exp(value, true, isLite, isCard)
+    if (isCard && !isLite) {
+      output.result.shownRaw = value
+    }
   } else {
     if (!not) {
       log.push({
@@ -1674,11 +1712,15 @@ function checkElif(value, cond, output, locationInfo, conditionList) {
     value = exp.addExprffix(value)
     cond = exp.addExprffix(cond)
     const isLite = output.isLite
+    const isCard = output.isCard
     newcond =
       '{{(' + value.substr(2, value.length - 4) + ') && ' + buildConditionExp(conditionList) + '}}'
 
     // 将表达式转换为function
-    output.result.shown = isLite ? newcond : exp(newcond)
+    output.result.shown = isLite ? newcond : exp(newcond, true, isLite, isCard)
+    if (isCard && !isLite) {
+      output.result.shownRaw = newcond
+    }
     conditionList.push(`${value.substr(2, value.length - 4)}`)
   } else {
     log.push({
@@ -1719,12 +1761,15 @@ function checkFor(value, output, locationInfo) {
     value = '{{' + value + '}}'
 
     const isLite = output.isLite
-    let repeat
+    const isCard = output.isCard
+    let repeat, repeatRaw
     if (!key && !val) {
-      repeat = exp(value, true, isLite)
+      repeat = exp(value, true, isLite, isCard)
+      repeatRaw = value
     } else {
       // 如果指定key,value
-      repeat = { exp: exp(value, true, isLite) }
+      repeat = { exp: exp(value, true, isLite, isCard) }
+      repeatRaw = { expRaw: value }
       if (key) {
         repeat.key = key
       }
@@ -1733,6 +1778,9 @@ function checkFor(value, output, locationInfo) {
       }
     }
     output.result.repeat = repeat
+    if (isCard && !isLite) {
+      output.result.repeatRaw = repeatRaw
+    }
   } else {
     log.push({
       line: locationInfo.line || 1,
@@ -1759,6 +1807,12 @@ function checkEvent(name, value, output) {
     // 如果表达式形式为XXX(xxxx)
     const paramsMatch = value.match(/(.*)\((.*)\)/)
     if (paramsMatch) {
+      if (output.isLite) {
+        const err = new Error('轻卡不支持带参数的事件')
+        err.isExpressionError = true
+        err.expression = value
+        throw err
+      }
       const funcName = paramsMatch[1]
       let params = paramsMatch[2]
       // 解析','分隔的参数
@@ -1775,11 +1829,15 @@ function checkEvent(name, value, output) {
       value = '{{' + funcName + '(' + params.join(',') + ')}}'
       try {
         // 将事件转换为函数对象
-        /* eslint-disable no-eval */
-        value = output.isLite
-          ? value
-          : eval('(function (evt) { return ' + exp(value, false).replace('this.evt', 'evt') + '})')
-        /* eslint-enable no-eval */
+        if (output.isCard && !output.isLite) {
+          value = 'function (evt) { return ' + exp(value, false).replace('this.evt', 'evt') + '}'
+        } else {
+          /* eslint-disable no-eval */
+          value = eval(
+            '(function (evt) { return ' + exp(value, false).replace('this.evt', 'evt') + '})'
+          )
+          /* eslint-enable no-eval */
+        }
       } catch (err) {
         err.isExpressionError = true
         err.expression = originValue
@@ -1805,12 +1863,24 @@ function checkCustomDirective(name, value, output, node) {
     colorconsole.warn(`\`${node.tagName}\` 组件自定义指令名称不能为空`)
     return false
   }
-
+  const isCard = output.isCard
+  const isLite = output.isLite
   output.result.directives = output.result.directives || []
-  output.result.directives.push({
-    name: dirName,
-    value: exp.isExpr(value) ? exp(value, true, output.isLite) : value
-  })
+  if (isCard && !isLite) {
+    // 补全绑定值的双花括号，如：dir:指令名称="data"补全为dir:指令名称="{{data}}"
+    value = exp.addExprffix(value)
+
+    output.result.directives.push({
+      name: dirName,
+      value: exp.isExpr(value) ? exp(value, true, output.isLite, output.isCard) : value,
+      valueRaw: value
+    })
+  } else {
+    output.result.directives.push({
+      name: dirName,
+      value: exp.isExpr(value) ? exp(value, true, output.isLite, output.isCard) : value
+    })
+  }
 }
 
 /**
@@ -1840,8 +1910,13 @@ function checkAttr(name, value, output, tagName, locationInfo, options) {
       value = resolvePath(value, options.filePath)
       output.depFiles.push(value)
     }
+    const isLite = output.isLite
+    const isCard = output.isCard
     output.result.attr = output.result.attr || {}
-    output.result.attr[hyphenedToCamelCase(name)] = exp(value, true, output.isLite)
+    output.result.attr[hyphenedToCamelCase(name)] = exp(value, true, isLite, isCard)
+    if (isCard && !isLite) {
+      output.result.attr[hyphenedToCamelCase(name) + 'Raw'] = value
+    }
     if (name === 'value' && tagName === 'text') {
       output.log.push({
         line: locationInfo.line,
@@ -1982,6 +2057,9 @@ function hasIfOrFor(nodes) {
   return flag
 }
 
+/**
+ * 检查class数组是否为常量和变量混合的方式，如 "clazz1 {{myClass}}"
+ */
 function isValidClassArray(arr) {
   const filterArr = arr.filter((clazz) => clazz.length > 0)
 

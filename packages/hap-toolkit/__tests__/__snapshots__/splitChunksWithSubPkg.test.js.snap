@@ -4,6 +4,10 @@ exports[`split chunks on a project split chunks with subpackages 1`] = `
 Array [
   "app-chunks.json",
   "base/page-chunks.json",
+  "Card/CardDemo1/index.css.json",
+  "Card/CardDemo1/index.template.json",
+  "Card/CardDemo2/index.css.json",
+  "Card/CardDemo2/index.template.json",
   "manifest.json",
   "page-chunks.json",
   "Sub2/page-chunks.json",

@@ -5,7 +5,7 @@
 
 import path from 'path'
 
-import { calcDataDigest } from '../common/utils'
+import { calcDataDigest } from '@hap-toolkit/shared-utils'
 
 import { DIGEST_ZIP_PATH, DIGEST_HASH_JSON } from '../common/constant'
 

@@ -10,14 +10,16 @@ import { globalConfig, readJson, compileOptionsObject } from '@hap-toolkit/share
 import {
   WidgetFingerprintPlugin,
   CopyDslPlugin,
-  LiteCardPlugin,
+  CardPlugin,
   HandlerPlugin,
   ResourcePlugin,
   DeviceTypePlugin,
   ZipPlugin,
   NotifyPlugin,
   SourcemapFixPlugin,
-  SplitChunksAdaptPlugin
+  SplitChunksAdaptPlugin,
+  RemoveModulesPlugin,
+  CardScriptHandlePlugin
 } from './plugins'
 import { genPriorities, getBabelConfigJsPath } from './common/utils'
 import { getSkeletonConfig } from './common/info'
@@ -46,7 +48,8 @@ function postHook(webpackConf, defaultsOptions, quickappConfig = {}) {
     subpackages,
     workers,
     originType,
-    useTreeShaking
+    useTreeShaking,
+    isCardMinVersion
   } = defaultsOptions
 
   const manifestObj = readJson(path.join(pathSrc, 'manifest.json'))
@@ -123,8 +126,12 @@ function postHook(webpackConf, defaultsOptions, quickappConfig = {}) {
     )
   }
 
+  if (isCardMinVersion) {
+    // 如果工程中有卡片配置为快应用 2.0 卡片，则使用插件抽取 template 和 style 的 json
+    webpackConf.plugins.push(new CardScriptHandlePlugin({ pathSrc }), new RemoveModulesPlugin())
+  }
   webpackConf.plugins.push(
-    new LiteCardPlugin({ pathSrc }),
+    new CardPlugin({ pathSrc, isCardMinVersion }),
     // 框架Handler包装
     new HandlerPlugin({
       pathSrc: pathSrc,
