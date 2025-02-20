@@ -38,7 +38,7 @@ class CardPlugin {
           stage: Compilation.PROCESS_ASSETS_STAGE_ADDITIONAL
         },
         () => {
-          let { pathSrc } = this.options
+          let { pathSrc, isCardMinVersion } = this.options
           pathSrc = pathSrc.replace(/\\/g, '/')
           const moduleGraph = compilation.moduleGraph
           for (const chunk of compilation.chunks) {
@@ -52,7 +52,7 @@ class CardPlugin {
                 request,
                 pathSrc
               )
-              const templateRes = {
+              let templateRes = {
                 [CARD_ENTRY]: {}
               }
               const styleRes = {}
@@ -65,16 +65,20 @@ class CardPlugin {
                 pathSrc,
                 bundleFilePath
               )
-              let handledTemplateCardRes
+
               if (this.isLiteCard(entryRawRequest)) {
-                handledTemplateCardRes = postHandleLiteCardRes(templateRes)
+                templateRes = postHandleLiteCardRes(templateRes)
+              } else if (isCardMinVersion) {
+                // 快应用 2.0 标准的 JS 卡，输出 .template.json 和 .css.json
+                templateRes = postHandleJSCardRes(templateRes)
               } else {
-                handledTemplateCardRes = postHandleJSCardRes(templateRes)
+                // 非快应用 2.0 标准的 JS 卡，不输出 .template.json 和 .css.json
+                continue
               }
 
               // 用于修改 template 的 key 的 stringify 的顺序，type 放第一个，children 放最后一个
               let templateKeys = []
-              recordKeys(handledTemplateCardRes, templateKeys)
+              recordKeys(templateRes, templateKeys)
 
               templateKeys = [...new Set(templateKeys.sort())]
                 .filter(
@@ -85,15 +89,15 @@ class CardPlugin {
               templateKeys.unshift('type', 'template', 'data')
 
               // 自定义组件 template 抽取成独立 JSON —— 卡片不采用该方式
-              // Object.keys(handledTemplateCardRes).forEach((key) => {
-              //   const res = handledTemplateCardRes[key]
+              // Object.keys(templateRes).forEach((key) => {
+              //   const res = templateRes[key]
               //   const fileName = key === CARD_ENTRY ? templateFileName : `${key}.template.json`
               //   const templateJsonStr = JSON.stringify(res, templateKeys)
               //   compilation.assets[fileName] = new ConcatSource(templateJsonStr)
               // })
 
               // 处理 template
-              const templateJsonStr = JSON.stringify(handledTemplateCardRes, templateKeys)
+              const templateJsonStr = JSON.stringify(templateRes, templateKeys)
               compilation.assets[templateFileName] = new ConcatSource(templateJsonStr)
 
               // 处理 css
