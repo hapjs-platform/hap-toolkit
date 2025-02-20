@@ -114,6 +114,7 @@ exports[`测试compile compile build devtool=false 7`] = `
         \\"decription\\": \\"快应用卡片展示\\",
         \\"component\\": \\"index\\",
         \\"path\\": \\"/CardDemo\\",
+        \\"minCardPlatformVersion\\": 2000,
         \\"features\\": []
       }
     }
