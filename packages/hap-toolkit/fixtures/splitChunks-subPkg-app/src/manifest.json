@@ -39,6 +39,7 @@
         "decription": "CardDemo1",
         "component": "index",
         "path": "/Card/CardDemo1",
+        "minCardPlatformVersion": 2000,
         "features": [
           {
             "name": "system.network"
@@ -53,6 +54,7 @@
         "decription": "CardDemo2",
         "component": "index",
         "path": "/Card/CardDemo2",
+        "minCardPlatformVersion": 2000,
         "features": [
           {
             "name": "system.network"

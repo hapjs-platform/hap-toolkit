@@ -140,12 +140,6 @@ export function resolveCardMinVersion(manifest) {
       if (widgetsConf[key].minCardPlatformVersion) {
         // 任意有一个 JS 卡写了 minCardPlatformVersion 字段
         isCardMinVersion = true
-      } else {
-        // 没有 JS 卡写 minCardPlatformVersion 字段，说明是旧的 JS 卡片包
-        if (!widgetsConf[key].minPlatformVersion) {
-          // 同时没有写 minPlatformVersion 字段，提示补齐 minCardPlatformVersion
-          throw new Error(`manifest.json 中 widgets 必须包含 minCardPlatformVersion 字段`)
-        }
       }
     }
   }
