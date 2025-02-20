@@ -47,7 +47,7 @@ class CardPlugin {
               continue
             }
             const { rawRequest: entryRawRequest, request } = entryModule
-            if (this.isCard(entryRawRequest)) {
+            if (this.needExtractTemplateAndStyle(entryRawRequest)) {
               const { templateFileName, cssFileName, bundleFilePath } = this.getCardBuildPath(
                 request,
                 pathSrc
@@ -255,29 +255,28 @@ class CardPlugin {
     return relativeSrcPathStr
   }
 
-  // chunk.entryModule.rawRequest: ./src/cards/card/index.ux?uxType=card&card=1&lite=1
-  isCard(requestPath) {
-    if (requestPath && requestPath.lastIndexOf('?') > 0) {
-      const pathParamIndex = requestPath.lastIndexOf('?')
-      const paramStr = requestPath.substring(pathParamIndex + 1)
-      const paramArr = paramStr.split('&')
-      return paramArr && paramArr.indexOf('card=1') >= 0 && paramArr.indexOf('uxType=card') >= 0
-    }
-    return false
-  }
-
-  // chunk.entryModule.rawRequest: ./src/cards/card/index.ux?uxType=card&card=1&lite=1
-  isLiteCard(requestPath) {
+  // chunk.entryModule.rawRequest: ./src/cards/card/index.ux?uxType=card&newJSCard=1&lite=1
+  needExtractTemplateAndStyle(requestPath) {
     if (requestPath && requestPath.lastIndexOf('?') > 0) {
       const pathParamIndex = requestPath.lastIndexOf('?')
       const paramStr = requestPath.substring(pathParamIndex + 1)
       const paramArr = paramStr.split('&')
       return (
         paramArr &&
-        paramArr.indexOf('card=1') >= 0 &&
-        paramArr.indexOf('lite=1') >= 0 &&
-        paramArr.indexOf('uxType=card') >= 0
+        paramArr.indexOf('uxType=card') >= 0 &&
+        (paramArr.indexOf('lite=1') >= 0 || paramArr.indexOf('newJSCard=1') >= 0)
       )
+    }
+    return false
+  }
+
+  // chunk.entryModule.rawRequest: ./src/cards/card/index.ux?uxType=card&newJSCard=1&lite=1
+  isLiteCard(requestPath) {
+    if (requestPath && requestPath.lastIndexOf('?') > 0) {
+      const pathParamIndex = requestPath.lastIndexOf('?')
+      const paramStr = requestPath.substring(pathParamIndex + 1)
+      const paramArr = paramStr.split('&')
+      return paramArr && paramArr.indexOf('lite=1') >= 0 && paramArr.indexOf('uxType=card') >= 0
     }
     return false
   }

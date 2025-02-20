@@ -22,7 +22,7 @@ class RemoveModulesPlugin {
       compilation.hooks.optimizeModules.tap('RemoveModulesPlugin', (modules) => {
         modules.forEach((module) => {
           const { _source, request } = module
-          if (this.isJsCardAndCardcomp(request)) {
+          if (this.isNewJsCardAndCardcomp(request)) {
             const { _valueAsString, _valueAsBuffer } = _source || {}
             const moduleSource = _valueAsString || _valueAsBuffer?.toString() || ''
             const type = this.getRequestType(request)
@@ -44,7 +44,7 @@ class RemoveModulesPlugin {
 
           chunkModules.forEach((module) => {
             const { request } = module
-            if (this.isJsCardAndCardcomp(request)) {
+            if (this.isNewJsCardAndCardcomp(request)) {
               const type = this.getRequestType(request)
               const typeArr = LOADER_INFO_LIST.map((item) => item.type)
               if (
@@ -86,16 +86,15 @@ class RemoveModulesPlugin {
       module.removeDependency(dep)
     })
   }
-  // chunk.entryModule.rawRequest: ./src/cards/card/index.ux?uxType=card&card=1&lite=1
-  isJsCardAndCardcomp(requestPath) {
+  // chunk.entryModule.rawRequest: ./src/cards/card/index.ux?uxType=card&newJSCard=1&lite=1
+  isNewJsCardAndCardcomp(requestPath) {
     if (requestPath && requestPath.lastIndexOf('?') > 0) {
       const pathParamIndex = requestPath.lastIndexOf('?')
       const paramStr = requestPath.substring(pathParamIndex + 1)
       const paramArr = paramStr.split('&')
       return (
         paramArr &&
-        paramArr.indexOf('card=1') >= 0 &&
-        paramArr.indexOf('lite=1') < 0 &&
+        paramArr.indexOf('newJSCard=1') >= 0 &&
         (paramArr.indexOf('uxType=card') >= 0 || paramArr.indexOf('uxType=comp') >= 0)
       )
     }

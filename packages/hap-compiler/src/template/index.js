@@ -366,7 +366,7 @@ function parse(source, options) {
     result: {},
     log: [],
     depFiles: [],
-    isCard: !!options.card,
+    isNewJSCard: !!options.newJSCard,
     isLite: !!options.lite
   }
 

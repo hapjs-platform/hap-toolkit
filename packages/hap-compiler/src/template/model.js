@@ -102,9 +102,8 @@ function genCheckboxModel(node, attrName, value, output) {
       ${expValue} = checked ? ${trueValueBinding} : ${falseValueBinding}
     }`
 
-  const isCard = output.isCard
-  const isLite = output.isLite
-  if (isCard && !isLite) {
+  const isNewJSCard = output.isNewJSCard
+  if (isNewJSCard) {
     addAttr(output.result, attrName, `(function() {${attrCheckedCode}})`)
     addAttr(output.result, attrName + 'Raw', value)
     addHandler(output.result, 'change', `function(evt) {${eventChangeCode}}`)
@@ -132,9 +131,8 @@ function genRadioModel(node, attrName, value, output) {
   const attrCheckedCode = `return ${exp(value, false)} === ${valueBinding}`
   const eventChangeCode = `${exp(value, false)} = ${valueBinding}`
 
-  const isCard = output.isCard
-  const isLite = output.isLite
-  if (isCard && !isLite) {
+  const isNewJSCard = output.isNewJSCard
+  if (isNewJSCard) {
     addAttr(output.result, attrName, `(function() {${attrCheckedCode}})`)
     addAttr(output.result, attrName + 'Raw', value)
     addHandler(output.result, 'change', `function(evt) {${eventChangeCode}}`)
@@ -155,9 +153,8 @@ function genRadioModel(node, attrName, value, output) {
  * @param {object} output 构建的输出结果
  */
 function genSelectModel(value, output) {
-  const isCard = output.isCard
-  const isLite = output.isLite
-  if (isCard && !isLite) {
+  const isNewJSCard = output.isNewJSCard
+  if (isNewJSCard) {
     addHandler(output.result, 'change', `function(evt) { ${exp(value, false)} = evt.newValue}`)
   } else {
     addHandler(
@@ -177,10 +174,10 @@ function genSelectModel(value, output) {
  */
 function genDefaultModel(attrName, value, output) {
   const eventChangeCode = `${exp(value, false)} = evt.target.value`
-  const isCard = output.isCard
+  const isNewJSCard = output.isNewJSCard
   const isLite = output.isLite
-  if (isCard && !isLite) {
-    addAttr(output.result, attrName, exp(value, true, isLite, isCard))
+  if (isNewJSCard) {
+    addAttr(output.result, attrName, exp(value, true, isLite, isNewJSCard))
     addAttr(output.result, attrName + 'Raw', value)
     addHandler(output.result, 'change', `function(evt) {${eventChangeCode}}`)
   } else {
@@ -203,9 +200,8 @@ function genComponentModel(node, attrName, value, output, locationInfo, options)
   // 自定义组件model指令绑定的属性，依然作为普通属性处理
   validator.checkAttr(attrName, value, output, node.tagName, locationInfo, options)
 
-  const isCard = output.isCard
-  const isLite = output.isLite
-  if (isCard && !isLite) {
+  const isNewJSCard = output.isNewJSCard
+  if (isNewJSCard) {
     addHandler(
       output.result,
       `update:${attrName}`,
@@ -233,10 +229,10 @@ function genDynamicModel(node, attrName, value, output, expType) {
   const checkboxCode = genCheckboxModel(node, attrName, value, output)
   const radioCode = genRadioModel(node, attrName, value, output)
   const textCode = genDefaultModel(attrName, value, output)
-  const isCard = output.isCard
+  const isNewJSCard = output.isNewJSCard
   const isLite = output.isLite
-  if (isCard && !isLite) {
-    addAttr(output.result, attrName, exp(value, true, isLite, isCard))
+  if (isNewJSCard) {
+    addAttr(output.result, attrName, exp(value, true, isLite, isNewJSCard))
     addAttr(output.result, attrName + 'Raw', value)
 
     addAttr(
