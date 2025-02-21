@@ -47,7 +47,8 @@ const featureValidatorMap = {
   'prefers-color-scheme': 'preferColorScheme',
   scene: 'scene',
   'widget-size': 'widgetSize',
-  'device-type': 'deviceType'
+  'device-type': 'deviceType',
+  manufacturer: 'manufacturer'
 }
 
 /**
@@ -164,6 +165,23 @@ const featureValidator = {
           '` 的值 `' +
           value +
           '` 不正确, 必须为 `phone | watch | car`'
+        )
+      }
+    }
+  },
+  manufacturer(value) {
+    const reg = /^(xiaomi|vivo|OPPO|honor)$/
+    if (reg.test(value)) {
+      return { value }
+    }
+    return {
+      reason: function (feature) {
+        return (
+          'WARN: 媒体特征 `' +
+          feature +
+          '` 的值 `' +
+          value +
+          '` 不正确, 必须为 `xiaomi | vivo | OPPO| honor`'
         )
       }
     }
