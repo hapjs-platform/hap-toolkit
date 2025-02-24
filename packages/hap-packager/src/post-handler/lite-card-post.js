@@ -166,7 +166,7 @@ function markCustomComp(template, liteCardRes, compName) {
   const importList = Object.keys(liteCardRes[compName][TYPE_IMPORT])
 
   if (importList.includes(template.type)) {
-    template.import = liteCardRes[compName][TYPE_IMPORT][template.type]
+    // template.import = liteCardRes[compName][TYPE_IMPORT][template.type]
     template.kind = markKind(template.kind, ENUM_KIND_TYPE.COMPONENT.kind)
   }
 }
@@ -371,7 +371,7 @@ export function postHandleLiteCardRes(liteCardRes) {
   for (let i = 0; i < uxList.length; i++) {
     const compName = uxList[i]
     postHandleCompTemplate(liteCardRes[compName][TEMPLATE_KEY], liteCardRes, compName)
-    delete liteCardRes[compName][TYPE_IMPORT]
+    // delete liteCardRes[compName][TYPE_IMPORT]
   }
 
   // actions

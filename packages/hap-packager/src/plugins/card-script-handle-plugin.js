@@ -43,7 +43,7 @@ class CardScriptHandlePlugin {
               continue
             }
             const { rawRequest: entryRawRequest, request } = entryModule
-            if (this.isJsCard(entryRawRequest)) {
+            if (this.isNewJsCard(entryRawRequest)) {
               const { templateFileName, cssFileName } = this.getCardBuildPath(request, pathSrc)
               const jsAssetesName = this.getJsAssetsName(request, pathSrc)
               const source = compilation.assets[jsAssetesName].source()
@@ -100,17 +100,14 @@ class CardScriptHandlePlugin {
       cssFileName: `${bundleFilePath}.css.json`.replace(/\\/g, '/')
     }
   }
-  // chunk.entryModule.rawRequest: ./src/cards/card/index.ux?uxType=card&card=1&lite=1
-  isJsCard(requestPath) {
+  // chunk.entryModule.rawRequest: ./src/cards/card/index.ux?uxType=card&newJSCard=1&lite=1
+  isNewJsCard(requestPath) {
     if (requestPath && requestPath.lastIndexOf('?') > 0) {
       const pathParamIndex = requestPath.lastIndexOf('?')
       const paramStr = requestPath.substring(pathParamIndex + 1)
       const paramArr = paramStr.split('&')
       return (
-        paramArr &&
-        paramArr.indexOf('card=1') >= 0 &&
-        paramArr.indexOf('uxType=card') >= 0 &&
-        paramArr.indexOf('lite=1') < 0
+        paramArr && paramArr.indexOf('newJSCard=1') >= 0 && paramArr.indexOf('uxType=card') >= 0
       )
     }
     return false

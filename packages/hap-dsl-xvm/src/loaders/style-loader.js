@@ -41,7 +41,7 @@ export default function styleLoader(code) {
     query: loaderQuery
   })
 
-  if (compileOptionsObject.enableExtractCss && !options.card) {
+  if (compileOptionsObject.enableExtractCss && !options.newJSCard) {
     componentId.add(resourcePath)
     if (jsonStyle) {
       jsonStyle[`@info`] = {

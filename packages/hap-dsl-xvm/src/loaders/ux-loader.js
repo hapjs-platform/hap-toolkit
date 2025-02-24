@@ -31,12 +31,12 @@ const { validator } = templater
  * @param lite 1: 轻卡; 0: 普通卡
  * @return {String}
  */
-function assemble($loader, frags, name, uxType, card, lite) {
+function assemble($loader, frags, name, uxType, newJSCard, lite) {
   const isUseTreeShaking = !!globalConfig.useTreeShaking
   // 外部导入的组件列表
   const importNames = []
   // 处理导入的组件
-  const importFrag = processImportFrag($loader, frags.import, importNames, card, lite)
+  const importFrag = processImportFrag($loader, frags.import, importNames, newJSCard, lite)
 
   let moduleExports = `     $app_script$($app_module$, $app_exports$, $app_require$)
         if ($app_exports$.__esModule && $app_exports$.default) {
@@ -56,7 +56,7 @@ function assemble($loader, frags, name, uxType, card, lite) {
   let content = `${importFrag}\n`
   if (!lite) {
     // process script for JS card
-    content += `var $app_script$ = ${processScriptFrag($loader, frags.script, uxType, card)}\n`
+    content += `var $app_script$ = ${processScriptFrag($loader, frags.script, uxType, newJSCard)}\n`
   }
   content +=
     `$app_define$('@app-component/${name}', [], function($app_require$, $app_exports$, $app_module$) {\n` +
@@ -66,7 +66,7 @@ function assemble($loader, frags, name, uxType, card, lite) {
       frags.template,
       uxType,
       importNames,
-      card,
+      newJSCard,
       lite
     )}\n`
   // $app_define$ function content
@@ -75,7 +75,7 @@ function assemble($loader, frags, name, uxType, card, lite) {
       $loader,
       frags.style,
       uxType,
-      card,
+      newJSCard,
       lite
     )}\n`
   }
@@ -139,7 +139,7 @@ export default function uxLoader(source) {
   // 文件类型
   const uxType = resourceQuery.uxType
   // lite card
-  const card = resourceQuery.card
+  const newJSCard = resourceQuery.newJSCard
   const lite = resourceQuery.lite
 
   // 使用原有文件名（不包含扩展名）
@@ -161,7 +161,7 @@ export default function uxLoader(source) {
 
   parseImportList(this, frags.import)
     .then(() => {
-      return assemble(this, frags, name, uxType, card, lite)
+      return assemble(this, frags, name, uxType, newJSCard, lite)
     })
     .then((result) => {
       callback(null, result)

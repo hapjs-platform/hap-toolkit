@@ -38,7 +38,7 @@ const NOT_ALLOW_CHARS = [
  * @param {String} cwd - 工作目录
  * @returns {Array<Object>}
  */
-export function resolveEntries(manifest, basedir, cwd) {
+export function resolveEntries(manifest, basedir, cwd, isCardMinVersion) {
   if (!manifest.router) {
     throw Error('manifest.json 中未配置路由！')
   }
@@ -108,9 +108,10 @@ export function resolveEntries(manifest, basedir, cwd) {
       sourceFile = './' + sourceFile + `?uxType=${type}`
       sourceFile = sourceFile.replace(/\\/g, '/')
       if (type === ENTRY_TYPE.CARD) {
-        sourceFile += '&card=1' // card
         if (conf.type === 'lite') {
           sourceFile += '&lite=1' // lite card
+        } else if (isCardMinVersion) {
+          sourceFile += '&newJSCard=1' // new jscard
         }
       }
       entries[entryKey] = sourceFile

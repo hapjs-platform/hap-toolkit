@@ -51,7 +51,7 @@ const defaultLoaders = {
  * @param uxType
  * @returns {*}
  */
-function makeLoaderString(type, config, isCard, uxType) {
+function makeLoaderString(type, config, newJSCard, uxType) {
   config = config || {}
   let loaders
 
@@ -146,7 +146,7 @@ function makeLoaderString(type, config, isCard, uxType) {
       }
     ]
 
-    if (compileOptionsObject.enableExtractCss && !isCard) {
+    if (compileOptionsObject.enableExtractCss && !newJSCard) {
       loaders.unshift({
         name: defaultLoaders['extract-css']
       })
@@ -264,14 +264,14 @@ function makeLoaderString(type, config, isCard, uxType) {
  * @param $loader
  * @param imports - 外部导入的组件列表
  * @param importNames - 外部导入的组件名列表
- * @param {number} card 1:卡片
- * @param {number} lite 1:轻卡
+ * @param {number} newJSCard 新打包格式JS卡
+ * @param {number} lite 轻卡
  * @returns {string}
  */
-function processImportFrag($loader, imports, importNames, card, lite) {
+function processImportFrag($loader, imports, importNames, newJSCard, lite) {
   let retStr = ''
   if (imports.length) {
-    const cardParam = card ? `&card=${card}` : ''
+    const newJSCardParam = newJSCard ? `&newJSCard=${newJSCard}` : ''
     const liteParam = lite ? `&lite=${lite}` : ''
     for (let i = 0; i < imports.length; i++) {
       const imp = imports[i]
@@ -308,8 +308,8 @@ function processImportFrag($loader, imports, importNames, card, lite) {
       })
       let reqStr = makeRequireString(
         $loader,
-        makeLoaderString(FRAG_TYPE.IMPORT, null, card),
-        `${importSrc}?uxType=${ENTRY_TYPE.COMP}&name=${importName}${cardParam}${liteParam}`
+        makeLoaderString(FRAG_TYPE.IMPORT, null, newJSCard),
+        `${importSrc}?uxType=${ENTRY_TYPE.COMP}&name=${importName}${newJSCardParam}${liteParam}`
       )
 
       if (compileOptionsObject.stats) {
@@ -329,10 +329,10 @@ function processImportFrag($loader, imports, importNames, card, lite) {
  * @param templates
  * @param uxType
  * @param importNames
- * @param {number} card 1:卡片
- * @param {number} lite 1:轻卡
+ * @param {number} newJSCard 新打包格式JS卡
+ * @param {number} lite 轻卡
  */
-function processTemplateFrag($loader, templates, uxType, importNames, card, lite) {
+function processTemplateFrag($loader, templates, uxType, importNames, newJSCard, lite) {
   let retStr = '{}'
   if (!templates.length) {
     $loader.emitError(new Error('需要模板 <template> 片段'))
@@ -347,9 +347,9 @@ function processTemplateFrag($loader, templates, uxType, importNames, card, lite
       src = fragAttrsSrc
     }
 
-    const cardParam = card ? `&card=${card}` : ''
+    const newJSCardParam = newJSCard ? `&newJSCard=${newJSCard}` : ''
     const liteParam = lite ? `&lite=${lite}` : ''
-    const pathParam = card ? `&uxPath=${src}` : ''
+    const pathParam = newJSCard ? `&uxPath=${src}` : ''
     // 解析成类似url中key[]=xxx 的形式，便于loader-utils解析
     importNames = importNames.map((item) => 'importNames[]=' + item)
     retStr = makeRequireString(
@@ -359,9 +359,9 @@ function processTemplateFrag($loader, templates, uxType, importNames, card, lite
         {
           alone: !!fragAttrsSrc
         },
-        card
+        newJSCard
       ),
-      `${src}?uxType=${uxType}&${importNames.join(',')}${cardParam}${liteParam}${pathParam}`
+      `${src}?uxType=${uxType}&${importNames.join(',')}${newJSCardParam}${liteParam}${pathParam}`
     )
   }
   return retStr
@@ -372,10 +372,10 @@ function processTemplateFrag($loader, templates, uxType, importNames, card, lite
  * @param $loader
  * @param styles
  * @param uxType
- * @param {number} card 1:卡片
+ * @param {number} newJSCard 1:卡片
  * @param {number} lite 1:轻卡
  */
-function processStyleFrag($loader, styles, uxType, card, lite) {
+function processStyleFrag($loader, styles, uxType, newJSCard, lite) {
   let code = '{}'
   if (styles.length) {
     // 有且仅有一个<style>片段
@@ -391,9 +391,9 @@ function processStyleFrag($loader, styles, uxType, card, lite) {
     print({
       style: src
     })
-    const cardParam = card ? `&card=${card}` : ''
+    const newJSCardParam = newJSCard ? `&newJSCard=${newJSCard}` : ''
     const liteParam = lite ? `&lite=${lite}` : ''
-    const pathParam = card ? `&uxPath=${src}` : ''
+    const pathParam = newJSCard ? `&uxPath=${src}` : ''
     code = makeRequireString(
       $loader,
       makeLoaderString(
@@ -402,9 +402,9 @@ function processStyleFrag($loader, styles, uxType, card, lite) {
           alone: !!fragAttrsSrc,
           lang: fragAttrsLang
         },
-        card
+        newJSCard
       ),
-      `${src}?uxType=${uxType}${cardParam}${liteParam}${pathParam}`
+      `${src}?uxType=${uxType}${newJSCardParam}${liteParam}${pathParam}`
     )
   }
   return code
@@ -417,7 +417,7 @@ function processStyleFrag($loader, styles, uxType, card, lite) {
  * @param uxType
  * @returns {string}
  */
-function processScriptFrag($loader, scripts, uxType, card) {
+function processScriptFrag($loader, scripts, uxType, newJSCard) {
   let code = 'null'
   if (scripts.length) {
     // 有且仅有一个<script>节点
@@ -436,7 +436,7 @@ function processScriptFrag($loader, scripts, uxType, card) {
           alone: !!fragAttrsSrc,
           path: $loader.resourcePath
         },
-        card,
+        newJSCard,
         uxType
       ),
       `${src}?uxType=${uxType}`

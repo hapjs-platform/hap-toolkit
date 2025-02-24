@@ -3,12 +3,13 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 import {
-  isExpr,
+  getExprType,
   isFunctionStr,
   isObject,
   isConstObjOrArray,
   isSimpleArr,
-  isSimplePath
+  isSimplePath,
+  EXPR_TYPE
 } from './utils'
 import { templater } from '@hap-toolkit/compiler'
 const { validator } = templater
@@ -99,9 +100,15 @@ function markCustomComp(template, JsCardRes) {
 function markIf(template) {
   if (!template.shown) return
 
-  if (isExpr(template.shownRaw)) {
-    template['$shown'] = getExprRes(template.shownRaw, template.shown)
-    delete template.shown
+  const exprType = getExprType(template.shownRaw)
+  if (exprType === EXPR_TYPE.CONST_IN_EXPRESSION || exprType === EXPR_TYPE.EXPRESSION) {
+    const exprRes = getExprRes(template.shownRaw, template.shown)
+    if (exprType === EXPR_TYPE.EXPRESSION) {
+      template['$shown'] = exprRes
+      delete template.shown
+    } else {
+      template.shown = exprRes
+    }
   }
   delete template.shownRaw
   template.kind = markKind(template.kind, ENUM_KIND_TYPE.FRAGMENT.kind)
@@ -110,10 +117,16 @@ function markIf(template) {
 function markIs(template) {
   if (!template.is) return
 
-  if (isExpr(template.isRaw)) {
-    template['$is'] = getExprRes(template.isRaw, template.is)
-    delete template.is
-    template.kind = markKind(template.kind, ENUM_KIND_TYPE.ELEMENT.kind)
+  const exprType = getExprType(template.isRaw)
+  if (exprType === EXPR_TYPE.CONST_IN_EXPRESSION || exprType === EXPR_TYPE.EXPRESSION) {
+    const exprRes = getExprRes(template.isRaw, template.is)
+    if (exprType === EXPR_TYPE.EXPRESSION) {
+      template['$is'] = exprRes
+      delete template.is
+      template.kind = markKind(template.kind, ENUM_KIND_TYPE.ELEMENT.kind)
+    } else {
+      template.is = exprRes
+    }
   }
   delete template.isRaw
 }
@@ -121,9 +134,15 @@ function markIs(template) {
 function markId(template) {
   if (!template.id) return
 
-  if (isExpr(template.idRaw)) {
-    template['$id'] = getExprRes(template.idRaw, template.id)
-    delete template.id
+  const exprType = getExprType(template.idRaw)
+  if (exprType === EXPR_TYPE.CONST_IN_EXPRESSION || exprType === EXPR_TYPE.EXPRESSION) {
+    const exprRes = getExprRes(template.idRaw, template.id)
+    if (exprType === EXPR_TYPE.EXPRESSION) {
+      template['$id'] = exprRes
+      delete template.id
+    } else {
+      template.id = exprRes
+    }
   }
   delete template.idRaw
   // 节点有id属性，标记为kind 为 1
@@ -134,35 +153,47 @@ function markFor(template) {
   if (!template.repeat) return
 
   if (isObject(template.repeat)) {
-    if (isExpr(template.repeatRaw.expRaw)) {
-      /**
-       * example 1:
-        <div for="{{(index, item) in ItemList}}">   ->
-        "repeat": {
-          "$exp": "ItemList",
-          "key": "index",
-          "value": "item"
-        },
+    /**
+     * example 1:
+      <div for="{{(index, item) in ItemList}}">   ->
+      "repeat": {
+        "$exp": "ItemList",
+        "key": "index",
+        "value": "item"
+      },
 
-        example 2:
-        <div for="{{(index, item) in [1,2,3]}}">   ->
-        "repeat": {
-          "$exp": "[1, 2, 3]",
-          "key": "index",
-          "value": "item"
-        },
-      */
-      template.repeat['$exp'] = getExprRes(template.repeatRaw.expRaw, template.repeat.exp)
-      delete template.repeat.exp
+      example 2:
+      <div for="{{(index, item) in [1,2,3]}}">   ->
+      "repeat": {
+        "$exp": "[1, 2, 3]",
+        "key": "index",
+        "value": "item"
+      },
+    */
+    const exprType = getExprType(template.repeatRaw.expRaw)
+    if (exprType === EXPR_TYPE.CONST_IN_EXPRESSION || exprType === EXPR_TYPE.EXPRESSION) {
+      const exprRes = getExprRes(template.repeatRaw.expRaw, template.repeat.exp)
+      if (exprType === EXPR_TYPE.EXPRESSION) {
+        template.repeat['$exp'] = exprRes
+        delete template.repeat.exp
+      } else {
+        template.repeat.exp = exprRes
+      }
     }
   } else {
-    if (isExpr(template.repeatRaw)) {
-      /**
-        <div for="{{ItemList}}">   ->
-        "$repeat": "ItemList",
-      */
-      template['$repeat'] = getExprRes(template.repeatRaw, template.repeat)
-      delete template.repeat
+    /**
+      <div for="{{ItemList}}">   ->
+      "$repeat": "ItemList",
+    */
+    const exprType = getExprType(template.repeatRaw)
+    if (exprType === EXPR_TYPE.CONST_IN_EXPRESSION || exprType === EXPR_TYPE.EXPRESSION) {
+      const exprRes = getExprRes(template.repeatRaw, template.repeat)
+      if (exprType === EXPR_TYPE.EXPRESSION) {
+        template['$repeat'] = exprRes
+        delete template.repeat
+      } else {
+        template.repeat = exprRes
+      }
     }
     delete template.repeatRaw
   }
@@ -176,17 +207,29 @@ function markStyle(template) {
   const style = template.style
   if (typeof style === 'object') {
     Object.keys(style).forEach((key) => {
-      if (isExpr(styleRaw[key])) {
-        template.style['$' + key] = getExprRes(styleRaw[key], style[key])
-        delete template.style[key]
-        template.kind = markKind(template.kind, ENUM_KIND_TYPE.ELEMENT.kind)
+      const exprType = getExprType(styleRaw[key])
+      if (exprType === EXPR_TYPE.CONST_IN_EXPRESSION || exprType === EXPR_TYPE.EXPRESSION) {
+        const exprRes = getExprRes(styleRaw[key], style[key])
+        if (exprType === EXPR_TYPE.EXPRESSION) {
+          template.style['$' + key] = exprRes
+          delete template.style[key]
+          template.kind = markKind(template.kind, ENUM_KIND_TYPE.ELEMENT.kind)
+        } else {
+          template.style[key] = exprRes
+        }
       }
     })
   } else {
-    if (isExpr(styleRaw)) {
-      template['$style'] = getExprRes(styleRaw, template.style)
-      delete template.style
-      template.kind = markKind(template.kind, ENUM_KIND_TYPE.ELEMENT.kind)
+    const exprType = getExprType(styleRaw)
+    if (exprType === EXPR_TYPE.CONST_IN_EXPRESSION || exprType === EXPR_TYPE.EXPRESSION) {
+      const exprRes = getExprRes(styleRaw, template.style)
+      if (exprType === EXPR_TYPE.EXPRESSION) {
+        template['$style'] = exprRes
+        delete template.style
+        template.kind = markKind(template.kind, ENUM_KIND_TYPE.ELEMENT.kind)
+      } else {
+        template.style = exprRes
+      }
     }
   }
   delete template.styleRaw
@@ -195,12 +238,19 @@ function markStyle(template) {
 function markClass(template) {
   if (!template.class || template.class.length === 0) return
 
-  if (isExpr(template.classListRaw)) {
-    template['$class'] = getExprRes(template.classListRaw, template.classList)
-    template['$classList'] = getExprRes(template.classListRaw, template.classList)
-    delete template.classList
-    delete template.class
-    template.kind = markKind(template.kind, ENUM_KIND_TYPE.ELEMENT.kind)
+  const exprType = getExprType(template.classListRaw)
+  if (exprType === EXPR_TYPE.CONST_IN_EXPRESSION || exprType === EXPR_TYPE.EXPRESSION) {
+    const exprRes = getExprRes(template.classListRaw, template.classList)
+    if (exprType === EXPR_TYPE.EXPRESSION) {
+      template['$class'] = exprRes
+      template['$classList'] = exprRes
+      delete template.classList
+      delete template.class
+      template.kind = markKind(template.kind, ENUM_KIND_TYPE.ELEMENT.kind)
+    } else {
+      template.class = exprRes
+      template.classList = exprRes
+    }
   }
   delete template.classListRaw
 }
@@ -226,10 +276,16 @@ function markAttr(template) {
     Object.keys(attr).forEach((attrKey) => {
       const attrValueRaw = attr[attrKey + 'Raw']
       if (attrValueRaw !== undefined) {
-        if (isExpr(attrValueRaw)) {
-          attr['$' + attrKey] = getExprRes(attrValueRaw, attr[attrKey])
-          delete attr[attrKey]
-          template.kind = markKind(template.kind, ENUM_KIND_TYPE.ELEMENT.kind)
+        const exprType = getExprType(attrValueRaw)
+        if (exprType === EXPR_TYPE.CONST_IN_EXPRESSION || exprType === EXPR_TYPE.EXPRESSION) {
+          const exprRes = getExprRes(attrValueRaw, attr[attrKey])
+          if (exprType === EXPR_TYPE.EXPRESSION) {
+            attr['$' + attrKey] = exprRes
+            delete attr[attrKey]
+            template.kind = markKind(template.kind, ENUM_KIND_TYPE.ELEMENT.kind)
+          } else {
+            attr[attrKey] = exprRes
+          }
         }
         delete attr[attrKey + 'Raw']
       }

@@ -151,10 +151,10 @@ export default async function genWebpackConf(launchOptions, mode) {
   setAdaptForV8Version(compileOptionsObject.disableScriptV8V65, manifest, cwd)
 
   const isProduction = mode === 'production'
-  // 页面文件
-  const entries = resolveEntries(manifest, SRC_DIR, cwd)
-
   const isCardMinVersion = resolveCardMinVersion(manifest)
+
+  // 页面文件
+  const entries = resolveEntries(manifest, SRC_DIR, cwd, isCardMinVersion)
 
   // 环境变量
   const env = {
@@ -197,7 +197,7 @@ export default async function genWebpackConf(launchOptions, mode) {
     compileOptionsObject.splitChunksMode === compileOptionsMeta.splitChunksModeEnum.SMART
 
   // JS 卡由于将js assets中template和style抽取出来，如果使用缓存会编译错误。故卡片不使用缓存。
-  const isCard = Object.values(entries).some((entry) => entry.indexOf('card=1') > -1)
+  const isCard = Object.values(entries).some((entry) => entry.indexOf('newJSCard=1') > -1)
   let cache =
     (isJest ||
     isProduction ||
