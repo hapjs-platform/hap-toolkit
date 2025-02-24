@@ -6,9 +6,34 @@ const pathTestRE =
 
 const literalValueRE = /^(?:true|false|null|undefined|Infinity|NaN)$/
 
+export const EXPR_TYPE = {
+  NOT_EXPRESSION: 1, // 非表达式，如字符串
+  CONST_IN_EXPRESSION: 2, // 常量表达式，如 {{ [1, 2, 3]}}
+  EXPRESSION: 3 // 变量表达式，如 {{ myVal }}
+}
+
 export function isExpr(val) {
   if (!val) return false
   return validator.isExpr(val)
+}
+
+export function getExprType(val) {
+  if (!val) return EXPR_TYPE.NOT_EXPRESSION
+
+  if (validator.isExpr(val)) {
+    const tokens = validator.parseText(val.trim())
+    if (tokens.length > 1) {
+      return EXPR_TYPE.EXPRESSION
+    }
+    const parsed = tokens[0].value
+    if (isConstObjOrArray(parsed)) {
+      return EXPR_TYPE.CONST_IN_EXPRESSION
+    } else {
+      return EXPR_TYPE.EXPRESSION
+    }
+  } else {
+    return EXPR_TYPE.NOT_EXPRESSION
+  }
 }
 
 export function isFunctionStr(str) {
