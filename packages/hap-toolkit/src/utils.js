@@ -38,7 +38,7 @@ const NOT_ALLOW_CHARS = [
  * @param {String} cwd - 工作目录
  * @returns {Array<Object>}
  */
-export function resolveEntries(manifest, basedir, cwd, isCardMinVersion) {
+export function resolveEntries(manifest, basedir, cwd) {
   if (!manifest.router) {
     throw Error('manifest.json 中未配置路由！')
   }
@@ -110,7 +110,7 @@ export function resolveEntries(manifest, basedir, cwd, isCardMinVersion) {
       if (type === ENTRY_TYPE.CARD) {
         if (conf.type === 'lite') {
           sourceFile += '&lite=1' // lite card
-        } else if (isCardMinVersion) {
+        } else if (conf.minCardPlatformVersion) {
           sourceFile += '&newJSCard=1' // new jscard
         }
       }
@@ -126,23 +126,4 @@ export function resolveEntries(manifest, basedir, cwd, isCardMinVersion) {
       })
   }
   return entries
-}
-export function resolveCardMinVersion(manifest) {
-  if (!manifest.router) {
-    throw Error('manifest.json 中未配置路由！')
-  }
-  let isCardMinVersion = false
-  // 卡片配置
-  const widgetsConf = manifest.router.widgets || {}
-
-  for (let key in widgetsConf) {
-    if (!widgetsConf[key].type || widgetsConf[key].type === 'js') {
-      // 针对 JS 卡的兼容
-      if (widgetsConf[key].minCardPlatformVersion) {
-        // 任意有一个 JS 卡写了 minCardPlatformVersion 字段
-        isCardMinVersion = true
-      }
-    }
-  }
-  return isCardMinVersion
 }

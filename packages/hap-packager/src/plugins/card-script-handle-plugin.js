@@ -43,6 +43,7 @@ class CardScriptHandlePlugin {
               continue
             }
             const { rawRequest: entryRawRequest, request } = entryModule
+            // 只有新打包格式的JS卡会进行script的处理
             if (this.isNewJsCard(entryRawRequest)) {
               const { templateFileName, cssFileName } = this.getCardBuildPath(request, pathSrc)
               const jsAssetesName = this.getJsAssetsName(request, pathSrc)

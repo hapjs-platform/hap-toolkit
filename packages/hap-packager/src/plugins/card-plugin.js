@@ -38,7 +38,7 @@ class CardPlugin {
           stage: Compilation.PROCESS_ASSETS_STAGE_ADDITIONAL
         },
         () => {
-          let { pathSrc, isCardMinVersion } = this.options
+          let { pathSrc } = this.options
           pathSrc = pathSrc.replace(/\\/g, '/')
           const moduleGraph = compilation.moduleGraph
           for (const chunk of compilation.chunks) {
@@ -47,6 +47,7 @@ class CardPlugin {
               continue
             }
             const { rawRequest: entryRawRequest, request } = entryModule
+            // 只有轻卡和新打包格式的JS卡会处理template和style
             if (this.needExtractTemplateAndStyle(entryRawRequest)) {
               const { templateFileName, cssFileName, bundleFilePath } = this.getCardBuildPath(
                 request,
@@ -68,12 +69,9 @@ class CardPlugin {
 
               if (this.isLiteCard(entryRawRequest)) {
                 templateRes = postHandleLiteCardRes(templateRes)
-              } else if (isCardMinVersion) {
+              } else {
                 // 快应用 2.0 标准的 JS 卡，输出 .template.json 和 .css.json
                 templateRes = postHandleJSCardRes(templateRes)
-              } else {
-                // 非快应用 2.0 标准的 JS 卡，不输出 .template.json 和 .css.json
-                continue
               }
 
               // 用于修改 template 的 key 的 stringify 的顺序，type 放第一个，children 放最后一个
