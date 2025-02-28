@@ -22,6 +22,7 @@ class RemoveModulesPlugin {
       compilation.hooks.optimizeModules.tap('RemoveModulesPlugin', (modules) => {
         modules.forEach((module) => {
           const { _source, request } = module
+          // 只有新打包格式的JS卡会进行script的处理
           if (this.isNewJsCardAndCardcomp(request)) {
             const { _valueAsString, _valueAsBuffer } = _source || {}
             const moduleSource = _valueAsString || _valueAsBuffer?.toString() || ''

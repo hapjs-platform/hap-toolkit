@@ -23,7 +23,7 @@ import {
 import { name, postHook as packagerPostHook } from '@hap-toolkit/packager'
 import { postHook as xvmPostHook } from '@hap-toolkit/dsl-xvm'
 import ManifestWatchPlugin from '../plugins/manifest-watch-plugin'
-import { resolveEntries, resolveCardMinVersion } from '../utils'
+import { resolveEntries } from '../utils'
 import getDevtool from './get-devtool'
 import {
   getConfigPath,
@@ -151,10 +151,9 @@ export default async function genWebpackConf(launchOptions, mode) {
   setAdaptForV8Version(compileOptionsObject.disableScriptV8V65, manifest, cwd)
 
   const isProduction = mode === 'production'
-  const isCardMinVersion = resolveCardMinVersion(manifest)
 
   // 页面文件
-  const entries = resolveEntries(manifest, SRC_DIR, cwd, isCardMinVersion)
+  const entries = resolveEntries(manifest, SRC_DIR, cwd)
 
   // 环境变量
   const env = {
@@ -498,8 +497,7 @@ export default async function genWebpackConf(launchOptions, mode) {
         workers,
         cwd,
         originType: compileOptionsObject.originType,
-        ideConfig: launchOptions.ideConfig,
-        isCardMinVersion
+        ideConfig: launchOptions.ideConfig
       },
       quickappConfig
     )

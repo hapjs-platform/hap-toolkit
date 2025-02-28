@@ -130,11 +130,14 @@ function minifyWidgetI18nJSONFiles(targetDir) {
     }
     const widgetPath = widgetsOption[key].path
     const dir = path.join(targetDir, widgetPath, 'i18n')
+    // 轻卡和写了minCardPlatformVersion的新打包格式的JS卡会进行多语言扁平化处理
+    const needFlatten =
+      widgetsOption[key].type === 'lite' || widgetsOption[key].minCardPlatformVersion
     if (fs.existsSync(dir)) {
       const jsonFiles = getFiles('*.json', dir)
       jsonFiles.forEach((filePath) => {
         arr.push(filePath)
-        minifyJson(filePath, filePath, true)
+        minifyJson(filePath, filePath, needFlatten)
       })
     }
   }

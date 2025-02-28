@@ -48,8 +48,7 @@ function postHook(webpackConf, defaultsOptions, quickappConfig = {}) {
     subpackages,
     workers,
     originType,
-    useTreeShaking,
-    isCardMinVersion
+    useTreeShaking
   } = defaultsOptions
 
   const manifestObj = readJson(path.join(pathSrc, 'manifest.json'))
@@ -126,12 +125,10 @@ function postHook(webpackConf, defaultsOptions, quickappConfig = {}) {
     )
   }
 
-  if (isCardMinVersion) {
-    // 如果工程中有卡片配置为快应用 2.0 卡片，则使用插件抽取 template 和 style 的 json
-    webpackConf.plugins.push(new CardScriptHandlePlugin({ pathSrc }), new RemoveModulesPlugin())
-  }
   webpackConf.plugins.push(
-    new CardPlugin({ pathSrc, isCardMinVersion }),
+    new CardScriptHandlePlugin({ pathSrc }),
+    new RemoveModulesPlugin(),
+    new CardPlugin({ pathSrc }),
     // 框架Handler包装
     new HandlerPlugin({
       pathSrc: pathSrc,
