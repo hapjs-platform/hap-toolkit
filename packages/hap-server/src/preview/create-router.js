@@ -226,7 +226,8 @@ export default async function createRouter(previewTarget) {
         script,
         scriptNotFound: !scriptExists(script),
         webJsUrl: genWebJsUrl(ctx.conf.options.webVersion),
-        language: currentLanguage
+        language: currentLanguage,
+        mediaQueryParams: JSON.stringify(ctx.conf.options.mediaQueryParams) // 传给页面的媒介查询参数
       })
       ctx.type = 'text/html'
       ctx.body = html

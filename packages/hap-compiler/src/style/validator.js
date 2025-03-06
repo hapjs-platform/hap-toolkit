@@ -396,7 +396,24 @@ const validateTime = function (v) {
     }
   }
 }
-
+// 灵感组件颜色值
+const themeColors = [
+  'uxCardColorTheme',
+  'uxCardColorAccent',
+  'uxCardColorPrimary',
+  'uxCardColorSecondary',
+  'uxCardColorSecondaryVariant',
+  'uxCardColorTertiary',
+  'uxCardColorQuaternary',
+  'uxCardColorContainer',
+  'uxCardBackground',
+  'uxCardColorHue',
+  'uxCardColorHueSecondary',
+  'uxIconColorAccent',
+  'uxIconColorPrimary',
+  'uxIconColorSecondary',
+  'uxIconColorBackground'
+]
 const validator = {
   /**
    * 整数校验
@@ -2657,23 +2674,13 @@ const validatorMap = {
   // font
   fontSrc: validator.fontSrc,
   fontFamily: validator.fontFamily,
-  themeColor: makeEnumValidator([
-    'uxCardColorTheme',
-    'uxCardColorAccent',
-    'uxCardColorPrimary',
-    'uxCardColorSecondary',
-    'uxCardColorSecondaryVariant',
-    'uxCardColorTertiary',
-    'uxCardColorQuaternary',
-    'uxCardColorContainer',
-    'uxCardBackground',
-    'uxCardColorHue',
-    'uxCardColorHueSecondary',
-    'uxIconColorAccent',
-    'uxIconColorPrimary',
-    'uxIconColorSecondary',
-    'uxIconColorBackground'
-  ])
+  themeColor: makeEnumValidator(themeColors),
+  themeBackgroundColor: makeEnumValidator(themeColors),
+  themeLayerColor: makeEnumValidator(themeColors),
+  themeThumbColor: makeEnumValidator(themeColors),
+  themeTrackColor: makeEnumValidator(themeColors),
+  themeSelectColor: makeEnumValidator(themeColors),
+  themeBlockColor: makeEnumValidator(themeColors)
 }
 
 /**
