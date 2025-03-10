@@ -290,12 +290,11 @@ function ZipPlugin(options) {
 ZipPlugin.prototype.apply = function (compiler) {
   const options = this.options
 
-  let subpackageOptions = []
-  if (!options.disableSubpackages && options.subpackages && options.subpackages.length > 0) {
-    subpackageOptions = options.subpackages
-  }
-
   compiler.hooks.done.tapAsync('ZipPlugin', async (stats, callback) => {
+    let subpackageOptions = []
+    if (!options.disableSubpackages && options.subpackages && options.subpackages.length > 0) {
+      subpackageOptions = [...options.subpackages]
+    }
     // 更新 options 里的值，防止改变 manifest 文件字段导致的问题
     let manifestPath
     if (fs.pathExistsSync(path.join(options.pathSrc, 'manifest-phone.json'))) {
@@ -304,6 +303,8 @@ ZipPlugin.prototype.apply = function (compiler) {
     } else {
       manifestPath = path.join(options.pathSrc, 'manifest.json')
     }
+
+    let isPureWidgetProject = true
     if (fs.pathExistsSync(manifestPath)) {
       const manifestContent = fs.readFileSync(manifestPath, 'utf8')
       const manifest = JSON.parse(manifestContent)
@@ -322,6 +323,9 @@ ZipPlugin.prototype.apply = function (compiler) {
             _widget: true
           })
         })
+      }
+      if (Object.keys(manifest?.router?.pages || {}).length > 0) {
+        isPureWidgetProject = false
       }
     }
 
@@ -397,7 +401,7 @@ ZipPlugin.prototype.apply = function (compiler) {
       this.signConfig,
       options.disableStreamPack,
       compiler.watchMode,
-      !options.disableSubpackages && options.subpackages && options.subpackages.length > 0
+      !options.disableSubpackages && !isPureWidgetProject
     )
 
     fs.ensureDirSync(options.output)
