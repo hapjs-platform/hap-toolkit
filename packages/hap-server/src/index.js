@@ -4,7 +4,7 @@
  */
 
 import { setCustomConfig, colorconsole } from '@hap-toolkit/shared-utils'
-import config from './config'
+import config, { browerOptions } from './config'
 import { launch, stop } from './server'
 import { remotePreview } from './preview/remote-preview'
 import { beforeStart, createPreview } from './preview'
@@ -56,7 +56,12 @@ function launchServer(options) {
 function stopServer() {
   return stop()
 }
-
+/**
+ * 更新ide需要传给webView的参数
+ */
+export function updateWebViewOptions (options) {
+  browerOptions.options = Object.assign(browerOptions.options, options)
+}
 /**
  * remotePreview IDE扫码预览的命令行实现
  */

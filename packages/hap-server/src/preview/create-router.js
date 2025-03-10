@@ -10,7 +10,7 @@ import util from 'util'
 import KoaRouter from 'koa-router'
 import koaSend from 'koa-send'
 import JSZip from 'jszip'
-
+import { browerOptions } from '../config'
 import { KnownError, getLaunchPage, logger, eventBus } from '@hap-toolkit/shared-utils'
 
 import { renderPage, trimSlash, removeAnsiColor } from './shared'
@@ -218,6 +218,7 @@ export default async function createRouter(previewTarget) {
       const currentLanguage = JSON.parse(
         process.env.VSCODE_NLS_CONFIG || '{"locale":"zh-CN"}'
       ).locale
+      const mediaQueryParams = browerOptions.options.mediaQueryParams || {};
       const html = await renderPage(TPL_PAGE_PATH, {
         title: manifest.name,
         routeName: requestRoute,
@@ -227,7 +228,7 @@ export default async function createRouter(previewTarget) {
         scriptNotFound: !scriptExists(script),
         webJsUrl: genWebJsUrl(ctx.conf.options.webVersion),
         language: currentLanguage,
-        mediaQueryParams: JSON.stringify(ctx.conf.options.mediaQueryParams) // 传给页面的媒介查询参数
+        mediaQueryParams: JSON.stringify(mediaQueryParams) // 传给页面的媒介查询参数
       })
       ctx.type = 'text/html'
       ctx.body = html
