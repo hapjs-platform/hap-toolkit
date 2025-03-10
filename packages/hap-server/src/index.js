@@ -59,7 +59,7 @@ function stopServer() {
 /**
  * 更新ide需要传给webView的参数
  */
-export function updateWebViewOptions (options) {
+export function updateWebViewOptions(options) {
   browerOptions.options = Object.assign(browerOptions.options, options)
 }
 /**

@@ -218,7 +218,7 @@ export default async function createRouter(previewTarget) {
       const currentLanguage = JSON.parse(
         process.env.VSCODE_NLS_CONFIG || '{"locale":"zh-CN"}'
       ).locale
-      const mediaQueryParams = browerOptions.options.mediaQueryParams || {};
+      const mediaQueryParams = browerOptions.options.mediaQueryParams || {}
       const html = await renderPage(TPL_PAGE_PATH, {
         title: manifest.name,
         routeName: requestRoute,

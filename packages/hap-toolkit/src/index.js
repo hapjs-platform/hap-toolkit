@@ -58,4 +58,13 @@ function launchWithWatch(options) {
   })
 }
 
-export { compile, stopWatch, launchServer, stopServer, launchWithWatch, stopAll, BuildModeManager, updateWebViewOptions }
+export {
+  compile,
+  stopWatch,
+  launchServer,
+  stopServer,
+  launchWithWatch,
+  stopAll,
+  BuildModeManager,
+  updateWebViewOptions
+}

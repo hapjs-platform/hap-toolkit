@@ -17,5 +17,5 @@ export default {
   }
 }
 export let browerOptions = {
-  options:{}
-};
+  options: {}
+}
