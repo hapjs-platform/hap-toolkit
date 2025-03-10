@@ -14,9 +14,8 @@ import {
   globalConfig,
   clearProjectRecord
 } from '@hap-toolkit/shared-utils'
-
+import { browerOptions } from './config'
 const moduler = [require('@hap-toolkit/debugger')]
-
 let server = null
 export async function launch(conf) {
   return new Promise(async (resolve) => {
@@ -34,7 +33,8 @@ export async function launch(conf) {
       Object.assign(conf.defaults, { serverPort })
       // 暴露环境配置
       app.context.conf = conf
-
+      browerOptions.options = Object.assign(browerOptions.options, conf)
+      // console.log(browerOptions)
       // 清空调试设备记录
       const { clearRecords, openBrowser } = conf.options
       if (clearRecords) {

@@ -4,7 +4,7 @@
  */
 
 import { BuildModeManager } from '@hap-toolkit/shared-utils'
-import { launchServer, stopServer } from '@hap-toolkit/server'
+import { launchServer, stopServer, updateWebViewOptions } from '@hap-toolkit/server'
 import { compile, stopWatch } from './commands/compile'
 
 /**
@@ -58,4 +58,13 @@ function launchWithWatch(options) {
   })
 }
 
-export { compile, stopWatch, launchServer, stopServer, launchWithWatch, stopAll, BuildModeManager }
+export {
+  compile,
+  stopWatch,
+  launchServer,
+  stopServer,
+  launchWithWatch,
+  stopAll,
+  BuildModeManager,
+  updateWebViewOptions
+}
