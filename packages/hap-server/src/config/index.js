@@ -16,3 +16,6 @@ export default {
     moduleList: []
   }
 }
+export let browerOptions = {
+  options: {}
+}
