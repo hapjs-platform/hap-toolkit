@@ -166,7 +166,7 @@ function markCustomComp(template, liteCardRes, compName) {
   const importList = Object.keys(liteCardRes[compName][TYPE_IMPORT])
 
   if (importList.includes(template.type)) {
-    // template.import = liteCardRes[compName][TYPE_IMPORT][template.type]
+    template.import = liteCardRes[compName][TYPE_IMPORT][template.type]
     template.kind = markKind(template.kind, ENUM_KIND_TYPE.COMPONENT.kind)
   }
 }

@@ -210,13 +210,13 @@ const prodUtils = {
   },
   replacePlaceHolder(code) {
     // 正则表达式匹配_idX_valY_place_holder_格式的字符串
-    const regexTemplate = /["'`]_START_PLACE_HOLDER_TEMPLATE_([^_\s]+)_([^_\s]+)_END_["'`]/g
+    const regexTemplate = /["'`]_START_PLACE_HOLDER_TEMPLATE_([^\s]+?)_([^\s]+?)_END_["'`]/g
 
     // 替换 template 的 placeholder
     code = code.replace(regexTemplate, function (match, templateFileName, templatePath) {
       return `$json_require$("${templateFileName}",{"componentPath":"${templatePath}"})`
     })
-    const regexCss = /["'`]_START_PLACE_HOLDER_CSS_([^_\s]+)_([^_\s]+)_END_["'`]/g
+    const regexCss = /["'`]_START_PLACE_HOLDER_CSS_([^\s]+?)_([^\s]+?)_END_["'`]/g
 
     // 替换 css 的 placeholder
     code = code.replace(regexCss, function (match, cssFileName, styleObjId) {

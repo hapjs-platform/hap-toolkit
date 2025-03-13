@@ -31,6 +31,7 @@ const componentId = (() => {
 export default function styleLoader(code) {
   const self = this
   const options = loaderUtils.parseQuery(this.resourceQuery)
+  const cardEntry = options.cardEntry
   const loaderQuery = loaderUtils.parseQuery(this.query)
   const suppresslogs = !!getWebpackOptions(this).suppresslogs
   const resourcePath = this.resourcePath // 当前文件绝对路径
@@ -61,8 +62,12 @@ export default function styleLoader(code) {
     self.addDependency(depFilePath)
   })
 
-  depFiles.forEach((item) => {
-    self.addDependency(convertPath(item))
+  depFiles.forEach((file) => {
+    let fileName = file
+    if (cardEntry && file.startsWith('/node_modules')) {
+      fileName = cardEntry + file
+    }
+    self.addDependency(convertPath(fileName))
   })
 
   return `module.exports = ${parsed}`

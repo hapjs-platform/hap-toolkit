@@ -113,6 +113,7 @@ export function resolveEntries(manifest, basedir, cwd) {
         } else if (conf.minCardPlatformVersion) {
           sourceFile += '&newJSCard=1' // new jscard
         }
+        sourceFile += `&cardEntry=${routePath}` // new jscard
       }
       entries[entryKey] = sourceFile
     })
