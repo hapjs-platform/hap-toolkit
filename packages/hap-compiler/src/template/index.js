@@ -75,27 +75,27 @@ function traverse(node, output, previousNode, conditionList, options) {
     switch (name) {
       case 'id':
         // 保留checkId为兼容原有：新打的RPK包兼容原来的APK平台
-        validator.checkId(value, output)
-        validator.checkAttr(name, value, output, node.tagName, locationInfo)
+        validator.checkId(value, output, options)
+        validator.checkAttr(name, value, output, node.tagName, locationInfo, options)
         break
       case 'class':
-        validator.checkClass(value, output)
+        validator.checkClass(value, output, options)
         break
       case 'style':
         validator.checkStyle(value, output, locationInfo, options)
         break
       case 'if':
         if (!node._isroot) {
-          validator.checkIf(value, output, false, locationInfo, conditionList)
+          validator.checkIf(value, output, false, locationInfo, conditionList, options)
         }
         break
       case 'is':
-        validator.checkIs(value, output, locationInfo)
+        validator.checkIs(value, output, locationInfo, options)
         break
       case 'else':
         if (!node._isroot) {
           if (previousNode && previousNode.__cond__) {
-            validator.checkElse(previousNode.__cond__, output, locationInfo, conditionList)
+            validator.checkElse(previousNode.__cond__, output, locationInfo, conditionList, options)
           }
         }
         break
@@ -107,14 +107,15 @@ function traverse(node, output, previousNode, conditionList, options) {
               previousNode.__cond__,
               output,
               locationInfo,
-              conditionList
+              conditionList,
+              options
             )
           }
         }
         break
       case 'for':
         if (!node._isroot) {
-          validator.checkFor(value, output, locationInfo)
+          validator.checkFor(value, output, locationInfo, options)
         }
         break
       case 'tree':
@@ -123,14 +124,14 @@ function traverse(node, output, previousNode, conditionList, options) {
       default:
         if (name.match(/^(on|@)/)) {
           // 事件以on或@开头
-          validator.checkEvent(name, value, output)
+          validator.checkEvent(name, value, output, options)
         } else {
           if (name.match(/^model:/)) {
             // 解析model指令，model指令格式：model:name="{{youName}}"
             validator.checkModel(name, value, output, node, locationInfo, options)
           } else if (name.match(/^dir:/)) {
             // 解析自定义指令，自定义指令格式：dir:指令名称="{{data}}"
-            validator.checkCustomDirective(name, value, output, node)
+            validator.checkCustomDirective(name, value, output, node, options)
           } else {
             // 其余为普通属性
             validator.checkAttr(name, value, output, node.tagName, locationInfo, options)
@@ -195,7 +196,7 @@ function traverse(node, output, previousNode, conditionList, options) {
               column: node.__location.col,
               reason: `WARN: 文本和span标签并行存在,编译时将文本节点:"${child.value}" 用span包裹(关于span嵌套的使用，请参考官方文档"span嵌套")`
             })
-            validator.checkAttr('value', child.value, output)
+            validator.checkAttr('value', child.value, output, null, null, options)
           }
 
           // 如果父节点是option, 处理value和content属性
@@ -203,9 +204,9 @@ function traverse(node, output, previousNode, conditionList, options) {
             const tempResult = output.result
             output.result = originResult
             if (!originResult.attr.hasOwnProperty('value')) {
-              validator.checkAttr('value', child.value, output)
+              validator.checkAttr('value', child.value, output, null, null, options)
             }
-            validator.checkAttr('content', child.value, output)
+            validator.checkAttr('content', child.value, output, null, null, options)
             output.result = tempResult
             return
           }
@@ -217,7 +218,7 @@ function traverse(node, output, previousNode, conditionList, options) {
           ) {
             const tempResult = output.result // 备份当前result
             output.result = originResult
-            validator.checkAttr('value', child.value, output)
+            validator.checkAttr('value', child.value, output, null, null, options)
             output.result = tempResult
           }
         }
@@ -365,9 +366,7 @@ function parse(source, options) {
   const output = {
     result: {},
     log: [],
-    depFiles: [],
-    isNewJSCard: !!options.newJSCard,
-    isLite: !!options.lite
+    depFiles: []
   }
 
   // 模板为空或解析失败

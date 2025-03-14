@@ -93,7 +93,7 @@ function markCustomComp(template, JsCardRes) {
   if (importList.includes(template.type)) {
     template.import = JsCardRes[CARD_ENTRY][TYPE_IMPORT][template.type]
     template.kind = markKind(template.kind, ENUM_KIND_TYPE.COMPONENT.kind)
-    delete JsCardRes[CARD_ENTRY][TYPE_IMPORT]
+    // delete JsCardRes[CARD_ENTRY][TYPE_IMPORT]
   }
 }
 

@@ -31,12 +31,13 @@ const { validator } = templater
  * @param lite 1: 轻卡; 0: 普通卡
  * @return {String}
  */
-function assemble($loader, frags, name, uxType, newJSCard, lite) {
+function assemble($loader, frags, name, queryOptions) {
+  const { uxType, lite } = queryOptions
   const isUseTreeShaking = !!globalConfig.useTreeShaking
   // 外部导入的组件列表
   const importNames = []
   // 处理导入的组件
-  const importFrag = processImportFrag($loader, frags.import, importNames, newJSCard, lite)
+  const importFrag = processImportFrag($loader, frags.import, importNames, queryOptions)
 
   let moduleExports = `     $app_script$($app_module$, $app_exports$, $app_require$)
         if ($app_exports$.__esModule && $app_exports$.default) {
@@ -56,7 +57,7 @@ function assemble($loader, frags, name, uxType, newJSCard, lite) {
   let content = `${importFrag}\n`
   if (!lite) {
     // process script for JS card
-    content += `var $app_script$ = ${processScriptFrag($loader, frags.script, uxType, newJSCard)}\n`
+    content += `var $app_script$ = ${processScriptFrag($loader, frags.script, queryOptions)}\n`
   }
   content +=
     `$app_define$('@app-component/${name}', [], function($app_require$, $app_exports$, $app_module$) {\n` +
@@ -64,19 +65,15 @@ function assemble($loader, frags, name, uxType, newJSCard, lite) {
     `    $app_module$.exports.template = ${processTemplateFrag(
       $loader,
       frags.template,
-      uxType,
       importNames,
-      newJSCard,
-      lite
+      queryOptions
     )}\n`
   // $app_define$ function content
   if (frags.style.length > 0) {
     content += `    $app_module$.exports.style = ${processStyleFrag(
       $loader,
       frags.style,
-      uxType,
-      newJSCard,
-      lite
+      queryOptions
     )}\n`
   }
   if (lite) {
@@ -136,12 +133,13 @@ export default function uxLoader(source) {
     return
   }
   const resourceQuery = loaderUtils.parseQuery(this.resourceQuery || '?') // 在文件url中传入的参数'path?xxx'
-  // 文件类型
-  const uxType = resourceQuery.uxType
-  // lite card
-  const newJSCard = resourceQuery.newJSCard
-  const lite = resourceQuery.lite
 
+  const queryOptions = {
+    uxType: resourceQuery.uxType, // 文件类型
+    newJSCard: resourceQuery.newJSCard, // 新打包格式的 JS卡
+    lite: resourceQuery.lite, // 轻卡
+    cardEntry: resourceQuery.cardEntry // 卡片入口
+  }
   // 使用原有文件名（不包含扩展名）
   const name = resourceQuery.name || getNameByPath(resourcePath)
 
@@ -161,7 +159,7 @@ export default function uxLoader(source) {
 
   parseImportList(this, frags.import)
     .then(() => {
-      return assemble(this, frags, name, uxType, newJSCard, lite)
+      return assemble(this, frags, name, queryOptions)
     })
     .then((result) => {
       callback(null, result)

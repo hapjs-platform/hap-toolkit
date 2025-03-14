@@ -1418,10 +1418,10 @@ function checkTagName(node, output, options = {}) {
  * @param id
  * @param output
  */
-function checkId(id, output) {
+function checkId(id, output, options) {
   if (id) {
-    const isLite = output.isLite
-    const isNewJSCard = output.isNewJSCard
+    const isLite = options.lite
+    const isNewJSCard = options.newJSCard
     output.result.id = exp.isExpr(id) ? exp(id, true, isLite, isNewJSCard) : id
     if (isNewJSCard) {
       output.result.idRaw = id
@@ -1456,13 +1456,13 @@ function checkBuild(mode, output) {
  * @param className
  * @param output
  */
-function checkClass(className, output) {
+function checkClass(className, output, options) {
   let hasBinding
   let classList = []
 
   className = className.trim()
-  const isLite = output.isLite
-  const isNewJSCard = output.isNewJSCard
+  const isLite = options.lite
+  const isNewJSCard = options.newJSCard
   if (className) {
     let start = 0
     let end = 0
@@ -1549,8 +1549,8 @@ function checkStyle(cssText, output, locationInfo, options) {
   let styleRaw = {}
   const log = output.log
   if (cssText) {
-    const isLite = output.isLite
-    const isNewJSCard = output.isNewJSCard
+    const isLite = options.lite
+    const isNewJSCard = options.newJSCard
     if (exp.singleExpr(cssText)) {
       // 检测是否嵌套{{}}
       const incText = exp.removeExprffix(cssText)
@@ -1626,13 +1626,13 @@ function checkStyle(cssText, output, locationInfo, options) {
  * @param output
  * @param not 是否取反
  */
-function checkIs(value, output, locationInfo) {
+function checkIs(value, output, locationInfo, options) {
   const log = output.log
   if (value) {
     // 如果没有，补充上{{}}
     value = exp.addExprffix(value)
-    const isLite = output.isLite
-    const isNewJSCard = output.isNewJSCard
+    const isLite = options.lite
+    const isNewJSCard = options.newJSCard
 
     // 将表达式转换为function
     output.result.is = exp(value, true, isLite, isNewJSCard)
@@ -1654,13 +1654,13 @@ function checkIs(value, output, locationInfo) {
  * @param output
  * @param not 是否取反
  */
-function checkIf(value, output, not, locationInfo, conditionList) {
+function checkIf(value, output, not, locationInfo, conditionList, options) {
   const log = output.log
   if (value) {
     // 如果没有，补充上{{}}
     value = exp.addExprffix(value)
-    const isLite = output.isLite
-    const isNewJSCard = output.isNewJSCard
+    const isLite = options.lite
+    const isNewJSCard = options.newJSCard
     if (not) {
       value = '{{' + buildConditionExp(conditionList) + '}}'
     } else {
@@ -1690,8 +1690,8 @@ function checkIf(value, output, not, locationInfo, conditionList) {
  * @param output
  * @param not
  */
-function checkElse(value, output, locationInfo, conditionList) {
-  checkIf(value, output, true, locationInfo, conditionList)
+function checkElse(value, output, locationInfo, conditionList, options) {
+  checkIf(value, output, true, locationInfo, conditionList, options)
   // else动作之后需清除conditionList之前的结构
   conditionList.length = 0
 }
@@ -1702,15 +1702,15 @@ function checkElse(value, output, locationInfo, conditionList) {
  * @param output
  * @param not
  */
-function checkElif(value, cond, output, locationInfo, conditionList) {
+function checkElif(value, cond, output, locationInfo, conditionList, options) {
   const log = output.log
   let newcond = cond
   if (value) {
     // 如果没有，补充上{{}}
     value = exp.addExprffix(value)
     cond = exp.addExprffix(cond)
-    const isLite = output.isLite
-    const isNewJSCard = output.isNewJSCard
+    const isLite = options.lite
+    const isNewJSCard = options.newJSCard
     newcond =
       '{{(' + value.substr(2, value.length - 4) + ') && ' + buildConditionExp(conditionList) + '}}'
 
@@ -1735,7 +1735,7 @@ function checkElif(value, cond, output, locationInfo, conditionList) {
  * @param value
  * @param output
  */
-function checkFor(value, output, locationInfo) {
+function checkFor(value, output, locationInfo, options) {
   const log = output.log
   if (value) {
     // 如果是单一表达式，去除{{}}
@@ -1758,8 +1758,8 @@ function checkFor(value, output, locationInfo) {
     }
     value = '{{' + value + '}}'
 
-    const isLite = output.isLite
-    const isNewJSCard = output.isNewJSCard
+    const isLite = options.lite
+    const isNewJSCard = options.newJSCard
     let repeat, repeatRaw
     if (!key && !val) {
       repeat = exp(value, true, isLite, isNewJSCard)
@@ -1794,7 +1794,7 @@ function checkFor(value, output, locationInfo) {
  * @param  {string} value
  * @param  {object} output{result, deps[], log[]}
  */
-function checkEvent(name, value, output) {
+function checkEvent(name, value, output, options) {
   const originValue = value
   // 去除开头的'on'
   const eventName = name.replace(/^(on|@)/, '')
@@ -1805,7 +1805,7 @@ function checkEvent(name, value, output) {
     // 如果表达式形式为XXX(xxxx)
     const paramsMatch = value.match(/(.*)\((.*)\)/)
     if (paramsMatch) {
-      if (output.isLite) {
+      if (options.lite) {
         const err = new Error('轻卡不支持带参数的事件')
         err.isExpressionError = true
         err.expression = value
@@ -1827,7 +1827,7 @@ function checkEvent(name, value, output) {
       value = '{{' + funcName + '(' + params.join(',') + ')}}'
       try {
         // 将事件转换为函数对象
-        if (output.isNewJSCard) {
+        if (options.newJSCard) {
           value = 'function (evt) { return ' + exp(value, false).replace('this.evt', 'evt') + '}'
         } else {
           /* eslint-disable no-eval */
@@ -1853,7 +1853,7 @@ function checkEvent(name, value, output) {
  * @param  {object} output{result, deps[], log[]}
  * @param {Object} node - 页面template模块的编译后的树对象
  */
-function checkCustomDirective(name, value, output, node) {
+function checkCustomDirective(name, value, output, node, options) {
   const dirName = name.replace(/^dir:/, '')
 
   // 自定义指令格式校验
@@ -1861,7 +1861,7 @@ function checkCustomDirective(name, value, output, node) {
     colorconsole.warn(`\`${node.tagName}\` 组件自定义指令名称不能为空`)
     return false
   }
-  const isNewJSCard = output.isNewJSCard
+  const isNewJSCard = options.newJSCard
   output.result.directives = output.result.directives || []
   if (isNewJSCard) {
     // 补全绑定值的双花括号，如：dir:指令名称="data"补全为dir:指令名称="{{data}}"
@@ -1869,13 +1869,13 @@ function checkCustomDirective(name, value, output, node) {
 
     output.result.directives.push({
       name: dirName,
-      value: exp.isExpr(value) ? exp(value, true, output.isLite, output.isNewJSCard) : value,
+      value: exp.isExpr(value) ? exp(value, true, options.lite, options.newJSCard) : value,
       valueRaw: value
     })
   } else {
     output.result.directives.push({
       name: dirName,
-      value: exp.isExpr(value) ? exp(value, true, output.isLite, output.isNewJSCard) : value
+      value: exp.isExpr(value) ? exp(value, true, options.lite, options.newJSCard) : value
     })
   }
 }
@@ -1890,6 +1890,7 @@ function checkCustomDirective(name, value, output, node) {
  */
 function checkAttr(name, value, output, tagName, locationInfo, options) {
   if (name && isValidValue(value)) {
+    const cardEntry = options.cardEntry
     if (shouldConvertPath(name, value, tagName)) {
       if (!exp.isExpr(value)) {
         // 若路径不包含表达式，判断路径下资源是否存在
@@ -1904,11 +1905,11 @@ function checkAttr(name, value, output, tagName, locationInfo, options) {
         }
       }
       // 转换为以项目源码为根的绝对路径
-      value = resolvePath(value, options.filePath)
+      value = resolvePath(value, options.filePath, cardEntry)
       output.depFiles.push(value)
     }
-    const isLite = output.isLite
-    const isNewJSCard = output.isNewJSCard
+    const isLite = options.lite
+    const isNewJSCard = options.newJSCard
     output.result.attr = output.result.attr || {}
     output.result.attr[hyphenedToCamelCase(name)] = exp(value, true, isLite, isNewJSCard)
     if (isNewJSCard) {

@@ -268,11 +268,13 @@ function makeLoaderString(type, config, newJSCard, uxType) {
  * @param {number} lite 轻卡
  * @returns {string}
  */
-function processImportFrag($loader, imports, importNames, newJSCard, lite) {
+function processImportFrag($loader, imports, importNames, queryOptions = {}) {
+  const { newJSCard, lite, cardEntry } = queryOptions
   let retStr = ''
   if (imports.length) {
     const newJSCardParam = newJSCard ? `&newJSCard=${newJSCard}` : ''
     const liteParam = lite ? `&lite=${lite}` : ''
+    const cardEntryParam = cardEntry ? `&cardEntry=${cardEntry}` : ''
     for (let i = 0; i < imports.length; i++) {
       const imp = imports[i]
       let importSrc = imp.attrs.src
@@ -309,7 +311,7 @@ function processImportFrag($loader, imports, importNames, newJSCard, lite) {
       let reqStr = makeRequireString(
         $loader,
         makeLoaderString(FRAG_TYPE.IMPORT, null, newJSCard),
-        `${importSrc}?uxType=${ENTRY_TYPE.COMP}&name=${importName}${newJSCardParam}${liteParam}`
+        `${importSrc}?uxType=${ENTRY_TYPE.COMP}&name=${importName}${newJSCardParam}${liteParam}${cardEntryParam}`
       )
 
       if (compileOptionsObject.stats) {
@@ -332,7 +334,8 @@ function processImportFrag($loader, imports, importNames, newJSCard, lite) {
  * @param {number} newJSCard 新打包格式JS卡
  * @param {number} lite 轻卡
  */
-function processTemplateFrag($loader, templates, uxType, importNames, newJSCard, lite) {
+function processTemplateFrag($loader, templates, importNames, queryOptions = {}) {
+  const { uxType, newJSCard, lite, cardEntry } = queryOptions
   let retStr = '{}'
   if (!templates.length) {
     $loader.emitError(new Error('需要模板 <template> 片段'))
@@ -350,6 +353,7 @@ function processTemplateFrag($loader, templates, uxType, importNames, newJSCard,
     const newJSCardParam = newJSCard ? `&newJSCard=${newJSCard}` : ''
     const liteParam = lite ? `&lite=${lite}` : ''
     const pathParam = newJSCard ? `&uxPath=${src}` : ''
+    const cardEntryParam = cardEntry ? `&cardEntry=${cardEntry}` : ''
     // 解析成类似url中key[]=xxx 的形式，便于loader-utils解析
     importNames = importNames.map((item) => 'importNames[]=' + item)
     retStr = makeRequireString(
@@ -361,7 +365,9 @@ function processTemplateFrag($loader, templates, uxType, importNames, newJSCard,
         },
         newJSCard
       ),
-      `${src}?uxType=${uxType}&${importNames.join(',')}${newJSCardParam}${liteParam}${pathParam}`
+      `${src}?uxType=${uxType}&${importNames.join(
+        ','
+      )}${newJSCardParam}${liteParam}${pathParam}${cardEntryParam}`
     )
   }
   return retStr
@@ -375,7 +381,8 @@ function processTemplateFrag($loader, templates, uxType, importNames, newJSCard,
  * @param {number} newJSCard 1:卡片
  * @param {number} lite 1:轻卡
  */
-function processStyleFrag($loader, styles, uxType, newJSCard, lite) {
+function processStyleFrag($loader, styles, queryOptions = {}) {
+  const { uxType, newJSCard, lite, cardEntry } = queryOptions
   let code = '{}'
   if (styles.length) {
     // 有且仅有一个<style>片段
@@ -394,6 +401,7 @@ function processStyleFrag($loader, styles, uxType, newJSCard, lite) {
     const newJSCardParam = newJSCard ? `&newJSCard=${newJSCard}` : ''
     const liteParam = lite ? `&lite=${lite}` : ''
     const pathParam = newJSCard ? `&uxPath=${src}` : ''
+    const cardEntryParam = cardEntry ? `&cardEntry=${cardEntry}` : ''
     code = makeRequireString(
       $loader,
       makeLoaderString(
@@ -404,7 +412,7 @@ function processStyleFrag($loader, styles, uxType, newJSCard, lite) {
         },
         newJSCard
       ),
-      `${src}?uxType=${uxType}${newJSCardParam}${liteParam}${pathParam}`
+      `${src}?uxType=${uxType}${newJSCardParam}${liteParam}${pathParam}${cardEntryParam}`
     )
   }
   return code
@@ -417,7 +425,8 @@ function processStyleFrag($loader, styles, uxType, newJSCard, lite) {
  * @param uxType
  * @returns {string}
  */
-function processScriptFrag($loader, scripts, uxType, newJSCard) {
+function processScriptFrag($loader, scripts, queryOptions = {}) {
+  const { uxType, newJSCard } = queryOptions
   let code = 'null'
   if (scripts.length) {
     // 有且仅有一个<script>节点

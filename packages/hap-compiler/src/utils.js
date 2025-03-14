@@ -198,11 +198,11 @@ export function isValidValue(value) {
  * @returns {*}
  * @desc 将文件相对路径转为项目根目录('src/')下的绝对路径
  */
-export function resolvePath(relativePath, filePath) {
+export function resolvePath(relativePath, filePath, cardEntry = '') {
   if (filePath && !path.isAbsolute(relativePath)) {
     const absolutePath = path.join(path.dirname(filePath), relativePath)
     const relativeProjectPath = path.relative(
-      path.resolve(globalConfig.projectPath, './src'),
+      path.resolve(globalConfig.projectPath, './src', cardEntry),
       absolutePath
     )
     const newAbsolutePath = path.join('/', relativeProjectPath)

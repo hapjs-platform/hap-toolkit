@@ -35,8 +35,8 @@ export default async function appLoader(source) {
   }
   const manifestRequest = stringifyRequest(this, './manifest.json')
   codes.push(`
-var $app_style$ = ${processStyleFrag(this, frags.style, 'app')}
-var $app_script$ = ${processScriptFrag(this, frags.script, 'app')}
+var $app_style$ = ${processStyleFrag(this, frags.style, { uxType: 'app' })}
+var $app_script$ = ${processScriptFrag(this, frags.script, { uxType: 'app' })}
 $app_define$('@app-application/app', [], function ($app_require$, $app_exports$, $app_module$) {
   ${
     frags.script.length

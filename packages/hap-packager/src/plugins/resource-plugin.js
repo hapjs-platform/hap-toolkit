@@ -56,6 +56,8 @@ const EXT_PATTERN = FILE_EXT_NORES.map((ext) => {
   return '*' + ext
 }).join('|')
 
+const NODE_MODULES = 'node_modules'
+
 function getFiles(pattern, cwd) {
   return glob.sync(pattern, {
     nodir: true,
@@ -267,21 +269,29 @@ ResourcePlugin.prototype.apply = function (compiler) {
     })
     // 将 node_modules 中依赖的资源添加到res中
     const { projectRoot } = options
-    const pathNodeModules = path.join(projectRoot, 'node_modules')
+    const pathNodeModules = path.join(projectRoot, NODE_MODULES)
     const fileDependencies = compilation.fileDependencies
     for (let srcFile of fileDependencies) {
       const extname = path.extname(srcFile)
       if (
-        srcFile.indexOf(pathNodeModules) > -1 &&
+        srcFile.indexOf(NODE_MODULES) > -1 &&
         FILE_EXT_NORES.indexOf(extname) === -1 &&
         files.indexOf(srcFile) === -1 &&
         extname
       ) {
         // 原文件路径 srcFile 形如: /<project-root>/node_modules/module/demo.png
         // 目标文件路径 destFile 形如: /<project-root>/build/node_modules/module/demo.png
+
+        let destFile = path.resolve(targetDir, path.relative(projectRoot, srcFile))
+        if (srcFile.indexOf(pathNodeModules) < 0) {
+          destFile = srcFile.replace('src', 'build')
+
+          const nodeModulesIndex = srcFile.indexOf(NODE_MODULES)
+          srcFile = path.join(projectRoot, srcFile.slice(nodeModulesIndex))
+        }
         pairs.push({
           srcFile: srcFile,
-          destFile: path.resolve(targetDir, path.relative(projectRoot, srcFile))
+          destFile: destFile
         })
       }
     }
