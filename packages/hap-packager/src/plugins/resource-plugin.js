@@ -92,7 +92,7 @@ function getSpecifiedJSONFiles(sourceDir, specifiedDirArray) {
   return filesArray
 }
 
-function getWidgetI18nJSONFiles(sourceDir) {
+function getWidgetJSONFiles(sourceDir, specifiedDirArray) {
   let widgetsOption = {}
   try {
     const manifestFile = path.join(sourceDir, 'manifest.json')
@@ -107,16 +107,20 @@ function getWidgetI18nJSONFiles(sourceDir) {
       widgetsOption[key].path = key
     }
     const widgetPath = widgetsOption[key].path
-    const dir = path.join(sourceDir, widgetPath, 'i18n')
-    // const jsonPath = onlyRoot ? '*.json' : '**/**.json'
-    if (fs.existsSync(dir)) {
-      filesArray = filesArray.concat(getFiles('*.json', dir))
-    }
+    specifiedDirArray.map((specifiedDir) => {
+      const { directoryName, onlyRoot = false } = specifiedDir
+      const dir = path.join(sourceDir, widgetPath, directoryName)
+      if (fs.existsSync(dir)) {
+        // onlyRoot: 是否仅遍历根目录
+        const jsonPath = onlyRoot ? '*.json' : '**/**.json'
+        filesArray = filesArray.concat(getFiles(jsonPath, dir))
+      }
+    })
   }
   return filesArray
 }
 
-function minifyWidgetI18nJSONFiles(targetDir) {
+function minifyWidgetJSONFiles(targetDir, specifiedDirArray) {
   let widgetsOption = {}
   try {
     const manifestFile = path.join(targetDir, 'manifest.json')
@@ -131,17 +135,23 @@ function minifyWidgetI18nJSONFiles(targetDir) {
       widgetsOption[key].path = key
     }
     const widgetPath = widgetsOption[key].path
-    const dir = path.join(targetDir, widgetPath, 'i18n')
-    // 轻卡和写了minCardPlatformVersion的新打包格式的JS卡会进行多语言扁平化处理
-    const needFlatten =
-      widgetsOption[key].type === 'lite' || widgetsOption[key].minCardPlatformVersion
-    if (fs.existsSync(dir)) {
-      const jsonFiles = getFiles('*.json', dir)
-      jsonFiles.forEach((filePath) => {
-        arr.push(filePath)
-        minifyJson(filePath, filePath, needFlatten)
-      })
-    }
+    specifiedDirArray.map((specifiedDir) => {
+      const { directoryName, onlyRoot = false } = specifiedDir
+      const dir = path.join(targetDir, widgetPath, directoryName)
+      // 轻卡和写了minCardPlatformVersion的新打包格式的JS卡会进行多语言扁平化处理
+      const needFlatten =
+        directoryName === I18N_DIRECTORY &&
+        (widgetsOption[key].type === 'lite' || widgetsOption[key].minCardPlatformVersion)
+      if (fs.existsSync(dir)) {
+        // onlyRoot: 是否仅遍历根目录
+        const jsonPath = onlyRoot ? '*.json' : '**/**.json'
+        const jsonFiles = getFiles(jsonPath, dir)
+        jsonFiles.forEach((filePath) => {
+          arr.push(filePath)
+          minifyJson(filePath, filePath, needFlatten)
+        })
+      }
+    })
   }
 }
 
@@ -240,7 +250,7 @@ ResourcePlugin.prototype.apply = function (compiler) {
     let files = getFiles(`**/+(!(${EXT_PATTERN})|manifest.json|sitemap.json)`, sourceDir)
     files = files.concat(
       getSpecifiedJSONFiles(sourceDir, JSON_DIRECTORY_NEED_PACKAGING),
-      getWidgetI18nJSONFiles(sourceDir),
+      getWidgetJSONFiles(sourceDir, JSON_DIRECTORY_NEED_PACKAGING),
       getSkeletonConfigFile(sourceDir)
     )
     let iconPath
@@ -375,7 +385,7 @@ ResourcePlugin.prototype.apply = function (compiler) {
 
     minifySpecifiedJSONFiles(targetDir, JSON_DIRECTORY_NEED_PACKAGING)
 
-    minifyWidgetI18nJSONFiles(targetDir)
+    minifyWidgetJSONFiles(targetDir, JSON_DIRECTORY_NEED_PACKAGING)
 
     minifySitemap(targetDir)
 
