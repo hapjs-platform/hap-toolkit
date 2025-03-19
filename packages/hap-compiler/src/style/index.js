@@ -30,6 +30,7 @@ function parse(source) {
 
   let code = source.code || ''
   const filePath = source.filePath
+  const cardEntry = source.cardEntry
   const curDir = path.dirname(filePath)
   // 引入的CSS文件列表
   const depList = []
@@ -93,7 +94,8 @@ function parse(source) {
             } else if (name === 'src') {
               // 校验属性值
               const subResult = validateDelaration('fontSrc', value, {
-                filePath
+                filePath,
+                cardEntry
               })
               if (subResult.log) {
                 log.push({

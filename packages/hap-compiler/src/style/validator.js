@@ -803,7 +803,7 @@ const validator = {
       let value = url[2]
       if (!/^data:/.test(value) && !/^http(s)?:/.test(value)) {
         // 转换为以项目源码为根的绝对路径
-        value = resolvePath(value, options.filePath)
+        value = resolvePath(value, options.filePath, options.cardEntry)
       }
       return { value: value }
     }

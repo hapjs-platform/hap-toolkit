@@ -37,6 +37,7 @@ export default function styleLoader(code) {
   const resourcePath = this.resourcePath // 当前文件绝对路径
 
   const { depList, log, depFiles, jsonStyle } = parseStyle({
+    cardEntry: options.cardEntry,
     filePath: resourcePath,
     code: code,
     query: loaderQuery
