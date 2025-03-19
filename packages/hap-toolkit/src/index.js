@@ -5,7 +5,7 @@
 
 import { BuildModeManager } from '@hap-toolkit/shared-utils'
 import { launchServer, stopServer, updateWebViewOptions } from '@hap-toolkit/server'
-import { compile, stopWatch } from './commands/compile'
+import { compile, stopWatch, killAdb } from './commands/compile'
 
 /**
  * 关闭开发服务及停止webpack watching
@@ -65,6 +65,7 @@ export {
   stopServer,
   launchWithWatch,
   stopAll,
+  killAdb,
   BuildModeManager,
   updateWebViewOptions
 }
