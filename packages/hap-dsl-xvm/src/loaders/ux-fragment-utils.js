@@ -352,8 +352,8 @@ function processTemplateFrag($loader, templates, importNames, queryOptions = {})
 
     const newJSCardParam = newJSCard ? `&newJSCard=${newJSCard}` : ''
     const liteParam = lite ? `&lite=${lite}` : ''
-    const pathParam = newJSCard ? `&uxPath=${src}` : ''
-    const cardEntryParam = cardEntry ? `&cardEntry=${cardEntry}` : ''
+    const pathParam = newJSCard ? `&uxPath=${encodeURIComponent(src)}` : ''
+    const cardEntryParam = cardEntry ? `&cardEntry=${encodeURIComponent(cardEntry)}` : ''
     // 解析成类似url中key[]=xxx 的形式，便于loader-utils解析
     importNames = importNames.map((item) => 'importNames[]=' + item)
     retStr = makeRequireString(
@@ -400,8 +400,8 @@ function processStyleFrag($loader, styles, queryOptions = {}) {
     })
     const newJSCardParam = newJSCard ? `&newJSCard=${newJSCard}` : ''
     const liteParam = lite ? `&lite=${lite}` : ''
-    const pathParam = newJSCard ? `&uxPath=${src}` : ''
-    const cardEntryParam = cardEntry ? `&cardEntry=${cardEntry}` : ''
+    const pathParam = newJSCard ? `&uxPath=${encodeURIComponent(src)}` : ''
+    const cardEntryParam = cardEntry ? `&cardEntry=${encodeURIComponent(cardEntry)}` : ''
     code = makeRequireString(
       $loader,
       makeLoaderString(
