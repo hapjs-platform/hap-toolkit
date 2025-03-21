@@ -24,7 +24,7 @@ export default function templateLoader(source) {
   depFiles.forEach((file) => {
     let fileName = file
     if (cardEntry && file.startsWith('/node_modules')) {
-      fileName = cardEntry + file
+      fileName = decodeURIComponent(cardEntry) + file
     }
 
     this.addDependency(convertPath(fileName))

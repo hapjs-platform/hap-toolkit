@@ -14,6 +14,8 @@ import {
   resolvePath
 } from '../utils'
 
+import exp from '../template/exp'
+
 const colorNames = {
   aliceblue: '#F0F8FF',
   antiquewhite: '#FAEBD7',
@@ -2696,7 +2698,7 @@ function validate(name, value, options) {
   const validator = validatorMap[name]
 
   if (typeof validator === 'function') {
-    if (typeof value !== 'function' && value.indexOf('function') < 0) {
+    if (typeof value !== 'function' && value.indexOf('function') < 0 && !exp.isExpr(value)) {
       if (mightReferlocalResource(name)) {
         result = validator(value, options)
       } else {

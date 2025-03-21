@@ -66,7 +66,7 @@ export default function styleLoader(code) {
   depFiles.forEach((file) => {
     let fileName = file
     if (cardEntry && file.startsWith('/node_modules')) {
-      fileName = cardEntry + file
+      fileName = decodeURIComponent(cardEntry) + file
     }
     self.addDependency(convertPath(fileName))
   })
