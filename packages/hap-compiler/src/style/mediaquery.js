@@ -135,7 +135,7 @@ const featureValidator = {
       if (sizeStr[0] === '"' || sizeStr[0] === "'") {
         sizeStr = sizeStr.slice(1, sizeStr.length - 1)
       }
-      const reg = /^(1x1|1x2|2x1|2x2|4x2|4x4|4xN)$/
+      const reg = /^(1|2|4|8|AUTO|FULL)x(1|2|4|8|AUTO|FULL)$/
       if (reg.test(sizeStr)) {
         return { value: sizeStr }
       }
@@ -153,7 +153,7 @@ const featureValidator = {
     }
   },
   deviceType(value) {
-    const reg = /^(phone|watch|car)$/
+    const reg = /^(phone|watch|car|tablet|foldable|flip)$/
     if (reg.test(value)) {
       return { value }
     }

@@ -21,6 +21,7 @@
       "CardDemo": {
         "name": "CardDemo",
         "decription": "快应用卡片展示",
+        "minCardPlatformVersion": 2000,
         "component": "index",
         "path": "/CardDemo",
         "features": []

@@ -105,6 +105,7 @@ exports[`split common component on a project build results include split chunks 
       \\"CardDemo\\": {
         \\"name\\": \\"CardDemo\\",
         \\"decription\\": \\"快应用卡片展示\\",
+        \\"minPlatformVersion\\": 2000,
         \\"component\\": \\"index\\",
         \\"path\\": \\"/CardDemo\\",
         \\"features\\": []
