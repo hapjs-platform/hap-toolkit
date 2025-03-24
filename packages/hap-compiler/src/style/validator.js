@@ -208,6 +208,7 @@ const REGEXP_COLOR_RGB = /^rgb\(\s*(\d+)\s*,\s*(\d+)\s*,\s*(\d+)\s*\)$/
 const REGEXP_COLOR_RGBA = /^rgba\(\s*(\d+)\s*,\s*(\d+)\s*,\s*(\d+)\s*,\s*(\d*\.?\d+)\s*\)$/
 const REGEXP_COLOR_HSL = /^hsl\(\s*(\d+)\s*,\s*(\d+%)\s*,\s*(\d+%)\s*\)$/
 const REGEXP_COLOR_HSLA = /^hsla\(\s*(\d+)\s*,\s*(\d+%)\s*,\s*(\d+%)\s*,\s*(\d*\.?\d+)\s*\)$/
+const REGEXP_COLOR_VAR = /^var\(\s*--[^\r\n\t\f\v]+\)$/
 const REGEXP_ARRAYCOLORSTOP =
   /(rgba|rgb)\([0-9,.\spx%]+\)\s?[0-9-+pxdp%]*|[#]?\w+\s?[0-9+-\spxdp%]*/gi
 const REGEXP_ARRAYCOLOR = /(?:.+?\s(?=[#a-zA-Z]))|.+/g
@@ -590,7 +591,8 @@ const validator = {
     if (
       v.match(REGEXP_COLOR_LONG) ||
       v.match(REGEXP_COLOR_ALPHA_LONG) ||
-      v.match(REGEXP_COLOR_ALPHA_SHORT)
+      v.match(REGEXP_COLOR_ALPHA_SHORT) ||
+      v.match(REGEXP_COLOR_VAR)
     ) {
       return { value: v }
     }

@@ -48,7 +48,8 @@ const featureValidatorMap = {
   scene: 'scene',
   'widget-size': 'widgetSize',
   'device-type': 'deviceType',
-  manufacturer: 'manufacturer'
+  manufacturer: 'manufacturer',
+  'theme-mode': 'themeMode'
 }
 
 /**
@@ -212,6 +213,19 @@ const featureValidator = {
           '` 的值 `' +
           value +
           '` 不正确, 必须为 `light | dark | no-preference`'
+        )
+      }
+    }
+  },
+  themeMode(value) {
+    const reg = /^(color|default)$/
+    if (reg.test(value)) {
+      return { value }
+    }
+    return {
+      reason: function (feature) {
+        return (
+          'WARN: 媒体特征 `' + feature + '` 的值 `' + value + '` 不正确, 必须为 `color | default`'
         )
       }
     }
