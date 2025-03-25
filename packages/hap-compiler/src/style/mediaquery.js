@@ -48,7 +48,8 @@ const featureValidatorMap = {
   scene: 'scene',
   'widget-size': 'widgetSize',
   'device-type': 'deviceType',
-  manufacturer: 'manufacturer'
+  manufacturer: 'manufacturer',
+  'theme-mode': 'themeMode'
 }
 
 /**
@@ -135,7 +136,7 @@ const featureValidator = {
       if (sizeStr[0] === '"' || sizeStr[0] === "'") {
         sizeStr = sizeStr.slice(1, sizeStr.length - 1)
       }
-      const reg = /^(1x1|1x2|2x1|2x2|4x2|4x4|4xN)$/
+      const reg = /^(1|2|4|8|AUTO|FULL)x(1|2|4|8|AUTO|FULL)$/
       if (reg.test(sizeStr)) {
         return { value: sizeStr }
       }
@@ -153,7 +154,7 @@ const featureValidator = {
     }
   },
   deviceType(value) {
-    const reg = /^(phone|watch|car)$/
+    const reg = /^(phone|watch|car|tablet|foldable|flip)$/
     if (reg.test(value)) {
       return { value }
     }
@@ -212,6 +213,19 @@ const featureValidator = {
           '` 的值 `' +
           value +
           '` 不正确, 必须为 `light | dark | no-preference`'
+        )
+      }
+    }
+  },
+  themeMode(value) {
+    const reg = /^(color|default)$/
+    if (reg.test(value)) {
+      return { value }
+    }
+    return {
+      reason: function (feature) {
+        return (
+          'WARN: 媒体特征 `' + feature + '` 的值 `' + value + '` 不正确, 必须为 `color | default`'
         )
       }
     }

@@ -215,23 +215,37 @@ function checkFeatureInCard(obj = {}) {
  * 填充 widget path、type 缺失时的默认值
  */
 function populateWidgetFields(widgetsObj) {
-  Object.keys(widgetsObj).forEach((key) => {
-    if (!widgetsObj[key].path) {
-      widgetsObj[key].path = `/${key}`
+  Object.keys(widgetsObj).forEach((routePath) => {
+    const conf = widgetsObj[routePath]
+    if (!conf.path) {
+      conf.path = `/${routePath}`
       colorconsole.warn(
-        `WARN: manifest.json 文件中 widgets 字段 ${key} 缺少 path 属性，默认设置为卡片名 /${key}`
+        `WARN: manifest.json 文件中 widgets 字段 ${routePath} 缺少 path 属性，默认设置为卡片名 /${routePath}`
       )
     }
-    if (!widgetsObj[key].type) {
-      widgetsObj[key].type = `js`
+    if (!conf.type) {
+      conf.type = `js`
       colorconsole.warn(
-        `WARN: manifest.json 文件中 widgets 字段 ${key} 缺少 type 属性，默认设置为 js`
+        `WARN: manifest.json 文件 widgets 字段下 ${routePath} 缺少 type 属性，默认设置为 js`
       )
     }
-    if (widgetsObj[key].type === 'js' && widgetsObj[key].minCardPlatformVersion) {
+
+    if (conf.type === 'js') {
       // 写了 minCardPlatformVersion 字段
       // 赋值给 minPlatformVersion（兼容旧引擎），引导引擎升级
-      widgetsObj[key].minPlatformVersion = widgetsObj[key].minCardPlatformVersion
+      if (conf.minCardPlatformVersion) {
+        conf.minPlatformVersion = conf.minCardPlatformVersion
+      } else if (!conf.minPlatformVersion) {
+        // 没写 minCardPlatformVersion 和 minPlatformVersion 字段
+        throw new Error(
+          `manifest.json 文件 widgets 字段下，${routePath} 缺少 minCardPlatformVersion 字段`
+        )
+      }
+    }
+    if (conf.type === 'lite' && !conf.minCardPlatformVersion) {
+      throw new Error(
+        `manifest.json 文件 widgets 字段下，轻卡 ${routePath} 缺少 minCardPlatformVersion 字段`
+      )
     }
   })
 }

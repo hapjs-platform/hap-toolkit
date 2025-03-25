@@ -109,11 +109,11 @@ export function resolveEntries(manifest, basedir, cwd) {
       sourceFile = sourceFile.replace(/\\/g, '/')
       if (type === ENTRY_TYPE.CARD) {
         if (conf.type === 'lite') {
-          sourceFile += '&lite=1' // lite card
+          sourceFile += '&lite=1' // lite 卡
         } else if (conf.minCardPlatformVersion) {
-          sourceFile += '&newJSCard=1' // new jscard
+          sourceFile += '&newJSCard=1' // 新打包格式的 js 卡
         }
-        sourceFile += `&cardEntry=${routePath}` // new jscard
+        sourceFile += `&cardEntry=${routePath}` // card 入口，lite 和 js 卡（新旧打包格式）都带该参数
       }
       entries[entryKey] = sourceFile
     })

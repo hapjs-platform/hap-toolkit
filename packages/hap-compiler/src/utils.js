@@ -204,7 +204,7 @@ export function resolvePath(relativePath, filePath, cardEntry) {
     let relativeProjectPath
     if (cardEntry && filePath.indexOf('node_modules') > -1) {
       relativeProjectPath = path.join(
-        cardEntry,
+        decodeURIComponent(cardEntry),
         path.relative(globalConfig.projectPath, absolutePath)
       )
     } else {

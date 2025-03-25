@@ -290,7 +290,7 @@ const devUtils = {
       const query = pathArr[pathArr.length - 1]
       const resourceQuery = loaderUtils.parseQuery(query ? `?${query}` : '?')
 
-      const uxPath = resourceQuery.uxPath
+      const uxPath = decodeURIComponent(resourceQuery.uxPath)
       return this.getRelativeCompPath(pathSrc, uxPath)
     } else {
       return ''
