@@ -181,6 +181,7 @@ const tagNatives = {
     }
   },
   slider: {
+    supportCard: true,
     selfClosing: true,
     atomic: true,
     attrs: {
@@ -223,6 +224,7 @@ const tagNatives = {
     }
   },
   list: {
+    supportCard: true,
     children: ['list-item'],
     attrs: {
       scrollpage: {
@@ -235,6 +237,7 @@ const tagNatives = {
     events: ['scroll', 'scrollbottom', 'scrolltop', 'scrollend', 'scrolltouchup', 'selected']
   },
   'list-item': {
+    supportCard: true,
     excludeRoot: true,
     parents: ['list'],
     attrs: {
@@ -493,6 +496,7 @@ const tagNatives = {
     events: ['load', 'error', 'show', 'click', 'close']
   },
   swiper: {
+    supportCard: true,
     attrs: {
       index: {
         def: 0
@@ -838,6 +842,7 @@ const tagNatives = {
     events: ['change', 'scroll']
   },
   lottie: {
+    supportCard: true,
     empty: true,
     attrs: {
       source: {
