@@ -91,6 +91,9 @@ const tagCommon = {
     },
     descendantfocusability: {
       enum: ['before', 'after', 'block']
+    },
+    overflow: {
+      enum: ['visible', 'hidden']
     }
   },
   children: ['block', 'slot', 'component'], // 通用控制组件
