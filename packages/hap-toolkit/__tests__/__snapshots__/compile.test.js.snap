@@ -317,6 +317,8 @@ versionCode 字段必须为 Integer 类型
 
 [LOG] ### App Loader ### 'com.application.demo.__preview___CardDemo.rpk' 大小为 10 KB
 
+[LOG] ### App Loader ### 项目构建并生成文件：com.application.demo.__preview__.debug.1.0.0.rpk
+
 [LOG] ### App Loader ### 项目构建并生成文件：com.application.demo.__preview__.debug.1.0.0.rpks
 
 [LOG] ### App Server ### 没有记录手机地址，不会通知手机更新rpk文件

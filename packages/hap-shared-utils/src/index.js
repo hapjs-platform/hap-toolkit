@@ -450,7 +450,7 @@ export function isNeedFullPackage() {
     manifest &&
     manifest.router &&
     manifest.router.pages &&
-    manifest.router.pages.length > 0 &&
+    Object.keys(manifest.router.pages).length > 0 &&
     (!manifest.subpackages || manifest.subpackages.length === 0)
   ) {
     // 存在卡片
