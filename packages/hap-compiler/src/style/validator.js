@@ -579,6 +579,26 @@ const validator = {
       }
     }
   },
+  maxLength: function (v, units, defaultValueIfNotSupported) {
+    v = (v || '').toString().trim()
+    if (v === 'none') {
+      return {
+        value: v
+      }
+    } else {
+      return validator.length(v, units, defaultValueIfNotSupported)
+    }
+  },
+  minLength: function (v, units, defaultValueIfNotSupported) {
+    v = (v || '').toString().trim()
+    if (v === 'auto') {
+      return {
+        value: v
+      }
+    } else {
+      return validator.length(v, units, defaultValueIfNotSupported)
+    }
+  },
   /**
    * 颜色值校验, 支持 rgb, rgba, #fff, #ffffff, named-color #f0ff #ff00ff00
    * @param v
@@ -2418,6 +2438,16 @@ const validator = {
           )
         }
       }
+  },
+  letterSpacing: function (v, units, defaultValueIfNotSupported) {
+    v = (v || '').toString().trim()
+    if (v === 'normal') {
+      return {
+        value: v
+      }
+    } else {
+      return validator.length(v, units, defaultValueIfNotSupported)
+    }
   }
 }
 
@@ -2517,10 +2547,10 @@ const validatorMap = {
   transitionTimingFunction: validateTimingFunction,
   width: validator.length,
   height: validator.length,
-  minHeight: validator.length,
-  minWidth: validator.length,
-  maxHeight: validator.length,
-  maxWidth: validator.length,
+  minHeight: validator.minLength,
+  minWidth: validator.minLength,
+  maxHeight: validator.maxLength,
+  maxWidth: validator.maxLength,
   padding: makeAbbrAttrValidator('arraylength', [
     'paddingTop',
     'paddingRight',
@@ -2684,7 +2714,8 @@ const validatorMap = {
   themeThumbColor: makeEnumValidator(themeColors),
   themeTrackColor: makeEnumValidator(themeColors),
   themeSelectColor: makeEnumValidator(themeColors),
-  themeBlockColor: makeEnumValidator(themeColors)
+  themeBlockColor: makeEnumValidator(themeColors),
+  letterSpacing: validator.letterSpacing
 }
 
 /**

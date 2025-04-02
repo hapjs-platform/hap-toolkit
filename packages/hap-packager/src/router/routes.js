@@ -10,11 +10,11 @@ import moment from 'moment'
 
 import {
   colorconsole,
-  readJson,
   relateCwd,
   globalConfig,
   recordClient,
-  getRecordClient
+  getRecordClient,
+  isNeedFullPackage
 } from '@hap-toolkit/shared-utils'
 
 import {
@@ -64,26 +64,13 @@ async function bundle(context, next) {
     const projectName = projectInfo.projectName
     const projectVersion = projectInfo.projectVersion
     const platformVersion = context.request.query.platformVersion
-    let useAppRpk = false
-    // 应用模式下
+    let useFullPackage = false
+    // 调试器选择应用模式下
     if (parseInt(context.request.query.mode || 0) === 0) {
-      // 读取 manifest
-      let manifest
-      try {
-        manifest = readJson(path.join(projectPath, './src/manifest.json'))
-      } catch (err) {
-        manifest = null
-      }
-      // 不存在分包
-      if (manifest && manifest.router && (!manifest.subpackages || manifest.subpackages.length === 0)) {
-        // 存在卡片
-        if (manifest.router.widgets && Object.keys(manifest.router.widgets).length > 0) {
-          useAppRpk = true
-        }
-      }
+      useFullPackage = isNeedFullPackage(projectPath)
     }
-    
-    if (platformVersion && platformVersion >= RPKS_SUPPORT_VERSION_FROM && !useAppRpk) {
+
+    if (platformVersion && platformVersion >= RPKS_SUPPORT_VERSION_FROM && !useFullPackage) {
       distFile = getDistFilePath(projectDist, projectName, projectVersion, 'rpks')
     }
     if (!distFile) {

@@ -3,7 +3,7 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-import { colorconsole } from '@hap-toolkit/shared-utils'
+import { colorconsole, isNeedFullPackage } from '@hap-toolkit/shared-utils'
 
 import { SINGLE_PKG_SIZE, FULL_PKG_SIZE } from '../common/constant'
 
@@ -55,12 +55,12 @@ async function buildDebugModeProjectAndOutput(
   disableStreamPack
 ) {
   const { privatekey, certificate } = signConfig
-  const hasSubPackages = subPackages.length
+  const needFullPackage = isNeedFullPackage()
 
   let fullPackageBuffer
 
   // Step1. 生成整包rpk
-  if (!hasSubPackages) {
+  if (needFullPackage) {
     fullPackageBuffer = await createAndSignBuffer(fullPackage, privatekey, certificate)
   }
 
@@ -73,7 +73,7 @@ async function buildDebugModeProjectAndOutput(
 
   // Step3. 默认携带META，如果禁用流失打包，需要删除META
   if (disableStreamPack) {
-    if (!hasSubPackages) {
+    if (needFullPackage) {
       fullPackageBuffer = await removeMetaForRpkOrRpksFile(fullPackageBuffer)
     }
     subPackageBuffers = await Promise.all(subPackageBuffers.map(removeMetaForRpkOrRpksFile))

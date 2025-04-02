@@ -435,3 +435,28 @@ function getHash(compPath) {
   }
   return res
 }
+
+export function isNeedFullPackage() {
+  // 读取 manifest
+  let manifest
+  let needFullPackage = false
+  try {
+    manifest = readJson(path.join(globalConfig.projectPath, './src/manifest.json'))
+  } catch (err) {
+    manifest = null
+  }
+  // 快应用项目，不存在分包
+  if (
+    manifest &&
+    manifest.router &&
+    manifest.router.pages &&
+    manifest.router.pages.length > 0 &&
+    (!manifest.subpackages || manifest.subpackages.length === 0)
+  ) {
+    // 存在卡片
+    if (manifest.router.widgets && Object.keys(manifest.router.widgets).length > 0) {
+      needFullPackage = true
+    }
+  }
+  return needFullPackage
+}
