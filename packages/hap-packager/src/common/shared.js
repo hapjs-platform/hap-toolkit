@@ -193,7 +193,6 @@ function searchModuleImport(fileCont, options = {}) {
 /**
  * 检测manifest里面的widget，包括：
  * 检测不支持的feature
- * 增加 widget 中 path 缺失时的默认值
  */
 function checkFeatureInCard(obj = {}) {
   Object.keys(obj).forEach((key) => {
@@ -207,8 +206,6 @@ function checkFeatureInCard(obj = {}) {
         }
       })
   })
-
-  populateWidgetFields(obj)
 }
 
 /**
@@ -237,13 +234,13 @@ function populateWidgetFields(widgetsObj) {
         conf.minPlatformVersion = conf.minCardPlatformVersion
       } else if (!conf.minPlatformVersion) {
         // 没写 minCardPlatformVersion 和 minPlatformVersion 字段
-        throw new Error(
+        colorconsole.throw(
           `manifest.json 文件 widgets 字段下，${routePath} 缺少 minCardPlatformVersion 字段`
         )
       }
     }
     if (conf.type === 'lite' && !conf.minCardPlatformVersion) {
-      throw new Error(
+      colorconsole.throw(
         `manifest.json 文件 widgets 字段下，轻卡 ${routePath} 缺少 minCardPlatformVersion 字段`
       )
     }
@@ -268,8 +265,9 @@ function updateManifest(manifest, debug) {
 
   // 更新features
   manifest.features = manifest.features || []
-
   checkFeatureInCard(manifest.router.widgets || {})
+
+  populateWidgetFields(manifest.router.widgets || {})
 
   // 在项目所有引用的模块列表中删除manifest已声明的模块
   const projectFeatureList = [].concat(global.framework.project.featureList)

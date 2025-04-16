@@ -141,7 +141,9 @@ function minifyWidgetJSONFiles(targetDir, specifiedDirArray) {
       // 轻卡和写了minCardPlatformVersion的新打包格式的JS卡会进行多语言扁平化处理
       const needFlatten =
         directoryName === I18N_DIRECTORY &&
-        (widgetsOption[key].type === 'lite' || widgetsOption[key].minCardPlatformVersion)
+        (widgetsOption[key].type === 'lite' ||
+          (widgetsOption[key].minCardPlatformVersion &&
+            widgetsOption[key].minCardPlatformVersion >= 2000))
       if (fs.existsSync(dir)) {
         // onlyRoot: 是否仅遍历根目录
         const jsonPath = onlyRoot ? '*.json' : '**/**.json'

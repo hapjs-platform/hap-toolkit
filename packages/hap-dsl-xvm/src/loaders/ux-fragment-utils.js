@@ -269,12 +269,15 @@ function makeLoaderString(type, config, newJSCard, uxType) {
  * @returns {string}
  */
 function processImportFrag($loader, imports, importNames, queryOptions = {}) {
-  const { newJSCard, lite, cardEntry } = queryOptions
+  const { newJSCard, lite, cardEntry, minCardRuntimeVersion } = queryOptions
   let retStr = ''
   if (imports.length) {
     const newJSCardParam = newJSCard ? `&newJSCard=${newJSCard}` : ''
     const liteParam = lite ? `&lite=${lite}` : ''
     const cardEntryParam = cardEntry ? `&cardEntry=${cardEntry}` : ''
+    const minCardRuntimeVersionParam = minCardRuntimeVersion
+      ? `&minCardRuntimeVersion=${minCardRuntimeVersion}`
+      : ''
     for (let i = 0; i < imports.length; i++) {
       const imp = imports[i]
       let importSrc = imp.attrs.src
@@ -311,7 +314,7 @@ function processImportFrag($loader, imports, importNames, queryOptions = {}) {
       let reqStr = makeRequireString(
         $loader,
         makeLoaderString(FRAG_TYPE.IMPORT, null, newJSCard),
-        `${importSrc}?uxType=${ENTRY_TYPE.COMP}&name=${importName}${newJSCardParam}${liteParam}${cardEntryParam}`
+        `${importSrc}?uxType=${ENTRY_TYPE.COMP}&name=${importName}${newJSCardParam}${liteParam}${cardEntryParam}${minCardRuntimeVersionParam}`
       )
 
       if (compileOptionsObject.stats) {
@@ -335,7 +338,7 @@ function processImportFrag($loader, imports, importNames, queryOptions = {}) {
  * @param {number} lite 轻卡
  */
 function processTemplateFrag($loader, templates, importNames, queryOptions = {}) {
-  const { uxType, newJSCard, lite, cardEntry } = queryOptions
+  const { uxType, newJSCard, lite, cardEntry, minCardRuntimeVersion } = queryOptions
   let retStr = '{}'
   if (!templates.length) {
     $loader.emitError(new Error('需要模板 <template> 片段'))
@@ -354,6 +357,9 @@ function processTemplateFrag($loader, templates, importNames, queryOptions = {})
     const liteParam = lite ? `&lite=${lite}` : ''
     const pathParam = newJSCard ? `&uxPath=${encodeURIComponent(src)}` : ''
     const cardEntryParam = cardEntry ? `&cardEntry=${encodeURIComponent(cardEntry)}` : ''
+    const minCardRuntimeVersionParam = minCardRuntimeVersion
+      ? `&minCardRuntimeVersion=${minCardRuntimeVersion}`
+      : ''
     // 解析成类似url中key[]=xxx 的形式，便于loader-utils解析
     importNames = importNames.map((item) => 'importNames[]=' + item)
     retStr = makeRequireString(
@@ -367,7 +373,7 @@ function processTemplateFrag($loader, templates, importNames, queryOptions = {})
       ),
       `${src}?uxType=${uxType}&${importNames.join(
         ','
-      )}${newJSCardParam}${liteParam}${pathParam}${cardEntryParam}`
+      )}${newJSCardParam}${liteParam}${pathParam}${cardEntryParam}${minCardRuntimeVersionParam}`
     )
   }
   return retStr

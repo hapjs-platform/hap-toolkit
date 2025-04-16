@@ -110,9 +110,12 @@ export function resolveEntries(manifest, basedir, cwd) {
       if (type === ENTRY_TYPE.CARD) {
         if (conf.type === 'lite') {
           sourceFile += '&lite=1' // lite 卡
-        } else if (conf.minCardPlatformVersion) {
+        } else if (conf.minCardPlatformVersion && conf.minCardPlatformVersion >= 2000) {
           sourceFile += '&newJSCard=1' // 新打包格式的 js 卡
         }
+        sourceFile += `&minCardRuntimeVersion=${
+          conf.minCardPlatformVersion || conf.minPlatformVersion || 0
+        }` // 卡片配置的最小运行时版本
         sourceFile += `&cardEntry=${routePath}` // card 入口，lite 和 js 卡（新旧打包格式）都带该参数
       }
       entries[entryKey] = sourceFile
