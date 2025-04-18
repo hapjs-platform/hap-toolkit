@@ -14,7 +14,7 @@ import {
   globalConfig,
   recordClient,
   getRecordClient,
-  isNeedFullPackage
+  getUseFullPackage
 } from '@hap-toolkit/shared-utils'
 
 import {
@@ -67,7 +67,7 @@ async function bundle(context, next) {
     let useFullPackage = false
     // 调试器选择应用模式下
     if (parseInt(context.request.query.mode || 0) === 0) {
-      useFullPackage = isNeedFullPackage(projectPath)
+      useFullPackage = getUseFullPackage(projectPath)
     }
 
     if (platformVersion && platformVersion >= RPKS_SUPPORT_VERSION_FROM && !useFullPackage) {

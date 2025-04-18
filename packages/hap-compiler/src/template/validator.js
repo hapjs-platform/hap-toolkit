@@ -546,6 +546,7 @@ const tagNatives = {
     }
   },
   picker: {
+    minRequiredRuntimeVersion: 1201,
     supportCard: true,
     selfClosing: true,
     atomic: true,
@@ -588,6 +589,8 @@ const tagNatives = {
     events: ['change', 'selectionchange', 'linechange']
   },
   video: {
+    supportCard: true,
+    minRequiredRuntimeVersion: 1201,
     empty: true,
     attrs: {
       src: {},
@@ -806,6 +809,7 @@ const tagNatives = {
     excludeRoot: true
   },
   marquee: {
+    minRequiredRuntimeVersion: 1201,
     supportCard: true,
     textContent: true,
     atomic: true,
@@ -1095,6 +1099,25 @@ function checkTagName(node, output, options = {}) {
       column: location.col || 1,
       reason: 'ERROR: 卡片不支持组件名 `' + tagName + '`, 请修改'
     })
+  }
+
+  if (
+    (options.uxType === ENTRY_TYPE.CARD || options.uxType === ENTRY_TYPE.COMP) &&
+    tagNatives[tagName] &&
+    options.minCardRuntimeVersion &&
+    options.minCardRuntimeVersion < tagNatives[tagName].minRequiredRuntimeVersion
+  ) {
+    const locationAddr =
+      location.line && location.column ? '@' + location.line + ':' + location.column : ''
+    colorconsole.throw(
+      'ERROR: ' +
+        locationAddr +
+        ' 使用 `' +
+        tagName +
+        '` 组件，要求卡片配置 minCardPlatformVersion 或 minPlatformVersion 不低于 ' +
+        tagNatives[tagName].minRequiredRuntimeVersion +
+        ', 请修改'
+    )
   }
 
   // 检测根组件合法性

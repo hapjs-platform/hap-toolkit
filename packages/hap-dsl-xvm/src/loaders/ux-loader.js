@@ -138,7 +138,8 @@ export default function uxLoader(source) {
     uxType: resourceQuery.uxType, // 文件类型
     newJSCard: resourceQuery.newJSCard, // 新打包格式的 JS卡
     lite: resourceQuery.lite, // 轻卡
-    cardEntry: resourceQuery.cardEntry // 卡片入口
+    cardEntry: resourceQuery.cardEntry, // 卡片入口
+    minCardRuntimeVersion: resourceQuery.minCardRuntimeVersion // 卡片配置的最小平台版本
   }
   // 使用原有文件名（不包含扩展名）
   const name = resourceQuery.name || getNameByPath(resourcePath)

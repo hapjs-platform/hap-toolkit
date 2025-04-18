@@ -136,7 +136,7 @@ class CardPlugin {
         }
         const { _valueAsString, _valueAsBuffer } = _source || {}
         const sourceValueStr = _valueAsString || _valueAsBuffer?.toString() || ''
-        let obj
+        let obj = {}
         let jsonStr = sourceValueStr
         const sourceValueStrTrim = sourceValueStr.trim()
         if (sourceValueStrTrim.indexOf('module.exports') === 0) {

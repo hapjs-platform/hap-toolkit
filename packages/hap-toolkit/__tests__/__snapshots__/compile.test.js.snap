@@ -50,7 +50,7 @@ $app_define$('@app-component/index', [], function($app_require$, $app_exports$, 
         if ($app_exports$.__esModule && $app_exports$.default) {
           $app_module$.exports = $app_exports$.default
         }
-    $app_module$.exports.template = require(\\"!../../../../../hap-dsl-xvm/lib/loaders/template-loader.js!../../../../../hap-dsl-xvm/lib/loaders/fragment-loader.js?index=0&type=template!./index.ux?uxType=card&&cardEntry=CardDemo\\")
+    $app_module$.exports.template = require(\\"!../../../../../hap-dsl-xvm/lib/loaders/template-loader.js!../../../../../hap-dsl-xvm/lib/loaders/fragment-loader.js?index=0&type=template!./index.ux?uxType=card&&cardEntry=CardDemo&minCardRuntimeVersion=2000\\")
     $app_module$.exports.style = require(\\"!../../../../../hap-dsl-xvm/lib/loaders/style-loader.js?index=0&type=style!../../../../../hap-dsl-xvm/lib/loaders/fragment-loader.js?index=0&type=style!./index.ux?uxType=card&cardEntry=CardDemo\\")
 });
 $app_bootstrap$('@app-component/index',{ packagerVersion: QUICKAPP_TOOLKIT_VERSION });"
@@ -355,7 +355,7 @@ Array [
 
 exports[`测试compile generate webpack config 1`] = `
 Object {
-  "CardDemo/index": "./src/CardDemo/index.ux?uxType=card&cardEntry=CardDemo",
+  "CardDemo/index": "./src/CardDemo/index.ux?uxType=card&minCardRuntimeVersion=2000&cardEntry=CardDemo",
   "Demo/index": "./src/Demo/index.ux?uxType=page",
   "app": "./src/app.ux?uxType=app",
   "workers/request/index": "./src/workers/request/index.js",
