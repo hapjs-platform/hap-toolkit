@@ -4,5 +4,5 @@
     "packages/*",
     "test/build/projects/*"
   ],
-  "version": "2.0.1-alpha.1"
+  "version": "2.0.1"
 }
