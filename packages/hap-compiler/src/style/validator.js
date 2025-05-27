@@ -401,21 +401,15 @@ const validateTime = function (v) {
 }
 // 灵感组件颜色值
 const themeColors = [
-  'uxCardColorTheme',
-  'uxCardColorAccent',
-  'uxCardColorPrimary',
-  'uxCardColorSecondary',
-  'uxCardColorSecondaryVariant',
-  'uxCardColorTertiary',
-  'uxCardColorQuaternary',
-  'uxCardColorContainer',
-  'uxCardBackground',
-  'uxCardColorHue',
-  'uxCardColorHueSecondary',
-  'uxIconColorAccent',
-  'uxIconColorPrimary',
-  'uxIconColorSecondary',
-  'uxIconColorBackground'
+  'uxCardColorBackground',
+	'uxCardColorAccent',
+	'uxCardColorContainer',
+	'uxCardColorHue',
+	'uxCardColorHueSecondary',
+	'uxCardColorPrimary',
+	'uxCardColorQuaternary',
+	'uxCardColorSecondaryVariant',
+	'uxCardColorTertiary',
 ]
 const validator = {
   /**
@@ -2711,9 +2705,8 @@ const validatorMap = {
   themeColor: makeEnumValidator(themeColors),
   themeBackgroundColor: makeEnumValidator(themeColors),
   themeLayerColor: makeEnumValidator(themeColors),
-  themeThumbColor: makeEnumValidator(themeColors),
   themeTrackColor: makeEnumValidator(themeColors),
-  themeSelectColor: makeEnumValidator(themeColors),
+  themeSelectedColor: makeEnumValidator(themeColors),
   themeBlockColor: makeEnumValidator(themeColors),
   letterSpacing: validator.letterSpacing
 }
