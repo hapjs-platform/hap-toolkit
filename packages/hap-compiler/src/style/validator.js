@@ -402,14 +402,14 @@ const validateTime = function (v) {
 // 灵感组件颜色值
 const themeColors = [
   'uxCardColorBackground',
-	'uxCardColorAccent',
-	'uxCardColorContainer',
-	'uxCardColorHue',
-	'uxCardColorHueSecondary',
-	'uxCardColorPrimary',
-	'uxCardColorQuaternary',
-	'uxCardColorSecondaryVariant',
-	'uxCardColorTertiary',
+  'uxCardColorAccent',
+  'uxCardColorContainer',
+  'uxCardColorHue',
+  'uxCardColorHueSecondary',
+  'uxCardColorPrimary',
+  'uxCardColorQuaternary',
+  'uxCardColorSecondaryVariant',
+  'uxCardColorTertiary'
 ]
 const validator = {
   /**
