@@ -226,7 +226,7 @@ export default async function createRouter(previewTarget) {
         type,
         script,
         scriptNotFound: !scriptExists(script),
-        webJsUrl: genWebJsUrl(ctx.conf.options.webVersion),
+        webJsUrl: genWebJsUrl(browerOptions.options.version || ctx.conf.options.webVersion), // 更改预览版本号修改为同媒介查询一样的传参方式，同时兼容之前的方式
         language: currentLanguage,
         mediaQueryParams: JSON.stringify(mediaQueryParams) // 传给页面的媒介查询参数
       })
