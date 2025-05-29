@@ -541,7 +541,7 @@ const tagNatives = {
         def: 0
       },
       type: {
-        enum: ['horizontal', 'circular']
+        enum: ['horizontal', 'circular', 'round']
       }
     }
   },
