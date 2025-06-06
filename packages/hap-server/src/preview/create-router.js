@@ -196,7 +196,7 @@ export default async function createRouter(previewTarget) {
       const pathname = page || manifest.router.entry
       ctx.redirect(`/preview/${pathname}`)
     } else {
-      const page = getLaunchPage();
+      const page = getLaunchPage()
       ctx.redirect(`/preview/${page}`)
     }
   })
