@@ -196,6 +196,7 @@ export default async function createRouter(previewTarget) {
       const pathname = page || manifest.router.entry
       ctx.redirect(`/preview/${pathname}`)
     } else {
+      // 纯卡片项目的时候需要去获取当前编译模式里面存的id，不然刷新会默认首页报404
       const page = getLaunchPage()
       ctx.redirect(`/preview/${page}`)
     }
