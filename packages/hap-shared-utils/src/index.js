@@ -448,8 +448,8 @@ export function isNeedFullPackage() {
       manifest = null
     }
   }
-  // 存在卡片
-  if (manifest.router.widgets && Object.keys(manifest.router.widgets).length > 0) {
+  // 存在快应用项目
+  if (manifest.router.pages && Object.keys(manifest.router.pages).length > 0) {
     needFullPackage = true
   }
   return needFullPackage

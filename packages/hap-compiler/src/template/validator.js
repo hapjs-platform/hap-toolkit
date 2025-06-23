@@ -110,6 +110,9 @@ const tagNatives = {
     attrs: {
       enablevideofullscreencontainer: {
         enum: ['false', 'true']
+      },
+      uiversion: {
+        enum: ['g2']
       }
     }
   },
@@ -132,7 +135,10 @@ const tagNatives = {
       type: {
         enum: ['text', 'html']
       },
-      'letter-spacing': {}
+      'letter-spacing': {},
+      uiversion: {
+        enum: ['g2']
+      }
     }
   },
   span: {
@@ -180,6 +186,9 @@ const tagNatives = {
       },
       autoplay: {
         enum: ['true', 'false']
+      },
+      uiversion: {
+        enum: ['g2']
       }
     }
   },
