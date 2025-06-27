@@ -33,10 +33,12 @@ HandlerPlugin.prototype.apply = function (compiler) {
         const entryFiles = getEntryFiles(compiler.options.entry)
         const liteEntryFiles = getLiteEntryFiles(compiler.options.entry)
         const { originType } = compileOptionsObject || {}
+        const isDevMode = globalConfig.mode === 'development'
         compilation.chunks.forEach(function (chunk) {
           chunk.files.forEach(function (fileName) {
+            // 非 IDE 打轻卡包或者 IDE 打正式轻卡包
             if (
-              originType !== compileOptionsMeta.originTypeNum.IDE &&
+              (originType !== compileOptionsMeta.originTypeNum.IDE || !isDevMode) &&
               liteEntryFiles.indexOf(fileName) >= 0
             ) {
               delete compilation.assets[fileName] // delete bundle js for lite card
