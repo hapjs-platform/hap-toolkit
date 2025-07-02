@@ -1734,7 +1734,8 @@ const validator = {
    */
   enum: function (list, v) {
     const index = list.indexOf(v)
-    if (index > 0) {
+    if (index > 0 || v.indexOf('ux') > -1) {
+      // 能找到或者以ux开头的都不校验
       return { value: v }
     }
     if (index === 0) {
