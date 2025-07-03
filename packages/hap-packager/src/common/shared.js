@@ -234,9 +234,10 @@ function populateWidgetFields(widgetsObj) {
         conf.minPlatformVersion = conf.minCardPlatformVersion
       } else if (!conf.minPlatformVersion) {
         // 没写 minCardPlatformVersion 和 minPlatformVersion 字段
-        colorconsole.throw(
+        // 不填minCardPlatformVersion也能编译
+        /* colorconsole.throw(
           `manifest.json 文件 widgets 字段下，${routePath} 缺少 minCardPlatformVersion 字段`
-        )
+        ) */
       }
     }
     if (conf.type === 'lite' && !conf.minCardPlatformVersion) {

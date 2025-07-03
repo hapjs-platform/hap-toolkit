@@ -403,13 +403,15 @@ const validateTime = function (v) {
 const themeColors = [
   'uxCardColorBackground',
   'uxCardColorAccent',
+  'uxCardColorTheme',
   'uxCardColorContainer',
-  'uxCardColorHue',
-  'uxCardColorHueSecondary',
   'uxCardColorPrimary',
   'uxCardColorQuaternary',
+  'uxCardColorSecondary',
   'uxCardColorSecondaryVariant',
-  'uxCardColorTertiary'
+  'uxCardColorTertiary',
+  'uxCardColorHue',
+  'uxCardColorHueSecondary'
 ]
 const validator = {
   /**
@@ -1734,8 +1736,26 @@ const validator = {
    */
   enum: function (list, v) {
     const index = list.indexOf(v)
-    if (index > 0 || v.indexOf('ux') > -1) {
+    if (index > 0 || v.startsWith('ux')) {
       // 能找到或者以ux开头的都不校验
+      if(index < 0) {
+        // 如果ux开头的不在列表内给出黄色警告
+        return {
+          value: v,
+          reason: function reason(k, v) {
+            return (
+              'WARN: 属性`' +
+              camelCaseToHyphened(k) +
+              '` 的值 `' +
+              v +
+              '` 无效 ` (有效枚举值为: `' +
+              list.join('`|`') +
+              '`)'
+            )
+          }
+        }
+
+      }
       return { value: v }
     }
     if (index === 0) {
