@@ -1736,25 +1736,7 @@ const validator = {
    */
   enum: function (list, v) {
     const index = list.indexOf(v)
-    if (index > 0 || v.startsWith('ux')) {
-      // 能找到或者以ux开头的都不校验
-      if (index < 0) {
-        // 如果ux开头的不在列表内给出黄色警告
-        return {
-          value: v,
-          reason: function reason(k, v) {
-            return (
-              'WARN: 属性`' +
-              camelCaseToHyphened(k) +
-              '` 的值 `' +
-              v +
-              '` 无效 ` (有效枚举值为: `' +
-              list.join('`|`') +
-              '`)'
-            )
-          }
-        }
-      }
+    if (index > 0) {
       return { value: v }
     }
     if (index === 0) {
@@ -2722,12 +2704,12 @@ const validatorMap = {
   // font
   fontSrc: validator.fontSrc,
   fontFamily: validator.fontFamily,
-  themeColor: makeEnumValidator(themeColors),
+  /* themeColor: makeEnumValidator(themeColors),
   themeBackgroundColor: makeEnumValidator(themeColors),
   themeLayerColor: makeEnumValidator(themeColors),
   themeTrackColor: makeEnumValidator(themeColors),
   themeSelectedColor: makeEnumValidator(themeColors),
-  themeBlockColor: makeEnumValidator(themeColors),
+  themeBlockColor: makeEnumValidator(themeColors), */
   letterSpacing: validator.letterSpacing
 }
 
