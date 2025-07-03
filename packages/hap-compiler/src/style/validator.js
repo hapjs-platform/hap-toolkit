@@ -403,13 +403,15 @@ const validateTime = function (v) {
 const themeColors = [
   'uxCardColorBackground',
   'uxCardColorAccent',
+  'uxCardColorTheme',
   'uxCardColorContainer',
-  'uxCardColorHue',
-  'uxCardColorHueSecondary',
   'uxCardColorPrimary',
   'uxCardColorQuaternary',
+  'uxCardColorSecondary',
   'uxCardColorSecondaryVariant',
-  'uxCardColorTertiary'
+  'uxCardColorTertiary',
+  'uxCardColorHue',
+  'uxCardColorHueSecondary'
 ]
 const validator = {
   /**
@@ -2702,12 +2704,12 @@ const validatorMap = {
   // font
   fontSrc: validator.fontSrc,
   fontFamily: validator.fontFamily,
-  themeColor: makeEnumValidator(themeColors),
+  /* themeColor: makeEnumValidator(themeColors),
   themeBackgroundColor: makeEnumValidator(themeColors),
   themeLayerColor: makeEnumValidator(themeColors),
   themeTrackColor: makeEnumValidator(themeColors),
   themeSelectedColor: makeEnumValidator(themeColors),
-  themeBlockColor: makeEnumValidator(themeColors),
+  themeBlockColor: makeEnumValidator(themeColors), */
   letterSpacing: validator.letterSpacing
 }
 
