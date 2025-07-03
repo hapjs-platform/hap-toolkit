@@ -1738,7 +1738,7 @@ const validator = {
     const index = list.indexOf(v)
     if (index > 0 || v.startsWith('ux')) {
       // 能找到或者以ux开头的都不校验
-      if(index < 0) {
+      if (index < 0) {
         // 如果ux开头的不在列表内给出黄色警告
         return {
           value: v,
@@ -1754,7 +1754,6 @@ const validator = {
             )
           }
         }
-
       }
       return { value: v }
     }
