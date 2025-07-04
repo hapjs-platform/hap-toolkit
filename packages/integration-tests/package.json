@@ -1,6 +1,6 @@
 {
   "name": "integration-tests",
-  "version": "2.0.4-beta.1",
+  "version": "2.0.4",
   "description": "intergration tests",
   "engines": {
     "node": ">=14.0.0"
@@ -18,8 +18,8 @@
   "devDependencies": {
     "del": "^4.1.1",
     "glob": "^7.1.6",
-    "hap-dev-utils": "2.0.4-beta.1",
-    "hap-toolkit": "2.0.4-beta.1",
+    "hap-dev-utils": "2.0.4",
+    "hap-toolkit": "2.0.4",
     "jest": "^24.9.0",
     "node-fetch": "^2.3.0"
   },

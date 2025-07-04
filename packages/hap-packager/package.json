@@ -1,6 +1,6 @@
 {
   "name": "@hap-toolkit/packager",
-  "version": "2.0.4-beta.1",
+  "version": "2.0.4",
   "description": "@hap-toolkit/packager",
   "engines": {
     "node": ">=14.0.0"
@@ -44,8 +44,8 @@
     "@babel/traverse": "^7.9.6",
     "@babel/types": "^7.9.6",
     "@hap-toolkit/aaptjs": "^2.0.0",
-    "@hap-toolkit/compiler": "2.0.4-beta.1",
-    "@hap-toolkit/shared-utils": "2.0.4-beta.1",
+    "@hap-toolkit/compiler": "2.0.4",
+    "@hap-toolkit/shared-utils": "2.0.4",
     "@jayfate/path": "^0.0.13",
     "babel-loader": "^8.1.0",
     "flat": "^5.0.2",

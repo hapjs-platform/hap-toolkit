@@ -1,6 +1,6 @@
 {
   "name": "@hap-toolkit/compiler",
-  "version": "2.0.4-beta.1",
+  "version": "2.0.4",
   "description": "compiler of hap-toolkit",
   "engines": {
     "node": ">=14.0.0"
@@ -22,7 +22,7 @@
     "lib/**/*.js"
   ],
   "dependencies": {
-    "@hap-toolkit/shared-utils": "2.0.4-beta.1",
+    "@hap-toolkit/shared-utils": "2.0.4",
     "@jayfate/path": "^0.0.13",
     "css": "^2.2.4",
     "css-what": "^2.1.3",
