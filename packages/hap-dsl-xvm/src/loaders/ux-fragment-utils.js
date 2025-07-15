@@ -41,7 +41,11 @@ const defaultLoaders = {
   mainfest: resolveSync('@hap-toolkit/packager/lib/loaders/manifest-loader.js'),
   // page
   access: resolveSync('./access-loader.js'),
-  'extract-css': resolveSync('./extract-css-loader.js')
+  'extract-css': resolveSync('./extract-css-loader.js'),
+  // honor loader
+  datapp: resolveSync('./datapp-loader.js'),
+  command: resolveSync('./command-loader.js'),
+  // end honor loader
 }
 
 /**
@@ -118,6 +122,40 @@ function makeLoaderString(type, config, newJSCard, uxType) {
     ]
     return stringifyLoaders(loaders)
   }
+
+  // honor loader
+  if (type === FRAG_TYPE.DATAPP) {
+    loaders = [
+      {
+        name: defaultLoaders.datapp
+      },
+      {
+        name: defaultLoaders.fragment,
+        query: {
+          index: 0,
+          type: FRAG_TYPE.DATA
+        }
+      }
+    ]
+    return stringifyLoaders(loaders)
+  }
+
+  if (type === FRAG_TYPE.COMMANDS) {
+    loaders = [
+      {
+        name: defaultLoaders.command
+      },
+      {
+        name: defaultLoaders.fragment,
+        query: {
+          index: 0,
+          type: FRAG_TYPE.DATA
+        }
+      }
+    ]
+    return stringifyLoaders(loaders)
+  }
+  // end honor loader
 
   if (type === FRAG_TYPE.PROPS) {
     loaders = [
@@ -542,6 +580,60 @@ function processPropsFrag($loader, datas, uxType) {
 }
 
 /**
+ * 处理轻卡<data>片段中App(only honor)
+ * @param $loader
+ * @param scripts
+ * @param uxType
+ * @returns {string}
+ */
+function processDataAppFrag($loader, datas, uxType) {
+  let code = 'null'
+  if (datas.length) {
+    // 有且仅有一个<data>节点
+    const data = datas[0]
+    // 文件绝对路径
+    let src = $loader.resourcePath
+    const fragAttrsSrc = data.attrs.src
+    if (fragAttrsSrc) {
+      src = fragAttrsSrc
+    }
+    code = makeRequireString(
+      $loader,
+      makeLoaderString(FRAG_TYPE.DATAPP, {}, true, uxType),
+      `${src}?index=0&lite=1`
+    )
+  }
+  return code
+}
+
+/**
+ * 处理轻卡<data>片段中command(only honor)
+ * @param $loader
+ * @param scripts
+ * @param uxType
+ * @returns {string}
+ */
+function processCommandFrag($loader, datas, uxType) {
+  let code = 'null'
+  if (datas.length) {
+    // 有且仅有一个<data>节点
+    const data = datas[0]
+    // 文件绝对路径
+    let src = $loader.resourcePath
+    const fragAttrsSrc = data.attrs.src
+    if (fragAttrsSrc) {
+      src = fragAttrsSrc
+    }
+    code = makeRequireString(
+      $loader,
+      makeLoaderString(FRAG_TYPE.COMMANDS, {}, true, uxType),
+      `${src}?index=0&lite=1`
+    )
+  }
+  return code
+}
+
+/**
  * 统一解析全部后处理
  * @param $loader
  * @param importList
@@ -589,5 +681,9 @@ export {
   processDataFrag,
   processActionFrag,
   processPropsFrag,
-  parseImportList
+  parseImportList,
+  // honor process frag
+  processDataAppFrag,
+  processCommandFrag,
+  // end honor process frag
 }
