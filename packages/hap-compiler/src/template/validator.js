@@ -1118,15 +1118,27 @@ function checkTagName(node, output, options = {}) {
   ) {
     const locationAddr =
       location.line && location.column ? '@' + location.line + ':' + location.column : ''
-    colorconsole.throw(
-      'ERROR: ' +
-        locationAddr +
-        ' 使用 `' +
-        tagName +
-        '` 组件，要求卡片配置 minCardPlatformVersion 或 minPlatformVersion 不低于 ' +
-        tagNatives[tagName].minRequiredRuntimeVersion +
-        ', 请修改'
-    )
+    if (options.isTargetVivo) {
+      colorconsole.throw(
+        'ERROR: ' +
+          locationAddr +
+          ' 使用 `' +
+          tagName +
+          '` 组件，要求卡片配置 minCardPlatformVersion 或 minPlatformVersion 不低于 ' +
+          tagNatives[tagName].minRequiredRuntimeVersion +
+          ', 请修改'
+      )
+    } else {
+      colorconsole.warn(
+        'ERROR: ' +
+          locationAddr +
+          ' 使用 `' +
+          tagName +
+          '` 组件，要求卡片配置 minCardPlatformVersion 或 minPlatformVersion 不低于 ' +
+          tagNatives[tagName].minRequiredRuntimeVersion +
+          ', 请修改'
+      )
+    }
   }
 
   // 检测根组件合法性
