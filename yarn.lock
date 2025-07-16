@@ -2,14 +2,15 @@
 # yarn lockfile v1
 
 
-"@aiot-toolkit/card-expression@^1.0.13":
-  version "1.0.13"
-  resolved "https://registry.npmmirror.com/@aiot-toolkit/card-expression/-/card-expression-1.0.13.tgz#6649204e181fc46d21e8a7afef8ab82fff1bf2ab"
-  integrity sha512-5FhFSgh598fHRFMcF4g20V0PnGh0GhEzbGeK89DOSbe/2f4PPs75N4l1TmiwIBbT2zEDXe/1oFBIgIruoFqFUQ==
+"@aiot-toolkit/card-expression@^1.0.14":
+  version "1.0.14"
+  resolved "https://registry.npmmirror.com/@aiot-toolkit/card-expression/-/card-expression-1.0.14.tgz#2ca54ddb69d5dd3a1fbb58c594e963f0b9842ba2"
+  integrity sha512-xv6rnpQP4XE+vQ7FxErcCetqLsjsob43FXFvoDvC5UyiJFEsglg0bOxP0l0OJ/D72ikboeHbONTZJ4CRkd8/OA==
   dependencies:
     "@babel/generator" "^7.25.6"
     "@babel/parser" "^7.25.6"
     "@babel/types" "^7.25.6"
+    husky "^9.1.7"
 
 "@ampproject/remapping@^2.2.0":
   version "2.2.1"
@@ -7052,6 +7053,11 @@ husky@^8.0.0:
   version "8.0.3"
   resolved "https://registry.npmmirror.com/husky/-/husky-8.0.3.tgz#4936d7212e46d1dea28fef29bb3a108872cd9184"
   integrity sha512-+dQSyqPh4x1hlO1swXBiNb2HzTDN1I2IGLQx1GrBuiqFJfoMrnZWwVmatvSiO+Iz8fBUnf+lekwNo4c2LlXItg==
+
+husky@^9.1.7:
+  version "9.1.7"
+  resolved "https://registry.npmmirror.com/husky/-/husky-9.1.7.tgz#d46a38035d101b46a70456a850ff4201344c0b2d"
+  integrity sha512-5gs5ytaNjBrh5Ow3zrvdUUY+0VxIuWVL4i9irt6friV+BqdCfmV11CQTWMiBYWHbXhco+J1kHfTOUkePhCDvMA==
 
 hybrid-chai@0.0.1:
   version "0.0.1"
