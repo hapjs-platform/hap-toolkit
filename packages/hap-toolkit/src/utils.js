@@ -104,6 +104,7 @@ export function resolveEntries(manifest, basedir, cwd) {
           `编译失败：请确认manifest.json中router.pages配置的 '${routePath}' 为目录名`
         )
       }
+      const isTargetVivo = (conf.targetManufacturers || []).includes('vivo')
       let sourceFile = path.relative(cwd, filepath)
       sourceFile = './' + sourceFile + `?uxType=${type}`
       sourceFile = sourceFile.replace(/\\/g, '/')
@@ -117,6 +118,7 @@ export function resolveEntries(manifest, basedir, cwd) {
           conf.minCardPlatformVersion || conf.minPlatformVersion || 0
         }` // 卡片配置的最小运行时版本
         sourceFile += `&cardEntry=${routePath}` // card 入口，lite 和 js 卡（新旧打包格式）都带该参数
+        sourceFile += `&isTargetVivo=${isTargetVivo}` // 厂商是否包含vivo
       }
       entries[entryKey] = sourceFile
     })

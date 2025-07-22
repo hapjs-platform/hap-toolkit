@@ -355,7 +355,7 @@ Array [
 
 exports[`测试compile generate webpack config 1`] = `
 Object {
-  "CardDemo/index": "./src/CardDemo/index.ux?uxType=card&minCardRuntimeVersion=2000&cardEntry=CardDemo",
+  "CardDemo/index": "./src/CardDemo/index.ux?uxType=card&minCardRuntimeVersion=2000&cardEntry=CardDemo&isTargetVivo=false",
   "Demo/index": "./src/Demo/index.ux?uxType=page",
   "app": "./src/app.ux?uxType=app",
   "workers/request/index": "./src/workers/request/index.js",

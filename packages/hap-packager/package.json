@@ -35,7 +35,7 @@
     "babel.tree.config.js"
   ],
   "dependencies": {
-    "@aiot-toolkit/card-expression": "^1.0.13",
+    "@aiot-toolkit/card-expression": "^1.0.15",
     "@babel/core": "^7.9.6",
     "@babel/generator": "^7.9.6",
     "@babel/parser": "^7.9.6",
