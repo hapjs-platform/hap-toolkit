@@ -74,7 +74,17 @@ const LOADER_INFO_LIST = [
   {
     path: '/props-loader.js',
     type: 'props'
+  },
+  // honor loader
+  {
+    path: '/datapp-loader.js',
+    type: 'App'
+  },
+  {
+    path: '/command-loader.js',
+    type: 'commands'
   }
+  // end honor loader
 ]
 
 export {
