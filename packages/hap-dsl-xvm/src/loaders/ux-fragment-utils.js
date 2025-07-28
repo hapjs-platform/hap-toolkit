@@ -307,7 +307,7 @@ function makeLoaderString(type, config, newJSCard, uxType) {
  * @returns {string}
  */
 function processImportFrag($loader, imports, importNames, queryOptions = {}) {
-  const { newJSCard, lite, cardEntry, minCardRuntimeVersion } = queryOptions
+  const { newJSCard, lite, cardEntry, minCardRuntimeVersion, isTargetVivo } = queryOptions
   let retStr = ''
   if (imports.length) {
     const newJSCardParam = newJSCard ? `&newJSCard=${newJSCard}` : ''
@@ -316,6 +316,7 @@ function processImportFrag($loader, imports, importNames, queryOptions = {}) {
     const minCardRuntimeVersionParam = minCardRuntimeVersion
       ? `&minCardRuntimeVersion=${minCardRuntimeVersion}`
       : ''
+    const isTargetVivoParam = isTargetVivo ? `&isTargetVivo=${isTargetVivo}` : ''
     for (let i = 0; i < imports.length; i++) {
       const imp = imports[i]
       let importSrc = imp.attrs.src
@@ -352,7 +353,7 @@ function processImportFrag($loader, imports, importNames, queryOptions = {}) {
       let reqStr = makeRequireString(
         $loader,
         makeLoaderString(FRAG_TYPE.IMPORT, null, newJSCard),
-        `${importSrc}?uxType=${ENTRY_TYPE.COMP}&name=${importName}${newJSCardParam}${liteParam}${cardEntryParam}${minCardRuntimeVersionParam}`
+        `${importSrc}?uxType=${ENTRY_TYPE.COMP}&name=${importName}${newJSCardParam}${liteParam}${cardEntryParam}${minCardRuntimeVersionParam}${isTargetVivoParam}`
       )
 
       if (compileOptionsObject.stats) {
@@ -376,7 +377,7 @@ function processImportFrag($loader, imports, importNames, queryOptions = {}) {
  * @param {number} lite 轻卡
  */
 function processTemplateFrag($loader, templates, importNames, queryOptions = {}) {
-  const { uxType, newJSCard, lite, cardEntry, minCardRuntimeVersion } = queryOptions
+  const { uxType, newJSCard, lite, cardEntry, minCardRuntimeVersion, isTargetVivo } = queryOptions
   let retStr = '{}'
   if (!templates.length) {
     $loader.emitError(new Error('需要模板 <template> 片段'))
@@ -398,6 +399,7 @@ function processTemplateFrag($loader, templates, importNames, queryOptions = {})
     const minCardRuntimeVersionParam = minCardRuntimeVersion
       ? `&minCardRuntimeVersion=${minCardRuntimeVersion}`
       : ''
+    const isTargetVivoParam = isTargetVivo ? `&isTargetVivo=${isTargetVivo}` : ''
     // 解析成类似url中key[]=xxx 的形式，便于loader-utils解析
     importNames = importNames.map((item) => 'importNames[]=' + item)
     retStr = makeRequireString(
@@ -411,7 +413,7 @@ function processTemplateFrag($loader, templates, importNames, queryOptions = {})
       ),
       `${src}?uxType=${uxType}&${importNames.join(
         ','
-      )}${newJSCardParam}${liteParam}${pathParam}${cardEntryParam}${minCardRuntimeVersionParam}`
+      )}${newJSCardParam}${liteParam}${pathParam}${cardEntryParam}${minCardRuntimeVersionParam}${isTargetVivoParam}`
     )
   }
   return retStr
