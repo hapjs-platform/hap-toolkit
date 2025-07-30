@@ -16,7 +16,11 @@ import {
   processDataFrag,
   processActionFrag,
   processPropsFrag,
-  parseImportList
+  parseImportList,
+  // honor process frag
+  processCommandFrag,
+  processDataAppFrag
+  // end honor process frag
 } from './ux-fragment-utils'
 import { getNameByPath, print, isUXRender, FRAG_TYPE } from './common/utils'
 
@@ -96,6 +100,20 @@ function assemble($loader, frags, name, queryOptions) {
       uxType,
       FRAG_TYPE.PROPS
     )}\n`
+    // process honor frag
+    content += `    $app_module$.exports.app = ${processDataAppFrag(
+      $loader,
+      frags.data,
+      uxType,
+      FRAG_TYPE.APP
+    )}\n`
+    content += `    $app_module$.exports.commands = ${processCommandFrag(
+      $loader,
+      frags.data,
+      uxType,
+      FRAG_TYPE.COMMANDS
+    )}\n`
+    // end process honor frag
     content += `    $app_data$($app_module$, $app_require$)\n`
   }
   content +=
