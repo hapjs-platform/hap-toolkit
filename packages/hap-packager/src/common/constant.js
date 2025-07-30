@@ -78,7 +78,7 @@ const LOADER_INFO_LIST = [
   // honor loader
   {
     path: '/datapp-loader.js',
-    type: 'App'
+    type: 'app'
   },
   {
     path: '/command-loader.js',

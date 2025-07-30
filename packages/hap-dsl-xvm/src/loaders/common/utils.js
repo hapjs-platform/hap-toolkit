@@ -250,7 +250,7 @@ export const FRAG_TYPE = {
   ACTIONS: 'actions',
   PROPS: 'props',
   // honor frag
-  DATAPP: 'App',
+  DATAPP: 'app',
   COMMANDS: 'commands'
   // end honor frag
 }

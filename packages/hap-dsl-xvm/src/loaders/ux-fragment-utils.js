@@ -582,7 +582,7 @@ function processPropsFrag($loader, datas, uxType) {
 }
 
 /**
- * 处理轻卡<data>片段中App(only honor)
+ * 处理轻卡<data>片段中app(only honor)
  * @param $loader
  * @param scripts
  * @param uxType

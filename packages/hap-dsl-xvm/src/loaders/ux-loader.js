@@ -101,7 +101,7 @@ function assemble($loader, frags, name, queryOptions) {
       FRAG_TYPE.PROPS
     )}\n`
     // process honor frag
-    content += `    $app_module$.exports.App = ${processDataAppFrag(
+    content += `    $app_module$.exports.app = ${processDataAppFrag(
       $loader,
       frags.data,
       uxType,
