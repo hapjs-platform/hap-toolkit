@@ -26,10 +26,10 @@ export async function launch(conf) {
         moduler.push((await import('@hap-toolkit/packager')).router, require('./preview/index.js'))
       }
       const app = new Koa()
-      // 改版ide插件的方式h5预览的ajax请求需要设置动态代理
+      // 插件方式的预览页面是iframe，快应用开发ajax请求会受同源策略限制，需要做代理转发
       app.use(async (ctx, next) => {
         if (ctx.request.url.startsWith('/api/proxy')) {
-          const target = ctx.request.url.split('target=')[1] // 从查询参数获取目标地址
+          const target = ctx.request.url.split('target=')[1] // 从查询参数获取实际请求的目标地址
           //  const apiReg = new RegExp(`^${api}/`);
           return proxies('/api/proxy', {
             target: target,
