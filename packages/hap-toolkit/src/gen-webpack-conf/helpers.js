@@ -31,10 +31,10 @@ export function getConfigPath(cwd) {
 export function getNewTemplateConfigPath(cwd) {
   const defaultConfig = 'quickapp.config.js'
   const defaultConfigPath = path.join(cwd, defaultConfig)
-  const copyConfig = new Date().getTime() + '.js';
-  const copyConfigPath = path.join(cwd, copyConfig);
-  fs.copyFileSync(defaultConfigPath, copyConfigPath);
-  return copyConfigPath;
+  const copyConfig = new Date().getTime() + '.js'
+  const copyConfigPath = path.join(cwd, copyConfig)
+  fs.copyFileSync(defaultConfigPath, copyConfigPath)
+  return copyConfigPath
 }
 /**
  * 清理 BUILD_DIR DIST_DIR

@@ -78,7 +78,9 @@ export default async function genWebpackConf(launchOptions, mode) {
   globalConfig.projectPath = path.resolve(globalConfig.projectPath)
   const cwd = globalConfig.projectPath
 
-  const hapConfigPath = launchOptions.isUpdateDefine ? getNewTemplateConfigPath(cwd) :getConfigPath(cwd)
+  const hapConfigPath = launchOptions.isUpdateDefine
+    ? getNewTemplateConfigPath(cwd)
+    : getConfigPath(cwd)
   // 用于接受quickapp.config.js 或者 hap.config.js中的配置
   let quickappConfig
   // 接受命令行
@@ -95,7 +97,7 @@ export default async function genWebpackConf(launchOptions, mode) {
     }
   }
   // 获取到更新后的用户配置文件后要删除复制配置文件
-  if(launchOptions.isUpdateDefine) {
+  if (launchOptions.isUpdateDefine) {
     fs.unlinkSync(hapConfigPath)
   }
   // 接收ide命令行
