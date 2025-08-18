@@ -41,6 +41,7 @@ showVersion()
  * @param {Function} [options.onerror] - 错误回调函数
  * @param {String} [options.buildPreviewRpkOptions] - 预览包保存路径，由IDE传入
  * @param {Object} [options.compileOptions] - 编译参数，由IDE传入
+ * @param {Object} [options.isUpdateDefine=undefined] - 执行compile是否更新webpack注入的变量,ide新建模板卡片会传入
  * @param {Object} [options.ideConfig] - cli，由 IDE 传入
  * @returns {Promise} - 返回成功与否的信息
  */
