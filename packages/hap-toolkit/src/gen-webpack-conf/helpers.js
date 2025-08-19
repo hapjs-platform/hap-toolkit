@@ -25,7 +25,17 @@ export function getConfigPath(cwd) {
   } while (++index < configFileList.length)
   return configPath
 }
-
+/** ide新建模板执行编译获取用户配置的路径，变量可变，需要复制一份
+ * @param {String} cwd
+ */
+export function getNewTemplateConfigPath(cwd) {
+  const defaultConfig = 'quickapp.config.js'
+  const defaultConfigPath = path.join(cwd, defaultConfig)
+  const copyConfig = new Date().getTime() + '.js'
+  const copyConfigPath = path.join(cwd, copyConfig)
+  fs.copyFileSync(defaultConfigPath, copyConfigPath)
+  return copyConfigPath
+}
 /**
  * 清理 BUILD_DIR DIST_DIR
  */

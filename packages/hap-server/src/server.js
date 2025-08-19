@@ -16,6 +16,7 @@ import {
 } from '@hap-toolkit/shared-utils'
 import { browerOptions } from './config'
 const moduler = [require('@hap-toolkit/debugger')]
+const proxies = require('koa-proxies')
 let server = null
 export async function launch(conf) {
   return new Promise(async (resolve) => {
@@ -25,6 +26,20 @@ export async function launch(conf) {
         moduler.push((await import('@hap-toolkit/packager')).router, require('./preview/index.js'))
       }
       const app = new Koa()
+      // 插件方式的预览页面是iframe，快应用开发ajax请求会受同源策略限制，需要做代理转发
+      app.use(async (ctx, next) => {
+        if (ctx.request.url.startsWith('/api/proxy')) {
+          const target = ctx.request.url.split('target=')[1] // 从查询参数获取实际请求的目标地址
+          //  const apiReg = new RegExp(`^${api}/`);
+          return proxies('/api/proxy', {
+            target: target,
+            changeOrigin: true,
+            logs: true,
+            rewrite: (path) => path.replace(/^\/api\/proxy/, '')
+          })(ctx, next)
+        }
+        return next()
+      })
       let serverPort = globalConfig.server.port
       // 如果设置的端口被占用，则自动递增获取可用端口
       serverPort = await portfinder.getPortPromise({

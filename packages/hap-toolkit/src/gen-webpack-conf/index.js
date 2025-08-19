@@ -27,6 +27,7 @@ import { resolveEntries } from '../utils'
 import getDevtool from './get-devtool'
 import {
   getConfigPath,
+  getNewTemplateConfigPath,
   cleanup,
   checkBuiltinModules,
   setAdaptForV8Version,
@@ -64,6 +65,7 @@ const SPLIT_CHUNKS_SUPPORT_VERSION_FROM = 1080
  * @param {boolean} [launchOptions.optimizeStyleAppLevel=false] - 优化 app 样式等级
  * @param {boolean} [launchOptions.optimizeStylePageLevel=false] - 优化 app 样式等级
  * @param {boolean} [launchOptions.splitChunksMode=undefined] - 抽取公共JS
+ * @param {boolean} [launchOptions.isUpdateDefine=undefined] - 执行compile是否更新webpack注入的变量，ide新建模板卡片会传入
  * @param {Object} [options.compileOptions] - 编译参数，由IDE传入
  * @param {production|development} mode - webpack mode
  * @returns {WebpackConfiguration}
@@ -76,7 +78,9 @@ export default async function genWebpackConf(launchOptions, mode) {
   globalConfig.projectPath = path.resolve(globalConfig.projectPath)
   const cwd = globalConfig.projectPath
 
-  const hapConfigPath = getConfigPath(cwd)
+  const hapConfigPath = launchOptions.isUpdateDefine
+    ? getNewTemplateConfigPath(cwd)
+    : getConfigPath(cwd)
   // 用于接受quickapp.config.js 或者 hap.config.js中的配置
   let quickappConfig
   // 接受命令行
@@ -91,6 +95,10 @@ export default async function genWebpackConf(launchOptions, mode) {
     } catch (err) {
       colorconsole.error(`加载webpack配置文件[${hapConfigPath}]出错：${err.message}`)
     }
+  }
+  // 获取到更新后的用户配置文件后要删除复制配置文件
+  if (launchOptions.isUpdateDefine) {
+    fs.unlinkSync(hapConfigPath)
   }
   // 接收ide命令行
   if (launchOptions.ideConfig && typeof launchOptions.ideConfig.cli === 'object') {

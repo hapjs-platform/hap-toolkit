@@ -94,6 +94,11 @@
       }
     </script>
     <script type="text/javascript">
+      if (`{{devtoolUrl}}`) {
+        document.write('<script src="{{devtoolUrl}}">\x3C/script>')
+      }
+    </script>
+    <script type="text/javascript">
       var base = '/preview'
       var type = '{{ type }}'
       window.language = `{{language}}`
@@ -102,7 +107,8 @@
         var routeName = '{{ routeName }}'
         Hap.init({
           base,
-          type
+          type,
+          idePlatform: `{{devtoolUrl}}` ? 'extensionOnline' : undefined
         })
       })()
     </script>
