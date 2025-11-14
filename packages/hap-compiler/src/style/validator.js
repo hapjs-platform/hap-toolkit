@@ -400,19 +400,19 @@ const validateTime = function (v) {
   }
 }
 // 灵感组件颜色值
-const themeColors = [
-  'uxCardColorBackground',
-  'uxCardColorAccent',
-  'uxCardColorTheme',
-  'uxCardColorContainer',
-  'uxCardColorPrimary',
-  'uxCardColorQuaternary',
-  'uxCardColorSecondary',
-  'uxCardColorSecondaryVariant',
-  'uxCardColorTertiary',
-  'uxCardColorHue',
-  'uxCardColorHueSecondary'
-]
+// const themeColors = [
+//   'uxCardColorBackground',
+//   'uxCardColorAccent',
+//   'uxCardColorTheme',
+//   'uxCardColorContainer',
+//   'uxCardColorPrimary',
+//   'uxCardColorQuaternary',
+//   'uxCardColorSecondary',
+//   'uxCardColorSecondaryVariant',
+//   'uxCardColorTertiary',
+//   'uxCardColorHue',
+//   'uxCardColorHueSecondary'
+// ]
 const validator = {
   /**
    * 整数校验
