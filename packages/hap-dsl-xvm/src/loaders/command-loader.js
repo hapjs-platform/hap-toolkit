@@ -1,4 +1,4 @@
- /* Copyright (c) 2024-present, the hapjs-platform Project Contributors
+/* Copyright (c) 2024-present, the hapjs-platform Project Contributors
  * SPDX-License-Identifier: Apache-2.0
  */
 export default function commandLoader(source) {
