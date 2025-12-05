@@ -2646,8 +2646,8 @@ const validatorMap = {
   backgroundPosition: validator.backgroundPosition,
   display: validator.display,
   visibility: makeEnumValidator(['visible', 'hidden']),
-  objectFit: makeEnumValidator(['fill', 'contain', 'cover', 'none', 'scale-down']),
-  altObjectFit: makeEnumValidator(['fill', 'contain', 'cover', 'none', 'scale-down']),
+  objectFit: makeEnumValidator(['fill', 'contain', 'cover', 'none', 'scale-down', 'fit-start', 'fit-end', 'cover-start', 'cover-end']),
+  altObjectFit: makeEnumValidator(['fill', 'contain', 'cover', 'none', 'scale-down', 'fit-start', 'fit-end', 'cover-start', 'cover-end']),
   // text
   lines: validator.integer,
   color: validator.color,
