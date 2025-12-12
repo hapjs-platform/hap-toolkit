@@ -27,12 +27,15 @@ const { PACKAGER_BUILD_DONE } = eventBus
 const I18N_DIRECTORY = 'i18n'
 // lottie动画配置文件
 const LOTTIE_DIRECTORY = 'lottie'
+// debug动画配置文件
+const DEBUG_DIRECTORY = 'debug'
 // 需要打包的配置文件夹
 // directoryName:文件夹名称
 // onlyRoot:只遍历根目录，为false时会遍历所有的子目录
 const JSON_DIRECTORY_NEED_PACKAGING = [
   { directoryName: I18N_DIRECTORY, onlyRoot: true },
-  { directoryName: LOTTIE_DIRECTORY, onlyRoot: false }
+  { directoryName: LOTTIE_DIRECTORY, onlyRoot: false },
+  { directoryName: DEBUG_DIRECTORY, onlyRoot: true }
 ]
 
 // 支持文件扩展名
@@ -251,8 +254,11 @@ ResourcePlugin.prototype.apply = function (compiler) {
     // **/*(*.!(${extpattern})|manifest.json)
     let files = getFiles(`**/+(!(${EXT_PATTERN})|manifest.json|sitemap.json)`, sourceDir)
     files = files.concat(
+      // 打包快应用的配置文件夹下的文件
       getSpecifiedJSONFiles(sourceDir, JSON_DIRECTORY_NEED_PACKAGING),
+      // 打包卡片的配置文件夹下的文件
       getWidgetJSONFiles(sourceDir, JSON_DIRECTORY_NEED_PACKAGING),
+      // 打包快应用骨架屏文件夹下的文件
       getSkeletonConfigFile(sourceDir)
     )
     let iconPath
