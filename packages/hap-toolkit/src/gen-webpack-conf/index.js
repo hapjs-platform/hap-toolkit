@@ -225,6 +225,9 @@ export default async function genWebpackConf(launchOptions, mode) {
         }) && !isCard
 
   const webpackConf = {
+    node: {
+      global: false
+    },
     context: cwd,
     mode,
     cache,
