@@ -66,10 +66,11 @@ export function getDebugInfoFromRequest(request) {
  * 迫于device目前不支持POST，暂时把sn放在header中
  * @param client 本地存储的设备信息(ip、port、sn)
  */
-export function callDeviceWithOwnSn(client) {
+export function callDeviceWithOwnSn(client, port) {
+  if (!port) port = client.port
   const options = {
     host: client.ip,
-    port: client.port,
+    port,
     path: '/reportsn',
     headers: {
       'device-serial-number': client.sn
@@ -78,11 +79,11 @@ export function callDeviceWithOwnSn(client) {
   }
   const req = http
     .request(options, () => {
-      colorconsole.log(`### App Server ### 通知手机设备(${client.sn})下发SN成功`)
+      colorconsole.log(`### App Server ### 通知手机设备(${client.sn}) port ${port} 下发SN成功`)
     })
     .on('error', (err) => {
       colorconsole.warn(
-        `### App Server ### 通知手机设备(${client.sn})下发SN失败 错误信息: ${err.message}`
+        `### App Server ### 通知手机设备(${client.sn}) port ${port} 下发SN失败 错误信息: ${err.message}`
       )
     })
     .on('timeout', function () {
