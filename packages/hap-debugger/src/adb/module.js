@@ -162,14 +162,48 @@ class ADBModule {
     this.currentDeviceMap.set(sn, currentDevice)
     this.cachedDeviceMap.set(sn, currentDevice)
     // 记录发送update http请求需要的ip和端口
+    const remote2local = {}
+    remote2local[currentDevice.upForwardPortPair[1]] = currentDevice.upForwardPortPair[0]
     await this._writeClientLogFile({
       sn,
       ip: `127.0.0.1`,
-      port: currentDevice.upForwardPortPair[0]
+      port: currentDevice.upForwardPortPair[0],
+      remote2local
     })
     debuglog(`onDeviceAdded():(${sn}) end`)
     // 增加设备连接检测
     this.onCheckDeviceReverse(event)
+  }
+
+  async getForwardPort(client, remotePort) {
+    let remote2local = client.remote2local
+    if (!remote2local) return client.port
+    
+    let port = remote2local[remotePort]
+    if (!port) {
+      // addForwardPort
+      port = await this.addForwardPort(client, remotePort)
+    }
+    return port
+  }
+
+  async addForwardPort(client, remotePort) {
+    const port = this._getNextLocalForwardPort()
+    debuglog(`addForwardPort():(${client.sn}) (local port: ${port}, remote port: ${remotePort}) start`)
+    const upForwardResult = await this.establishADBProxyLink(
+      'forward',
+      [client.sn].concat([port, remotePort])
+    )
+    if (upForwardResult.err) {
+      colorconsole.error(
+        `### App Server ### addForwardPort(): (${client.sn})建立adb forward失败(local port: ${port}, remote port: ${remotePort}) `
+      )
+      return
+    }
+    client.remote2local[remotePort] = port
+    await this._writeClientLogFile(client)
+    debuglog(`addForwardPort():(${client.sn}) (local port: ${port}, remote port: ${remotePort}) end`)
+    return port
   }
 
   /**

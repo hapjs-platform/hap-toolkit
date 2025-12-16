@@ -116,19 +116,25 @@ export async function searchSn(context, next) {
       const recordData = getRecords(clientRecordPath)
       const clients = getProjectClients(recordData)
       if (clients.length > 0) {
+        const remotePort = context.request.query.port
         colorconsole.log('### App Loader ### 通知设备开始下发SN')
-        clients.forEach(function (client) {
+        for (const client of clients) {
           // 匹配hap-toolkit-client-records.json表里已存的通过ADB连接的设备信息
           if (client.ip === '127.0.0.1') {
-            // 仅向ADB现在连接的且没有SN的设备下发SN请求
-            getDeviceInfo(client, (err, data) => {
-              if (err || data.sn) {
-                return
-              }
-              callDeviceWithOwnSn(client)
-            })
+            if (remotePort) {
+              const port = await context.adbDebugger.getForwardPort(client, remotePort)
+              callDeviceWithOwnSn(client, port)
+            } else {
+              // 仅向ADB现在连接的且没有SN的设备下发SN请求
+              getDeviceInfo(client, (err, data) => {
+                if (err || data.sn) {
+                  return
+                }
+                callDeviceWithOwnSn(client)
+              })
+            }
           }
-        })
+        }
       }
     } else {
       await next()
@@ -154,6 +160,7 @@ export async function startDebug(context, next) {
   // ADB调试模式
   if (linkMode === LINK_MODE.ADB) {
     const { localWsPort, err } = await context.adbDebugger.forwardForWsChannel(sn, devicePort)
+    console.error(`startDebug(): adb forward 端口映射: sn=${sn}，devicePort=${devicePort}`)
     if (err) {
       console.error(`startDebug(): adb forward 端口映射失败: ${err.message}`)
       trackDebug(eventAlias.h_forward_err)
