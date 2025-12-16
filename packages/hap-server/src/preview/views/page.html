@@ -86,16 +86,16 @@
       }
     </style>
     <script src="hap-preview://index.js"></script>
+    <script type="text/javascript">
+      if (`{{devtoolUrl}}`) {
+        document.write('<script src="{{devtoolUrl}}">\x3C/script>')
+      }
+    </script>
     <!-- https://statres.quickapp.cn/quickapp/ide/web.js -->
     <script src="{{webJsUrl}}"></script>
     <script type="text/javascript">
       if (!window.Hap) {
         document.write('<script src="/preview-static/web.js">\x3C/script>')
-      }
-    </script>
-    <script type="text/javascript">
-      if (`{{devtoolUrl}}`) {
-        document.write('<script src="{{devtoolUrl}}">\x3C/script>')
       }
     </script>
     <script type="text/javascript">

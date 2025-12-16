@@ -44,7 +44,7 @@ const defaultLoaders = {
   'extract-css': resolveSync('./extract-css-loader.js'),
   // honor loader
   datapp: resolveSync('./datapp-loader.js'),
-  command: resolveSync('./command-loader.js'),
+  command: resolveSync('./command-loader.js')
   // end honor loader
 }
 
@@ -686,6 +686,6 @@ export {
   parseImportList,
   // honor process frag
   processDataAppFrag,
-  processCommandFrag,
+  processCommandFrag
   // end honor process frag
 }
