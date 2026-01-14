@@ -2567,6 +2567,7 @@ const validatorMap = {
   marginRight: validator.multipleLength,
   marginTop: validator.multipleLength,
   marginBottom: validator.multipleLength,
+  borderImageSource: validator.background,
   border: validator.border,
   borderLeft: validator.borderLeft,
   borderRight: validator.borderRight,
