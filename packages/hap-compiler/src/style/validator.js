@@ -171,6 +171,7 @@ const cssPseudoClasses = [
   'disabled',
   'checked',
   'focus',
+  'hover',
   'active',
   'visited',
   'autoplay',
