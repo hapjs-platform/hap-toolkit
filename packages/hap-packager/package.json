@@ -1,6 +1,6 @@
 {
   "name": "@hap-toolkit/packager",
-  "version": "2.0.6-beta.3",
+  "version": "2.0.6-beta.4",
   "description": "@hap-toolkit/packager",
   "engines": {
     "node": ">=14.0.0"
@@ -44,8 +44,8 @@
     "@babel/traverse": "^7.9.6",
     "@babel/types": "^7.9.6",
     "@hap-toolkit/aaptjs": "^2.0.0",
-    "@hap-toolkit/compiler": "2.0.6-beta.3",
-    "@hap-toolkit/shared-utils": "2.0.6-beta.3",
+    "@hap-toolkit/compiler": "2.0.6-beta.4",
+    "@hap-toolkit/shared-utils": "2.0.6-beta.4",
     "@jayfate/path": "^0.0.13",
     "babel-loader": "^8.1.0",
     "flat": "^5.0.2",
@@ -64,5 +64,6 @@
     "resolve": "^1.22.2",
     "webpack": "5.72.0",
     "webpack-bundle-analyzer": "^3.5.0"
-  }
+  },
+  "gitHead": "cf0ccc91304c32ab781194f3f74fc3f663423dd5"
 }
