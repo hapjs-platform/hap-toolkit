@@ -1,6 +1,6 @@
 {
   "name": "@hap-toolkit/shared-utils",
-  "version": "2.0.6-beta.4",
+  "version": "2.0.6-beta.5",
   "description": "hap shared utils",
   "engines": {
     "node": ">=14.0.0"
@@ -34,5 +34,5 @@
   "devDependencies": {
     "strip-ansi": "^5.2.0"
   },
-  "gitHead": "cf0ccc91304c32ab781194f3f74fc3f663423dd5"
+  "gitHead": "9fbf8ec01cc7fbd44a4908ecdc407a5022e89e7e"
 }

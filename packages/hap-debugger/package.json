@@ -1,6 +1,6 @@
 {
   "name": "@hap-toolkit/debugger",
-  "version": "2.0.6-beta.4",
+  "version": "2.0.6-beta.5",
   "description": "@hap-toolkit/debugger",
   "engines": {
     "node": ">=14.0.0"
@@ -29,7 +29,7 @@
   ],
   "dependencies": {
     "@hap-toolkit/chrome-devtools-frontend": "^1.1.2",
-    "@hap-toolkit/shared-utils": "2.0.6-beta.4",
+    "@hap-toolkit/shared-utils": "2.0.6-beta.5",
     "@jayfate/path": "^0.0.13",
     "@sentry/node": "^5.26.0",
     "adb-commander": "^0.1.9",
@@ -50,5 +50,5 @@
     "mini-css-extract-plugin": "^1.3.0",
     "mkdirp": "^0.5.5"
   },
-  "gitHead": "cf0ccc91304c32ab781194f3f74fc3f663423dd5"
+  "gitHead": "9fbf8ec01cc7fbd44a4908ecdc407a5022e89e7e"
 }
