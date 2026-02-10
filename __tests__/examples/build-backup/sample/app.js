@@ -465,7 +465,7 @@
                 },
                 "./src/regenerator.js": (__unused_webpack_module, __unused_webpack_exports, __webpack_require__) => {
                     "use strict";
-                    const injectRef = Object.getPrototypeOf(global) || global;
+                    const injectRef = Object.getPrototypeOf(__webpack_require__.g) || __webpack_require__.g;
                     injectRef.regeneratorRuntime = __webpack_require__("./node_modules/@babel/runtime/regenerator/index.js");
                 },
                 "./node_modules/@babel/runtime/helpers/regeneratorRuntime.js": (module, __unused_webpack_exports, __webpack_require__) => {
@@ -831,6 +831,16 @@
                 __webpack_modules__[moduleId](module, module.exports, __webpack_require__);
                 return module.exports;
             }
+            (() => {
+                __webpack_require__.g = function() {
+                    if (typeof globalThis === "object") return globalThis;
+                    try {
+                        return this || new Function("return this")();
+                    } catch (e) {
+                        if (typeof window === "object") return window;
+                    }
+                }();
+            })();
             var __webpack_exports__ = {};
             (() => {
                 var $app_style$ = {};
