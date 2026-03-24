@@ -4,6 +4,7 @@
  */
 
 import http from 'http'
+import https from 'https'
 import Koa from 'koa'
 import opn from 'opn'
 import portfinder from 'portfinder'
@@ -16,7 +17,6 @@ import {
 } from '@hap-toolkit/shared-utils'
 import { browerOptions } from './config'
 const moduler = [require('@hap-toolkit/debugger')]
-const proxies = require('koa-proxies')
 let server = null
 export async function launch(conf) {
   return new Promise(async (resolve) => {
@@ -26,19 +26,70 @@ export async function launch(conf) {
         moduler.push((await import('@hap-toolkit/packager')).router, require('./preview/index.js'))
       }
       const app = new Koa()
-      // 插件方式的预览页面是iframe，快应用开发ajax请求会受同源策略限制，需要做代理转发
+      // 插件方式的预览页面是iframe，快应用开发ajax请求会受同源策略限制，需要根据/api/proxy判断是否在node服务端做请求接口
       app.use(async (ctx, next) => {
-        if (ctx.request.url.startsWith('/api/proxy')) {
-          const target = ctx.request.url.split('target=')[1] // 从查询参数获取实际请求的目标地址
-          //  const apiReg = new RegExp(`^${api}/`);
-          return proxies('/api/proxy', {
-            target: target,
-            changeOrigin: true,
-            logs: true,
-            rewrite: (path) => path.replace(/^\/api\/proxy/, '')
-          })(ctx, next)
+        if (!ctx.request.url.startsWith('/api/proxy')) {
+          return next()
         }
-        return next()
+        // 浏览器引擎拼接的接口地址格式为/api/proxy/+实际地址
+        const urlString = ctx.request.url.split('/api/proxy/')[1] || ''
+
+        const url = new URL(urlString)
+        if (!url) {
+          ctx.status = 400
+          ctx.body = {
+            message: 'Missing required query param: target'
+          }
+          return
+        }
+        const requestBody = await new Promise((resolve, reject) => {
+          const chunks = []
+          ctx.req.on('data', (chunk) => chunks.push(chunk))
+          ctx.req.on('end', () => resolve(Buffer.concat(chunks)))
+          ctx.req.on('error', reject)
+        })
+        const requestHeaders = { ...ctx.headers }
+        delete requestHeaders.host
+        if (requestBody.length > 0) {
+          requestHeaders['content-length'] = requestBody.length
+        } else {
+          delete requestHeaders['content-length']
+        }
+
+        const requestOptions = {
+          method: ctx.method,
+          headers: requestHeaders
+        }
+        const transport = url.protocol === 'https:' ? https : http
+        const proxyResponse = await new Promise((resolve, reject) => {
+          const req = transport.request(url, requestOptions, (res) => {
+            const chunks = []
+            res.on('data', (chunk) => chunks.push(chunk))
+            res.on('end', () => {
+              resolve({
+                statusCode: res.statusCode || 500,
+                headers: res.headers,
+                body: Buffer.concat(chunks)
+              })
+            })
+          })
+          req.on('error', reject)
+          req.setTimeout(30000, () => {
+            req.destroy(new Error('proxy request timeout'))
+          })
+          if (requestBody.length > 0) {
+            req.write(requestBody)
+          }
+          req.end()
+        })
+
+        ctx.status = proxyResponse.statusCode
+        Object.entries(proxyResponse.headers || {}).forEach(([key, value]) => {
+          if (value !== undefined) {
+            ctx.set(key, value)
+          }
+        })
+        ctx.body = proxyResponse.body
       })
       let serverPort = globalConfig.server.port
       // 如果设置的端口被占用，则自动递增获取可用端口
