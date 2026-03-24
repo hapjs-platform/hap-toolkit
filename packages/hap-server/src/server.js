@@ -32,8 +32,8 @@ export async function launch(conf) {
           return next()
         }
         // 浏览器引擎拼接的接口地址格式为/api/proxy/+实际地址
-        const urlString = ctx.request.url.split('/api/proxy/')[1] || '';
-       
+        const urlString = ctx.request.url.split('/api/proxy/')[1] || ''
+
         const url = new URL(urlString)
         if (!url) {
           ctx.status = 400
@@ -62,7 +62,7 @@ export async function launch(conf) {
         }
         const transport = url.protocol === 'https:' ? https : http
         const proxyResponse = await new Promise((resolve, reject) => {
-          const req = transport.request(url,requestOptions, (res) => {
+          const req = transport.request(url, requestOptions, (res) => {
             const chunks = []
             res.on('data', (chunk) => chunks.push(chunk))
             res.on('end', () => {
