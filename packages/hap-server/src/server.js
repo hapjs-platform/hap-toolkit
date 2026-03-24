@@ -48,8 +48,6 @@ export async function launch(conf) {
           ctx.req.on('end', () => resolve(Buffer.concat(chunks)))
           ctx.req.on('error', reject)
         })
-        console.log('ctx', ctx);
-        console.log('requestBody', requestBody);
         const requestHeaders = { ...ctx.headers }
         delete requestHeaders.host
         if (requestBody.length > 0) {
@@ -62,8 +60,6 @@ export async function launch(conf) {
           method: ctx.method,
           headers: requestHeaders
         }
-        console.log('requestOptions', requestOptions)
-        console.log('url', url)
         const transport = url.protocol === 'https:' ? https : http
         const proxyResponse = await new Promise((resolve, reject) => {
           const req = transport.request(url,requestOptions, (res) => {
