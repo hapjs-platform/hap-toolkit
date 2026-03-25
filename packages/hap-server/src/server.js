@@ -8,8 +8,8 @@ import https from 'https'
 import Koa from 'koa'
 import opn from 'opn'
 import portfinder from 'portfinder'
+import qrTerminal from 'qrcode-terminal'
 import {
-  outputQRCodeOnTerminal,
   getIPv4IPAddress,
   colorconsole,
   globalConfig,
@@ -141,11 +141,9 @@ export async function launch(conf) {
         colorconsole.info(`### App Server ### 服务器地址: ${localUrl}, ${lanUrl}`)
         colorconsole.info(`### App Server ### 请确保手机与App Server处于相同网段`)
         // 输出二维码地址
-        outputQRCodeOnTerminal(lanUrl)
+        qrTerminal.generate(lanUrl, { small: true })
         // 在浏览器中打开二维码页面
-        if (openBrowser) {
-          opn(lanUrl)
-        }
+        openBrowser && opn(lanUrl)
         resolve({
           launchServerError: null,
           server,
