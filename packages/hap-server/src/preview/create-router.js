@@ -21,8 +21,9 @@ const { PACKAGER_BUILD_DONE, PACKAGER_WATCH_START, PACKAGER_BUILD_PROGRESS } = e
 const allowFiles = ['sitemap.json', 'app-chunks.json', 'page-chunks.json']
 
 function genWebJsUrl(version) {
-  version = version ? '-' + version : ''
-  return `https://statres.quickapp.cn/quickapp/ide/web${version}.js`
+  // web.js后面加一个时间戳，防止更新后disk缓存一直是之前的
+  const jsFile = version ? `web-${version}.js` : `web.js?t=${Date.now()}`;
+  return `https://statres.quickapp.cn/quickapp/ide/${jsFile}`
 }
 
 function jsonParse(data) {
