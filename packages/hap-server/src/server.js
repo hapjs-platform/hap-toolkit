@@ -46,7 +46,6 @@ export async function launch(conf) {
           const chunks = []
           ctx.req.on('data', (chunk) => chunks.push(chunk))
           ctx.req.on('end', () => resolve(Buffer.concat(chunks)))
-          ctx.req.on('error', reject)
         })
         const requestHeaders = { ...ctx.headers }
         delete requestHeaders.host
@@ -72,10 +71,6 @@ export async function launch(conf) {
                 body: Buffer.concat(chunks)
               })
             })
-          })
-          req.on('error', reject)
-          req.setTimeout(30000, () => {
-            req.destroy(new Error('proxy request timeout'))
           })
           if (requestBody.length > 0) {
             req.write(requestBody)
