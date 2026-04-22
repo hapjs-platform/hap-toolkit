@@ -48,6 +48,7 @@ const featureValidatorMap = {
   scene: 'scene',
   'widget-size': 'widgetSize',
   'device-type': 'deviceType',
+  'fold-state': 'foldState',
   manufacturer: 'manufacturer',
   'theme-mode': 'themeMode'
 }
@@ -167,6 +168,17 @@ const featureValidator = {
           value +
           '` 不正确, 必须为 `phone | watch | car`'
         )
+      }
+    }
+  },
+  foldState(value) {
+    const reg = /^(close|open)$/
+    if (reg.test(value)) {
+      return { value }
+    }
+    return {
+      reason: function (feature) {
+        return 'WARN: 媒体特征 `' + feature + '` 的值 `' + value + '` 不正确, 必须为 `close | open`'
       }
     }
   },
