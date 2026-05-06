@@ -2148,5 +2148,6 @@ export default {
   isEmptyElement,
   isNotTextContentAtomic,
   isExpr: exp.isExpr,
-  parseText: exp.parseText
+  parseText: exp.parseText,
+  exp: exp
 }

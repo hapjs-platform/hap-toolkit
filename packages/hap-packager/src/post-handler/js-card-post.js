@@ -2,17 +2,7 @@
  * Copyright (c) 2024-present, the hapjs-platform Project Contributors
  * SPDX-License-Identifier: Apache-2.0
  */
-import {
-  getExprType,
-  isFunctionStr,
-  isObject,
-  isConstObjOrArray,
-  isSimpleArr,
-  isSimplePath,
-  EXPR_TYPE
-} from './utils'
-import { templater } from '@hap-toolkit/compiler'
-const { validator } = templater
+import { getExprType, isFunctionStr, isObject, EXPR_TYPE, getNewJsCardExprRes } from './utils'
 
 const CARD_ENTRY = '#entry'
 const TYPE_IMPORT = 'import'
@@ -102,7 +92,7 @@ function markIf(template) {
 
   const exprType = getExprType(template.shownRaw)
   if (exprType === EXPR_TYPE.CONST_IN_EXPRESSION || exprType === EXPR_TYPE.EXPRESSION) {
-    const exprRes = getExprRes(template.shownRaw, template.shown)
+    const exprRes = getNewJsCardExprRes(template.shownRaw, template.shown)
     if (exprType === EXPR_TYPE.EXPRESSION) {
       template['$shown'] = exprRes
       delete template.shown
@@ -119,7 +109,7 @@ function markIs(template) {
 
   const exprType = getExprType(template.isRaw)
   if (exprType === EXPR_TYPE.CONST_IN_EXPRESSION || exprType === EXPR_TYPE.EXPRESSION) {
-    const exprRes = getExprRes(template.isRaw, template.is)
+    const exprRes = getNewJsCardExprRes(template.isRaw, template.is)
     if (exprType === EXPR_TYPE.EXPRESSION) {
       template['$is'] = exprRes
       delete template.is
@@ -136,7 +126,7 @@ function markId(template) {
 
   const exprType = getExprType(template.idRaw)
   if (exprType === EXPR_TYPE.CONST_IN_EXPRESSION || exprType === EXPR_TYPE.EXPRESSION) {
-    const exprRes = getExprRes(template.idRaw, template.id)
+    const exprRes = getNewJsCardExprRes(template.idRaw, template.id)
     if (exprType === EXPR_TYPE.EXPRESSION) {
       template['$id'] = exprRes
       delete template.id
@@ -172,7 +162,7 @@ function markFor(template) {
     */
     const exprType = getExprType(template.repeatRaw.expRaw)
     if (exprType === EXPR_TYPE.CONST_IN_EXPRESSION || exprType === EXPR_TYPE.EXPRESSION) {
-      const exprRes = getExprRes(template.repeatRaw.expRaw, template.repeat.exp)
+      const exprRes = getNewJsCardExprRes(template.repeatRaw.expRaw, template.repeat.exp)
       if (exprType === EXPR_TYPE.EXPRESSION) {
         template.repeat['$exp'] = exprRes
         delete template.repeat.exp
@@ -187,7 +177,7 @@ function markFor(template) {
     */
     const exprType = getExprType(template.repeatRaw)
     if (exprType === EXPR_TYPE.CONST_IN_EXPRESSION || exprType === EXPR_TYPE.EXPRESSION) {
-      const exprRes = getExprRes(template.repeatRaw, template.repeat)
+      const exprRes = getNewJsCardExprRes(template.repeatRaw, template.repeat)
       if (exprType === EXPR_TYPE.EXPRESSION) {
         template['$repeat'] = exprRes
         delete template.repeat
@@ -209,7 +199,7 @@ function markStyle(template) {
     Object.keys(style).forEach((key) => {
       const exprType = getExprType(styleRaw[key])
       if (exprType === EXPR_TYPE.CONST_IN_EXPRESSION || exprType === EXPR_TYPE.EXPRESSION) {
-        const exprRes = getExprRes(styleRaw[key], style[key])
+        const exprRes = getNewJsCardExprRes(styleRaw[key], style[key])
         if (exprType === EXPR_TYPE.EXPRESSION) {
           template.style['$' + key] = exprRes
           delete template.style[key]
@@ -222,7 +212,7 @@ function markStyle(template) {
   } else {
     const exprType = getExprType(styleRaw)
     if (exprType === EXPR_TYPE.CONST_IN_EXPRESSION || exprType === EXPR_TYPE.EXPRESSION) {
-      const exprRes = getExprRes(styleRaw, template.style)
+      const exprRes = getNewJsCardExprRes(styleRaw, template.style)
       if (exprType === EXPR_TYPE.EXPRESSION) {
         template['$style'] = exprRes
         delete template.style
@@ -240,7 +230,7 @@ function markClass(template) {
 
   const exprType = getExprType(template.classListRaw)
   if (exprType === EXPR_TYPE.CONST_IN_EXPRESSION || exprType === EXPR_TYPE.EXPRESSION) {
-    const exprRes = getExprRes(template.classListRaw, template.classList)
+    const exprRes = getNewJsCardExprRes(template.classListRaw, template.classList)
     if (exprType === EXPR_TYPE.EXPRESSION) {
       template['$class'] = exprRes
       template['$classList'] = exprRes
@@ -278,7 +268,7 @@ function markAttr(template) {
       if (attrValueRaw !== undefined) {
         const exprType = getExprType(attrValueRaw)
         if (exprType === EXPR_TYPE.CONST_IN_EXPRESSION || exprType === EXPR_TYPE.EXPRESSION) {
-          const exprRes = getExprRes(attrValueRaw, attr[attrKey])
+          const exprRes = getNewJsCardExprRes(attrValueRaw, attr[attrKey])
           if (exprType === EXPR_TYPE.EXPRESSION) {
             attr['$' + attrKey] = exprRes
             delete attr[attrKey]
@@ -290,26 +280,6 @@ function markAttr(template) {
         delete attr[attrKey + 'Raw']
       }
     })
-  }
-}
-
-function getExprRes(exprRaw, expr) {
-  const tokens = validator.parseText(exprRaw.trim())
-  if (tokens.length > 1) {
-    return expr
-  }
-
-  const parsed = tokens[0].value
-  if (isConstObjOrArray(parsed)) {
-    // 简单表达式 {{ [1,2,3] }}、{{ {a: 1} }}
-    // eslint-disable-next-line no-eval
-    return eval(`(${parsed})`)
-  } else if (isSimplePath(parsed) && isSimpleArr(parsed)) {
-    // 简单表达式 {{name}}、{{title.name}}、{{title['name']}}、{{title[0]}}
-    return parsed // {{ name }} -> name
-  } else {
-    // 复杂表达式，返回function形式的表达式结果
-    return expr // {{a + b}} -> function () { return this.a + this.b }
   }
 }
 
