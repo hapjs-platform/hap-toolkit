@@ -34,7 +34,8 @@ export function resolveFile(scriptFilePath) {
  * @return {array}
  */
 export function getEntryFiles(entry) {
-  const entryFiles = Object.keys(entry || {}).map((file) => {
+  const normalizedEntry = getNormalizedEntry(entry)
+  const entryFiles = Object.keys(normalizedEntry).map((file) => {
     return file + '.js'
   })
   return entryFiles
@@ -47,9 +48,10 @@ export function getEntryFiles(entry) {
  */
 export function getLiteEntryFiles(entry) {
   const liteEntry = []
-  Object.keys(entry || {}).forEach((file) => {
-    const fileInfo = entry[file]
-    const importStr = fileInfo.import[0] || ''
+  const normalizedEntry = getNormalizedEntry(entry)
+  Object.keys(normalizedEntry).forEach((file) => {
+    const fileInfo = normalizedEntry[file]
+    const importStr = (fileInfo && fileInfo.import && fileInfo.import[0]) || ''
     if (importStr.indexOf('?') >= 0) {
       const paramStr = importStr.split('?')[1]
       const paramArr = paramStr.split('&')
@@ -59,6 +61,19 @@ export function getLiteEntryFiles(entry) {
     }
   })
   return liteEntry
+}
+
+/**
+ * 获取当前生效的 webpack entry 配置。
+ * 支持 watch 模式下通过 entry 函数动态刷新入口。
+ * @param {object|function} entry
+ * @return {object}
+ */
+export function getNormalizedEntry(entry) {
+  if (typeof entry === 'function') {
+    return entry() || {}
+  }
+  return entry || {}
 }
 
 /**

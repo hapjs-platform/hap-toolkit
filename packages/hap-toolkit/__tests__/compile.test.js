@@ -47,7 +47,7 @@ describe('测试compile', () => {
       },
       'development'
     )
-    expect(conf.entry).toMatchSnapshot()
+    expect(conf.entry()).toMatchSnapshot()
   })
 
   it(

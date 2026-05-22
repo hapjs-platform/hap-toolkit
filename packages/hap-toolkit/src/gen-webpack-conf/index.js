@@ -162,6 +162,7 @@ export default async function genWebpackConf(launchOptions, mode) {
 
   // 页面文件
   const entries = resolveEntries(manifest, SRC_DIR, cwd)
+  const entryState = { current: entries }
 
   // 环境变量
   const env = {
@@ -228,7 +229,7 @@ export default async function genWebpackConf(launchOptions, mode) {
     context: cwd,
     mode,
     cache,
-    entry: entries,
+    entry: () => entryState.current,
     output: {
       globalObject: 'window',
       path: BUILD_DIR,
@@ -293,7 +294,9 @@ export default async function genWebpackConf(launchOptions, mode) {
       },
       new ManifestWatchPlugin({
         appRoot: cwd,
-        root: SRC_DIR
+        root: SRC_DIR,
+        buildDir: BUILD_DIR,
+        entryState
       })
     ],
     resolve: {
@@ -503,6 +506,7 @@ export default async function genWebpackConf(launchOptions, mode) {
         useTreeShaking:
           quickappConfig && quickappConfig.useTreeShaking ? !!quickappConfig.useTreeShaking : false,
         workers,
+        entryState,
         cwd,
         originType: compileOptionsObject.originType,
         ideConfig: launchOptions.ideConfig

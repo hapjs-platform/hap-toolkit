@@ -5,7 +5,7 @@
 
 import Compilation from 'webpack/lib/Compilation'
 import { globalConfig, compileOptionsObject, compileOptionsMeta } from '@hap-toolkit/shared-utils'
-import { getEntryFiles, getLiteEntryFiles } from '../common/info'
+import { getEntryFiles, getLiteEntryFiles, getNormalizedEntry } from '../common/info'
 
 let ConcatSource
 
@@ -22,6 +22,7 @@ HandlerPlugin.prototype.apply = function (compiler) {
   ConcatSource = compiler.webpack.sources.ConcatSource
   const workersPath = this.options.workers
   const enableE2e = this.options.enableE2e
+  const entryState = this.options.entryState
   compiler.hooks.compilation.tap('HandlerPlugin', function (compilation) {
     compilation.hooks.processAssets.tap(
       {
@@ -30,8 +31,11 @@ HandlerPlugin.prototype.apply = function (compiler) {
       },
       () => {
         // 如果进行抽取公共js则需通过入口文件来判断是不是抽取出的Chunks
-        const entryFiles = getEntryFiles(compiler.options.entry)
-        const liteEntryFiles = getLiteEntryFiles(compiler.options.entry)
+        const currentEntry = entryState
+          ? entryState.current
+          : getNormalizedEntry(compiler.options.entry)
+        const entryFiles = getEntryFiles(currentEntry)
+        const liteEntryFiles = getLiteEntryFiles(currentEntry)
         const { originType } = compileOptionsObject || {}
         const isDevMode = globalConfig.mode === 'development'
         compilation.chunks.forEach(function (chunk) {

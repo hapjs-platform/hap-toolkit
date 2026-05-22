@@ -5,7 +5,7 @@
 
 import path from 'path'
 import Compilation from 'webpack/lib/Compilation'
-import { getEntryFiles } from '../common/info'
+import { getEntryFiles, getNormalizedEntry } from '../common/info'
 import { compileOptionsMeta } from '@hap-toolkit/shared-utils'
 import { isEmptyObject } from '@hap-toolkit/compiler'
 
@@ -106,7 +106,10 @@ class SplitChunksAdaptPlugin {
 
       // 这个钩子负责生成chunkFileMapStr，兼容release包里找不到文件路径,因为压缩后会把文件名打为数字id
       compilation.hooks.optimizeChunkIds.tap(pluginName, (chunks) => {
-        entryFiles = getEntryFiles(compiler.options.entry)
+        const currentEntry = options.entryState
+          ? options.entryState.current
+          : getNormalizedEntry(compiler.options.entry)
+        entryFiles = getEntryFiles(currentEntry)
 
         const chunksMap = Array.from(chunks)
           .filter((chunk) => {

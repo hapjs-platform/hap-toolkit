@@ -18,7 +18,7 @@ import {
   globalConfig
 } from '@hap-toolkit/shared-utils'
 
-import { name } from '../common/info'
+import { name, getNormalizedEntry } from '../common/info'
 import { updateManifest } from '../common/shared'
 
 const { PACKAGER_BUILD_DONE } = eventBus
@@ -221,10 +221,13 @@ ResourcePlugin.prototype.apply = function (compiler) {
   const webpackOptions = compiler.options
   // 监听时处理
   compiler.hooks.watchRun.tapAsync('ResourcePlugin', function (watching, callback) {
-    Object.keys(webpackOptions.entry).forEach(function (key) {
+    const currentEntry = options.entryState
+      ? options.entryState.current
+      : getNormalizedEntry(webpackOptions.entry)
+    Object.keys(currentEntry).forEach(function (key) {
       // 重置 changedJS
       globalConfig.changedJS = {}
-      const val = webpackOptions.entry[key]
+      const val = currentEntry[key]
       if (val instanceof Array && !/app\.js/.test(key)) {
         // 删除webpack-dev-server注入的watch依赖
         val[0].indexOf('webpack-dev-server') !== -1 && val.shift()

@@ -47,6 +47,7 @@ function postHook(webpackConf, defaultsOptions, quickappConfig = {}) {
     pathSrc,
     subpackages,
     workers,
+    entryState,
     originType,
     useTreeShaking
   } = defaultsOptions
@@ -119,6 +120,7 @@ function postHook(webpackConf, defaultsOptions, quickappConfig = {}) {
   if (globalConfig.isSmartMode) {
     webpackConf.plugins.push(
       new SplitChunksAdaptPlugin({
+        entryState,
         subpackages,
         disableSubpackages: compileOptionsObject.disableSubpackages
       })
@@ -133,6 +135,7 @@ function postHook(webpackConf, defaultsOptions, quickappConfig = {}) {
     new HandlerPlugin({
       pathSrc: pathSrc,
       workers: workers,
+      entryState,
       enableE2e: compileOptionsObject.enableE2e,
       useTreeShaking
     }),
@@ -143,6 +146,7 @@ function postHook(webpackConf, defaultsOptions, quickappConfig = {}) {
     new ResourcePlugin({
       src: pathSrc,
       dest: pathBuild,
+      entryState,
       comment: rpkComment,
       projectRoot: globalConfig.projectPath,
       configDebugInManifest,
