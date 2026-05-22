@@ -115,7 +115,7 @@ const featureValidator = {
   },
   scene(value) {
     const reg =
-      /^(assistantscreen|launcher|globalsearch|calendar|lockscreen|suggestion|voiceassistant|sms|servicecenter|cardesktop|pictorial)$/
+      /^(assistantscreen|launcher|globalsearch|calendar|lockscreen|suggestion|voiceassistant|sms|servicecenter|cardesktop|pictorial|notification|island)$/
     if (reg.test(value)) {
       return { value }
     }
@@ -126,7 +126,7 @@ const featureValidator = {
           feature +
           '` 的值 `' +
           value +
-          '` 不正确, 必须为 `assistantscreen | launcher | globalsearch | calendar | lockscreen | suggestion | voiceassistant | sms | servicecenter | cardesktop | pictorial`'
+          '` 不正确, 必须为 `assistantscreen | launcher | globalsearch | calendar | lockscreen | suggestion | voiceassistant | sms | servicecenter | cardesktop | pictorial | notification | island`'
         )
       }
     }
