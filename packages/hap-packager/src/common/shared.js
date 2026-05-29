@@ -17,7 +17,11 @@ function frameworkInit() {
       // 基本名
       base: 'system',
       // 扩展名
-      ext: 'service'
+      ext: 'service',
+      // nearme新增扩展名
+      nearme: 'nearme',
+      // hap扩展名
+      hap: 'hap'
     },
     // 保留的features，保持与runtime_config.xml同步
     reservedFeatures: [],
@@ -80,7 +84,14 @@ function frameworkInit() {
     'nfc',
     'uploadtask',
     'downloadtask',
-    'requesttask'
+    'requesttask',
+    'minormode',
+    'nfc',
+    'localconnection',
+    'hostconnection',
+    'permission',
+    'audiolite',
+    'page'
   ]
   const serviceFeatures = [
     'account',
@@ -100,7 +111,10 @@ function frameworkInit() {
     'wxaccount',
     'wxpay',
     'biometriverify',
-    'texttoaudio'
+    'texttoaudio',
+    'oppoinneraccount',
+    'simCalibration',
+    'quickappservice'
   ]
   systemFeatures.forEach((feature) => {
     // system
@@ -117,7 +131,7 @@ function frameworkInit() {
   })
 
   // 卡片中支持的feature
-  const supportInCard = [
+  const systemSupportInCard = [
     'share',
     'prompt',
     'vibrator',
@@ -131,10 +145,72 @@ function frameworkInit() {
     'calendar',
     'package',
     'app',
-    'router'
+    'router',
+    'media',
+    'cipher',
+    'permission',
+    'badge',
+    'localconnection',
+    'hostconnection',
+    'audio',
+    'audiolite',
+    'barcode',
+    'configuration',
+    'model',
+    'bluetooth'
   ]
-  supportInCard.forEach((feature) => {
+  systemSupportInCard.forEach((feature) => {
     global.framework.supportInCard.push(`${global.framework.module.base}.${feature}`)
+  })
+  const nearmeSupportInCard = [
+    'media',
+    'history',
+    'http',
+    'shortcut',
+    'stats',
+    'router',
+    'package',
+    'device',
+    'theme',
+    'browser',
+    'feedback',
+    'navigator',
+    'note',
+    'miniprogram',
+    'downloadtask',
+    'sceneservice',
+    'marketbook',
+    'permission',
+    'account',
+    'applist',
+    'contentresolver',
+    'receiver',
+    'settings',
+    'preload',
+    'logger',
+    'network',
+    'system',
+    'nearby',
+    'batchanimator'
+  ]
+  nearmeSupportInCard.forEach((feature) => {
+    global.framework.supportInCard.push(`${global.framework.module.nearme}.${feature}`)
+  })
+  const serviceSupportInCard = [
+    'account',
+    'push',
+    'simCalibration',
+    'oppoinneraccount'
+  ]
+  serviceSupportInCard.forEach((feature) => {
+    global.framework.supportInCard.push(`${global.framework.module.ext}.${feature}`)
+  })
+  const hapSupportInCard = [
+    'io.MessageChannel',
+    'sharedStorage'
+  ]
+  hapSupportInCard.forEach((feature) => {
+    global.framework.supportInCard.push(`${global.framework.module.hap}.${feature}`)
   })
 }
 
@@ -197,7 +273,7 @@ function searchModuleImport(fileCont, options = {}) {
 function checkFeatureInCard(obj = {}) {
   Object.keys(obj).forEach((key) => {
     obj[key].features &&
-      obj[key].features.every((item) => {
+      obj[key].features.forEach((item) => {
         if (global.framework.supportInCard.indexOf(item.name) === -1) {
           // 不支持的native模块
           colorconsole.error(

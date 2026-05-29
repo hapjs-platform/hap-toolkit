@@ -256,7 +256,7 @@ function initParser(code, options, filePath) {
     const selfClosable = validator.isSupportedSelfClosing(tagName)
     if (selfClosing && !selfClosable) {
       colorconsole.error(
-        `${tagName}标签，禁止使用自闭合 ${filePath}@${token.location.line}:${token.location.col}`
+        `${tagName}标签，禁止使用自闭合 ${filePath} @${token.location.line}:${token.location.col}`
       )
     }
 
@@ -285,7 +285,7 @@ function initParser(code, options, filePath) {
         (pos !== parser.__m['pos'] && token.type === Tokenizer.START_TAG_TOKEN)
       ) {
         colorconsole.warn(
-          `${parser.__m['tagName']}标签要闭合，请遵循XML规范 ${filePath}@${parser.__m['pos']}`
+          `${parser.__m['tagName']}标签要闭合，请遵循XML规范 ${filePath} @${parser.__m['pos']}`
         )
         parser.__m = {}
       }

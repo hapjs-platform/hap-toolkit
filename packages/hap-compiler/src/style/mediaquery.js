@@ -137,7 +137,7 @@ const featureValidator = {
       if (sizeStr[0] === '"' || sizeStr[0] === "'") {
         sizeStr = sizeStr.slice(1, sizeStr.length - 1)
       }
-      const reg = /^(1|2|4|8|AUTO|FULL)x(1|2|4|8|AUTO|FULL)$/
+      const reg = /^(1|2|4|8|AUTO|FULL)x(1|2|4|8|AUTO|FULL|N)$/
       if (reg.test(sizeStr)) {
         return { value: sizeStr }
       }

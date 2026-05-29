@@ -217,7 +217,7 @@ const tagNatives = {
   },
   web: {
     atomic: true,
-    events: ['pagestart', 'pagefinish', 'titlereceive', 'error', 'message', 'progress'],
+    events: ['pagestart', 'pagefinish', 'titlereceive', 'error', 'message', 'progress', 'intercepturl'],
     attrs: {
       src: {},
       trustedurl: {},
@@ -232,7 +232,8 @@ const tagNatives = {
       },
       supportzoom: {
         enum: ['true', 'false']
-      }
+      },
+      intercepturl:{}
     }
   },
   list: {
@@ -603,6 +604,9 @@ const tagNatives = {
     empty: true,
     attrs: {
       src: {},
+      loop: {
+        enum: ['true', 'false']
+      },
       muted: {
         enum: ['false', 'true']
       },
@@ -623,6 +627,9 @@ const tagNatives = {
       playcount: {},
       speed: {
         def: 1
+      },
+      'object-fit': {
+        enum: ['contain', 'cover', 'fill', 'none', 'scale-down']
       }
     },
     events: [
@@ -634,7 +641,10 @@ const tagNatives = {
       'seeking',
       'seeked',
       'timeupdate',
-      'fullscreenchange'
+      'fullscreenchange',
+      'firstframe',
+      'buffering',
+      'error'
     ]
   },
   camera: {
@@ -866,6 +876,8 @@ const tagNatives = {
       },
       progress: {},
       speed: {},
+      'start-frame': {},
+      'end-frame': {},
       loop: {
         enum: [true, false]
       },
@@ -876,7 +888,7 @@ const tagNatives = {
         enum: [`AUTOMATIC`, `HARDWARE`, `SOFTWARE`]
       }
     },
-    events: ['complete', 'error', 'change']
+    events: ['complete', 'error', 'change', 'loaded']
   },
   'drawer-navigation': {
     parents: ['drawer'],
