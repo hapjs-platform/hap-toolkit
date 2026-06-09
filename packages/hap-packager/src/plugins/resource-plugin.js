@@ -238,15 +238,6 @@ ResourcePlugin.prototype.apply = function (compiler) {
 
   let runned = false
   compiler.hooks.emit.tapAsync('ResourcePlugin', function (compilation, callback) {
-    if (runned) {
-      setTimeout(() => {
-        // 此节点即可通知预览刷新，打 rpk 错误不显示在预览界面
-        eventBus.emit(PACKAGER_BUILD_DONE)
-        // 必须在定时器中调用 callback
-        callback()
-      }, 0)
-      return
-    }
     runned = true
     const sourceDir = options.src
     const targetDir = options.dest
@@ -330,6 +321,32 @@ ResourcePlugin.prototype.apply = function (compiler) {
         return true
       }
     })
+    // watch 模式下增量构建：仅复制新增或变更的静态资源，保留 HMR 性能优化
+    if (runned) {
+      pairs = pairs.filter((pair) => {
+        const { srcFile, destFile } = pair
+        if (compiler.modifiedFiles && compiler.modifiedFiles.has(srcFile)) {
+          return true
+        }
+        if (!fs.existsSync(destFile)) {
+          return true
+        }
+        try {
+          return fs.statSync(srcFile).mtimeMs > fs.statSync(destFile).mtimeMs
+        } catch (err) {
+          return true
+        }
+      })
+      if (pairs.length === 0) {
+        setTimeout(() => {
+          // 此节点即可通知预览刷新，打 rpk 错误不显示在预览界面
+          eventBus.emit(PACKAGER_BUILD_DONE)
+          // 必须在定时器中调用 callback
+          callback()
+        }, 0)
+        return
+      }
+    }
     const promises = pairs.map((pair) => {
       return new Promise((resolve, reject) => {
         const { srcFile, destFile } = pair
