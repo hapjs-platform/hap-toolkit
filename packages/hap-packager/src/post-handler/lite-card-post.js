@@ -4,7 +4,14 @@
  */
 
 import { templateValueToCardCode } from '@aiot-toolkit/card-expression'
-import { isExpr, isObject, isConstObjOrArray, isSimpleArr, isSimplePath } from './utils'
+import {
+  isExpr,
+  isObject,
+  isConstObjOrArray,
+  isSimpleArr,
+  isSimplePath,
+  getNewJsCardExprRes
+} from './utils'
 import { templater } from '@hap-toolkit/compiler'
 const { validator } = templater
 
@@ -44,9 +51,11 @@ function postHandleActions(actions) {
 
 function markType(actions) {
   if (isExpr(actions.type)) {
-    let { rawExpr, prefixExpr } = getPrefixExpr(actions.type)
+    const expContent = actions.type
+    let { prefixExpr } = getPrefixExpr(expContent)
     delete actions.type
-    actions['$type'] = rawExpr
+    const funcStr = validator.exp(expContent, true, false, true)
+    actions['$type'] = getNewJsCardExprRes(expContent, funcStr)
     actions['#type'] = prefixExpr
   }
 }
@@ -56,9 +65,11 @@ function markUrl(actions) {
   // 如为数组，则遍历数组进行表达式处理
   if (typeof actions.url === 'string') {
     if (isExpr(actions.url)) {
-      let { rawExpr, prefixExpr } = getPrefixExpr(actions.url)
+      const expContent = actions.url
+      let { prefixExpr } = getPrefixExpr(expContent)
       delete actions.url
-      actions['$url'] = rawExpr
+      const funcStr = validator.exp(expContent, true, false, true)
+      actions['$url'] = getNewJsCardExprRes(expContent, funcStr)
       actions['#url'] = prefixExpr
     }
   } else if (Array.isArray(actions.url)) {
@@ -83,16 +94,18 @@ function markUrl(actions) {
 
     if (hasBinding) {
       delete actions.url
-      actions['$url'] = rawUrlList
+      // actions['$url']  url 是数组的写法，手表标准上不支持
       actions['#url'] = prefixUrlList
     }
   }
 }
 function markMethod(actions) {
   if (isExpr(actions.method)) {
-    let { rawExpr, prefixExpr } = getPrefixExpr(actions.method)
+    const expContent = actions.method
+    let { prefixExpr } = getPrefixExpr(expContent)
     delete actions.method
-    actions['$method'] = rawExpr
+    const funcStr = validator.exp(expContent, true, false, true)
+    actions['$method'] = getNewJsCardExprRes(expContent, funcStr)
     actions['#method'] = prefixExpr
   }
 }
@@ -104,9 +117,10 @@ function markParams(actions) {
   Object.keys(actions.params).forEach((key) => {
     const value = actions.params[key]
     if (isExpr(value)) {
-      let { rawExpr, prefixExpr } = getPrefixExpr(value)
+      let { prefixExpr } = getPrefixExpr(value)
       delete actions.params[key]
-      actions.params['$' + key] = rawExpr
+      const funcStr = validator.exp(value, true, false, true)
+      actions.params['$' + key] = getNewJsCardExprRes(value, funcStr)
       actions.params['#' + key] = prefixExpr
     }
   })
@@ -175,9 +189,11 @@ function markIf(template) {
   if (!template.shown) return
 
   if (isExpr(template.shown)) {
-    let { rawExpr, prefixExpr } = getPrefixExpr(template.shown)
+    const expContent = template.shown
+    let { prefixExpr } = getPrefixExpr(expContent)
     delete template.shown
-    template['$shown'] = rawExpr
+    const funcStr = validator.exp(expContent, true, false, true)
+    template['$shown'] = getNewJsCardExprRes(expContent, funcStr)
     template['#shown'] = prefixExpr
   }
   template.kind = markKind(template.kind, ENUM_KIND_TYPE.FRAGMENT.kind)
@@ -187,9 +203,11 @@ function markIs(template) {
   if (!template.is) return
 
   if (isExpr(template.is)) {
-    let { rawExpr, prefixExpr } = getPrefixExpr(template.is)
+    const expContent = template.is
+    let { prefixExpr } = getPrefixExpr(expContent)
     delete template.is
-    template['$is'] = rawExpr
+    const funcStr = validator.exp(expContent, true, false, true)
+    template['$is'] = getNewJsCardExprRes(expContent, funcStr)
     template['#is'] = prefixExpr
     template.kind = markKind(template.kind, ENUM_KIND_TYPE.ELEMENT.kind)
   }
@@ -199,9 +217,11 @@ function markId(template) {
   if (!template.id) return
 
   if (isExpr(template.id)) {
-    let { rawExpr, prefixExpr } = getPrefixExpr(template.id)
+    const expContent = template.id
+    let { prefixExpr } = getPrefixExpr(expContent)
     delete template.id
-    template['$id'] = rawExpr
+    const funcStr = validator.exp(expContent, true, false, true)
+    template['$id'] = getNewJsCardExprRes(expContent, funcStr)
     template['#id'] = prefixExpr
   }
   // 节点有id属性，标记为kind 为 1
@@ -232,9 +252,11 @@ function markFor(template) {
           "value": "item"
         },
       */
-      let { rawExpr, prefixExpr } = getPrefixExpr(template.repeat.exp)
+      const expContent = template.repeat.exp
+      let { prefixExpr } = getPrefixExpr(expContent)
       delete template.repeat.exp
-      template.repeat['$exp'] = rawExpr
+      const funcStr = validator.exp(expContent, true, false, true)
+      template.repeat['$exp'] = getNewJsCardExprRes(expContent, funcStr)
       template.repeat['#exp'] = prefixExpr
     }
   } else if (isExpr(template.repeat)) {
@@ -243,9 +265,11 @@ function markFor(template) {
       "$repeat": "ItemList",
       "#repeat": ["$", "ItemList"],
     */
-    let { rawExpr, prefixExpr } = getPrefixExpr(template.repeat)
+    const expContent = template.repeat
+    let { prefixExpr } = getPrefixExpr(expContent)
     delete template.repeat
-    template['$repeat'] = rawExpr
+    const funcStr = validator.exp(expContent, true, false, true)
+    template['$repeat'] = getNewJsCardExprRes(expContent, funcStr)
     template['#repeat'] = prefixExpr
   }
   template.kind = markKind(template.kind, ENUM_KIND_TYPE.FRAGMENT.kind)
@@ -259,18 +283,21 @@ function markStyle(template) {
     Object.keys(style).forEach((key) => {
       const value = style[key]
       if (isExpr(value)) {
-        let { rawExpr, prefixExpr } = getPrefixExpr(value)
+        let { prefixExpr } = getPrefixExpr(value)
         delete template.style[key]
-        template.style['$' + key] = rawExpr
+        const funcStr = validator.exp(value, true, false, true)
+        template.style['$' + key] = getNewJsCardExprRes(value, funcStr)
         template.style['#' + key] = prefixExpr
         template.kind = markKind(template.kind, ENUM_KIND_TYPE.ELEMENT.kind)
       }
     })
   } else {
     if (isExpr(style)) {
-      let { rawExpr, prefixExpr } = getPrefixExpr(style)
+      const expContent = style
+      let { prefixExpr } = getPrefixExpr(expContent)
       delete template.style
-      template['$style'] = rawExpr
+      const funcStr = validator.exp(expContent, true, false, true)
+      template['$style'] = getNewJsCardExprRes(expContent, funcStr)
       template['#style'] = prefixExpr
       template.kind = markKind(template.kind, ENUM_KIND_TYPE.ELEMENT.kind)
     }
@@ -281,9 +308,11 @@ function markClass(template) {
   if (!template.class || template.class.length === 0) return
 
   if (isExpr(template.class)) {
-    let { rawExpr, prefixExpr } = getPrefixExpr(template.class)
+    const expContent = template.class
+    let { prefixExpr } = getPrefixExpr(expContent)
     delete template.class
-    template['$class'] = rawExpr
+    const funcStr = validator.exp(expContent, true, false, true)
+    template['$class'] = getNewJsCardExprRes(expContent, funcStr)
     template['#class'] = prefixExpr
     template.kind = markKind(template.kind, ENUM_KIND_TYPE.ELEMENT.kind)
   }
@@ -324,9 +353,10 @@ function markAttr(template) {
     Object.keys(attr).forEach((attrKey) => {
       const attrValue = attr[attrKey]
       if (isExpr(attrValue)) {
-        let { rawExpr, prefixExpr } = getPrefixExpr(attrValue)
+        let { prefixExpr } = getPrefixExpr(attrValue)
         delete attr[attrKey]
-        attr['$' + attrKey] = rawExpr
+        const funcStr = validator.exp(attrValue, true, false, true)
+        attr['$' + attrKey] = getNewJsCardExprRes(attrValue, funcStr)
         attr['#' + attrKey] = prefixExpr
         template.kind = markKind(template.kind, ENUM_KIND_TYPE.ELEMENT.kind)
       }
