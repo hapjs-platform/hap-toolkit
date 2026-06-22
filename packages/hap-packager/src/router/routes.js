@@ -148,18 +148,6 @@ async function notify(context, next) {
   await next()
 }
 
-/**
- * 二维码api
- */
-async function qrCode(context, next) {
-  const port = context.app.server.address().port
-  const data = getServerAddress(port)
-  const image = qr.image(data, { size: 9 })
-  await next()
-  context.type = 'image/png'
-  context.body = image
-}
-
 async function saveDataCoverage(context, next) {
   const reqDataCoverage = context.request.body.coverage
   if (!reqDataCoverage) {
@@ -231,7 +219,7 @@ async function saveDataLogs(context, next) {
 export default {
   index,
   bundle,
-  qrCode,
+  qrCode: index,
   logger,
   notify,
   saveDataCoverage,

@@ -57,13 +57,14 @@ describe('hap-toolkit', () => {
   it(
     'hap-server',
     async () => {
+      const serverReg = /服务器地址: (http:\/\/.*),/
       const dialogs = [
         {
           pattern: (output) => {
-            return output.match(/生成HTTP服务器的二维码: (http:\/\/.*)/)
+            return output.match(serverReg)
           },
           feeds: (proc, output) => {
-            const match = output.match(/生成HTTP服务器的二维码: (http:\/\/.*)/)
+            const match = output.match(serverReg)
             const url = match[1]
             const p1 = fetch(url)
               .then((res) => {
