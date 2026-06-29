@@ -181,6 +181,7 @@ const tagNatives = {
     attrs: {
       src: {},
       alt: {},
+      symbolcode: {},
       enablenightmode: {
         enum: ['true', 'false']
       },
