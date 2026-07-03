@@ -72,6 +72,10 @@ const LOADER_INFO_LIST = [
     type: 'actions'
   },
   {
+    path: '/lifecycle-loader.js',
+    type: 'lifecycle'
+  },
+  {
     path: '/props-loader.js',
     type: 'props'
   },

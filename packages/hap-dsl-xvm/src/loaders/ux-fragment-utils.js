@@ -30,6 +30,7 @@ const defaultLoaders = {
   component: resolveSync('./ux-loader.js'),
   data: resolveSync('./data-loader.js'),
   action: resolveSync('./action-loader.js'),
+  lifecycle: resolveSync('./lifecycle-loader.js'),
   props: resolveSync('./props-loader.js'),
   fragment: resolveSync('./fragment-loader.js'),
   template: resolveSync('./template-loader.js'),
@@ -111,6 +112,22 @@ function makeLoaderString(type, config, newJSCard, uxType) {
     loaders = [
       {
         name: defaultLoaders.action
+      },
+      {
+        name: defaultLoaders.fragment,
+        query: {
+          index: 0,
+          type: FRAG_TYPE.DATA
+        }
+      }
+    ]
+    return stringifyLoaders(loaders)
+  }
+
+  if (type === FRAG_TYPE.LIFECYCLE) {
+    loaders = [
+      {
+        name: defaultLoaders.lifecycle
       },
       {
         name: defaultLoaders.fragment,
@@ -555,6 +572,33 @@ function processActionFrag($loader, datas, uxType) {
 }
 
 /**
+ * 处理轻卡<data>片段中lifecycle
+ * @param $loader
+ * @param datas
+ * @param uxType
+ * @returns {string}
+ */
+function processLifecycleFrag($loader, datas, uxType) {
+  let code = 'null'
+  if (datas.length) {
+    // 有且仅有一个<data>节点
+    const data = datas[0]
+    // 文件绝对路径
+    let src = $loader.resourcePath
+    const fragAttrsSrc = data.attrs.src
+    if (fragAttrsSrc) {
+      src = fragAttrsSrc
+    }
+    code = makeRequireString(
+      $loader,
+      makeLoaderString(FRAG_TYPE.LIFECYCLE, {}, true, uxType),
+      `${src}?index=0&lite=1`
+    )
+  }
+  return code
+}
+
+/**
  * 处理轻卡自定义组件<data>片段中props
  * @param $loader
  * @param scripts
@@ -682,6 +726,7 @@ export {
   processScriptFrag,
   processDataFrag,
   processActionFrag,
+  processLifecycleFrag,
   processPropsFrag,
   parseImportList,
   // honor process frag

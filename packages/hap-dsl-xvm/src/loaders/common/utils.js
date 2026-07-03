@@ -248,6 +248,7 @@ export const FRAG_TYPE = {
   SCRIPT: 'script',
   DATA: 'data',
   ACTIONS: 'actions',
+  LIFECYCLE: 'lifecycle',
   PROPS: 'props',
   // honor frag
   DATAPP: 'app',
