@@ -433,6 +433,8 @@ function parse(source, options) {
       output.log.push({
         line: err.line,
         column: err.column,
+        // 致命错误：需要中断构建（由 template-loader 上报为 webpack 编译错误）
+        fatal: true,
         reason:
           `ERROR: 耗时 Feature "${err.feature}" 不允许在模板表达式中使用。\n` +
           `  原因：模板表达式在 UI 线程同步执行，耗时调用会阻塞渲染。\n` +

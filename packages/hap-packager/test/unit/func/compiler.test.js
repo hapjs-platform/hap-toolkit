@@ -155,11 +155,13 @@ describe('轻卡模板耗时 Feature 编译期校验', () => {
     expect(err.reason).toContain('system.geolocation.getLocation')
     expect(err.reason).toContain('lifecycle.create.params')
     expect(err.line).toBeDefined()
+    // 标记为致命错误，template-loader 据此上报 webpack 错误以中断构建
+    expect(err.fatal).toBe(true)
   })
 
-  it('模板属性表达式中调用 push.subscribe 报错', () => {
+  it('模板属性表达式中调用 service.push.subscribe 报错', () => {
     const res = compileLiteTpl(
-      `<div class="a"><image src="{{ system.push.subscribe().id }}"></image></div>`
+      `<div class="a"><image src="{{ service.push.subscribe().id }}"></image></div>`
     )
     expect(hasForbiddenError(res)).toBe(true)
   })

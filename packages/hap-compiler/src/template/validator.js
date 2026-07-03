@@ -1954,7 +1954,7 @@ function checkCustomDirective(name, value, output, node, options) {
 
 // 耗时 Feature 黑名单：这些 Feature 在 UI 线程同步执行会阻塞渲染，
 // 禁止出现在模板表达式中（允许出现在 lifecycle params / action params 中）
-const FORBIDDEN_TEMPLATE_FEATURES = ['system.geolocation.getLocation', 'system.push.subscribe']
+const FORBIDDEN_TEMPLATE_FEATURES = ['system.geolocation.getLocation', 'service.push.subscribe']
 
 // 为每个黑名单 Feature 构建匹配「方法调用」的正则（允许任意参数、段间空白）
 const FORBIDDEN_FEATURE_MATCHERS = FORBIDDEN_TEMPLATE_FEATURES.map((feature) => {
