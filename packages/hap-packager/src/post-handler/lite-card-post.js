@@ -12,9 +12,8 @@ const TYPE_IMPORT = 'import'
 // 需要进行后处理的模块key
 const TEMPLATE_KEY = 'template'
 const ACTIONS_KEY = 'actions'
-const LIFECYCLE_KEY = 'lifecycle'
-// lifecycle 支持的钩子
-const LIFECYCLE_HOOKS = ['create', 'update']
+// 生命周期钩子（编译产物中为 #entry 顶层字段）
+const LIFECYCLE_HOOK_KEYS = ['create', 'update']
 
 // 节点标记，同一节点可能同时符合多个kind定义，按priority高的进行标记
 const ENUM_KIND_TYPE = {
@@ -111,19 +110,6 @@ function markParams(actions) {
       delete actions.params[key]
       actions.params['$' + key] = rawExpr
       actions.params['#' + key] = prefixExpr
-    }
-  })
-}
-
-// 处理 lifecycle 中的字段，编译 create/update 的 params 表达式
-// 与 actions params 使用相同的编译规则（复用 markParams）
-function postHandleLifecycle(lifecycle) {
-  if (!isObject(lifecycle)) return
-
-  LIFECYCLE_HOOKS.forEach((hook) => {
-    const hookObj = lifecycle[hook]
-    if (isObject(hookObj)) {
-      markParams(hookObj)
     }
   })
 }
@@ -401,13 +387,16 @@ export function postHandleLiteCardRes(liteCardRes) {
     }
   }
 
-  // lifecycle
+  // 生命周期钩子 create / update（#entry 顶层字段），编译其 params 表达式
+  // 与 actions params 使用相同的编译规则（复用 markParams）
   for (let i = 0; i < uxList.length; i++) {
     const compName = uxList[i]
-    const lifecycle = liteCardRes[compName][LIFECYCLE_KEY]
-    if (lifecycle) {
-      postHandleLifecycle(lifecycle)
-    }
+    LIFECYCLE_HOOK_KEYS.forEach((hookKey) => {
+      const hookObj = liteCardRes[compName][hookKey]
+      if (isObject(hookObj)) {
+        markParams(hookObj)
+      }
+    })
   }
 
   return liteCardRes

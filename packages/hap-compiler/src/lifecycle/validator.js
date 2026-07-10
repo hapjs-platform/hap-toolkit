@@ -12,7 +12,7 @@ function isReserved(str) {
 }
 
 /**
- * 校验 lifecycle 中 create/update 的 params 参数
+ * 校验 create/update 的 params 参数
  * 规则与 actions params 一致：只支持一级结构中绑定变量，参数名不能以 $ 开头
  * @param {Object} paramsObj - params 对象
  * @param {number} dep - 当前嵌套深度
@@ -22,11 +22,11 @@ function checkParams(paramsObj, dep) {
 
   Object.keys(paramsObj).forEach((key) => {
     if (isReserved(key)) {
-      throw new Error(`<data> lifecycle 中 params 参数名不能以 “$” 开头`)
+      throw new Error(`<data> create/update 中 params 参数名不能以 “$” 开头`)
     }
 
     if (exp.isExpr(paramsObj[key]) && dep > 1) {
-      throw new Error(`<data> lifecycle 中 params 参数值只支持一级结构中绑定变量`)
+      throw new Error(`<data> create/update 中 params 参数值只支持一级结构中绑定变量`)
     }
 
     checkParams(paramsObj[key], dep + 1)

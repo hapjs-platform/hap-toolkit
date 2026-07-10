@@ -36,66 +36,60 @@ describe('compile functions', () => {
 })
 
 /**
- * 轻卡需求一：lifecycle params 表达式编译
- * <data> 块中的 lifecycle.create/update.params 中的 {{ expr }} 需要编译为 JSON AST，
+ * 轻卡需求一：create/update params 表达式编译
+ * <data> 块中的顶层 create/update 的 params 中的 {{ expr }} 需要编译为 JSON AST，
  * 编译规则与 actions params 一致（#key 为 AST，$key 为原文，纯静态值保持原样）。
+ * 编译产出中 create/update 为 #entry 顶层字段（不再包裹 lifecycle 一层）。
  */
-describe('轻卡 lifecycle params 编译', () => {
-  it('parseLifecycle 校验通过并返回合法 JSON', () => {
+describe('轻卡 create/update params 编译', () => {
+  it('parseLifecycle 校验单个钩子并返回合法 JSON', () => {
     const { parsed } = parseLifecycle({
-      create: {
-        params: {
-          lat: "{{ system.geolocation.getLocation({coordType:'gcj02'}).latitude }}",
-          deviceType: '{{ system.device.DEVICE_TYPE }}'
-        }
-      },
-      update: {
-        params: {
-          deviceType: '{{ system.device.DEVICE_TYPE }}'
-        }
+      params: {
+        lat: "{{ system.geolocation.getLocation({coordType:'gcj02'}).latitude }}",
+        deviceType: '{{ system.device.DEVICE_TYPE }}'
       }
     })
     const obj = JSON.parse(parsed)
-    expect(obj.create.params.lat).toBeDefined()
-    expect(obj.update.params.deviceType).toBeDefined()
+    expect(obj.params.lat).toBeDefined()
+    expect(obj.params.deviceType).toBeDefined()
   })
 
   it('parseLifecycle 拒绝以 $ 开头的 params 参数名', () => {
     expect(() => {
-      parseLifecycle({ create: { params: { $bad: '{{ a }}' } } })
+      parseLifecycle({ params: { $bad: '{{ a }}' } })
     }).toThrow()
   })
 
   it('parseLifecycle 拒绝多级结构中绑定变量', () => {
     expect(() => {
-      parseLifecycle({ create: { params: { obj: { nested: '{{ a }}' } } } })
+      parseLifecycle({ params: { obj: { nested: '{{ a }}' } } })
     }).toThrow()
   })
 
-  it('postHandleLiteCardRes 将 lifecycle params 中的 {{ expr }} 编译为 #/$ AST', () => {
+  it('postHandleLiteCardRes 将 create/update params 中的 {{ expr }} 编译为 #/$ AST', () => {
     const liteCardRes = {
       '#entry': {
         template: { type: 'div', children: [] },
         data: { title: 'x' },
-        lifecycle: {
-          create: {
-            params: {
-              lat: "{{ system.geolocation.getLocation({coordType:'gcj02'}).latitude }}",
-              deviceType: '{{ system.device.DEVICE_TYPE }}',
-              staticVal: 'plain-string'
-            }
-          },
-          update: {
-            params: {
-              deviceType: '{{ system.device.DEVICE_TYPE }}'
-            }
+        create: {
+          params: {
+            lat: "{{ system.geolocation.getLocation({coordType:'gcj02'}).latitude }}",
+            deviceType: '{{ system.device.DEVICE_TYPE }}',
+            staticVal: 'plain-string'
+          }
+        },
+        update: {
+          params: {
+            deviceType: '{{ system.device.DEVICE_TYPE }}'
           }
         }
       }
     }
     const res = postHandleLiteCardRes(liteCardRes)
-    const createParams = res['#entry'].lifecycle.create.params
+    const createParams = res['#entry'].create.params
 
+    // create/update 是 #entry 顶层字段，没有 lifecycle 包裹
+    expect(res['#entry'].lifecycle).toBeUndefined()
     // 表达式被编译为 #key(AST) + $key(原文) 对
     expect(Array.isArray(createParams['#lat'])).toBe(true)
     expect(createParams['#lat'][0]).toBe('.')
@@ -105,13 +99,13 @@ describe('轻卡 lifecycle params 编译', () => {
     expect(createParams.staticVal).toBe('plain-string')
     expect(createParams['#staticVal']).toBeUndefined()
     // update.params 同样被编译
-    expect(Array.isArray(res['#entry'].lifecycle.update.params['#deviceType'])).toBe(true)
+    expect(Array.isArray(res['#entry'].update.params['#deviceType'])).toBe(true)
 
     // 记录完整编译产物，锁定 AST 格式
     expect(createParams).toMatchSnapshot()
   })
 
-  it('lifecycle 编译不影响 actions / data 的既有行为', () => {
+  it('create/update 编译不影响 actions / data 的既有行为', () => {
     const liteCardRes = {
       '#entry': {
         template: { type: 'div', children: [] },
@@ -119,7 +113,7 @@ describe('轻卡 lifecycle params 编译', () => {
         actions: {
           onTap: { type: 'message', params: { d: '{{ system.device.DEVICE_TYPE }}' } }
         },
-        lifecycle: { create: { params: { a: '{{ system.device.DEVICE_TYPE }}' } } }
+        create: { params: { a: '{{ system.device.DEVICE_TYPE }}' } }
       }
     }
     const res = postHandleLiteCardRes(liteCardRes)
@@ -131,7 +125,7 @@ describe('轻卡 lifecycle params 编译', () => {
 /**
  * 轻卡需求二：模板中禁止耗时 Feature 调用（编译期校验）
  * <template> 表达式在 UI 线程同步执行，耗时 Feature（geolocation.getLocation / push.subscribe）
- * 出现在模板表达式中需编译报错；出现在 lifecycle params / action params 中则放行。
+ * 出现在模板表达式中需编译报错；出现在 create/update params / action params 中则放行。
  */
 describe('轻卡模板耗时 Feature 编译期校验', () => {
   // parseTemplate 接收的是 <template> 片段内部内容（根为 <div>），不含 <template> 包裹
@@ -153,7 +147,7 @@ describe('轻卡模板耗时 Feature 编译期校验', () => {
     expect(hasForbiddenError(res)).toBe(true)
     const err = res.log.find((l) => /不允许/.test(l.reason))
     expect(err.reason).toContain('system.geolocation.getLocation')
-    expect(err.reason).toContain('lifecycle.create.params')
+    expect(err.reason).toContain('create.params')
     expect(err.line).toBeDefined()
     // 标记为致命错误，template-loader 据此上报 webpack 错误以中断构建
     expect(err.fatal).toBe(true)
@@ -183,11 +177,9 @@ describe('轻卡模板耗时 Feature 编译期校验', () => {
     expect(hasForbiddenError(res)).toBe(false)
   })
 
-  it('lifecycle params 中的耗时 Feature 放行（不经模板校验）', () => {
+  it('create/update params 中的耗时 Feature 放行（不经模板校验）', () => {
     expect(() => {
-      parseLifecycle({
-        create: { params: { lat: '{{ system.geolocation.getLocation().latitude }}' } }
-      })
+      parseLifecycle({ params: { lat: '{{ system.geolocation.getLocation().latitude }}' } })
     }).not.toThrow()
   })
 })

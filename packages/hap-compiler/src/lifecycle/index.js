@@ -5,42 +5,29 @@
 
 import { checkParams } from './validator'
 
-// lifecycle 支持的钩子
-const LIFECYCLE_HOOKS = ['create', 'update']
-
-function parse(lifecycleObj) {
+/**
+ * 解析并校验单个生命周期钩子（create 或 update）对象
+ * @param {Object} hookObj - 形如 { params: { ... } }
+ * @returns {Object}
+ */
+function parse(hookObj) {
   /**
-   * "lifecycleObj": {
-      "create": {
-        "params": {
-          "lat": "{{ system.geolocation.getLocation({coordType:'gcj02'}).latitude }}",
-          "deviceType": "{{ system.device.DEVICE_TYPE }}"
-        }
-      },
-      "update": {
-        "params": {
-          "deviceType": "{{ system.device.DEVICE_TYPE }}"
-        }
+   * "hookObj": {
+      "params": {
+        "lat": "{{ system.geolocation.getLocation({coordType:'gcj02'}).latitude }}",
+        "deviceType": "{{ system.device.DEVICE_TYPE }}"
       }
     }
    */
-  if (lifecycleObj && Object.prototype.toString.call(lifecycleObj) !== '[object Object]') {
-    throw new Error(`<data> lifecycle 必须为 Object 对象`)
+  if (hookObj && Object.prototype.toString.call(hookObj) !== '[object Object]') {
+    throw new Error(`<data> create/update 必须为 Object 对象`)
   }
 
-  // 校验 create/update 钩子的 params 合法性
-  LIFECYCLE_HOOKS.forEach((hook) => {
-    const hookObj = lifecycleObj[hook]
-    if (hookObj) {
-      if (Object.prototype.toString.call(hookObj) !== '[object Object]') {
-        throw new Error(`<data> lifecycle.${hook} 必须为 Object 对象`)
-      }
-      checkParams(hookObj.params, 1)
-    }
-  })
+  // 校验 params 合法性（规则与 actions params 一致）
+  checkParams(hookObj.params, 1)
 
   return {
-    jsonLifecycle: lifecycleObj
+    jsonLifecycle: hookObj
   }
 }
 

@@ -30,7 +30,8 @@ const defaultLoaders = {
   component: resolveSync('./ux-loader.js'),
   data: resolveSync('./data-loader.js'),
   action: resolveSync('./action-loader.js'),
-  lifecycle: resolveSync('./lifecycle-loader.js'),
+  create: resolveSync('./create-loader.js'),
+  update: resolveSync('./update-loader.js'),
   props: resolveSync('./props-loader.js'),
   fragment: resolveSync('./fragment-loader.js'),
   template: resolveSync('./template-loader.js'),
@@ -124,10 +125,26 @@ function makeLoaderString(type, config, newJSCard, uxType) {
     return stringifyLoaders(loaders)
   }
 
-  if (type === FRAG_TYPE.LIFECYCLE) {
+  if (type === FRAG_TYPE.CREATE) {
     loaders = [
       {
-        name: defaultLoaders.lifecycle
+        name: defaultLoaders.create
+      },
+      {
+        name: defaultLoaders.fragment,
+        query: {
+          index: 0,
+          type: FRAG_TYPE.DATA
+        }
+      }
+    ]
+    return stringifyLoaders(loaders)
+  }
+
+  if (type === FRAG_TYPE.UPDATE) {
+    loaders = [
+      {
+        name: defaultLoaders.update
       },
       {
         name: defaultLoaders.fragment,
@@ -572,13 +589,14 @@ function processActionFrag($loader, datas, uxType) {
 }
 
 /**
- * 处理轻卡<data>片段中lifecycle
+ * 处理轻卡<data>片段中生命周期钩子(create/update)
  * @param $loader
  * @param datas
  * @param uxType
+ * @param {string} fragType - FRAG_TYPE.CREATE 或 FRAG_TYPE.UPDATE
  * @returns {string}
  */
-function processLifecycleFrag($loader, datas, uxType) {
+function processLifecycleFrag($loader, datas, uxType, fragType) {
   let code = 'null'
   if (datas.length) {
     // 有且仅有一个<data>节点
@@ -591,11 +609,25 @@ function processLifecycleFrag($loader, datas, uxType) {
     }
     code = makeRequireString(
       $loader,
-      makeLoaderString(FRAG_TYPE.LIFECYCLE, {}, true, uxType),
+      makeLoaderString(fragType, {}, true, uxType),
       `${src}?index=0&lite=1`
     )
   }
   return code
+}
+
+/**
+ * 处理轻卡<data>片段中 create 钩子
+ */
+function processCreateFrag($loader, datas, uxType) {
+  return processLifecycleFrag($loader, datas, uxType, FRAG_TYPE.CREATE)
+}
+
+/**
+ * 处理轻卡<data>片段中 update 钩子
+ */
+function processUpdateFrag($loader, datas, uxType) {
+  return processLifecycleFrag($loader, datas, uxType, FRAG_TYPE.UPDATE)
 }
 
 /**
@@ -726,7 +758,8 @@ export {
   processScriptFrag,
   processDataFrag,
   processActionFrag,
-  processLifecycleFrag,
+  processCreateFrag,
+  processUpdateFrag,
   processPropsFrag,
   parseImportList,
   // honor process frag

@@ -438,7 +438,7 @@ function parse(source, options) {
         reason:
           `ERROR: 耗时 Feature "${err.feature}" 不允许在模板表达式中使用。\n` +
           `  原因：模板表达式在 UI 线程同步执行，耗时调用会阻塞渲染。\n` +
-          `  建议：将该调用移到 lifecycle.create.params 或 action params 中。\n` +
+          `  建议：将该调用移到 create.params 或 action params 中。\n` +
           `  表达式：${err.expression}\n  at ${options.filePath}`
       })
     } else if (err.isExpressionError) {
