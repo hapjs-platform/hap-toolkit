@@ -72,6 +72,14 @@ const LOADER_INFO_LIST = [
     type: 'actions'
   },
   {
+    path: '/create-loader.js',
+    type: 'create'
+  },
+  {
+    path: '/update-loader.js',
+    type: 'update'
+  },
+  {
     path: '/props-loader.js',
     type: 'props'
   },

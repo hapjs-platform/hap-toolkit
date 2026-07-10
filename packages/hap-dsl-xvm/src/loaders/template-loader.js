@@ -20,6 +20,13 @@ export default function templateLoader(source) {
 
   if (log && log.length) {
     logWarn(this, log)
+    // 模板编译中的致命错误需要上报为 webpack 编译错误，以中断构建并使进程非零退出
+    log.forEach((item) => {
+      if (item.fatal) {
+        const locationInfo = item.line && item.column ? ` @${item.line}:${item.column}` : ''
+        this.emitError(new Error(`${this.resourcePath}${locationInfo} ${item.reason}`))
+      }
+    })
   }
   depFiles.forEach((file) => {
     let fileName = file

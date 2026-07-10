@@ -7,11 +7,12 @@
 import parse5 from 'parse5'
 import templater from './template'
 import actioner from './actions'
+import lifecycler from './lifecycle'
 import styler from './style'
 import scripter from './script'
 import { serialize } from './utils'
 
-export { scripter, styler, templater, actioner }
+export { scripter, styler, templater, actioner, lifecycler }
 export * from './style'
 
 /**
@@ -168,5 +169,24 @@ function parseActions(jsonObj) {
   return { parsed }
 }
 
-export { parseFragmentsWithCache, parseTemplate, parseStyle, parseScript, parseActions, serialize }
+/**
+ * 解析 lifecycle
+ * @param {Object} jsonObj - lifecycle对象
+ * @returns {Object}
+ */
+function parseLifecycle(jsonObj) {
+  const { jsonLifecycle } = lifecycler.parse(jsonObj)
+  const parsed = JSON.stringify(jsonLifecycle)
+  return { parsed }
+}
+
+export {
+  parseFragmentsWithCache,
+  parseTemplate,
+  parseStyle,
+  parseScript,
+  parseActions,
+  parseLifecycle,
+  serialize
+}
 export { ENTRY_TYPE, FRAG_TYPE, isEmptyObject } from './utils'

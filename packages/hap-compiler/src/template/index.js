@@ -72,6 +72,9 @@ function traverse(node, output, previousNode, conditionList, options) {
       }
     }
 
+    // 编译期护栏：禁止在模板表达式中调用耗时 Feature
+    validator.checkForbiddenFeature(value, locationInfo, options)
+
     switch (name) {
       case 'id':
         // 保留checkId为兼容原有：新打的RPK包兼容原来的APK平台
@@ -169,6 +172,12 @@ function traverse(node, output, previousNode, conditionList, options) {
       if (child.nodeName.match(/^#/)) {
         // 处理#text节点内容
         if (child.nodeName === '#text' && child.value.trim()) {
+          // 编译期护栏：禁止在模板文本表达式中调用耗时 Feature
+          validator.checkForbiddenFeature(
+            child.value,
+            node.__location ? { line: node.__location.line, column: node.__location.col } : null,
+            options
+          )
           // 兄弟节点不为自闭合标签且非文本标签非原子组件
           if (!preNode || !validator.isSupportedSelfClosing(preNode.nodeName)) {
             if (validator.isNotTextContentAtomic(node.tagName)) {
@@ -420,7 +429,19 @@ function parse(source, options) {
   try {
     traverse(current, output, null, null, options)
   } catch (err) {
-    if (err.isExpressionError) {
+    if (err.isForbiddenFeatureError) {
+      output.log.push({
+        line: err.line,
+        column: err.column,
+        // 致命错误：需要中断构建（由 template-loader 上报为 webpack 编译错误）
+        fatal: true,
+        reason:
+          `ERROR: 耗时 Feature "${err.feature}" 不允许在模板表达式中使用。\n` +
+          `  原因：模板表达式在 UI 线程同步执行，耗时调用会阻塞渲染。\n` +
+          `  建议：将该调用移到 create.params 或 action params 中。\n` +
+          `  表达式：${err.expression}\n  at ${options.filePath}`
+      })
+    } else if (err.isExpressionError) {
       output.log.push({
         reason: `ERROR: 表达式解析失败 ${err.message}\n\n> ${err.expression}\n\nat ${options.filePath}`
       })

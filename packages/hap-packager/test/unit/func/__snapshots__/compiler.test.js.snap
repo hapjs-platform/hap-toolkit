@@ -28,3 +28,48 @@ exports[`compile functions replaceModuleImport 4`] = `
       const system = $app_require$(\\"@app-module/system\\")
     "
 `;
+
+exports[`轻卡 create/update params 编译 postHandleLiteCardRes 将 create/update params 中的 {{ expr }} 编译为 #/$ AST 1`] = `
+Object {
+  "#deviceType": Array [
+    ".",
+    Array [
+      ".",
+      Array [
+        "$",
+        "system",
+      ],
+      "device",
+    ],
+    "DEVICE_TYPE",
+  ],
+  "#lat": Array [
+    ".",
+    Array [
+      "()",
+      Array [
+        ".",
+        Array [
+          ".",
+          Array [
+            "$",
+            "system",
+          ],
+          "geolocation",
+        ],
+        "getLocation",
+      ],
+      Array [
+        "{}",
+        Object {
+          "coordType": "gcj02",
+        },
+      ],
+    ],
+    "latitude",
+  ],
+  "$deviceType": "system.device.DEVICE_TYPE",
+  "$lat": "{{ system.geolocation.getLocation({coordType:'gcj02'}).latitude }}",
+  "staticVal": "plain-string",
+}
+`;

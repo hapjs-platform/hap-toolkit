@@ -12,6 +12,8 @@ const TYPE_IMPORT = 'import'
 // 需要进行后处理的模块key
 const TEMPLATE_KEY = 'template'
 const ACTIONS_KEY = 'actions'
+// 生命周期钩子（编译产物中为 #entry 顶层字段）
+const LIFECYCLE_HOOK_KEYS = ['create', 'update']
 
 // 节点标记，同一节点可能同时符合多个kind定义，按priority高的进行标记
 const ENUM_KIND_TYPE = {
@@ -383,6 +385,18 @@ export function postHandleLiteCardRes(liteCardRes) {
         postHandleActions(actionEvents[eventName])
       })
     }
+  }
+
+  // 生命周期钩子 create / update（#entry 顶层字段），编译其 params 表达式
+  // 与 actions params 使用相同的编译规则（复用 markParams）
+  for (let i = 0; i < uxList.length; i++) {
+    const compName = uxList[i]
+    LIFECYCLE_HOOK_KEYS.forEach((hookKey) => {
+      const hookObj = liteCardRes[compName][hookKey]
+      if (isObject(hookObj)) {
+        markParams(hookObj)
+      }
+    })
   }
 
   return liteCardRes
