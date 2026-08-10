@@ -94,6 +94,9 @@ const tagCommon = {
     },
     overflow: {
       enum: ['visible', 'hidden']
+    },
+    followcorner: {
+      enum: ['true', 'false']
     }
   },
   children: ['block', 'slot', 'component'], // 通用控制组件
