@@ -1998,12 +1998,12 @@ function checkEvent(name, value, output, options) {
     // 如果表达式形式为XXX(xxxx)
     const paramsMatch = value.match(/(.*)\((.*)\)/)
     if (paramsMatch) {
-      if (options.lite) {
-        const err = new Error('轻卡不支持带参数的事件')
-        err.isExpressionError = true
-        err.expression = value
-        throw err
-      }
+      // if (options.lite) {
+      //   const err = new Error('轻卡不支持带参数的事件')
+      //   err.isExpressionError = true
+      //   err.expression = value
+      //   throw err
+      // }
       const funcName = paramsMatch[1]
       let params = paramsMatch[2]
       // 解析','分隔的参数
@@ -2017,22 +2017,25 @@ function checkEvent(name, value, output, options) {
         // 否则默认有一个参数'$evt'
         params = ['evt']
       }
-      value = '{{' + funcName + '(' + params.join(',') + ')}}'
-      try {
-        // 将事件转换为函数对象
-        if (options.newJSCard) {
-          value = 'function (evt) { return ' + exp(value, false).replace('this.evt', 'evt') + '}'
-        } else {
-          /* eslint-disable no-eval */
-          value = eval(
-            '(function (evt) { return ' + exp(value, false).replace('this.evt', 'evt') + '})'
-          )
-          /* eslint-enable no-eval */
+      value = funcName + '(' + params.join(',') + ')'
+      if (!options.lite) {
+        value = '{{' + value + '}}'
+        try {
+          // 将事件转换为函数对象
+          if (options.newJSCard) {
+            value = 'function (evt) { return ' + exp(value, false).replace('this.evt', 'evt') + '}'
+          } else {
+            /* eslint-disable no-eval */
+            value = eval(
+              '(function (evt) { return ' + exp(value, false).replace('this.evt', 'evt') + '})'
+            )
+            /* eslint-enable no-eval */
+          }
+        } catch (err) {
+          err.isExpressionError = true
+          err.expression = originValue
+          throw err
         }
-      } catch (err) {
-        err.isExpressionError = true
-        err.expression = originValue
-        throw err
       }
     }
     output.result.events = output.result.events || {}
