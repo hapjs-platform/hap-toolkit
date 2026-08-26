@@ -91,7 +91,8 @@ function frameworkInit() {
     'hostconnection',
     'permission',
     'audiolite',
-    'page'
+    'page',
+    'skill'
   ]
   const serviceFeatures = [
     'account',
@@ -157,7 +158,8 @@ function frameworkInit() {
     'barcode',
     'configuration',
     'model',
-    'bluetooth'
+    'bluetooth',
+    'skill'
   ]
   systemSupportInCard.forEach((feature) => {
     global.framework.supportInCard.push(`${global.framework.module.base}.${feature}`)
