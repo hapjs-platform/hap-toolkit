@@ -198,19 +198,11 @@ function frameworkInit() {
   nearmeSupportInCard.forEach((feature) => {
     global.framework.supportInCard.push(`${global.framework.module.nearme}.${feature}`)
   })
-  const serviceSupportInCard = [
-    'account',
-    'push',
-    'simCalibration',
-    'oppoinneraccount'
-  ]
+  const serviceSupportInCard = ['account', 'push', 'simCalibration', 'oppoinneraccount']
   serviceSupportInCard.forEach((feature) => {
     global.framework.supportInCard.push(`${global.framework.module.ext}.${feature}`)
   })
-  const hapSupportInCard = [
-    'io.MessageChannel',
-    'sharedStorage'
-  ]
+  const hapSupportInCard = ['io.MessageChannel', 'sharedStorage']
   hapSupportInCard.forEach((feature) => {
     global.framework.supportInCard.push(`${global.framework.module.hap}.${feature}`)
   })
