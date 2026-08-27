@@ -33,6 +33,8 @@ function frameworkInit() {
       manifestFilePath: null,
       // 记录feature列表，更新到manifest.json
       featureList: [],
+      // 记录卡片feature列表，key为卡片名，value为接口列表
+      cardFeatureMap: {},
       module: {
         usedBaseAll: false,
         usedExtAll: false
@@ -234,8 +236,18 @@ function searchModuleImport(fileCont, options = {}) {
       global.framework.project.module.usedExtAll = true
     } else if (global.framework.reservedFeatures.indexOf(match) !== -1) {
       // 确定存在，然后才加入
-      global.framework.project.featureList.indexOf(match) === -1 &&
-        global.framework.project.featureList.push(match)
+      if (options.uxType === ENTRY_TYPE.CARD) {
+        // 卡片代码中使用的接口，按卡片名记录到卡片feature映射表
+        if (options.cardEntry) {
+          const cardName = options.cardEntry
+          const cardFeatureList = (global.framework.project.cardFeatureMap[cardName] =
+            global.framework.project.cardFeatureMap[cardName] || [])
+          cardFeatureList.indexOf(match) === -1 && cardFeatureList.push(match)
+        }
+      } else {
+        global.framework.project.featureList.indexOf(match) === -1 &&
+          global.framework.project.featureList.push(match)
+      }
     } else if (
       options.uxType === ENTRY_TYPE.CARD &&
       global.framework.supportInCard.indexOf(match) === -1
@@ -340,7 +352,7 @@ function updateManifest(manifest, debug) {
 
   populateWidgetFields(manifest.router.widgets || {})
 
-  // 在项目所有引用的模块列表中删除manifest已声明的模块
+  // 在项目所有引用的模块列表中删除 manifest.features 已声明的模块
   const projectFeatureList = [].concat(global.framework.project.featureList)
   manifest.features.forEach((feature) => {
     const feaIndex = projectFeatureList.indexOf(feature.name)
@@ -358,8 +370,29 @@ function updateManifest(manifest, debug) {
     })
     manifest.features = manifest.features.concat(mapList)
     const features = shouldIncludeProjectFeatureList.join(', ')
-    colorconsole.warn(`请在 manifest.json 文件里声明项目代码中用到的接口: ${features}\n`)
+    colorconsole.warn(
+      `请在 manifest.json 文件的 features 字段里声明快应用代码中用到的接口: ${features}\n`
+    )
   }
+
+  // 检查各卡片代码中用到的接口是否已在对应卡片的 widgets 中声明
+  Object.keys(global.framework.project.cardFeatureMap).forEach((cardName) => {
+    const cardFeatureList = [].concat(global.framework.project.cardFeatureMap[cardName])
+    // 当前卡片 widgets 中已声明的接口
+    const widgetConf = (manifest.router.widgets || {})[cardName]
+    widgetConf &&
+      widgetConf.features &&
+      widgetConf.features.forEach((item) => {
+        const feaIndex = cardFeatureList.indexOf(item.name)
+        feaIndex !== -1 && cardFeatureList.splice(feaIndex, 1)
+      })
+    if (cardFeatureList.length > 0) {
+      const features = cardFeatureList.join(', ')
+      colorconsole.warn(
+        `请在 manifest.json 文件的 widgets.${cardName}.features 字段里声明卡片代码中用到的接口: ${features}\n`
+      )
+    }
+  })
 
   return manifest
 }

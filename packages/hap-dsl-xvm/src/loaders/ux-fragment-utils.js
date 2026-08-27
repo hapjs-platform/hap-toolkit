@@ -312,7 +312,7 @@ function processImportFrag($loader, imports, importNames, queryOptions = {}) {
   if (imports.length) {
     const newJSCardParam = newJSCard ? `&newJSCard=${newJSCard}` : ''
     const liteParam = lite ? `&lite=${lite}` : ''
-    const cardEntryParam = cardEntry ? `&cardEntry=${cardEntry}` : ''
+    const cardEntryParam = cardEntry ? `&cardEntry=${encodeURIComponent(cardEntry)}` : ''
     const minCardRuntimeVersionParam = minCardRuntimeVersion
       ? `&minCardRuntimeVersion=${minCardRuntimeVersion}`
       : ''
@@ -472,7 +472,7 @@ function processStyleFrag($loader, styles, queryOptions = {}) {
  * @returns {string}
  */
 function processScriptFrag($loader, scripts, queryOptions = {}) {
-  const { uxType, newJSCard } = queryOptions
+  const { uxType, newJSCard, cardEntry } = queryOptions
   let code = 'null'
   if (scripts.length) {
     // 有且仅有一个<script>节点
@@ -483,6 +483,7 @@ function processScriptFrag($loader, scripts, queryOptions = {}) {
     if (fragAttrsSrc) {
       src = fragAttrsSrc
     }
+    const cardEntryParam = cardEntry ? `&cardEntry=${encodeURIComponent(cardEntry)}` : ''
     code = makeRequireString(
       $loader,
       makeLoaderString(
@@ -494,7 +495,7 @@ function processScriptFrag($loader, scripts, queryOptions = {}) {
         newJSCard,
         uxType
       ),
-      `${src}?uxType=${uxType}`
+      `${src}?uxType=${uxType}${cardEntryParam}`
     )
   }
   return code
