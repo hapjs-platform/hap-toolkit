@@ -5,6 +5,7 @@
 
 import { logWarn } from '@hap-toolkit/shared-utils'
 import { scripter } from '@hap-toolkit/compiler'
+import loaderUtils from 'loader-utils'
 import { searchModuleImport } from '../common/shared'
 
 /**
@@ -13,8 +14,13 @@ import { searchModuleImport } from '../common/shared'
  * @param {object} sourceMap - 前一级 loader 处理后的 sourceMap
  */
 export default function moduleLoader(parsed, sourceMap) {
+  // 解析资源查询参数，获取uxType和cardEntry
+  const resourceQuery = loaderUtils.parseQuery(this.resourceQuery || '?')
   // 更新替换
-  const fileRsut = searchModuleImport(parsed)
+  const fileRsut = searchModuleImport(parsed, {
+    uxType: resourceQuery.uxType,
+    cardEntry: resourceQuery.cardEntry
+  })
   // 内容替换
   parsed = fileRsut.fileCont
   // 打印日志

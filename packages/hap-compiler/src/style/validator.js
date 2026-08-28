@@ -2648,8 +2648,28 @@ const validatorMap = {
   backgroundPosition: validator.backgroundPosition,
   display: validator.display,
   visibility: makeEnumValidator(['visible', 'hidden']),
-  objectFit: makeEnumValidator(['fill', 'contain', 'cover', 'none', 'scale-down', 'fit-start', 'fit-end', 'cover-start', 'cover-end']),
-  altObjectFit: makeEnumValidator(['fill', 'contain', 'cover', 'none', 'scale-down', 'fit-start', 'fit-end', 'cover-start', 'cover-end']),
+  objectFit: makeEnumValidator([
+    'fill',
+    'contain',
+    'cover',
+    'none',
+    'scale-down',
+    'fit-start',
+    'fit-end',
+    'cover-start',
+    'cover-end'
+  ]),
+  altObjectFit: makeEnumValidator([
+    'fill',
+    'contain',
+    'cover',
+    'none',
+    'scale-down',
+    'fit-start',
+    'fit-end',
+    'cover-start',
+    'cover-end'
+  ]),
   // text
   lines: validator.integer,
   color: validator.color,
@@ -2712,7 +2732,29 @@ const validatorMap = {
   themeTrackColor: makeEnumValidator(themeColors),
   themeSelectedColor: makeEnumValidator(themeColors),
   themeBlockColor: makeEnumValidator(themeColors), */
-  letterSpacing: validator.letterSpacing
+  letterSpacing: validator.letterSpacing,
+  // legacy card styles
+  textWeight: validator.fontWeight,
+  textSize: validator.length,
+  fillet: validator.length,
+  lineColor: validator.color,
+  lineWidth: validator.length,
+  faceColor: validator.color,
+  titleColor: validator.color,
+  titleSize: validator.length,
+  titleStyle: validator.fontWeight,
+  itemColor: validator.color,
+  itemSize: validator.length,
+  selectItemColor: validator.color,
+  unitStyle: validator.fontWeight,
+  unitColor: validator.color,
+  size: validator.length,
+  bgBeginColor: validator.color,
+  bgEndColor: validator.color,
+  ringBeginColor: validator.color,
+  ringEndColor: validator.color,
+  thumbBeginColor: validator.color,
+  thumbEndColor: validator.color
 }
 
 /**

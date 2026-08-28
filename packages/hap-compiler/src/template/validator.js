@@ -94,6 +94,9 @@ const tagCommon = {
     },
     overflow: {
       enum: ['visible', 'hidden']
+    },
+    followcorner: {
+      enum: ['true', 'false']
     }
   },
   children: ['block', 'slot', 'component'], // 通用控制组件
@@ -181,6 +184,7 @@ const tagNatives = {
     attrs: {
       src: {},
       alt: {},
+      symbolcode: {},
       enablenightmode: {
         enum: ['true', 'false']
       },
@@ -217,7 +221,15 @@ const tagNatives = {
   },
   web: {
     atomic: true,
-    events: ['pagestart', 'pagefinish', 'titlereceive', 'error', 'message', 'progress', 'intercepturl'],
+    events: [
+      'pagestart',
+      'pagefinish',
+      'titlereceive',
+      'error',
+      'message',
+      'progress',
+      'intercepturl'
+    ],
     attrs: {
       src: {},
       trustedurl: {},
@@ -233,7 +245,7 @@ const tagNatives = {
       supportzoom: {
         enum: ['true', 'false']
       },
-      intercepturl:{}
+      intercepturl: {}
     }
   },
   list: {
@@ -353,6 +365,20 @@ const tagNatives = {
     supportCard: true,
     textContent: true,
     atomic: true
+  },
+  vbutton: {
+    supportCard: true,
+    textContent: true,
+    atomic: true,
+    attrs: {
+      enablecolor: {},
+      enableanim: {},
+      animtype: {},
+      loading: {},
+      drawtype: {},
+      text: {},
+      disable: {}
+    }
   },
   refresh: {
     attrs: {
@@ -577,6 +603,68 @@ const tagNatives = {
     },
     events: ['change', 'columnchange', 'cancel']
   },
+  vcustompicker: {
+    supportCard: true,
+    selfClosing: true,
+    atomic: true,
+    empty: true,
+    attrs: {
+      mode: {},
+      defaultvalue: {},
+      itemcycle: {},
+      visibleitemcount: {}
+    },
+    events: ['change']
+  },
+  vtimepicker: {
+    supportCard: true,
+    selfClosing: true,
+    atomic: true,
+    empty: true,
+    attrs: {
+      defaultvalue: {},
+      itemcycle: {},
+      visibleitemcount: {}
+    },
+    events: ['change']
+  },
+  vdatepicker: {
+    supportCard: true,
+    selfClosing: true,
+    atomic: true,
+    empty: true,
+    attrs: {
+      defaultvalue: {},
+      itemcycle: {},
+      yearrange: {},
+      visibleitemcount: {}
+    },
+    events: ['change']
+  },
+  vdatepicker2: {
+    supportCard: true,
+    selfClosing: true,
+    atomic: true,
+    empty: true,
+    attrs: {
+      defaultvalue: {},
+      itemcycle: {},
+      yearrange: {},
+      visibleitemcount: {}
+    },
+    events: ['change']
+  },
+  vcalendardatepicker: {
+    supportCard: true,
+    selfClosing: true,
+    atomic: true,
+    empty: true,
+    attrs: {
+      defaultvalue: {},
+      yearrange: {}
+    },
+    events: ['change']
+  },
   switch: {
     supportCard: true,
     selfClosing: true,
@@ -585,6 +673,50 @@ const tagNatives = {
       checked: {
         enum: ['false', 'true']
       }
+    },
+    events: ['change']
+  },
+  vswitch: {
+    supportCard: true,
+    selfClosing: true,
+    atomic: true,
+    empty: true,
+    attrs: {
+      checked: {},
+      blurmaterial: {},
+      disable: {},
+      loading: {}
+    },
+    events: ['change']
+  },
+  vcheckbox: {
+    supportCard: true,
+    selfClosing: true,
+    atomic: true,
+    empty: true,
+    attrs: {
+      text: {},
+      checked: {},
+      groupid: {},
+      type: {},
+      tickcolor: {},
+      framecolor: {},
+      fillcolor: {},
+      checkstatus: {}
+    },
+    events: ['change']
+  },
+  vradiobutton: {
+    supportCard: true,
+    selfClosing: true,
+    atomic: true,
+    empty: true,
+    attrs: {
+      text: {},
+      checked: {},
+      groupid: {},
+      radiocolor: {},
+      framecolor: {}
     },
     events: ['change']
   },
@@ -1328,7 +1460,7 @@ function checkTagName(node, output, options = {}) {
           log.push({
             line: location.line || 1,
             column: location.col || 1,
-            reason: 'WARN: 组件 `' + tagName + '` 不支持属性 `' + item
+            reason: 'WARN: 组件 `' + tagName + '` 不支持属性 `' + item + '`'
           })
         }
       }
@@ -1869,12 +2001,12 @@ function checkEvent(name, value, output, options) {
     // 如果表达式形式为XXX(xxxx)
     const paramsMatch = value.match(/(.*)\((.*)\)/)
     if (paramsMatch) {
-      if (options.lite) {
-        const err = new Error('轻卡不支持带参数的事件')
-        err.isExpressionError = true
-        err.expression = value
-        throw err
-      }
+      // if (options.lite) {
+      //   const err = new Error('轻卡不支持带参数的事件')
+      //   err.isExpressionError = true
+      //   err.expression = value
+      //   throw err
+      // }
       const funcName = paramsMatch[1]
       let params = paramsMatch[2]
       // 解析','分隔的参数
@@ -1888,22 +2020,25 @@ function checkEvent(name, value, output, options) {
         // 否则默认有一个参数'$evt'
         params = ['evt']
       }
-      value = '{{' + funcName + '(' + params.join(',') + ')}}'
-      try {
-        // 将事件转换为函数对象
-        if (options.newJSCard) {
-          value = 'function (evt) { return ' + exp(value, false).replace('this.evt', 'evt') + '}'
-        } else {
-          /* eslint-disable no-eval */
-          value = eval(
-            '(function (evt) { return ' + exp(value, false).replace('this.evt', 'evt') + '})'
-          )
-          /* eslint-enable no-eval */
+      value = funcName + '(' + params.join(',') + ')'
+      if (!options.lite) {
+        value = '{{' + value + '}}'
+        try {
+          // 将事件转换为函数对象
+          if (options.newJSCard) {
+            value = 'function (evt) { return ' + exp(value, false).replace('this.evt', 'evt') + '}'
+          } else {
+            /* eslint-disable no-eval */
+            value = eval(
+              '(function (evt) { return ' + exp(value, false).replace('this.evt', 'evt') + '})'
+            )
+            /* eslint-enable no-eval */
+          }
+        } catch (err) {
+          err.isExpressionError = true
+          err.expression = originValue
+          throw err
         }
-      } catch (err) {
-        err.isExpressionError = true
-        err.expression = originValue
-        throw err
       }
     }
     output.result.events = output.result.events || {}

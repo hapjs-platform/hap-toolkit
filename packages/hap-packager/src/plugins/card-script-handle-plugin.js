@@ -199,27 +199,35 @@ const prodUtils = {
     if (templateFileName === `${compPath}.template.json`) {
       templatePath = CARD_ENTRY
     }
-    const uniquePlaceHolder = `_START_PLACE_HOLDER_TEMPLATE_${templateFileName}_${templatePath}_END_`
+    // 用_做分隔符容易与开发者卡片路径冲突造成匹配失效，使用[]序列化，碰撞概率更低
+    const payload = JSON.stringify([templateFileName, templatePath])
+    const uniquePlaceHolder = `_START_PLACE_HOLDER_TEMPLATE_${payload}_END_`
     path.replaceWith(t.stringLiteral(uniquePlaceHolder))
   },
   replaceStyleStr(path, styleStr, cssFileName, pathSrc) {
     const compPath = this.getCompPath(styleStr, pathSrc)
     const styleObjId = getStyleObjectId(compPath)
-    const uniquePlaceHolder = `_START_PLACE_HOLDER_CSS_${cssFileName}_${styleObjId}_END_`
+    const payload = JSON.stringify([cssFileName, styleObjId])
+    const uniquePlaceHolder = `_START_PLACE_HOLDER_CSS_${payload}_END_`
     path.replaceWith(t.stringLiteral(uniquePlaceHolder))
   },
   replacePlaceHolder(code) {
-    // 正则表达式匹配_idX_valY_place_holder_格式的字符串
-    const regexTemplate = /["'`]_START_PLACE_HOLDER_TEMPLATE_([^\s]+?)_([^\s]+?)_END_["'`]/g
+    // 正则表达式匹配 JSON 序列化的占位符
+    const regexTemplate = /["'`]_START_PLACE_HOLDER_TEMPLATE_(.+?)_END_["'`]/g
 
     // 替换 template 的 placeholder
-    code = code.replace(regexTemplate, function (match, templateFileName, templatePath) {
+    code = code.replace(regexTemplate, function (match, payload) {
+      // generate 会对字符串中的 " 转义为 \"，需先还原
+      const unescaped = payload.replace(/\\"/g, '"')
+      const [templateFileName, templatePath] = JSON.parse(unescaped)
       return `$json_require$("${templateFileName}",{"componentPath":"${templatePath}"})`
     })
-    const regexCss = /["'`]_START_PLACE_HOLDER_CSS_([^\s]+?)_([^\s]+?)_END_["'`]/g
+    const regexCss = /["'`]_START_PLACE_HOLDER_CSS_(.+?)_END_["'`]/g
 
     // 替换 css 的 placeholder
-    code = code.replace(regexCss, function (match, cssFileName, styleObjId) {
+    code = code.replace(regexCss, function (match, payload) {
+      const unescaped = payload.replace(/\\"/g, '"')
+      const [cssFileName, styleObjId] = JSON.parse(unescaped)
       return JSON.stringify({
         '@info': { styleObjectId: styleObjId },
         extracted: true,
