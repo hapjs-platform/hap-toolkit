@@ -21,6 +21,7 @@ temp-test-*
 
 scripts
 !packages/hap-dsl-xvm/templates/app/demo/scripts
+!.agents/skills/hap-toolkit-release/scripts/
 dist*
 
 workspace.code-workspace
