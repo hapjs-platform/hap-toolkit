@@ -774,6 +774,7 @@ const tagNatives = {
       'seeked',
       'timeupdate',
       'fullscreenchange',
+      'controlstoggle',
       'firstframe',
       'buffering',
       'error'
