@@ -291,6 +291,13 @@ ZipPlugin.prototype.apply = function (compiler) {
   const options = this.options
 
   compiler.hooks.done.tapAsync('ZipPlugin', async (stats, callback) => {
+    // 编译存在错误时，跳过打包，不生成 rpk/rpks，避免产出有问题的应用包
+    if (stats.compilation.errors && stats.compilation.errors.length) {
+      colorconsole.error('### App Loader ### 编译存在错误，已停止生成应用包')
+      callback()
+      return
+    }
+
     let subpackageOptions = []
     if (!options.disableSubpackages && options.subpackages && options.subpackages.length > 0) {
       subpackageOptions = [...options.subpackages]

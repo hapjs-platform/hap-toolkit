@@ -15,6 +15,8 @@ import {
   processScriptFrag,
   processDataFrag,
   processActionFrag,
+  processCreateFrag,
+  processUpdateFrag,
   processPropsFrag,
   parseImportList,
   // honor process frag
@@ -93,6 +95,18 @@ function assemble($loader, frags, name, queryOptions) {
       frags.data,
       uxType,
       FRAG_TYPE.ACTIONS
+    )}\n`
+    content += `    $app_module$.exports.create = ${processCreateFrag(
+      $loader,
+      frags.data,
+      uxType,
+      FRAG_TYPE.CREATE
+    )}\n`
+    content += `    $app_module$.exports.update = ${processUpdateFrag(
+      $loader,
+      frags.data,
+      uxType,
+      FRAG_TYPE.UPDATE
     )}\n`
     content += `    $app_module$.exports.props = ${processPropsFrag(
       $loader,
