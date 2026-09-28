@@ -86,3 +86,23 @@ export function isSimplePath(exp) {
     exp.slice(0, 5) !== 'Math.'
   )
 }
+
+export function getNewJsCardExprRes(exprRaw, expr) {
+  const tokens = validator.parseText(exprRaw.trim())
+  if (tokens.length > 1) {
+    return expr
+  }
+
+  const parsed = tokens[0].value
+  if (isConstObjOrArray(parsed)) {
+    // 简单表达式 {{ [1,2,3] }}、{{ {a: 1} }}
+    // eslint-disable-next-line no-eval
+    return eval(`(${parsed})`)
+  } else if (isSimplePath(parsed) && isSimpleArr(parsed)) {
+    // 简单表达式 {{name}}、{{title.name}}、{{title['name']}}、{{title[0]}}
+    return parsed // {{ name }} -> name
+  } else {
+    // 复杂表达式，返回function形式的表达式结果
+    return expr // {{a + b}} -> function () { return this.a + this.b }
+  }
+}
