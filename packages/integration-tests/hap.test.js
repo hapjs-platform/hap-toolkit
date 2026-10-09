@@ -35,14 +35,13 @@ describe('hap-toolkit', () => {
           feeds: '\r'
         },
         {
-          pattern: /Please pick a new name/,
-          type: 'stderr',
-          dialogs: [
-            {
-              pattern: /Init your project/,
-              feeds: NO_EXIST_NAME + '\r'
-            }
-          ]
+          // 只在 stdout 上判断：stdout 与 stderr 的到达顺序不确定，修改顺序不一致这一块会失败
+          // 若等 stderr 报错后再监听 stdout，可能错过第二次提问导致一直挂起
+          pattern: (output) => {
+            const plain = output.replace(/\x1b\[[0-9;]*[A-Za-z]/g, '')
+            return (plain.match(/Init your project \(/g) || []).length >= 2
+          },
+          feeds: NO_EXIST_NAME + '\r'
         }
       ]
       await del([targetdirForExist, targetdirForNonExist], { force: true })
