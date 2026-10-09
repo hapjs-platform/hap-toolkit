@@ -106,6 +106,10 @@ function mergeCompileOptionsObject(argopts) {
   // TODO release memeory, use optimize-prop only
   compileOptionsObject.devtool = argopts.devtool ? argopts.devtool : false
   Object.assign(compileOptionsObject, argopts)
+  // 未显式传入时复位，避免上一次 compile 的预览包配置泄漏到后续构建
+  if (!argopts.buildPreviewRpkOptions) {
+    compileOptionsObject.buildPreviewRpkOptions = null
+  }
 }
 
 export { compileOptionsMeta, compileOptionsObject, mergeCompileOptionsObject }

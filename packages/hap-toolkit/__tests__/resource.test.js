@@ -6,7 +6,7 @@
 const path = require('path')
 const glob = require('glob')
 const del = require('del')
-const { copyApp } = require('hap-dev-utils')
+const { copyApp, normalizeSnapshotPaths } = require('hap-dev-utils')
 const { compile } = require('../lib/commands/compile')
 
 describe('compile a project and test resource collect', () => {
@@ -23,9 +23,11 @@ describe('compile a project and test resource collect', () => {
     const { stats } = res
     expect(stats.hasErrors()).toBeFalsy()
     const testProjectBuildPath = path.join(tempAppDir, 'build')
-    const result = glob.sync('**/*', {
-      cwd: testProjectBuildPath
-    })
+    const result = normalizeSnapshotPaths(
+      glob.sync('**/*', {
+        cwd: testProjectBuildPath
+      })
+    )
 
     expect(result).toMatchSnapshot('resource list')
     await del([tempAppDir], { force: true })
@@ -45,9 +47,11 @@ describe('css样式抽取', () => {
     const { stats } = res
     expect(stats.hasErrors()).toBeFalsy()
     const testProjectBuildPath = path.join(tempAppDir, 'build')
-    const result = glob.sync('**/*.css.json', {
-      cwd: testProjectBuildPath
-    })
+    const result = normalizeSnapshotPaths(
+      glob.sync('**/*.css.json', {
+        cwd: testProjectBuildPath
+      })
+    )
     const cssJsonFiles = ['CardDemo/index.css.json', 'Demo/index.css.json']
     expect(result).toEqual(expect.arrayContaining(cssJsonFiles))
     expect(result.length).toBe(2)

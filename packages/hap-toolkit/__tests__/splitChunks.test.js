@@ -12,7 +12,6 @@ const glob = require('glob')
 
 const expectFiles = (projectRoot) => {
   projectRoot = path.resolve(projectRoot)
-  const projectRootReg = new RegExp(projectRoot, 'g')
   // temp-test-app-6000
   const wipe = (content) => {
     // release 模式下 chunkId 是随机的
@@ -22,7 +21,7 @@ const expectFiles = (projectRoot) => {
       .replace(/\d+:/gm, '999:')
       .replace(/\*{10,}/gm, '*'.repeat(10))
     return wipeDynamic(content, [
-      [projectRootReg, '<project-root>'],
+      [projectRoot, '<project-root>'],
       [/大小为 \d+ KB/g, '大小为 <SIZE> KB']
     ])
   }

@@ -1,8 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`split chunks on a project build results include split chunks for [SMART]: <project-root>/build/About/index.js 1`] = `
-"/*! For license information please see index.js.LICENSE.txt */
-(function() {
+"(function() {
     var createPageHandler = function() {
         return (() => {
             var __quickappGlobal = Object.getPrototypeOf(global) || global;
@@ -159,8 +158,7 @@ exports[`split chunks on a project build results include split chunks for [SMART
 `;
 
 exports[`split chunks on a project build results include split chunks for [SMART]: <project-root>/build/Demo/index.js 1`] = `
-"/*! For license information please see index.js.LICENSE.txt */
-(function() {
+"(function() {
     var createPageHandler = function() {
         return (() => {
             var __quickappGlobal = Object.getPrototypeOf(global) || global;
@@ -319,8 +317,7 @@ exports[`split chunks on a project build results include split chunks for [SMART
 `;
 
 exports[`split chunks on a project build results include split chunks for [SMART]: <project-root>/build/DemoDetail/index.js 1`] = `
-"/*! For license information please see index.js.LICENSE.txt */
-(function() {
+"(function() {
     var createPageHandler = function() {
         return (() => {
             var __quickappGlobal = Object.getPrototypeOf(global) || global;
@@ -481,8 +478,7 @@ exports[`split chunks on a project build results include split chunks for [SMART
 `;
 
 exports[`split chunks on a project build results include split chunks for [SMART]: <project-root>/build/app.js 1`] = `
-"/*! For license information please see app.js.LICENSE.txt */
-(function() {
+"(function() {
     var $app_define_wrap$ = $app_define_wrap$ || function() {};
     var manifestJson = {
         package: \\"com.application.demo\\",

@@ -70,16 +70,26 @@ function talkTo(proc, dialogs) {
  * @param {Array<Object>} dialogs - 对话描述
  * @returns {Promise}
  */
+function quoteWinPath(value) {
+  const str = String(value)
+  if (process.platform === 'win32' && /[\s&]/.test(str) && !/^["'].*["']$/.test(str)) {
+    return `"${str}"`
+  }
+  return str
+}
+
 function run(cmd, args = [], dialogs = [], opts = {}) {
   return new Promise((resolve, reject) => {
     let stdout = ''
     let stderr = ''
-    const proc = spawn(cmd, args, {
+    const injectPath = path.resolve(__dirname, 'inject.js')
+    const proc = spawn(quoteWinPath(cmd), args, {
       shell: true,
-      detached: true,
+      // Windows 上 detached 会导致 stdio 读不全，交互用例拿不到完整日志
+      detached: process.platform !== 'win32',
       env: {
         ...process.env,
-        NODE_OPTIONS: `--require ${path.resolve(__dirname, 'inject.js')}`
+        NODE_OPTIONS: `--require ${quoteWinPath(injectPath)}`
       },
       ...opts
     })
@@ -90,6 +100,19 @@ function run(cmd, args = [], dialogs = [], opts = {}) {
     proc.stderr.on('data', (data) => {
       stderr += data.toString()
     })
+
+    const originalKill = proc.kill.bind(proc)
+    proc.kill = function (signal) {
+      if (process.platform === 'win32' && proc.pid) {
+        try {
+          spawn('taskkill', ['/pid', String(proc.pid), '/T', '/F'], { stdio: 'ignore' })
+          return true
+        } catch (err) {
+          return originalKill(signal)
+        }
+      }
+      return originalKill(signal)
+    }
 
     function endChild() {
       resolve({ stdout, stderr })
@@ -177,8 +200,45 @@ function readZip(zipfile) {
 
 const version = require('../package.json').version
 const versionRe = new RegExp(version.replace(/\./g, '\\.'), 'g')
-const cwdRe = new RegExp(path.resolve(process.cwd()), 'g')
 const buildTimeRe = /(Build Time Cost:\s+)[0-9.]+s/gm
+
+function escapeRegExp(str) {
+  return String(str).replace(/[.*+?^${}()|[\]\\]/g, '\\$&')
+}
+
+function unique(arr) {
+  return arr.filter((item, idx) => item && arr.indexOf(item) === idx)
+}
+
+/**
+ * Windows 路径直接丢进 RegExp 会被反斜杠转义吃掉，这里同时覆盖
+ * 原生分隔符、正斜杠，以及源码字符串里的双反斜杠形式。
+ */
+function getPathVariants(input) {
+  const resolved = path.resolve(input)
+  const posix = resolved.replace(/\\/g, '/')
+  const windows = resolved.replace(/\//g, '\\')
+  const windowsEscaped = windows.replace(/\\/g, '\\\\')
+  return unique([windowsEscaped, windows, resolved, posix])
+}
+
+function replaceAll(str, search, replacement) {
+  return search ? str.split(search).join(replacement) : str
+}
+
+function normalizePlaceholderPaths(str, placeholder) {
+  const re = new RegExp(escapeRegExp(placeholder) + '([^\\s"\'`]*)', 'g')
+  return str.replace(re, (_, rest) => placeholder + rest.replace(/\\+/g, '/'))
+}
+
+function replacePathVariants(str, input, placeholder) {
+  let out = str
+  getPathVariants(input).forEach((variant) => {
+    out = replaceAll(out, variant, placeholder)
+  })
+  return normalizePlaceholderPaths(out, placeholder)
+}
+
 /**
  * 将各种动态数据置换为占位符
  *
@@ -187,19 +247,53 @@ const buildTimeRe = /(Build Time Cost:\s+)[0-9.]+s/gm
  * @returns {String}
  */
 function wipeDynamic(string, extendList = []) {
-  let wiped = string
+  if (string == null) {
+    return string
+  }
+  let wiped = String(string)
   extendList.forEach(([pattern, placeholder]) => {
-    if (typeof pattern === 'string') {
-      pattern = path.resolve(pattern)
+    if (pattern instanceof RegExp) {
+      wiped = wiped.replace(pattern, placeholder)
+    } else {
+      wiped = replacePathVariants(wiped, pattern, placeholder)
     }
-    const re = typeof pattern === 'string' ? new RegExp(pattern, 'g') : pattern
-    wiped = wiped.replace(re, placeholder)
   })
-  wiped = wiped
-    .replace(versionRe, '<VERSION>')
-    .replace(cwdRe, '<CWD>')
-    .replace(buildTimeRe, '$1: <time-cost>')
+  wiped = replacePathVariants(wiped, process.cwd(), '<CWD>')
+  wiped = wiped.replace(versionRe, '<VERSION>').replace(buildTimeRe, '$1: <time-cost>')
+  // webpack 在 Windows 上会把 chunk/entry 写成 About\\index，快照按 posix 对齐
+  wiped = normalizeWinPathSeps(wiped)
   return wiped
+}
+
+function normalizeWinPathSeps(str) {
+  let prev
+  do {
+    prev = str
+    //  str = str.replace(/([A-Za-z0-9_.-])\\+([A-Za-z0-9_.-])/g, '$1/$2')
+    str = str.replace(/([A-Za-z0-9_.-])\\{2,}([A-Za-z0-9_.-])/g, '$1/$2')
+  } while (str !== prev)
+  return str
+}
+
+function toPosixPath(value) {
+  return String(value).replace(/\\/g, '/')
+}
+
+function normalizeSnapshotPaths(value) {
+  if (typeof value === 'string') {
+    return toPosixPath(value)
+  }
+  if (Array.isArray(value)) {
+    return value.map(normalizeSnapshotPaths)
+  }
+  if (value && typeof value === 'object') {
+    const out = {}
+    Object.keys(value).forEach((key) => {
+      out[toPosixPath(key)] = normalizeSnapshotPaths(value[key])
+    })
+    return out
+  }
+  return value
 }
 
 /**
@@ -220,5 +314,7 @@ module.exports = {
   copyApp,
   readZip,
   wipeDynamic,
-  rowify
+  rowify,
+  toPosixPath,
+  normalizeSnapshotPaths
 }

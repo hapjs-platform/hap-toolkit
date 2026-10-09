@@ -13,10 +13,12 @@ import {
 } from '@hap-toolkit/shared-utils'
 import genWebpackConf from '../gen-webpack-conf'
 import { summaryErrors, summaryWarnings } from './utils'
+import { trackIDE } from '@hap-toolkit/debugger'
 
 // webpack watch 模式返回的watching实例
 let watching = null
-
+// 单进程内只上报一次ide信息
+let isTrackedIDEInfo = false
 function showVersion() {
   const toolkitVer = require('../../package.json').version
   const babelVer = require('@babel/core/package.json').version
@@ -85,7 +87,11 @@ export function compile(platform, mode, watch, options = {}) {
       options['signOnline'] = true
       options['signMode'] = compileOptionsMeta.signModeEnum.NULL
     }
-
+    if (!isTrackedIDEInfo) {
+      // 没有上报过使用的哪个ide，则上报
+      trackIDE(options)
+      isTrackedIDEInfo = true
+    }
     try {
       const webpackConfig = await genWebpackConf(options, webpackMode)
 

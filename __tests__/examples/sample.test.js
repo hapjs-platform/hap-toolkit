@@ -7,10 +7,9 @@ const path = require('path')
 const { Writable } = require('stream')
 const execa = require('execa')
 const fetch = require('node-fetch')
-const fkill = require('fkill')
 const stripAnsi = require('strip-ansi')
 const fs = require('fs-extra')
-const { run, lsfiles, readZip, wipeDynamic } = require('hap-dev-utils')
+const { run, lsfiles, readZip, wipeDynamic, toPosixPath } = require('hap-dev-utils')
 const { compile } = require('../../packages/hap-toolkit/lib')
 
 const cwd = path.resolve(__dirname, '../../examples/sample')
@@ -43,7 +42,7 @@ describe('hap-toolkit', () => {
   it(
     'hap-build [--disable-stream-pack]: 包内不存在META-INF文件',
     async () => {
-      await run('npm', ['run', 'build', '-- --disable-stream-pack'], [], { cwd })
+      await run('npm', ['run', 'build', '--', '--disable-stream-pack'], [], { cwd })
       const rpks = await lsfiles('dist/*.rpk', { cwd })
       let rpkPath = path.resolve(cwd, rpks[0])
       // 读取压缩包中的内容
@@ -79,8 +78,9 @@ describe('hap-toolkit', () => {
                 expect(Buffer.from(buffer).readUInt32BE(0)).toBe(0x89504e47)
               })
 
-            Promise.all([p1, p2]).then(async () => {
-              await fkill(proc.pid)
+            Promise.all([p1, p2]).then(() => {
+              proc.kill('SIGINT')
+              proc.kill('SIGTERM')
             })
           }
         },
@@ -158,7 +158,7 @@ describe('hap-toolkit', () => {
       expect(
         `length: ${json.assets.length}\n` +
           json.assets
-            .map((a) => a.name)
+            .map((a) => toPosixPath(a.name))
             .sort()
             .join('\n')
       ).toMatchSnapshot('assets list')
@@ -178,9 +178,14 @@ describe('hap-toolkit', () => {
       )
       await Promises
 
-      // git ls-files -m
-      const files = execa.sync('git', ['ls-files', '-m']).stdout
-      expect(!files.match(`build-backup`)).toBeTruthy()
+      // git ls-files -m 会把仅 CRLF/LF 差异也算进去，Windows 上会误报
+      const diff = execa.sync('git', [
+        'diff',
+        '--ignore-cr-at-eol',
+        '--',
+        path.relative(process.cwd(), buildBackup)
+      ]).stdout
+      expect(diff).toBe('')
     },
     6 * 60 * 1000
   )

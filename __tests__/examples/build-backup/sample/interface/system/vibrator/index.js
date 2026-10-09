@@ -1,4 +1,3 @@
-/*! For license information please see index.js.LICENSE.txt */
 (function() {
     var createPageHandler = function() {
         return (() => {

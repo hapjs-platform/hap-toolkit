@@ -11,7 +11,7 @@ const { Writable } = require('stream')
 const del = require('del')
 const glob = require('glob')
 const stripAnsi = require('strip-ansi')
-const { copyApp, wipeDynamic } = require('hap-dev-utils')
+const { copyApp, wipeDynamic, normalizeSnapshotPaths } = require('hap-dev-utils')
 const { compile, stopWatch } = require('../lib')
 const JSZip = require('jszip')
 
@@ -47,7 +47,7 @@ describe('测试compile', () => {
       },
       'development'
     )
-    expect(conf.entry()).toMatchSnapshot()
+    expect(normalizeSnapshotPaths(conf.entry())).toMatchSnapshot()
   })
 
   it(
@@ -68,9 +68,11 @@ describe('测试compile', () => {
       })
       expect(stats.hasErrors()).toBe(false)
 
-      const result = glob.sync('**/*.{json,css,png,js,js.map}', {
-        cwd: buildDir
-      })
+      const result = normalizeSnapshotPaths(
+        glob.sync('**/*.{json,css,png,js,js.map}', {
+          cwd: buildDir
+        })
+      )
       expect(result).toEqual(expect.arrayContaining(expectResult))
       expect(result).toMatchSnapshot()
     },
@@ -134,6 +136,7 @@ describe('测试compile', () => {
       ]
 
       // 第三个参数为是否开启watch，true为开启
+      outputs.length = 0
       const data = await compile(platform, mode, true, {
         cwd: projectRoot,
         log: outputStream,
@@ -142,9 +145,11 @@ describe('测试compile', () => {
       expect(data.compileError).toBeNull()
       expect(data.stats.hasErrors()).toBe(false)
 
-      const result = glob.sync('**/*.{js,js.map}', {
-        cwd: buildDir
-      })
+      const result = normalizeSnapshotPaths(
+        glob.sync('**/*.{js,js.map}', {
+          cwd: buildDir
+        })
+      )
       expect(result).toEqual(expect.arrayContaining(expectResult))
       expect(result).toMatchSnapshot()
 
@@ -155,10 +160,12 @@ describe('测试compile', () => {
       json.modules.forEach((module, index) => {
         expect(wipeDynamic(module.source, [[projectRoot, '<project-root>']])).toMatchSnapshot()
       })
-      expect(json.assets.map((a) => a.name)).toMatchSnapshot('assets list')
+      expect(normalizeSnapshotPaths(json.assets.map((a) => a.name))).toMatchSnapshot('assets list')
       // eg. '\u001B[4mUnicorn\u001B[0m' => 'Unicorn'
       const output = stripAnsi(outputs.join('\n'))
-      expect(wipeDynamic(output)).toMatchSnapshot('outputs')
+      expect(wipeDynamic(output, [[/大小为 \d+ KB/g, '大小为 <SIZE> KB']])).toMatchSnapshot(
+        'outputs'
+      )
     },
     5 * 60 * 1000
   )
@@ -191,9 +198,11 @@ describe('测试compile', () => {
       expect(data.compileError).toBeNull()
       expect(data.stats.hasErrors()).toBe(false)
 
-      const result = glob.sync('**/*.{json,css,png,js,js.map}', {
-        cwd: buildDir
-      })
+      const result = normalizeSnapshotPaths(
+        glob.sync('**/*.{json,css,png,js,js.map}', {
+          cwd: buildDir
+        })
+      )
       expect(result).toEqual(expect.arrayContaining(expectResult))
       expect(result).toMatchSnapshot()
     },

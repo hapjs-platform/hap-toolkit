@@ -438,10 +438,14 @@ export default async function genWebpackConf(launchOptions, mode) {
     }
   }
 
-  if (isJest) {
-    webpackConf.optimization.minimize = true
+  // 自定义压缩配置：关闭 extractComments，避免生成 *.js.LICENSE.txt
+  if (isJest || isProduction) {
+    if (isJest) {
+      webpackConf.optimization.minimize = true
+    }
     webpackConf.optimization.minimizer = [
       new TerserPlugin({
+        extractComments: false,
         terserOptions: {
           compress: isProduction,
           mangle: isProduction,

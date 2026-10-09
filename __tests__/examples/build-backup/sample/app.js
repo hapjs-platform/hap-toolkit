@@ -1,4 +1,3 @@
-/*! For license information please see app.js.LICENSE.txt */
 (function() {
     var $app_define_wrap$ = $app_define_wrap$ || function() {};
     var manifestJson = {
